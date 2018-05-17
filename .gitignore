@@ -1,0 +1,7 @@
+*.log
+*.lis
+*.err
+*.bak
+*.dmp
+*.dmp
+_build
