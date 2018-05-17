@@ -46,7 +46,7 @@ where :token:`MapName` and :token:`XA` are defined as:
 
 The first thing to notice is that :token:`ExecScript` is a "DataLink":http://manual.aimms.com/datalink/ function and RLink is only attached as a provider. In this simple example this seems a bit silly. Here :token:`MapName` is a string that DataLink uses for the data map, so before the call can be made :token:`dl::AddDataSourceMapping` has to be called to associate :token:`MapName` with a data map. By making RLink a DataLink provider it seems that we added a lot of unnecessary overhead.
 
-The second thing to notice are backslashes (:token:`\`) in front of the quotes (:token:`"`) in the R code around *Hello World*. This is because the command is passed as a string starting and ending with a quote. The backslash tells that the quote following the backslash does not end the string. Using the backslash like this is called escaping.
+The second thing to notice are backslashes (:token:`\\`) in front of the quotes (:token:`\"`) in the R code around *Hello World*. This is because the command is passed as a string starting and ending with a quote. The backslash tells that the quote following the backslash does not end the string. Using the backslash like this is called escaping.
 
 It is clear that too much escaping is not very readable and having many lines of R code like that results in very unmaintainable code. Typically you want to keep all R code in a file and then tell R to execute the file using the R function :token:`source` that also accepts single quotes that do not have to be escaped. So we could do:
 
@@ -89,12 +89,14 @@ The R data frame
 A data frame is a build in R structure to store data tables. Let's make a data frame :token:`df`:
 
 .. image:: images/dataframe.png 
+    :align: center
 
 We see in the first line that the function :token:`data.frame` is used to create a data frame. Its first argument :token:`Name=c("Alice","Bob","Claire")` creates a column :token:`Name`, with three string values. The second argument creates a second column :token:`Age` with integer values.
 
 If we look at the data frame by calling :token:`df`, R will show the data frame. Here we see three columns, the two we created and the row index. The row index is not part of the data frame, and it can be used to select one row from the data frame.
 
 .. image:: images/dataframerow.png 
+    :align: center
 
 In AIMMS jargon we could say that the row index acts like a domain. Since this row index is not part of the data frame itself it can not be transferred to AIMMS. Instead if we need it we should extend the data frame with an extra row index using the R function :token:`seq.int`.
 

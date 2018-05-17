@@ -489,6 +489,8 @@ In AIMMS we do the following:
 Now we have a function that can be called to generate the test plots. If we make a procedure in AIMMS that first calls :token:`trainnn.r` and then :token:`plotresult.r` we can make a button in the WebUI that will train a network and show the plots of the results. We can then simply make an interactive WebUI application that allows us to choose the input arguments, press the button and show the result.
 
 .. image:: images/webuismall.png
+    :align: center
+
 
 .. important::
 

@@ -119,6 +119,9 @@
 		</a>
 	</div>
 
+.. image:: Images/icons/favicon.png
+    :scale: 0
+   
 .. toctree::
    :maxdepth: 3
    :hidden:

@@ -5,8 +5,9 @@ The data source
 ===============
 For this example we make a data source by fetching some data from Wikipedia. For some of the smaller countries it shows a nice table with average high and low temperatures per month and year. When we copy this data for some countries into an excel spreadsheet, we can use the XLSProvider to read this data into AIMMS. A screenshot of parts of our resulting data source is shown in the picture.
 
-.. image:: images/xlsavhigh.png
-
+.. image:: images/xlsxavhigh.png
+    :align: center
+    
 * *Table names:* If we look at the bottom we see that we have two worksheets with the names "Average High" and "Average Low". These are the table names used in specifying the data map for DataLink. As we can see the table "Average High" is active, and it contains the average temperature value for each country per month.
 
 * *Column names:* The top row in the picture contain the names of the columns. It starts with "Country" followed by the shortened names of months. These are the column names used in the mapping. Instead of talking about the columns in the spreadsheet way with letters 'A', 'B' ,etc., DataLink addresses each column by it's name "Country", "Jan", "Feb", etc. We can see that the values in column "Country" are strings (representing the countries), and that the month-columns all have floating point values (representing the temperature in Celsius). 
