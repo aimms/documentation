@@ -63,10 +63,22 @@
 	</style>
 	
 	<div id="content">
-		<a href="cdm/index.html">
+		<a href="webui/index.html">
 			<div class="box">
-				<h1 align="center">CDM</h1>
-				<p align="center">The AIMMS Collaborative Data Management library</p>
+				<h1 align="center">WebUI - Dev</h1>
+				<p align="center">Developer documentation for the AIMMS WebUI</p>
+			</div>
+		</a>
+		<a href="webui-user/index.html">
+			<div class="box">
+				<h1 align="center">WebUI - User</h1>
+				<p align="center">User documentation for the <br>AIMMS WebUI</p>
+			</div>
+		</a>
+		<a href="pro/index.html">
+			<div class="box">
+				<h1 align="center">PRO</h1>
+				<p align="center">The AIMMS Publishing and Remote Optimization platform</p>
 			</div>
 		</a>
 		<a href="cloud/index.html">
@@ -75,16 +87,22 @@
 				<p align="center">The AIMMS cloud platform for deploying your AIMMS apps</p>
 			</div>
 		</a>
+		<a href="unit-test/index.html">
+			<div class="box">
+				<h1 align="center">Unit Test</h1>
+				<p align="center">The AIMMS unit test library for adding unit test to your AIMMS models</p>
+			</div>
+		</a>
+		<a href="cdm/index.html">
+			<div class="box">
+				<h1 align="center">CDM</h1>
+				<p align="center">The AIMMS Collaborative Data Management library</p>
+			</div>
+		</a>
 		<a href="datalink/index.html">
 			<div class="box">
 				<h1 align="center">Datalink</h1>
 				<p align="center">The AIMMS datalink library for importing and exporting <br>row-based data</p>
-			</div>
-		</a>
-		<a href="pro/index.html">
-			<div class="box">
-				<h1 align="center">PRO</h1>
-				<p align="center">The AIMMS Publishing and Remote Optimization platform</p>
 			</div>
 		</a>
 		<a href="rlink/index.html">
@@ -99,24 +117,6 @@
 				<p align="center">The AIMMS SC Navigator suite of supply chain apps</p>
 			</div>
 		</a>
-		<a href="unit-test/index.html">
-			<div class="box">
-				<h1 align="center">Unit Test</h1>
-				<p align="center">The AIMMS unit test library for adding unit test to your AIMMS models</p>
-			</div>
-		</a>
-		<a href="webui/index.html">
-			<div class="box">
-				<h1 align="center">WebUI - Dev</h1>
-				<p align="center">Developer documentation for the AIMMS WebUI</p>
-			</div>
-		</a>
-		<a href="webui-user/index.html">
-			<div class="box">
-				<h1 align="center">WebUI - User</h1>
-				<p align="center">User documentation for the <br>AIMMS WebUI</p>
-			</div>
-		</a>
 	</div>
 
 .. image:: Images/icons/favicon.png
@@ -126,12 +126,13 @@
    :maxdepth: 3
    :hidden:
 
-   cdm/index
-   cloud/index
-   datalink/index
-   pro/index
-   rlink/index
-   scnavigator/index
-   unit-test/index
    webui/index
    webui-user/index
+   pro/index
+   cloud/index
+   unit-test/index
+   cdm/index
+   datalink/index
+   rlink/index
+   scnavigator/index
+   
