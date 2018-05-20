@@ -63,6 +63,30 @@
 	</style>
 	
 	<div id="content">
+		<a href="_downloads/AIMMS_user.pdf">
+			<div class="box">
+				<h1 align="center">User's Guide</h1>
+				<p align="center">How to use AIMMS</p>
+			</div>
+		</a>
+		<a href="_downloads/AIMMS_ref.pdf">
+			<div class="box">
+				<h1 align="center">Language Reference</h1>
+				<p align="center">Reference Guide for the AIMMS language</p>
+			</div>
+		</a>
+		<a href="_downloads/AIMMS_modeling.pdf">
+			<div class="box">
+				<h1 align="center">Modeling Guide</h1>
+				<p align="center">Learn optimization modeling with AIMMS</p>
+			</div>
+		</a>
+		<a href="_downloads/AIMMS_func.pdf">
+			<div class="box">
+				<h1 align="center">Function Reference</h1>
+				<p align="center">Complete reference to all AIMMS functions</p>
+			</div>
+		</a>
 		<a href="webui/index.html">
 			<div class="box">
 				<h1 align="center">WebUI - Dev</h1>
@@ -126,6 +150,10 @@
    :maxdepth: 3
    :hidden:
 
+   aimms_user
+   aimms_ref
+   aimms_modeling
+   aimms_func
    webui/index
    webui-user/index
    pro/index
