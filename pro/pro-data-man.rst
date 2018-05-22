@@ -13,6 +13,7 @@ Alternatively, when using the new data management style of AIMMS 3.12 or newer, 
 
 .. image:: images/pro-data-management.png
     :align: center
+    :scale: 40
 
 PRO User Cases
 --------------
