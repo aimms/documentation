@@ -147,7 +147,7 @@
     :scale: 0
    
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :hidden:
 
    aimms_user
