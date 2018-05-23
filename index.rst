@@ -135,12 +135,6 @@
 				<p align="center">The AIMMS R-link library for calling R scripts from within your model</p>
 			</div>
 		</a>
-		<a href="scnavigator/index.html">
-			<div class="box">
-				<h1 align="center">SC Navigator</h1>
-				<p align="center">The AIMMS SC Navigator suite of supply chain apps</p>
-			</div>
-		</a>
 	</div>
 
 .. image:: Images/icons/favicon.png
@@ -157,10 +151,9 @@
    webui/index
    webui-user/index
    pro/index
-   cloud/index
+   cloud/index   
    unit-test/index
    cdm/index
    datalink/index
    rlink/index
-   scnavigator/index
    
