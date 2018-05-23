@@ -12,5 +12,6 @@ After you have successfully installed AIMMS PRO 2.0, you can open the portal to 
     admin-config
     ad-man
     saml
+    tunneling
     errors
     misc-man

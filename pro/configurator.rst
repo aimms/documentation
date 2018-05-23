@@ -8,4 +8,5 @@ AIMMS PRO 2.0 can be configured using the AIMMS PRO Configurator tool which is i
     config-config
     config-sections
     cluster
+    logging
     
