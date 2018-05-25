@@ -1,6 +1,10 @@
 AIMMS Version Management
 ========================
 
+.. note::
+
+    This section of the AIMMS PRO documentation does *not* apply to the `AIMMS Cloud Platform <../cloud/index.html>`_. See `here <../cloud/activation.html>`_ for AIMMS Cloud Platform specific instructions for activating AIMMS versions.
+
 As part of every AIMMS release, so-called AIMMS PRO Server packages will be made available. Through the AIMMS PRO portal, all users with global administrative privileges and users who are member of the AIMMSPublishers group can publish AIMMS PRO Server packages to AIMMS PRO. You can use published AIMMS PRO Server packages to deploy AIMMS applications that are developed and tested using the corresponding AIMMS developer releases. Each AIMMS PRO Server package contains:
 
 * an installation-free AIMMS PRO Client without solvers, which will run the client part of the application on the computer of the end-user, and
