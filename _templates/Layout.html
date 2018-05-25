@@ -3,8 +3,8 @@
 
 {% block header %}
 
-{% if pagename == "ContentIndex" %}
-	
+{% if pagename == "index" %}
+
 	<style> 
 		.wy-nav-content {
 			max-width: none; !important
@@ -22,7 +22,7 @@
 
 {% block sidebartitle %}
 
-{% if pagename == "ContentIndex" %}
+{% if pagename == "index" %}
 	
 	<style> 
 		.wy-nav-content {
@@ -46,7 +46,7 @@
 
 {% block body %}
 
-{% if pagename == "ContentIndex" %}
+{% if pagename == "index" %}
  
 	<style> 
 		.wy-nav-content {
@@ -61,4 +61,17 @@
 	</style>
 {% endif %}
 
+{% endblock %}
+
+{% block htmltitle %}
+	{% if pagename == "index" %}
+		
+		<title>{{ _('AIMMS Documentation') }}</title>
+
+	{% else %}
+		
+		<title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+		
+	{% endif %}
+	
 {% endblock %}
