@@ -89,6 +89,7 @@ Group SIDs
 When the PRO server is not a member server of your AD domain, it will not be able to retrieve the names of the security groups of which AD users are a member, because such servers do not have, or need to have, a direct connection to your Active Directory infrastructure. In such a case, the server will have access to the *Security Identifier* (SID) of any group of which the logged-on user is a member. In such a case, you should enter the group SID of any AD security group you want to link to the PRO environment in the description field of the corresponding PRO group. This will allow the PRO server to also match PRO and AD groups on the basis of SIDs.
 
 .. tip::
+
     To obtain the AD group SID, use the command psgetsid from the `Sysinternals suite <https://technet.microsoft.com/en-us/sysinternals/bb545021.aspx>`_.
 
 On-demand User Information Retrieval

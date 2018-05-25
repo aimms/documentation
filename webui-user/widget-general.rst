@@ -18,6 +18,7 @@ In order to put a new widget on your page:
     :align: center
 
 .. tip::
+
     Since the widget database is shared for all pages of your application, please make sure that the names for all pages and widgets are unique throughout your application. 
 
 Custom Position
