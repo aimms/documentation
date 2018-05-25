@@ -102,9 +102,9 @@ Distributing Work
 
 By default, a call to pro::DelegateToServer will initiate a server-side session within the client session, and will run locally within a server-side session. Through the *delegationOverride* argument you can override the default behavior.
  
-* If the value is &lt; 0, no server-side session will be initiated.
+* If the value is < 0, no server-side session will be initiated.
 * If the value equals 0 and the client session is run in developer mode, the PRO library will ask whether to run locally or initiate a server-side session, or just initiate a server-side session if the client session runs in end-user mode (default).
-* If the value is &gt; 0, a new server-side session will only be initiated if the value is greater than the value of pro::CurrentDelegationLevel.
+* If the value is > 0, a new server-side session will only be initiated if the value is greater than the value of pro::CurrentDelegationLevel.
 
 
 By specifying values > 0, you can enforce that pro::DelegateToServer will initiate a new server-side session, *even when executed from within an existing server-side session*. The value of pro::CurrentDelegationLevel within a server-side session, equals the value of the *delegationOverride* argument within the session that initiated the current server-side session.

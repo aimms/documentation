@@ -14,7 +14,7 @@ Log files
 If something does not work you may want to check the following files for errors:
 
 * *AimmsPROServer.log* - AIMMS PRO Backend logs
-* *AimmsPROWeb.log* - AIMMS PRO Web (Portal&amp;WebUI) logs
+* *AimmsPROWeb.log* - AIMMS PRO Web (Portal & WebUI) logs
 * *AimmsPROConfigurator.log* - AIMMS PRO Configurator logs
  
 
@@ -23,7 +23,7 @@ Files with the similar names but with the date appended contain logs from previo
 Log Configuration
 -----------------
 
-All log configuration files are located in the *dataDir*Config directory. AIMMS PRO 2.0 uses the following log configuration files:
+All log configuration files are located in the *dataDir* Config directory. AIMMS PRO 2.0 uses the following log configuration files:
 
 * *AimmsPROServerLog.xml* - AIMMS PRO 2 Service logging
 * *AimmsPROSessionLog.xml* - Server-side sessions logging

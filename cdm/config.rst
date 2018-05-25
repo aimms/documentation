@@ -149,7 +149,7 @@ You can add logging to your CDM-enabled application, by copying the file :token:
 
 * The :token:`CDMDB` logger will, at TRACE level, give you very specific information about the queries being executed within the database backing the CDM service. 
 
-To interpret the logs created, you can use tools such as the free community version of &quot;Log4View &quot;:http://www.log4view.com to get a quick overview of any problems that may occur with your CDM setup.
+To interpret the logs created, you can use tools such as the free community version of `Log4View <http://www.log4view.com>`_ to get a quick overview of any problems that may occur with your CDM setup.
 
 Model constructs to reconsider when using CDM
 =============================================

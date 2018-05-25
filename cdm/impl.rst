@@ -28,8 +28,8 @@ App-specific database structure
 
 Next to that, when you actually create the categories, the CDM service will create app-specific tables to store
 
-* element names and their global CDM numbering for all root sets (:token:`ns*&lt;setname&gt;` tables)
-* the actual version-specific root set membership changes and data changes for scalar multi-dimensional identifiers (:token:`data*&lt;identifiername&gt;*&lt;version&gt;` tables)
+* element names and their global CDM numbering for all root sets (:token:`ns_<setname>` tables)
+* the actual version-specific root set membership changes and data changes for scalar multi-dimensional identifiers (:token:`data_<identifiername>_<version>` tables)
 
 CDM element spaces
 ==================

@@ -16,7 +16,7 @@ To connect a developer version of your project with the PRO server, a number of 
         pro::ReadArguments(pro::CL) := data
         { _pro-modelname : "MyModel",
         _pro-modelversion : "1.0",
-        _pro-dll-directory : "C:\\Users\\&lt;user&gt;\\AppData\\Local\\AIMMS\\PRO\\&lt;Pro Server&gt;\\AimmsPROLibrary-2.0\\vc120",
+        _pro-dll-directory : "C:\\Users\\<user>\\AppData\\Local\\AIMMS\\PRO\\<Pro Server>\\AimmsPROLibrary-2.0\\vc120",
         _pro-environment : "ROOT",
         _pro-username : "admin",
         _pro-tmpfolder : "PROTemp",
