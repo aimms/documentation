@@ -1,4 +1,4 @@
-AIMMS PRO Documentation
+AIMMS PRO Platform
 ***********************
 
 This is the documentation for the AIMMS PRO Platform

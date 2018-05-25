@@ -1,6 +1,10 @@
 System Requirements
 ===================
 
+.. note::
+
+    This section of the AIMMS PRO documentation does *not* apply to the `AIMMS Cloud Platform <../cloud/index.html>`_. See `here <../cloud/requirements.html>`_ for AIMMS Cloud Platform specific system requirements.
+
 AIMMS PRO comprises both server- and client-side components. In this section we will describe the minimum server requirements for running AIMMS PRO, as well as requirements for desktop users connecting to the AIMMS PRO Server through the AIMMS PRO client.
 
 Minimum Server Requirements

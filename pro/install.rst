@@ -5,6 +5,10 @@ As AIMMS PRO will become a central resource in your organization, it is essentia
  
 You will also need to install the `AIMMS License Server <license-server.html>`_. After these steps, you may proceed with the `installation <install-windows.html>`_ and the `configuration <configurator.html>`_ of the AIMMS PRO server.
 
+.. note::
+
+    This section of the AIMMS PRO documentation does *not* apply to the `AIMMS Cloud Platform <../cloud/index.html>`_.
+    
 .. toctree::
     
     system-requirements

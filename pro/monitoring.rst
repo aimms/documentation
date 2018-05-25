@@ -1,6 +1,10 @@
 Monitoring
 ==========
 
+.. note::
+
+    This section of the AIMMS PRO documentation does *not* apply to the `AIMMS Cloud Platform <../cloud/index.html>`_. 
+
 Starting with PRO 2.3+, in the PRO Portal, all the members of the admin group in the ROOT and other environments have a new drop-down menu available in the top horizontal navigation bar: **Administrative Tools**. This menu provides more information about what is happening in the PRO environment. It is particularly relevant when running PRO in a cluster configuration.
 The options that are currently available for monitoring are:
 

@@ -43,7 +43,7 @@ ApplicationDB Functions
 
 .. js:function::  cdm::DeleteApplicationDatabase(dbName)
    
-   Delete the given application database. The function will fail if there is no connection the given application database, of if the user is not `authorized <auth.hmtl>`_ to delete the application database.  
+   Delete the given application database. The function will fail if there is no connection the given application database, of if the user is not `authorized <auth.html>`_ to delete the application database.  
   
    :param dbName: specifies the name of the application database to delete.
 

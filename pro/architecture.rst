@@ -1,6 +1,10 @@
 General Architecture
 ====================
 
+.. note::
+
+    This section of the AIMMS PRO documentation does *not* apply to the `AIMMS Cloud Platform <../cloud/index.html>`_. See `here <../cloud/architecture.html>`_ for AIMMS Cloud Platform specific architecture.
+
 To provide you with a better understanding of what's going on in an AIMMS PRO setup in terms of communication between the various components, we created the following schema. Please click on it to see a larger version.
 
 .. image:: images/latestaimms-pro-architecture.png
