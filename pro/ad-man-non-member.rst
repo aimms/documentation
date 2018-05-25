@@ -25,7 +25,7 @@ Set Active directory settings under Configuration menu of PRO Portal
 Associate the Service Principal Name
 ++++++++++++++++++++++++++++++++++++
 
-To determine the Service Principal Name (SPN) for your PRO server, you must know the DNS name by which PRO clients will reach the PRO server. This is the host name you specified in the <strong>Web URI</strong> field in the PRO Configurator for this node. Assuming this DNS name is *pro.myhost.com*, the Service Principal Name you need to associate with the service account will be
+To determine the Service Principal Name (SPN) for your PRO server, you must know the DNS name by which PRO clients will reach the PRO server. This is the host name you specified in the **Web URI** field in the PRO Configurator for this node. Assuming this DNS name is *pro.myhost.com*, the Service Principal Name you need to associate with the service account will be
 <p style="text-align: left">*HTTP/pro.myhost.com*</p>
 
 (please note the capitals used). If the service account username is *ADUser* within the AD domain *ADDomain*, you can associate the SPN with it through the command
@@ -34,7 +34,7 @@ To determine the Service Principal Name (SPN) for your PRO server, you must know
 
     setspn -a HTTP/pro.myhost.com ADUser
     
-If needed, you can associate multiple SPNs with a single service account. <strong>Important notice:</strong> do not run this command for PRO server instances that ARE in the AD domain. Running the command will result in breaking AD functionality (and this can be fixed by invoking setspn -d ...).
+If needed, you can associate multiple SPNs with a single service account. **Important notice:** do not run this command for PRO server instances that ARE in the AD domain. Running the command will result in breaking AD functionality (and this can be fixed by invoking setspn -d ...).
 
 You can check which SPNs are associated with the account by entering
 
@@ -46,7 +46,7 @@ After you have added the association, it may take some time before these changes
 
 After you have prepared the service account as above, you can associate a PRO environment with *ADDomain* by clicking the link icon on the right side of the environment box. Because your PRO server is now not a member of an AD domain, the domain field will show *noDomain*. You should replace it by *ADDomain*.
 
-<strong>Please see the section Group SIDs (for a Server not in the AD Domain)</strong> below in order to understand how to create user groups for a Server not in the AD Domain.
+**Please see the section Group SIDs (for a Server not in the AD Domain)** below in order to understand how to create user groups for a Server not in the AD Domain.
 
 Useful diagram explaining which AD setup you should choose. 
 

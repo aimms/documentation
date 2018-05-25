@@ -37,7 +37,7 @@ When you open the project with an AIMMS developer license in the presence of a "
 Logging on
 ----------
 
-The first time the PRO library actually tries to connect to the PRO server, you will be asked to provide your logon information, as displayed in the figure below. The username and environment will be preset to the username through which you logged on to the portal. When you click <strong>Connect</strong>, you will be asked for your password, after which the connection to the PRO server is made. When you log on via Active Directory; you do not need to retype your password.
+The first time the PRO library actually tries to connect to the PRO server, you will be asked to provide your logon information, as displayed in the figure below. The username and environment will be preset to the username through which you logged on to the portal. When you click **Connect**, you will be asked for your password, after which the connection to the PRO server is made. When you log on via Active Directory; you do not need to retype your password.
 
 .. image:: images/login.jpg
     :align: center

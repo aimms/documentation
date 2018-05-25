@@ -4,7 +4,7 @@ Basic AIMMS PRO Workflow
 Basic Usage
 -----------
 
-In its most basic form, AIMMS PRO allows you, from within the PRO client application, to dispatch an optimization request to the server, which will be scheduled for execution by a server-side AIMMS session. By default, the PRO client library will transfer the application state between the client- and server-side session by means of AIMMS case files. This will cause the server-side session to start from exactly the same state as where the request was made in the client-side session. When the server-side session is finished, the output results will be stored for the client session to retrieve, and the client session will be notified that the request has completed. The end-user will then be able to load the output results via the <em>Request Manager</em> dialog that is part of the PRO GUI library.
+In its most basic form, AIMMS PRO allows you, from within the PRO client application, to dispatch an optimization request to the server, which will be scheduled for execution by a server-side AIMMS session. By default, the PRO client library will transfer the application state between the client- and server-side session by means of AIMMS case files. This will cause the server-side session to start from exactly the same state as where the request was made in the client-side session. When the server-side session is finished, the output results will be stored for the client session to retrieve, and the client session will be notified that the request has completed. The end-user will then be able to load the output results via the *Request Manager* dialog that is part of the PRO GUI library.
 
 Other Workflows
 ---------------
