@@ -109,7 +109,7 @@ The low-level method to commit data is :js:func:`cdm::CommitChanges` which will 
 Being up-to-date
 ++++++++++++++++
 
-Committing data will fail when when the data in your client session is not at the latest revision of the branch in the CDM database that you want to commit to. In such a case, you must first `pull <dtd.hmtl#pulling-changes>`_ all changes from the CDM database to get your client to the latest revision on the current branch, and `resolve any conflicts <dtd.hmtl#merging-branches-and-resolving-conflicts>`_ that may arise between the remote changes that you pulled in and the local changes that you actually want to commit. After you successfully pulled in the changes and resolved any conflicts, you may re-commit your local changes.
+Committing data will fail when when the data in your client session is not at the latest revision of the branch in the CDM database that you want to commit to. In such a case, you must first `pull <dtd.html#pulling-changes>`_ all changes from the CDM database to get your client to the latest revision on the current branch, and `resolve any conflicts <dtd.html#merging-branches-and-resolving-conflicts>`_ that may arise between the remote changes that you pulled in and the local changes that you actually want to commit. After you successfully pulled in the changes and resolved any conflicts, you may re-commit your local changes.
 
 Speciyfing a commit comment
 +++++++++++++++++++++++++++
