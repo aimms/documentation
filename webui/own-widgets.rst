@@ -12,8 +12,8 @@ We have decided to open source AWF in order to encourage the exchange of innovat
 
 If you want to contribute we require that you enter into a contributor agreement with us. This will allow us to also license your AWF contributions under the commercial AIMMS license. While AWF is open-sourced under the GPLv3 license, which would require that any derived application would also need to be licensed under GPLv3, the commercial AIMMS license will allow you to distribute your AIMMS WebUI-based applications under a closed-source license of your choice respecting the AIMMS License Agreement conditions.
 
-* `Contributor Agreement Individual <../PDF/AIMMS-Widget-Framework-Individual.pdf>`_
-* `Contributor Agreement Entity <../PDF/AIMMS-Widget-Framework-Entity.pdf>`_
+* :download:`Contributor Agreement Individual <../PDF/AIMMS-Widget-Framework-Individual.pdf>`
+* :download:`Contributor Agreement Entity <../PDF/AIMMS-Widget-Framework-Entity.pdf>`
 
 Header included in each open-sourced file:
 
