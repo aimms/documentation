@@ -17,7 +17,9 @@ This chapter discusses the topics where the configuration and use of the AIMMS C
 .. toctree::
    :maxdepth: 4
 
+   ../pro/intro
    architecture
    requirements
+   admin
    activation
 
