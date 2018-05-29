@@ -1,5 +1,5 @@
-The AIMMS Unit Test Library
-***************************
+Unit Test Library
+*****************
 
 The AIMMS Unit Test Library is a library in the AIMMS Library Repository that will add unit test capabilities to your model. 
 

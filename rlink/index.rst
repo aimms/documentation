@@ -1,5 +1,5 @@
-The AIMMS RLink Library
-***************************
+RLink Library
+*****************
 
 AIMMS RLink is a way to allow AIMMS to execute user specified R code and pass data between AIMMS and the R runtime environment. R is a language and environment for statistical computing with a rich library ecosystem. RLink allows us to extend AIMMS optimization capabilities with the possibilities of R.
 

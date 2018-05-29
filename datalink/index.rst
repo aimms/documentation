@@ -1,5 +1,5 @@
-The AIMMS DataLink Library
-***************************
+DataLink Library
+*****************
 
 AIMMS DataLink is a library that allow different types of data sources to read and write data into AIMMS. Think about it as the USB socket on a computer that allows different devices to communicate with that computer. The data source is assumed to have a database like structure consisting of tables with columns. DataLink then makes it possible to specify a mapping between the names of these columns and the names of identifiers in the AIMMS model.
 

@@ -89,14 +89,8 @@
 		</a>
 		<a href="webui/index.html">
 			<div class="box">
-				<h1 align="center">WebUI - Dev</h1>
-				<p align="center">Developer documentation for the AIMMS WebUI</p>
-			</div>
-		</a>
-		<a href="webui-user/index.html">
-			<div class="box">
-				<h1 align="center">WebUI - User</h1>
-				<p align="center">User documentation for the <br>AIMMS WebUI</p>
+				<h1 align="center">WebUI</h1>
+				<p align="center">Documentation for the AIMMS WebUI</p>
 			</div>
 		</a>
 		<a href="pro/index.html">
@@ -149,7 +143,6 @@
    aimms_modeling
    aimms_func
    webui/index
-   webui-user/index
    pro/index
    cloud/index   
    unit-test/index
