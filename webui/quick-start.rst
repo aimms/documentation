@@ -88,7 +88,7 @@ In the use case at hand, there are 3 factories (Hamburg, London, and Zurich) and
             Marseilles	       5.38     	  43.29        
             Nantes            -1.55           47.22                 
             Paris              2.34           48.86            
-            Vienna	   	      16.37           48.20                
+            Vienna	          16.37           48.20                
             Zurich             8.54           47.37           1     ;
         }
     }
