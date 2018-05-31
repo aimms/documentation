@@ -129,6 +129,12 @@
 				<p align="center">The AIMMS R-link library for calling R scripts from within your model</p>
 			</div>
 		</a>
+		<a href="httpclient/index.html">
+			<div class="box">
+				<h1 align="center">HTTP Client</h1>
+				<p align="center">The HTTP Client library allows you to perform HTTP request from within your model</p>
+			</div>
+		</a>
 	</div>
 
 .. image:: Images/icons/favicon.png
@@ -149,4 +155,5 @@
    cdm/index
    datalink/index
    rlink/index
+   httpclient/index
    
