@@ -13,7 +13,6 @@ This manual is written for:
     The beta version of R-Link has been made available in the past for testing. This older version is deprecated and will no longer be supported. The current version is a complete rewrite and uses DataLink for passing data between AIMMS and R.
 
 .. toctree::
-   :maxdepth: 3
 
    setup
    using

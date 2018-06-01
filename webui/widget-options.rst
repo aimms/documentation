@@ -266,13 +266,8 @@ The transport table is sliced to show the transport from all distribution locati
 .. image:: images/slicingexample-subset-fixedelement_v1.png
     :align: center
 
-Miscellaneous
--------------
-
-The following options can be edited at the *Miscellaneous* tab of the `widget option editor <widget-options.html>`_.
-
 Hiding Widgets
-++++++++++++++
+--------------
 
 .. |eye-blue| image:: images/eye-blue.png
 
@@ -299,7 +294,7 @@ to make sure that only finance people and people from the management can see one
 
 
 Number of decimals
-++++++++++++++++++
+------------------
 
 You can change the number of decimals for a widget:
 

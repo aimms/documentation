@@ -141,7 +141,6 @@
     :scale: 0
    
 .. toctree::
-   :maxdepth: 4
    :hidden:
 
    aimms_user
@@ -151,9 +150,4 @@
    webui/index
    pro/index
    cloud/index   
-   unit-test/index
-   cdm/index
-   datalink/index
-   rlink/index
-   httpclient/index
-   
+   library-repository

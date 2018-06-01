@@ -37,7 +37,6 @@ On the right:
 Detailed description of all menu bar related topics:
 
 .. toctree::
-   :maxdepth: 3
 
    page-menu
    page-manager
