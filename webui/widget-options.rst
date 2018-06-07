@@ -247,6 +247,17 @@ To easily clear the slicing of an identifier for all its indices, you can press 
 .. tip:: 
 
     Whenever you slice one dimension (index) of an n-dimensional identifier to a *fixed element* or *element parameter*, its dimension will become n-1. This is good to realise, as some widgets require identifiers of a certain dimension. E.g: In the map widget, the arcs identifier needs to be two-dimensional over the set *nodes x nodes*. Whenever you slice one dimension to a fixed element (or element parameter), you effectively loose a dimension and it becomes impossible for the map widget to map data to arcs. As a work around you can consider to create a set containing a single element and use subset slicing here: whenever you do subset slicing, the dimension of the data that is displayed, is not reduced. 
+	
+
+Please mind when slicing over a subset in a table, other identifiers defined over the corresponding superset are considered as defined over a different set. Thus you might end up with the following unexpected behavior: 
+	
+.. image:: images/subset-slicing-1.png
+    :align: center
+	
+Where slicing all your identifiers (not just one) over the same subset will fix the display:
+	
+.. image:: images/subset-slicing-2.png
+    :align: center
 
 Examples
 ^^^^^^^^
