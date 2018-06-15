@@ -18,7 +18,7 @@ Since this is a (software) development tutorial, we are also assuming that you h
 software in a generic programming language, and, that you have a basic knowledge on HTML5 technologies
 (HTML5 DOM, CSS, Javascript, and the likes). It is also beneficial, however not required, if you are
 familiar with `jQuery <http://jquery.org>`_ and, to lesser extent,
-`jQuery UI <http://jquery-ui.org>`_, as AIMMS WebUI is built on top of these technologies.
+`jQuery UI <https://jqueryui.com/>`_, as AIMMS WebUI is built on top of these technologies.
 
 Let's start - A quick introduction to AWF
 +++++++++++++++++++++++++++++++++++++++++
@@ -119,7 +119,7 @@ To actually start creating our first custom widget, go to the AIMMS project fold
 
 First we will write the widget:
 
-.. code::        
+.. code-block:: javascript       
 
     // jquery.aimms.my-widget.js
     
@@ -139,7 +139,7 @@ widget, so most of that documentation will also apply. If you do not know
 
 After that, we create the factory:
 
-.. code:: 
+.. code-block:: javascript
 
     // factory.js
 
@@ -194,7 +194,7 @@ what we have just done.
  
 We'll look at the widget code once more, but this time it is annotated with comments:
         
-.. code:: 
+.. code-block:: javascript
 
     // jquery.aimms.my-widget.js
 
@@ -219,7 +219,7 @@ Then we look at the factory code. Remember, it is the factory's responsibility
 to communicate with AWF on the availability and actual construction of widgets.
 The code, which now also has been annotated:
 
-.. code:: 
+.. code-block:: javascript 
         
     // factory.js
 

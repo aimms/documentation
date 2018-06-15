@@ -93,7 +93,7 @@ of our widget dynamically.
 Inside the factory.js we specify the *contents* option which is of type :token:`string`. We do this inside the
 :token:`onInitializeOptionTypes`.
 
-.. code::
+.. code-block:: javascript
 
     // factory.js
 
@@ -129,7 +129,7 @@ whenever an option value of the widget changes.
 Because we specified the *contents* option in the factory we are now able to listen for changes and
 react accordingly. In our case we update the text in the widget.
 
-.. code::
+.. code-block:: javascript
 
     // jquery.aimms.my-widget.js
 

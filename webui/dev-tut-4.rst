@@ -46,7 +46,7 @@ to position	the *element* labels where he wants to see them.
 The following example further illustrates the concept of the pivoting. Consider the following 
 3-dimensional data that contains population numbers per sex, age group and year.
             
-.. code::
+.. code-block:: javascript
 
     Population('0-20', M,2013) = 1,980,278
     Population('0-20', F,2013) = 1,890,495
@@ -159,7 +159,7 @@ data in an asynchronous manner. The 3rd arguments of this function is a callback
 data is available. For example, consider a datasource with two parts named *rowHeader* and *colHeader*. To retrieve
 the data for both parts as well as for the resulting *grid* area, the following JavaScript statement can be used:
 
-.. code::
+.. code-block:: javascript
             
     dataSource.requestDataBlocks(
         [
@@ -187,7 +187,7 @@ Simple table factory
 As mention in `Writing your first custom widget <dev-tut-1.html>`_ you typically start
 with creating a widget factory. The widget factory for the simple table looks like:
  
-.. code::
+.. code-block:: javascript
 
     (function($) {
     // factory.js
@@ -259,7 +259,7 @@ Creating the widget source file
 To create the source file for the widget, you should create a JavaScript source file in the same
 folder as the factory file with the following structure
 
-.. code::
+.. code-block:: javascript
 
     (function($) {
 
@@ -296,7 +296,7 @@ The individual methods in this file will be discussed in the remainder of this t
 Creating the widget container
 -----------------------------
         
-.. code::
+.. code-block:: javascript
 
     _create: function _create() {
         var widget = this;
@@ -333,7 +333,7 @@ Whenever the user empties the contents option, the widget will receive a *resolv
 value *undefined*. For this reason, you should make sure the *refresh* function will be able
 to deal with this situation.
 
-.. code::
+.. code-block:: javascript
 
     onResolvedOptionChanged: function(optionName, value) {
         var widget = this;
@@ -353,7 +353,7 @@ In this tutorial, we will refresh the table by
 
 The *_refresh* function below takes care of this.
         
-.. code::
+.. code-block:: javascript
 
     _refresh: function(dataSource) {
         var widget = this;
@@ -382,7 +382,7 @@ the part (*rowHeader*, *colHeader* or *values*) and the position of the cell wit
 the part (for example *row3* and *col2*). These CSS classes can be used later on to style
 the table to your liking.
             
-.. code::
+.. code-block:: javascript
 
     _createHtmlTable: function _createHtmlTable(rowHeaderDimension,colHeaderDimension) {
 
@@ -439,7 +439,7 @@ To fill the table that has been created using the *_createHtmlTable* function wi
 the actual filling of the table with data will be performed by the handler. The *_fillTable* function below
 fills the table with data:
 
-.. code::
+.. code-block:: javascript
             
     _fillTable: function _fillTable(dataSource) {
         if (dataSource) {
