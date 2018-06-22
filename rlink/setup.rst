@@ -92,7 +92,7 @@ By clicking on _RLink_ in the left panel you'll see its dependency on DataLink w
 
 When publishing in our cloud, the RLink and DataLink libraries don't have to be included in the :token:`aimmspack`. The :token:`.aimms` file of the project contains all information needed for  fetching these libraries from the repository, and that will happen automatically in the cloud.
 
-R pacakage aimms
+R package aimms
 ----------------
 
 The **aimms** package is included in RLink. In this way RLink and the aimms package can be developed further, and the most recent version of aimms can be released together with newer versions of RLink.
