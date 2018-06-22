@@ -1,0 +1,19 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - build
+  
+before_script:
+  - pip install sphinx sphinx-rtd-theme cloud-sptheme
+  
+build_and_install:
+  stage: build
+  script:
+    - sphinx-build -M html . _build 
+    - rsync -rt _build support@data.aimms.com:/home/aimms/www/temp
+  tags: 
+    - ubuntu
+  only:
+    - master
+  
