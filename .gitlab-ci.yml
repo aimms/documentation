@@ -4,9 +4,6 @@ variables:
 stages:
   - build
   
-before_script:
-  - pip install sphinx sphinx-rtd-theme cloud-sptheme
-  
 build_and_install:
   stage: build
   script:
