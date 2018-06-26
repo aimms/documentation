@@ -55,11 +55,11 @@ The admin group and user associated with an environment cannot be deleted.
 Default Environment for login
 -----------------------------
 
-Starting with **AIMMS PRO 2.24**, members of the admin group in the ROOT environment can mark any environment as the 'Default' environment for login to the AIMMS PRO Portal by clicking the 'star' icon |star-environment| on the right side of the enviornment box. 
+Starting with **AIMMS PRO 2.24**, members of the admin group in the ROOT environment can mark any environment as the 'Default' environment for login to the AIMMS PRO Portal by clicking the 'star' icon |star-environment| on the right side of the environment box. 
 
 * The default environment is highlighted with the black border on the Users page.
 * There can be only one default environment for your AIMMS PRO Portal.
-* Administrator can anytime unmark or change the default enviornment. 
+* Administrator can anytime unmark or change the default environment. 
 * The environment marked as 'Default' will be always selected on the login screen so that user does not need to select the environment each time when login to the portal. 
 
 .. image:: images/default-env.png
