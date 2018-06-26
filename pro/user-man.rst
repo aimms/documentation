@@ -62,6 +62,8 @@ Starting with **AIMMS PRO 2.24**, members of the admin group in the ROOT environ
 
 .. image:: images/default-env.png
     :align: center
+	
+	
 
 Hierarchy
 ---------
