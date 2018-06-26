@@ -1,6 +1,7 @@
 AIMMS Application Management
 ============================
 
+
 Publishing Applications
 -----------------------
 
@@ -11,6 +12,32 @@ Any PRO-enabled AIMMS project can be published onto an AIMMS PRO Server. PRO-ena
 * Description: a descriptive text to be displayed in the portal.
 * AIMMS version: the published AIMMS version used to deploy the AIMMS application.
 * License profile: the license profile to be used for server-side optimization sessions of this application.
+
+Direct App Launch
+-----------------
+
+Starting with **AIMMS PRO 2.24**, it is possible to directly launch an application (desktop/WebUI) without first going to Portal's apps page after login. Any AIMMS application on your AIMMS PRO Portal is accesible by direct launch link *https://aimmsproserver/launch/AppName/AppVersion*
+
+You can get this direct app link by right clicking the App icon or 'Launch App' and use options like Copy link address, add to favorites etc. Once you have bookmarked this link or created a desktop shortcut then you can directly open an app. This means AD/SAML users can start an AIMMS application in a single click (as login would be automatic for them) and other users will be first redirected to login page and after successful login it will directly load that particular app. 
+
+.. image:: images/direct-app-launch.png
+    :align: center
+	
+
+Tag as latest
+-------------
+
+Starting from **AIMMS PRO 2.24**, if you have write access to the application, you can tag application as 'latest' by clicking the 'star' icon on Apps page. The idea behind this is, an AppPublishers or AppDevelopers can assign the 'latest' tag to the application when they publish a newer version of the same application so that end users can always have the newer(latest) version of the app available through direct app launch. 
+
+* It's a unique tag, meaning only 1 version of the same app can be tagged as 'latest'. When you assign the 'latest' tag to other version of the app then it removes the tag from previous one.
+* When you update the 'latest' App and use option 'Update and hide old version' then 'latest' tag will be assigned to new App.
+* End users can always launch the latest version of the application using direct App link, i.e. https://aimmsproserver/launch/AppName/tag/latest.
+
+.. image:: images/tag-latest.png
+    :align: left
+	
+.. image:: images/apps-new.png
+    :align: left
 
 
 Configuring User Access
@@ -46,6 +73,7 @@ Updating and Deleting Applications
 If you have write and execute access to the application, you may also update and delete the application. When updating an application, after uploading a new .aimmspack file, the AIMMS PRO server will already copy all the settings and access rights of the application version you wish to upgrade, allowing you to change only those values that really need to be changed. You have the option to keep or to hide the previous version of the application. If you hide it, it will become invisible to all users, except those with global administrative privileges, but existing queued jobs will still be able to access it. If you delete an application, queued jobs may fail altogether. You are therefore strongly advised to select the option to hide the previous version, and only delete it after all queued requests have been completed successfully.
 
 Starting from PRO 2.16, you can delete multiple Apps together by using 'Delete selected' button. This will also delete the application from PRO storage. 
+
 
 Windows 8 support
 -----------------
