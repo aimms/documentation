@@ -50,6 +50,19 @@ Within the portal, any user with global administrative privileges can create new
 
 The admin group and user associated with an environment cannot be deleted.
 
+Default Environment for login
+-----------------------------
+
+Starting with **AIMMS PRO 2.24**, members of the admin group in the ROOT environment can mark any environment as the 'Default' environment for login to the AIMMS PRO Portal by clicking the 'star' icon |cog-star-environment| on the right side of the enviornment box. 
+
+* The default environment is highlighted with the black border on the Users page.
+* There can be only one default environment for your AIMMS PRO Portal.
+* Administrator can anytime unmark or change the default enviornment. 
+* The environment marked as 'Default' will always be selected on the login screen so that user does not need to select the environment each time when login to the portal. 
+
+.. image:: images/default-env.png
+    :align: center
+
 Hierarchy
 ---------
 
@@ -69,6 +82,8 @@ Group Membership
 ----------------
 
 You can add an existing user to another group simply by dragging the user onto that group. You can remove a user from a group by first clicking on the group you want to remove the user from. After that, you can click the unlink icon of the user to remove. Note that each user must be member of at least one group.
+
+A user can login only login to an environment where that user was created. Even if that user is a member in a group in another environment, he/she may only login to their original environment. 
 
 Editing and Deleting Users and Groups
 -------------------------------------
