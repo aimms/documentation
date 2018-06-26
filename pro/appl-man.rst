@@ -1,6 +1,7 @@
 AIMMS Application Management
 ============================
 
+.. |star-latest| image:: images/cog-star-latest.png
 
 Publishing Applications
 -----------------------
@@ -27,7 +28,7 @@ You can get this direct app link by right clicking the App icon or 'Launch App' 
 Tag as latest
 -------------
 
-Starting from **AIMMS PRO 2.24**, if you have write access to the application, you can tag application as 'latest' by clicking the 'star' icon on Apps page. The idea behind this is, an AppPublishers or AppDevelopers can assign the 'latest' tag to the application when they publish a newer version of the same application so that end users can always have the newer(latest) version of the app available through direct app launch. 
+Starting from **AIMMS PRO 2.24**, if you have write access to the application, you can tag application as 'latest' by clicking |star-latest| icon on Apps page. The idea behind this is, an AppPublishers or AppDevelopers can assign the 'latest' tag to the application when they publish a newer version of the same application so that end users can always have the newer(latest) version of the app available through direct app launch. 
 
 * It's a unique tag, meaning only 1 version of the same app can be tagged as 'latest'. When you assign the 'latest' tag to other version of the app then it removes the tag from previous one.
 * When you update the 'latest' App and use option 'Update and hide old version' then 'latest' tag will be assigned to new App.
