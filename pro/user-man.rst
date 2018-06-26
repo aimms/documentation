@@ -58,7 +58,7 @@ Starting with **AIMMS PRO 2.24**, members of the admin group in the ROOT environ
 * The default environment is highlighted with the black border on the Users page.
 * There can be only one default environment for your AIMMS PRO Portal.
 * Administrator can anytime unmark or change the default enviornment. 
-* The environment marked as 'Default' will always be selected on the login screen so that user does not need to select the environment each time when login to the portal. 
+* The environment marked as 'Default' will be always selected on the login screen so that user does not need to select the environment each time when login to the portal. 
 
 .. image:: images/default-env.png
     :align: center
