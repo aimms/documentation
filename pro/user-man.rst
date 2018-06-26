@@ -1,6 +1,8 @@
 User Management
 ===============
 
+.. |star-environment| image:: images/cog-star-environment.png
+
 In the Users area of the portal, you can perform all user management tasks related to AIMMS PRO. The following user management concepts are supported:
 
 
@@ -53,7 +55,7 @@ The admin group and user associated with an environment cannot be deleted.
 Default Environment for login
 -----------------------------
 
-Starting with **AIMMS PRO 2.24**, members of the admin group in the ROOT environment can mark any environment as the 'Default' environment for login to the AIMMS PRO Portal by clicking the 'star' icon |cog-star-environment| on the right side of the enviornment box. 
+Starting with **AIMMS PRO 2.24**, members of the admin group in the ROOT environment can mark any environment as the 'Default' environment for login to the AIMMS PRO Portal by clicking the 'star' icon |star-environment| on the right side of the enviornment box. 
 
 * The default environment is highlighted with the black border on the Users page.
 * There can be only one default environment for your AIMMS PRO Portal.
