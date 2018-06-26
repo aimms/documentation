@@ -13,9 +13,13 @@ Log files
 
 If something does not work you may want to check the following files for errors:
 
-* *AimmsPROServer.log* - AIMMS PRO Backend logs
-* *AimmsPROWeb.log* - AIMMS PRO Web (Portal & WebUI) logs
-* *AimmsPROConfigurator.log* - AIMMS PRO Configurator logs
+* *Server.log* - AIMMS PRO Backend logs
+* *Portal.log* - AIMMS PRO Portal logs
+* *Session.log* - Solver or Data session logs
+* *Configurator.log* - AIMMS PRO Configurator logs
+* *WebSocketsProxy.log* -  WS Proxy logs. Check this logs to figure out issues with tunnels or connections to the license server.
+* *WarLauncher.log* - WAR Launcher logs. Generic web part of AIMMS PRO Portal.
+* *Security.log* - Security events logs like user logon, logoff, logon failure, user group and user details changes, changes in user management.
  
 
 Files with the similar names but with the date appended contain logs from previous days. For example, *AimmsPROServer.2015-06-21.0.log* contains AIMMS PRO Backend logs for 21st of June 2015.
@@ -25,11 +29,13 @@ Log Configuration
 
 All log configuration files are located in the *dataDir* Config directory. AIMMS PRO 2.0 uses the following log configuration files:
 
-* *AimmsPROServerLog.xml* - AIMMS PRO 2 Service logging
+* *AimmsPROServerLog.xml* - AIMMS PRO 2 Server logging
 * *AimmsPROSessionLog.xml* - Server-side sessions logging
 * *AimmsPROConfiguratorLog.xml* - AIMMS PRO Configurator logging
-* *AimmsPROWebLog.cfg* - AIMMS PRO Web Service logging
-* *AimmsDispatcherServiceLog.cfg* - AIMMS Dispatcher Service
+* *AimmsPROPortalServerLog.xml* - AIMMS PRO 2 Portal logging
+* *AimmsPROWebsocketsProxyLog.xml* - AIMMS PRO WS Proxy logging
+* *AimmsPROWarLauncherLog.xml* - AIMMS PRO WARLauncher logging
+
  
 Changing the logging Level
 --------------------------
