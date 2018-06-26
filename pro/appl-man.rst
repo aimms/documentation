@@ -34,11 +34,12 @@ Starting from **AIMMS PRO 2.24**, if you have write access to the application, y
 * End users can always launch the latest version of the application using direct App link, i.e. https://aimmsproserver/launch/AppName/tag/latest.
 
 .. image:: images/tag-latest.png
-    :align: left
+    :align: center
+	
 	
 .. image:: images/apps-new.png
-    :align: left
-
+    :align: center
+	
 
 Configuring User Access
 -----------------------
