@@ -19,7 +19,41 @@ If something does not work you may want to check the following files for errors:
 * *Configurator.log* - AIMMS PRO Configurator logs
 * *WebSocketsProxy.log* -  WS Proxy logs. Check this logs to figure out issues with tunnels or connections to the license server.
 * *WarLauncher.log* - WAR Launcher logs. Generic web part of AIMMS PRO Portal.
-* *Security.log* - Security events logs like user logon, logoff, logon failure, user group and user details changes, changes in user management.
+* *Security.log* - Security events logs like user logon, logoff, logon failure, user group and user details changes, changes in user management. Please note that this log is available only from *AIMMS PRO 2.24*.
+
+**Enable Security logs for existing installations:**
+
+If you want to add security events logging to your existing on-premise installation, then delete AimmsPROServerLog.xml before upgrading your AIMMS PRO or modify AimmsPROServerLog.xml (e.g. *C:\ProgramData\AimmsPRO\Config\AimmsPROServerLog.xml*) and replace the last line of the file (the one that says *</included>*) with the following:
+
+.. code::
+
+		<property name="SECURITY_LOG_LEVEL" value="trace"/>
+		<appender name="SECURITY_FILE"
+				class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${LOG_HOME}/Security.log</file>
+			<!-- DO NOT Support multiple-JVM writing to the same log file -->
+			<prudent>false</prudent>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<!-- daily rollover -->
+				<fileNamePattern>${LOG_HOME}/Security.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+				<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+					<maxFileSize>100MB</maxFileSize>
+				</timeBasedFileNamingAndTriggeringPolicy>
+				<maxHistory>30</maxHistory>
+			</rollingPolicy>
+			<append>true</append>
+			<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+			<encoder>
+				<pattern>%msg%n%n</pattern>
+			</encoder>
+		</appender> 
+		<logger name="com.aimms.pro.logging.security" additivity="false">
+			<level value="${SECURITY_LOG_LEVEL}" />
+			<appender-ref ref="SECURITY_FILE" />
+		</logger>
+
+		</included>
+
  
 
 Files with the similar names but with the date appended contain logs from previous days. For example, *AimmsPROServer.2015-06-21.0.log* contains AIMMS PRO Backend logs for 21st of June 2015.
