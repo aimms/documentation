@@ -23,7 +23,7 @@ If something does not work you may want to check the following files for errors:
 
 **Enable Security logs for existing installations:**
 
-If you want to add security events logging to your existing on-premise installation, then delete AimmsPROServerLog.xml before upgrading your AIMMS PRO or modify AimmsPROServerLog.xml (e.g. *C:\ProgramData\AimmsPRO\Config\AimmsPROServerLog.xml*) and replace the last line of the file (the one that says *</included>*) with the following:
+If you want to add security events logging to your existing on-premise installation, then delete AimmsPROServerLog.xml before upgrading your AIMMS PRO or modify AimmsPROServerLog.xml (e.g. *C:\\ProgramData\\AimmsPRO\\Config\\AimmsPROServerLog.xml*) and replace the last line of the file (the one that says *</included>*) with the following:
 
 .. code::
 
