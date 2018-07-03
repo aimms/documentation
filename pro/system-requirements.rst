@@ -27,7 +27,7 @@ The minimum client requirements are:
 * Windows 7 or higher, 32-bit (x86) or 64-bit (x64)
 * 8 GB RAM, or, for apps deploying desktop clients, as much memory as required to hold the application data
 * 10 GB of available hard disk space
-* 32-bit browser: IE 8+, Firefox, Chrome, or Opera
+* 32-bit browser: IE 8+, Firefox, Chrome, or Opera. Apps with Web User interface requires Internet Explorer 11 or Edge.
 
 Network Requirements
 --------------------
