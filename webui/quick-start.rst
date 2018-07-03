@@ -68,7 +68,7 @@ Subsequently, the following model declarations concern the input data for the mo
         }
     } 
 
-In the use case at hand, there are 3 factories (Hamburg, London, and Zurich) and 10 distribution centers (Amsterdam, Copenhagen, Dresden, Edinburgh, Frankfurt, Liege, Marseilles, Nantes, Paris, and Vienna). The input data may be initialized upon the application start-up by using some simple procedures. The *Latitude* and *Longitude* parameters, as well as the *IsFactory* binary indicator parameter may be initialized in a procedure by using eg, a composite table (or, alternatively, by reading in their values from an external source):
+In the use case at hand, there are 3 factories (Hamburg, London, and Zurich) and 10 distribution centers (Amsterdam, Copenhagen, Dresden, Edinburgh, Frankfurt, Liege, Marseille, Nantes, Paris, and Vienna). The input data may be initialized upon the application start-up by using some simple procedures. The *Latitude* and *Longitude* parameters, as well as the *IsFactory* binary indicator parameter may be initialized in a procedure by using eg, a composite table (or, alternatively, by reading in their values from an external source):
 
 .. code::
 
@@ -85,7 +85,7 @@ In the use case at hand, there are 3 factories (Hamburg, London, and Zurich) and
             Hamburg            9.98           53.54           1   
             Liege              5.58           50.63   
             London            -0.16           51.50           1         
-            Marseilles	       5.38           43.29        
+            Marseille	       5.38           43.29        
             Nantes            -1.55           47.22                 
             Paris              2.34           48.86            
             Vienna            16.37           48.20                
