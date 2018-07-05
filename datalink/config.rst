@@ -60,7 +60,7 @@ The names in the above example are self explanatory. :token:`TheSet` is a Set id
 
 In this example the source only has one table named :token:`TableNameInSource` but more tables can be specified if they are present in the data source. A table *TableNameInSource* in the source can have as many columns in any order, but in the data-map we say that we are only interested in the two columns with the names specified ("ColumnNameInSource" and "OtherColumnNameInSource"). It is up to the provider to figure out which columns are available and how to connect these to the DataLink columns.
 
-One thing to keep in mind is that the data map is just a 4D string parameter in AIMMS. This means that we can only assign the data (*:= data*) when all elements of the domain set exist. For the column numbers, the domain numbers and the identifier names this is not a problem. For the table names, however, DataLink cannot know in advanced what the table names would be and starts with an empty set :token:`dl::DataTables`. This is the first domain of the data map. We can simply add the name :token:`TableNameInSource` to this set by doing:
+One thing to keep in mind is that the data map is just a 4D string parameter in AIMMS. This means that we can only assign the data (*:= data*) when all elements of the domain set exist. For the column numbers, the domain numbers and the identifier names this is not a problem. For the table names, the first domain of the data map, DataLink cannot know in advanced what these names should be and starts with an empty set :token:`dl::DataTables`. We can simply add the name :token:`TableNameInSource` to this set by doing:
 
 .. code::
 
