@@ -28,11 +28,6 @@ In most cases you'll want to send messages from a client session to a server-sid
 
     These specializations make use of the internal state of the PRO library to determine whether a procedure call is made at the client- or at the server-side session and act accordingly. However, if these specializations are called in a chain of server-side sessions, they may not behave as expected, because the PRO library is not able to determine unambiguously whether a particular server-side session acts as a client- or as a server-side session at any particular moment. In such cases, calling pro::DelegateToPeer with an explicit queue id that is also passed over to the other peer (for instance as an argument to the procedure in which pro::DelegateToPeer is called) will prevent such ambiguities.
 	
-.. warning::
-
-	PRO messages are limited in size and frequency in AIMMS PRO. Default characteristics are as follows:
-		- less than 3 messages per seconds.
-		- messages should not exceed 1000 AIMMS elements.
 
 Current Session Info
 ++++++++++++++++++++
@@ -75,3 +70,9 @@ Synchronous Workflows
 ^^^^^^^^^^^^^^^^^^^^^
 
 By waiting for messages, you can create a synchronous workflow around the optimization requests that will be executed in server-side sessions. For instance, from within a server-side session you can send a message to the client session, and wait for a response for a given amount of time before continuing the execution. This allows you to steer the execution through feedback given by the end-user. By adding *user flags* to the message, you can make sure that you only wait for and handle those messages that are meaningful in the context of your application.
+
+.. warning::
+
+	PRO messages are limited in size and frequency in AIMMS PRO. Default characteristics are as follows:
+		- less than 3 messages per seconds.
+		- messages should not exceed 1000 AIMMS elements.
