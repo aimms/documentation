@@ -27,6 +27,12 @@ In most cases you'll want to send messages from a client session to a server-sid
 .. warning::
 
     These specializations make use of the internal state of the PRO library to determine whether a procedure call is made at the client- or at the server-side session and act accordingly. However, if these specializations are called in a chain of server-side sessions, they may not behave as expected, because the PRO library is not able to determine unambiguously whether a particular server-side session acts as a client- or as a server-side session at any particular moment. In such cases, calling pro::DelegateToPeer with an explicit queue id that is also passed over to the other peer (for instance as an argument to the procedure in which pro::DelegateToPeer is called) will prevent such ambiguities.
+	
+.. warning::
+
+	PRO messages are limited in size and frequency in AIMMS PRO. Default characteristics are as follows:
+		- less than 3 messages per seconds.
+		- messages should not exceed 1000 AIMMS elements.
 
 Current Session Info
 ++++++++++++++++++++
