@@ -58,7 +58,15 @@ A basic data-map looks like this:
 
 The names in the above example are self explanatory. :token:`TheSet` is a Set identifier in AIMMS, and :token:`TheParameter` is a Parameter in AIMMS that has :token:`TheSet` as domain. The numbers 1 and 2 are column numbers. For each table they start at 1 and are counted up, starting with all the domains (sets) first, followed by all the parameters. The numbers 1 and 0 are the domain numbers. If the domain number equals the column number it is a set that can serve as a domain. If the domain number is zero then it is a parameter that has all the sets in the table as domain.
 
-In this example the source only has one table named *TableNameInSource* but more tables can be specified if they are present in the data source. Table *TableNameInSource* can have many columns in any order, but in the data-map we say that we are only interested in the two columns with the names specified. It is up to the provider to figure out which columns are available and how to connect these to the DataLink columns.
+In this example the source only has one table named :token:`TableNameInSource` but more tables can be specified if they are present in the data source. A table *TableNameInSource* in the source can have as many columns in any order, but in the data-map we say that we are only interested in the two columns with the names specified ("ColumnNameInSource" and "OtherColumnNameInSource"). It is up to the provider to figure out which columns are available and how to connect these to the DataLink columns.
+
+One thing to keep in mind is that the data map is just a 4D string parameter in AIMMS. This means that we can only assign the data (*:= data*) when all elements of the domain set exist. For the column numbers, the domain numbers and the identifier names this is not a problem. For the table names, the first domain of the data map, DataLink cannot know in advanced what these names should be and starts with an empty set :token:`dl::DataTables`. We can simply add the name :token:`TableNameInSource` to this set by doing:
+
+.. code::
+
+    dl::DataTables += {'TableNameInSource'} ;
+
+
 
 Function :token:`AddDataSourceMapping` has three extra arguments to pass extra attributes to the specific providers. 
 Datalink provides empty argument parameters for when no attribute needs to be set. The full call to AddDataSourceMapping with empty attributes becomes:
