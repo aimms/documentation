@@ -24,7 +24,7 @@ Suppose the *XLSProvider* is used. It has a prefix :token:`xlsprov` and so we ca
 
 .. code::
 
-        ReadWriteAttributes:={ 'Provider' : xlsprov::DataLink , ... }
+        ReadWriteAttributes:={ 'DataProvider' : xlsprov::DataLink , ... }
         dl::DataRead("MyExcelFile.xlsx", "TheMapping" , ReadWriteAttributes);
 
 In this code example :token:`ReadWriteAttributes` is were the provider is specified, :token:`"TheMapping"` is the name of the mapping which we still have to specify, and :token:`"MyExcelFile.xlsx"` is the name of the data source. For writing the function :token:`dl::DataWrite` can be used that takes the same arguments.
