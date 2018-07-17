@@ -37,8 +37,8 @@ where :token:`MapName` and :token:`XA` are defined as:
 	        InitialData: "MyRLink";
 	    }
 	    StringParameter DataMap {
-            IndexDomain: (dl::dt,dl::idn,dl::cn,dl::dn);
-        }
+	        IndexDomain: (dl::dt,dl::idn,dl::cn,dl::dn);
+	    }
 	    StringParameter XA {
 	        IndexDomain: dl::rwattr;
 	        Definition: {
