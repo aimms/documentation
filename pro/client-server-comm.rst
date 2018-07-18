@@ -77,6 +77,6 @@ By waiting for messages, you can create a synchronous workflow around the optimi
 		- less than 3 messages per seconds.
 		- messages should not exceed 1000 AIMMS elements. In other words, the cardinality of each argument from a delegated procedure should be less than 1000. Please remember that DelegateToServer procedures should not transfer data, but only adjustment parameters. Data are optimally transferred through an AIMMS case.
 	
-	* If the number of messages exceeds 3 per seconds, they will be queued up. **However, if those are live messages (using** ``PROMFLAG_LIVE`` **tag, see above), they will be lost.**
-	* You may change the number of messages per seconds by calling the procedure ``pro::messaging::SetMaxMessagesPerSecond(20);``. The maximum value is 20 messages per seconds.
+	* If the number of messages exceeds 3 per seconds, they will be queued up. **Please mind that if those are live messages (using** ``PROMFLAG_LIVE`` **tag, see above), only the last 3 messages within the second will be available (the others are actually overridden).**
+	* One may change the number of messages per seconds by calling the procedure ``pro::messaging::SetMaxMessagesPerSecond(20);`` in your model (in the PreMainInitialization procedure for example). The maximum value is 20 messages per seconds.
 	* If any delegated procedure argument would exceed 1000 AIMMS elements, AIMMS will raise an error when using the Cloud AIMMS PRO platform, thus **aborting the execution of the delegated procedure**. Using a PRO platform on premise, AIMMS will write a warning in the PRO log files.
