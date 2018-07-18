@@ -75,7 +75,7 @@ By waiting for messages, you can create a synchronous workflow around the optimi
 
 	PRO messages are limited in size and frequency in AIMMS PRO. Default characteristics are as follows:
 		- less than 3 messages per seconds.
-		- messages should not exceed 1000 AIMMS elements. In other words, the cardinality of each parameter of the delegated procedure should not exceed 1000. Please remember that DelegateToServer procedures should not transfer data, but only adjusting parameters. Data are optimally transferred through an AIMMS case.
+		- messages should not exceed 1000 AIMMS elements. In other words, the cardinality of each parameter of the delegated procedure should not exceed 1000. Please remember that DelegateToServer procedures should not transfer data, but only adjustment parameters. Data are optimally transferred through an AIMMS case.
 	
 	* If the number of messages exceeds 3 per seconds, they will be queued up. **However, if those are live messages (using** ``PROMFLAG_LIVE`` **tag, see above), they will be lost.**
 	* You may change the number of messages per seconds by calling the procedure ``pro::messaging::SetMaxMessagesPerSecond(20);``. The maximum value is 20 messages per seconds.
