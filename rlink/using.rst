@@ -33,15 +33,18 @@ where :token:`MapName` and :token:`XA` are defined as:
 .. code::
 
     DeclarationSection RLinkSetup {
-      StringParameter MapName {
-        InitialData: "MyRLink";
-      }
-      StringParameter XA {
-        IndexDomain: dl::rwattr;
-        Definition: {
-           { 'DataProvider' : rlink::DataLink };
+        StringParameter MapName {
+            InitialData: "MyRLink";
         }
-      }
+        StringParameter DataMap {
+            IndexDomain: (dl::dt,dl::idn,dl::cn,dl::dn);
+        }
+        StringParameter XA {
+            IndexDomain: dl::rwattr;
+            Definition: {
+                { 'DataProvider' : rlink::DataLink };
+            }
+        }
     }
 
 The first thing to notice is that :token:`ExecScript` is a "DataLink":http://manual.aimms.com/datalink/ function and RLink is only attached as a provider. In this simple example this seems a bit silly. Here :token:`MapName` is a string that DataLink uses for the data map, so before the call can be made :token:`dl::AddDataSourceMapping` has to be called to associate :token:`MapName` with a data map. By making RLink a DataLink provider it seems that we added a lot of unnecessary overhead.
