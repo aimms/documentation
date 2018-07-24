@@ -19,6 +19,14 @@ Because of a limitation in the xls files, table names can not be longer than 31 
 
 Note: AIMMS also has an other library for dealing with excels files called AimmsXLLibrary. This can be used to address the content of a spreadsheet using spreadsheet's notation for cells using letter-number combinations. The XLSProvider does not use this and instead uses the names-of-columns formalism from DataLink. 
 
+.. seealso::
+
+    https://techblog.aimms.com/2016/06/07/how-to-use-the-aimms-excel-library/
+
+.. todo:: 
+
+    So why using XLSProvider then ??
+    
 CSVProvider
 ===========
 

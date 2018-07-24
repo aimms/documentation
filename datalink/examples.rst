@@ -33,7 +33,7 @@ Assume we have the following identifiers in our AIMMS model:
         }        
     }
 
-In this declaration section we see that we have one set :token:`Countries` with index :token:`c`, and two parameters :token:`January` and :token:`May` that have index :token:`c` as domain. It is clear from the data source what data has to be read into which identifier. The values from column "Country" should be read into set :token:`Countries` and the columns "Jan" and "May" should be read into :token:`January` and :token:`May`. 
+In this declaration section, we see that we have one set :token:`Countries` with index :token:`c`, and two parameters :token:`January` and :token:`May` that have index :token:`c` as domain. It is clear from the data source what data has to be read into which identifier. The values from column "Country" should be read into set :token:`Countries` and the columns "Jan" and "May" should be read into :token:`January` and :token:`May`. 
 
 We can now look at what DataLink has to do in order to read data from the source into the model. For each row in the data source it has to read in the value of the domain :token:`c` (i.e. Iceland) and make sure that it exist in the AIMMS model. Then it can read in the value of the parameters (I.e for Jan 1.9), but it also has to tell that this value corresponds to domain :token:`c` that was read in just before (Iceland). In AIMMS the columns are not independent and domain values have to be send to AIMMS multiple times. DataLink can speed this up by using some clever caching such that domain values only need to be send once.
  
@@ -62,12 +62,12 @@ The string value of data map :token:`TemperatureMapping` is the column name and 
 
 The first element in our mapping we specify that we are looking in table "Average High", which is the name of the work sheet in our xlsx file. Then we specify the name of the identifier in AIMMS. Note the subtle difference: the name of the set is "Countries" (plural), while the column name in the spreadsheet is "Country" (singular). 
 
-The column number is 1 and this is lower than that of the other entries of the data map. This is because this is a domain and has to be read first. We can see it is a domain because the domain number is 1 (non-zero). The other two entries have domain number 0, meaning that they are the parameters. Their domains are in this case the entry with domain number 1. Of cource in case of multi dimensional parameters the domain numbers of entries go 1, 2, 3 etc.
+The column number is 1 and this is lower than that of the other entries of the data map. Indeed, Set elements have to be read first. We can see it is a Set because the domain number (4th column) is 1 (non-zero). The other two entries domain numbers are 0, meaning that they are parameters indexed over specified domain number(s) greater than 0. Following the same logic, in case of multi dimensional parameters the domain numbers of your different Set indices will be 1, 2, 3 etc.
 
 The code
 ========
 
-Now we have everything in place and can write the complete procedure of reading the data:
+We may now write the complete procedure for reading the data:
 
 .. code::
 
