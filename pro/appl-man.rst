@@ -13,6 +13,7 @@ Any PRO-enabled AIMMS project can be published onto an AIMMS PRO Server. PRO-ena
 * Description: a descriptive text to be displayed in the portal.
 * AIMMS version: the published AIMMS version used to deploy the AIMMS application.
 * License profile: the license profile to be used for server-side optimization sessions of this application.
+* Category: using this you can categorized your AIMMS PRO applications. This field is available only when you have added categories through Manage Categories. Please note that this feature is available starting with AIMMS PRO 2.25.
 
 Direct App Launch
 -----------------
@@ -42,6 +43,12 @@ Starting from **AIMMS PRO 2.24**, if you have write access to the application, y
     :align: center
 	
 
+Manage Categories
+-----------------
+
+Starting with **AIMMS PRO 2.25**, it is possible to categorized your AIMMS PRO applications. Members of the admin group in the ROOT environment can add/edit/delete categories using 'Manage Categories' on the applications page. There is always one default category 'other'. Once you have added some categories to your portal, category field is available while publishing, updating or editing the application. If you do not assign any category to your application then by default it has 'other' category. Also on the applications page apps are shown in the alphabetic order of categories, applications with the 'other' category comes last on the page. 
+	
+
 Configuring User Access
 -----------------------
 
@@ -69,12 +76,17 @@ Changing Permissions
 
 After you have published the application, you can always change the access rights of the application through the **permissions** link in the info box of the application. You will only see this link if you have write access to the application.
 
-Updating and Deleting Applications
-----------------------------------
+Update and Delete Applications
+------------------------------
 
 If you have write and execute access to the application, you may also update and delete the application. When updating an application, after uploading a new .aimmspack file, the AIMMS PRO server will already copy all the settings and access rights of the application version you wish to upgrade, allowing you to change only those values that really need to be changed. You have the option to keep or to hide the previous version of the application. If you hide it, it will become invisible to all users, except those with global administrative privileges, but existing queued jobs will still be able to access it. If you delete an application, queued jobs may fail altogether. You are therefore strongly advised to select the option to hide the previous version, and only delete it after all queued requests have been completed successfully.
 
 Starting from PRO 2.16, you can delete multiple Apps together by using 'Delete selected' button. This will also delete the application from PRO storage. 
+
+Edit Applications
+-----------------
+
+Starting with **AIMMS PRO 2.25**, if you have write access to the application, you may also edit the application. This allows you to edit App description, icon and category (if you have any categories for your portal) after App publishing, which reduces the need to republish an app.
 
 
 Windows 8 support

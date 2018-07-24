@@ -10,3 +10,4 @@ The basic PRO workflow described in `Basic AIMMS PRO Workflow <basic-workflow.ht
     client-server-comm
     pro-messaging
     progress-window
+    solver-lease
