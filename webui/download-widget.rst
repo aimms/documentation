@@ -79,7 +79,7 @@ The :token:`StatusDescription` argument can be used to display custom text as th
 Example
 +++++++
 
-A sample example to create a text file containing the final path of :token:`FileLocation` is shown below. You can download the example AIMMS project that contains this procedure. 
+A sample example to create a text file containing the final path of :token:`FileLocation` is shown below. You can also download the example AIMMS project that contains this procedure from `here <webui/resources/DownloadWidgetExample.7z>`_
 
 .. code::
     
