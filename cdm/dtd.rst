@@ -213,6 +213,20 @@ Notice, that creating a branch will *not* check out your local session to the ne
 
 If the data in newly created branch differs from the data in your local session, you should perform a full `check out <dtd.html#checking-out-data>`_ to the newly created branch. If you do not check out the newly created branch, but instead try to only set the revision to the head revision of the newly created branch, you will leave the internal data state of your client session in an inconsistent state, which will lead to possibly incorrect commits being performed when you want to commit local changes on the new branch.
 
+Deleting branches
+----------------- 
+
+AIMMS CDM also allows you to delete branches from your repository. This is an inherently dangerous operation, as deleting a branch will not only delete the branch itself, but also all branches that are derived from the branch that you delete, and all data on these branches. You cannot delete the protected branches :token:`system` and :token:`master`.
+
+To delete a branch you can
+
+* call the high-level API function :token:`cdm::DeleteSelectedBranch` which will 
+
+  * call the low-level API function :js:func:`cdm::DeleteBranch` to delete the branch pointed at by :token:`cdm::SelectedBranch`
+  * update the set :token:`cdm::Branches` and :token:`cdm::Revisions` to remove the all branches and revisions deleted from the CDM database.
+  
+* call the low-level API function :js:func:`cdm::DeleteBranch` to delete the branch as specified through its arguments.
+ 
 Merging branches and resolving conflicts
 ----------------------------------------
 

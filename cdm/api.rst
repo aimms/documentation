@@ -85,6 +85,13 @@ Branch and Revision Functions
    :param fromRev: specifies the revision on :token:`fromBranch` from which to branch
    :param authProfile: specifies the authorization profile name to apply to the new branch. If left empty, the new branch will inherit the authorization profile from its parent branch
 
+.. js:function::  cdm::DeleteBranch(db,branchName)
+
+   Delete the given branch, its derived branches, and all data on these branches. The function will fail if the branch does not exists, if you do not have the permission to delete the branch, or if you try to delete the protected branches :token:`system` or :token:`master`.
+ 
+   :param db: specifies the name of the application database in which to delete a branch
+   :param branchName: specifies the name of the branch to delete
+
 .. js:function::  cdm::SetBranchStatus(db,branchName,active)
 
    Set the branch status to either active or inactive, which will effect the result of :js:func:`cdm::EnumerateBranches`. The function will fail if the branch does not exist, or if the user is not authorized to change the branch status.
