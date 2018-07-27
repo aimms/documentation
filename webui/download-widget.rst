@@ -72,6 +72,10 @@ The pre-defined function :token:`webui::ReturnStatusCode` has the below possible
     
 As your procedure is expected to create a file, the status :token:`CREATED` is expected if all goes well. You can use one of the other status codes to signal that something went wrong when creating your file.
 
+.. note::
+
+    Please note that those status code are standard HTTP status code. For further reference, please go to https://en.wikipedia.org/wiki/List_of_HTTP_status_codes 
+
 StatusDescription
 ^^^^^^^^^^^^^^^^^
 
