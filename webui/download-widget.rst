@@ -74,7 +74,7 @@ As your procedure is expected to create a file, the status :token:`CREATED` is e
 
 .. note::
 
-    Please note that those status code are standard HTTP status code. For further reference, please go to https://en.wikipedia.org/wiki/List_of_HTTP_status_codes 
+    Please note that those status codes are standard HTTP status codes. For further reference, please go to https://en.wikipedia.org/wiki/List_of_HTTP_status_codes 
 
 StatusDescription
 ^^^^^^^^^^^^^^^^^
