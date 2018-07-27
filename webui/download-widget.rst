@@ -49,6 +49,7 @@ The above function returns a string value with the absolute path to the file :to
 In case you want to be able to download a previously created file through the download widget, you will need to copy that file into the appropriate location. You can use the :token:`FileCopy` function as below to do that 
 
 .. code::
+
     FileCopy(FileLocation, webui::GetIOFilePath(FileLocation));
     
 StatusCode
@@ -62,12 +63,12 @@ The :token:`StatusCode` argument should be filled as follows:
 
 The pre-defined function :token:`webui::ReturnStatusCode` has the below possible arguments 
 
-    #. :token:`OK`
-    #. :token:`CREATED` 
-    #. :token:`BAD_REQUEST`
-    #. :token:`UNAUTHORIZED` 
-    #. :token:`CONFLICT`
-    #. :token:`ERROR` 
+    * :token:`OK`
+    * :token:`CREATED` 
+    * :token:`BAD_REQUEST`
+    * :token:`UNAUTHORIZED` 
+    * :token:`CONFLICT`
+    * :token:`ERROR` 
     
 As your procedure is expected to create a file, the status :token:`CREATED` is expected if all goes well. You can use one of the other status codes to signal that something went wrong when creating your file.
 
@@ -79,7 +80,8 @@ The :token:`StatusDescription` argument can be used to display custom text as th
 Example
 +++++++
 
-A sample example to create a text file containing the final path of :token:`FileLocation` is shown below. You can also download the example AIMMS project that contains this procedure from `here <webui/resources/DownloadWidgetExample.7z>`_
+A sample example to create a text file containing the final path of :token:`FileLocation` is shown below. You can also download the example AIMMS project that contains this procedure from :download:`here <resources/DownloadWidgetExample.7z>`.
+
 
 .. code::
     
