@@ -38,7 +38,9 @@ The components are the following:
 * WS Proxy - log setting for websockets proxy. Change this setting to figure out issues with tunnels or connections to the license server.
 * WAR Launcher - generic web part of AIMMS PRO log setting. Probably, you almost never will need to change this setting.
 
-Please note that in case of the issues it makes sense to increase log level for several components. For example, if you have issues with a WebUI app, you may want to set log level for AIMMS Sessions, Backend and WebUI to trace. In case of general problems with a desktop app set log level to trace for Backend and WS Proxy. And if you have issue with a solver session, change log settings for Backend, AIMMS Sessions and WS Proxy. And, of course, you may just set all setting to the trace level, reproduce an issue and then restore settings to defaults. Actually, that's the advised approach.
+.. note::
+    
+    In case of an issue, it makes sense to increase log level for several components. For example, if you have issues with a WebUI app, you may want to set log level for AIMMS Sessions, Backend and WebUI to trace. In case of general problems with a desktop app set log level to trace for Backend and WS Proxy. And if you have issue with a solver session, change log settings for Backend, AIMMS Sessions and WS Proxy. And, finally, you may just set all setting to the trace level, reproduce an issue and then restore settings to defaults. The latter would be the advised approach.
 
 The log levels influence the amount of information you get in the logs. It goes from top to down: trace level gives you a lot of information, error level gives you very little information. It does not make sense to have log settings at trace level, because not only your disk space will be eaten very fast, but AIMMS PRO will also work slower, especially solver and data sessions. So after reproducing an issue with log level set to trace, we advice you to set it back to info level.
 
