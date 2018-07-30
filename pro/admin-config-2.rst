@@ -16,6 +16,7 @@ This section allows admin user to download log and crash dump files for this AIM
 Please note that time span means "the files that were last modified in that period". So if some files were modified after the period, they would be filtered out.
 
 After pressing the "Download logs" button, the user will get a zip archive with the files. That file will contain at least one of the following components:
+
 * componentVersion.txt - the file with the list of AIMMS PRO components versions. That file is used by AIMMS Client Support to figure out if some issue has already been fixed in the next releases of AIMMS PRO
 * Log - the folder with the log files. May not be present if there are no logs for the selected time span.
 * ErrorReports - the folder with AIMMS crash dumps. May not be present if there are no crash dumps for the selected time span. Please note that AIMMS Version should be at least 4.22 in order crash dumps to be available.
