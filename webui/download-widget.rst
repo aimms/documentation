@@ -18,16 +18,16 @@ After adding a (blank) Download widget to your WebUI page, you need to link it w
     MyFirstDownloadProc(FileLocation, statusCode, statusDescription)
     
     Procedure MyFirstDownloadProc {
-    Arguments: (FileLocation,statusCode,statusDescription);
-    StringParameter FileLocation {
-        Property: Output;
-    }
-    Parameter statusCode {
-        Property: Output;
-    }
-    StringParameter statusDescription {
-        Property: Output;
-    }
+        Arguments: (FileLocation,statusCode,statusDescription);
+        StringParameter FileLocation {
+            Property: Output;
+        }
+        Parameter statusCode {
+            Property: Output;
+        }
+        StringParameter statusDescription {
+            Property: Output;
+        }
     }
 
 FileLocation
