@@ -75,8 +75,14 @@ For every identifier that you have specified as part of the _Current Contents_ o
 
 * :token:`X_annotations` to hold annotations that are put as CSS classes on assiciated DOM elements in your model. See the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
 * :token:`X_flags` to make updatable identifiers appear as read-only in the WebUI.  See the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
-* A procedure named :token:`UponChange_X`, which will automatically be run whenever the value of identifier :token:`X` is changed from within the WebUI.
+* A procedure named :token:`UponChange_X`, which will automatically be run whenever the value of identifier :token:`X` is changed from within the WebUI. AIMMS accepts 
+  two forms of an UponChange procedure:
 
+    * a procedure without arguments. You can use this form if you are not interested in the which particular values changed, but do want to get a notification that a change took place
+    * a procedure with two arguments, both with the same domain as the identifer :token:`X`. The first argument should be a numeric parameter, and will hold a 1 for each tuple that was changed. The second argument should have the same type as the :token:`X` and will hold the old value for such a tuple, the changed value can be obtained via :token:`X`. 
+    
+  The latter form can be used, for instance, to detect which tasks in a Gantt chart has moved, or to act upon a block edit in a table.
+  
 Filters
 -------
 
