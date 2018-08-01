@@ -109,7 +109,7 @@ Annotations or Flags in Custom Plugins
 Applying annotations or flags
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Core plugins (widgets, addons, etc.) now prefix all model annotations and flags with e.g. :token:`annotation-` or :token:`flag-` when these are used in HTML element attributes. Additionally, to ensure valid values, all sequences of whitespace are converted into single hyphens: for example, the annotation :token:`some model    info` becomes :token:`annotation-some-model-info`.
+Core plugins (widgets, addons, etc.) now prefix all model annotations and flags with e.g. :token:`annotation-` or :token:`flag-` when these are used in HTML element attributes. Additionally, to ensure valid values, all sequences of whitespace are converted into single hyphens: for example, the annotation :token:`some model info` becomes :token:`annotation-some-model-info`.
 
 Core styling has also been updated to adopt this pattern.
 
