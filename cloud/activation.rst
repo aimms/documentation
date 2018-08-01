@@ -3,8 +3,8 @@ Activate AIMMS Version
 
 As part of every AIMMS release, AIMMS Versions (AIMMS PRO Server packages) will be made available on the AIMMS Cloud Platform. Each AIMMS Versions contains:
 
-* an installation-free AIMMS PRO Client without solvers, which will run the client part of the application on the computer of the end-user, and**
-* an AIMMS component with all solvers included, to run the server-side optimization sessions.**
+* an installation-free AIMMS PRO Client without solvers, which will run the client part of the application on the computer of the end-user, and
+* an AIMMS component with all solvers included, to run the server-side optimization sessions.
 
 
 AIMMS Versions
