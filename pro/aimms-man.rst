@@ -23,7 +23,7 @@ All published AIMMS versions are available for deployment of end-user applicatio
     
 .. note::
 
-    On AIMMS Cloud, you only need to "Activate" a new AIMMS version, going to the AIMMS Versions menu tab. see `here <../cloud/activation.html>`_ for more details.
+    On AIMMS Cloud, you only need to "Activate" a new AIMMS version, going to the AIMMS Versions menu tab. See also `here <../cloud/activation.html>`_ for more details.
 
 Deletion
 --------
