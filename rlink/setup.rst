@@ -54,25 +54,25 @@ R can be obtained from "The Comprehensive R Archive Network":https://cran.r-proj
 
 Information of :token:`Rcpp` can be found "here":https://cran.r-project.org/web/packages/Rcpp/index.html. :token:`Rcpp` can be installed just like any other R packages from the command line using:
 
-.. code::
+.. code-block:: console
     
     R CMD INSTALL [options] [-l lib] Rcpp
 
 or on windows using :token:`Rcmd.exe`:
 
-.. code::
+.. code-block:: console
 
     Rcmd.exe INSTALL [options] [-l lib] Rcpp
 
 Alternatively the package can be installed inside R using:
 
-.. code::
+.. code-block:: r
 
     install.packages("Rcpp")
 
 It will prompt and ask for a repository if no default repository is specified. Alternatively you can specify a repository, like:
 
-.. code::
+.. code-block:: r
 
     install.packages("Rcpp", repos='http://cran.us.r-project.org')
 
@@ -103,7 +103,7 @@ To install the aimms package locally we first need to know where the package is.
 
 Open R and at the prompt you can use :token:`setwd` to change the current working directory. Here we copy the string from :token:`rlink::LIBRARY_ROOT` between quotes as argument in :token:`setwd`. It will look something like this:
 
-.. code::
+.. code-block:: r
 
     setwd("C:\\Users\\alice\\ ... \\vc120_x64_Release\\")
 
@@ -111,31 +111,31 @@ Here :token:`...` is used because the string can be quite long. On windows we al
 
 Now the current working directory of R is the location where RLink is installed. You can check this using :token:`getwd()`. The package aimms is located in directory R, so we have to do
 
-.. code::
+.. code-block:: r
 
     setwd("R")
 
 Doing 
 
-.. code ::
+.. code-block:: r
     
     list.files()
     
 will show the files in the current directory. One of the files looks like :token:`aimms_0.1.0.zip`. The numbers can be different, but this is the aimms package that has to be installed. Next we have to decided where we want to install the aimms package. In R you can do
 
-.. code::
+.. code-block:: r
 
     .libPaths()
 
 to show the default locations where R looks for packages. To pick a single location we can simply select one. i.e.
 
-.. code::
+.. code-block:: r
 
     .libPaths()[1] 
 
 will pick the first location from :token:`.libPaths()`. Now we are ready to install the packgae. We can do:
 
-.. code::
+.. code-block:: r
 
     install.packages("aimms_0.1.0.zip",lib=.libPaths()[1],repos=NULL,type="source")
 

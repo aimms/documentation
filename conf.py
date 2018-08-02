@@ -16,8 +16,8 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
+import os
+import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
 # -- General configuration ------------------------------------------------
@@ -212,6 +212,14 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
-
+# -- Import the AIMMSLexer into local Pygments module (syntax highlighting). The styling is made with Hacks.css in the _static folder ----------------------------
+def setup(sphinx):
+	
+    sys.path.insert(0, os.path.abspath("./_static/AIMMSLexer/Lexer"))
+    from aimms import AIMMSLexer
+    from pygments.formatters import HtmlFormatter
+    sphinx.add_lexer("aimms", AIMMSLexer())
+    
+highlight_language = 'aimms'
 
 

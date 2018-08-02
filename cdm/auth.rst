@@ -21,7 +21,7 @@ The system branch
 
 The :token:`system` branch is a predefined branch in *any* CDM database. It is used to register *administrative modifications* such as creation and updates of categories defined within the model or authorization related changes. Regular *user actions* such as reading and writing data or creating branches are not registered on the system branch. 
 
-With respect to authorization profiles, *user action-related* `permissions <#assignable-permissions>`_ within `authorization profiles <auth.html#reating-authorization-profiles>`_ assigned to the :token:`system` branch, will be valid for *any* other branch as  well. 
+With respect to authorization profiles, *user action-related* `permissions <#assignable-permissions>`__ within `authorization profiles <auth.html#Creating-authorization-profiles>`__ assigned to the :token:`system` branch, will be valid for *any* other branch as  well. 
 
 The system category
 -------------------

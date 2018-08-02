@@ -16,7 +16,7 @@ Calling R code
 
 Suppose we have a line of R code that we want to execute: 
 
-.. code::
+.. code-block:: r
 
     write( "Hello World" , file = "helloworld.txt" )
 
@@ -124,7 +124,7 @@ Data can be send from R to AIMMS using:
 
 Data can be send from AIMMS to R using:
 
-.. code::
+.. code-block:: r
 
     Dataframe <- aimms::GetData( Name )
 
