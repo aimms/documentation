@@ -84,7 +84,7 @@ The :token:`StatusDescription` argument can be used to display custom text as th
 Example
 +++++++
 
-An example for the body of the download procedure is shown below. This particular example shows how to create a text file containing the final path of :token:`FileLocation`. An example AIMMS project which illustrates this procedure can be downloaded from :download:`here <resources/DownloadWidgetExample.7z>`.
+An example for the body of the download procedure is shown below. This particular example shows how to create a text file containing the final path of :token:`FileLocation`. An example AIMMS project which illustrates the usage of this procedure can be downloaded from :download:`here <resources/DownloadWidgetExample.7z>`.
 
 
 .. code::
@@ -117,4 +117,6 @@ Note that this generated file is NOT automatically deleted if you are running We
 
 This step is not required on PRO as the temporary PRO folder in which the file is created will be automatically deleted sometime after the session is ended. 
 
-Note: If you need to use folder names in your model, use forward slashes to separate them. This ensures that your project will be able to be executed on a Linux server
+.. tip::
+
+	If you need to use folder names in your model, use forward slashes to separate them. This ensures that your project will be able to be executed on a Linux server
