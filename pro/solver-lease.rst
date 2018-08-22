@@ -1,5 +1,5 @@
 Using Solver leases instead of DelegateToServer
------------------------
+-------------------------------------------------
 
 .. note::
 

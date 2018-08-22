@@ -82,7 +82,7 @@ In combination with an additional project-specific `CSS <#css-styling>`_ file, y
 
 For example, the following 'user annotation'
 
-.. code::
+.. code::	
 
     StringParameter DangerValuesOfX {
         IndexDomain: (i,k);	
@@ -91,7 +91,7 @@ For example, the following 'user annotation'
 
 In combination with the following CSS rule
 
-.. code::
+.. code-block:: CSS
 
     .aimms-widget td.annotation-invalid-value {
         background-color : red;
@@ -115,7 +115,7 @@ Core styling has also been updated to adopt this pattern.
 
 To properly prefix annotations or flags, use the :token:`AWF.Util.getAsCSSClasses` utility-method:
 
-.. code::
+.. code-block:: js
 
     // More usually, these would be requested from the datasource's
     // annotations and flags layers.
@@ -153,7 +153,7 @@ Example 1: Programmatically selecting and manipulating HTML elements by annotati
 
 Example JavaScript:
 
-.. code::
+.. code-block:: js
 
     // This selects all widgets with the class "annotation-bar-baz", and adds the
     // class "my-widget" to them.
@@ -167,7 +167,7 @@ Example 2: Using the annotation or flag in a stylesheet
 
 The prefixed annotation or flag should still be properly escaped for use in a selector (see `CSS.escape <https://drafts.csswg.org/cssom/#utility-apis>`_), although in these examples it is not strictly necessary. Example CSS:
 
-.. code:: 
+.. code-block:: css
 
     /* This styles all text in widgets with the classes "my-widget" and "flag-readOnly" in gray. */
     .my-widget.flag-readOnly {

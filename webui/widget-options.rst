@@ -11,15 +11,9 @@ The ‘cog wheel’ button |cog-widget| (in the upper right corner of a widget) 
 
 This Option Editor consists of several tabs. It depends on the widget type which tabs are available. Tabs that are available for most of the widgets are:
 
-* `Pivot <#pivot>`_
-* `Change Type <#change-type>`_
-* `Store Focus <#store-focus>`_
-* `Contents <#contents>`_
-* `Filters <#filters>`_
-* `Totals <#totals>`_
-* `Identifier Settings <#identifier-settings>`_
-* `Miscellaneous <#miscellaneous>`_
-* Advanced
+.. contents:: Widget Options List
+    :local:
+    :depth: 1
 
 .. tip::
     Option changes are automatically saved to the WebUI Server.
