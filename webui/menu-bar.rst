@@ -5,7 +5,7 @@ WebUI Menu Bar
 
 All pages in your WebUI (except for Wizards) have a *Menu Bar*, consisting of several buttons and text:
 
-|webui-menu-bar|
+|menu-bar-new|
 
 On the left:
  
