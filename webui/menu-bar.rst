@@ -3,28 +3,41 @@ WebUI Menu Bar
 
 .. |menu-bar-new| image:: images/page_menu_new.png
 
+.. |page-manager-new| image:: images/page_manager_new.png
+
+.. |page-settings-new| image:: images/page_options_new.png
+
+.. |pencil-blue-new| image:: images/widget_manager_new.png
+
+.. |data-manager-new| image:: images/data_manager_new.png
+
+.. |menu-button-new| image:: images/page_menu_button_new.png
+
+.. |menu-messages-new| image:: images/menu_messages_new.png
+
+.. |application-settings-new| image:: images/application_settings_new.png
+
+
 All pages in your WebUI (except for Wizards) have a *Menu Bar*, consisting of several buttons and text:
 
 |menu-bar-new|
 
 On the left:
  
-* |page-manager| `Page Manager <page-manager.html>`_ (available in AIMMS developer mode, not in PRO)
-* The name of your project, followed by the current page path.
-* |page-settings| `Page Options <page-options.html>`_ 
-* |pencil-blue| `Widget Manager <widget-manager.html>`_
-* |data-manager| `Data Manager <data-manager.html>`_ 
+* |page-manager-new| `Page Manager <page-manager.html>`_ (available in AIMMS developer mode, not in PRO)
+* The name of the application
 
-Second line:
+In the middle:
 
-* The `Page Menu <page-menu.html>`_
+* |menu-button-new| `Page Menu <page-menu.html>`_
 
 On the right:
 
-* Messages 
-* Help 
-* About AIMMS
-* `Application Settings <application-settings.html>`_
+* |page-settings-new| `Page Options <page-options.html>`_ 
+* |pencil-blue-new| `Widget Manager <widget-manager.html>`_
+* |data-manager-new| `Data Manager <data-manager.html>`_ 
+* |menu-messages-new| Messages 
+* |application-settings-new| `Application Settings <application-settings.html>`_
 
 
 .. |webui-menu-bar| image:: images/menubar.png
@@ -38,7 +51,7 @@ On the right:
 .. |page-manager| image:: images/pagemanager-button.png
 
 
-All pages in your WebUI (except for Wizards) have a *Menu Bar*, consisting of several buttons and text:
+Please note that the old *Menu Bar* (corresponding to the old default theme) had a similar representation, but a different look-and-feel as illustrated below:
 
 |webui-menu-bar|
 
@@ -61,7 +74,7 @@ On the right:
 * About AIMMS
 * `Application Settings <application-settings.html>`_
 
-Detailed description of all menu bar related topics:
+The detailed description of all menu bar related topics can be accessed using the following navigation scheme:
 
 .. toctree::
 
