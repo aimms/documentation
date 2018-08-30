@@ -32,7 +32,7 @@ On the right:
 * Messages 
 * Help 
 * About AIMMS
-* Application Settings
+* `Application Settings <application-settings.html>`_
 
 Detailed description of all menu bar related topics:
 
@@ -45,4 +45,4 @@ Detailed description of all menu bar related topics:
    widget-types
    widget-options
    data-manager
-
+   application-settings
