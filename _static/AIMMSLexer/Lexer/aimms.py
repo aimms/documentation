@@ -3,7 +3,7 @@
     pygments.lexers.aimms
     ~~~~~~~~~~~~~~~~~~~~
 
-    Lexers for the AIMMS language. <http://aimms.com/>
+    Lexers for the AIMMS language. <https://aimms.com/>
 
     :copyright: Copyright 2006-2017 by the Pygments team, see AUTHORS.
     :license: BSD, see LICENSE for details.
@@ -13,15 +13,44 @@ from pygments.lexer import RegexLexer, bygroups, using, this, words
 from pygments.token import Text, Comment, Operator, Keyword, Name, String, \
     Number, Punctuation, Token, Whitespace, Error
 
-    
 __all__ = ['AIMMSLexer']    
 
 
 # Here is the regex to find every identifier declaration, used later on the get_tokens_unprocessed
-id_re = re.compile(r'(?i)(Set|Calendar|Horizon|index|Parameter|ElementParameter|StringParameter|UnitParameter|Variable|elementvariable|complementarityvariable|Constraint|Arc|Node|uncertaintyvariable|uncertaintyconstraint|Activity|Resource|MathematicalProgram|Macro|Model|Assertion|DatabaseTable|DatabaseProcedure|File|Procedure|Function|Quantity|Convention|LibraryModule|Module|Section|Declaration|ExternalProcedure|File|DeclarationSection)(?:\s+)(\w+)(\s*\{|\s*;|\s*:)')
+id_re = re.compile(r'(?i)(Set|Calendar|Horizon|index|Parameter|ElementParameter|StringParameter|UnitParameter|Variable|elementvariable|complementarityvariable|Constraint|Arc|Node|uncertaintyvariable|uncertaintyconstraint|Activity|Resource|MathematicalProgram|Macro|Model|Assertion|DatabaseTable|DatabaseProcedure|File|Procedure|Function|Quantity|Convention|LibraryModule|Module|Section|Declaration|ExternalProcedure|File)(?:\s+)(\w+)(\s*\{|\s*;|\s*:)')
 
-# Create new Tokens for main identifier types (Parameters,EP,SP,Set, Variable, Constraint)
-# TODO
+# Create new Tokens for main identifier types (Parameters,EP,SP,Set, Variable, Constraint, etc.)
+Token.Name.Set
+Token.Name.Parameter
+Token.Name.StringParameter
+Token.Name.ElementParameter
+Token.Name.Variable
+Token.Name.Constraint
+Token.Name.MathematicalProgram
+Token.Name.Quantity
+Token.Name.DatabaseTable
+Token.Name.Convention
+Token.Name.Index
+Token.Name.Procedure
+
+
+def switcher(argument):
+    Types = {
+        "Set":Name.Set,
+        "Parameter":Name.Parameter,
+        "StringParameter":Name.StringParameter,
+        "ElementParameter":Name.ElementParameter,
+        "Variable":Name.Variable,
+        "Constraint":Name.Constraint,
+        "MathematicalProgram":Name.MathematicalProgram,
+        "Quantity":Name.Quantity,
+        "DatabaseTable":Name.DatabaseTable,
+        "Convention":Name.Convention,
+        "Procedure":Name.Procedure,
+        "Index":Name.Index}
+
+    return Types.get(argument, Name.Variable)
+
 
 class AIMMSLexer(RegexLexer):
     """
@@ -45,9 +74,11 @@ class AIMMSLexer(RegexLexer):
             #For AMS files, forces a Comment attribute block to be just a comment, nothing else, weather it is Comment: ... or Comment: {...}
             (r'(Comment:\s+{?)((.|\n)+?)([};])',bygroups(Name.Attribute, Comment.Multiline, Name.Attribute)),
 
-            #For AMS files, matches all Attributes from any declaration
+            #For AMS files, matches all Attributes from any Identifier declaration
             (r'(\w+)(:)(\s+)', bygroups(Name.Attribute,Operator,Text.Whitespace)),
                       
+            #For AMS Files, matches all function arguments pre formatted
+            (r'(\b\w+)(\s+:\s+\b|\s+:\s+\B)', bygroups(Name.Argument, Text)),
             
             # AllKeywords: to be blue! # TODO: put this list outside
             (words(('Adjustable','affine','AIMMS','and','append','apply','arc','argmax','argmin','array','ASCII','assert','assertion','Atleast', 'Atmost','Automatic','backup','binary','Block','boolean','Bounded','bounds','Box','break','by','calendar','Chance','checking', 'cleandependents','cleanup','code','CoefficientRange','Coefficients','Coldim','ColsPerLine','Columns','comment','Complementarity', 'composite','constant','constraint','constraints','Contiguous','convention','conversions','ConvexHull','ConvexHullEx','COP','count', 'cross','CSP','data','database','decimals','declaration','default','definition','delta','dense','Dependency','device','direction', 'disk','display','Distribution','do','double','elementnumber','Ellipsoid','else','elseif','empty','EmptyElementAllowed','encoding', 'EndBlock','endfor','endfunction','endif','EndLibraryModule','endmodel','endmodule','endprocedure','endrepeat','endsection', 'endswitch','endwhile','error','exactly','exec','exists','FailCount','file','filedate','filtering','For','ForAll','fortran', 'FortranConventions','free','function','Gaussian','halt','handle','horizon','identifier','identifiers','if','in','inactive', 'IncludeInCutPool','IncludeInLazyConstraintPool','index','indicator','IndicatorConstraint','indices','inf','inline','inout','input', 'insert','integer','integer16','integer32','integer8','interface','Intersection','IsDiversificationFilter','IsRangeFilter','Level', 'levels','library','LibraryModule','loopcount','LP','LS','macro','main','mathematical','maximize','maxint','MCP','merge','method', 'minimize','MINLP','MIP','MIQCP','MIQP','mode','model','module','MPCC','na','NBest','negative','netinflow','netoutflow','network', 'NLP','NLS','node','nondefault','none','nonnegative','nonpositive','nosave','not','nth','off','on','onerror','only','onlyif', 'option','Optional','options','or','ordinalnumber','output','parallel','parameter','parameters','penalty','positive','prefix', 'procedure','prod','program','property','protected','public','put','putclose','putft','puthd','putpage','QCP','QP','quantity', 'raise','Random','raw','read','ReadOnly','Rebuild','ReducedCost','relation','repeat','replace','retainspecials','RetainsValue', 'return','RightHandSideRange','RMINLP','RMIP','Rowdim','Rows','section','semicontinuous','sequential','set','ShadowPrice', 'ShadowPriceRange','skip','solve','Sort','sos1','sos2','source','sparse','stochastic','string','subject','subset','suffix','sum', 'support','switch','Symmetric','table','tags','tensor','then','to','transitionOnlyNext','truncate','tuple','type','Uncertain', 'undf','Unicode','Unimodal','Union','unordered','update','user','UseResultSet','Utf8','ValueRange','variable','variables', 'violation','void','WarnOnly','when','where','while','window','with','work','write','xor','zero'), prefix=r'(?i)',suffix=r'\b'), Keyword.Reserved),
@@ -72,6 +103,24 @@ class AIMMSLexer(RegexLexer):
             #For AMS files, matches all function arguments
             #(r'(\w+\s+)(:)([^=:].*,|[^=:].*;|,|;|\n.*})', bygroups(Name.Argument,Operator,Text)),
             
+            #Identifiers prefix match: if ANYTHING starts with a EP_ or P_ or ... it is parameter (green) or element parameter (blue), etc.
+            (r'(?i)(\bP_\w+\b)', bygroups(Name.Parameter)),
+            (r'(?i)(\bP01_\w+\b)', bygroups(Name.Parameter)),
+            (r'(?i)(\bEP_\w+\b)', bygroups(Name.ElementParameter)),
+            (r'(?i)(\bS_\w+\b)', bygroups(Name.Set)),
+            (r'(?i)(\bCal_\w+\b)', bygroups(Name.Set)),
+            (r'(?i)(\bSP_\w+\b)', bygroups(Name.StringParameter)),
+            (r'(?i)(\bV_\w+\b)', bygroups(Name.Variable)),
+            (r'(?i)(\bV01_\w+\b)', bygroups(Name.Variable)),
+            (r'(?i)(\bEV_\w+\b)', bygroups(Name.Variable)),
+            (r'(?i)(\bC_\w+\b)', bygroups(Name.Constraint)),
+            (r'(?i)(\bMP_\w+\b)', bygroups(Name.MathematicalProgram)),
+            (r'(?i)(\bDBT_\w+\b)', bygroups(Name.DatabaseTable)),
+            (r'(?i)(\bPR_\w+\b)', bygroups(Name.Variable)),
+            (r'(?i)(\bCNV_\w+\b)', bygroups(Name.Convention)),
+            (r'(?i)(\bI_\w+\b)', bygroups(Name.Index)),
+            
+            
             #Clean every unmatched # character, after everything is matched
             (r'#',Text),
             (r'(\w+|(\.(?!\.)))', Text)
@@ -79,28 +128,34 @@ class AIMMSLexer(RegexLexer):
         
     }
 
-    
+        
     def get_tokens_unprocessed(self,text):
         
-        # for AMS files: catch any identifier declaration, and highlight every reference in the rest of the file. In other words, every user defined identifier is bold blue :) Because I can.
+        # for AMS files: catch any identifier declaration, and highlight every reference in the rest of the file. In other words, every user defined identifier is triggered :) Because I can.
         
         m = id_re.findall(text)
         # Ok, we found all matches from the big identifiers list. thus we end up with a list like this: 
-        # m = [first_match, second_match, ...] and Nth_match = (id_type,id_name,id_operator) = ('Parameter', 'OD', ';')
+        # m = [first_match, second_match, ...] and nth_match = (id_type,id_name,id_operator) = ('Parameter', 'OD', ';')
         
-        id_types = [row[0] for row in m]
-        id_names = [row[1] for row in m]
-        id_op = [row[2] for row in m]
-          
+        id_nametype = {}
+        
+        for i in m:
+        
+            id_nametype[i[1]] = i[0]
+        
+                
+        #print "I'm in get_tokens_unprocessed"
+        
+            
         for index, token, value in RegexLexer.get_tokens_unprocessed(self, text):
             
-            #if token is Token.Name.Argument: print token
+            # if the item is part of the declared (detected) identifiers, attach the appropriate token, thanks to the switcher :)
+            if any(item == value for item in id_nametype.keys()): 
+                yield index, switcher(id_nametype[value]), value
             
-            if any(item == value for item in id_types):
+            # if the item is not detected as an function argument and is part of the Identifier type list, attach a 'kd' token 
+            elif (not (token is Name.Argument) and any(item == value for item in id_nametype.values())): 
                 yield index, Keyword.Declaration, value
-            elif any(item == value for item in id_names):
-                yield index, Name.Variable, value
-            elif any(item == value for item in id_op):
-                yield index, Operator, value
+
             else:
                 yield index, token ,value              
