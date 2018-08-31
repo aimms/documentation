@@ -17,6 +17,8 @@ WebUI Menu Bar
 
 .. |application-settings-new| image:: images/application_settings_new.png
 
+.. |page-breadcrumb-new| image:: images/page_breadcrumb.png
+
 
 All pages in your WebUI (except for Wizards) have a *Menu Bar*, consisting of several buttons and text:
 
@@ -49,6 +51,10 @@ On the right:
 .. |data-manager| image:: images/data-manager_v1.png
 
 .. |page-manager| image:: images/pagemanager-button.png
+
+The page breadcrumb at the bottom of the page shows the "About AIMMS" icon followed by the current page path:
+
+|page-breadcrumb-new|
 
 
 Please note that the old *Menu Bar* (corresponding to the old default theme) had a similar representation, but a different look-and-feel as illustrated below:
