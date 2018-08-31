@@ -26,3 +26,28 @@ Simply set the switch to 'on' for the old theme, or to 'off' for the new theme:
 
 .. image:: images/use_classic_theme_on.png
     :align: center
+
+UI Editable
+-----------
+
+This is a logical condition which determines whether of not the user interface is editable when the application is run under the AIMMS PRO platform.
+
+Limited Option Editor(1/0)
+--------------------------
+
+This is a logical condition which determines whether of not the PRO user of the app gets limited access to the options in the widget/page editor.
+
+Licenseinfo
+-----------
+
+This a string option for some text about the used license which may be placed on the top of the menu bar.
+
+Sidebar Open by Default
+-----------------------
+
+This is a logical condition which determines whether of not the Page Manager windows is opened by default on the left side of the pages.  
+
+Page Manager Hidden
+-------------------
+
+This is a logical condition which determines whether of not the Page Manager button on the menu bar is visible or is hidden.
