@@ -46,3 +46,4 @@ Detailed description of all menu bar related topics:
    widget-options
    data-manager
    application-settings
+
