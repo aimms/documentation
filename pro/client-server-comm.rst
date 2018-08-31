@@ -83,4 +83,4 @@ By waiting for messages, you can create a synchronous workflow around the optimi
 
 .. seealso::
     
-    About the **PostMainInitialization** procedure, and the AIMMS startup procedure: https://download.aimms.com/aimms/download/manuals/AIMMS3LR_DataInitialization.pdf
+    About the **PostMainInitialization** procedure, and the AIMMS startup sequence: https://download.aimms.com/aimms/download/manuals/AIMMS3LR_DataInitialization.pdf
