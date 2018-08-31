@@ -19,6 +19,8 @@ WebUI Menu Bar
 
 .. |page-breadcrumb-new| image:: images/page_breadcrumb.png
 
+.. |menu-bar-453| image:: images/page_menu_453.png
+
 
 All pages in your WebUI (except for Wizards) have a *Menu Bar*, consisting of several buttons and text:
 
@@ -56,8 +58,11 @@ The page breadcrumb at the bottom of the page shows the "About AIMMS" icon follo
 
 |page-breadcrumb-new|
 
+Please note that for AIMMS versions between 4.53 and 4.58 the information above has been rendered differently in the page menu as illustrated here:
 
-Please note that the old *Menu Bar* (corresponding to the old default theme) had a similar representation, but a different look-and-feel as illustrated below:
+|menu-bar-453| 
+
+Furthermore, for AIMMS versions older than 4.53 the old *Menu Bar* (corresponding to the old default theme) had a similar representation, but a different look-and-feel as illustrated below:
 
 |webui-menu-bar|
 
