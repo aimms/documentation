@@ -3,7 +3,7 @@ Page Menu
 
 From AIMMS 4.53.1 onwards, we offer a newly designed Page Navigation Menu. This menu helps you find your way around AIMMS Apps and get a general overview much more easily. As this new menu will become the new default, your existing Apps will change automatically. The menu looks like this:
 
-.. image:: images/menuux20.png
+.. image:: images/page_menu_new453.png
     :align: center
 
 The menu supports up to a maximum of six columns on one row (width 1024 pixels). AIMMS recommends using no more than that, but the menu does support it if needed by introducing a second row; even adding a 7th column if possible due to wider screen usage. The menu supports up to 10 menu items and five levels of hierarchy. However, AIMMS recommends using no more than three giving you a theoretical 600 pages (6x10x10). If more are needed it could be wise to reconsider the app architecture. We also provide a short `demonstration video <https://gitlab.aimms.com/public-repos/disable-ux-2.0-menu/blob/master/UX2.0-%20New%20MenuBar%20Demo.mp4>`_ of the new menu.

@@ -3,7 +3,12 @@ Application Settings
 
 .. |applicationsettings-icon| image:: images/applicationsettings-icon.png
 
-There are some settings that not only apply to a specific widget or page, but to the WebUI application as a whole. These settings can be accessed through the Application Settings menu, which you can open by clicking on the |applicationsettings-icon| icon.
+.. |application-settings-open| image:: images/app_settings_open_new.png
+
+There are some settings that not only apply to a specific widget or page, but to the WebUI application as a whole. 
+These settings can be accessed through the Application Settings menu, which you can open by clicking on the |applicationsettings-icon| icon:
+
+
 
 Use Classic Theme
 -----------------
