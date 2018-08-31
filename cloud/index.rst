@@ -5,7 +5,7 @@ The AIMMS Cloud Platform is a fully managed AIMMS PRO environment. It is secure,
 
 .. toctree::
 
-   ../pro/intro
+   cloud-intro
    architecture
    requirements
    admin

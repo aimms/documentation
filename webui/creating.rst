@@ -22,7 +22,9 @@ To be able to control what identifiers are visible to the WebUI (e.g. when selec
 
 When running in development mode, the contents of this set is ignored. This means that you can simply see all identifiers declared in your model from within the WebUI which you are building. When deploying your finished WebUI application on AIMMS PRO, only the identifiers which are in the set :token:`AllPublicIdentifiers` are available to end users who try to add or modify contents of the existing widgets in the app. However, if you, as an app developer, have created widgets containing identifiers not present in the :token:`AllPublicIdentifiers` set, the end-user is, of course, still able to see the data of these identifiers through these widgets.
 
-As a result of the way of working described above, if the set :token:`AllPublicIdentifiers` has not been declared in your model, then all identifiers are available to the WebUI app developer when in developer mode, but no identifiers are available to the end user when running the WebUI app on the PRO platform (i.e. if the end user tries to add or modify contents in existing widgets). In such a case, the end user may only use the existing widgets with the content identifiers set initially by the app developer. 
+As a result of the way of working described above, if the set :token:`AllPublicIdentifiers` is declared in your model but is empty, then all identifiers are available to the WebUI app developer when in developer mode, but no identifiers are available to the end user when running the WebUI app on the PRO platform (i.e. if the end user tries to add or modify contents in existing widgets). In such a case, the end user may only use the existing widgets with the content identifiers set initially by the app developer. 
+
+If the set :token:`AllPublicIdentifiers` is not declared, then all the identifiers in your model are available in both developer mode and the app published on PRO. 
 
 Identifiers in a Library
 ------------------------

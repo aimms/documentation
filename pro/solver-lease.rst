@@ -1,9 +1,9 @@
 Using Solver leases instead of DelegateToServer
------------------------
+-------------------------------------------------
 
 .. note::
 
-	This feature is ONLY available for the AIMMS Cloud Platform starting with AIMMS 4.57 or higher.
+	This feature is ONLY available on the AIMMS Cloud Platform starting with AIMMS 4.57 or higher for WebUI applications.
 
 On the AIMMS Cloud platform it takes several seconds (typically about 5-8 seconds) to spin up a solver session at the server. The solve itself might however take only 2 or 3 seconds or even less. Obviously the overhead involved with starting a new solver session is way bigger then actual solve time. In order to solve this problem we introduced the notion of temporarily leasing a solver license in your running WebUI session to execute the solving inside that WebUI session. This removes the overhead of starting a solve session and the involved case-io.
 
