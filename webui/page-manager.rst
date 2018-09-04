@@ -174,8 +174,8 @@ During this process, the user can cancel the process.
 
 Such a shopping cart wizard will guide the user through a set of pages and it will make sure that all the necessary data is provided and handled in the way it should. E.g. no order is placed when the user is still unknown. 
 
-Create, Update or Delete as Wizard
-+++++++++++++++++++++++++++++++++++
+Create, Update or Delete a Wizard
+++++++++++++++++++++++++++++++++++
 
 To create, update or delete a wizard:
 
