@@ -14,8 +14,6 @@ In order to `develop <creating.html>`_ a web interface for an AIMMS application 
     * Microsoft Edge, or
     * Microsoft Internet Explorer 11.
 
-    Please note that AIMMS WebUI support for the latter two browsers is currently in the so-called "beta" phase. So, in case you experience any problems with it, please let us know. 
-
     .. tip::
 
         There is a known problem with Internet Explorer 11: if you face a blue screen after starting your WebUI app in the browser, you should verify that the setting "Display Intranet Sites in Compatibility View" is set to unchecked. You can find this option under "Compatibility View Options" in the main menu of IE11.
