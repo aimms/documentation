@@ -5,7 +5,7 @@ Here you can find a summary of the steps to be taken for creating a WebUI for yo
 
 #. Check the `Requirements <requirements.html>`_ section.
 #. `Download <https://aimms.com/english/developers/downloads/download-aimms/>`_ (the latest version of) the AIMMS development system.
-#. Make sure you have a recent version of the `Chrome <https://www.google.com/intl/en/chrome/browser/>`_ browser (the support for Microsoft Internet Explorer 11 and Microsoft Edge is currently in the so-called "beta" phase).
+#. Make sure you have the latest version of preferably the `Chrome <https://www.google.com/intl/en/chrome/browser/>`_ browser (as it performs the best), or Microsoft's Internet Explorer 11 or Edge.
 #. In the AIMMS development system, open an existing application or create a new one. 
 #. New application projects contain the :token:`AimmsPROLibrary` and the :token:`AimmsWebUI` system libraries by default. If you already have an older project, it might not contain these libraries, yet. In that case, you need to extend your model with these libraries. To add AIMMS libraries to your model: go to the *Library Manager* of AIMMS (in the *File* menu) and select *Add System Library*. 
 #. Start WebUI by clicking on *WebUI* in the AIMMS toolbar, or by using the *WebUI* (sub)menu in the AIMMS *Tools* menu. The first time, this will create a     `WebUI folder <folder.html>`_ in your *Main Project* subfolder. When using *Start WebUI*, the WebUI is started without opening a browser. When you select one of the browsers, WebUI is started and the browser is opened at the home page of your app.
