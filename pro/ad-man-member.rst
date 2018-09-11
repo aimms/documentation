@@ -34,7 +34,7 @@ Because of the way the single sign-on procedure works, you should only have a si
 Role-based Authentication
 +++++++++++++++++++++++++
 
-When you add groups to an Active Directory enabled environment of which the name matches the name of a security group within the Active Directory domain,
+When you add groups to an Active Directory enabled environment of which the name or description  matches the name of a security group within the Active Directory domain,
 logged on users will be dynamically added to the user groups within the environment that correspond to security groups of which they are a member. When the group membership changes upon a next logon, the group membership within the AIMMS PRO environment will change accordingly. Group membership of the *admin* group of the environment or groups within other environments will not be affected by this dynamic group membership modification mechanism.
 
 Please note that User Group names in AIMMS PRO are case sensitive, i.e., the name of the Active Directory security group and the PRO group have to match in a case sensitive manner for AIMMS PRO to recognize it correctly.

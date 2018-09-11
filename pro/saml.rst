@@ -45,7 +45,7 @@ Please note that if you have both an AD and a SAML environments configured at yo
 Role-based Authentication
 -------------------------
 
-When you add groups to an SAML enabled environment of which the name matches the name of a group within the claims provided by SAML identity Provider,
+When you add groups to a SAML enabled environment of which the name or description matches the name of a group within the claims provided by SAML identity Provider,
 logged on users will be dynamically added to the user groups within the environment that correspond to groups of which they are a member. When the group membership changes upon a next logon, the group membership within the AIMMS PRO environment will change accordingly. Group membership of the admin group of the environment or groups within other environments will not be affected by this dynamic group membership modification mechanism.
 
 Please note that User Group names in AIMMS PRO are case sensitive, i.e., the name of the group from the claims and the PRO group have to match in a case sensitive manner for AIMMS PRO to recognize it correctly.
