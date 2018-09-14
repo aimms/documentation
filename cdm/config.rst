@@ -129,7 +129,7 @@ Typically, these would point to the hostname and credentials of the MySQL applic
 
 * If the application is deployed from an on-premise PRO server and :token:`cdm::TunnelContext` is set, the CDM library will set up a PRO tunnel to the given tunnel context name. Such PRO tunnels can be configured by the PRO administrator in the PRO portal, and allow the client application to connect to an endpoint behind a firewall through the tunnel. In this case, the configured endpoint would be the service URI of a PRO service running behind the data center firewall.
 
-* In all other cases, the CDM library will connect directly to the URI configured through :token:`cdm::ServiceURI`, which will default to tcp://localhost:19999, i.e. a CDM service running on the local machine, and configured to listen on the default port. This is also the default port on which the embedded CDM will listen.
+* In all other cases, the CDM library will connect directly to the URI configured through :token:`cdm::ServerURI`, which will default to tcp://localhost:19999, i.e. a CDM service running on the local machine, and configured to listen on the default port. This is also the default port on which the embedded CDM will listen.
 
 Initial checkout of data
 ------------------------
