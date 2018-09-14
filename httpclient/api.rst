@@ -146,7 +146,7 @@ Request Getters and Setters
     :param requestBodyType: the request body type set
     :param requestBodyValue: the file name to retrieve the request body from for response body type ``File``
 
-.. js::function::  web::request_getResponseHeaders(requestId,headers)
+.. js:function::  web::request_getResponseHeaders(requestId,headers)
 
     Get the current HTTP headers of the HTTP response after a call to the function :js:func:`web::request_invoke`.
     
