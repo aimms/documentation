@@ -27,7 +27,7 @@ For the data management style using separate files on disk for each case, case c
 * pro::ManagedSessionInputCaseIdentifierSet, for input cases
 * pro::ManagedSessionOutputCaseIdentifierSet, for output cases
  
-If not specified explicitly, both sets will default to AllIdentifiers. If you assign the empty set to any of these sets, AIMMS PRO will not create and transfer an input, and/or output case file respectively. Starting with AIMMS 4.50.1, AIMMS PRO will always remove the set AllDefinedParameters from the above sets before saving the case for performance reasons because of smaller files and lower transfer times. As of AIMMS 4.59.2 it is possible to change this behavior by indicating wich identifiers will be removed by specifying that in the set: 
+If not specified explicitly, both sets will default to AllIdentifiers. If you assign the empty set to any of these sets, AIMMS PRO will not create and transfer an input, and/or output case file respectively. Starting with AIMMS 4.50.1, AIMMS PRO will always remove the set AllDefinedParameters from the above sets before saving the case for performance reasons because of smaller files and lower transfer times. As of AIMMS 4.59.2 it is possible to change this behavior by indicating which identifiers will be removed by specifying that in the set: 
 
 * pro::ManagedSessionRemoveFromCaseIdentifierSet
 
