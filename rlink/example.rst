@@ -155,7 +155,7 @@ In this example we will create a network nn. The network has parameters called w
 
 Let's look at R code in file :token:`trainnn.r`:
 
-.. code::
+.. code-block:: r
 
     # get args from AIMMS
     dfin <- aimms::GetData("ArgsIn")
@@ -190,13 +190,13 @@ Besides :token:`nsamp` we also have to specify :token:`nhids` (the number of hid
 
 Note that if you take the code above, you cannot run it from a standalone R instance itself because the function :token:`aimms::GetData` assumes that AIMMS is running. This can make the coding and testing of the R code hard. To make R code runnable without AIMMS one could introduce an boolean:
 
-.. code::
+.. code-block:: r
 
     NOAIMMS <- TRUE
 
 And then calls to :token:`aimms::GetData` and :token:`aimms::SetData` can be enclosed in an :token:`if` statement, like:
 
-.. code::
+.. code-block:: r
 
     if (NOAIMMS){
         dfin <- data.frame(nsamp=10, nhids=3, decayrate=0.001, maxiter=100)
@@ -261,7 +261,7 @@ Continue working with the active R session
 
 When we run this we do not see anything happening because we basically sent some parameters to R and told it to train a network. Nothing is sent back to AIMMS. To see that something actually did happen we could look at the weights of the trained network. To do this we create script :token:`showweights.r`. When we call this script using :token:`ExecScript` we assume that the network :token:`nn` exists in R and that script :token:`trainnn.r` has been called. To prevent from accidentally calling it when :token:`nn` does not exist we start :token:`showweights.r` with:
 
-.. code::
+.. code-block:: r
 
     if (!exists("nn")){ 
         stop(c("Call TrainNN before calling this function"),call. = FALSE)
@@ -275,7 +275,7 @@ To present this neatly we have to rearrange :token:`wts`. The constrain we have 
 
 Script :token:`showweights.r` continues with:
 
-.. code::
+.. code-block:: r
 
     whidx <- 1:(nn$n[2]*(nn$n[1]+1)) 
        
@@ -330,7 +330,7 @@ If we want to test the network we can compute the confusion matrix on the sample
 
 In script :token:`confusionmatrix.r` we first create a table and then convert it to a data frame. Of course we first have to test for the existence of :token:`nn`, and then we can add the following R code: 
 
-.. code::
+.. code-block:: r
 
     cm <- as.data.frame(table( # names default to  "Var1" "Var2" "Freq"
       dfiris$Species[-sampidx],                      # correct
@@ -400,7 +400,7 @@ Script plotresult.r
 
 We can simply do:
 
-.. code::
+.. code-block:: r
 
     dfin    <- aimms::GetData("ArgsIn")
     imgpath <- as.character( dfin$imgpath[1]  )
@@ -409,14 +409,14 @@ We can simply do:
 
 We want to make a plot that shows the data used for training and the test results for each species. Again we have to check first if :token:`nn` exists, and if it does we know that :token:`trainnn.r` was called and that also :token:`sampidx` exist. We can make a data frame :token:`dftrain` containing an extra column :token:`Result` indicating that these are samples from the train set.
 
-.. code::
+.. code-block:: r
 
     dftrain <- dfiris[sampidx,]
     dftrain$Result <- as.factor("TrainSet")
 
 The remainder of :token:`sampidx` is used to specify the data frame :token:`dftest`, where extra column :token:`Result` now contains :token:`FALSE` or :token:`TRUE` indicating whether the sample is predicted correctly.
 
-.. code::
+.. code-block:: r
 
     dftest <- dfiris[-sampidx,]
     tst <- predict(nn,dftst,type="class")
@@ -424,25 +424,25 @@ The remainder of :token:`sampidx` is used to specify the data frame :token:`dfte
 
 Now combine both data frames into one :token:`dfresult` data frame that is ready for plotting:
 
-.. code::
+.. code-block:: r
 
     dfresult <- rbind(dftrain,dftest)
 
 We can use the column :token:`Result` of :token:`dfresult` to determine the color in the plot. We choose *yellow* for the train set, *red* for :token:`FALSE` and *green* for :token:`TRUE` and place the result in array :token:`bgval`:
 
-.. code::
+.. code-block:: r
 
     bgval <- c("yellow","red","green")[ unclass(dfresult$Result) ]  
 
 For each species we want to choose a shape, so we can look at column :token:`Species` of :token:`dfresults`. Shapes are indicated by a value ranging from 21 to 25, where 21 is circle, 22 is square, 23 is diamond, 24 is triangle up and 25 is triangle down. Here we select the circle, diamond and triangle up and place this result in array :token:`pchval`:
 
-.. code::
+.. code-block:: r
 
     pchval <- c(21,22,24)[ unclass(dfresult$Species) ]
 
 Now we only have to open a :token:`png` device and pass the concatenation of :token:`imgpath` and the filename. Plot the result using the created :token:`bgval` and :token:`pchval` and add names for axis and title. When the :token:`png` device is closed using :token:`dev.off` the png file will be created in the right directory. In R code this is:
 
-.. code::
+.. code-block:: r
 
     png( filename = sprintf("%s%s",imgpath,sepalpng) )
     plot(dfresult$Sepal.Length, dfresult$Sepal.Width,
