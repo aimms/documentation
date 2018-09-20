@@ -18,7 +18,7 @@ Internally, the data structures employed by AIMMS to store all application data 
 Different types of decision support applications
 ================================================
 
-We usually distinguish three different types of decision support applications, operational, tactical and strategic. For each of these types, the multi-user requirements are somewhat different. 
+We usually distinguish three different types of decision support applications, operational, tactical and strategic. For each of these types, the multi-user requirements are somewhat different.
 
 * For *operational* applications, as far as data is concerned, there is typically only a single version of the truth, namely the current operational data. The key multi-user feature here is to make changes by any user visible to all other users of the application with the least amount of delay possible. Typically, such changes do not involve optimization, or otherwise just local optimization models involving only the data that's being changed by the user at hand. A transaction would entail the user's manual changes, potentially together with further changes that are the result of a local optimization. Application-wide optimization runs involving all data of the application are typically run in a different mode on a snapshot of all the available data at a particular point in time.
 
