@@ -38,7 +38,7 @@ By default, resources are loaded in alphabetical order. You can influence this l
 
 An example package.json could be:
 
-.. code::
+.. code-block:: JSON
 
     {
        "name": "my-application-specific-resource",
@@ -137,7 +137,7 @@ To properly prefix annotations or flags, use the :token:`AWF.Util.getAsCSSClasse
 
 This will result in an element with the following :token:`class` attribute:
 
-.. code::
+.. code-block:: css
 
     ... class="annotation-foo annotation-bar-baz flag-readOnly" ...
 
@@ -195,7 +195,7 @@ The units that are displayed follow the Convention identifier in your model that
 
     In AIMMS 4.50 and lower versions, unit support was handled in the manner described below. When opening your WebUI in AIMMS 4.51 or higher, you will automatically get a warning dialog if this 'old-style' unit support is detected. You are encouraged to adapt your model to the new standard.
 
-.. code::
+.. code-block:: js
 
     IdentifierUnitMap = {
 		"Distance" : "km"
@@ -215,7 +215,7 @@ In addition to the built-in translations in WebUI, you can add your own translat
 
 Please note that you can translate not only from one language to another, but also from model abbreviations to strings that are more readable by the end-user, e.g.:
 
-.. code::
+.. code-block:: js
 
    F_X_EGG = Egg
 
@@ -231,17 +231,19 @@ Translation files should be placed anywhere below your project's `resources <fol
 
 To provide a default translation in English for your WebUI app, create a file :token:`<anything>.properties` with your translation pairs:
 
-.. code::
+.. code-block:: js
 
     org_name = Organi***z***ation name
 
 To provide a translation for another language, e.g. :token:`nl`, create a file :token:`<anything>_nl.properties` with your translation pairs:
 
-bc.    org_name = Organisatienaam
+.. code-block:: js    
+
+    org_name = Organisatienaam
 
 To provide a translation for a language-locale, e.g. :token:`en-GB`, create a file :token:`<anything>_en-GB.properties` with your translation pairs:
 
-.. code::
+.. code-block:: js
 
     org_name = Organi***s***ation name
 
@@ -270,7 +272,7 @@ Please note that when you display elements of a subset in the WebUI, it will aut
 
 For now, the element text identifiers need to be specified in a project-specific JavaScript resource (located in the :token:`resources` subfolder) that lists the string parameter on a per-index level. For example, a project specific resource with the following contents
 
-.. code::
+.. code-block:: js
 
     ElementTextMap = {
          "i" : "ItemDescription"
