@@ -7,6 +7,7 @@ Most widget types are easy to add/use, but some of them benefit from some furthe
 
 .. toctree::
     
+	bar-chart-widget
     bubble-chart-widget
     download-widget
     gantt-chart-widget
