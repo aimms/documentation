@@ -1,7 +1,9 @@
 Bar Chart Widget
 ----------------
 
-The Bubble Chart widget offers the possibility to display 3 aspects of information about set elements in your model. It uses an X/Y-plane to display circles (the so-called *bubbles*) for each data point. The size of the circles also provides information about the data points. For example, in a bubble chart about project management, the X-axis could represent the time to complete, the Y-axis the projected profit and the sizes of the bubbles could depict the risk involved:
+The Bubble Chart widget offers the possibility to display multidimensional data in your model by using an X/Y-plane to display a *bar* for each data point. 
+The height of a bar provides information about the value of the correspoding data point. 
+For example, ...
 
 Specifying the contents
 +++++++++++++++++++++++
