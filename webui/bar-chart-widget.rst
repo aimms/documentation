@@ -1,14 +1,58 @@
 Bar Chart Widget
 ----------------
 
-The Bubble Chart widget offers the possibility to display multidimensional data in your model by using an X/Y-plane to display a *bar* for each data point. 
-The height of a bar provides information about the value of the correspoding data point. 
-For example, ...
+.. |barchart-contents| image:: images/BarChart-Contents.png
 
-Specifying the contents
-+++++++++++++++++++++++
+.. |barchart-pivot1| image:: images/BarChart-Pivot1.png
 
-To create a bubble chart, you have to specify exactly 3 AIMMS parameters on the Bubblechart tab of the widget's option editor (the one with the lonely bubble in it). The top one ('X') should contain the X-coordinates, the second one ('Y') the Y-coordinates and the third one ('Size') the bubble sizes. All 3 parameters should have the same index domain. For a bubble chart displaying information about the planets in our solar system, the following identifiers could be used in your model:
+.. |barchart-layout1| image:: images/BarChart-Layout1.png
+
+The Bar Chart widget represents data as vertical bars. More specifically, it offers the possibility to display multi-dimensional data in your model by using an X/Y-plane to display a bar 
+for each data point. The height of a bar provides information about the value of the correspoding data point. 
+For example, in the TransNet application (see the "Quick Start: My First WebUI" section), the unit transport costs for every combination (factory,center) may be represented using a bar chart 
+like illustrated in the sequel.
+
+
+Contents and Pivoting
++++++++++++++++++++++
+
+In order to determine the information to be rendered by a bar chart, first one has to specify the data identifier(s) in the Contents tab of the widget's options editor:
+
+.. image:: images/BarChart-Contents.png
+    :align: center
+	
+Next, in the Pivot tab of the options editor, one can specify how the data dimensions are to be organized in the chart. 
+For example, if both the factory index f and the center index c are specified in the X-axis section and the <IDENTIFIER-SET> in the Totals section then the resulting bar chart looks like 
+in below picture on the right:
+
+.. image:: images/BarChart-View1.png
+    :align: center
+
+One may move some data indexes in the Grouped section of the Pivot tab. In our example, moving the center index c to the Grouped section results in the following bar chart view:
+
+.. image:: images/BarChart-View2.png
+    :align: center
+
+Similarly, one may move some data indexes in the Stacked section of the Pivot tab. In our example, moving the center index c to the Stacked section results in a bar chart view like below:
+
+.. image:: images/BarChart-View3.png
+    :align: center
+	
+Change Type
++++++++++++
+
+In the Change Type tab of the widget's options editor, one can switch from the barchart to some other type. 
+In the exmple at hand, one can switch eg. from the barchart to the table, resulting in the tabular view of the data values:
+
+.. image:: images/BarChart-ViewTable.png
+    :align: center
+
+	
+	
+	
+exactly 3 AIMMS parameters on the Bubblechart tab of the widget's option editor (the one with the lonely bubble in it). 
+The top one ('X') should contain the X-coordinates, the second one ('Y') the Y-coordinates and the third one ('Size') the bubble sizes. 
+All 3 parameters should have the same index domain. For a bubble chart displaying information about the planets in our solar system, the following identifiers could be used in your model:
 
 * A set called :token:`Planets` with index :token:`p`;
 * A parameter called :token:`DistanceToSun(p)`;
