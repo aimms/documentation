@@ -127,4 +127,4 @@ Miscellaneous
 +++++++++++++
 
 In the Miscellaneous tab of the bar chart's options editor, other options may be set such as the title of the widget, whether or not the widget is visible (this may be determined by a model parameter)
-and the number of decimals for the values displayed in the chart.
+or the number of decimals for the values displayed in the chart.

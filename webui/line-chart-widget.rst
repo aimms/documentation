@@ -1,7 +1,7 @@
 Line Chart Widget
 -----------------
 
-The Line Chart widget is a X-Y plot and represents data as a graph with lines and dots. A typical situation is when a 1-dimentional identifier such as the Demand(c) of a distribution center c in the TransNet application 
+The Line Chart widget is a X-Y plot and represents data as a graph with lines and dots. A typical situation is when a 1-dimensional identifier such as the Demand(c) of a distribution center c in the TransNet application 
 (see the "Quick Start: My First WebUI" section) is displayed like in the following picture:
 
 .. image:: images/LineChart-1dimEx.png
@@ -114,13 +114,22 @@ by a visible (gray) contour, while the rest of the dots and lines are somewhat f
     :align: center
 
 When a dot has been selected, the user may still hover over another dot and inspect the tooltip information, in the same way as the hovering works when no dot has been selected 
-(remark: a selected bar may be unselected by clicking again on it):
+(remark: a selected dot may be unselected by clicking again on it):
 
 .. image:: images/LineChart-ViewHover.png
     :align: center
 
+It is also possible to select a line by clicking on it, in which case the selected line is highlighted by a visible (gray) color, while the rest of the dots and lines are somewhat faded away: 
+
+.. image:: images/LineChart-SelectLine.png
+    :align: center
+
+However, in this case the store focus cannot be applied, because such a selection does not determine a unique pair of values for the element parameters (SelectedFactory, SelectedCenter).
+
+Again, as a remark: a selected line may be unselected by clicking again on it.
+
 Miscellaneous
 +++++++++++++
 
-In the Miscellaneous tab of the bar chart's options editor, other options may be set such as the title of the widget, whether or not the widget is visible (this may be determined by a model parameter)
-and the number of decimals for the values displayed in the chart.
+In the Miscellaneous tab of the line chart's options editor, other options may be set such as the title of the widget, whether or not the widget is visible (this may be determined by a model parameter)
+or the number of decimals for the values displayed in the chart.

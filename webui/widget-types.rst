@@ -11,13 +11,13 @@ Please see the widgets below that we (partly) documented:
 
 .. toctree::
 
-    bar-chart-widget
-    line-chart-widget    
+    bar-chart-widget   
     bubble-chart-widget
     download-widget
     gantt-chart-widget
     group-widget
     image-widget
+    line-chart-widget 
     map-widget
     scalar-widget
     slider-widget
