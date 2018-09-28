@@ -7,7 +7,7 @@ Bar Chart Widget
 
 .. |barchart-layout1| image:: images/BarChart-Layout1.png
 
-The Bar Chart widget represents data as vertical bars. A typical situation is when a 1-dimentional identifier such as the Supply(f) of a factory f in the TransNet application 
+The Bar Chart widget represents data as vertical bars. A typical situation is when a 1-dimensional identifier such as the Supply(f) of a factory f in the TransNet application 
 (see the "Quick Start: My First WebUI" section) is displayed like in the following picture:
 
 .. image:: images/BarChart-1dimEx.png

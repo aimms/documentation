@@ -19,6 +19,7 @@ Please see the widgets below that we (partly) documented:
     image-widget
     line-chart-widget 
     map-widget
+    pie-chart-widget
     scalar-widget
     slider-widget
     table-widget
