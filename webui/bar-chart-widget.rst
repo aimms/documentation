@@ -15,7 +15,7 @@ The Bar Chart widget represents data as vertical bars. A typical situation is wh
 
 More generally, a bar chart widget offers the possibility to display multi-dimensional data in your model by using an X/Y-plane to display a bar 
 for each data point. The height of a bar provides information about the value of the correspoding data point. 
-For example, in the TransNet application, the unit transport costs for every combination (factory, center) may be represented using a bar chart 
+For example, in the TransNet application, the unit transport costs for every combination (factory, center) may be represented using a bar chart widget 
 like illustrated in more details in the sequel. More specifically, we discuss and illustrate below one-by-one the tabs in the bar chart's options editor 
 which may be accessed through the Settings wheel as shown in the picture above.
 
@@ -66,7 +66,7 @@ Additionally, one may also specify a step size which determines the distance bet
 Filters
 +++++++
 
-In the Filters tab of the widget's options editor, some of the other widgets on the same page may be chosen for filtering the data points shown ion the bar chart. 
+In the Filters tab of the widget's options editor, some of the other widgets on the same page may be chosen for filtering the data points shown in the bar chart. 
 In our example, chosing TransportData widget as a filter results in a confined bar chart view as only those data points are shown for which the TransportData widget shows non-default values: 
 
 .. image:: images/BarChart-ViewFilters.png

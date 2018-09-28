@@ -11,7 +11,8 @@ Please see the widgets below that we (partly) documented:
 
 .. toctree::
 
-    bar-chart-widget    
+    bar-chart-widget
+    line-chart-widget    
     bubble-chart-widget
     download-widget
     gantt-chart-widget
