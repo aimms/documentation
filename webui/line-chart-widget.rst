@@ -125,8 +125,11 @@ It is also possible to select a line by clicking on it, in which case the select
     :align: center
 
 However, in this case the store focus cannot be applied, because such a selection does not determine a unique pair of values for the element parameters (SelectedFactory, SelectedCenter).
-
 Again, as a remark: a selected line may be unselected by clicking again on it.
+
+.. note::
+
+    In the Line Chart widget the Hover and Select visual functionalities are available. However, when selecting a line, the line itself does not set any store focus elements as this cannot be uniquely determined. Only the nodes selections can set such store focus identifiers.
 
 Miscellaneous
 +++++++++++++
