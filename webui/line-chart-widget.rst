@@ -29,12 +29,17 @@ in the picture below on the right:
 .. image:: images/LineChart-View1.png
     :align: center
 
-One may move some data indexes in the Overlays section of the Pivot tab. In our example, moving the center index c to the Overlays section results in the following line chart view:
+One may move some data indexes in the Overlays section of the Pivot tab. In our example, moving the factory index f to the Overlays section results in the following line chart view:
 
 .. image:: images/LineChart-View2.png
     :align: center
 
 So, now for every factory f there is a line in the chart with a different color. The three lines are drawn independent of each other.
+
+If one moves the center index f to the Overlays section and the factory index f back to the X-axis, then the line chart view shows a line for every center:
+
+.. image:: images/LineChart-View22.png
+    :align: center
 	
 Similarly, one may move some data indexes in the Stacked section of the Pivot tab. In our example, moving the center index f to the Stacked section results in a line chart view like below:
 
