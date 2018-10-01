@@ -24,5 +24,6 @@ Please see the widgets below that we (partly) documented:
     slider-widget
     table-widget
     text-widget
+    tree-map-widget	
     upload-widget
     
