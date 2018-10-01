@@ -21,6 +21,7 @@ Please see the widgets below that we (partly) documented:
     map-widget
     pie-chart-widget
     scalar-widget
+    selection-widgets	
     slider-widget
     table-widget
     text-widget
