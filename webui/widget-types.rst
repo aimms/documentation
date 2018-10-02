@@ -13,10 +13,12 @@ Please see the widgets below that we (partly) documented:
 
     bar-chart-widget   
     bubble-chart-widget
+    button-widget
     download-widget
     gantt-chart-widget
     group-widget
     image-widget
+    label-widget
     line-chart-widget 
     map-widget
     pie-chart-widget
