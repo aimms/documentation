@@ -1,9 +1,6 @@
 Email Client API
 ================
 
-Server Management
-------------------
-
 .. js:function::  email::SetServer(_HostName,_Port,_ConnectionType,_AuthType,_UserName,_Password,_OAuth2Token,_CheckCertificate)
 
     Sets the STMP server to use for sending email messages through the js:func:`email::SendMail` function. Returns 1 if successful, or 0 otherwise.
@@ -62,7 +59,7 @@ Server Management
 .. js:function::  email::AddRelatedAttachment(_MessageId,_Path,_Cid)
 
     Adds related attachments to the email message, e.g. to add images to the message referred to in the HTML body of the message. To add a related attachment in the HTML body,
-    you should specify :token:`cid:<_Cid>` for the :token:`src` attribute, where :token:`<_Cid>` is the value pass through the :token:`_Cid` argument. Returns 1 if successful, or 0 otherwise.
+    you should specify :token:`cid:CidValue` for the :token:`src` attribute, where :token:`CidValue` is the value pass through the :token:`_Cid` argument. Returns 1 if successful, or 0 otherwise.
    
     :param _MessageId: message id of the email message
     :param _Path: file path to the attachment to add to the email message.

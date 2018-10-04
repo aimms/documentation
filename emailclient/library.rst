@@ -31,7 +31,7 @@ The following example shows how to send an email with and attachment. It demonst
     .. code::
 
         ! Set the STMP server that will actually send the email message
-        retval := email::SetServer("smtp.company.com", 25, MCConnectionType: email::ConnectionTypeStartTLS);
+        retval := email::SetServer("smtp.company.com", 25, _ConnectionType: email::ConnectionTypeStartTLS);
 
         ! Create the email and set the recipient
         retval := email::NewMail("Test mail", "User Support", "support@company.com", messageId);
@@ -41,21 +41,47 @@ The following example shows how to send an email with and attachment. It demonst
         PlaceHolderValues := data { LICENSEE: "Joe User", LICENSENUMBER: "1.2.3.4", ACTIVATIONCODE: "abcde-abcde-abcde-abcde-abcde" };
 
         ! Create the text and HTML body of the email message from templates and placeholder values
-        retval := email::SetMessageFromFile(messageId,"Template/license.txt", "Template/license.html", PlaceHolderValues);
+        retval := email::SetMessageFromFile(messageId, "license.txt", "license.html", PlaceHolderValues);
         
         ! Add bitmaps contained in HTML body as related attachments
-        retval := email::AddRelatedAttachment(messageId,"Template/license_files/image001.jpg", "image001.jpg");
-        retval := email::AddRelatedAttachment(messageId,"Template/license_files/image002.png", "image002.png");
-        retval := email::AddRelatedAttachment(messageId,"Template/license_files/image003.png", "image003.png");
-        retval := email::AddRelatedAttachment(messageId,"Template/license_files/image004.png", "image004.png");
-        retval := email::AddRelatedAttachment(messageId,"Template/license_files/image005.png", "image005.png");
+        retval := email::AddRelatedAttachment(messageId, "license_files/image001.jpg", "image001.jpg");
+        retval := email::AddRelatedAttachment(messageId, "license_files/image002.png", "image002.png");
+        retval := email::AddRelatedAttachment(messageId, "license_files/image003.png", "image003.png");
+        retval := email::AddRelatedAttachment(messageId, "license_files/image004.png", "image004.png");
+        retval := email::AddRelatedAttachment(messageId, "license_files/image005.png", "image005.png");
         
         ! Add a file attachment to the email message
         retval := email::AddFileAttachment(messageId,"Template/license_files/license_agreement.pdf");
 
-        ! Sent the email via the specified SMTP server
+        ! Send the email via the specified SMTP server
         retval := email::SendMail(messageId, ErrorMessage);
 
         ! Close the mail message
         retval := email::CloseMail(messageId);
 
+
+Creating HTML and text templates
+--------------------------------
+
+If you don't already have a HTML and text template for the body of your email message, a straightforward approach to create such templates is to start from a Word document with the layout as you wish the email body to look like, and subsequently to use *Save As* Word, and choose the type *Web Page, Filtered (*.htm, *.html)* before saving your document as an HTML template. Likewise you can select type *Plain Text (*.txt)* to create a text template.
+
+Before saving you can already include the placeholders in the document that you want to replace with the replacement text added via the :js:func:`email::SetMessageFromFile` method. 
+If your message body contains images, Word will save these in a subfolder :token:`license_files` (if you named your document :token:`license.html`). In your HTML file, it will then contain references such as:
+
+    .. code::
+
+        <img border=0 width=100 height=53 src="license_files/image001.jpg" alt="license_files/image001.jpg">
+
+For the sake of the HTML template, you should change this in
+    
+    .. code::
+
+        <img border=0 width=100 height=53 src="cid:image001.jpg" alt="cid:image001.jpg">
+    
+and subsequently add a related attachment to the email message as follows:
+
+    .. code::
+        
+        retval := email::AddRelatedAttachment(messageId,"license_files/image001.jpg", "image001.jpg");
+
+In your text template, you should in this case modify the text to account for the images not being present in the text variant of the document.
