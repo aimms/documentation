@@ -80,7 +80,7 @@ For the sake of the HTML template, you should change this in
     
 and subsequently add a related attachment to the email message as follows:
 
-    .. code-block:: html
+    .. code::
         
         retval := email::AddRelatedAttachment(messageId,"license_files/image001.jpg", "image001.jpg");
 
