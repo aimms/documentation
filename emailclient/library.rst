@@ -3,9 +3,9 @@ Introduction
 
 The Email Client library provides you with a `API <api.html>`_ to create and send emails from within your model. You can use this library, for instance, to programmatically send emails containing the results of your optimization model to other users in your organization. 
 
-The Email Client library allows creating email message with text and/or HTML body template files on disk, both of which may contain placeholders that will be replaced by the actual text when creating the actual email bodies of an email message. The library also allows you to add attachment, which can be either *file attachments* that are directly visible to the recipient as downloadable files, or *related attachments* that contain, for instance, bitmaps to be displayed in the HTML body of an email that you are creating. 
+The Email Client library allows creating email message with text and/or HTML body template files on disk, both of which may contain placeholders that will be replaced by the actual text when creating the actual email bodies of an email message. The library also allows you to add attachments, which can be either *file attachments* that are directly visible to the recipient as downloadable files, or *related attachments* that contain, for instance, bitmaps to be displayed in the HTML body of an email that you are creating. 
 
-To be able to actually send emails, you need to specify an STMP server which you are allowed use, in order to deliver the email thus created to the specified recipients. 
+To be able to actually send emails, you need to specify an STMP server which you are allowed to access, in order to deliver the emails thus created to the specified recipients. This could be your corporate mail server, or an SMTP server associated with an e-mail account you hold. The library can be used both client- and server-side, and requires no further programs to be installed. 
 
 Adding the Email Client library to your model
 ---------------------------------------------
