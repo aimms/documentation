@@ -68,19 +68,19 @@ If you don't already have a HTML and text template for the body of your email me
 Before saving you can already include the placeholders in the document that you want to replace with the replacement text added via the :js:func:`email::SetMessageFromFile` method. 
 If your message body contains images, Word will save these in a subfolder :token:`license_files` (if you named your document :token:`license.html`). In your HTML file, it will then contain references such as:
 
-    .. code::
+    .. code-block:: html
 
         <img border=0 width=100 height=53 src="license_files/image001.jpg" alt="license_files/image001.jpg">
 
 For the sake of the HTML template, you should change this in
     
-    .. code::
+    .. code-block:: html
 
         <img border=0 width=100 height=53 src="cid:image001.jpg" alt="cid:image001.jpg">
     
 and subsequently add a related attachment to the email message as follows:
 
-    .. code::
+    .. code-block:: html
         
         retval := email::AddRelatedAttachment(messageId,"license_files/image001.jpg", "image001.jpg");
 
