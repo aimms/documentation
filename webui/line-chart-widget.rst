@@ -90,6 +90,7 @@ the aggregated values become visible in the chart:
 .. image:: images/LineChart-ViewTotals.png
     :align: center
 
+
 Identifier Settings
 +++++++++++++++++++
 
