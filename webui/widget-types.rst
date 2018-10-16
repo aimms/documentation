@@ -6,8 +6,8 @@ Some examples of widget types are: table, bar chart, line chart, button, selecti
 You can see a complete list of available widget types by `adding a new widget <widget-manager.html#adding-a-widget>`_. 
 The types are listed in the *Type* selectionbox in the *Add Widget Wizard*.
 
-Most widget types are easy to add/use, but some of them benefit from some further explanation. 
-Please see the widgets below that we (partly) documented:
+Most widget types are easy to add/use, but some of them benefit from some further explanation.
+More details on each widget are included in the corresponding section below: 
 
 .. toctree::
 
