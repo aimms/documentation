@@ -89,11 +89,6 @@ the aggregated values become visible in the chart:
 
 .. image:: images/LineChart-ViewMean.png
     :align: center	
-
-N 
-
-.. image:: images/LineChart-ViewMean.png
-    :align: center	
 	
 Identifier Settings
 +++++++++++++++++++
