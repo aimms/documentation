@@ -12,6 +12,7 @@ The Table widget allows you to show and/or edit the data of one or more AIMMS id
   * customize the table by drag-and-drop of the indices (`Pivot <widget-options.html#pivot>`_), 
   * specifying reverse links on the ‘Store focus’ tab of the widget’s option editor. When a cell has the focus in the table, the element parameter(s) that you specify here will be filled accordingly, opening up all kinds of interactive opportunities.
 
+
 * Save the table data to a .csv file by using the `Download Table Data <#download-table-data>`_ functionality.
 
   .. image:: images/tablewidget.png 
