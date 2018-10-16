@@ -1,6 +1,8 @@
 Download Widget
 ---------------
 
+The Download widget and the related `Upload widget <Upload-Widget.html>`_ achieve complementary tasks.
+
 The Download widget allows you to download a file created by the underlying AIMMS model (running on a PRO server) to your local computer.
 
 .. image:: images/download-prepare.png
