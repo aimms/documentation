@@ -88,8 +88,7 @@ and the <IDENTIFIER-SET> in the Totals section. In this case, if we add the mean
 the aggregated values become visible in the chart: 
 
 .. image:: images/LineChart-ViewTotals.png
-    :align: center
-
+    :align: center	
 
 Identifier Settings
 +++++++++++++++++++
