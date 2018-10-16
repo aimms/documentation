@@ -3,7 +3,7 @@ Widget Types
 
 There are many types of widgets that you can add to your WebUI pages. 
 Some examples of widget types are: table, bar chart, line chart, button, selectionbox. 
-You can see a complete list of available widget types by `adding a new widget <widget-general.html#add-a-widget>`_. 
+You can see a complete list of available widget types by `adding a new widget <widget-manager.html#adding-a-widget>`_. 
 The types are listed in the *Type* selectionbox in the *Add Widget Wizard*.
 
 Most widget types are easy to add/use, but some of them benefit from some further explanation. 
