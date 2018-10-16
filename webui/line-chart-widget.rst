@@ -87,7 +87,7 @@ In our example, suppose we change the pivoting to the situation where the factor
 and the <IDENTIFIER-SET> in the Totals section. In this case, if we add the mean over the centers c to our example line chart, then three additional dots representing 
 the aggregated values become visible in the chart: 
 
-.. image:: images/LineChart-ViewTotals.png
+.. image:: images/LineChart-ViewTotals2.png
     :align: center	
 
 Identifier Settings
