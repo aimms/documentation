@@ -93,12 +93,12 @@ the aggregated values become visible in the chart:
 Filters2
 ++++++++
 
-In the Filters tab of the widget's options editor, some of the other widgets on the same page may be chosen for filtering the data points shown in the line chart. 
-In our example, suppose we change the pivoting back to the initial situation where both the factory index f and the center index c are specified in the X-axis section 
-and the <IDENTIFIER-SET> in the Totals section. In this case, chosing TransportData widget as a filter results in a confined line chart view as only those data points 
-are shown for which the TransportData widget shows non-default values: 
+In the Totals tab of the widget's options editor, aggregated values such as sum, mean, count, min, or max computed over one of the data indexes my be added to the chart. 
+In our example, suppose we change the pivoting to the situation where the factory index f is in Overlays section, the center index c is in the X-axis section 
+and the <IDENTIFIER-SET> in the Totals section. In this case, if we add the mean over the centers c to our example line chart, then three additional dots representing 
+the aggregated values become visible in the chart: 
 
-.. image:: images/LineChart-ViewFilters.png
+.. image:: images/LineChart-ViewTotals.png
     :align: center	
 	
 Identifier Settings
