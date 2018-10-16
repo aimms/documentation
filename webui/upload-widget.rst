@@ -5,7 +5,7 @@ The Upload widget and the related `Download widget <download-widget.html>`_ achi
 
 With the Upload Widget, end-users can upload a file to the AIMMS PRO server, which can then be further processed by the AIMMS model. This is very useful for Web Apps that depend on user specific data that is not yet available on the server (e.g. Excel data input). 
 
-.. image:: images/uploadwidget.png
+.. image:: images/Upload-View.png
     :align: center
 
 

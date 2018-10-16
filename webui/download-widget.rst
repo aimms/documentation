@@ -5,7 +5,7 @@ The Download widget and the related `Upload widget <upload-widget.html>`_ achiev
 
 The Download widget allows you to download a file created by the underlying AIMMS model (running on a PRO server) to your local computer.
 
-.. image:: images/download-prepare.png
+.. image:: images/Download-View.png
     :align: center
 
 In WebUI, pressing the button to the right of the download widget starts the AIMMS procedure that creates/prepares the file to be downloaded. When this process is finished, the default download functionality of your browser is used to let you download the file. In case the AIMMS procedure to create the file to be downloaded takes longer than 10 seconds, WebUI shows a 'Busy' state. By default, the status message displayed on the download widget changes from 'Prepare download' to 'File ready to download'. The button text changes to 'Get' and you can now start the file download by clicking on it. 
