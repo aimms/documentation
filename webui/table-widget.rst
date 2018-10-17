@@ -15,7 +15,7 @@ The table widget offers the user possibilities for various actions such as:
   .. image:: images/Table-View2.png 
         :align: center 
 
-  The sort button applies one of the 3 state: increasing, decreasing, default:
+  The sort button applies one of the 3 states: increasing, decreasing, default:
 
   .. image:: images/Table-View3.png 
         :align: center	
