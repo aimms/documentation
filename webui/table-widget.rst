@@ -30,16 +30,16 @@ The table widget offers the user possibilities for various actions such as:
 
 * Save the table data to a .csv file by using the `Download Table Data <#download-table-data>`_ functionality.
 
-  .. image:: images/tablewidget.png 
-        :align: center
-
 * Change the column widths of the table, simply by dragging them to where you want them.
+
 * Change the default row height of the table, by specifying a positive integer value in the 'Default row height' option in the Miscellaneous options editor.
 
 * Use your keyboard (as well as the mouse) to navigate the table.
 
   * You can use the 0 or the 1 key to set binary values displayed as checkboxes that have the focus.
+  
   * You can use the space bar to toggle binary values displayed as checkboxes that have the focus.
+  
   * You can use either ENTER or ALT+ARROW DOWN to open the dropdown list in focus, in order to change its value.
 
 Download Table Data
