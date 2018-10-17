@@ -33,7 +33,7 @@ Download Table Data
   
 The Table Widget offers you the possibility to download its current contents to a .csv file on your local machine, which you can use to further process your data in, for example, Excel. On the top right, left of the 'Full Screen' icon, you can find the download icon. 
 
-.. image:: images/save-data-as-csv.png
+.. image:: images/Table-SaveCSV.png
     :align: center
 
 When you click it, the contents of the table, exactly as you configured it (in terms of pivoting, for example), will be downloaded to a .csv file. Depending on your browser, you can specify the name of the file or the download location. As a default, the name of your table will be used as the filename with the '.csv' extension.
