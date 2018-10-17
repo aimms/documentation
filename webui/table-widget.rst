@@ -25,7 +25,8 @@ The table widget offers the user possibilities for various actions such as:
   * add `aggregators (Totals) <widget-options.html#totals>`_
   * customize the table by drag-and-drop of the indices (`Pivot <widget-options.html#pivot>`_), 
   * specifying reverse links on the ‘Store focus’ tab of the widget’s option editor. 
-    When a cell has the focus in the table, the element parameter(s) that you specify here will be filled accordingly, opening up various opportunities for interaction between the widgets.
+    When a cell has the focus in the table, the element parameter(s) that you specify here will be filled accordingly. Such element parameters may be used at the same time by other widgets, which will update automatically.
+	Hence, the ‘Store focus’ functionality opens up various possibilities for interaction between the widgets.
   *
 
 * Save the table data to a .csv file by using the `Download Table Data <#download-table-data>`_ functionality, see below.
