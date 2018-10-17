@@ -28,7 +28,7 @@ The table widget offers the user possibilities for various actions such as:
     When a cell has the focus in the table, the element parameter(s) that you specify here will be filled accordingly, opening up various opportunities for interaction between the widgets.
   *
 
-* Save the table data to a .csv file by using the `Download Table Data <#download-table-data>`_ functionality.
+* Save the table data to a .csv file by using the `Download Table Data <#download-table-data>`_ functionality, see below.
 
 * Change the column widths of the table, simply by dragging them to where you want them.
 
