@@ -3,9 +3,23 @@ Table Widget
 
 .. |sort| image:: images/sort.png
 
-The Table widget allows you to show and/or edit the data of one or more AIMMS identifiers. You can: 
+The Table widget allows you to vizualize and/or edit the data of one or more AIMMS identifiers represented in a tabular format:
 
-* Sort table data by using the sort buttons |sort|. The sort button applies a tri-state: ascending, descending, unsorted.
+  .. image:: images/Table-View1.png 
+        :align: center 
+
+The table widget offers the user possibilities for various actions such as:
+		
+* Sort table data by using the sort buttons as illustrated in the picture below: 
+
+  .. image:: images/Table-View2.png 
+        :align: center 
+
+	The sort button applies a tri-state: ascending, descending, unsorted:
+
+  .. image:: images/Table-View3.png 
+        :align: center	
+		
 * change several `Widget Options <widget-options.html>`_, e.g.
 
   * add `aggregators (Totals) <widget-options.html#totals>`_
