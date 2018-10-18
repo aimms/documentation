@@ -26,7 +26,7 @@ Next, in the Pivot tab of the options editor, one can specify how the data dimen
 For example, if both the factory index f and the center index c are specified in the X-axis section and the <IDENTIFIER-SET> in the Totals section then the resulting bar chart looks like 
 in the picture below on the right:
 
-.. image:: images/LineChart-View1.png
+.. image:: images/LineChart-View0.png
     :align: center
 
 One may move some data indexes in the Overlays section of the Pivot tab. In our example, moving the factory index f to the Overlays section results in the following line chart view:
