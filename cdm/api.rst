@@ -47,22 +47,30 @@ ApplicationDB Functions
   
    :param dbName: specifies the name of the application database to delete.
 
-.. js:function::  cdm::GetKeyValue(dbName,key,value)
+.. js:function::  cdm::GetKeyValue(db,key,value)
   
    Retrieve the value for the given key from the key-value store embedded within given application database. The function will fail if the specified key cannot be found.
   
-   :param dbName: specifies the application database
+   :param db: specifies the application database
    :param key: specifies the key to look for
    :param value: specifies the output argument in which the value will be stored.
 
-.. js:function::  cdm::SetKeyValue(dbName,key,value)
+.. js:function::  cdm::SetKeyValue(db,key,value)
 
    Set the value for the given key in the key-value store embedded within given application database. The function will fail if the user attempts to set the value for a protected key.
   
-   :param dbName: specifies the application database
+   :param db: specifies the application database
    :param key: specifies the key to set
    :param value: specifies the value to be stored.
+
+.. js:function::  cdm::NextUniqueInteger(db,key)
+
+   Atomically return the next unique integer for a given string key. If no integer has been requested for the given key, the value 1 is returned and stored in the key-value store of the 
+   given database under using the key :token:`integerKey-key`. Upon subsequent requests for the same key, the key-value store will be used to compute and save the next integer for the given key. You can use the function :js:func:`cdm::SetKeyValue` to reset the stored value to an arbitrary value. This function is typically used for uniquely numbering set elements, at the cost of a roundtrip to the CDM service. Alternatively, you can use the function :js:func:`cdm::CreateUuid` which can a less intuitive unique set element, but does not require a server roundtrip.
   
+   :param db: specifies the application database
+   :param key: specifies the key for which to get the next unique integer
+   
 Branch and Revision Functions
 =============================
 
@@ -301,6 +309,23 @@ Utility Functions
    :param elemName: specifies the element name of the existing element
    :param newName: specifies the element name of the new element to be cloned
 
+.. js:function::  cdm::RollbackElementInCategory(category,setName,elemName)
+
+   Rollback all data associated with an existing element in the given category, while leaving all other changes to the local data of a category untouched. Compared to the function :js:func:`cdm::RollbackChanges` this function provides a more fine-grained method to rollback sliced data over the given element that is displayed in, for instance, a page in the AIMMS WebUI. 
+
+   :param category: specifies the category for which to rollback all data for all identifiers in the category.
+   :param setName: specifies the set in which to rollback the existing element
+   :param elemName: specifies the element name of the existing element
+   
+.. js:function::  cdm::CloneAndRollbackElementInCategory(category,setName,elemName,newName)
+
+   Clone a existing element to a new element in a given set, clone all data defined for the existing element in the given category for the new element, and rollback the corresponding changes in all identifiers in the category for the original element. You can use this function, for instance, to store changed values for the data slices in a page in the AIMMS WebUI as a new element, while restoring the data values of the original element back to its committed values. 
+
+   :param category: specifies the category for which to clone and rollback all data for all identifiers in the category.
+   :param setName: specifies the set in which to clone and rollback the existing element
+   :param elemName: specifies the element name of the existing element
+   :param newName: specifies the element name of the new element to be cloned
+   
 .. js:function::  cdm::EmptyElementInCategory(category,setName,elemName)
 
    Empty all data defined over the existing element in the given category. If the existing element occurs in data of multiple categories, you may have to call this function for each category to achieve the desired effect.
@@ -311,7 +336,7 @@ Utility Functions
 
 .. js:function::  cdm::CreateUuid(uuid)
 
-   Create a Universally Unique Identifier (UUID)
+   Create a Universally Unique Identifier (UUID). This function is typically used for unique set element names, without requiring a server roundtrip.  Alternatively, you can use the function :js:func:`cdm::NextUniqueInteger` to create uniquely numbered set elements, but at the cost of a roundtrip to the CDM service.
   
    :param uuid: string output argument, in which the created UUID will be stored.
   

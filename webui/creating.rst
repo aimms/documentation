@@ -11,7 +11,7 @@ Here you can find a summary of the steps to be taken for creating a WebUI for yo
 #. Start WebUI by clicking on *WebUI* in the AIMMS toolbar, or by using the *WebUI* (sub)menu in the AIMMS *Tools* menu. The first time, this will create a     `WebUI folder <folder.html>`_ in your *Main Project* subfolder. When using *Start WebUI*, the WebUI is started without opening a browser. When you select one of the browsers, WebUI is started and the browser is opened at the home page of your app.
 #. Now you can start `adding widgets <add-a-widget>`_ and `adding pages <add-a-page>`_ to your WebUI. Once you are done, you can `publish your app on AIMMS PRO <publishing.html>`_.
 
-.. tip::
+.. note::
 
     There is a known problem with Internet Explorer 11: if you face a blue screen after starting your WebUI app in the browser, you should verify that the setting "Display Intranet Sites in Compatibility View" is set to unchecked. You can find this option under "Compatibility View Options" in the main menu of IE11.
 

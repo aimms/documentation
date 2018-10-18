@@ -61,7 +61,7 @@ Request Getters and Setters
     Get the current HTTP method set for a request object created through :js:func:`web::request_create`.
     
     :param requestId: id of the request object
-    :param url: output string argument holding the current HTTP method of the request object
+    :param methodType: input string argument holding the HTTP method to set
 
 .. js:function::  web::request_setHeaders(requestId,headers)
 
@@ -83,7 +83,7 @@ Request Getters and Setters
     If you want to re-use the request for multiple calls to the same HTTP server, you may want to set the ``Connection`` header to ``keep-alive`` to re-use the connection between several calls.
     
     :param requestId: id of the request object to set the HTTP method for
-    :param methodType: one-dimensional string parameter argument, holding the header arguments and values
+    :param headers: one-dimensional output string parameter holding the current HTTP headers set for the request object
     
 .. js:function::  web::request_getHeaders(requestId,headers)
 

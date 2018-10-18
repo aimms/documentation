@@ -3,27 +3,47 @@ Table Widget
 
 .. |sort| image:: images/sort.png
 
-The Table widget allows you to show and/or edit the data of one or more AIMMS identifiers. You can: 
+The Table widget allows you to vizualize and/or edit the data of one or more AIMMS identifiers represented in a tabular format:
 
-* Sort table data by using the sort buttons |sort|. The sort button applies a tri-state: ascending, descending, unsorted.
+  .. image:: images/Table-View1.png 
+        :align: center 
+
+The table widget offers the user possibilities for various actions such as:
+		
+* Sort table data by using the sort buttons as illustrated in the picture below: 
+
+  .. image:: images/Table-View2.png 
+        :align: center 
+
+  The sort button applies one of the 3 states: increasing, decreasing, default:
+
+  .. image:: images/Table-View3.png 
+        :align: center	
+
+  For example, if one chooses for the "increasing" sorting in the example above, the rows of the table are sorted as follows:
+  
+  .. image:: images/Table-View4.png 
+        :align: center  
+		
 * change several `Widget Options <widget-options.html>`_, e.g.
 
   * add `aggregators (Totals) <widget-options.html#totals>`_
   * customize the table by drag-and-drop of the indices (`Pivot <widget-options.html#pivot>`_), 
-  * specifying reverse links on the ‘Store focus’ tab of the widget’s option editor. When a cell has the focus in the table, the element parameter(s) that you specify here will be filled accordingly, opening up all kinds of interactive opportunities.
+  * specifying reverse links on the ‘Store focus’ tab of the widget’s option editor. 
+    When a cell has the focus in the table, the element parameter(s) that you specify here will be filled accordingly. Such element parameters may be used at the same time by other widgets, which will update automatically. Hence, the ‘Store focus’ functionality opens up various possibilities for interaction between the widgets.
 
-* Save the table data to a .csv file by using the `Download Table Data <download-table-data>`_ functionality.
-
-  .. image:: images/tablewidget.png 
-        :align: center
+* Save the table data to a .csv file by using the `Download Table Data <#download-table-data>`_ functionality, see below.
 
 * Change the column widths of the table, simply by dragging them to where you want them.
+
 * Change the default row height of the table, by specifying a positive integer value in the 'Default row height' option in the Miscellaneous options editor.
 
 * Use your keyboard (as well as the mouse) to navigate the table.
 
   * You can use the 0 or the 1 key to set binary values displayed as checkboxes that have the focus.
+  
   * You can use the space bar to toggle binary values displayed as checkboxes that have the focus.
+  
   * You can use either ENTER or ALT+ARROW DOWN to open the dropdown list in focus, in order to change its value.
 
 Download Table Data
@@ -31,7 +51,7 @@ Download Table Data
   
 The Table Widget offers you the possibility to download its current contents to a .csv file on your local machine, which you can use to further process your data in, for example, Excel. On the top right, left of the 'Full Screen' icon, you can find the download icon. 
 
-.. image:: images/save-data-as-csv.png
+.. image:: images/Table-SaveCSV.png
     :align: center
 
 When you click it, the contents of the table, exactly as you configured it (in terms of pivoting, for example), will be downloaded to a .csv file. Depending on your browser, you can specify the name of the file or the download location. As a default, the name of your table will be used as the filename with the '.csv' extension.

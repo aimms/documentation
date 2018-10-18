@@ -135,6 +135,12 @@
 				<p align="center">The HTTP Client library allows you to perform HTTP request from within your model</p>
 			</div>
 		</a>
+		<a href="emailclient/index.html">
+			<div class="box">
+				<h1 align="center">Email Client</h1>
+				<p align="center">The Email Client library allows you to send emails from within your model</p>
+			</div>
+		</a>
 	</div>
 
 .. image:: Images/icons/favicon.png

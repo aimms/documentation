@@ -23,7 +23,7 @@ For the AIMMS development platform, the AIMMS PRO/Cloud Client side and the AIMM
 
     rlink::CheckAndInstallPackage() 
 
-in the :token:`MainInitialization` of the project. In this way the aimms package that is included in RLink will be installed.
+in the :token:`PostMainInitialization` procedure of the project. In this way the aimms package that is included in RLink will be installed.
 
 
 For the AIMMS Cloud Server side R and Rpcc are already provided. If RLink and DataLink are added to the project, then they will be automatically fetched from the library repository. The R package aimms is not provided on the AIMMS Cloud Server, to make sure that it is always current with the latest version of RLink. To publish an app that uses RLink, the developer **must** call:
@@ -32,7 +32,7 @@ For the AIMMS Cloud Server side R and Rpcc are already provided. If RLink and Da
 
     rlink::CheckAndInstallPackage() 
 
-in the :token:`MainInitialization` of the project, so that the aimms package is always being fetched from the RLink library and installed.
+in the :token:`PostMainInitialization` procedure of the project, so that the aimms package is always being fetched from the RLink library and installed.
 
 Installation
 ============
