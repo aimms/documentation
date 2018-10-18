@@ -19,7 +19,7 @@ If something does not work you may want to check the following files for errors:
 * *Configurator.log* - AIMMS PRO Configurator logs
 * *WebSocketsProxy.log* -  WS Proxy logs. Check this logs to figure out issues with tunnels or connections to the license server.
 * *WarLauncher.log* - WAR Launcher logs. Generic web part of AIMMS PRO Portal.
-* *Security.log* - Security events logs like user logon, logoff, logon failure, user group and user details changes, changes in user management. Please note that this log is available only from *AIMMS PRO 2.24*.
+* *Security.log* - Starting with AIMMS PRO 2.24, security logging is enabled which logs AIMMS PRO Security events like user logon, logoff, logon failure, user group and user details changes, changes in the user management. Also logs App security events like App publish, update, edit and delete starting with AIMMS PRO 2.28.
 
 **Enable Security logs for existing installations:**
 
