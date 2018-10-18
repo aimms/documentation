@@ -5,3 +5,4 @@
 *.dmp
 *.dmp
 _build
+/_static/AIMMSLexer/Lexer/aimms.pyc
