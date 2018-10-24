@@ -40,7 +40,7 @@ accessed through the *values* part of the datasource. To change identifier data 
 *requestSetValues* method that should be used to send data changes to the model. For example, to change the value in cell
 (0,1) of a table to 1234, the following JavaScript statement can be used:
 
-.. code::
+.. code-block:: javascript
             
     dataSource.values.requestSetValues([{
         ranges: [{start:0,end:1},{start:1,end:2}],
@@ -66,7 +66,7 @@ previous tutorial. For this purpose, every :token:`<td>` HTML element will be po
 First, we will add a function *createInputElQ* (in the function *_createHtmlTable* from the previous
 tutorial, just beneath the function *createCellElQ*):
 
-.. code::
+.. code-block:: javascript
             
     function createInputElQ(name, row, col) {
         return $(['&lt;td&gt;&lt;input type="text" class="', name, ' row'+row, ' col'+col, '"&gt;&lt;/input&gt;&lt;/td&gt;'].join(''));
@@ -74,7 +74,7 @@ tutorial, just beneath the function *createCellElQ*):
 
 In addition, we change the code that build the row header and grid area to
 
-.. code::
+.. code-block:: javascript
 
     var numColsInGrid = numColsInColHeader;
     var tbodyElQ = $('&lt;tbody&gt;');
@@ -94,7 +94,7 @@ In addition, we need to update the *updateTableCell* function (inside the *_fill
 for an :token:`<input>` element, we now need to set the *value* attribute to initialize the cell with a value.
 The function should be updated as follows:
 
-.. code::
+.. code-block:: javascript
 
     function updateTableCell(type, row, col, text) {
         var cellElQ = widget.tableElQ.find('.'+type+'.row'+row+'.col'+col);
@@ -115,7 +115,7 @@ As shown in Figure 1 the :token:`<input>` elements do show the value but do not 
 elements through project specific CSS. To do so, create a CSS file	(next to the JavaScript file that contains the 
 widget code) and fill it with the following CSS rules:
 
-.. code::
+.. code-block:: CSS
 
     .tag-my-table-widget input {
         padding: 0;
@@ -132,7 +132,7 @@ It is now possible to edit the value in a cell of the table. However, the change
 To make this happen, we will extend the :token:`<input>` elements with a *change* handler. To do so,
 we extend the function *updateTableCell* as follows:
 
-.. code::
+.. code-block:: javascript
 
     function updateTableCell(type, row, col, text) {
         var cellElQ = widget.tableElQ.find('.'+type+'.row'+row+'.col'+col);
@@ -160,7 +160,7 @@ a string. To check for the JavaScript *NaN* value, we use the *isNaN* function f
 
 The data change handler in this tutorial is implemented as follows:
 
-.. code::
+.. code-block:: javascript
         
     function(event){
         var newValue = parseFloat(event.target.value);
@@ -187,7 +187,7 @@ and description. In addition, the *value* attribute of the cell will be restored
 (which is still in scope) and the jQuery *blur* method will be called to remove the focus from the
 cell element.
             
-.. code::
+.. code-block:: javascript
 
     function onDone(status) {
         if ( status.code !== 200 ) {
