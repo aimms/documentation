@@ -17,9 +17,9 @@ If you want to contribute we require that you enter into a contributor agreement
 
 Header included in each open-sourced file:
 
-.. code::
+.. code-block:: none
 
-    AIMMS Widget Framework   Copyright (C) 2013-{CURRENT-YEAR}, AIMMS B.V., All Rights Reserved. This part of 
+    AIMMS Widget Framework Copyright (C) 2013-{CURRENT-YEAR}, AIMMS B.V., All Rights Reserved. This part of 
     the software is released under ONE of the following licenses: GPLv3, OR AIMMS's license for commercial use.
 
     GPL license. This program is free software: you can redistribute it and/or modify it under the terms of the 
