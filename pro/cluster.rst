@@ -12,7 +12,7 @@ All your nodes need to be connected to the same database. This can be a database
 Before proceeding to connect all the nodes to the database, make sure that your PostgreSQL server settings allow non-local connections. Stop your 'Aimms PRO Postgresql-x64-9.3' Windows service, modify *pg_hba.conf* (located in "*dataDir*\\pgsql\\data\\", by default that would be "C:\\ProgramData\\AimmsPRO 2.0\\pgsql\\data\\"). The comments in the file will tell you what you need to do.
 For example, to enable all incoming IPv4 connections (this is a security risk), add the following line in the IPv4 local connections section:
 
-.. code::
+.. code-block:: none
 
     host all all 127.0.0.1/0 md5
 
@@ -75,7 +75,7 @@ The simplest setup means that nodes are using single ActiveMQ server on one of t
 
 Please note that you may change port and host on which ActiveMQ server runs. Modify *dataDir*\\Config\\jms-broker.properties, change *listen.uri* value there or leave it empty if you want to turn bundled ActiveMQ off and use your own JMS server or use a server on another cluster node:
 
-.. code::
+.. code-block:: none
 
     # URI on which JMS broker is listening. By default, listen for connections from all hosts.
     # Change to tcp://localhost:61616 to listen only to local connections.
