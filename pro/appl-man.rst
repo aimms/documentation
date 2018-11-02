@@ -20,6 +20,8 @@ Direct App Launch
 
 Starting with **AIMMS PRO 2.24**, it is possible to directly launch an application (desktop/WebUI) without first going to Portal's apps page after login. Any AIMMS application on your AIMMS PRO Portal is accesible by direct launch link i.e. *https://aimmsproserver/launch/AppName/AppVersion*
 
+By default it will open default start page of an App. It is also possible to open a specific page by adding  */Main%20Project/Pagename*  to this link. i.e.  *https://aimmsproserver/launch/AppName/AppVersion/Main%20Project/Pagename*
+
 You can get this direct app link by right clicking the App icon or 'Launch App' and use options like Copy link address, add to favorites etc. Once you have bookmarked this link or created a desktop shortcut then you can directly open an app. This means AD/SAML users can start an AIMMS application in a single click (as login would be automatic for them) and other users will be first redirected to login page and after successful login it will directly load that particular app. 
 
 .. image:: images/direct-app-launch.png
@@ -33,7 +35,8 @@ Starting from **AIMMS PRO 2.24**, if you have write access to the application, y
 
 * It's a unique tag, meaning only 1 version of the same app can be tagged as 'latest'. When you assign the 'latest' tag to other version of the app then it removes the tag from previous one.
 * When you update the 'latest' App and use option 'Update and hide old version' then 'latest' tag will be assigned to new App.
-* End users can always launch the latest version of the application using direct App link i.e. *https://aimmsproserver/launch/AppName/tag/latest*
+* End users can always launch the latest version of the application using direct App link i.e. *https://aimmsproserver/launch/AppName/tag/latest* 
+* To launch a specific page of latest App, you can append  *?page=Main%20Project/pagename*  to above link. For example, if you want to open 'Production Planning' page of latest 'Meals test' App then link will be *https://aimmsproserver/launch/Meals%20test/tag/latest?page=Main%20Project/Production%20Planning*   
 
 .. image:: images/tag-latest.png
     :align: center
