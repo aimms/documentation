@@ -29,7 +29,7 @@ Since this is a (software) development tutorial, we are also assuming that you h
 software in a generic programming language, and, that you have a basic knowledge on HTML5 technologies
 (HTML5 DOM, CSS, Javascript, and the likes). It is also beneficial, however not required, if you are
 familiar with `jQuery <http://jquery.org>`_ and, to lesser extent,
-`jQuery UI <http://jquery-ui.org>`_, as AIMMS WebUI is built on top of these technologies.
+`jQuery UI <https://jqueryui.com/>`_, as AIMMS WebUI is built on top of these technologies.
 
 Finally, since this tutorial builds on the previous tutorial, we expect that you have done that tutorial
 first. If you have not done so yet, here is a link to `Adding dynamic contents, part I: Options <dev-tut-2.html>`_.

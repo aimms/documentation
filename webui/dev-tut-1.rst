@@ -18,7 +18,7 @@ Since this is a (software) development tutorial, we are also assuming that you h
 software in a generic programming language, and, that you have a basic knowledge on HTML5 technologies
 (HTML5 DOM, CSS, Javascript, and the likes). It is also beneficial, however not required, if you are
 familiar with `jQuery <http://jquery.org>`_ and, to lesser extent,
-`jQuery UI <https://jqueryui.com/>`_, as AIMMS WebUI is built on top of these technologies.
+`jQuery UI <https://jqueryui.com>`_, as AIMMS WebUI is built on top of these technologies.
 
 Let's start - A quick introduction to AWF
 +++++++++++++++++++++++++++++++++++++++++

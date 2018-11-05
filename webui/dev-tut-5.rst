@@ -18,7 +18,7 @@ Since this is a (software) development tutorial, we are also assuming that you h
 software in a generic programming language and that you have a basic knowledge of HTML5 technologies
 (HTML5 DOM, CSS, Javascript, and the likes). It is also beneficial, however not required, if you are
 familiar with `jQuery <http://jquery.org>`_ and to a lesser extent
-`jQuery UI <http://jquery-ui.org>`_ as AIMMS WebUI is built on top of these technologies.
+`jQuery UI <https://jqueryui.com>`_ as AIMMS WebUI is built on top of these technologies.
 
 More specifically, since we will be creating an HTML table widget, we assume that you are familiar with
 the basics to create an `HTML table <http://www.w3.org/wiki/HTML_tables>`_.
