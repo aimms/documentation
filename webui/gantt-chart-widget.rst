@@ -90,6 +90,17 @@ The Gantt chart will display a row for every index (or better: combination of in
 .. image:: images/gantt-chart-pivot.png
     :align: center
 
+	
+.. note::
+
+    For large data sets the Gantt chart widget may display an error like in the following picture:
+	
+    .. image:: images/GanttChart-DataOverloadError.png
+        :align: center
+	
+    This may happen when the number of resources times the number of jobs is more than 50000. The number of resources (or "rows") is the cardinality of the set(s) present in the Resources attribute 
+    in the Pivot section of the widget's options editor. The number of jobs (or "columns") is the cardinality of Start identifier plus the cardinality of the Duration identifier.
+	
 Viewport control
 ++++++++++++++++
 
