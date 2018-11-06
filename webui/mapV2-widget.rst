@@ -1,7 +1,18 @@
-Map Widget
-----------
+Map-V2 Widget
+-------------
 
-The Map widget allows you to display a map with arcs and/or (dynamically sized) nodes on top of it if you want. In the WebUI you need an identifier indexed over two indices: the index related to the locations and one extra index. The set belonging to that second index should contain 2 elements. The first element will be related to the longitudes and the second element to the latitudes. 
+The Map widget allows to display a map in the background and show a network with nodes and arcs on the top of it.
+A simple situation is when the transport identifier indexed over factories f and centers c in the TransNet application 
+(see the "Quick Start: My First WebUI" section) is displayed like in the following picture:
+
+.. image:: images/MapV2-1simpleEx.png
+    :align: center
+
+
+The Map widget allows you to display a map with arcs and/or (dynamically sized) nodes on top of it if you want. 
+In the WebUI you need an identifier indexed over two indices: the index related to the locations and one extra index. 
+The set belonging to that second index should contain 2 elements. The first element will be related to the longitude 
+and the second element to the latitude. 
 
 .. note::
     Please note that the naming of the indexes of the LonLat set is exactly as you should name them too.
