@@ -2,13 +2,19 @@ Map-V2 Widget
 -------------
 
 The Map widget allows to display a map in the background and show a network with nodes and arcs on the top of it.
-A simple situation is when the transport identifier indexed over factories f and centers c in the TransNet application 
+A simple situation is when a transport identifier indexed over factories f and centers c in the TransNet application 
 (see the "Quick Start: My First WebUI" section) is displayed like in the following picture:
 
 .. image:: images/MapV2-1simpleEx.png
     :align: center
 
+A map widget can be added to a page using the same steps as for any other widget. After adding the widget one can click on its
+Settings wheel in order to configure the widget.
 
+.. image:: images/MapV2-StartLayout.png
+    :align: center
+
+	
 The Map widget allows you to display a map with arcs and/or (dynamically sized) nodes on top of it if you want. 
 In the WebUI you need an identifier indexed over two indices: the index related to the locations and one extra index. 
 The set belonging to that second index should contain 2 elements. The first element will be related to the longitude 
