@@ -30,4 +30,3 @@ More details on each widget are included in one of the corresponding sections be
     text-widget
     tree-map-widget	
     upload-widget
-    
