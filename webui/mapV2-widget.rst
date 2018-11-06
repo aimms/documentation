@@ -8,11 +8,26 @@ A simple situation is when a transport identifier indexed over factories f and c
 .. image:: images/MapV2-1simpleEx.png
     :align: center
 
+In the sequel we illustrate how to create and configure such a map widget.
+
+Creating a map widget
++++++++++++++++++++++
+	
 A map widget can be added to a page using the same steps as for any other widget. After adding the widget one can click on its
 Settings wheel in order to configure the widget.
 
 .. image:: images/MapV2-StartLayout.png
     :align: center
+
+In the settings you will find the following:
+•	Node Sets: Multiple node sets can be added here.
+•	Arc Sets: Multiple arc sets can be added here.
+•	Miscellaneous: Title, Zoom, Center Latitude and Longitude and Visibility can be controlled here.
+•	Advanced: Add options for this widget are available here, if you’re an advanced AIMMS app developer you can make changes here as desired.
+
+.. image:: images/MapV2-StartAllOptions.png
+    :align: center
+
 
 	
 The Map widget allows you to display a map with arcs and/or (dynamically sized) nodes on top of it if you want. 
