@@ -19,11 +19,12 @@ Settings wheel in order to configure the widget.
 .. image:: images/MapV2-StartLayout.png
     :align: center
 
-In the settings you will find the following:
-•	Node Sets: Multiple node sets can be added here.
-•	Arc Sets: Multiple arc sets can be added here.
-•	Miscellaneous: Title, Zoom, Center Latitude and Longitude and Visibility can be controlled here.
-•	Advanced: Add options for this widget are available here, if you’re an advanced AIMMS app developer you can make changes here as desired.
+In the settings options editor one can find the following sections:
+
+*	Node Sets: Multiple node sets can be added here.
+*	Arc Sets: Multiple arc sets can be added here.
+*	Miscellaneous: Title, Zoom, Center Latitude, Center Longitude and Visibility can be controlled here.
+*	Advanced: Advanced options for this widget are available here. An (advanced) app developer can make changes here as desired.
 
 .. image:: images/MapV2-StartAllOptions.png
     :align: center
