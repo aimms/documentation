@@ -33,15 +33,15 @@ The *PRO Central Storage* area in the AIMMS Case Manager provides you with a ful
 Central Case URL's
 ------------------
 
-You can also programmatically load cases to or save cases from the PRO Central Storage area through existing AIMMS data management functions such as CaseFileLoad and CaseFileSave. The case URL for cases stored in the PRO Central Storage area consists of the prefix "PRO:" (to indicate to the AIMMS Case Manager that the case should be saved in the PRO Central Storage area), followed by the path in the central storage area.
+You can also programmatically load cases to or save cases from the PRO Central Storage area through existing AIMMS data management functions such as `CaseFileLoad` and `CaseFileSave`. The case URL for cases stored in the PRO Central Storage area consists of the prefix "PRO:" (to indicate to the AIMMS Case Manager that the case should be saved in the PRO Central Storage area), followed by the path in the central storage area.
 
 User and Shared Case Shortcuts
 ------------------------------
 
 The PRO User Cases and PRO Shared Cases are just shortcuts to folders into the central storage area:
 
-* PRO User Cases is a shortcut to the path /UserData/environment/user-name/Cases/project-name
-* PRO Shared Cases is a shortcut to the path /PublicData/Cases/
+* PRO User Cases is a shortcut to the path `/UserData/environment/user-name/Cases/project-name`
+* PRO Shared Cases is a shortcut to the path `/PublicData/Cases/`
  
 
 Transferring Files
@@ -49,8 +49,8 @@ Transferring Files
 
 Besides centrally saving cases in the PRO Central Storage area through the Case Manager, you can also manually transfer files between your local disk and the PRO Central Storage area through the functions
  
-* pro::SaveFileToCentralStorage
-* pro::RetrieveFileFromCentralStorage
+* :token:`pro::SaveFileToCentralStorage`
+* :token:`pro::RetrieveFileFromCentralStorage`
 
 
 You can use these functions if your project depends on private files that need to be kept in sync from wherever you run a client session to the project, or depends on shared files that need to be kept in sync for all users from all locations. Both functions require a local path as well as a path in the PRO Central Storage area.
@@ -60,20 +60,20 @@ Manipulating PRO Files and Folders
 
 To manipulate files and folders in the PRO Central Storage area, you can use the following functions:
  
-* pro::CreateStorageFolder
-* pro::DeleteStorageFolder
-* pro::DeleteStorageFile
+* :token:`pro::CreateStorageFolder`
+* :token:`pro::DeleteStorageFolder`
+* :token:`pro::DeleteStorageFile`
 
 
 Access Rights
 -------------
 
-The functions pro::SaveFileToCentralStorage and pro::CreateCentralStorageFolder have an Access rights optional permissions string argument through which you can specify the access rights for the files and folders you create with these functions. When you do not explicitly specify access rights to the files and folders you create in the central storage area, PRO will automatically only give access to the currently logged on user.
+The functions :token:`pro::SaveFileToCentralStorage` and :token:`pro::CreateCentralStorageFolder` have an Access rights optional permissions string argument through which you can specify the access rights for the files and folders you create with these functions. When you do not explicitly specify access rights to the files and folders you create in the central storage area, PRO will automatically only give access to the currently logged on user.
 
 Specifying Access Rights
 ------------------------
 
-To select which users and/or groups should have which access rights, you can call the function progui::EditAuthorization which is part of the PRO GUI library. This function will open the Authorization Manager dialog, through which you can modify a new or existing permissions string. You can then pass this string as the permissions argument to the functions above.
+To select which users and/or groups should have which access rights, you can call the function :token:`progui::EditAuthorization` which is part of the PRO GUI library. This function will open the Authorization Manager dialog, through which you can modify a new or existing permissions string. You can then pass this string as the permissions argument to the functions above.
 
 Using a Database
 ----------------

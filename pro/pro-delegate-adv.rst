@@ -36,7 +36,7 @@ By providing a callback procedure to the :token:`pro::DelegateToServer` function
 
 .. code::
 
-    if pro::DelegateToServer( completionCallback: ’procedureAfterServerFinished’ ) then
+    if pro::DelegateToServer( completionCallback: 'procedureAfterServerFinished' ) then
         return 1 ;
     endif ;
 

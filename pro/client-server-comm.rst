@@ -13,47 +13,47 @@ AIMMS PRO allows two sessions to communicate in a bidirectional, asynchronous wa
 One or Multiple Peers
 ^^^^^^^^^^^^^^^^^^^^^
 
-You can use pro::DelegateToPeer in procedures for which you want to delegate the execution to another session in exactly the same manner as pro::DelegateToServer, where the requestQueue must be a queue to which you know the peer session is listening. If multiple sessions are listening to this queue, each of these sessions will execute the delegated procedure call.
+You can use :token:`pro::DelegateToPeer` in procedures for which you want to delegate the execution to another session in exactly the same manner as :token:`pro::DelegateToServer`, where the requestQueue must be a queue to which you know the peer session is listening. If multiple sessions are listening to this queue, each of these sessions will execute the delegated procedure call.
 
 Specializations
 ^^^^^^^^^^^^^^^
 
 In most cases you'll want to send messages from a client session to a server-side session or vice versa. For these common cases, the PRO library offers two specializations, where you don't have to specify the queue manually:
  
-* ``pro::DelegateToCurrentSession``, delegates a procedure call from a client session to the latest started server-side session.
-* ``pro::DelegateToClient``, delegates a procedure call from a server-side session to its corresponding client session.
+* :token:`pro::DelegateToCurrentSession`, delegates a procedure call from a client session to the latest started server-side session.
+* :token:`pro::DelegateToClient`, delegates a procedure call from a server-side session to its corresponding client session.
 
 
 .. warning::
 
-    These specializations make use of the internal state of the PRO library to determine whether a procedure call is made at the client- or at the server-side session and act accordingly. However, if these specializations are called in a chain of server-side sessions, they may not behave as expected, because the PRO library is not able to determine unambiguously whether a particular server-side session acts as a client- or as a server-side session at any particular moment. In such cases, calling pro::DelegateToPeer with an explicit queue id that is also passed over to the other peer (for instance as an argument to the procedure in which pro::DelegateToPeer is called) will prevent such ambiguities.
+    These specializations make use of the internal state of the PRO library to determine whether a procedure call is made at the client- or at the server-side session and act accordingly. However, if these specializations are called in a chain of server-side sessions, they may not behave as expected, because the PRO library is not able to determine unambiguously whether a particular server-side session acts as a client- or as a server-side session at any particular moment. In such cases, calling :token:`pro::DelegateToPeer` with an explicit queue id that is also passed over to the other peer (for instance as an argument to the procedure in which :token:`pro::DelegateToPeer` is called) will prevent such ambiguities.
 	
 
 Current Session Info
 ++++++++++++++++++++
 
-The following functions allow you to retrieve information about the latest started session by calling pro::DelegateToServer:
+The following functions allow you to retrieve information about the latest started session by calling :token:`pro::DelegateToServer`:
  
-* ``pro::session::CurrentSession``, the internal PRO session id.
-* ``pro::session::CurrentSessionQueue``, the queue through which the client session can communicate with the server session.
-* ``pro::session::CurrentClientQueue``, the queue through which the server session will communicate with the client session.
+* :token:`pro::session::CurrentSession`, the internal PRO session id.
+* :token:`pro::session::CurrentSessionQueue`, the queue through which the client session can communicate with the server session.
+* :token:`pro::session::CurrentClientQueue`, the queue through which the server session will communicate with the client session.
 
 
 Message Flags
 +++++++++++++
 
-When delegating a procedure call through pro::DelegateToPeer, you can modify the way in which the message is being handled by AIMMS PRO by adding one or more message flags:
+When delegating a procedure call through :token:`pro::DelegateToPeer`, you can modify the way in which the message is being handled by AIMMS PRO by adding one or more message flags:
 
-* ``pro::PROMFLAG_PRIORITY``, indicates priority message which is also dealt with in between statements in your model, when your model is already running a procedure.
-* ``pro::PROMFLAG_SYNC_ONLY``, indicates that the message should not be handled asynchronously, but only through an explicit call to pro::WaitForHandledMessages in your model.
-* ``pro::PROMFLAG_LIVE``, indicates that AIMMS PRO will only pass this message to any session that is currently listening on the indicated queue, and will not store the message for later retrieval when there are no such sessions.
-* ``pro::PROMFLAG_REQUEST``, message flag used to indicate a request to initiate a session. When the session-initiating procedure call is handled, the PRO library will also handle any additional messages with this flag set that are sent from within your model.
-* ``pro::PROMFLAG_RESPONSE``, message flag used to indicate that the server-side session completed.
-* ``pro::PROMFLAG_ERROR``, message flag used to indicate an error response, that the server-side session timed-out.
-* ``pro::PROMFLAG_SESSION``, message flag used to indicate that this is not a message of any of the above types. You can use this flag to wait for framework generated messages.
-* ``pro::PROMFLAG_USER``, the lowest flag value that you can use within your model to design your own specialized workflows. You can create additional user-defined flags by multiplying pro::PROMFLAG USER by any power of 2.
+* :token:`pro::PROMFLAG_PRIORITY`, indicates priority message which is also dealt with in between statements in your model, when your model is already running a procedure.
+* :token:`pro::PROMFLAG_SYNC_ONLY`, indicates that the message should not be handled asynchronously, but only through an explicit call to :token:`pro::WaitForHandledMessages` in your model.
+* :token:`pro::PROMFLAG_LIVE`, indicates that AIMMS PRO will only pass this message to any session that is currently listening on the indicated queue, and will not store the message for later retrieval when there are no such sessions.
+* :token:`pro::PROMFLAG_REQUEST`, message flag used to indicate a request to initiate a session. When the session-initiating procedure call is handled, the PRO library will also handle any additional messages with this flag set that are sent from within your model.
+* :token:`pro::PROMFLAG_RESPONSE`, message flag used to indicate that the server-side session completed.
+* :token:`pro::PROMFLAG_ERROR`, message flag used to indicate an error response, that the server-side session timed-out.
+* :token:`pro::PROMFLAG_SESSION`, message flag used to indicate that this is not a message of any of the above types. You can use this flag to wait for framework generated messages.
+* :token:`pro::PROMFLAG_USER`, the lowest flag value that you can use within your model to design your own specialized workflows. You can create additional user-defined flags by multiplying :token:`pro::PROMFLAG_USER` by any power of 2.
  
-If you want to add multiple flags to a call to ``pro::DelegateToPeer``, you should add all relevant flag values.
+If you want to add multiple flags to a call to :token:`pro::DelegateToPeer`, you should add all relevant flag values.
 
 Waiting for Messages
 ++++++++++++++++++++
@@ -77,8 +77,8 @@ By waiting for messages, you can create a synchronous workflow around the optimi
 		- less than 3 messages per seconds.
 		- messages should not exceed 1000 AIMMS elements. In other words, the cardinality of each argument from a delegated procedure should be less than 1000. Please remember that DelegateToServer procedures should not transfer data, but only adjustment parameters. Data are optimally transferred through an AIMMS case.
 	
-	* If the number of messages exceeds 3 per seconds, they will be queued up. **Please mind that if those are live messages (using** ``PROMFLAG_LIVE`` **tag, see above), only the last 3 messages within the second will be available (the others are actually overridden).**
-	* One may change the number of messages per seconds by calling the procedure ``pro::messaging::SetMaxMessagesPerSecond(20);`` in your model (in the `PostMainInitialization <https://download.aimms.com/aimms/download/manuals/AIMMS3LR_DataInitialization.pdf>`_ procedure for example). The maximum value is 20 messages per seconds.
+	* If the number of messages exceeds 3 per seconds, they will be queued up. **Please mind that if those are live messages (using** :token:`PROMFLAG_LIVE` **tag, see above), only the last 3 messages within the second will be available (the others are actually overridden).**
+	* One may change the number of messages per seconds by calling the procedure :token:`pro::messaging::SetMaxMessagesPerSecond(20);` in your model (in the `PostMainInitialization <https://download.aimms.com/aimms/download/manuals/AIMMS3LR_DataInitialization.pdf>`_ procedure for example). The maximum value is 20 messages per seconds.
 	* If any delegated procedure argument would exceed 1000 AIMMS elements, AIMMS will raise an error when using the Cloud AIMMS PRO platform, thus **aborting the execution of the delegated procedure**. Using a PRO platform on premise, AIMMS will write a warning in the PRO log files.
 
 .. seealso::
