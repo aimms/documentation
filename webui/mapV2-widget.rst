@@ -53,7 +53,16 @@ The available options to be specified are:
 	
     The values of the Latitude and Longitude parameters must be within the geographical bounds, ie between (-90,90) and (-180,180), respectively. One can specify these intervals in the Range attributes of the correspoding identifiers in the model.	
 
+Adding identifiers to the option fields
++++++++++++++++++++++++++++++++++++++++
 
+When clicking on the identifier selector of the Index (as shown above), a pop-up dialog is shown where the index of the node set may be selected:
+
+.. image:: images/MapV2-Nodes0-Index.png
+    :align: center
+
+T
+ 
 	
 The Map widget allows you to display a map with arcs and/or (dynamically sized) nodes on top of it if you want. 
 In the WebUI you need an identifier indexed over two indices: the index related to the locations and one extra index. 
