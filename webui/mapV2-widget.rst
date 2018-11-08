@@ -41,7 +41,17 @@ After clicking on the "+" sign at the bottom, one can add options for the first 
 .. image:: images/MapV2-Nodes0-Options.png
     :align: center
 
-I
+The available options to be specified are:
+	
+*	Index – Select the index of the node set you would like to display
+*	Latitude – A 1-dimensional parameter specifying the latitude coordinates for the nodes set with the selected index
+*	Longitude – A 1-dimensional parameter specifying the longitude coordinates for the node set with the selected index
+*	Size – A 1-dimensional parameter specifying the dynamic sizes for the node set with the selected index
+
+.. note::
+    Please note that the Latitude and Longitude must be specified by two separate identifiers declared in the model.
+	
+    The values of the Latitude and Longitude parameters must be within the geographical bounds, ie between (-90,90) and (-180,180), respectively. One can specify these intervals in the Range attributes of the correspoding identifiers in the model.	
 
 
 	
