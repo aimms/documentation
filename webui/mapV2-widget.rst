@@ -8,7 +8,7 @@ A simple situation is for example when a transport identifier indexed over facto
 .. image:: images/MapV2-1simpleEx.png
     :align: center
 
-The map displayed in the backgroud is provided by OpenStreetMap organization, see the `openstreetmap.org web site <https://www.openstreetmap.org>`_. 
+The map displayed in the backgroud is provided by the OpenStreetMap organization, see the `openstreetmap.org web site <https://www.openstreetmap.org>`_. 
 
 The network with nodes and arcs on the top of the map must be defined in terms of identifiers declared in the AIMMS model.
 

@@ -1,5 +1,5 @@
-Map Widget
-----------
+Map-V1 Widget
+-------------
 
 The Map widget allows you to display a map with arcs and/or (dynamically sized) nodes on top of it if you want. In the WebUI you need an identifier indexed over two indices: the index related to the locations and one extra index. The set belonging to that second index should contain 2 elements. The first element will be related to the longitudes and the second element to the latitudes. 
 
