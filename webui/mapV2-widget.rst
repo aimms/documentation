@@ -52,6 +52,8 @@ The available options to be specified are:
     Please note that the Latitude and Longitude must be specified by two separate identifiers declared in the model.
 	
     The values of the Latitude and Longitude parameters must be within the geographical bounds, ie between (-90,90) and (-180,180), respectively. One can specify these intervals in the Range attributes of the correspoding identifiers in the model.	
+	
+    The default node size radius is 3 px. You can set dynamic node size to each node set. Just select the identifier for the Size parameter in the desired node set. Please ensure that the index domain of such a parameter is the same as the index of the node set.
 
 Adding identifiers to the option fields
 +++++++++++++++++++++++++++++++++++++++
@@ -61,8 +63,35 @@ When clicking on the identifier selector of the Index (as shown above), a pop-up
 .. image:: images/MapV2-Nodes0-Index.png
     :align: center
 
-T
- 
+Next, when clicking on the identifier selector of the Latitude, a 1-dimensional parameter indexed over the selected index may be selected in the corresponding pop-up dialog:
+
+.. image:: images/MapV2-Nodes0-Latitude.png
+    :align: center
+
+Similarly, one can follow the steps for the Longitude and the Size fields. Once all fields have been assigned, the nodes will be drawn on the map:
+
+.. image:: images/MapV2-Nodes0-Layout.png
+    :align: center
+
+Maps with multiple node sets
+++++++++++++++++++++++++++++
+
+As mentioned above, multiple node sets may be added to the map widget. For instance, suppose that in the TransNet application we would like to add the factories f and the centers c
+as separate node sets. After having added first the node set f, one can again select the Latitude parameter as discussed above, but in this case one may need to slice the parameter
+to only the set f as a subset of the Locations set with index l. This may be achieved using the slicing options in the pop-up dialog as follows:
+
+.. image:: images/MapV2-NodesF-Latitude.png
+    :align: center
+
+M
+  
+
+
+
+
+
+
+
 	
 The Map widget allows you to display a map with arcs and/or (dynamically sized) nodes on top of it if you want. 
 In the WebUI you need an identifier indexed over two indices: the index related to the locations and one extra index. 
