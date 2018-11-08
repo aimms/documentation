@@ -55,10 +55,10 @@ The available options to be specified are the following:
 	
     The default node size radius is 3 px. One can set a dynamic node size to each node set by selecting an appropriate identifier for the Size parameter in the desired node set (the index domain of such a parameter must be the same as the index of the node set).
 
-Adding identifiers to the option fields
-+++++++++++++++++++++++++++++++++++++++
+Adding identifiers to node option fields
+++++++++++++++++++++++++++++++++++++++++
 
-When clicking on the identifier selector of the Index (as shown above), a pop-up dialog is shown where the index of the node set may be selected:
+When clicking on the identifier selector of the Index field (as shown above), a pop-up dialog is shown where the index of the node set may be selected:
 
 .. image:: images/MapV2-Nodes0-Index.png
     :align: center
@@ -126,14 +126,22 @@ After selecting the "Arc Sets" section in the options editor and clicking on the
 
 The available options to be specified are the following:
 
-*	Value: Select the identifier which defines the arc set. The arcs will be drawn and the labels with the values will be displayed for each arc.
+*	Value: Select the 2-dimensional identifier which defines the arc set. The arcs will be drawn and the labels with the values will be displayed for each arc.
 *	Hide Labels: Switch this on in order to hide the arc labels.
 *	Dynamic Arc Width: This option controls whether the arcs width is fixed or dynamic. Dynamic arc width account for the values that are defined in the “Value” field of the current arc set.
 *	Show Straight Lines: Switch this on in order to turn the curved arcs into straight lines.
+*   Decimal Points: Specify the number of decimals to be shown for the values of the arc labels.
 
-Except for the “Value” field, the other three options can be controlled using (boolean) parameters declared in the model.
-
+.. note::
+    The arc identifier must be a 2-dimensional identifier like ArcFlow(i,j) where i and j are indexes of some node sets or subsets thereof.
 	
+    Note that, except for the “Value” field, all other options can be controlled either by constant values or by using scalar parameters declared in the model.
+
+Adding identifiers to arc option fields
++++++++++++++++++++++++++++++++++++++++
+
+Let's look back to our map example above with one set of nodes specified by the Locations index l.
+When clicking on the identifier selector of the Value field (as shown above), a pop-up dialog is shown where the arc identifier may be selected:
 	
 
   
