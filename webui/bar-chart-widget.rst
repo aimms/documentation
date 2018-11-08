@@ -109,7 +109,7 @@ Store Focus, Hover and Select
 +++++++++++++++++++++++++++++
 
 In the Store Focus tab of the widget's options editor, for each index it is possible to specify an element parameter in the same set which will store the corresponding value when the user sets the
-focus on a specific bar in the chart. For example, we can specify SelectedFactory for the index f and SelectedCenter for the index c, where SelectedFactory and SelectedCenter are element paramneters 
+focus on a specific bar in the chart. For example, we can specify SelectedFactory for the index f and SelectedCenter for the index c, where SelectedFactory and SelectedCenter are element parameters 
 in our application at hand with ranges Factories and Centers, respectively. The values of SelectedFactory and SelectedCenter may be displayed for inspection in some other widgets outside the bar chart.
 When the user sets the focus on a specific bar, the corresponding factory and center values are stored in SelectedFactory and SelectedCenter, respectively. In this case, the selected bar is highlighted, 
 while the other bars are faded away. The picture below depicts this situation:

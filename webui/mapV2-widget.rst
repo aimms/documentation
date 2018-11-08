@@ -43,17 +43,17 @@ After clicking on the "+" sign at the bottom, one can add options for the first 
 
 The available options to be specified are:
 	
-*	Index – Select the index of the node set you would like to display
-*	Latitude – A 1-dimensional parameter specifying the latitude coordinates for the nodes set with the selected index
-*	Longitude – A 1-dimensional parameter specifying the longitude coordinates for the node set with the selected index
-*	Size – A 1-dimensional parameter specifying the dynamic sizes for the node set with the selected index
+*	Index: Select the index of the node set to be displayed
+*	Latitude: An 1-dimensional parameter specifying the latitude coordinates for the nodes set with the selected index
+*	Longitude: An 1-dimensional parameter specifying the longitude coordinates for the node set with the selected index
+*	Size: An 1-dimensional parameter specifying the dynamic sizes for the node set with the selected index
 
 .. note::
-    Please note that the Latitude and Longitude must be specified by two separate identifiers declared in the model.
+    The Latitude and Longitude must be specified by two separate identifiers declared in the model.
 	
     The values of the Latitude and Longitude parameters must be within the geographical bounds, ie between (-90,90) and (-180,180), respectively. One can specify these intervals in the Range attributes of the correspoding identifiers in the model.	
 	
-    The default node size radius is 3 px. You can set dynamic node size to each node set. Just select the identifier for the Size parameter in the desired node set. Please ensure that the index domain of such a parameter is the same as the index of the node set.
+    The default node size radius is 3 px. One can set a dynamic node size to each node set by selecting an appropriate identifier for the Size parameter in the desired node set (the index domain of such a parameter must be the same as the index of the node set).
 
 Adding identifiers to the option fields
 +++++++++++++++++++++++++++++++++++++++
@@ -89,14 +89,37 @@ These actions result in a map widget with 2 node sets:
 .. image:: images/MapV2-NodesFC.png
     :align: center
 
-Store focus for nodes
-+++++++++++++++++++++
+Store Focus, Hover and Select for nodes
++++++++++++++++++++++++++++++++++++++++
 
-Nodes on the map widget also have the functionality of store focus. This means that one can store the value of a selected node in the network in an element parameter.
+Nodes on the map widget also have the functionality to store focus. This means that one can store the value of a selected node in the network in an element parameter declared in the model.
 The store focus functionality opens up various interaction possibilities, because the value of the element parameter may be further used by other widgets or may impact
-some parts in the model execution.
-While adding the index for the node set, one will see an option for “Store focus”. 
+some parts of the model execution.
+
+While adding the index for the node set, one will notice an option for “Store focus”. 
 Here an element parameter may be specified which will store the value of the node selected upon clicking in the network.
+
+.. image:: images/MapV2-StoreFocus-Select.png
+    :align: center
+
+Once the element parameter has been specified, one is able to see this reflected in the Index field of the correspoding node set in the options editor. 
+For example, we can specify SelectedFactory for the index f and SelectedCenter for the index c, where SelectedFactory and SelectedCenter are element parameters 
+in our application at hand with ranges Factories and Centers, respectively.
+Furthermore, the values of these element parameters may be also displayed for inspection in other widgets outside the map.
+When the user sets the focus on a specific node, the corresponding factory or center value is stored in SelectedFactory or SelectedCenter, respectively. 
+In this case, the selection effect is that the selected node is highlighted on the map (ie, it gets a thick outline), while the other nodes are faded away. 
+The picture below depicts this situation:
+
+.. image:: images/MapV2-StoreFocus-View.png
+    :align: center
+
+Note that, when a node has been selected, the user may still hover over another node and inspect the tooltip information, in the same way as the hovering works when no node has been selected 
+(remark: a selected node may be unselected by clicking again on it). The hover effect is that the node which is hovered over has a thin outline.
+	
+	
+	
+	
+
   
 
 
