@@ -83,7 +83,20 @@ to only the set f as a subset of the Locations set with index l. This may be ach
 .. image:: images/MapV2-NodesF-Latitude.png
     :align: center
 
-M
+The same type of slicing may be applied to the Longitude and Size parameters. Moreover, one may repeat all these steps and add the centers c as a second node set with similar options.
+These actions result in a map widget with 2 node sets:
+
+.. image:: images/MapV2-NodesFC.png
+    :align: center
+
+Store focus for nodes
++++++++++++++++++++++
+
+Nodes on the map widget also have the functionality of store focus. This means that one can store the value of a selected node in the network in an element parameter.
+The store focus functionality opens up various interaction possibilities, because the value of the element parameter may be further used by other widgets or may impact
+some parts in the model execution.
+While adding the index for the node set, one will see an option for “Store focus”. 
+Here an element parameter may be specified which will store the value of the node selected upon clicking in the network.
   
 
 
