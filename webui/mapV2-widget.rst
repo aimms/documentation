@@ -146,9 +146,9 @@ When clicking on the identifier selector of the Value field (as shown above), a 
 .. image:: images/MapV2-Arcs0-ValuesId.png
     :align: center
 
-Once the arc identifier has been specified, the arcs will be drawn on the map:	
+In our example, l_from and l_to are two alias indexes spanning the same Locations set as the index l. Once the arc identifier has been specified, the arcs will be drawn on the map:	
 
-.. image:: images/MapV2-Arcs0-View1.png
+.. image:: images/MapV2-Arc0-View1.png
     :align: center
 
 O
