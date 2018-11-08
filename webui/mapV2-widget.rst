@@ -142,8 +142,16 @@ Adding identifiers to arc option fields
 
 Let's look back to our map example above with one set of nodes specified by the Locations index l.
 When clicking on the identifier selector of the Value field (as shown above), a pop-up dialog is shown where the arc identifier may be selected:
-	
 
+.. image:: images/MapV2-Arcs0-ValuesId.png
+    :align: center
+
+Once the arc identifier has been specified, the arcs will be drawn on the map:	
+
+.. image:: images/MapV2-Arcs0-View1.png
+    :align: center
+
+O
   
 
 
