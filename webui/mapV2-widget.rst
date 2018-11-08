@@ -36,12 +36,12 @@ In the settings options editor one can find the following sections:
 Adding node sets
 ++++++++++++++++
 
-After clicking on the "+" sign at the bottom, one can add options for the first node set:
+After selecting the "Node Sets" section and clicking on the "+" sign at the bottom, one can add options for the first node set:
 
 .. image:: images/MapV2-Nodes0-Options.png
     :align: center
 
-The available options to be specified are:
+The available options to be specified are the following:
 	
 *	Index: Select the index of the node set to be displayed
 *	Latitude: An 1-dimensional parameter specifying the latitude coordinates for the nodes set with the selected index
@@ -116,7 +116,23 @@ The picture below depicts this situation:
 Note that, when a node has been selected, the user may still hover over another node and inspect the tooltip information, in the same way as the hovering works when no node has been selected 
 (remark: a selected node may be unselected by clicking again on it). The hover effect is that the node which is hovered over has a thin outline.
 	
-	
+Adding arc sets
++++++++++++++++
+
+After selecting the "Arc Sets" section in the options editor and clicking on the "+" sign at the bottom, one can add options for an arc set:
+
+.. image:: images/MapV2-Arcs0-Options.png
+    :align: center
+
+The available options to be specified are the following:
+
+*	Value: Select the identifier which defines the arc set. The arcs will be drawn and the labels with the values will be displayed for each arc.
+*	Hide Labels: Switch this on in order to hide the arc labels.
+*	Dynamic Arc Width: This option controls whether the arcs width is fixed or dynamic. Dynamic arc width account for the values that are defined in the “Value” field of the current arc set.
+*	Show Straight Lines: Switch this on in order to turn the curved arcs into straight lines.
+
+Except for the “Value” field, the other three options can be controlled using (boolean) parameters declared in the model.
+
 	
 	
 
@@ -126,21 +142,6 @@ Note that, when a node has been selected, the user may still hover over another 
 
 
 
-
-
-	
-The Map widget allows you to display a map with arcs and/or (dynamically sized) nodes on top of it if you want. 
-In the WebUI you need an identifier indexed over two indices: the index related to the locations and one extra index. 
-The set belonging to that second index should contain 2 elements. The first element will be related to the longitude 
-and the second element to the latitude. 
-
-.. note::
-    Please note that the naming of the indexes of the LonLat set is exactly as you should name them too.
-    
-See also screen capture below and supportive snippet of AIMMS Model Code. 
-
-.. image:: images/mapwidget.png
-    :align: center
 
 .. code::
 
@@ -197,13 +198,3 @@ along with the following data:
       ( Atlanta         , Lon ) :  -84.391,  ( Atlanta         , Lat ) :   33.748 }
 
 .. important:: After you have set up your coordinates, points and arcs in the options editor of your Map widget, the map doesn't automatically move/scale such that all your points are in the visible area. You may have to scroll and zoom before you actually see your data on the map. After that, your zoom level and your position is automatically saved.
-
-Dynamic Node Sizing
-+++++++++++++++++++
-
-It is possible to specify the size of the nodes that are displayed in your Map widget. You can do so by specifying a one-dimensional parameter in the Contents options editor, indexed over the locations. You can use any size you want; the Map widget will automatically scale the sizes provided relatively to each other. There are two special cases:
-
-#. A node size can be 0;
-#. A node size can be <0.
-
-It is up to the app developer to use `(blank) annotations <#data-dependent-styling>`_ on the node set in order to treat these special cases differently (or not, whatever he chooses).
