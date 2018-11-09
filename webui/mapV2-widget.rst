@@ -140,19 +140,34 @@ The available options to be specified are the following:
 Adding identifiers to arc option fields
 +++++++++++++++++++++++++++++++++++++++
 
-Let's look back to our map example above with one set of nodes specified by the Locations index l.
+Let's look back to our map example above with one set of nodes specified by the Locations index l. 
+In this example, let's assume that l_from and l_to are two alias indexes spanning the same Locations set as the index l.
 When clicking on the identifier selector of the Value field (as shown above), a pop-up dialog is shown where the arc identifier may be selected:
 
 .. image:: images/MapV2-Arcs0-ValuesId.png
     :align: center
 
-In our example, l_from and l_to are two alias indexes spanning the same Locations set as the index l. Once the arc identifier has been specified, the arcs will be drawn on the map:	
+Once the arc identifier has been properly specified, the arcs will be drawn on the map:	
 
 .. image:: images/MapV2-Arc0-View1.png
     :align: center
 
-O
-  
+When "Hide Labels" option is turned on, the map is drawn as follows:
+
+.. image:: images/MapV2-HideLabels-View.png
+    :align: center
+
+When "Dynamic Arc Width" option is turned on, the values of the identifier specified in thye "Values" field are accounted for in the width:
+
+.. image:: images/MapV2-DynamicSize-View.png
+    :align: center
+
+When "Show Straight Lines" option is turned on, the arcs are drawn like in the following picture:
+
+.. image:: images/MapV2-StraightLine-View.png
+    :align: center
+
+W  
 
 
 
