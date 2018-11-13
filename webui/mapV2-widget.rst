@@ -170,7 +170,7 @@ When "Show Straight Lines" option is turned on, the arcs are drawn like in the f
 Maps with multiple arc sets
 +++++++++++++++++++++++++++
 
-As mentioned in the beginning of this section, multiple arc sets may be added to the map. Suppose that in our example we may distinguish several subsets of the
+As mentioned in the beginning of this section, multiple arc sets may be added to the map. Suppose that in an example as ours we may distinguish several subsets of the
 Locations set: a (sub)set of Plants with index p, a s(sub)set of DistributionCenters with index d, and a subset of CustomerRegions with index r. Moreover, suppose 
 our model contains two identifiers: PlantToDC_Flow(p,d) with product flow values from plants to distribution centers and DCtoRegion_Flow(d,r) with product flows
 from distribution centers to customer regions. In such a case, one could define a map widget with, eg 3 sets of nodes and 2 sets of arcs as follows:
@@ -180,14 +180,19 @@ The sets of nodes:
 .. image:: images/MapV2-3Nodes-Options.png
     :align: center
 
-W
-
 The sets of arcs:  
 
 .. image:: images/MapV2-3Nodes2Arcs-Options.png
     :align: center
 
-W
+These option can result in a map view like in the following picture (where the arcs in first set are straight):
+
+.. image:: images/MapV2-3Nodes2Arcs-View.png
+    :align: center
+
+Miscellaneous options
++++++++++++++++++++++
+ 
 
 
 
