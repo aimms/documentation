@@ -190,6 +190,16 @@ These option can result in a map view like in the following picture (where the a
 .. image:: images/MapV2-3Nodes2Arcs-View.png
     :align: center
 
+Ordering and deleting node/arc sets
++++++++++++++++++++++++++++++++++++
+
+The ordering of the added node/arc sets may be changed by hovering the title bar of the set and then clicking on the respective button, to move up or down.
+An entire node/arc set may be deleted clicking on the bin icon. These options are illustrated in the following picture:
+
+.. image:: images/MapV2-Nodes-UpDownDelete.png
+    :align: center
+
+	
 Miscellaneous options
 +++++++++++++++++++++
 
