@@ -118,7 +118,7 @@ Note that, when a node has been selected, the user may still hover over another 
 	
 Adding arc sets
 +++++++++++++++
-
+ 
 After selecting the "Arc Sets" section in the options editor and clicking on the "+" sign at the bottom, one can add options for an arc set:
 
 .. image:: images/MapV2-Arcs0-Options.png
@@ -140,7 +140,7 @@ The available options to be specified are the following:
 Adding identifiers to arc option fields
 +++++++++++++++++++++++++++++++++++++++
 
-Let's look back to our map example above with one set of nodes specified by the Locations index l. 
+We start by illustrating the addition of an arc set for the example at hand where only the root set Locations with index l has been added as node set. 
 In this example, let's assume that l_from and l_to are two alias indexes spanning the same Locations set as the index l.
 When clicking on the identifier selector of the Value field (as shown above), a pop-up dialog is shown where the arc identifier may be selected:
 
@@ -167,6 +167,13 @@ When "Show Straight Lines" option is turned on, the arcs are drawn like in the f
 .. image:: images/MapV2-StraightLine-View.png
     :align: center
 
+Adding an arc set for map widgets with multiple node sets works in a similar way. For instance, in our example at hand, the situation with both 
+the factories f and the centers c in the node sets and Transport(f,c) as an arc set looks as follows:
+
+.. image:: images/MapV2-2Node1Arc-View.png
+    :align: center
+
+	
 Maps with multiple arc sets
 +++++++++++++++++++++++++++
 
@@ -194,7 +201,7 @@ Ordering and deleting node/arc sets
 +++++++++++++++++++++++++++++++++++
 
 The ordering of the added node/arc sets may be changed by hovering the title bar of the set and then clicking on the respective button, to move up or down.
-An entire node/arc set may be deleted clicking on the bin icon. These options are illustrated in the following picture:
+An entire node/arc set may be deleted by clicking on the bin icon. These options are illustrated in the following picture:
 
 .. image:: images/MapV2-Nodes-UpDownDelete.png
     :align: center
@@ -222,7 +229,8 @@ Some guidelines and best practices
 
 While using the map widget, there are some pointers on how to leverage the features in order to represent data efficiently.
 
-With every widget there is always some limitation on how much data can be rendered at a time. The map widget can handle 4000 nodes and arcs quite easily. However, please note the following:
+With every widget there is always some limitation on how much data can be rendered at a time. As a general guideline, the map widget can handle networks with a total of nodes and arcs up to around 4000. 
+At the same time, please note the following:
 
 .. note::
    The capacity and performance of the map widget is dependent on the specifications of your user’s machine, server and database speed, and the browser being used, among other factors.
