@@ -168,7 +168,7 @@ When "Show Straight Lines" option is turned on, the arcs are drawn like in the f
     :align: center
 
 Adding an arc set for map widgets with multiple node sets works in a similar way. For instance, in our example at hand, the situation with both 
-the factories f and the centers c in the node sets and Transport(f,c) as an arc set looks as follows:
+the factories f and the centers c in the node sets and with the variable Transport(f,c) added as an arc set results in a map view as follows:
 
 .. image:: images/MapV2-2Node1Arc-View.png
     :align: center
@@ -192,7 +192,8 @@ The sets of arcs:
 .. image:: images/MapV2-3Nodes2Arcs-Options.png
     :align: center
 
-These option can result in a map view like in the following picture (where the arcs in first set are straight):
+Such option specifications can result in a map view like in the following picture (where the arcs in first set are drawn as straight lines and the arcs in the second set
+are drawn as curved lines):
 
 .. image:: images/MapV2-3Nodes2Arcs-View.png
     :align: center
@@ -215,7 +216,7 @@ In the Miscellaneous section of the options editor one can find several options:
 .. image:: images/MapV2-Misc-Options.png
     :align: center
 
-Here are more explanations about these options:
+Here are more explanations about the meaning of these options:
 
 *	Title: Specify a title to be shown at the top of the widget
 *	Zoom:  One can set a zoom level to start with or control this via an identifier. When the map loads for the end user it starts off at the defined zoom level. The zoom level can be set between 2 (max zoom out) to 18 (max zoom in). One can also have max zoom out level as 0 or 1, but only when the size of the map is smaller than 5 columns in width.
@@ -229,13 +230,13 @@ Some guidelines and best practices
 
 While using the map widget, there are some pointers on how to leverage the features in order to represent data efficiently.
 
-With every widget there is always some limitation on how much data can be rendered at a time. As a general guideline, the map widget can handle networks with a total of nodes and arcs up to around 4000. 
+With every widget there is always some limitation on how much data can be rendered at a time. As a general guideline, the map widget can handle networks with a total number of nodes and arcs up to (about) 4000. 
 At the same time, please note the following:
 
 .. note::
    The capacity and performance of the map widget is dependent on the specifications of your user’s machine, server and database speed, and the browser being used, among other factors.
   
-Good practices are to show slices of the data which may be visualized comfortably by the user, who should be able to make meaning of and derive information from them.
+A good practice is to show (only) slices of the data which may be visualized comfortably by the end-user, who should be able to grasp the meaning of data and derive information from it.
  
 Some ways to achieve that are: 
 
