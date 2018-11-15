@@ -21,7 +21,7 @@ More details on each widget are included in one of the corresponding sections be
     label-widget
     line-chart-widget 
     map-widget
-    mapV2-widget
+    map-widget-old-style
     pie-chart-widget
     scalar-widget
     selection-widgets	
