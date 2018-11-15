@@ -9,7 +9,11 @@ A simple situation is for example when a transport identifier indexed over facto
     :align: center
 
 The map displayed in the backgroud is provided by the OpenStreetMap organization, see the `openstreetmap.org web site <https://www.openstreetmap.org>`_. 
-Since one must be able to reach OpenStreetMap online, an Internet connection is required for rendering the map.
+Since one must be able to reach OpenStreetMap online, an Internet connection is required for rendering the map. Assuming the connection is available, 
+the map may be zoomed at various levels (see also the Zoom option mentioned further below):
+
+.. image:: images/MapV2-ZoomLevels.png
+    :align: center
 
 The network with nodes and arcs on the top of the map must be defined in terms of identifiers declared in the AIMMS model.
 
