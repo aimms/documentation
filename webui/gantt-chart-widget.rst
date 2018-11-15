@@ -165,6 +165,11 @@ To be able to create a detail view in which the properties of the clicked task a
 .. image:: images/gantt-chart-store-focus.png
     :align: center
 
+Please note that a selected task may be deselected by clicking again on it. Moreover, in such a case please beware of the following: 
+	
+.. note::
+    When a selected task is deselected, the values of the element parameters which used to store the values for the selected task will not be emptied, but will keep storing those same values.
+	
 Adding, deleting and modifying tasks
 ++++++++++++++++++++++++++++++++++++
 
