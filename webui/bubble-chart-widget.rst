@@ -6,6 +6,12 @@ It uses an X/Y-plane to display circles (the so-called *bubbles*) for each data 
 The size of the circles also provides information about the data points. 
 For example, in a bubble chart about project management, the X-axis could represent the time to complete, the Y-axis the projected profit and the sizes of the bubbles could depict the risk involved.
 
+With every widget there is always some limitation on how much data can be rendered at a time. As a general guideline, the bubble widget can currently handle situations with up to (about) 16000 bubbles in the chart. 
+At the same time, please note the following:
+
+.. note::
+   The capacity and performance of the bubble widget may depend on the specifications of your user’s machine, server and database speed, and the browser being used, among other factors.
+
 Specifying the contents
 +++++++++++++++++++++++
 
