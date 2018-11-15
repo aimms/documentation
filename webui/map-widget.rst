@@ -147,7 +147,7 @@ The available options to be specified are the following:
 Adding identifiers to arc option fields
 +++++++++++++++++++++++++++++++++++++++
 
-We start by illustrating the addition of an arc set for the example at hand where only the root set Locations with index l has been added as node set. 
+We illustrate first the addition of an arc set for the example at hand where only the root set Locations with index l has been added as node set. 
 In this example, let's assume that l_from and l_to are two alias indexes spanning the same Locations set as the index l.
 When clicking on the identifier selector of the Value field (as shown above), a pop-up dialog is shown where the arc identifier may be selected:
 
@@ -180,6 +180,7 @@ the factories f and the centers c in the node sets and with the variable Transpo
 .. image:: images/MapV2-2Node1Arc-View.png
     :align: center
 
+So, in this latter case the arcs are drawn between nodes belonging to two different node sets. 
 	
 Maps with multiple arc sets
 +++++++++++++++++++++++++++
