@@ -17,7 +17,7 @@ the map may be zoomed at various levels (see also the Zoom option mentioned furt
 
 The network with nodes and arcs on top of the map must be defined in terms of identifiers declared in the AIMMS model.
 
-Below, we illustrate how to create, configure, and use such a map widget in the AIMMS WebUI. 
+In this section we illustrate how to create, configure, and use such a map widget rendering a network in the AIMMS WebUI. 
 
 .. important:: We also provide some guidelines and best practices for the map widget usage at the end of this section, please consider them before employing the map widget within your application.
 
