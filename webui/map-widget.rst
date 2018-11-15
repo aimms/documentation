@@ -15,7 +15,7 @@ The network with nodes and arcs on the top of the map must be defined in terms o
 
 In the sequel we illustrate how to create, configure, and use such a map widget in the AIMMS WebUI. 
 
-.. important:: We also provide some guidelines and best practices for the map widget usage at the end of this section, please consider them before employing the map widget in your application.
+.. important:: We also provide some guidelines and best practices for the map widget usage at the end of this section, please consider them before employing the map widget within your application.
 
 Creating a map widget
 +++++++++++++++++++++
@@ -226,7 +226,7 @@ Here are more explanations about the meaning of these options:
 *	Center: The “center” option is split into 2 options, “Center Latitude” and “Center Longitude”. Similarly to the zoom option, if one sets the Center Latitude and Center Longitude, then the initial load will start from that “center” point. One can also control this option via identifiers in the model.
 *	Visible: Specify whether or not the widget is visble on the page. This option may also be controlled using a model identifier.
 
-.. important:: If your widget has been created by using an older type Map widget in the past, you may continue to use this widget as is, but it is not possible upgrade the widget from an older Map type to the current Map type by just changing the widget type in the Advanced options. In order to use the current Map type, the node and arc sets have to be added explicitly to the widget using the style described in this section.
+.. important:: If your widget has been created in the past by using an older type Map widget, you may continue to use this widget as is, but it is not possible to upgrade the widget from an older Map type to the current Map type by just changing the widget type in the Advanced options. In order to use the current Map type, the node and arc sets have to be added explicitly to the widget using the style described in this section.
 
 Some guidelines and best practices
 ++++++++++++++++++++++++++++++++++
