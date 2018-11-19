@@ -1,12 +1,12 @@
 Map Widget old style
 --------------------
 
-This section applies only to the old style Map widget, ie the map widget type before the release og AIMMS 4.61. 
+.. important:: This section applies only to the old style Map widget, i.e. the map widget type available before the release of AIMMS 4.61. 
 
 The Map widget allows you to display a map with arcs and/or (dynamically sized) nodes on top of it if you want. In the WebUI you need an identifier indexed over two indices: the index related to the locations and one extra index. The set belonging to that second index should contain 2 elements. The first element will be related to the longitudes and the second element to the latitudes. 
 
 .. note::
-    Please note that the naming of the indexes of the LonLat set is exactly as you should name them too.
+    Please note that the naming of the indexes of the LonLat set is exactly as you should name them too for the Map widget old style.
     
 See also screen capture below and supportive snippet of AIMMS Model Code. 
 
