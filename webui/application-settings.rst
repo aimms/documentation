@@ -35,20 +35,22 @@ When opting to use the new theme, we offer `two .css files <https://gitlab.aimms
 UI Editable
 -----------
 
-This is a logical condition which determines whether of not the user interface is editable when the application is run under the AIMMS PRO platform.
+This is a logical condition which determines whether or not the user interface is editable when the application is run under the AIMMS PRO platform.
 
 When this condition evaluates to "true" and the value of the "Limited Options Editor" (see also below) evaluates to "false", then all editing options available in developer mode 
-are also made available to the end-user who runs the application in AIMMS PRO/Cloud.
+are also made available to the end-user who runs the application in AIMMS PRO/Cloud. For example, the end-user can change the order of the widgets on a page in this case.
 
 When the "UI Editable" condition evaluates to "false", then the end-user running the application in AIMMS PRO/Cloud is no longer allowed to edit the user interface, but only to use the pages 
-and widgets as are, ie as provided by the app developer. More specifically, the Application Settings, Page Settings, and Widget Manager icons are no longer available in the Menu Bar.
-The Page Manager icon may still be available, but the option for adding new pages (ie, the "+" button) is removed. Moreover, the "wheel" Settings icon is no longer available for any 
-of the widgets, so the widget options are no longer editable.
+and widgets as are, ie as provided by the app developer. More specifically, the Application Settings, Page Settings, and Widget Manager icons are no longer available in the Menu Bar. In particular, 
+the order of the widgets on a page cannot be changed in this case.
+The Page Manager icon may still be available, but the option for adding new pages (ie, the "+" button) is removed. The page visibility and the page options (including page name) are not
+editable by the end-user. The page order may be temporarily modified for visualization, but as soon as a complete re-load take place the original page order is re-established. 
+Moreover, the "wheel" Settings icon is no longer available for any of the widgets, so the widget options are no longer editable.
 
 Limited Option Editor(1/0)
 --------------------------
 
-This is a logical condition which determines whether of not the PRO user of the app gets limited access to the options in the widget/page editor.
+This is a logical condition which determines whether or not the PRO user of the app gets limited access to the options in the widget/page editor.
 
 Please note that, when the "UI Editable" option value evaluates to "false", then the value of this "Limited Options Editor" is not relevant.
 
@@ -59,6 +61,8 @@ in developer mode are made available to the end-user who runs the application in
 
 * The Miscellaneous and Advanced sections are not available for editing in the Settings of any widget
 
+For example, the order of the widgets on a page in the Widget Manager can still be changed in this latter case.
+
 Licenseinfo
 -----------
 
@@ -67,9 +71,9 @@ This a string option for some text about the used license which may be placed on
 Sidebar Open by Default
 -----------------------
 
-This is a logical condition which determines whether of not the Page Manager windows is opened by default on the left side of the pages.  
+This is a logical condition which determines whether or not the Page Manager windows is opened by default on the left side of the pages.  
 
 Page Manager Hidden
 -------------------
 
-This is a logical condition which determines whether of not the Page Manager button on the menu bar is visible or is hidden.
+This is a logical condition which determines whether or not the Page Manager button on the menu bar is visible or is hidden.
