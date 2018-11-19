@@ -71,7 +71,7 @@ This a string option for some text about the used license which may be placed on
 Sidebar Open by Default
 -----------------------
 
-This is a logical condition which determines whether or not the Page Manager windows is opened by default on the left side of the pages.  
+This is a logical condition which determines whether or not the Page Manager window is opened by default on the left side of the pages.  
 
 Page Manager Hidden
 -------------------
