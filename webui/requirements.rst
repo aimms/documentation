@@ -1,7 +1,9 @@
 Requirements
 ============
 
-This section lists requirements for various phases passed through by an AIMMS WebUI app
+This section lists the requirements for the various phases passed through by an AIMMS WebUI application.
+
+.. important:: Please mind the important note at the end of this section!
 
 Developing a WebUI app
 ----------------------
@@ -48,3 +50,9 @@ In order to **run/use** a web application from the AIMMS PRO portal, the app use
     As mentioned above in the context of app development, the AIMMS WebUI support for the latter two browsers is currently in the so-called "beta" phase.
 
     Please note that, out of all these browsers Google Chrome offers the best performance when running an app with WebUI.
+
+.. important:: We do our best to provide support when Internet Explorer 11 is the used browser. However, Internet Explorer 11 is a poorer browser for advanced applications like AIMMS WebUI 
+    when compared to Edge or Chrome (i.e., it is slower, less stable, crashes sooner, etc). So, we strongly recommend our users to try and use Edge or Chrome, instead. Please be informed that 
+    in some cases we might decide not to service issues related to Internet Explorer 11 poor performance, where Edge and Chrome show no such issues.
+
+
