@@ -208,6 +208,11 @@ are drawn as curved lines):
 .. image:: images/MapV2-3Nodes2Arcs-View.png
     :align: center
 
+.. note::
+    For the map widget in order to be able to render multiple arc sets correctly the conditions in this note must be satisfied. For any two different arc sets, with their sets of source 
+    nodes originating in different node sets (as specified in the "Node Sets" section of the widget options), these node sets should not contain any elements with the same element names. 
+    The same should hold true for sets of destination nodes of any two different arc sets.	
+	
 Ordering and deleting node/arc sets
 +++++++++++++++++++++++++++++++++++
 
