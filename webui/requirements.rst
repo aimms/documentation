@@ -3,7 +3,7 @@ Requirements
 
 This section lists the requirements for the various phases passed through by an AIMMS WebUI application.
 
-.. important:: Please mind the important note at the end of this section!
+.. important:: Please mind the important note about browsers at the end of this section!
 
 Developing a WebUI app
 ----------------------
