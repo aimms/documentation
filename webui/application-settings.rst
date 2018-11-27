@@ -45,7 +45,7 @@ and widgets as are, i.e. as provided by the app developer. More specifically, th
 the order of the widgets on a page cannot be changed in this case.
 The Page Manager icon may still be available, but the option for adding new pages (i.e., the "+" button) is removed. The page visibility and the page options (including page name) are not
 editable by the end-user. The page order may be temporarily modified for visualization, but as soon as a complete re-load take place the original page order is re-established. 
-Moreover, the "wheel" Settings icon is no longer available for any of the widgets, so the widget options are no longer editable.
+Moreover, the "cog wheel" Settings icon is no longer available for any of the widgets, so the widget options are no longer editable.
 
 Limited Option Editor(1/0)
 --------------------------
