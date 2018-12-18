@@ -289,12 +289,18 @@ The transport table is sliced to show the transport from all distribution locati
 Expanding indexes
 +++++++++++++++++
 
-In some situations, some identifiers in the model may be declared over some super-sets and other indentifiers may be declared over some sub-sets of those super-sets. However, it may be beneficial to show the data
+In some situations, some identifiers may be declared in the model over some super-sets and other indentifiers may be declared over some sub-sets of those super-sets. However, it may be beneficial to show all the data
 of several such categories of identifiers in the same widget, for example in a table widget. If all indexes involved are used as separate indexes in a widget, then they are treated as "independent" 
-in the Pivot-ing section and the resulting layout of the data in the widget may not be an "intuitive" one.
+in the Pivot-ing section and the resulting layout of the data in the widget may not be an "intuitive" one. 
 
-For example, in the Transnet application (see the "Quick Start: My First WebUI" section) the parameters Latitude(l) and Supply(f) are declared over the super-index l of the set Locations and over the 
-index f of the sub-set Factories, respectively. 
+For example, in the Transnet application (see the "Quick Start: My First WebUI" section) 
+the parameters Latitude(l) and Supply(f) are declared over the super-index l of the set Locations and over the index f of the sub-set Factories, respectively. If the data of both parameters is shown in a 
+table widget with their indexes as declared originally in the model, then the table layout may look like this:
+    
+.. image:: images/CubeDomain_Table2_View1.png
+    :align: center
+
+However, such a layout may not look "intuitive", because the set of Factories may be regarded more naturraly as "contained" in the set Locations. 
 
 In such situations, it is possible to expand an index to a super-index, that is, to an 
 index in a super-set of the initial index set. Such expanding may be achieved through the same options in the widget editor which are used for slicing, as explained above. However, in this case
