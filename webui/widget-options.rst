@@ -293,21 +293,50 @@ In some situations, some identifiers may be declared in the model over some supe
 of several such categories of identifiers in the same widget, for example in a table widget. If all indexes involved are used as separate indexes in a widget, then they are treated as "independent" 
 in the Pivot-ing section and the resulting layout of the data in the widget may not be an "intuitive" one. 
 
-For example, in the Transnet application (see the "Quick Start: My First WebUI" section) 
-the parameters Latitude(l) and Supply(f) are declared over the super-index l of the set Locations and over the index f of the sub-set Factories, respectively. If the data of both parameters is shown in a 
-table widget with their indexes as declared originally in the model, then the table layout may look like this:
+For example, in the Transnet application (see the "Quick Start: My First WebUI" section) the parameters Latitude(l) and Supply(f) are declared over the super-index l of the set Locations 
+and over the index f of the sub-set Factories, respectively. If the data of both parameters is shown in a table widget with their indexes as declared originally in the model, then the table 
+layout may look like in the following picture on the right:
     
 .. image:: images/CubeDomain_Table2_View1.png
     :align: center
 
-However, such a layout may not look "intuitive", because the set of Factories may be regarded more naturraly as "contained" in the set Locations. 
+However, such a layout may not look "intuitive", because the set of Factories may be regarded more naturraly as "contained" in the set Locations, instead of as an "independent" set.
 
-In such situations, it is possible to expand an index to a super-index, that is, to an 
-index in a super-set of the initial index set. Such expanding may be achieved through the same options in the widget editor which are used for slicing, as explained above. However, in this case
-an identifier may be rendered over a larger domain than its declared domain and some "values" may be just empty, i.e. flagged as "outside-domain". When an index has been expanded to a super-index, 
-it will no longer be treated as a separate index in the Pivot-ing section, but as "contained" by its super-index. Please note that, like slicing, the index expanding is also applied per each identifier
-specified in the widget Contents.
-    
+In such situations, it is possible to expand an index to a super-index, that is, to an index in a super-set of the initial index set. Such expanding may be achieved through the same options 
+in the widget editor which are used for slicing, as explained above. However, in this case an identifier may be rendered over a larger domain than its declared domain and some "values" 
+may be just empty, i.e. flagged as "outside-domain". When an index has been expanded to a super-index, it will no longer be treated as a separate index in the Pivot-ing section, but rather 
+as "contained" by its super-index. Please note that, like slicing, the index expanding is also applied per each identifier specified in the widget Contents.
+
+For example, in the Transnet application, the index f of parameter Supply may be expanded to the super-index l corresponding to the super-set Locations. In this case, the index f no longer appears
+in the Pivot-ing section and the resulting layout of the data in the widget looks more intutitive as illustrated below:
+ 
+.. image:: images/CubeDomain_Table2_View2.png
+    :align: center
+
+Note that, in this case the cells of the column Supply which are outside domain are simply empty and not editable. 
+
+Examples
+^^^^^^^^
+
+The index expanding may be involved in more complex data layouts as illustrated in this section. 
+
+Assume that our TransNet application has been extended with a super-set AllNetworkNodes (with alias indexes n, n_from, n_to) of the set Locations, which also has another sub-set PotentialSites (with index s)
+with elements { Munich, Nuremberg }. Moreover, assume that the parameters Latitude and Longitude are now declared over the root index n and that the parameters LocationSize(l) and PotentialSize(s) 
+have been declared additionally in the model. Then one can show the data of Latitude(n), LocationSize(l), PotentialSize(s), Supply(f), Demand(c), and UnitCost(f,c), all in the same table widget, 
+by expanding each sub-index l, s, f, or c to one of the super-indexes n or n_to in the super-set AllNetworkNodes as illustrated below:
+ 
+.. image:: images/CubeDomain_Table3_Settings.png
+    :align: center
+
+In this case, the layout of the data in the table widget looks like in the following picture:
+ 
+.. image:: images/CubeDomain_Table3_View1.png
+    :align: center
+
+I
+
+
+
 	
 Hiding Widgets
 --------------
