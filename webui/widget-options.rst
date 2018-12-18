@@ -204,7 +204,11 @@ As expected, this table only shows the rows for which the molecules contain an O
 Slicing
 +++++++
 
-Identifiers in AIMMS can have multiple dimensions. You can specify these dimensions in AIMMS via the index domain of an identifier. These identifiers can be displayed in the WebUI and their data is shown over all these dimensions  by default. However, there are also cases where you only want to see part of the dimensions/data. In situations like this, you can slice the indices of one or more identifiers in your widget. This can be done by the 'Set slicing per index' option at the `Identifier Settings <#identifier-settings>`_ tab of the `Widget Options <widget-options.html>`_.
+Identifiers in AIMMS can have multiple dimensions. You can specify these dimensions in AIMMS via the index domain of an identifier. 
+These identifiers can be displayed in the WebUI and their data is shown over all these dimensions  by default. 
+However, there are also cases where you only want to see part of the dimensions/data. 
+In situations like this, you can slice the indices of one or more identifiers in your widget. This can be done by the 'Set slicing per index' option at the 
+`Identifier Settings <#identifier-settings>`_ tab of the `Widget Options <widget-options.html>`_.
 
 .. image:: images/identifier-settings-set-slicing-per-index_v1.png
     :align: center
@@ -281,6 +285,24 @@ The transport table is sliced to show the transport from all distribution locati
 .. image:: images/slicingexample-subset-fixedelement_v1.png
     :align: center
 
+	
+Expanding indexes
++++++++++++++++++
+
+In some situations, some identifiers in the model may be declared over some super-sets and other indentifiers may be declared over some sub-sets of those super-sets. However, it may be beneficial to show the data
+of several such categories of identifiers in the same widget, for example in a table widget. If all indexes involved are used as separate indexes in a widget, then they are treated as "independent" 
+in the Pivot-ing section and the resulting layout of the data in the widget may not be an "intuitive" one.
+
+For example, in the Transnet application (see the "Quick Start: My First WebUI" section) the parameters Latitude(l) and Supply(f) are declared over the super-index l of the set Locations and over the 
+index f of the sub-set Factories, respectively. 
+
+In such situations, it is possible to expand an index to a super-index, that is, to an 
+index in a super-set of the initial index set. Such expanding may be achieved through the same options in the widget editor which are used for slicing, as explained above. However, in this case
+an identifier may be rendered over a larger domain than its declared domain and some "values" may be just empty, i.e. flagged as "outside-domain". When an index has been expanded to a super-index, 
+it will no longer be treated as a separate index in the Pivot-ing section, but as "contained" by its super-index. Please note that, like slicing, the index expanding is also applied per each identifier
+specified in the widget Contents.
+    
+	
 Hiding Widgets
 --------------
 
