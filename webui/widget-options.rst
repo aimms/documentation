@@ -315,10 +315,10 @@ in the Pivot-ing section and the resulting layout of the data in the widget look
 
 Note that, in this case the cells of the column Supply which are outside domain are simply empty and not editable. 
 
-Examples
-^^^^^^^^
+Example
+^^^^^^^
 
-The index expanding may be involved in more complex data layouts as illustrated in this section. 
+The index expanding may be involved in more complex data layouts as illustrated by the example in this section. 
 
 Assume that our TransNet application has been extended with a super-set AllNetworkNodes (with alias indexes n, n_from, n_to) of the set Locations, which also has another sub-set PotentialSites (with index s)
 with elements { Munich, Nuremberg }. Moreover, assume that the parameters Latitude and Longitude are now declared over the root index n and that the parameters LocationSize(l) and PotentialSize(s) 
@@ -328,14 +328,13 @@ by expanding each sub-index l, s, f, or c to one of the super-indexes n or n_to 
 .. image:: images/CubeDomain_Table3_Settings.png
     :align: center
 
-In this case, the layout of the data in the table widget looks like in the following picture:
+In this case, the layout of the data in the table widget looks like in the following picture (note that UnitCost is shown dense as its diplay domain is set to 1):
  
 .. image:: images/CubeDomain_Table3_View1.png
     :align: center
 
-I
-
-
+So, in this table all the data of the above mentioned identifiers is shown together, while the Pivot-ing section of the table only consider 2 indexes instead of the 5 original indexes used in the
+model declarations. All the cells which show no value are simply empty ("outside-domain") and not editable in the table.
 
 	
 Hiding Widgets
