@@ -328,7 +328,7 @@ by expanding each sub-index l, s, f, or c to one of the super-indexes n or n_to 
 .. image:: images/CubeDomain_Table3_Settings.png
     :align: center
 
-In this case, the layout of the data in the table widget looks like in the following picture (note that UnitCost is shown dense as its diplay domain is set to 1):
+In this case, the layout of the data in the table widget looks like in the following picture:
  
 .. image:: images/CubeDomain_Table3_View1.png
     :align: center
