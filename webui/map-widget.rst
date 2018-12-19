@@ -1,7 +1,7 @@
 Map Widget
 ----------
 
-.. important:: This section applies to the new style Map widget, i.e. the map widget available in software versions from AIMMS 4.61 on.  
+.. important:: This section applies to the new style Map widget, i.e. the map widget available in software versions from AIMMS 4.61 onwards.  
 
 The Map widget allows you to display a map in the background and show a network with nodes and arcs on top of the map.
 A simple situation is for example when a transport identifier indexed over factories f and centers c in the TransNet application 
