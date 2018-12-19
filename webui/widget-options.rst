@@ -288,6 +288,8 @@ The transport table is sliced to show the transport from all distribution locati
 	
 Expanding indexes
 +++++++++++++++++
+.. note::
+    The feature described in this section (and in the Example underneath) is available only in AIMMS releases from 4.62 onwards. 
 
 In some situations, some identifiers may be declared in the model over some super-sets and other indentifiers may be declared over some sub-sets of those super-sets. However, it may be beneficial to show all the data
 of several such categories of identifiers in the same widget, for example in a table widget. If all indexes involved are used as separate indexes in a widget, then they are treated as "independent" 
