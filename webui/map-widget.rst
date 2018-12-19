@@ -57,13 +57,13 @@ The available options to be specified are the following:
 *	Longitude: A 1-dimensional parameter specifying the longitude coordinates for the node set with the selected index
 *	Size: A 1-dimensional parameter specifying the dynamic sizes for the node set with the selected index
 
-.. warning::
+.. note::
 
-    #. **The Latitude and Longitude must be specified by two separate identifiers** declared in the model.
+    * The Latitude and Longitude must be specified by two separate identifiers declared in the model.
 	
-    #. **The values of the Latitude and the Longitude parameters must be within the geographical bounds** , i.e. between (-90,90) and (-180,180), respectively. Not keeping the Latitude and the Longitude within these bounds can lead to unexpected or irresponsive behavior of the Map widget. In order to avoid such undesirable behavior, one can specify the bounds intervals in the Range attributes of the corresponding identifiers in the model.	
+    * The values of the Latitude and the Longitude parameters must be within the geographical bounds, i.e. between (-90,90) and (-180,180), respectively. Not keeping the Latitude and the Longitude within these bounds can lead to unexpected or irresponsive behavior of the Map widget. In order to avoid such undesirable behavior, one can specify the bounds intervals in the Range attributes of the corresponding identifiers in the model.	
 	
-    #. **The default node size radius is 3 px.** One can set a dynamic node size to each node set by selecting an appropriate identifier for the Size parameter in the desired node set (the index domain of such a parameter must be the same as the index of the node set).
+    * The default node size radius is 3 px. One can set a dynamic node size to each node set by selecting an appropriate identifier for the Size parameter in the desired node set (the index domain of such a parameter must be the same as the index of the node set).
 
 Adding identifiers to node option fields
 ++++++++++++++++++++++++++++++++++++++++
