@@ -47,8 +47,6 @@ In order to **run/use** a web application from the AIMMS PRO portal, the app use
     * Microsoft Edge, or
     * Microsoft Internet Explorer 11.
 
-    As mentioned above in the context of app development, the AIMMS WebUI support for the latter two browsers is currently in the so-called "beta" phase.
-
     Please note that, out of all these browsers Google Chrome offers the best performance when running an app with WebUI.
 
 .. important:: We do our best to provide support when Internet Explorer 11 is the used browser. However, Internet Explorer 11 is a poorer browser for advanced applications like AIMMS WebUI 
