@@ -68,28 +68,5 @@ By default, all users of a published WebUI application on a PRO server can edit 
 
 Locking the editors will still allow the 'locked' users to change data and to create/compare cases, but they won't be able to change the application's UI structure. Furthermore, this option only affects published WebUI apps on PRO: when developing your WebUI locally, this setting does not affect the options editors, so you can just continue to make changes to your widgets when you are still developing the app.
 
-Adding Tooltips
-===============
-
-Almost all widgets that the WebUI offers, support tooltips. These tooltips have a default value (for example, when hovering over a Table cell, its value is displayed). However, they can also be completely user-defined, giving you maximum freedom in determining their content. In order to create your user-defined tooltips, you should add an auxiliary identifier to your AIMMS model, called :token:`X_Tooltips`, where :token:`X` is the name of an existing identifier that is displayed in the widget(s) for which you want to override the default tooltips. This auxiliary identifier must have the same index domain as the corresponding model identifier. For example, consider the following table, which shows aircraft types for specific flights:
-
-.. image:: images/defaulttooltip.jpg
-    :align: center
-
-As you can see, hovering over the cell with value 'A319' just shows this value in the default tooltip. In order to change that, in addition to the displayed :token:`AircraftType(a1, a2, dt)` identifier, the auxiliary :token:`AircraftType_Tooltips(a1, a2, dt)` identifier is added to the model. When using the following definition:
-
-.. code::
-
-    FormatString("Flight from %e to %e is operated by the %e aircraft type", a1, a2, AirCraftType(a1, a2, dt))
-
-the result when hovering over the same cell as above looks like this:
-
-.. image:: images/userdefinedtooltip.jpg
-    :align: center
-
-**Security Warning**
-  Putting javascript code in an identifier (like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
-  would allow a malicious user to do `Persistent XSS <https://en.wikipedia.org/wiki/Cross-site_scripting#Persistent_(or_stored)>`_.
-  For example a malicious user could record all actions done by another user.
 
 

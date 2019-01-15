@@ -80,7 +80,53 @@ For every identifier that you have specified as part of the _Current Contents_ o
 * :token:`X_text` to hold additional text to be shown within the DOM element associated with a data tuple. This option is currently only supported by the Gantt chart. The CSS classes defined via the annotations identifier of the identifier :token:`X` itself will also be set for text displayed in the associated DOM element. You can use this, for instance, to change the styling of the displayed text of elements you want your end-users to pay extra attention to. 
     
     * For the Gantt chart, you can set CSS for the task text via ``.tag-ganttchart .label``, possible compounded with the additional CSS classes set via the annotations identifier of the <duration> parameter.
-  
+
+* :token:`X_tooltips` to hold a string representing some (additional) info which may be displayed in a tooltip associated with the identifier :token:`X` used by a widget 
+	
+	
+Adding Tooltips
+---------------
+
+Almost all widgets offerred by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed. 
+However, they can also be completely user-defined, giving the user maximum freedom in determining the contents to be shown. 
+In order to create your user-defined tooltips, you should add an auxiliary string parameter to your AIMMS model, called :token:`X_Tooltips`, where :token:`X` is the name of 
+an existing identifier that is displayed in the widget(s) for which you want to override the default tooltips. This auxiliary identifier must have the same index domain 
+as the corresponding model identifier. For example, consider the following table, which shows aircraft types for specific flights:
+
+.. image:: images/defaulttooltip.jpg
+    :align: center
+
+As you can see, hovering over the cell with value 'A319' just shows this value in the default tooltip. In order to change that, in addition to the displayed :token:`AircraftType(a1, a2, dt)` identifier, the auxiliary :token:`AircraftType_Tooltips(a1, a2, dt)` identifier is added to the model. When using the following definition:
+
+.. code::
+
+    FormatString("Flight from %e to %e is operated by the %e aircraft type", a1, a2, AirCraftType(a1, a2, dt))
+
+the result when hovering over the same cell as above looks like this:
+
+.. image:: images/userdefinedtooltip.jpg
+    :align: center
+
+.. warning::
+   **Security Warning:** 
+   Putting javascript code in an identifier (like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
+   would allow a malicious user to do `Persistent XSS <https://en.wikipedia.org/wiki/Cross-site_scripting#Persistent_(or_stored)>`_.
+   For example a malicious user could record all actions done by another user.	
+	
+HTML Tooltips
+-------------
+
+Besides the simple text-based tooltips illustrated above, one may also use HTML-based tooltips, which allow to display more sothisticated contents when hovering over the data entries in a widget.
+In this case the data of the string parameter :token:`X_Tooltips` (associated with an identifier :token:`X`) must be in HTML format; for more info on HTML, 
+see for example `html.com <https://html.com/>`_ or `www.w3schools.com <https://www.w3schools.com/html/>`_ .
+
+
+
+
+
+
+
+
 Filters
 -------
 
@@ -280,6 +326,10 @@ The transport table is sliced to show the transport from all distribution locati
     
 .. image:: images/slicingexample-subset-fixedelement_v1.png
     :align: center
+
+
+
+	
 
 Hiding Widgets
 --------------
