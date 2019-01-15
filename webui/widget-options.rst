@@ -122,17 +122,32 @@ see for example `html.com <https://html.com/>`_ or `www.w3schools.com <https://w
 
 Next we illustrated this feature based on some concrete examples.
 
-Suppose the data of a 2-dimensional parameter DailyNumberOfPassengers(i1,i2) is shown in a table widget. One can declare the string parameter DailyNumberOfPassengers_Tooltips(i1,i2) as
+Suppose the data of a 2-dimensional parameter DailyNumberOfPassengers(i1,i2) is shown in a table widget, where i1 and i2 are alias indexes in a set Islands. 
+One can declare the string parameter DailyNumberOfPassengers_Tooltips(i1,i2) and defined its HTML data as
 
 .. image:: images/Def_Tooltip_DailyNumberOfPassengers.png
     :align: center
 
-In this case the tooltip for a cell in table looks like in the following picture:
+In this case the tooltip for a cell in the table looks like in the following picture:
 
 .. image:: images/Tooltip_Table_1.png
     :align: center
 
-I
+Similarly, suppose that the data of a 1-dimensional parameter TotalCostPerIsland(i) is rendered in a barchart widget. A HTML-based tooltip may be added by the string parameter
+TotalCostPerIsland_Tooltips(i) defined as
+
+.. image:: images/Def_Tooltip_TotalCostPerIsland.png
+    :align: center
+
+where IslandImageURLs(i) is a string parameter holding the web URL's of some images (for each element i of a set Islands, in this case). 
+	
+In this case the tooltip for a bar in the chart looks like in the following picture:
+
+.. image:: images/Tooltip_Barchart_1.png
+    :align: center
+
+S
+
 
 
 
