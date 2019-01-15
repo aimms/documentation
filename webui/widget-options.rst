@@ -120,6 +120,19 @@ Besides the simple text-based tooltips illustrated above, one may also use HTML-
 In this case the data of the string parameter :token:`X_Tooltips` (associated with an identifier :token:`X`) must be in HTML format; for more info on HTML, 
 see for example `html.com <https://html.com/>`_ or `www.w3schools.com <https://www.w3schools.com/html/>`_ .
 
+Next we illustrated this feature based on some concrete examples.
+
+Suppose the data of a 2-dimensional parameter DailyNumberOfPassengers(i1,i2) is shown in a table widget. One can declare the string parameter DailyNumberOfPassengers_Tooltips(i1,i2) as
+
+.. image:: images/Def_Tooltip_DailyNumberOfPassengers.png
+    :align: center
+
+In this case the tooltip for a cell in table looks like in the following picture:
+
+.. image:: images/Tooltip_Table_1.png
+    :align: center
+
+I
 
 
 
