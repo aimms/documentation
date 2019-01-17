@@ -123,7 +123,7 @@ see for example `html.com <https://html.com/>`_ or `www.w3schools.com <https://w
 Next we illustrate this feature based on some concrete examples for various widgets.
 
 Suppose the data of a 2-dimensional parameter DailyNumberOfPassengers(i1,i2) is shown in a table widget, where i1 and i2 are alias indexes in a set Islands. 
-One can declare the string parameter DailyNumberOfPassengers_Tooltips(i1,i2) and defined its HTML data as
+One can declare the string parameter DailyNumberOfPassengers_Tooltips(i1,i2) and defined its HTML data value as follows:
 
 .. image:: images/Def_Tooltip_DailyNumberOfPassengers.png
     :align: center
@@ -143,9 +143,7 @@ TotalCostPerIsland_Tooltips(i) defined as
 .. image:: images/Def_Tooltip_TotalCostPerIsland.png
     :align: center
 
-where for each element i of a set Islands, IslandImageURLs(i) is a string parameter holding the web URL of a corresponding (island) image. 
-	
-In this case the tooltip for a bar in the chart looks like in the following picture:
+where for each element i of a set Islands, IslandImageURLs(i) is a string parameter holding the web URL of a corresponding (island) image. In this case the tooltip for a bar in the chart looks like in the following picture:
 
 .. image:: images/Tooltip_Barchart_1.png
     :align: center
@@ -162,15 +160,26 @@ TotalCostALLIslands_Tooltips string parameter, which may be defined for instance
     :align: center
 
 .. note::
-   By using a string like *"/app-resources/resources/images/Canarias.png"* in this example at hand, one may refer to an image included in the *resources/images* subfolder of the 
+   By using a string of the form *"/app-resources/resources/images/Canarias.png"* like illustrated in this example at hand, one may refer to an image included in the *resources/images* subfolder of the 
    `WebUI folder <folder.html>`_ of the application directory.
    
-In this case the tooltip looks like in the following picture:
+In this case the tooltip in the WebUI looks like in the following picture:
 
 .. image:: images/Tooltip_Scalar_1.png
     :align: center
 
-O
+Now, suppose that some aircraft data is shown in a bubblechart, where the size of the bubbles is determined by a parameter NumberOfSeats(p) with p being the index of a set Planes.
+Again, one may add a string parameter NumberOfSeats_Tooltips(p) defined for examples by using the following HTML data value:  
+
+.. image:: images/Def_Tooltip_NumberOfSeats.png
+    :align: center
+
+Then the resulting tooltip in the bubblechart widget looks like shown here:
+
+.. image:: images/Tooltip_Bubblechart_1.png
+    :align: center
+
+N
 
 
 
