@@ -133,24 +133,29 @@ In this case the tooltip for a cell in the table looks like in the following pic
 .. image:: images/Tooltip_Table_1.png
     :align: center
 
-Similarly, suppose that the data of a 1-dimensional parameter TotalCostPerIsland(i) is rendered in a barchart widget. A HTML-based tooltip may be added by the string parameter
+.. note::
+   Where in a simple text-based tooltip you used \\n to move to a new line, in a HTML-based tooltip this needs to be replaced by <br>, see example above.
+   Similarly, the usage of \\t in text-based tooltips should be replaced by HTML tables, see further below.
+
+Next, suppose that the data of a 1-dimensional parameter TotalCostPerIsland(i) is rendered in a barchart widget. A HTML-based tooltip may be added by the string parameter
 TotalCostPerIsland_Tooltips(i) defined as
 
 .. image:: images/Def_Tooltip_TotalCostPerIsland.png
     :align: center
 
-where IslandImageURLs(i) is a string parameter holding the web URL's of some images (for each element i of a set Islands, in this case). 
+where for each element i of a set Islands, IslandImageURLs(i) is a string parameter holding the web URL of a corresponding (island) image. 
 	
 In this case the tooltip for a bar in the chart looks like in the following picture:
 
 .. image:: images/Tooltip_Barchart_1.png
     :align: center
 
-Of course, the same tooltip contents may be used also for the linechart, the piechart, or the treemap widgets:
+Of course, one can easily change type of the widget to linechart, piechart, or treemap, and the same tooltip contents may be used for these widgets as well:
 
 .. image:: images/Tooltip_LinePieTree_1.png
     :align: center
 
+In case the costs for all islands were aggregated in a scalar parameter TotalCostALLIslands which is the shown in a scalar widget, a similar HTML-based tooltip may be added as well. 
 
  
 
