@@ -146,7 +146,7 @@ In this case the tooltip for a bar in the chart looks like in the following pict
 .. image:: images/Tooltip_Barchart_1.png
     :align: center
 
-Of course, the same type of tooltip may be used also for the linechart, the piechart, or the treemap widgets:
+Of course, the same tooltip contents may be used also for the linechart, the piechart, or the treemap widgets:
 
 .. image:: images/Tooltip_LinePieTree_1.png
     :align: center
