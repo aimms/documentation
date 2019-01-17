@@ -84,8 +84,8 @@ For every identifier that you have specified as part of the _Current Contents_ o
 * :token:`X_tooltips` to hold a string representing some (additional) info which may be displayed in a tooltip associated with the identifier :token:`X` used by a widget 
 	
 	
-Adding Tooltips
----------------
+Adding tooltips
++++++++++++++++
 
 Almost all widgets offerred by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed. 
 However, they can also be completely user-defined, giving the user maximum freedom in determining the contents to be shown. 
@@ -114,7 +114,7 @@ the result when hovering over the same cell as above looks like this:
    For example a malicious user could record all actions done by another user.	
 	
 HTML Tooltips
--------------
++++++++++++++
 
 Besides the simple text-based tooltips illustrated above, one may also use HTML-based tooltips, which allow to display more sothisticated contents when hovering over the data entries in a widget.
 In this case the data of the string parameter :token:`X_Tooltips` (associated with an identifier :token:`X`) must be in HTML format; for more info on HTML, 
@@ -134,6 +134,7 @@ In this case the tooltip for a cell in the table looks like in the following pic
     :align: center
 
 .. note::
+   **Using HTML format:** 
    Where in a simple text-based tooltip you used \\n to move to a new line, in a HTML-based tooltip this needs to be replaced by <br>, see example above.
    Similarly, the usage of \\t in text-based tooltips should be replaced by HTML tables, see further below.
 
@@ -154,13 +155,14 @@ Of course, one can easily change type of the widget to linechart, piechart, or t
 .. image:: images/Tooltip_LinePieTree_1.png
     :align: center
 
-In case the costs of all islands were aggregated in a scalar parameter TotalCostALLIslands which is then shown in a scalar widget, a similar HTML-based tooltip may be added as well in the 
-TotalCostALLIslands_Tooltips string parameter, which may be defined for instance as follows:
+In case the costs of all islands were aggregated in a scalar parameter TotalCostALLIslands which is then shown in a scalar widget, a similar HTML-based tooltip contents may be added 
+as well in the TotalCostALLIslands_Tooltips string parameter, which may be defined for instance as follows:
 
 .. image:: images/Tooltip_Scalar_Def_1.png
     :align: center
 
 .. note::
+   **Using Application-Specific Resources:** 
    By using a string of the form *"/app-resources/resources/images/Canarias.png"* like illustrated in this example at hand, one may refer to an image included in the *resources/images* subfolder of the 
    `WebUI folder <folder.html>`_ of the application directory.
    
@@ -180,20 +182,21 @@ Then the resulting tooltip in the bubblechart widget looks as follows:
 .. image:: images/Tooltip_Bubblechart_1.png
     :align: center
 
-N
+Finally, suppose that in a Gantt chart widget we show some schedule data for several activities performed by a few people, with the duration given by the data of a parameter JobDuration(pe,j),
+where pe is the index of the set Persons and j is the index of the set Jobs. When using the default tooltip, the info for a block in the chart is rendered as:
 
+.. image:: images/Tooltip_Ganttchart_0.png
+    :align: center
 
+However, one may customize the info by adding a string parameter JobDuration_Tooltips(pe,j) defined for example like here on the right:
 
- 
+.. image:: images/Tooltip_Ganttchart_contentsDef.png
+    :align: center
 
- 
+In this case, the customized tooltip based on the HTML table layout (see also the Note above regarding HTML format) looks like in the following picture:
 
-
-
-
-
-
-
+.. image:: images/Tooltip_Ganttchart_1.png
+    :align: center
 
 Filters
 -------
