@@ -143,7 +143,8 @@ TotalCostPerIsland_Tooltips(i) defined as
 .. image:: images/Def_Tooltip_TotalCostPerIsland.png
     :align: center
 
-where for each element i of a set Islands, IslandImageURLs(i) is a string parameter holding the web URL of a corresponding (island) image. In this case the tooltip for a bar in the chart looks like in the following picture:
+where for each element i of a set Islands, IslandImageURLs(i) is a string parameter holding the web URL of a corresponding (island) image. 
+In this case the tooltip for a bar in the chart looks like in the following picture:
 
 .. image:: images/Tooltip_Barchart_1.png
     :align: center
@@ -169,12 +170,12 @@ In this case the tooltip in the WebUI looks like in the following picture:
     :align: center
 
 Now, suppose that some aircraft data is shown in a bubblechart, where the size of the bubbles is determined by a parameter NumberOfSeats(p) with p being the index of a set Planes.
-Again, one may add a string parameter NumberOfSeats_Tooltips(p) defined for examples by using the following HTML data value:  
+Again, one may add a string parameter NumberOfSeats_Tooltips(p) defined for example by using the HTML data value as shown here on the right:  
 
-.. image:: images/Def_Tooltip_NumberOfSeats.png
+.. image:: images/Tooltip_Bubblechart_contentsDef.png
     :align: center
 
-Then the resulting tooltip in the bubblechart widget looks like shown here:
+Then the resulting tooltip in the bubblechart widget looks as follows:
 
 .. image:: images/Tooltip_Bubblechart_1.png
     :align: center
