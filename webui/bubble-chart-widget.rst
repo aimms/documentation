@@ -30,7 +30,10 @@ In this particular case, the Y-coordinate doesn't mean anything. In such cases, 
 Overriding tooltips
 +++++++++++++++++++
 
-As described `here <widget-manager.html#adding-tooltips>`_, you can also override the default tooltips for a bubble chart. However, you will need to add a string parameter based on the name of the identfier that represents the _size_ of the bubble. So, if, for example, the parameter :token:`Diameter` represents the bubble sizes, you should add a string parameter called :token:`Diameter_Tooltips` with the same index domain as :token:`Diameter` in order to override the default tooltip (in this case, index :token:`p`). In the chart above, you can see the result of using the following definition for the :token:`Diameter_Tooltips(p)` identifier:
+As described in the `Widget Options <widget-options.html#adding-tooltips>`_ section, you can also override the default tooltips for a bubble chart. 
+However, for this you need to add a string parameter based on the name of the identfier that represents the size of the bubble. 
+So, for example, if the parameter :token:`Diameter` represents the bubble sizes, you should add a string parameter called :token:`Diameter_Tooltips` with the same index domain as :token:`Diameter` 
+in order to override the default tooltip (in this case, index :token:`p`). In the chart above, you can see the result of using the following definition for the :token:`Diameter_Tooltips(p)` identifier:
 
 .. code::
 
