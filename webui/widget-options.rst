@@ -120,7 +120,7 @@ Besides the simple text-based tooltips illustrated above, one may also use HTML-
 In this case the data of the string parameter :token:`X_Tooltips` (associated with an identifier :token:`X`) must be in HTML format; for more info on HTML, 
 see for example `html.com <https://html.com/>`_ or `www.w3schools.com <https://www.w3schools.com/html/>`_ .
 
-Next we illustrated this feature based on some concrete examples.
+Next we illustrate this feature based on some concrete examples for various widgets.
 
 Suppose the data of a 2-dimensional parameter DailyNumberOfPassengers(i1,i2) is shown in a table widget, where i1 and i2 are alias indexes in a set Islands. 
 One can declare the string parameter DailyNumberOfPassengers_Tooltips(i1,i2) and defined its HTML data as
@@ -155,7 +155,26 @@ Of course, one can easily change type of the widget to linechart, piechart, or t
 .. image:: images/Tooltip_LinePieTree_1.png
     :align: center
 
-In case the costs for all islands were aggregated in a scalar parameter TotalCostALLIslands which is the shown in a scalar widget, a similar HTML-based tooltip may be added as well. 
+In case the costs of all islands were aggregated in a scalar parameter TotalCostALLIslands which is then shown in a scalar widget, a similar HTML-based tooltip may be added as well in the 
+TotalCostALLIslands_Tooltips string parameter, which may be defined for instance as follows:
+
+.. image:: images/Tooltip_Scalar_Def_1.png
+    :align: center
+
+.. note::
+   By using a string like *"/app-resources/resources/images/Canarias.png"* in this example at hand, one may refer to an image included in the *resources/images* subfolder of the 
+   `WebUI folder <folder.html>`_ of the application directory.
+   
+In this case the tooltip looks like in the following picture:
+
+.. image:: images/Tooltip_Scalar_1.png
+    :align: center
+
+O
+
+
+
+ 
 
  
 
