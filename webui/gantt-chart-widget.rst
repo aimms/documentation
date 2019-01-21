@@ -191,6 +191,11 @@ Snapping to time resolution while dragging
 
 During both horizontal and vertical dragging the time resolution as specified in the corresponding property is taken into account.
 
+Support lines/backdrop or time indicators
+"""""""""""""""""""""""""""""""""""""""""
+
+This feature is available from AIMMS 4.62 onwards (and since then, a default feature for the Gantt chart).  
+
 Creating a form to add, delete or modify a task
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
