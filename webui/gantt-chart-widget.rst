@@ -107,10 +107,11 @@ Indication of Today and Now
 Starting from AIMMS 4.62 onwards, the Gantt chart widget can give an indication of "today" and "now" with reference to time in the chart, which may that help the user identify the day and time of a task
 relative to the present moment. This feature can be toggled in the Gantt chart settings under “Show Now/Today” using either 0/1 values or a scalar identifier from the model:
 
-.. image:: images/gantt-chart-pivot.png
+.. image:: images/GanttChart_TodayNow_view.png
     :align: center
 
-
+.. note::
+   The "Today" background indication will be shown only if the horizon of the Gantt chart is more than 24 hours. 
  
 
 Viewport control
