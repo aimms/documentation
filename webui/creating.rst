@@ -15,14 +15,51 @@ Here you can find a summary of the steps to be taken for creating a WebUI for yo
 
     There is a known problem with Internet Explorer 11: if you face a blue screen after starting your WebUI app in the browser, you should verify that the setting "Display Intranet Sites in Compatibility View" is set to unchecked. You can find this option under "Compatibility View Options" in the main menu of IE11.
 
+    
+Authorizing model content for use in the WebUI
+==============================================
+    
+By default, the WebUI is configured to allow any AIMMS identifier in your model to be displayed in the WebUI, and any applicable procedure to be run from within the WebUI. When your WebUI application has more secure authorization requirements, e.g. that certain data in your model should not be writable by, or even visible to, particular users of your app, then the WebUI can support you in imposing such restrictions upon certain users.
+
+You can introduce authorization into your WebUI app, through the identifiers
+
+* :token:`webui::IdentifierAuthorization` defined over the set :token:`AllIdentifiers`. Through this identifier you can set permissions on *specific* identifiers in your model.
+* :token:`webui::LibraryAuthorization` defined over the set :token:`webui::AllLibraryPrefixes`. Through this identifier you can set permissions on all identifiers in *specific* libraries in your model. Typically, this comes in handy when you need to set permissions on runtime libraries that *may not even exist* when you are setting up the WebUI authorizations for the user who is running the app. The set :token:`webui::AllIndexLibraryPrefix` should contain library prefixes of library included in your project. You can prefill it through the procedure :token:`webui::FindAllLibraryPrefixes`. This identifier will only be consulted if no specific identifier authorization has been set for that identifier.
+* :token:`webui::DefaultAuthorization` sets a default authorization, which will apply when no authorization can be determined for a specific identifier, or for the library (if any) in which the identifier is contained.
+
+When deploying your AIMMS via AIMMS PRO or AIMMS Cloud, you can use the PRO group membership when setting up the proper authorizations for a particular user.
+
+Available permissions
+---------------------
+
+Authorizations can be applied to identifiers that hold data, but also to procedures. The available permissions that can be assigned are:
+
+* :token:`webui::AuthNone`: no access granted. No data will be shown in the WebUI, even if identifier is specified in a widget in the WebUI. Procedures will not be executed.
+* :token:`webui::AuthR`: only read access granted. Data will be displayed in the WebUI, but will be shown as read-only data. Data changes via the WebUI are prohibited. Procedures will not be executed.
+* :token:`webui::AuthRX`: read and execute access granted. Data will be displayed in the WebUI, but will be shown as read-only data. Data changes via the WebUI are prohibited. Procedures with this permission can be executed from within the WebUI.
+* :token:`webui::AuthRW`: read and write access granted. Data will be displayed in the WebUI, and are displayed as editable if no other restrictions prohibit editing the data (e.g. defined identifiers). Data changes via the WebUI are not prohibited. Procedures will not be executed.
+* :token:`webui::AuthRWX`: full access granted. Data will be displayed in the WebUI, and are displayed as editable if no other restrictions prohibit editing the data (e.g. defined identifiers). Procedures with this permission can be executed from within the WebUI.
+
+By default, the value of :token:`webui::DefaultAuthorization` is set to :token:`webui::AuthRWX`, so full access will be granted to all identifiers.
+
+Preset authorizations
+---------------------
+
+The authorizations of some WebUI-related identifiers, that are critical to the correct functioning of the WebUI, will have a fixed value that cannot be changed through the above identifiers. For instance, all access to the above authorization identifiers is completely prohibited from within the WebUI, making it impossible for end-users of your app to circumvent the imposed authorizations.
+
+Updating the values of authorization identifiers  
+------------------------------------------------
+
+Authorizations are applied when the data for a widget in your WebUI is prepared by your AIMMS session. Widgets in the WebUI is not automatically refreshed when you change the authorizations during your sessions to reflect the updated authorizations. Thus, you should set the authorizations during the initialization of your project. When you change the permissions during an existing session, they will only be applied when the user opens a new page or by updating the page (e.g. through pressing F5) or by switching from single- to multi-case mode.
+    
 Public Identifiers
 ==================
 
-To be able to control what identifiers are visible to the WebUI (e.g. when selecting the contents for a widget), you can extend your AIMMS model with a set called :token:`AllPublicIdentifiers` (in the global Main namespace of your app). This set should be a subset of the predefined set :token:`AllIdentifiers` and should be initialized with those identifiers which you want to make public to the WebUI.
+To be able to control which identifiers are visible when adding content to WebUI pages(e.g. when selecting the contents for a widget), you can extend your AIMMS model with a set called :token:`AllPublicIdentifiers` (in the global Main namespace of your app). This set should be a subset of the predefined set :token:`AllIdentifiers` and should be initialized with those identifiers which you want to make public to the WebUI.
 
-When running in development mode, the contents of this set is ignored. This means that you can simply see all identifiers declared in your model from within the WebUI which you are building. When deploying your finished WebUI application on AIMMS PRO, only the identifiers which are in the set :token:`AllPublicIdentifiers` are available to end users who try to add or modify contents of the existing widgets in the app. However, if you, as an app developer, have created widgets containing identifiers not present in the :token:`AllPublicIdentifiers` set, the end-user is, of course, still able to see the data of these identifiers through these widgets.
+When running in development mode, the contents of this set is ignored. This means that you can simply see all identifiers declared in your model from within the WebUI which you are building. When deploying your finished WebUI application on AIMMS PRO, only the identifiers which are in the set :token:`AllPublicIdentifiers` are available to end users who try to add or modify contents of the existing widgets in the app. However, if you, as an app developer, have created widgets containing identifiers not present in the :token:`AllPublicIdentifiers` set, the end-user is, of course, still able to see the data of these identifiers through these widgets, taking into account whether the WebUI is authorized to display the data of such identifiers.
 
-As a result of the way of working described above, if the set :token:`AllPublicIdentifiers` is declared in your model but is empty, then all identifiers are available to the WebUI app developer when in developer mode, but no identifiers are available to the end user when running the WebUI app on the PRO platform (i.e. if the end user tries to add or modify contents in existing widgets). In such a case, the end user may only use the existing widgets with the content identifiers set initially by the app developer. 
+As a result of the way of working described above, if the set :token:`AllPublicIdentifiers` is declared in your model but is empty, then all identifiers are available to the WebUI app developer when in developer mode, but no identifiers are available to the end user when running the WebUI app on the PRO platform (i.e. if the end user tries to add or modify contents in existing widgets). In such a case, the end user may only use the existing widgets with the content identifiers set up initially by the app developer. 
 
 If the set :token:`AllPublicIdentifiers` is not declared, then all the identifiers in your model are available in both developer mode and the app published on PRO. 
 
