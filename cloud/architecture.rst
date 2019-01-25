@@ -1,7 +1,7 @@
 General Architecture
 ====================
 
-To provide you with a better understanding of what's going on in an AIMMS Cloud Platform setup in terms of communication between the various components, we created the following schema. Please click on it to see a larger version.
+To provide you with a better understanding of what's going on in an AIMMS Cloud Platform setup in terms of communication between the various components, we created the following schema. 
 
 .. image:: images/general-architecture-cloud_v1.jpg
     :align: center
