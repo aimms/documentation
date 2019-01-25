@@ -302,7 +302,7 @@ layout may look like in the following picture on the right:
 .. image:: images/CubeDomain_Table2_View1.png
     :align: center
 
-However, such a layout may not look "intuitive", because the set of Factories may be regarded more naturraly as "contained" in the set Locations, instead of as an "independent" set.
+However, such a layout may not look "intuitive", because the set of Factories may be regarded more naturally as "contained" in the set Locations, instead of as an "independent" set.
 
 In such situations, it is possible to expand an index to a super-index, that is, to an index in a super-set of the initial index set. Such expanding may be achieved through the same options 
 in the widget editor which are used for slicing, as explained above. However, in this case an identifier may be rendered over a larger domain than its declared domain and some "values" 
