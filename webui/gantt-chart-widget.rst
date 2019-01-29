@@ -111,7 +111,9 @@ relative to the present moment. This feature can be toggled in the Gantt chart s
     :align: center
 
 .. note::
-   The "Today" background indication will be shown only if the horizon of the Gantt chart is more than 24 hours. 
+   The "Now/Today" indication listens to the (local) browser time, which is based on the system time of the user's machine.
+   
+   The "Now/Today" background indication will be shown only if the horizon of the Gantt chart is more than 24 hours. 
  
 
 Viewport control
