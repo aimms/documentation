@@ -234,7 +234,9 @@ Commit and Pull Functions
    :param revfrom: specifies the lower bound of the range of revisions on the specified branch to apply the selected commits from
    :param revto: specifies the upper bound of the range of revisions on the specified branch to apply the selected commits from
    :param resolved: specifies an output argument, which indicates whether any conflicts when applying the commits to the actual identifiers were successfully resolved.
-
+   :param assignToId: indicates whether the retrieved changes and any resolved conflicts should be assigned to the local model identifiers.
+   :param applyToCommitted: indicates whether the retrieved changes should be assigned to the committed identifiers. 
+   
 .. js:function::  cdm::MergeDeltaInWithId(category)
    
    Actually merge the changes stored in the :token:`DeltaInIdentifiers` in :token:`CDMRuntime` library for the specified category into the actual identifiers. Changes will only be applied if the corresponding tuple in :token:`DeltaInRevisionIdentifiers` holds a non-zero value. This low-level procedure is used when merging branches, and can used to merge incoming changes when pulling changes or merging branches did not resolve successfully, and manual intervention is required. For examples of use, inspect the function :token:`cdm::MergeBranches`.
