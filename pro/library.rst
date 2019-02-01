@@ -1,6 +1,8 @@
 Adding PRO Libraries to your Project
 ====================================
 
+When creating a new project in AIMMS 4.40 or higher, you will have the option to include or exclude the PRO libraries from your project. Note that if you include the WebUI library in your project, the PRO library will also be included as a prerequisite. For AIMMS versions lower than 4.40, read further. 
+
 Install AIMMS PRO System libraries
 ----------------------------------
 
