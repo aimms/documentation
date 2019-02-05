@@ -40,8 +40,8 @@ The Page Navigator can be used in combination with the Page Menu, but there are 
 
 When running on PRO, only the add/rename/delete options are offered to the end-user (i.e. the visibility-toggling and the wizard-creation options are left out).
 
-Add a Page
-----------
+Adding a Page
+-------------
 
 To add a new root page to your AIMMS WebUI:  
 
@@ -69,8 +69,8 @@ To navigate to the newly created page, press the page in the list of available p
 
 After adding a page, you can `add widgets <widget-manager.html#adding-a-widget>`_ to it.
 
-Rename a Page
--------------
+Renaming a Page
+---------------
 
 To rename a page in your AIMMS WebUI:  
 
@@ -89,8 +89,8 @@ To rename a page in your AIMMS WebUI:
 
     When entering the new name, a red line around the name input field can appear, meaning that the current name will not be accepted. E.g. when a page name already exists at this level in the page tree.
 
-Move a Page
------------
+Moving a Page
+-------------
 
 To move a page to a new position in your page tree in the AIMMS WebUI:  
 
@@ -103,8 +103,8 @@ To move a page to a new position in your page tree in the AIMMS WebUI:
 * Move your mouse to the new position in the tree. Subtrees will automatically expand when hovering over them. A little triangle will indicate the new position of your page. If the triangle is on top of another page name, your page will end up just above this page. If it is at the bottom of another page name, your page will end up just below this page. If it is in the middle, your page will become a subpage of the other page.
 * Release your mouse button to perform the move to the new position.
 
-Change the Visibility of a Page
--------------------------------
+Changing the Visibility of a Page
+---------------------------------
 
 By default, all pages in your page tree are visible for all users of your WebUI app. However, sometimes you may want to hide certain pages. E.g. when they should only be visible for certain users of your WebUI app, or only after certain actions are performed. In such cases, you can change the visibility of a page in the following way:  
 
@@ -123,8 +123,8 @@ By specifying an AIMMS identifier for the visibility option of a page, you can d
 
 When a page is hidden, it will not show up in the `Page Menu <page-menu.html>`_. In the `Page Manager <page-manager.html>`_, hidden pages are 'greyed out' and they have a 'hidden' icon |hidden| behind their name.
 
-Delete a Page
--------------
+Deleting a Page
+---------------
 
 To delete a page:  
 
@@ -136,8 +136,8 @@ To delete a page:
 * Press the dots button behind the page that you wish to delete.
 * A list of page control buttons appears. Press the bin button |bin| to delete the page.
 
-Set the Home Page
------------------
+Setting the Home Page
+---------------------
 
 In the `Page Manager <page-manager.html>`_, the first page in the *Main Project* has a home icon |home|. This means that when opening your WebUI app (in develop mode or in PRO) you are automatically being navigated to this first page.
 
@@ -249,3 +249,9 @@ or
     statusCode := webui::ReturnStatusCode('OK');
 
 The statusCode value at the end of the end/cancel procedure will decide whether or not to continue. This means that in case the statusCode is *not* 200 ('OK'), the user will remain on the current page. The WebUI will display the statusDescription string to provide the user with extra information. In case the statusCode *is* 200 ('OK'), the user will continue to either the next page (in case of an end procedure) or the wizard will be canceled (in case of the cancel procedure). The statusDescription in such a case will only be displayed when it is not equal to "OK" or "". 
+
+Side Panels
+-----------
+
+Side panels are 2 column width pages that can be configured with different widgets and accessed on different/all pages in an application via tabs on the right-hand side of the page. 
+Side panels help build model interactions. These help to free up real estate on pages, or also duplicate widgets that are required on different pages, such as filters.
