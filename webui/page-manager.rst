@@ -17,6 +17,11 @@ Page Manager
 
 .. |wizard| image:: images/wizard.png
 
+.. |kebab|  image:: images/kebab.png
+
+.. |addpage|  image:: images/addpage.png
+
+.. |sidepanel|  image:: images/sidepanel.png
 
 Just like in WinUI, you can add multiple pages to your WebUI. To see the list of available pages in your WebUI, press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. The Page Manager (a page tree) will open. 
 
@@ -253,5 +258,208 @@ The statusCode value at the end of the end/cancel procedure will decide whether 
 Side Panels
 -----------
 
-Side panels are 2 column width pages that can be configured with different widgets and accessed on different/all pages in an application via tabs on the right-hand side of the page. 
+Side panels are 2 column width pages that can be configured with different widgets and accessed on different/all pages in an application via tabs on the right-hand side of the page.
+ 
 Side panels help build model interactions. These help to free up real estate on pages, or also duplicate widgets that are required on different pages, such as filters.
+
+.. image:: images/Side_Panel_tabs.jpg
+			:align: center
+			:scale: 75
+			
+.. image:: images/Side_Panel_tabs_open.jpg
+			:align: center
+			:scale: 75			
+
+			
+What can side panels be used for?
++++++++++++++++++++++++++++++++++
+
+Side panels can be used for various purposes, such as filters, KPI snapshots.
+
+Adding a Side Panel Page
+++++++++++++++++++++++++
+
+Adding a side panel page is similar to adding a page.
+
+In the page manager you will notice a few changes. The |plus| icon for the Main project and in the |kebab| menu for other pages has been replaced. The main project now has a |kebab| menu, which when clicked, shows 2 options, i.e. Add New Page |addpage| and Add Side Panel |sidepanel|.
+
+The |plus| icon for pages has been removed and 2 new 
+icons have been introduced |addpage| and |sidepanel|, as in the 
+main project add options.
+
+Click on the Insert side panel page icon 
+
+.. image:: images/addsidepanel1.png
+			:align: center
+			
+.. image:: images/sidepanelname.png
+			:align: center
+
+You can give it any name you desire. 
+
+.. note:: 
+
+	You will not be able to give it the same name as a page or side panel that already exists.
+
+You can differentiate between pages and side panels by the icons that represent each type.
+
+.. image:: images/pagesidepaneldiff.png
+			:align: center
+			
+You can add side panels to any level.  
+Side panels do not show in the Menu (navigation) and only be accessed via the page manager.  
+Side panels have the same options that a page has  
+#. Insert Page
+#. Insert Side Panel
+#. Rename
+#. Visibility
+#. Start Wizard
+#. Delete
+
+You can also move the side panel page in the page tree as you desire.
+
+.. note:: 
+	
+	Please avoid adding pages under side panel pages. These pages will not be shown in the navigation menu.
+
+Adding widgets to a side panel page
++++++++++++++++++++++++++++++++++++
+
+Adding widgets to a side panel page is the same as adding widgets to any other page. 
+
+
+Step 1: Click the side panel page you want to add widgets to in the page manager
+
+.. image:: images/SP_addwidget1.png
+			:align: center
+			
+Step 2: You will see a 2-column width page
+Step 3: Open the Widget Manager
+
+.. image:: images/SP_addwidget2.png
+			:align: center
+
+Step 4: Add desired widgets to the page.
+
+.. image:: images/SP_addwidget3.png
+			:align: center
+
+.. image:: images/SP_addwidget4.png
+			:align: center
+
+.. note:: 
+	
+	* Changing the width of a widget will not have any effect as the page is restricted to only 2 columns. You can change the height of the widget as required.
+	* If the widgets added exceed the page height a scroll will appear in the side panel. 
+
+Configuring Side panels
++++++++++++++++++++++++
+
+Side panels can be configured via the model. 
+First create 1 set for the order of side panels to be displayed on the page.
+Let’s call the set “SidePanelOrder”, index SP_order. 
+
+.. image:: images/SP_orderset.png
+			:align: center
+
+You can give the name and index of your choice. 
+This set determines the order in which the side panels tabs will appear from top to bottom. This is an integer set. 1 is the highest position and then so on. 
+A new library has been added to the AimmsWebUI called Pages Support, to help with configuring side panels better.
+
+.. image:: images/pagesupportlib.png
+			:align: center
+
+SidePanelSpecification is what will be used to in the coming steps to configure the side panels.
+
+.. image:: images/SidePanelSpecificationset.png
+			:align: center
+
+This set has 4 properties:
+#. *displayText*: Is the text/label you would like the side panel tab and header to have.
+#. *pageId*: The exact address/id of a specific page.  You can find all the side panel pageId’ in the set AllSidePanelPages.
+
+.. image:: images/Allsidepanelpagesdata.png
+			:align: center
+			
+.. image:: images/Allsidepanelpagesdata_pageids.png
+			:align: center
+			
+#. *tooltip*: The text here would be displayed when the user hovers over that respective side panel tab.
+#. *state*: This is the state for the side panel, i.e Active, Inactive and Hidden.
+
+.. note:: 
+	
+	The "state" property is not yet in use, but will be applicable in future releases.
+
+To configure side panels on a page, create a string parameter indexed on the SidePanelOrder and SidePanelSpecification. Eg: homepageSP(SP_order,webui::indexSidePanelSpec).
+
+.. image:: images/SP_stringparameter.png
+			:align: center
+
+.. important:: 
+
+	Please notice that “webui::” has to be added to the SidePanelSpecification index since we are referencing it from the webui library.
+
+Right click the sting paramter and click on data, you will see:
+
+.. image:: images/SP_stringparameterdata.png
+			:align: center
+
+Add the details for the side panels you wish to show on this page.
+
+For example if your page tree 5 pages and 7 sidepanels
+
+.. image:: images/SP_pagetree.png
+			:align: center
+
+And you want 3 side panels on the "home" page:
+#. Filters
+#. Quick Notes
+#. Help
+
+Data in the string parameter would have.
+
+.. image:: images/SP_homepage3SPs.png
+			:align: center
+
+.. note:: 
+
+	If you enter the wrong pageId, then the side panel tab will not be shown.
+	
+Configuring the string parameter on respective pages
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+In the WebUI, navigate to the respective page. In the page settings you will see Side Panel Settings.
+
+.. image:: images/SP_configurehomepage.png
+			:align: center
+			
+Add the string parameter created for that respective page, in the sidepanels field . 
+
+.. image:: images/SP_configurehomepage2.png
+			:align: center
+
+Once you have added the sting parameter, the respective side panel tabs will appear on that page.
+
+.. image:: images/SP_3panels.png
+			:align: center
+
+			
+Create other string parameters similarly for other pages and configure them respectively.
+
+You can configure as many side panels that you require. Since there is limited screen space, **we display only the top 6 side panels.**
+
+Interacting with Side Panels
+++++++++++++++++++++++++++++
+
+A side panel can be opened and closed by clicking on the respective tab. You can also close the panel by clicking on the “>>“ on the title bar 
+
+Hovering over a side panel will show you the tooltip that was configured in the model.
+
+.. image:: images/SP_interaction1.png
+			:align: center
+
+Clicking on the tab, highlights that tab and opens with the widgets that were added to that respective side panel page.
+
+.. image:: images/SP_interaction2.png
+			:align: center
