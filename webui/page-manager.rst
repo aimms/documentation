@@ -258,7 +258,7 @@ The statusCode value at the end of the end/cancel procedure will decide whether 
 Sidepanels
 -----------
 
-.. important:: Sidepanels are available in software versions from AIMMS 4.63 onwards.
+.. important:: Sidepanels are available in software versions from AIMMS 4.64 onwards.
 
 Sidepanels are 2 column width pages that can be configured with different widgets and accessed on different/all pages in an application via tabs on the right-hand side of the page.  
 Sidepanels help build model interactions. These help to free up real estate on pages, or also duplicate widgets that are required on different pages, such as filters.
