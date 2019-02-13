@@ -74,6 +74,10 @@ To navigate to the newly created page, press the page in the list of available p
 
 After adding a page, you can `add widgets <widget-manager.html#adding-a-widget>`_ to it.
 
+.. important::
+
+	There are some changes made to the page manager with the introduction of `Sidepanels <page-manager.html#id6>`_ from software version 4.64. The changes are explained in :ref:`adding a sidepanel page`.
+
 Renaming a Page
 ---------------
 
@@ -280,6 +284,8 @@ Sidepanels can be used for various purposes, such as filters, displaying KPIs, m
 			:align: center
 			:scale: 75
 
+.. _adding a sidepanel page:
+
 Adding a Sidepanel Page
 ++++++++++++++++++++++++
 
@@ -295,7 +301,6 @@ Click on the Insert sidepanel page icon and give it any name you desire. You can
 
 .. image:: images/SP_addandname.png
 			:align: center
-			
 
 You can differentiate between pages and sidepanels by the icons that represent each type.
 
@@ -312,7 +317,6 @@ Adding widgets to a sidepanel page
 +++++++++++++++++++++++++++++++++++
 
 Adding widgets to a sidepanel page is the same as adding widgets to any other page. 
- 
 
 Step 1: Click the sidepanel page you want to add widgets to in the page manager
 
@@ -341,6 +345,8 @@ Step 3: Add desired widgets to the page.
 	* Changing the width of a widget will not have any effect as the page is restricted to only 2 columns. You can change the height of the widget as required.
 	* If the widgets added exceed the page height a scroll will appear in the sidepanel. 
 
+.. _Configuring Sidepanels:
+
 Configuring Sidepanels
 +++++++++++++++++++++++
 
@@ -353,10 +359,7 @@ Let’s call the set “SidePanelOrder”, index SP_order.
 
 You can give the name and index of your choice. 
 This set determines the order in which the sidepanels tabs will appear from top to bottom. This is an integer set. 
-A new section has been added to the AimmsWebUI library called Pages Support, used to configuring sidepanels.
-
-.. image:: images/pagesupportlib.png
-			:align: center
+A new section has been added to the AimmsWebUI library called `Pages Support <library.html#pages-support-section>`_, used to configuring sidepanels.
 
 SidePanelSpecification is what will be used to in the coming steps to configure the sidepanels. 
 
