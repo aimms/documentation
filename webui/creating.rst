@@ -19,9 +19,8 @@ Here you can find a summary of the steps to be taken for creating a WebUI for yo
 Authorizing model content for use in the WebUI
 ==============================================
     
-By default, the WebUI is configured to allow any AIMMS identifier in your model to be displayed in the WebUI, and any applicable procedure to be run from within the WebUI. When your WebUI application has more secure authorization requirements, e.g. that certain data in your model should not be writable by, or even visible to, particular users of your app, then the WebUI can support you in imposing such restrictions upon certain users.
-
-You can introduce authorization into your WebUI app, through the identifiers
+By default, the WebUI is configured to allow any AIMMS identifier in your model to be displayed in the WebUI, and any applicable procedure to be run from within the WebUI. When your WebUI application has more secure authorization requirements, e.g. that certain data in your model should not be writable by, or even visible to, particular users of your app, then the WebUI can support you in imposing such restrictions upon certain users. For this purpose, the `WebUI System Library <library.html>`_ contains a section called "Authorization Support". This section provides the following identifiers which
+can be used to introduce authorization into your WebUI app:
 
 * :token:`webui::IdentifierAuthorization` defined over the set :token:`AllIdentifiers`. Through this identifier you can set permissions on *specific* identifiers in your model.
 * :token:`webui::LibraryAuthorization` defined over the set :token:`webui::AllLibraryPrefixes`. Through this identifier you can set permissions on all identifiers in *specific* libraries in your model. Typically, this comes in handy when you need to set permissions on runtime libraries that *may not even exist* when you are setting up the WebUI authorizations for the user who is running the app. The set :token:`webui::AllIndexLibraryPrefix` should contain library prefixes of library included in your project. You can prefill it through the procedure :token:`webui::FindAllLibraryPrefixes`. Library-level authorization will only be applied if no specific identifier authorization has been specified.
