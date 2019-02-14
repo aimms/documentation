@@ -350,23 +350,22 @@ Step 3: Add desired widgets to the page.
 Configuring Sidepanels
 +++++++++++++++++++++++
 
-Sidepanels can be configured via the model. 
-First create 1 set for the order of sidepanels to be displayed on the page.
-Let’s call the set “SidePanelOrder”, index SP_order. 
+Sidepanels can be configured by the application developer via the AIMMS model. 
+Firstly, create a set for the order of sidepanels to be displayed on the page.
+For illustration, let’s call this set “SidePanelOrder” with index SP_order (as a developer, you can give this set a name and an index of your choice).
 
 .. image:: images/SP_setSPorder.png
 			:align: center
 
-You can give the name and index of your choice. 
-This set determines the order in which the sidepanels tabs will appear from top to bottom. This is an integer set. 
-A new section has been added to the AimmsWebUI library called `Pages Support <library.html#pages-support-section>`_, used to configuring sidepanels.
+This set determines the order in which the sidepanels tabs will appear from top to bottom. This set must be a subset of the pre-declared set of Integers. 
 
-SidePanelSpecification is what will be used to in the coming steps to configure the sidepanels. 
+A new section has been added to the AimmsWebUI library called `Pages Support <library.html#pages-support-section>`_, used to configuring sidepanels.
+The set SidePanelSpecification declared inside the Page Support section is used for configuring the sidepanels as illustrated here in the next steps. 
 
 .. image:: images/SidePanelSpecificationset.png
 			:align: center
 
-This set has 4 properties: 
+This set has 4 elements representing sidepanels properties: 
 
 #.  *displayText*: Is the text/label you would like the sidepanel tab and header to have. 
 #.  *pageId*: When a page or sidepanel is created it is has a unique pageId.  You can find all the sidepanel pageIds in the set AllSidePanelPages. 
@@ -384,32 +383,32 @@ This set has 4 properties:
 
 .. note:: 
 	
-	* If you don't see all the sidepanel pages run the procedure GetAllPages. You can find this procedure in Page Support under Public Pages Support Procedures. 
+	* If the set AllSidePanelPages is not yet filled with all sidepanel pages, please run the procedure GetAllPages. You can find this procedure in Page Support section under Public Pages Support Procedures. 
 	* The "state" property is not yet in use, but will be applicable in future releases. In sidepanels it is considered as Active by default. You can use domain conditions to show or hide sidepanels on a page.
 	
-To configure sidepanels on a page, create a string parameter indexed on the SidePanelOrder and SidePanelSpecification. Eg: homepageSP(SP_order,webui::indexSidePanelSpec).
+To configure sidepanels on a page, create a string parameter indexed on the SidePanelOrder and SidePanelSpecification, for example homepageSP(SP_order,webui::indexSidePanelSpec) as shown here:
 
 .. image:: images/SP_homepageSPidentifier.png
 			:align: center
 
-Right click the string paramter and click on data, you will see:
+Right click the string paramter and click on the Data option in order to open the data page:
 
 .. image:: images/SP_stringparameterdata.png
 			:align: center
 
-Add the details for the sidepanels you wish to show on this page. For example if your page tree has 5 pages and 7 sidepanels
+Add the details for the sidepanels you would like to show on this page. For example, if your page tree has 5 pages and 7 sidepanels, like here
 
 .. image:: images/SP_pagetree.png
 			:align: center
 			:scale: 75
 
-And you want 3 sidepanels on the "home" page: 
+and you want 3 sidepanels on the "home" page, namely: 
 
 #. Filters
 #. Quick Notes
 #. Help
 
-Data in the string parameter would have.
+then the data in the configuration string parameter may be filled in as follows:
 
 .. image:: images/SP_homepageSPidentifier_data.png
 			:align: center
@@ -418,12 +417,12 @@ Data in the string parameter would have.
 .. note:: 
 
 	* Sidepanels appear in the same order from top to bottom as they appear in the data of the string parameter.
-	* If you enter the wrong pageId, then the sidepanel tab will not be shown.
+	* If you enter an incorrect pageId, then the corresponding sidepanel tab will not be shown.
 	
 Configuring the string parameter on respective pages
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-In the WebUI, navigate to the respective page. In the page settings you will see Sidepanel Settings.
+In the WebUI, navigate to the respective page. In the Page Settings you can locate the Sidepanel Settings option:
 
 .. image:: images/SP_configuresidepanel.png
 			:align: center
@@ -438,11 +437,10 @@ Once you have added the string parameter, the respective sidepanel tabs will app
 
 .. image:: images/SP_3panels.png
 			:align: center
-
 			
-Create other string parameters similarly for other pages and configure them respectively.
+Similarly, you can create some (other) string parameters for other pages and configure them using the same steps.
 
-You can configure as many sidepanels that you require. Since there is limited screen space, **we display only the top 6 sidepanels.**
+You can configure as many sidepanels as you need in your application. However, please note that, since there is limited screen space, **AIMMS WebUI only displays the top 6 sidepanels on each page.**
 
 Interacting with Sidepanels
 ++++++++++++++++++++++++++++
@@ -454,7 +452,7 @@ Hovering over a sidepanel will show you the tooltip that was configured in the m
 			:align: center
 			:scale: 50
 
-Clicking on the tab, highlights that tab and slides opens with the widgets that were added to that respective sidepanel page.
+Clicking on the tab highlights that tab and slides opens with the widgets that were added to that respective sidepanel page.
 
 .. image:: images/SP_tabinteraction_open.png
 			:align: center
