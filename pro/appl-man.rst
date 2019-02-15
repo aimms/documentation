@@ -15,6 +15,12 @@ Any PRO-enabled AIMMS project can be published onto an AIMMS PRO Server. PRO-ena
 * License profile: the license profile to be used for server-side optimization sessions of this application.  
 * Category: using this you can categorized your AIMMS PRO applications. This field is available only when you have added categories through Manage Categories. Please note that this feature is available starting with AIMMS PRO 2.25.
 
+Starting with AIMMS PRO 2.30, it is possible to quickly launch your app right after publishing using 'Launch App' button on top of the Apps page.
+
+.. image:: images/launch.png
+    :align: center
+	
+
 .. note::
 
 	Starting with **AIMMS PRO 2.28.3**, 'License profile' is no longer shown when there is only single profile for your AIMMS PRO.

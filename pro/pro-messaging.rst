@@ -20,6 +20,14 @@ You can create a queue by calling the function pro::messaging::CreateQueue
 
 When creating a queue, you can specify a queue authorization, determining which users can listen and send messages to the queue. You can create the correct authorization string through the PRO *Authorization Editor*, which you can invoke by calling the procedure progui::EditAuthorization.
 
+Starting with **AIMMS PRO 2.30** and **AIMMS 4.63**, it is possible to retrieve and/or modify the authorization string of a queue. You can achieve this by calling the functions,
+
+.. code::
+	
+	pro::messaging::GetQueueAuthorization
+	pro::messaging::UpdateQueueAuthorization
+
+
 Connecting to a Queue
 +++++++++++++++++++++
 
@@ -56,3 +64,4 @@ All messages on the message bus come in the form of remote procedure call reques
     if (pro::DelegateToPeer(queueID: queueID)) then return 1; endif;
 
 to those procedure calls that you want to pass to all listeners on the message bus. You can optionally add message flags as discussed in the previous section, to influence the way in which messages are handled by your application, or to create application-specific workflows.
+
