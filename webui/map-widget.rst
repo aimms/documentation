@@ -1,7 +1,7 @@
 Map Widget
 ----------
 
-.. important:: This section applies to the new style Map widget, i.e. the map widget available in software versions from AIMMS 4.61 on.  
+.. important:: This section applies to the new style Map widget, i.e. the map widget available in software versions from AIMMS 4.61 onwards.  
 
 The Map widget allows you to display a map in the background and show a network with nodes and arcs on top of the map.
 A simple situation is for example when a transport identifier indexed over factories f and centers c in the TransNet application 
@@ -58,11 +58,12 @@ The available options to be specified are the following:
 *	Size: A 1-dimensional parameter specifying the dynamic sizes for the node set with the selected index
 
 .. note::
-    The Latitude and Longitude must be specified by two separate identifiers declared in the model.
+
+    * The Latitude and Longitude must be specified by two separate identifiers declared in the model.
 	
-    The values of the Latitude and the Longitude parameters must be within the geographical bounds, i.e. between (-90,90) and (-180,180), respectively. Not keeping the Latitude and the Longitude within these bounds can lead to unexpected or irresponsive behavior of the Map widget. In order to avoid such undesirable behavior, one can specify the bounds intervals in the Range attributes of the corresponding identifiers in the model.	
+    * The values of the Latitude and the Longitude parameters must be within the geographical bounds, i.e. between (-90,90) and (-180,180), respectively. Not keeping the Latitude and the Longitude within these bounds can lead to unexpected or irresponsive behavior of the Map widget. In order to avoid such undesirable behavior, one can specify the bounds intervals in the Range attributes of the corresponding identifiers in the model.	
 	
-    The default node size radius is 3 px. One can set a dynamic node size to each node set by selecting an appropriate identifier for the Size parameter in the desired node set (the index domain of such a parameter must be the same as the index of the node set).
+    * The default node size radius is 3 px. One can set a dynamic node size to each node set by selecting an appropriate identifier for the Size parameter in the desired node set (the index domain of such a parameter must be the same as the index of the node set).
 
 Adding identifiers to node option fields
 ++++++++++++++++++++++++++++++++++++++++

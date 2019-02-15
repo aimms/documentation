@@ -48,7 +48,7 @@ You can modify the behavior of :js:func:`cdm::SetCDMConnectedState` by assigning
 Getting notified of errors
 ==========================
 
-<body>By default, all `low-level API <api.html>`_ and `high-level API <dtd.html#high-level-versus-low-level-api>`_ CDM functions provide their status through return values, returning 1 for success, and 0 in case of failure. 
+By default, all `low-level API <api.html>`_ and `high-level API <dtd.html#high-level-versus-low-level-api>`_ CDM functions provide their status through return values, returning 1 for success, and 0 in case of failure. 
 
 All error messages, codes, dates and stack locations reported through the low-level API are collected in the identfiers in the :token:`Error Handling` section of the CDM library, whether you call the low-level API functions directly, or indirectly by calling high-level API functions. 
 

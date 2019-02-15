@@ -1,7 +1,7 @@
 General Architecture
 ====================
 
-To provide you with a better understanding of what's going on in an AIMMS Cloud Platform setup in terms of communication between the various components, we created the following schema. Please click on it to see a larger version.
+To provide you with a better understanding of what's going on in an AIMMS Cloud Platform setup in terms of communication between the various components, we created the following schema. 
 
 .. image:: images/general-architecture-cloud_v1.jpg
     :align: center
@@ -61,7 +61,7 @@ The AIMMS Cloud Platform makes use of 2 Amazon resources for storage and admin d
 High availability and failover
 ------------------------------
 
-Let's aim for high availability and failover. The AIMMS Cloud Platform itself is designed for high availability and failover. 
+The AIMMS Cloud Platform itself is designed for high availability and failover. 
 
 AIMMS Cloud Platform uses AWS Regions to allow our customers to manage network latency and meet regulatory compliance. Data stored in a specific region is not replicated outside that region. Regions are designed withavailability in mind and consist of at least two, often more, Availability Zones. Availability Zones are designed for fault isolation. They are connected to multiple Internet ServiceProviders (ISPs) and different power grids.
 

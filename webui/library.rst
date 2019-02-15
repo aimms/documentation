@@ -3,6 +3,16 @@ WebUI System Library
 
 When preparing your AIMMS model for use with the WebUI, you have to add the WebUI system library (as described in the `Getting Started <getting-started.html>`_ section). This library offers functionality that you can call yourself from your AIMMS model. This library uses the prefix :token:`webui`.
 
+Authorization Support
+=====================
+
+The WebUI System Library includes a section called "Authorization Support" containing identifier declarations which can be used to introduce authorization into your WebUI app:
+
+.. image:: images/AuthorizationSupportSection.png
+    :align: center
+
+The usage of these identifiers is discussed in the `Authorizing model content for use in the WebUI <creating.html>`_ section of this documentation.
+
 requestPerformWebUIDialog
 =========================
 

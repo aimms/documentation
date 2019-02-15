@@ -2,7 +2,7 @@
 
 
 Widget Options
-==============
+=================
 
 The ‘cog wheel’ button |cog-widget| (in the upper right corner of a widget) will open a popup window that allows you to change the options for the widget. 
 
@@ -69,18 +69,154 @@ For every identifier that you have specified as part of the _Current Contents_ o
 
 * :token:`X_annotations` to hold annotations that are put as CSS classes on associated DOM elements in your model. See the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
 * :token:`X_flags` to make updatable identifiers appear as read-only in the WebUI.  See the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
-* A procedure named :token:`UponChange_X`, which will automatically be run whenever the value of identifier :token:`X` is changed from within the WebUI. AIMMS accepts 
-  two forms of an UponChange procedure:
+* A procedure named :token:`UponChange_X`, which will automatically be run whenever the value of identifier :token:`X` is changed from within the WebUI. AIMMS accepts two forms of an UponChange procedure:
 
-    * a procedure without arguments. You can use this form if you are not interested in the which particular values changed, but do want to get a notification that a change took place
-    * a procedure with two arguments, both with the same domain as the identifer :token:`X`. The first argument should be a numeric parameter, and will hold a 1 for each tuple that was changed. The second argument should have the same type as the :token:`X` and will hold the old value for such a tuple, the changed value can be obtained via :token:`X`. 
+   #. a procedure without arguments. You can use this form if you are not interested in the which particular values changed, but do want to get a notification that a change took place
+   #. a procedure with two input arguments, both with the same domain as the identifer :token:`X`. The first argument should be a numeric parameter, and will hold a 1 for each tuple that was changed. The second argument should have the same type as the :token:`X` and will hold the old value for such a tuple, the changed value can be obtained via :token:`X`. 
+
+   .. code-block:: aimms
+
+      Parameter X {
+         IndexDomain: a;
+      }
+
+      Procedure UponChange_X {
+         Arguments: (hasChanged,OldValue);
+         Parameter hasChanged {
+            IndexDomain: a;
+            Property: Input;
+         }
+         Parameter OldValue {
+            IndexDomain: a;
+            Property: Input;
+         }
+      }
+
+   In the above example, ``X`` and ``OldValue`` should have the same type.
     
   The latter form can be used, for instance, to detect which tasks in a Gantt chart has moved, or to act upon a block edit in a table.
   
 * :token:`X_text` to hold additional text to be shown within the DOM element associated with a data tuple. This option is currently only supported by the Gantt chart. The CSS classes defined via the annotations identifier of the identifier :token:`X` itself will also be set for text displayed in the associated DOM element. You can use this, for instance, to change the styling of the displayed text of elements you want your end-users to pay extra attention to. 
     
     * For the Gantt chart, you can set CSS for the task text via ``.tag-ganttchart .label``, possible compounded with the additional CSS classes set via the annotations identifier of the <duration> parameter.
-  
+
+* :token:`X_tooltips` to hold a string representing some (additional) info which may be displayed in a tooltip associated with the identifier :token:`X` used by a widget 
+	
+	
+Adding tooltips
++++++++++++++++
+
+Almost all widgets offerred by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed. 
+However, they can also be completely user-defined, giving the user maximum freedom in determining the contents to be shown. 
+In order to create your user-defined tooltips, you should add an auxiliary string parameter to your AIMMS model, called :token:`X_Tooltips`, where :token:`X` is the name of 
+an existing identifier that is displayed in the widget(s) for which you want to override the default tooltips. This auxiliary identifier must have the same index domain 
+as the corresponding model identifier. For example, consider the following table, which shows aircraft types for specific flights:
+
+.. image:: images/defaulttooltip.jpg
+    :align: center
+
+As you can see, hovering over the cell with value 'A319' just shows this value in the default tooltip. In order to change that, in addition to the displayed :token:`AircraftType(a1, a2, dt)` identifier, the auxiliary :token:`AircraftType_Tooltips(a1, a2, dt)` identifier is added to the model. When using the following definition:
+
+.. code::
+
+    FormatString("Flight from %e to %e is operated by the %e aircraft type", a1, a2, AirCraftType(a1, a2, dt))
+
+the result when hovering over the same cell as above looks like this:
+
+.. image:: images/userdefinedtooltip.jpg
+    :align: center
+
+.. warning::
+   **Security Warning:** 
+   Putting javascript code in an identifier (like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
+   would allow a malicious user to do `Persistent XSS <https://en.wikipedia.org/wiki/Cross-site_scripting#Persistent_(or_stored)>`_.
+   For example a malicious user could record all actions done by another user.	
+	
+HTML Tooltips
++++++++++++++
+
+Besides the simple text-based tooltips illustrated above, one may also use HTML-based tooltips, which allow to display more sothisticated contents when hovering over the data entries in a widget.
+In this case the data of the string parameter :token:`X_Tooltips` (associated with an identifier :token:`X`) must be in HTML format; for more info on HTML, 
+see for example `html.com <https://html.com/>`_ or `www.w3schools.com <https://www.w3schools.com/html/>`_ .
+
+Next we illustrate this feature based on some concrete examples for various widgets.
+
+Suppose the data of a 2-dimensional parameter DailyNumberOfPassengers(i1,i2) is shown in a table widget, where i1 and i2 are alias indexes in a set Islands. 
+One can declare the string parameter DailyNumberOfPassengers_Tooltips(i1,i2) and defined its HTML data value as follows:
+
+.. image:: images/Def_Tooltip_DailyNumberOfPassengers.png
+    :align: center
+
+In this case the tooltip for a cell in the table looks like in the following picture:
+
+.. image:: images/Tooltip_Table_1.png
+    :align: center
+
+.. note::
+   **Using HTML format:** 
+   Where in a simple text-based tooltip you used \\n to move to a new line, in a HTML-based tooltip this needs to be replaced by <br>, see example above.
+   Similarly, the usage of \\t in text-based tooltips should be replaced by HTML tables, see further below.
+
+Next, suppose that the data of a 1-dimensional parameter TotalCostPerIsland(i) is rendered in a barchart widget. A HTML-based tooltip may be added by the string parameter
+TotalCostPerIsland_Tooltips(i) defined as
+
+.. image:: images/Def_Tooltip_TotalCostPerIsland.png
+    :align: center
+
+where for each element i of a set Islands, IslandImageURLs(i) is a string parameter holding the web URL of a corresponding (island) image. 
+In this case the tooltip for a bar in the chart looks like in the following picture:
+
+.. image:: images/Tooltip_Barchart_1.png
+    :align: center
+
+Of course, one can easily change type of the widget to linechart, piechart, or treemap, and the same tooltip contents may be used for these widgets as well:
+
+.. image:: images/Tooltip_LinePieTree_1.png
+    :align: center
+
+In case the costs of all islands were aggregated in a scalar parameter TotalCostALLIslands which is then shown in a scalar widget, a similar HTML-based tooltip contents may be added 
+as well in the TotalCostALLIslands_Tooltips string parameter, which may be defined for instance as follows:
+
+.. image:: images/Tooltip_Scalar_Def_1.png
+    :align: center
+
+.. note::
+   **Using Application-Specific Resources:** 
+   By using a string of the form *"/app-resources/resources/images/Canarias.png"* like illustrated in this example at hand, one may refer to an image included in the *resources/images* subfolder of the 
+   `WebUI folder <folder.html>`_ of the application directory.
+   
+In this case the tooltip in the WebUI looks like in the following picture:
+
+.. image:: images/Tooltip_Scalar_1.png
+    :align: center
+
+Now, suppose that some aircraft data is shown in a bubblechart, where the size of the bubbles is determined by a parameter NumberOfSeats(p) with p being the index of a set Planes.
+Again, one may add a string parameter NumberOfSeats_Tooltips(p) defined for example by using the HTML data value as shown here on the right:  
+
+.. image:: images/Tooltip_Bubblechart_contentsDef.png
+    :align: center
+
+Then the resulting tooltip in the bubblechart widget looks as follows:
+
+.. image:: images/Tooltip_Bubblechart_1.png
+    :align: center
+
+Finally, suppose that in a Gantt chart widget we show some schedule data for several activities performed by a few people, with the duration given by the data of a parameter JobDuration(pe,j),
+where pe is the index of the set Persons and j is the index of the set Jobs. When using the default tooltip, the info for a block in the chart is rendered as:
+
+.. image:: images/Tooltip_Ganttchart_0.png
+    :align: center
+
+However, one may customize the info by adding a string parameter JobDuration_Tooltips(pe,j) defined for example like here on the right:
+
+.. image:: images/Tooltip_Ganttchart_contentsDef.png
+    :align: center
+
+In this case, the customized tooltip based on the HTML table layout (see also the Note above regarding HTML format) looks like in the following picture:
+
+.. image:: images/Tooltip_Ganttchart_1.png
+    :align: center
+
 Filters
 -------
 
@@ -204,7 +340,11 @@ As expected, this table only shows the rows for which the molecules contain an O
 Slicing
 +++++++
 
-Identifiers in AIMMS can have multiple dimensions. You can specify these dimensions in AIMMS via the index domain of an identifier. These identifiers can be displayed in the WebUI and their data is shown over all these dimensions  by default. However, there are also cases where you only want to see part of the dimensions/data. In situations like this, you can slice the indices of one or more identifiers in your widget. This can be done by the 'Set slicing per index' option at the `Identifier Settings <#identifier-settings>`_ tab of the `Widget Options <widget-options.html>`_.
+Identifiers in AIMMS can have multiple dimensions. You can specify these dimensions in AIMMS via the index domain of an identifier. 
+These identifiers can be displayed in the WebUI and their data is shown over all these dimensions  by default. 
+However, there are also cases where you only want to see part of the dimensions/data. 
+In situations like this, you can slice the indices of one or more identifiers in your widget. This can be done by the 'Set slicing per index' option at the 
+`Identifier Settings <#identifier-settings>`_ tab of the `Widget Options <widget-options.html>`_.
 
 .. image:: images/identifier-settings-set-slicing-per-index_v1.png
     :align: center
@@ -281,6 +421,60 @@ The transport table is sliced to show the transport from all distribution locati
 .. image:: images/slicingexample-subset-fixedelement_v1.png
     :align: center
 
+	
+Expanding indexes
++++++++++++++++++
+.. note::
+    The feature described in this section (and in the Example underneath) is available only in AIMMS releases from 4.62 onwards. 
+
+In some situations, some identifiers may be declared in the model over some super-sets and other indentifiers may be declared over some sub-sets of those super-sets. However, it may be beneficial to show all the data
+of several such categories of identifiers in the same widget, for example in a table widget. If all indexes involved are used as separate indexes in a widget, then they are treated as "independent" 
+in the Pivot-ing section and the resulting layout of the data in the widget may not be an "intuitive" one. 
+
+For example, in the Transnet application (see the "Quick Start: My First WebUI" section) the parameters Latitude(l) and Supply(f) are declared over the super-index l of the set Locations 
+and over the index f of the sub-set Factories, respectively. If the data of both parameters is shown in a table widget with their indexes as declared originally in the model, then the table 
+layout may look like in the following picture on the right:
+    
+.. image:: images/CubeDomain_Table2_View1.png
+    :align: center
+
+However, such a layout may not look "intuitive", because the set of Factories may be regarded more naturally as "contained" in the set Locations, instead of as an "independent" set.
+
+In such situations, it is possible to expand an index to a super-index, that is, to an index in a super-set of the initial index set. Such expanding may be achieved through the same options 
+in the widget editor which are used for slicing, as explained above. However, in this case an identifier may be rendered over a larger domain than its declared domain and some "values" 
+may be just empty, i.e. flagged as "outside-domain". When an index has been expanded to a super-index, it will no longer be treated as a separate index in the Pivot-ing section, but rather 
+as "contained" by its super-index. Please note that, like slicing, the index expanding is also applied per each identifier specified in the widget Contents.
+
+For example, in the Transnet application, the index f of parameter Supply may be expanded to the super-index l corresponding to the super-set Locations. In this case, the index f no longer appears
+in the Pivot-ing section and the resulting layout of the data in the widget looks more intutitive as illustrated below:
+ 
+.. image:: images/CubeDomain_Table2_View2.png
+    :align: center
+
+Note that, in this case the cells of the column Supply which are outside domain are simply empty and not editable. 
+
+Example
+^^^^^^^
+
+The index expanding may be involved in more complex data layouts as illustrated by the example in this section. 
+
+Assume that our TransNet application has been extended with a super-set AllNetworkNodes (with alias indexes n, n_from, n_to) of the set Locations, which also has another sub-set PotentialSites (with index s)
+with elements { Munich, Nuremberg }. Moreover, assume that the parameters Latitude and Longitude are now declared over the root index n and that the parameters LocationSize(l) and PotentialSize(s) 
+have been declared additionally in the model. Then one can show the data of Latitude(n), LocationSize(l), PotentialSize(s), Supply(f), Demand(c), and UnitCost(f,c), all in the same table widget, 
+by expanding each sub-index l, s, f, or c to one of the super-indexes n or n_to in the super-set AllNetworkNodes as illustrated below:
+ 
+.. image:: images/CubeDomain_Table3_Settings.png
+    :align: center
+
+In this case, the layout of the data in the table widget looks like in the following picture:
+ 
+.. image:: images/CubeDomain_Table3_View1.png
+    :align: center
+
+So, in this table all the data of the above mentioned identifiers is shown together, while the Pivot-ing section of the table only consider 2 indexes instead of the 5 original indexes used in the
+model declarations. All the cells which show no value are simply empty ("outside-domain") and not editable in the table.
+
+	
 Hiding Widgets
 --------------
 

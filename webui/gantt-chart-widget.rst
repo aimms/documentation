@@ -100,7 +100,22 @@ The Gantt chart will display a row for every index (or better: combination of in
 	
     This may happen when the number of resources times the number of jobs is more than 50000. The number of resources (or "rows") is the cardinality of the set(s) present in the Resources attribute 
     in the Pivot section of the widget's options editor. The number of jobs (or "columns") is the cardinality of Start identifier plus the cardinality of the Duration identifier.
-	
+
+Indication of Today and Now
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Starting from AIMMS 4.62 onwards, the Gantt chart widget can give an indication of "today" and "now" with reference to time in the chart, which may that help the user identify the day and time of a task
+relative to the present moment. This feature can be toggled in the Gantt chart settings under “Show Now/Today” using either 0/1 values or a scalar identifier from the model:
+
+.. image:: images/GanttChart_TodayNow_view.png
+    :align: center
+
+.. note::
+   The "Now/Today" indication listens to the (local) browser time, which is based on the system time of the user's machine.
+   
+   The "Now/Today" background indication will be shown only if the horizon of the Gantt chart is more than 24 hours. 
+ 
+
 Viewport control
 ++++++++++++++++
 
@@ -190,6 +205,17 @@ Snapping to time resolution while dragging
 """"""""""""""""""""""""""""""""""""""""""
 
 During both horizontal and vertical dragging the time resolution as specified in the corresponding property is taken into account.
+
+Support lines/backdrop or time indicators
+"""""""""""""""""""""""""""""""""""""""""
+
+This feature is available from AIMMS 4.62 onwards (and since then, a default feature for the Gantt chart). 
+
+When you drag or resize a job, there will be a "backdrop" in the background which helps dragging the job with reference to other jobs. 
+This makes it easier for the user to either line up jobs from different tasks/resources, or schedule jobs one after the other as illustrated by the following picture:
+
+.. image:: images/GanttChart_Backdrop_1.png
+    :align: center
 
 Creating a form to add, delete or modify a task
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
