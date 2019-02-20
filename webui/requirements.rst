@@ -1,9 +1,15 @@
 Requirements
 ============
 
-This section lists the requirements for the various phases passed through by an AIMMS WebUI application.
+For general system requirements for running an AIMMS WebUI application under AIMMS PRO or AIMMS Cloud, please refer to the corresponding sections in the 
+`PRO <../pro/system-requirements.html>`_ or `Cloud <../cloud/requirements.html>`_ documentation. 
 
-.. important:: Please mind the important note about browsers at the end of this section!
+.. note:: Please note that, in general, fast processing of Javascript code (as the one used by the AIMMS WebUI) requires a powerful processor and enough workspace.
+   In particular, a more powerful processor is expected to result in better performance. 
+
+This section lists more specific requirements for the various phases passed through by an AIMMS application with a Web-based User interface.
+
+.. note:: Please mind the important note about browsers performance at the end of this section!
 
 Developing a WebUI app
 ----------------------
