@@ -1,16 +1,18 @@
-
-
 What is DataLink
 ****************
 
-DataLink is a data inporter/exporter library for AIMMS that assumes that the data in the source is organized into tables. 
+.. 
+    Define the particular problem datalink is solving and give an overview on how it does this.
+
+
+DataLink is a data importer/exporter library for AIMMS that assumes that the data in the source is organized into tables. 
 With this library we want the AIMMS developer to be able to read and write data from different types of sources using the same approach. This can be difficult because the tables do not contain enough information to be read into AIMMS identifiers.
 
 The problem with tables
 =======================
 
 
-A table is a collection of data organised in columns. All columns have a name, which are specified in the header (as convention we will always show header values in bold).
+A table is a collection of data organized in columns. All columns have a name, which are specified in the header (as convention we will always show header values in bold).
 
 .. csv-table:: The FirstnameLastname table
    :header: "firstname", "lastname", "age"
@@ -29,18 +31,18 @@ When we look at the "structure" of this table we see that we have 3 columns name
    "Bob Johnson", "Londom", 20
 
 
-Besides the column names there are no differences between these two tables except for the data. But when we do look at the data and interpret it's meaning, we could see that there is still a difference. In the FirstnameLastname table we need both firstname and lastname otherwise the age would not have any meaning. 
+Besides the column names there are no differences between these two tables except for the data. But looking at the data and interpreting its meaning, we could see that there is still a difference. In the FirstnameLastname table we need both firstname and lastname otherwise the age would not have any meaning. The age tells us something about a person, but is 
 
-AIMMS being a modeling language, this is excactly the kind of information that is important. In our AIMMS model we do need identifiers that model the relation between the columns of the table. So we could have in AIMMS the sets :token:`S_Firstname` with index :token:`I_Firstname` and  :token:`S_Lastname` with index :token:`I_Lastname`. Also we could have a parameter :token:`P_Age(I_Firstname,I_Lastname)`. Then we could do the reading and reading the first row of the table would be equivalent of doing
+AIMMS being a modeling language, this is exactly the kind of information that is important. In our AIMMS model we do need identifiers that into account the relations between the columns of the table. We could have in AIMMS the sets :token:`S_Firstname` with index :token:`I_Firstname` and  :token:`S_Lastname` with index :token:`I_Lastname`. Also we could have a parameter :token:`P_Age(I_Firstname,I_Lastname)`. Then we could do the reading, and reading the first table would be equivalent of doing
 
 .. code-block:: aimms
 
     P_Age('Alice','Smith') := 40; 
 
-Here we see also that the values :token:`Alice` and :token:`Smith` should alreday be present in the sets before we can actually do the assignment.
+in AIMMS. We also that the values :token:`Alice` and :token:`Smith` should already be present in the sets before we can actually do the assignment.
 
 
-Blabla
+Now take the second 
 
 .. code-block:: aimms
 
@@ -61,14 +63,14 @@ The DataLink solution
 
 
 
-Reading and Writing
-===================
+Using DataLink
+==============
 
 +---------+----------------------+-------------+
 | 1       |  :token:`Countries`  |  **3**      |
 +---------+----------------------+-------------+
 
-Reading means that we have to choose a source, a datamap and tell which provider to use.
+Reading means that we have to choose a source, a data map and tell which provider to use.
 
 .. code-block:: aimms
 
