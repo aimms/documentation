@@ -13,6 +13,11 @@ This reduces the amount of code that has to be written, and makes it possible to
 
 DataLink is made for data sources that are organized as a collection of tables, consisting of named columns. Examples of such sources include relational databases, excel files, or directories containing CSV files.  
 
++----------------------------------------+
+|    " *Use the Source Luke!* "          |
+|    -- DataLink                         |
++----------------------------------------+
+
 .. 
     An excel file, where the spreadsheets are arranged that the form columns A directory containing CSV (Comma SeParated Values) file A relational database Dataframes in a scripting language
 
