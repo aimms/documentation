@@ -29,6 +29,11 @@ Types
 Reading
 =======
 
+.. js:function:: dl::DataRead(DataSource,MapName,ReadAttributes)
+
+    :param DataSource: String representing the name of the data source
+    :param MapName: bla bla
+    :param ReadAttributes: blabla
 
 
 
@@ -36,3 +41,9 @@ Reading
 Writing
 =======
 
+
+.. js:function:: dl::DataWrite(DataSource,MapName,ReadAttributes)
+
+    :param DataSource: String representing the name of the data source
+    :param MapName: bla bla
+    :param ReadAttributes: blabla
