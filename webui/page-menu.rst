@@ -38,3 +38,16 @@ Reverting to the Old Style Menu
 --------------------------------
 
 Realizing not everybody is immediately ready for this change, or possibly has custom CSS that needs changing, we provide a way of going back to the old menu style in AIMMS 4.53+. In `this repository <https://gitlab.aimms.com/public-repos/disable-ux-2.0-menu/tree/master/disable-ux-2.0-menu-asr>`_, you can find 2 .css files and 1 .js file, which you need to download and copy into your :token:`MainProject\\WebUI\\resources\\css` folder. After restarting your WebUI, you will have the old style menu back.
+
+Hiding Sidepanels in the Old Style Menu
+---------------------------------------
+
+With the introduction of `Sidepanels <page-manager.html#id6>`_ from AIMMS verison 4.64, any sidepanels added to the page manager will also show in the old style menu.
+
+To hide the sidepanel pages in the menu, please add the below HTML code to the “header-override.css“ file that you had copied into your CSS folder, as mentioned above.
+
+.. code::
+
+    .menu .sidepanel, header .menu .sidepanel li.hasChildren ul li{
+	    display: none !important;
+    }
