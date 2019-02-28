@@ -5,7 +5,7 @@ The AIMMS PRO framework also allows setting up a link to an Active Directory dom
 
 * Your IT department needs to *set up a service account*, with rights to delegate to any service using Kerberos.
 * You need to specify the credentials of this service account in the `AD settings <admin-config.html#ad-settings>`_ section under the Configuration Menu of AIMMS PRO Portal.
-* You need to* associate the Service Principal Name* of your PRO server with this service account through the *setspn* command.
+* You need to *associate the Service Principal Name* of your PRO server with this service account through the *setspn* command.
 * The users' browsers need to be properly configured.
  
 
@@ -34,7 +34,9 @@ To determine the Service Principal Name (SPN) for your PRO server, you must know
 
     setspn -a HTTP/pro.myhost.com ADUser
     
-If needed, you can associate multiple SPNs with a single service account. **Important notice:** do not run this command for PRO server instances that ARE in the AD domain. Running the command will result in breaking AD functionality (and this can be fixed by invoking setspn -d ...).
+If needed, you can associate multiple SPNs with a single service account. 
+
+.. warning:: Do not run this command for PRO server instances that ARE in the AD domain. Running the command will result in breaking AD functionality (and this can be fixed by invoking setspn -d ...).
 
 You can check which SPNs are associated with the account by entering
 
