@@ -15,7 +15,7 @@ There are 2 sub sections Declarations and Procedures:
 
 The Public Pages Support Declarations include: 
 
-* AllPageIs - This set includes all the page ID for all page types added to the `Page Manager <page-manager.html>`_ (page tree). 
+* AllPageIDs - This set includes all the page ID for all page types added to the `Page Manager <page-manager.html>`_ (page tree). 
 * AllPageTypes - This set includes the different page types, currently page, sidepanel and dialog. 
 * AllSidePanelPages - This set includes all the sidepanel pages added to the Page Manager. 
 * AllDialogpage - This set includes all the dialog pages added to the Page Manager. 
