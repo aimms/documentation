@@ -10,12 +10,11 @@ Data comes in many different flavors and each piece of software defines its own 
 
 DataLink is created with the idea that if we define a broad family of data sources we can make a more general importer/exported for data. 
 This reduces the amount of code that has to be written, and makes it possible to present users with a more uniform approach to deal with many of these "different" sources.
-
 DataLink is made for data sources that are organized as a collection of tables, consisting of named columns. Examples of such sources include relational databases, excel files, or directories containing CSV files.  
 
 +----------------------------------------+
-|    " *Use the Source Luke!* "          |
-|    -- DataLink                         |
+|    " *Use the Source, Luke!* "         |
+|    -- :strike:`Yoda` DataLink          |
 +----------------------------------------+
 
 .. 
