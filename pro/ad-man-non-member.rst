@@ -36,7 +36,7 @@ To determine the Service Principal Name (SPN) for your PRO server, you must know
     
 If needed, you can associate multiple SPNs with a single service account. 
 
-.. warning:: Do not run this command for PRO server instances that ARE in the AD domain. Running the command will result in breaking AD functionality (and this can be fixed by invoking setspn -d ...).
+.. warning:: Do not run this command for PRO server instances that ARE in the AD domain. Running the command will result in breaking AD functionality (and this can be fixed by invoking ``setspn -d`` ...).
 
 You can check which SPNs are associated with the account by entering
 
@@ -92,7 +92,7 @@ When the PRO server is not a member server of your AD domain, it will not be abl
 
 .. tip::
 
-    To obtain the AD group SID, use the command psgetsid from the `Sysinternals suite <https://technet.microsoft.com/en-us/sysinternals/bb545021.aspx>`_.
+    To obtain the AD group SID, use the command ``psgetsid`` from the `Sysinternals suite <https://technet.microsoft.com/en-us/sysinternals/bb545021.aspx>`_.
 
 On-demand User Information Retrieval
 ++++++++++++++++++++++++++++++++++++
