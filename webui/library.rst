@@ -3,6 +3,29 @@ WebUI System Library
 
 When preparing your AIMMS model for use with the WebUI, you have to add the WebUI system library (as described in the `Getting Started <getting-started.html>`_ section). This library offers functionality that you can call yourself from your AIMMS model. This library uses the prefix :token:`webui`.
 
+Pages Support section
+=====================
+
+Pages Support has been added to the AimmsWebUI library to be able to configure `Sidepanels <page-manager.html#id6>`_ and upcoming features in AIMMS. This section can be used to identify the different page types and their PageId's and Paths.
+
+.. image:: images/pagesupportlib.png
+			:align: center
+
+There are 2 sub sections Declarations and Procedures: 
+
+The Public Pages Support Declarations include: 
+
+* AllPageIs - This set includes all the page ID for all page types added to the `Page Manager <page-manager.html>`_ (page tree). 
+* AllPageTypes - This set includes the different page types, currently page, sidepanel and dialog. 
+* AllSidePanelPages - This set includes all the sidepanel pages added to the Page Manager. 
+* AllDialogpage - This set includes all the dialog pages added to the Page Manager. 
+* SidePanelSpecification - This set is the specification for the sidepanel pages. The sting parameters used to `configure the sidepanels <page-manager.html#configuring-sidepanels>`_ on pages are indexed on this set as well. 
+* PageType(indexPageId) - This string parameter indexed on AllPageIds set maps which page type applies to which page id.
+* PagePath(indexPageId) - This string parameter indexed on AllPageIds set maps the path for each page created.
+* PageName(indexPageId) - This string parameter indexed on AllPageIds set maps the path for each page created.
+
+The Public Pages Support Procedures has one procedure "GetAllPages" that runs when AIMMS is started. This procedure populates the data for the sets and string parameters in the declarations section.
+
 Authorization Support
 =====================
 
