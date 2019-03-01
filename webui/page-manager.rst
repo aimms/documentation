@@ -457,3 +457,50 @@ Clicking on the tab highlights that tab and slides opens with the widgets that w
 .. image:: images/SP_tabinteraction_open.png
 			:align: center
 			:scale: 50
+
+
+Dialog Pages
+------------
+
+Dialog Pages are used as for intermediate actions or steps in your workflow. A Dialog page 
+
+Adding a Dialog Page
+++++++++++++++++++++++++
+
+Adding a dialog page is similar to adding a page or sidepanel.
+
+Click on the Insert dialog page icon and give it any name you desire. You cannot give a name that you have already used for other pages,sidepanels or dialog pages. 
+
+.. image:: images/dialogpage_addname.png
+			:align: center
+
+You can identify dialog pages by the icon.
+
+.. image:: images/dialogapge_icon.png
+			:align: center
+
+Dialog pages come in 3 sizes Small, Medium and Large. These can be toggled by clicking on the respective button on the top left corner of the dialog page.
+			
+Dialog pages can be added to any level in the page tree, just like any normal page. Unlike Pages, Dialog pages do not appear in the Menu (navigation) and can only be accessed via the page manager. Dialog pages has the same options of a page or sidepanel i.e Rename, Delete, etc. You can also move the dialog pages the same way pages can be moved.
+
+.. note:: 
+	
+	Avoid adding pages under dialog pages. These pages will not be shown in the navigation menu.
+
+Adding widgets to a Dialog Page
++++++++++++++++++++++++++++++++
+
+Add widgets the same way you add to pages or sidepanels.
+
+Note that when you add widgets that exceed the height or width, boundaries of the dialog page, they will be clipped(not completely shown). The dialog pages do not have a scroll.
+
+IMAGE
+
+Congiguring dialog pages
+++++++++++++++++++++++++
+
+A new section has been added to configure dialog pages via the model.
+
+You will need to call the oepndialog(...) procedure.
+
+Dialog Pages have 2 default buttons CANCEL and OK, these can be changed via the above procedure.
