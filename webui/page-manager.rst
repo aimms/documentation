@@ -462,7 +462,7 @@ Clicking on the tab highlights that tab and slides opens with the widgets that w
 Dialog Pages
 ------------
 
-Dialog Pages are used as for intermediate actions or steps in your workflow. A Dialog page 
+Dialog Pages are used for intermediate actions or steps in your workflow. You can build model interaction by calling dialog pages with a speecific action eg: setting SLA's or adjusting inventory etc, during a particular step in your application.
 
 Adding a Dialog Page
 ++++++++++++++++++++++++
@@ -479,7 +479,11 @@ You can identify dialog pages by the icon.
 .. image:: images/dialogapge_icon.png
 			:align: center
 
-Dialog pages come in 3 sizes Small, Medium and Large. These can be toggled by clicking on the respective button on the top left corner of the dialog page.
+Dialog pages come in 3 sizes; Small, Medium and Large. These can be toggled by clicking on the respective button on the top left corner of the dialog page.
+
+.. image:: images/dialogapge_diffsizes.png
+			:align: center
+
 			
 Dialog pages can be added to any level in the page tree, just like any normal page. Unlike Pages, Dialog pages do not appear in the Menu (navigation) and can only be accessed via the page manager. Dialog pages has the same options of a page or sidepanel i.e Rename, Delete, etc. You can also move the dialog pages the same way pages can be moved.
 
@@ -504,3 +508,9 @@ A new section has been added to configure dialog pages via the model.
 You will need to call the oepndialog(...) procedure.
 
 Dialog Pages have 2 default buttons CANCEL and OK, these can be changed via the above procedure.
+
+
+Interacting with dialog pages
++++++++++++++++++++++++++++++
+
+Dialog pages can be closed only by using the 2 buttons given on the page. This could be either a positive action or a negative action. 
