@@ -60,6 +60,8 @@ Understanding the structure in the source is not enough for importing and export
 
 
 
+.. _TheDataLinkSolution:
+
 The DataLink solution
 =====================
 
