@@ -2,23 +2,27 @@
 Source Information
 ******************
 
+
+Before reading or writing form a source you may want to understand the source better. For this we need to obtain the schema of the source.
+
+
+
 Get Schema of Source
 ====================
 
 
-purpose
-
+There following function can be used to obtain the schema of a source. Whether the type can be determined depends on the provider.
 
 
 .. js:function:: dl::GetDataSourceSchema(DataSource,ColumnName,ColumnType,DataSourceAttributes)
 
-    :param DataSource: String representing the name of the data source
+    :param DataSource: Name of the data source (string)
     :param ColumnName: Output String Parameter giving the column names for tables and column numbers
     :param ColumnType: Output String Parameter giving the column types for tables and column numbers
     :param DataSourceAttributes: The Read/write attribute specifying the provider
 
 
-before we call this function we have to specify the otputs where we write the info in.
+Before we call this function we have to specify the outputs:
 
 .. code-block:: aimms
 
@@ -35,23 +39,24 @@ before we call this function we have to specify the otputs where we write the in
         );
         Range: dl::ColumnTypes;
     }
-    StringParameter PickTheProvider {
-        IndexDomain: (
-            dl::rwattr  ! read/write attribute
-        );
-    }
-
-
-
-.. code-block:: aimms
-
-    PickTheProvider := {'DataProvider' : xlsprov::DataLink }; 
+    
+Now we can call:
 
 .. code-block:: aimms
 
     dl::GetDataSourceSchema(
-        "Diet.xlsx",  ! choose a source
-        Schema,
-        ColumnType,
-        PickTheProvider   
+        "TheSource.xlsx",          ! choose a source
+        Schema,                    ! outputs the colum names            
+        ColumnType,                ! outputs the types
+        ReadWriteAttribute         ! only needed to choose a provider     
     );
+
+
+We have to make sure that we choose the right provider fitting for the source. In the example above we see that we need the XLSProvider. So :token:`ReadWriteAttribute` needs to have defined this as provider:
+
+.. code-block:: aimms
+
+    ReadWriteAttribute := {'DataProvider' : xlsprov::DataLink }; 
+
+
+
