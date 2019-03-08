@@ -23,6 +23,8 @@ Page Manager
 
 .. |sidepanel|  image:: images/sidepanel.png
 
+.. |dialog|  image:: images/dialogicon.png 
+
 Just like in WinUI, you can add multiple pages to your WebUI. To see the list of available pages in your WebUI, press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. The Page Manager (a page tree) will open. 
 
 .. image:: images/pagemanager-tree.png
@@ -462,30 +464,43 @@ Clicking on the tab highlights that tab and slides opens with the widgets that w
 Dialog Pages
 ------------
 
-Dialog Pages are used for intermediate actions or steps in your workflow. You can build model interaction by calling dialog pages with a speecific action eg: setting SLA's or adjusting inventory etc, during a particular step in your application.
+Dialog Pages are used for intermediate actions or steps in your workflow. You can build model interaction by calling dialog pages for the user to perform a specific action such as setting SLA's or adjusting inventory etc. In addition, you can use Dialog pages to display information about a selected item without breaking the flow by calling the DialogPageOpen function. For example showing the detailed properties of a schedule batch. 
+
+A dialog page has 3 predefined sizes; Small, Medium and Large. Dialog pages can have upto 2 buttons, typically Cancel and OK. The text and callback procedures for these buttons can be controlled via the DialogPageOpen function. 
+
+.. image:: images/dialog_diffsizes_small.png
+			:align: center
+			:scale: 50
+
+.. image:: images/dialog_diffsizes_medium.png
+			:align: center
+			:scale: 50
+
+.. image:: images/dialog_diffsizes_large.png
+			:align: center
+			:scale: 50
+
+When a dialog box is open the user can only interact with the dialog. The dialog box can only be closed by clicking on one of the actions.   
+
 
 Adding a Dialog Page
 ++++++++++++++++++++++++
 
 Adding a dialog page is similar to adding a page or sidepanel.
 
-Click on the Insert dialog page icon and give it any name you desire. You cannot give a name that you have already used for other pages,sidepanels or dialog pages. 
+Click on the Insert Dialog page icon |dialog| and give it any name you desire. You cannot give a name that you have already used for other pages,sidepanels or dialog pages. 
 
-.. image:: images/dialogpage_addname.png
+.. image:: images/dialogpage_add.png
 			:align: center
+			:scale: 75
 
-You can identify dialog pages by the icon.
+Dialog pages can be added to any level in the page tree, just like any normal page. Unlike Pages, Dialog pages do not appear in the Menu (navigation) and can only be accessed via the page manager. Dialog pages have the same options of a page or sidepanel i.e Rename, Delete, etc. You can also move the dialog pages the same way pages can be moved.
 
-.. image:: images/dialogapge_icon.png
+The title and action buttons on the dialog page can be configured via the model. These are placeholders to depict how the atual dialog page would look. This also gives an idea of the usable area for adding widgets in the dialog page.
+
+.. image:: images/dialog_placeholders.png
 			:align: center
-
-Dialog pages come in 3 sizes; Small, Medium and Large. These can be toggled by clicking on the respective button on the top left corner of the dialog page.
-
-.. image:: images/dialogapge_diffsizes.png
-			:align: center
-
-			
-Dialog pages can be added to any level in the page tree, just like any normal page. Unlike Pages, Dialog pages do not appear in the Menu (navigation) and can only be accessed via the page manager. Dialog pages has the same options of a page or sidepanel i.e Rename, Delete, etc. You can also move the dialog pages the same way pages can be moved.
+			:scale: 75
 
 .. note:: 
 	
@@ -494,23 +509,58 @@ Dialog pages can be added to any level in the page tree, just like any normal pa
 Adding widgets to a Dialog Page
 +++++++++++++++++++++++++++++++
 
-Add widgets the same way you add to pages or sidepanels.
+`Adding widgets <widget-manager.html#adding-a-widget>`_ is the same for dialog pages as it is for normal pages or sidepanels.
 
-Note that when you add widgets that exceed the height or width, boundaries of the dialog page, they will be clipped(not completely shown). The dialog pages do not have a scroll.
+Select a desired size by clicking on the respective button on the top right corner of the dialog page. Open the widget manager and `add widgets <widget-manager.html#adding-a-widget>`_ that are needed. 
 
-IMAGE
+.. image:: images/dialogapge_selectsize.png
+			:align: center
+			:scale: 75
 
-Congiguring dialog pages
+When the height of a widget exceeds the height of the dialog page, the widget will be clipped. Dialog pages do not have a scroll. Pick a suitable size for the dialog page and the widgets you want to have in the dialog page. You can change the size of the dialog page any number of times, when in the developer mode. The Small, Medium, Large buttons are not available to end users, and hence the sizes cannot be changed once the application is published.
+
+.. image:: images/dialogapge_widgetclipped.png
+			:align: center
+			:scale: 75
+
+.. image:: images/dialogapge_goodfit.png
+			:align: center
+			:scale: 75
+
+Configuring dialog pages
 ++++++++++++++++++++++++
 
-A new section has been added to configure dialog pages via the model.
+The procedure DialogPageOpen(pageId,title,actions,onDone) declared inside the Public Dialog Support Procedures in `Pages and Dialog Support section <library.html#pages-and-dialog-support-section>`_ has needs to be used to configuring dialog pages. 
 
-You will need to call the oepndialog(...) procedure.
+The procedure has 4 arguments:
 
-Dialog Pages have 2 default buttons CANCEL and OK, these can be changed via the above procedure.
+#.  *pageId*: When a dialog page is created it is has a unique pageId. You can find all the dialog pageIds in the set AllDialogPages under the Public Pages Support Declarations in the `Pages and Dialog Support section <library.html#pages-and-dialog-support-section>`_ .   
+#.  *title*: A string parameter which contains the text to be displayed as the title of the dialog box. If this is left blank, i.e "", it will display the dialog page name given during creation by default.    
+#.  *actions*: A set of custom actions. The elements of this set are represented as buttons in the message dialog and their text is the same as the action names. When an action is selected (button is clicked), it invokes the onDone procedure with the corresponding action as an argument. If this set is empty, the buttons will have "Cancel" and "OK" by default respectively. 
+#.  *onDone*: A reference to a procedure in the set AllProcedures. The procedure should have a single input string parameter as argument. When a user selects an action, the onDone procedure is invoked with the action name as its argument.  
 
+An example of the procedure with declarations would result in:
+
+.. code::
+
+	MyActions:= data { Decline, Accept };
+	pageId := 'dialog_page';
+	webui::DialogPageOpen(pageId, "Dialog Page Title", MyActions, 'Procedure_Actions');
+
+
+.. image:: images/dialog_procedurecall.png
+			:align: center
+			:scale: 50
+
+The button names are assigned as defined in the set, from left to right. If the set has only 1 element, only one button will be displayed.
+
+.. image:: images/dialog_onebutton.png
+			:align: center
+			:scale: 75
 
 Interacting with dialog pages
 +++++++++++++++++++++++++++++
 
-Dialog pages can be closed only by using the 2 buttons given on the page. This could be either a positive action or a negative action. 
+When a Dialog page is open, the user can only interact with the widgets on the dialog page and the dialog page itself. The dialog page can be closed only by clicking on the action(s). The user can move/drag the dialog page around the page.     
+  
+When one dialog page is open, another dialog page cannot be invoked from the open dialog. 

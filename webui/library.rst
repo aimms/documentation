@@ -3,10 +3,10 @@ WebUI System Library
 
 When preparing your AIMMS model for use with the WebUI, you have to add the WebUI system library (as described in the `Getting Started <getting-started.html>`_ section). This library offers functionality that you can call yourself from your AIMMS model. This library uses the prefix :token:`webui`.
 
-Pages Support section
-=====================
+Pages and Dialog Support section
+================================
 
-Pages Support has been added to the AimmsWebUI library to be able to configure `Sidepanels <page-manager.html#id6>`_ and upcoming features in AIMMS. This section can be used to identify the different page types and their PageId's and Paths.
+Pages and Dialog Support has been added to the AimmsWebUI library to be able to configure `Sidepanels <page-manager.html#id6>`_ and Dialog pages in AIMMS. This section can be used to identify the different page types and their PageId's and Paths.
 
 .. image:: images/pagesupportlib.png
 			:align: center
