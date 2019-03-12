@@ -6,25 +6,39 @@ When preparing your AIMMS model for use with the WebUI, you have to add the WebU
 Pages and Dialog Support section
 ================================
 
-Pages and Dialog Support has been added to the AimmsWebUI library to be able to configure `Sidepanels <page-manager.html#id6>`_ and Dialog pages in AIMMS. This section can be used to identify the different page types and their PageId's and Paths.
+Pages and Dialog Support has been added to the AimmsWebUI library to be able to configure `Side panels <page-manager.html#id6>`_ , `Dialog pages <page-manager.html#dialog-pages>`_ and some useful procedures in AIMMS. This section can also be used to identify the different page types, their PageId's and Paths. 
 
-.. image:: images/pagesupportlib.png
+.. image:: images/pageanddialogsupportsection.png
 			:align: center
 
 There are 2 sub sections Declarations and Procedures: 
 
-The Public Pages Support Declarations include: 
+Public Pages Support Declarations: 
 
 * AllPageIDs - This set includes all the page ID for all page types added to the `Page Manager <page-manager.html>`_ (page tree). 
-* AllPageTypes - This set includes the different page types, currently page, sidepanel and dialog. 
-* AllSidePanelPages - This set includes all the sidepanel pages added to the Page Manager. 
+* AllPageTypes - This set includes the different page types, currently page, side panel and dialog. 
+* AllSidePanelPages - This set includes all the side panel pages added to the Page Manager. 
 * AllDialogpage - This set includes all the dialog pages added to the Page Manager. 
-* SidePanelSpecification - This set is the specification for the sidepanel pages. The sting parameters used to `configure the sidepanels <page-manager.html#configuring-sidepanels>`_ on pages are indexed on this set as well. 
+* SidePanelSpecification - This set is the specification for the side panel pages. The sting parameters used to `configure the side panels <page-manager.html#configuring-side-panels>`_ on pages are indexed on this set as well. 
 * PageType(indexPageId) - This string parameter indexed on AllPageIds set maps which page type applies to which page id.
 * PagePath(indexPageId) - This string parameter indexed on AllPageIds set maps the path for each page created.
 * PageName(indexPageId) - This string parameter indexed on AllPageIds set maps the path for each page created.
 
-The Public Pages Support Procedures has one procedure "GetAllPages" that runs when AIMMS is started. This procedure populates the data for the sets and string parameters in the declarations section.
+
+Request Queue Declarations is used to manage the number of requests from WebUI. 
+
+Public Pages Support Procedures:
+
+* GetAllPages - This procedure is runs everytime a page, side panel or dialog page is added to the page manager, which inturn updates the sets and identifiers in the Public Pages Support Declarations.
+* SidePanelOpen(pageId) - This procedure is used to open side panels via the model with respective pageIds. 
+* PageOpen(pageId) - This procedure is used to open/navigate to other pages in the application via the model. 
+
+Public Dialog Support Procedures:  
+
+* RequestPerformWebUIDialog(title,message,actions,onDone)
+* `DialogPageOpen(pageId,title,actions,onDone) <page-manager.html#configuring-dialog-pages>`_ - This procedure is used to open dialog pages via the model, either by clicking on a button or some interaction in the model.
+* ResetWebUIDialogs - This procedure emptys the RequestQueue and the Requests set in the Request Queue Declarations. 
+
 
 Authorization Support
 =====================
