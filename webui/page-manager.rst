@@ -190,7 +190,7 @@ To create, update or delete a wizard:
 
 * Press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. 
 * Press the dots button behind the page that should be the start page of your wizard. 
-* A list of page control buttons appears. Press the wizard button !{IMAGE-LINK+wizard}! to create or update the wizard. 
+* A list of page control buttons appears. Press the wizard button |wizard| to create or update the wizard. 
 * The Wizard editor will pop up. 
 
   .. image:: images/wizard-example.png
