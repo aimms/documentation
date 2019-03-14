@@ -144,13 +144,13 @@ html_sidebars = {
     ]
 }
 html_favicon = "_static/favicon.png"
-rst_prolog = "\n.. include:: /special.rst\n"
+#rst_prolog = "\n.. include:: /special.rst\n"
 
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'AIMMSdoc'
-
+html_show_sourcelink = False
 
 # -- Options for LaTeX output ---------------------------------------------
 
