@@ -471,18 +471,6 @@ Dialog Pages are used for intermediate actions or steps in your workflow. You ca
 
 A dialog page has 3 predefined sizes; Small, Medium and Large. Dialog pages can have upto 3 buttons, 2 of which are shown by default, typically Cancel and OK. The text and callback procedures for these buttons can be controlled via the DialogPageOpen function. 
 
-.. image:: images/dialog_diffsizes_small.png
-			:align: center
-			:scale: 50
-
-.. image:: images/dialog_diffsizes_medium.png
-			:align: center
-			:scale: 50
-
-.. image:: images/dialog_diffsizes_large.png
-			:align: center
-			:scale: 50
-
 When a dialog box is open the user can only interact with the dialog. The dialog box can only be closed by clicking on one of the actions.   
 
 
@@ -499,17 +487,31 @@ Click on the Insert Dialog page icon |dialog| and give it any name you desire. Y
 
 Dialog pages can be added to any level in the page tree, just like any normal page. Unlike Pages, Dialog pages do not appear in the Menu (navigation) and can only be accessed via the page manager. Dialog pages have the same options of a page or side panel i.e Rename, Delete, etc. You can also move the dialog pages the same way pages can be moved.
 
+You can chose a size for the dialog page, the dimension for which are:
+
+#.  Small: Width = 3 Columns, Height = 2 Rows. Here you fit add widgets with dimensopns that addup to 3 columns and 2 rows. eg: 1 widget with width = 3 columns or less and height = 2 rows or less OR 2 widgets with width = 3 colums or less and height = 1 row.
+
+	.. image:: images/dialog_diffsizes_small.png
+				:align: center
+				:scale: 50
+
+#.  Medium: Width = 6 Columns, Height = 3 Rows. Here you fit add widgets with dimensopns that addup to 6 columns and 3 rows. 
+
+	.. image:: images/dialog_diffsizes_medium.png
+				:align: center
+				:scale: 50
+
+#.  Large: Width = 8 Columns, Height = 3 Rows .  Here you fit add widgets with dimensopns that addup to 8 columns and 3 rows.
+
+	.. image:: images/dialog_diffsizes_large.png
+				:align: center
+				:scale: 50
+
 The title and action buttons on the dialog page can be configured via the model. These are placeholders to depict how the atual dialog page would look. This also gives an idea of the usable area for adding widgets in the dialog page.
 
 .. image:: images/dialog_placeholders.png
 			:align: center
 			:scale: 75
-
-The dimension for each of the dialog pages are:
-
-#.  Small: Width = 3 Columns, Height = 2 Rows. Here you fit add widgets with dimensopns that addup to 3 columns and 2 rows. eg: 1 widget with width = 3 columns or less and height = 2 rows or less OR 2 widgets with width = 3 colums or less and height = 1 row. 
-#.  Medium: Width = 6 Columns, Height = 3 Rows. Here you fit add widgets with dimensopns that addup to 6 columns and 3 rows. 
-#.  Large: Width = 8 Columns, Height = 3 Rows .  Here you fit add widgets with dimensopns that addup to 8 columns and 3 rows.
 
 .. note:: 
 	
@@ -539,14 +541,7 @@ When the height of a widget exceeds the height of the dialog page, the widget wi
 Configuring dialog pages
 ++++++++++++++++++++++++
 
-The procedure DialogPageOpen(pageId,title,actions,onDone) declared inside the Public Dialog Support Procedures in `Pages and Dialog Support section <library.html#pages-and-dialog-support-section>`_ has needs to be used to configuring dialog pages. 
-
-The procedure has 4 arguments:
-
-#.  *pageId*: When a dialog page is created it is has a unique pageId. You can find all the dialog pageIds in the set AllDialogPages under the Public Pages Support Declarations in the `Pages and Dialog Support section <library.html#pages-and-dialog-support-section>`_ .   
-#.  *title*: A string parameter which contains the text to be displayed as the title of the dialog box. If this is left blank, i.e "", it will display the dialog page name given during creation by default.    
-#.  *actions*: A set of custom actions. The elements of this set are represented as buttons in the message dialog and their text is the same as the action names. When an action is selected (button is clicked), it invokes the onDone procedure with the corresponding action as an argument. If this set is empty, the buttons will have "Cancel" and "OK" by default respectively. 
-#.  *onDone*: A reference to a procedure in the set AllProcedures. The procedure should have a single input string parameter as argument. When a user selects an action, the onDone procedure is invoked with the action name as its argument.  
+The procedure `DialogPageOpen(pageId,title,actions,onDone) <library.html#dialogpageopen>`_ needs to be used to invoke dialog pages on the desired page. 
 
 An example of the procedure with declarations would result in:
 
