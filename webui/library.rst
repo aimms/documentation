@@ -43,7 +43,7 @@ Public Dialog Support Procedures:
 
 .. note::
 
-    The procedures OpenSidePanel, OpenPage ,OpenExternalLink and OpenDialogPage currently do not work as expected when called on a page load procedure. This issue will be expected to be fixed in the coming releases
+    The procedures OpenSidePanel, OpenPage, OpenExternalLink and OpenDialogPage currently do not work as expected when called on a page load procedure. This issue will be expected to be fixed in the coming releases.
 
 
 requestPerformWebUIDialog
@@ -91,7 +91,7 @@ Arguments
 
 This procedure has the following aguments:
 
-* :token:`pageId`: When a dialog page is created it is has a unique pageId. You can find all the dialog pageIds in the set AllDialogPages under the Public Pages Support Declarations in the `Pages and Dialog Support section <library.html#pages-and-dialog-support-section>`_ .   
+* :token:`pageId`: When a dialog page is created it is has a unique pageId. You can find all the dialog pageIds in the set AllDialogPages under the Public Pages Support Declarations in the `Pages and Dialog Support section <library.html#pages-and-dialog-support-section>`_.   
 * :token:`title`: A string parameter which contains the text to be displayed as the title of the dialog box. If this is left blank, i.e "", it will display the dialog page name given during creation by default.
 * :token:`actions`: A set of custom actions. The elements of this set are represented as buttons in the message dialog and their text is the same as the action names. When an action is selected (button is clicked), it invokes the onDone procedure with the corresponding action as an argument. If this set is empty, the buttons will have "Cancel" and "OK" by default respectively. 
 * :token:`onDone`: A reference to a procedure in the set AllProcedures. The procedure should have a single input string parameter as argument. When a user selects an action, the onDone procedure is invoked with the action name as its argument.
