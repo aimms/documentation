@@ -284,7 +284,21 @@ Commit and Pull Functions
    :param category: specifies the category for which to set the branch and revision
    :param branch: specifies the branch to set for the category
    :param revid: specifies the (optional) specific revision within the branch to set for the category, if not set the head revision of the branch will be taken
+
+.. js:function::  cdm::AddBranchToCompareSnapshots(category,branch)
+   
+   Add data from the given branch to the branch comparison identifiers for the specified category. See `comparing branches <dtd.html#comparing-multiple-branches>`_ for further details.
   
+   :param category: specifies the category for which to add branch data to the branch compare identifiers
+   :param branch: specifies the branch for which to add data to the branch compare identifiers
+   
+.. js:function::  cdm::RemoveBranchFromCompareSnapshots(category,branch)
+   
+   Remove data for the given branch from the branch comparison identifiers for the specified category. See `comparing branches <dtd.html#comparing-multiple-branches>`_ for further details.
+  
+   :param category: specifies the category for which to remove branch data from the branch compare identifiers
+   :param branch: specifies the branch for which to remove data from the branch compare identifiers
+   
 Embedded Server Functions
 =========================
 

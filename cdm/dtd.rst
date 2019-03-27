@@ -192,7 +192,7 @@ Creating multiple scenarios
 
 When you already have a data set from which you want to create multiple scenarios, you can do so by creating new branches at the revision in the CDM database representing that data set, one for each scenario you want to investigate. On each new branch created in this manner, you can commit the changes that make up the scenarios you want to investigate. By checking out the branch that represents a particular scenario, you can work with that scenario in your local session. You can then further adapt the data for that scenario, or perform an optimization run. 
 
-Eventually, if you have decided that you want to continue working with a single scenario, you can `*merge* <dtd.html#merging-branches-and-resolving-conflicts>`_ the corresponding branch back into the branch representing the original data set from which all scenarios were created. This will add all the individual data changes you made as part of the scenario to the original data set.
+Eventually, if you have decided that you want to continue working with a single scenario, you can `merge <dtd.html#merging-branches-and-resolving-conflicts>`_ the corresponding branch back into the branch representing the original data set from which all scenarios were created. This will add all the individual data changes you made as part of the scenario to the original data set.
 
 Creating branches
 -----------------
@@ -226,6 +226,18 @@ To delete a branch you can
   * update the set :token:`cdm::Branches` and :token:`cdm::Revisions` to remove the all branches and revisions deleted from the CDM database.
   
 * call the low-level API function :js:func:`cdm::DeleteBranch` to delete the branch as specified through its arguments.
+
+Comparing multiple branches
+---------------------------
+
+In the `branch comparison identifiers <impl.html#branch-comparison-identifiers>`_ AIMMS CDM allows you to compare multiple scenarios, the data of which is stored in multiple branches in the CDM database. You can directly display the contents of these branch comparison identifiers in either the Windows of Web UI. 
+
+To add and remove the identifier data of a particular branch you can
+
+* call the low-level API function :js:func:`cdm::AddBranchToCompareSnapshots` to add branch data
+* call the low-level API function :js:func:`cdm::RemoveBranchFromCompareSnapshots` to remove branch data
+
+Please note that these functions will add elements to the domain sets in the actual model, i.e., corresponding to the content of the *current branch*, if the data of held in the branches being added to the branch comparison identifiers are not present in the current branch. Without adding such elements, the branch data cannot be added to the branch comparison identifiers. Therefore, if you want to use the branch comparison functionality, you are advised to temporarily disable `auto-commit <#auto-committing-changes>`_ functionality if applicable, and `revert <dtd.html#reverting-changes>`_ the data of the current branch when you are done comparing scenarios before committing to the current branch.
  
 Merging branches and resolving conflicts
 ----------------------------------------
