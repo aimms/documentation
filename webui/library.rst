@@ -40,7 +40,11 @@ Public Dialog Support Procedures:
 
 * `RequestPerformWebUIDialog(title,message,actions,onDone) <#requestperformwebuidialog>`_ - This procedure is used to display dialog message, such as alerts or warnings.
 * `OpenDialogPage(pageId,title,actions,onDone) <#opendialogpage>`_ - This procedure is used to open `dialog pages <page-manager.html#dialog-pages>`_ via the model, either by clicking on a button or some interaction in the model.
- 
+
+.. note::
+
+    The procedures OpenSidePanel, OpenPage ,OpenExternalLink and OpenDialogPage currently do not work as expected when called on a page load procedure. This issue will be expected to be fixed in the coming releases
+
 
 requestPerformWebUIDialog
 =========================
