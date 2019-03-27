@@ -11,34 +11,36 @@ Pages and Dialog Support has been added to the AimmsWebUI library to be able to 
 .. image:: images/pageanddialogsupportsection.png
 			:align: center
 
-There are 2 sub sections Declarations and Procedures: 
-
 Public Pages Support Declarations: 
 
 * AllPageIDs - This set includes all the page ID for all page types added to the `Page Manager <page-manager.html>`_ (page tree). 
 * AllPageTypes - This set includes the different page types, currently page, side panel and dialog. 
 * AllSidePanelPages - This set includes all the side panel pages added to the Page Manager. 
 * AllDialogpage - This set includes all the dialog pages added to the Page Manager. 
-* SidePanelSpecification - This set is the specification for the side panel pages. The sting parameters used to `configure the side panels <page-manager.html#configuring-side-panels>`_ on pages are indexed on this set as well. 
 * PageType(indexPageId) - This string parameter indexed on AllPageIds set maps which page type applies to which page id.
 * PagePath(indexPageId) - This string parameter indexed on AllPageIds set maps the path for each page created.
 * PageName(indexPageId) - This string parameter indexed on AllPageIds set maps the path for each page created.
 
+Public Page and Widget Specification Declarations:
+
+* SidePanelSpecification - This set is the specification for the side panel pages. The sting parameters used to `configure the side panels <page-manager.html#configuring-side-panels>`_ on pages are indexed on this set. 
+* WidgetActionSpecification - This set is the specification for adding widget actions. The sting parameters used to configure the widget actions on certain widgets are indexed on this set.
 
 Request Queue Declarations is used to manage the number of requests from WebUI. 
 
 Public Pages Support Procedures:
 
 * GetAllPages - This procedure is runs everytime a page, side panel or dialog page is added to the page manager, which inturn updates the sets and identifiers in the Public Pages Support Declarations.
-* SidePanelOpen(pageId) - This procedure is used to open side panels via the model with respective pageIds as the argument. 
-* PageOpen(pageId) - This procedure is used to open/navigate to other pages in the application via the model, by passing the respecive pageId as the argument. 
+* OpenSidePanel(pageId) - This procedure is used to open side panels via the model with respective pageIds as the argument. 
+* OpenPage(pageId) - This procedure is used to open/navigate to other pages in the application via the model, by passing the respecive pageId as the argument. 
 * OpenExternalLink(url) - This procedure is used to open external links, by passing the URL as the argument. These links will open in a new tab in the browser.
+* ResetRequestQueue - This procedure emptys the RequestQueue and the Requests set in the Request Queue Declarations.
 
 Public Dialog Support Procedures:  
 
 * `RequestPerformWebUIDialog(title,message,actions,onDone) <#requestperformwebuidialog>`_ - This procedure is used to display dialog message, such as alerts or warnings.
-* `DialogPageOpen(pageId,title,actions,onDone) <#dialogpageopen>`_ - This procedure is used to open `dialog pages <page-manager.html#dialog-pages>`_ via the model, either by clicking on a button or some interaction in the model.
-* ResetWebUIDialogs - This procedure emptys the RequestQueue and the Requests set in the Request Queue Declarations. 
+* `OpenDialogPage(pageId,title,actions,onDone) <#opendialogpage>`_ - This procedure is used to open `dialog pages <page-manager.html#dialog-pages>`_ via the model, either by clicking on a button or some interaction in the model.
+ 
 
 requestPerformWebUIDialog
 =========================
@@ -75,10 +77,10 @@ Remarks
 * You can use a translation file (e.g. ‘WebUI/resources/languages/<dialog_actions>.properties’) to provide translations for the various internal action names, containing, for example: :token:`discard-and-continue = Discard and continue`.
 
 
-DialogPageOpen
+OpenDialogPage
 ==============
 
-You can call the procedure :token:`webui::DialogPageOpen` to invoke a `dialog page <page-manager.html#dialog-pages>`_ in a WebUI page. Along with opening the dialog page you can also configure the title and the buttons with a specific callback.
+You can call the procedure :token:`webui::OpenDialogPage` to invoke a `dialog page <page-manager.html#dialog-pages>`_ in a WebUI page. Along with opening the dialog page you can also configure the title and the buttons with a specific callback.
 
 Arguments
 ---------
@@ -94,15 +96,18 @@ This procedure has the following aguments:
 Example
 -------
 
-As an example, the following code will display the dialog in the picture below it and will call the procedure :token:`PerformAction(TheAction)` upon clicking one of its buttons (with :token:`TheAction` being an input string parameter argument):
+As an example, the following code will display the dialog in the picture below it and will call the procedure :token:`Procedure_Actions(TheAction)` upon clicking one of its buttons (with :token:`TheAction` being an input string parameter argument):
 
 .. code::
 
-    MyActions := data { Yes, No, Cancel };
-    webui::requestPerformWebUIDialog("Save", "Do you want to save your data?", MyActions, 'PerformAction');
+	MyActions:= data { Decline, Accept };
+	pageId := 'dialog_page';
+	webui::OpenDialogPage(pageId, "Dialog Page Title", MyActions, 'Procedure_Actions');
 
-.. image:: images/savedialog.jpg
-    :align: center
+
+.. image:: images/dialog_procedurecall.png
+			:align: center
+			:scale: 50
 
 
 Authorization Support

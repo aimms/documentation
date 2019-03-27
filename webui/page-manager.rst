@@ -467,9 +467,9 @@ Dialog Pages
 .. important:: Dialog pages are available in software versions from AIMMS 4.65 onwards.
 
 
-Dialog Pages are used for intermediate actions or steps in your workflow. You can build model interaction by calling dialog pages for the user to perform a specific action such as setting SLA's or adjusting inventory etc. In addition, you can use Dialog pages to display information about a selected item without breaking the flow by calling the DialogPageOpen function. For example showing the detailed properties of a schedule batch. 
+Dialog Pages are used for intermediate actions or steps in your workflow. You can build model interaction by calling dialog pages for the user to perform a specific action such as setting SLA's or adjusting inventory etc. In addition, you can use Dialog pages to display information about a selected item without breaking the flow by calling the OpenDialogPage function. For example showing the detailed properties of a schedule batch. 
 
-A dialog page has 3 predefined sizes; Small, Medium and Large. Dialog pages can have upto 3 buttons, 2 of which are shown by default, typically Cancel and OK. The text and callback procedures for these buttons can be controlled via the DialogPageOpen function. 
+A dialog page has 3 predefined sizes; Small, Medium and Large. Dialog pages can have upto 3 buttons, 2 of which are shown by default, typically Cancel and OK. The text and callback procedures for these buttons can be controlled via the OpenDialogPage function. 
 
 When a dialog box is open the user can only interact with the dialog. The dialog box can only be closed by clicking on one of the actions.   
 
@@ -541,7 +541,7 @@ When the height of a widget exceeds the height of the dialog page, the widget wi
 Configuring dialog pages
 ++++++++++++++++++++++++
 
-The procedure `DialogPageOpen(pageId,title,actions,onDone) <library.html#dialogpageopen>`_ needs to be used to invoke dialog pages on the desired page. 
+The procedure `OpenDialogPage(pageId,title,actions,onDone) <library.html#opendialogpage>`_ needs to be used to invoke dialog pages on the desired page. 
 
 An example of the procedure with declarations would result in:
 
@@ -549,7 +549,7 @@ An example of the procedure with declarations would result in:
 
 	MyActions:= data { Decline, Accept };
 	pageId := 'dialog_page';
-	webui::DialogPageOpen(pageId, "Dialog Page Title", MyActions, 'Procedure_Actions');
+	webui::OpenDialogPage(pageId, "Dialog Page Title", MyActions, 'Procedure_Actions');
 
 
 .. image:: images/dialog_procedurecall.png
