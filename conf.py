@@ -18,6 +18,10 @@
 #
 import os
 import sys
+if os.name = 'nt':
+	import ssl
+	import urllib
+	
 # sys.path.insert(0, os.path.abspath('.'))
 
 # -- General configuration ------------------------------------------------
@@ -32,7 +36,8 @@ import sys
 extensions = ['sphinx.ext.doctest',
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
-    'sphinx.ext.githubpages']
+    'sphinx.ext.githubpages',
+	'sphinxcontrib.spelling']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -209,6 +214,14 @@ texinfo_documents = [
      author, 'AimmsDoc', 'AIMMS Documentation',
      'Miscellaneous'),
 ]
+
+#import the one and only spelling exception central file 
+if os.name = 'nt':
+	context = ssl._create_unverified_context()
+	urllib.urlretrieve("https://gitlab.aimms.com/Arthur/unified-spelling_word_list_filename/raw/master/spelling_wordlist.txt", "spelling_wordlist.txt", context=context)
+
+#spelling_word_list_filename = ''
+
 
 # -- Import the AIMMSLexer into local Pygments module (syntax highlighting). The styling is made with Hacks.css in the _static folder ----------------------------
 def setup(sphinx):
