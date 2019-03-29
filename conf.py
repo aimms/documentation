@@ -18,7 +18,8 @@
 #
 import os
 import sys
-if os.name = 'nt':
+
+if os.name == 'nt':
 	import ssl
 	import urllib
 	
@@ -216,7 +217,7 @@ texinfo_documents = [
 ]
 
 #import the one and only spelling exception central file 
-if os.name = 'nt':
+if os.name == 'nt':
 	context = ssl._create_unverified_context()
 	urllib.urlretrieve("https://gitlab.aimms.com/Arthur/unified-spelling_word_list_filename/raw/master/spelling_wordlist.txt", "spelling_wordlist.txt", context=context)
 
