@@ -113,6 +113,12 @@ As an example, the following code will display the dialog in the picture below i
 			:align: center
 			:scale: 50
 
+The declaration of the procedure Procedure_Actions in the example is 
+
+.. image:: images/dialog_procedure_action_declaration.png
+			:align: center
+
+When the user clicks either button, the callback sends the respective button's text back to the string parameter. In the example we use the response to set a Flag to true or false based on which button is clicked. 
 
 Authorization Support
 =====================
