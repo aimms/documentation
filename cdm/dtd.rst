@@ -244,6 +244,15 @@ Merging branches and resolving conflicts
 
 After you have committed one or multiple changes to a particular branch, you may want to merge such a branch with another branch. For instance, you may want to merge the changes you made to data for a particular scenario you examined, back into the branch on which the scenario was based, because that particular scenario represents the desired action you want to implement for the main branch.
 
+Retiring intermediate branch data
+---------------------------------
+
+After you have been working with a given branch for a longer time, most probably only the most recent commits make sense to retain, as individual data changes in the past may have become obsolete, and may lead to longer checkout times, as the current branch data must be reconstructed from a larger amount of commits. Through the function :token:`cdm::RetireBranchData`, you can replace the cumulative changes for all categories from the root of a particular branch up and until a given revision by a single snapshot containing the same change set. 
+
+You can retire commits all branches except the :token:`system` branch. If the resulting branch is not the :token:`master` branch, the resulting branch will be relocated to branch off revision 2 of the master branch, as the snapshot can only be garantueed to produce the right result if there no preceding commits. 
+
+The function works by first creating snapshots for all data categories on a temporary branch, subsequently deleting all intermediate commits from the data repository, injecting the snapshots into the branch as a single commit, and finally deleting the intermediate branch. Note that if data set to default (or for which elements in the domain are deleted from the root sets) *after* the snapshot, will still be stored in the data repository, although they will not be visible in any checkout. Only when such commits will be included in a snapshots, such data deletions will be completely removed from the data repository.
+
 Interactive merge
 +++++++++++++++++
 

@@ -100,6 +100,17 @@ Branch and Revision Functions
    :param db: specifies the name of the application database in which to delete a branch
    :param branchName: specifies the name of the branch to delete
 
+.. js:function::  cdm::ReplaceBranchRangeWithSnapshot(db,branchName,revision,snapshotBranch)
+
+   Replace the given branch, from its root up and until the given revision by the snapshots of all categories stored on :token:`snapshotBranch`. All sub-branches of the given branch, started prior to the given revision will be deleted in the process, unless such branches are started at the root of the branch. The snapshot branch should branch directly off revision 2 of the :token:`master` branch. 
+   This function is intended to be used only by the higher-level procedure :js:func:`cdm::RetireBranchData`. Using this function directly, may result in grave data loss.
+   The function will fail if the branch does not exists, if you do not have the permission to read, delete, or write to the branch, if the snapshot branch does not branch off revision 2, or if you try to apply it to the protected :token:`system` branch.
+ 
+   :param db: specifies the name of the application database in which to delete a branch
+   :param branchName: specifies the name of the branch to delete
+   :param revision: specifies the revision on the given branch, all commits up and until should be replaced by the snapshots on snapshotBranch
+   :param snapshotBranch: specifies the branch containing the snapshot to replace the branch range with
+
 .. js:function::  cdm::SetBranchStatus(db,branchName,active)
 
    Set the branch status to either active or inactive, which will effect the result of :js:func:`cdm::EnumerateBranches`. The function will fail if the branch does not exist, or if the user is not authorized to change the branch status.
