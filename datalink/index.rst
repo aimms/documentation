@@ -6,11 +6,20 @@ DataLink Library
     Motivation, why do we want data link
 
 
-Data comes in many different flavors and each piece of software defines its own particular format Taylored to its own particular need. If we want to use some stored data in an AIMMS model we somehow need to import this. And so a custom importer has to be available, but it is infeasible to code and distribute this for all possible flavors. Furthermore it is cumbersome for users having to deal with many different custom importers, because this 
+Data comes in many different flavors and each piece of software defines its own particular format tailored to its own particular need. If we have data stored in such format and we want to use it in an AIMMS model, we somehow need to import this.
+We could create custom importers for all flavors but that would be infeasible.
+
+Furthermore there is a catch when using custom importers (and also exporters). In order to access the external data, somehow you have to ask for the data in the source in the language of that particular format. In the Aimms model parts will be  very specific not just for the format, but also for the data source itself. So even changing the data source may require the model to be modified.
+
+ 
 
 
 DataLink is created with the idea that if we define a broad family of data sources we can make a more general importer/exported for data. 
+
+
+
 This reduces the amount of code that has to be written, and makes it possible to present users with a more uniform approach to deal with many of these "different" sources.
+
 DataLink is made for data sources that are organized as a collection of tables, consisting of named columns. Examples of such sources include relational databases, excel files, or directories containing CSV files.  
 
 +----------------------------------------+

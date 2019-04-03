@@ -10,6 +10,8 @@ It is the responsibility of the provider to fetch the names of the columns from 
 
 Since there are many kinds of data sources they may have specific features and requirements that have to be set in attributes. It is possible that not all features are supported. The attributes are set by the table and column attribute arguments that are assigned to the data mapping. When the provider is connected in the DataRead or DataWrite call, they are passed on to the provider. The documentation of the specific provider should indicate which features can be set and how they can be used.
 
+.. _LinkXLSProvider:
+
 XLSProvider
 ===========
 
@@ -27,6 +29,9 @@ Note: AIMMS also has an other library for dealing with excels files called Aimms
 
     So why using XLSProvider then ??
     
+
+.. _LinkCSVProvider:
+
 CSVProvider
 ===========
 

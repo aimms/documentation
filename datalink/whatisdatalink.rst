@@ -30,12 +30,12 @@ When we look at the "structure" of this table we see that we have 3 columns name
    :widths: 20, 20, 10
 
    "Alice Smith", "Paris", 40
-   "Bob Johnson", "Londom", 20
+   "Bob Johnson", "London", 20
 
 
-Besides the column names there are no differences between these two tables except for the data. But looking at the data and interpreting its meaning, we could see that there is still a difference. In the FirstnameLastname table we need both firstname and lastname otherwise the age would not have any meaning. The age tells us something about a person, but is 
+Besides the column names there are no differences between these two tables except for the data. But looking at the data and interpreting its meaning, we could see that there is still a difference. In the FirstnameLastname table we need both firstname and lastname otherwise the age would not have any meaning. The age tells us something about a person that is identified in the table with two "keys", the first name and last name. The NameCity table only needs one key, the full name, and the table gives us two pieces of information related to the corresponding person. 
 
-AIMMS being a modeling language, this is exactly the kind of information that is important. In our AIMMS model we do need identifiers that into account the relations between the columns of the table. We could have in AIMMS the sets :token:`S_Firstname` with index :token:`I_Firstname` and  :token:`S_Lastname` with index :token:`I_Lastname`. Also we could have a parameter :token:`P_Age(I_Firstname,I_Lastname)`. Then we could do the reading, and reading the first table would be doing in AIMMS something like:
+AIMMS being a modeling language, this is exactly the kind of information that is important. In our AIMMS model we do need identifiers that take into account the relations between the columns of the table. We could have in AIMMS the sets :token:`S_Firstname` with index :token:`I_Firstname` and  :token:`S_Lastname` with index :token:`I_Lastname`. Also we could have a parameter :token:`P_Age(I_Firstname,I_Lastname)`. Then we could do the reading, and reading the first table would be doing in AIMMS something like:
 
 .. code-block:: aimms
 
@@ -56,7 +56,7 @@ If we look at the second table we see that it defines only one set and two param
     
 
 
-Understanding the structure in the source is not enough for importing and exporting data. We also have to understand the identifiers in the model.  
+Understanding the structure in the source is not enough for importing and exporting data. We also have to understand the identifiers in the model. Then we can map the columns in the table to the identifiers in the model for reading and writing the data. 
 
 
 
@@ -84,7 +84,7 @@ Choose a data map (2)
     All the data maps in DataLink have names, and we choose a data map by its name. 
 
 Choose a provider (3)
-    This is the library that "understands" the particular format of the data source.
+    This is a library (from the library repository) that "understands" the particular format of the data source.
 
 
 
@@ -108,7 +108,7 @@ The :token:`ReadWriteAttributes` could be defined as:
         Definition: data{'DataProvider': xlsprov::DataLink };
     }
 
-Here we use :token:`xlsprov::DataLink` as value, where *"xlsprov"* is the prefix of the XLSProvider. DataLink needs to know where the executable code of the provider (i.e. the dll file on Windows) is located. To simplify this, all providers make sure that upon initialization a string parameter called :token:`DataLink` is the string with the correct location needed by DataLink. This means that we can choose the provider by using this string parameter of the provider as value for *'DataProvider'*. 
+Here we use :token:`xlsprov::DataLink` as value, where *"xlsprov"* is the prefix of the XLSProvider library. DataLink needs to know where the executable code of the provider (i.e. the dll file on Windows) is located. To simplify this, all providers make sure that upon initialization a string parameter called :token:`DataLink` is set with the correct location needed by DataLink. This means that we can choose the provider by using this string parameter of the provider as value for *'DataProvider'*. 
 
 
 

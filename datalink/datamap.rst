@@ -1,13 +1,13 @@
 The Data Map
 ******************
 
-The data map is that string parameter that describes how columns in the source are mapped onto identifiers in AIMMS. You can add it to DataLink and give it a name. Then this data map can be used for reading and writing by using its name. 
+The data map is a string parameter that describes how columns in the source are mapped onto identifiers in AIMMS. You can add it to DataLink and give it a name. Then this data map can be used for reading and writing by using its name. 
 
 
 What is a data map
 ==================
 
-There are two kinds of data maps, an old one referred to as the "classic data map", and a new one referred to as the "data map". The classic data map was created by reusing some parts of the flatfilereader and augmenting it by adding support for other providers. The use of the classic data map still has elements that are there for historic reasons. Parts are no longer used by DataLink still exist for backward compatibility of existing models. The new data map was because the structure of the classic data map, particular when it comes to column numbers, was to rigid for some new features.
+There are two kinds of data maps, an old one referred to as the "classic data map", and a new one referred to as the "data map". The classic data map was created by reusing some parts of the flatfilereader and augmenting it by adding support for other providers. The use of the classic data map still has elements that are there for historic reasons. Parts that are no longer used by DataLink still exist for backward compatibility of existing models. The new data map was introduced because the structure of the classic data map, particular when it comes to column numbers, was to rigid for some new features.
 
 
 The "Classic" Data Map
