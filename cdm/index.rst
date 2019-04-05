@@ -12,4 +12,5 @@ AIMMS Collaborative Data Management (CDM) provides the capability to turn any AI
    callback
    auth
    impl
-   api   
+   api
+   release
