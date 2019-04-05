@@ -37,6 +37,9 @@ New Features and Bug Fixes
 1.6.0.0
     - Added :token:`cdm::DeleteBranch` function.
     
+1.5.0.10
+    - Use relative tolerance when comparing values
+    
 1.5.0.0
     - Initial public release of CDM library
 
