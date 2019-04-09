@@ -8,9 +8,13 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
+1.9.0.4
+    - :token:`cdm::Branches` set elements were determined wrt to incorrect set in :token:`cdm::AddBranchToCompareSnapshots`.
+    
 1.9.0.3
     - Added capability to retire intermediate commits by a single snapshot, via :token:`cdm::RetireBranchData` function.
     - Use non-persistent intermediate tables for storing current set content when checking out data to speed up checkout.
+    - Added :token:`cdm::RevisionIdentifierCard` identifier, holding per-revision cardinality of changes for each individual identifier.
     - When checking out data, cleanup :token:`cdmrt::ci` and :token:`cdmrt::cri` identifiers in addition to emptying, in case domain sets have been cleared which might leave inactive data behind.
     
 1.8.0.27
