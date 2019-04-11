@@ -8,6 +8,9 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
+1.9.0.6
+    - Added DLL that was prevented CDM running from Windows PRO client
+
 1.9.0.4
     - :token:`cdm::Branches` set elements were determined wrt to incorrect set in :token:`cdm::AddBranchToCompareSnapshots`.
     
