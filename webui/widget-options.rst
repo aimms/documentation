@@ -217,6 +217,35 @@ In this case, the customized tooltip based on the HTML table layout (see also th
 .. image:: images/Tooltip_Ganttchart_1.png
     :align: center
 
+
+If you do not want to show the default tooltips for certain identifiers or data items, you can make this possible by clearing or emptying the data for the respective identifier or data point in the _tooltips identifer.  
+
+For example, consider the below table. You do not want to show the tooltip with the same value as the cell value, or if the value of a cell is 0.
+
+
+.. image:: images/Tooltip_default_table.png
+    :align: center
+
+
+In the _tooltips identifier, just clear/empty the data for these specific cases that you desire to hide the tooltip.
+
+
+.. image:: images/Tooltip_Hidedefault_table.png
+    :align: center
+
+
+.. image:: images/Tooltip_hidden_table.png
+    :align: center
+
+
+.. image:: images/Tooltip_customvalue_table.png
+    :align: center
+
+
+.. note::
+    The feature to hide tooltips is available only in AIMMS releases from 4.65 onwards. 
+
+
 Filters
 -------
 
