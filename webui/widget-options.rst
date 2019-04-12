@@ -227,7 +227,7 @@ For example, consider the below table. You do not want to show the tooltip with 
     :align: center
 
 
-In the _tooltips identifier, just clear/empty the data for these specific cases that you desire to hide the tooltip.
+In the _tooltips identifier, just clear/empty the data for these specific cases that you desire to hide the tooltip for.
 
 
 .. image:: images/Tooltip_Hidedefault_table.png
