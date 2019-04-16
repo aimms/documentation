@@ -19,11 +19,6 @@
 import os
 import sys
 from sphinx.util import logging
-
-if os.name == 'nt':
-	import ssl
-	import urllib
-	import platform
 	
 # sys.path.insert(0, os.path.abspath('.'))
 
@@ -41,13 +36,7 @@ extensions = ['sphinx.ext.doctest',
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
 	'sphinx.builders.linkcheck']
-
-if os.name == 'nt' and not platform.architecture()[0]=='64bit':
-
-		extensions.append('sphinxcontrib.spelling')
-		logger = logging.getLogger(__name__)
-		logger.info("\nsphinxcontrib.spelling extension initiated. Please make sure ``python -m pip install sphinxcontrib.spelling`` ")
-	
+		
 	
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -224,13 +213,6 @@ texinfo_documents = [
      author, 'AimmsDoc', 'AIMMS Documentation',
      'Miscellaneous'),
 ]
-
-#import the one and only spelling exception central file 
-if os.name == 'nt':
-	context = ssl._create_unverified_context()
-	urllib.urlretrieve("https://gitlab.aimms.com/Arthur/unified-spelling_word_list_filename/raw/master/spelling_wordlist.txt", "spelling_wordlist.txt", context=context)
-
-#spelling_word_list_filename = ''
 
 
 # -- Import the AIMMSLexer into local Pygments module (syntax highlighting). The styling is made with Hacks.css in the _static folder ----------------------------
