@@ -543,7 +543,7 @@ Configuring Dialog Pages
 
 The procedure `OpenDialogPage(pageId,title,actions,onDone) <library.html#opendialogpage>`_ needs to be used to invoke dialog pages on the desired page. 
 
-An example of the procedure with declarations would result in:
+An `example <library.html#id4>`_ of the procedure with declarations would result in:
 
 .. code::
 
