@@ -1,4 +1,5 @@
 .. |cog-widget| image:: images/cog-widget.png
+.. |widget-action| image:: image/widget-actions.png
 
 
 Widget Options
@@ -543,3 +544,47 @@ You can change the number of decimals for a widget:
 The number of decimals displayed has a limit, the **default** is 2 decimals.
 
 
+Widget Actions
+--------------
+
+Widget Actions are a set of actions/procedures that can be defined via the model and then configured for individual widgets. These widget actions are grouped under the [widget action] icon. You can define up to a total of 10 widget actions. In case you configure more than 10, only the top 10 active or inactive actions will be displayed.
+
+The widget actions can be any procedure for example importing an excel, saving data, etc.
+
+IMAGE FOR WIDGET Actions
+
+Configuring Widget Actions
+++++++++++++++++++++++++++
+
+Widget Actions can be configured by the application developer via the AIMMS model. Firstly, create a set for the order of widget actions to be displayed on the widget action menu when it is opened on the respective widget.
+
+For illustration, let’s call this set “WidgetOrder” with index worder (as a developer, you can give this set a name and an index of your choice).
+
+.. image:: images/SP_setSPorder.png
+			:align: center
+
+This set determines the order in which the widget actions will appear from top to bottom. This set must be a subset of the pre-declared set of Integers. 
+
+The set WidgetActionSpecification declared inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section is used for configuring the widget actions, as illustrated here in the next steps. 
+
+.. image:: images/SidePanelSpecificationset.png
+			:align: center
+
+This set has 4 elements representing widget action properties: 
+
+#. *displayText*: Is the text/label you would like give the action.  
+#. *icon*: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the icon list.			
+#. *procedure*: The procedure you want to call when the respective action is clicked.  
+#. *state*: This is the state for the action, i.e Active(Displayed and Clickable), Inactive(Displayed and Not Clickable) and Hidden.  
+	
+To configure widget actions, create a string parameter indexed on WidgetOrder and WidgetActionSpecification, for example MyWidgetActions(worder,webui::indexWidgetActionSpec) as shown here:
+
+.. image:: images/SP_homepageSPidentifier.png
+			:align: center
+
+Right click the string paramter and click on the Data option in order to open the data page:
+
+.. image:: images/SP_stringparameterdata.png
+			:align: center
+
+Add the details for the widget actions you would like to show for the widget. For example, 
