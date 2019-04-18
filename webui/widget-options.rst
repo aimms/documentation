@@ -551,7 +551,7 @@ Widget Actions
 
 Widget Actions are a set of actions/procedures that can be defined via the model and configured for individual widgets. These widget actions are grouped under the |widget-action| icon in the widget header. The widget action displays up to 10 actions. In case you configure more than 10, only the top 10 active and/or inactive actions will be displayed.
 
-The widget actions can be any procedure for example importing an excel, saving data, etc.
+The widget actions can be any procedure for example Resetting data, Saving data, etc.
 
 .. image:: images/WidgetAction_Example.png
             :align: center
@@ -579,7 +579,9 @@ This set has 4 elements representing widget action properties:
 #. *icon*: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the :download:`icon list. <resources/AIMMS-Icon-List.pdf>`			
 #. *procedure*: The procedure you want to call when the respective action is clicked.  
 #. *state*: This is the state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
-	
+
+.. tip:: If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append 'aimms-" to the selected icon name when adding it to the model. eg: The icon name is calculator. In AIMMS it needs to be aimms-calculator.
+
 To configure widget actions, create a string parameter indexed on WidgetOrder and WidgetActionSpecification, for example MyWidgetActions(worder,webui::indexWidgetActionSpec) as shown here:
 
 .. image:: images/WidgetActions_MyWidgetActions.png

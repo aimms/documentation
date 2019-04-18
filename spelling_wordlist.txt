@@ -62,12 +62,14 @@ downloadable
 dsn
 exe
 flowshop
+Friesian
 Gantt
 
 GanttChart
 
 Ganttchart
 GitHub
+GMP
 Gurobi
 Haversine
 hostname
@@ -107,7 +109,8 @@ linechart
 linecharts
 Linux
 
-localhost
+
+localhost
 
 
 Marseille
@@ -145,6 +148,8 @@ programmatically
 
 proxied
 py
+Refactor
+refactor
 refactorizations
 
 RLink
