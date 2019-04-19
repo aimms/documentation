@@ -156,7 +156,10 @@ html_sidebars = {
     ]
 }
 html_favicon = "_static/favicon.png"
-#rst_prolog = "\n.. include:: /special.rst\n"
+
+rst_prolog = """
+:tocdepth: 2
+"""
 
 # -- Options for HTMLHelp output ------------------------------------------
 

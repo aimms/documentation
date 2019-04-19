@@ -10,7 +10,7 @@ By publishing an AIMMS WebUI app on the AIMMS PRO platform, the application is m
 #. After publishing it, you can launch the app from the AIMMS PRO portal and the WebUI of the app will be opened in your browser.
 
 Example Projects
-================
+-----------------
 
 In our GitHub respository, some WebUI example projects are available. To run an example, please perform the following steps:
 
