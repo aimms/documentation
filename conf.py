@@ -35,9 +35,17 @@ extensions = ['sphinx.ext.doctest',
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
-	'sphinx.builders.linkcheck']
-		
-	
+	'sphinx.builders.linkcheck',
+    'sphinxcontrib.spelling']		
+
+#Retrieve the one and only spelling exception central file 
+import requests
+url = "https://gitlab.aimms.com/Arthur/unified-spelling_word_list_filename/raw/master/spelling_wordlist.txt"
+requests.packages.urllib3.disable_warnings()
+r = requests.get(url,verify=False)
+with open('spelling_wordlist.txt','wb') as f:
+    f.write(r.content)
+    
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
