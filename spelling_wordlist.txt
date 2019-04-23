@@ -49,7 +49,7 @@ css
 csv
 
 Datalink
-
+DataLink
 Datasource
 datasource
 dataSource
@@ -112,7 +112,7 @@ Linux
 
 localhost
 
-
+makespan
 Marseille
 
 Mbit
@@ -171,14 +171,16 @@ sidepanels
 Sidepanel
 
 Sidepanels
-
+Spotfire
 sqlite
 
 subfolder
 subfolders
 subpage
 subpages
-
+subtour
+subtours
+TDE
 timeline
 tooltip
 
