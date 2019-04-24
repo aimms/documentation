@@ -27,12 +27,12 @@ Logs settings
 .. image:: images/log-settings.png
     :align: center
 
-In this section an admin user may change log level for different components of AIMMS PRO. To change the log level, select new value in the dropdown and press "Save Settings". Please take into account that the settings won't be applied immediately, it may take up to 10 seconds before logs are written with the new settings.
+In this section an admin user may change log level for different components of AIMMS PRO. To change the log level, select new value in the drop-down and press "Save Settings". Please take into account that the settings won't be applied immediately, it may take up to 10 seconds before logs are written with the new settings.
 
 The components are the following:
 
 * AIMMS Sessions - change this setting if you need more logs about the state of your solver or data sessions.
-* Backend - change this setting if you need more information about the behaviour of the AIMMS PRO itself. For example, if you experience problems with permissions for an application.
+* Backend - change this setting if you need more information about the behavior of the AIMMS PRO itself. For example, if you experience problems with permissions for an application.
 * Configurator - setting for AIMMS PRO Configurator log level.
 * WebUI - corresponds to the WebUI logs. Change it if you need to understand better what is happening within your WebUI application.
 * Portal - change this setting if you need more (or less) logs for PRO Portal itself. Please note, that WebUI logs and logs for WS-Proxy have separate settings.

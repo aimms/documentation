@@ -47,7 +47,7 @@ The table widget offers the user possibilities for various actions such as:
   
   * You can use the space bar to toggle binary values displayed as checkboxes that have the focus.
   
-  * You can use either ENTER or ALT+ARROW DOWN to open the dropdown list in focus, in order to change its value.
+  * You can use either ENTER or ALT+ARROW DOWN to open the drop-down list in focus, in order to change its value.
 
 Download Table Data
 +++++++++++++++++++

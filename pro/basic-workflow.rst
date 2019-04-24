@@ -45,7 +45,7 @@ When the PRO server receives the request, it queues the job, and eventually star
 Displaying the Request Manager
 ------------------------------
 
-The final modification required in your AIMMS model is that at some place (for exmaple, a button on a page, or a button on the toolbar) you should add an action that opens the Request Manager contained in the PRO GUI library. To open the Request Manager, you should call the procedure guipro::OpenRequestManagement, which will open the Request Manager as a dialog. This will allow end-users to get an overview of all the tasks that are finished or still running. Furthermore, the Request Manager allows the end-user to download the results of finished jobs into the current session, to terminate running jobs, and to delete finished jobs.
+The final modification required in your AIMMS model is that at some place (for example, a button on a page, or a button on the toolbar) you should add an action that opens the Request Manager contained in the PRO GUI library. To open the Request Manager, you should call the procedure guipro::OpenRequestManagement, which will open the Request Manager as a dialog. This will allow end-users to get an overview of all the tasks that are finished or still running. Furthermore, the Request Manager allows the end-user to download the results of finished jobs into the current session, to terminate running jobs, and to delete finished jobs.
 
 Create a .aimmspack File and Publish
 ------------------------------------

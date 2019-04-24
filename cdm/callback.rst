@@ -50,7 +50,7 @@ Getting notified of errors
 
 By default, all `low-level API <api.html>`_ and `high-level API <dtd.html#high-level-versus-low-level-api>`_ CDM functions provide their status through return values, returning 1 for success, and 0 in case of failure. 
 
-All error messages, codes, dates and stack locations reported through the low-level API are collected in the identfiers in the :token:`Error Handling` section of the CDM library, whether you call the low-level API functions directly, or indirectly by calling high-level API functions. 
+All error messages, codes, dates and stack locations reported through the low-level API are collected in the identifiers in the :token:`Error Handling` section of the CDM library, whether you call the low-level API functions directly, or indirectly by calling high-level API functions. 
 
 All low-level API methods also call the procedure pointed to by the :token:`cdm::OnErrorProcedureHook` parameter. You can use this hook to set a function, that you can use, for instance, to notify the end-user of any error occuring while calling either the low- or high-level CDM API. You can also use the on-error hook to raise error that you can catch in on-error blocks elsewhere in your code, or in the global AIMMS error handler.
 

@@ -132,7 +132,7 @@ Possible values are 'true' or 1 (visible), 'false' or 0 (hidden), or an AIMMS id
 
 By specifying an AIMMS identifier for the visibility option of a page, you can dynamically control from within the AIMMS model, which pages should be visible on a certain moment. 
 
-When a page is hidden, it will not show up in the `Page Menu <page-menu.html>`_. In the `Page Manager <page-manager.html>`_, hidden pages are 'greyed out' and they have a 'hidden' icon |hidden| behind their name.
+When a page is hidden, it will not show up in the `Page Menu <page-menu.html>`_. In the `Page Manager <page-manager.html>`_, hidden pages are 'grayed out' and they have a 'hidden' icon |hidden| behind their name.
 
 Deleting a Page
 ---------------

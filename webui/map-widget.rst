@@ -112,7 +112,7 @@ Here an element parameter may be specified which will store the value of the nod
 .. image:: images/MapV2-StoreFocus-Select.png
     :align: center
 
-Once the element parameter has been specified, one is able to see this reflected in the Index field of the correspoding node set in the options editor. 
+Once the element parameter has been specified, one is able to see this reflected in the Index field of the corresponding node set in the options editor. 
 For example, we can specify SelectedFactory for the index f and SelectedCenter for the index c, where SelectedFactory and SelectedCenter are element parameters 
 in our application at hand with ranges Factories and Centers, respectively.
 Furthermore, the values of these element parameters may also be displayed for inspection in other widgets outside the map.
