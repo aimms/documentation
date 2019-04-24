@@ -30,11 +30,11 @@ Request Queue Declarations is used to manage the number of requests from WebUI.
 
 Public Pages Support Procedures:
 
-* GetAllPages - This procedure is runs everytime a page, side panel or dialog page is added to the page manager, which inturn updates the sets and identifiers in the Public Pages Support Declarations.
+* GetAllPages - This procedure is runs every time a page, side panel or dialog page is added to the page manager, which in turn updates the sets and identifiers in the Public Pages Support Declarations.
 * OpenSidePanel(pageId) - This procedure is used to open side panels via the model with respective pageIds as the argument. 
 * OpenPage(pageId) - This procedure is used to open/navigate to other pages in the application via the model, by passing the respecive pageId as the argument. 
 * OpenExternalLink(url) - This procedure is used to open external links, by passing the URL as the argument. These links will open in a new tab in the browser.
-* ResetRequestQueue - This procedure emptys the RequestQueue and the Requests set in the Request Queue Declarations.
+* ResetRequestQueue - This procedure empties the RequestQueue and the Requests set in the Request Queue Declarations.
 
 Public Dialog Support Procedures:  
 
@@ -54,7 +54,7 @@ You can call the procedure :token:`webui::requestPerformWebUIDialog` to display 
 Arguments
 ---------
 
-This procedure has the following aguments:
+This procedure has the following arguments:
 
 * :token:`title`: A string parameter which contains the text to be displayed as the title of the dialog box.
 * :token:`message`: A string parameter which contains the message to be displayed in the dialog box.
@@ -89,7 +89,7 @@ You can call the procedure :token:`webui::OpenDialogPage` to invoke a `dialog pa
 Arguments
 ---------
 
-This procedure has the following aguments:
+This procedure has the following arguments:
 
 * :token:`pageId`: When a dialog page is created it is has a unique pageId. You can find all the dialog pageIds in the set AllDialogPages under the Public Pages Support Declarations in the `Pages and Dialog Support section <library.html#pages-and-dialog-support-section>`_.   
 * :token:`title`: A string parameter which contains the text to be displayed as the title of the dialog box. If this is left blank, i.e "", it will display the dialog page name given during creation by default.

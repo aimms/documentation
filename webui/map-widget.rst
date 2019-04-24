@@ -10,7 +10,7 @@ A simple situation is for example when a transport identifier indexed over facto
 .. image:: images/MapV2-1simpleEx.png
     :align: center
 
-The map displayed in the backgroud is provided by the OpenStreetMap organization, see the `openstreetmap.org web site <https://www.openstreetmap.org>`_. 
+The map displayed in the background is provided by the OpenStreetMap organization, see the `openstreetmap.org web site <https://www.openstreetmap.org>`_. 
 Since one must be able to reach OpenStreetMap online, an Internet connection is required for rendering the map. Assuming the connection is available, 
 the map may be zoomed at various levels (see also the Zoom option mentioned further below):
 
@@ -61,7 +61,7 @@ The available options to be specified are the following:
 
     * The Latitude and Longitude must be specified by two separate identifiers declared in the model.
 	
-    * The values of the Latitude and the Longitude parameters must be within the geographical bounds, i.e. between (-90,90) and (-180,180), respectively. Not keeping the Latitude and the Longitude within these bounds can lead to unexpected or irresponsive behavior of the Map widget. In order to avoid such undesirable behavior, one can specify the bounds intervals in the Range attributes of the corresponding identifiers in the model.	
+    * The values of the Latitude and the Longitude parameters must be within the geographical bounds, i.e. between (-90,90) and (-180,180), respectively. Not keeping the Latitude and the Longitude within these bounds can lead to unexpected or unresponsive behavior of the Map widget. In order to avoid such undesirable behavior, one can specify the bounds intervals in the Range attributes of the corresponding identifiers in the model.	
 	
     * The default node size radius is 3 px. One can set a dynamic node size to each node set by selecting an appropriate identifier for the Size parameter in the desired node set (the index domain of such a parameter must be the same as the index of the node set).
 

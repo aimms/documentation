@@ -33,7 +33,7 @@ One may move some data indexes in the Totals section of the Pivot tab. In our ex
 .. image:: images/TreeMap-View2.png
     :align: center
 
-So, now for every center c there is only one rectagle in the chart representing the total transport to this center from all factories.
+So, now for every center c there is only one rectangle in the chart representing the total transport to this center from all factories.
 	
 Change Type
 +++++++++++

@@ -38,7 +38,7 @@ The position of a widget on a page is automatically determined based on the widg
 
 A widget with a *Custom Position* is placed on top of the widget list. To position it where you want, drag the widget (using its title bar) to your preferred location, where it will stay.
 
-Because custom positioned widgets are taken out of the natural flow, they also do not get repositioned on other screens like the other widgets. Keep this in mind when making a WebUI for multiple screensizes.
+Because custom positioned widgets are taken out of the natural flow, they also do not get repositioned on other screens like the other widgets. Keep this in mind when making a WebUI for multiple screen sizes.
 
 If you want a group of widgets to stick together, please use the `Group Widget <group-widget.html>`_
 

@@ -175,7 +175,7 @@ Let's look at R code in file :token:`trainnn.r`:
     nn <- nnet( 
         # out   ~ in1          + in2         + in3          + in4 
         Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width,
-        data   = dfiris,     # for colums from data frame dfiris
+        data   = dfiris,     # for columns from data frame dfiris
         subset = sampidx,    # only use the samples from sampidx
         size   = nhids,      # number of hidden units
         decay  = decayrate,  

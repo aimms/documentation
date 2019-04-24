@@ -26,7 +26,7 @@ Let's start - A quick introduction to AWF
 Extending the AIMMS WebUI by writing your own widgets is not a complicated task. It is useful to have at least a basic understanding of what is involved. Let's look at those key components now. For the sake of simplicity we will only concentrate on the stuff that is running in the browser, which we will call
 the *AIMMS WebUI Runtime*.
 
-The *AIMMS WebUI Runtime* is built in a (soon to be opensourced) framework called AWF: The **A** IMMS **W** idget **F** ramework.
+The *AIMMS WebUI Runtime* is built in a (soon to be open source) framework called AWF: The AIMMS Widget Framework.
 
 In its core, *AWF* is a generic framework for managing the lifecycle of widgets.
 
@@ -90,11 +90,11 @@ Your first custom widget
 We are now ready to start creating our first custom widget. We will develop this widget within a running
 WebUI app (in development mode), as we think this is the most convenient way (but feel free to use whatever
 works for you). The WebUI app that we will be using for this, is the NetworkData app from the WebUI-Examples
-repository on Github.com.
+repository on GitHub.com.
 
 First, we will set up the NetworkDataApp. If you already have the NetworkData app on your filesystem, you
 can skip this step. If you do not, then you will have to retrieve it from the WebUI-Examples repository
-on Github. There are two ways to do this: by using Git, or as a zip-file. To keep it simple we'll just
+on GitHub. There are two ways to do this: by using Git, or as a zip-file. To keep it simple we'll just
 download as zip.
 
 Go to the `AIMMS WebUI Example page <https://github.com/aimms/WebUI-Examples>`_, then
@@ -178,7 +178,7 @@ should be familiar. Skip the *Contents* and *Name* fields for now, and open the 
 So what just happened? When developing widgets for AIMMS WebUI, you must be aware, that we have optimized AIMMS WebUI
 for End-user usage. When you navigate to a new page using the navigation menu, AIMMS WebUI will not reload itself
 from disk, it will *only* load the contents of the new page. Therefore until we reload the whole browser
-page, it will not pick up any changes in your javascript code.
+page, it will not pick up any changes in your JavaScript code.
  
 Now that we know that our new widget has not been loaded yet, press &lt;F5> (or use the reload button) so that
 AIMMS WebUI reloads *with* our new widget.

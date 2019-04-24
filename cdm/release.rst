@@ -27,7 +27,7 @@ New Features and Bug Fixes
     - Added capability to compare branches via :token:`cdmrt::bci` shadow identifiers, and :token:`cdm::AddBranchToCompareShapshot` and :token:`cdm::DeleteBranchFromCompareSnapshot` functions.
     
 1.8.0.22
-    - Fix CloneAndRollbackElementInCategory for integer sets where integer master set (ie. not root set) is not in the category to which the function is applied.
+    - Fix CloneAndRollbackElementInCategory for integer sets where integer master set (i.e. not root set) is not in the category to which the function is applied.
     - Inactive data due to inactive domain set elements will lead to delta out of identifiers with such inactive data not to be stored, and consequently the commit to be only partial.
     - Element parameter with default that was not (by coincidence) an integer, lead to database query errors, because of not being translated to label number in all cases.
     - Circumvent MSOBDCSQL13 driver problem.

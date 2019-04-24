@@ -110,7 +110,7 @@ Store Focus, Hover and Select
 +++++++++++++++++++++++++++++
 
 In the Store Focus tab of the widget's options editor, for each index it is possible to specify an element parameter in the same set which will store the corresponding value when the user sets the
-focus on a specific dot in the chart. For example, we can specify SelectedFactory for the index f and SelectedCenter for the index c, where SelectedFactory and SelectedCenter are element paramneters 
+focus on a specific dot in the chart. For example, we can specify SelectedFactory for the index f and SelectedCenter for the index c, where SelectedFactory and SelectedCenter are element parameters 
 in our application at hand with ranges Factories and Centers, respectively. The values of SelectedFactory and SelectedCenter may be displayed for inspection in some other widgets outside the line chart.
 When the user sets the focus on a specific dot, the corresponding factory and center values are stored in SelectedFactory and SelectedCenter, respectively. In this case, the selected dot is highlighted
 by a visible (gray) contour, while the rest of the dots and lines are somewhat faded away. The picture below depicts this situation:
