@@ -41,12 +41,6 @@ Change Type
 In the Change Type tab of the widget's options editor, one can switch from the tree map type to some other representation type. 
 This functionality works in the same way as for other widgets, eg. the same way as for the bar chart widget.
 
-Filters
-+++++++
-
-In the Filters tab of the widget's options editor, some of the other widgets on the same page may be chosen for filtering the data points shown in the tree map. 
-In our example, chosing TransportData widget as a filter results in a confined tree map view as only those data points are shown for which the TransportData widget shows non-default values. 
-
 Totals
 ++++++
 
