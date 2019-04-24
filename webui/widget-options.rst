@@ -18,6 +18,9 @@ This Option Editor consists of several tabs. It depends on the widget type which
 .. tip::
     Option changes are automatically saved to the WebUI Server.
     
+.. important::
+	From AIMMS 4.66 onwards, the Filter tab is not present anymore in any widget. In existing projects where this functionality is still used, it is still working/supported by the WebUI. However, the preferred way of filtering is by using the newer slicing functionality on any identifier(s) displayed in your widgets. If you want to switch to using the slicing functionality instead of the old filters, you can do so by removing the old filters by either emptying the content in the 'Contents.filters.in' property on the 'Advanced' tab, or by opening the model in a previous AIMMS version to remove the filtering. After that, you should add the correct slicing to your identifier(s).
+    
 Pivot
 -----
 
