@@ -8,7 +8,7 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
-1.9.0.10
+1.9.0.11
     - Automatic conversion of string to int did not work on all databases in cdm::NextUniqueInteger.
     - cdm::EmptyElementInCategory could assign empty value to non-existing tuple.
     - Records of snapshot revision in cdm::RetireBranchData had ids potentially greater than ids of later revisions on same branch, leading to erroneous checkout results.
