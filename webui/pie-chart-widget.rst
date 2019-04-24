@@ -44,18 +44,6 @@ In the example at hand, one can switch eg. from the pie chart to the table, resu
 .. image:: images/PieChart-ViewChangeType.png
     :align: center
 
-Filters
-+++++++
-
-In the Filters tab of the widget's options editor, some of the other widgets on the same page may be chosen for filtering the data points shown in the pie chart. 
-In our example, suppose we change the pivoting back to the initial situation where both the factory index f and the center index c are in the Wedges section and 
-the <IDENTIFIER-SET> in the Totals section. Also, suppose we declared in our model an additional parameter FilterTransport(f,c) with values as in the FilterTransportData
-table widget as shown in the picture below. In this case, chosing FilterTransportData widget as a filter results in a confined pie chart view as only those data points 
-are shown for which the FilterTransportData widget shows non-default values: 
-
-.. image:: images/PieChart-ViewFilter.png
-    :align: center	
-
 Totals
 ++++++
 
