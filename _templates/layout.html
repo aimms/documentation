@@ -19,7 +19,7 @@
     }
 </style>
 {% endif %} {% endblock %} {% block extrahead %}{% if pagename == "index" %}
-<meta name="description" content="AIMMS How-To is a knowledge base for everyone involved in projects that use AIMMS. You'll find tutorials, best practices, and practical guidance for using AIMMS software."> {% endif %} {% endblock %} {% block sidebartitle %} {% if pagename == "ContentIndex" %}
+<meta name="description" content="AIMMS Documentation is a knowledge base to describe every AIMMS developer and AIMMS PRO Cloud features and functions"> {% endif %} {% endblock %} {% block sidebartitle %} {% if pagename == "ContentIndex" %}
 
 <style>
     .wy-nav-content {
@@ -52,11 +52,11 @@
 </style>
 {% endif %} {% endblock %} {% block htmltitle %} {% if pagename == "index" %}
 
-<title>{{ _('AIMMS How-To') }}</title>
+<title>{{ _('AIMMS Documentation') }}</title>
 
 {% else %}
 
-<title>{{ title|striptags|e }} &mdash; AIMMS How-To</title>
+<title>{{ title|striptags|e }} &mdash; AIMMS Documentation</title>
 
 {% endif %} {% if display_toc %}
 <div class="localtoc">
