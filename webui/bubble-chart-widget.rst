@@ -31,7 +31,7 @@ Overriding tooltips
 +++++++++++++++++++
 
 As described in the `Widget Options <widget-options.html#adding-tooltips>`_ section, you can also override the default tooltips for a bubble chart. 
-However, for this you need to add a string parameter based on the name of the identfier that represents the size of the bubble. 
+However, for this you need to add a string parameter based on the name of the identifier that represents the size of the bubble. 
 So, for example, if the parameter :token:`Diameter` represents the bubble sizes, you should add a string parameter called :token:`Diameter_Tooltips` with the same index domain as :token:`Diameter` 
 in order to override the default tooltip (in this case, index :token:`p`). In the chart above, you can see the result of using the following definition for the :token:`Diameter_Tooltips(p)` identifier:
 

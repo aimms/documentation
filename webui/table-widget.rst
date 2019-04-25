@@ -3,7 +3,7 @@ Table Widget
 
 .. |sort| image:: images/sort.png
 
-The Table widget allows you to vizualize and/or edit the data of one or more AIMMS identifiers represented in a tabular format:
+The Table widget allows you to visualize and/or edit the data of one or more AIMMS identifiers represented in a tabular format:
 
   .. image:: images/Table-View1.png 
         :align: center 
@@ -47,7 +47,7 @@ The table widget offers the user possibilities for various actions such as:
   
   * You can use the space bar to toggle binary values displayed as checkboxes that have the focus.
   
-  * You can use either ENTER or ALT+ARROW DOWN to open the dropdown list in focus, in order to change its value.
+  * You can use either ENTER or ALT+ARROW DOWN to open the drop-down list in focus, in order to change its value.
 
 Download Table Data
 +++++++++++++++++++
@@ -86,5 +86,5 @@ In case you want to change a cell to become editable again, you have to assign t
 By using the CurrentInputs set
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Another way to influence the modifiability of cells, is to use the :token:`CurrentInputs` set of AIMMS. This set is a predeclared subset of :token:`AllIdentifiers`. The identifiers referenced in it are modifiable sets and parameters in both the WinUI and the WebUI. Consider a parameter :token:`P`. Without further specfication, this parameter is a parameter that can be modified both in the WinUI and in the WebUI. By removing this element :token:`'P'` from :token:`CurrentInputs`, the parameter :token:`P` will no longer be modifiable in either the WinUI or the WebUI.
+Another way to influence the modifiability of cells, is to use the :token:`CurrentInputs` set of AIMMS. This set is a predeclared subset of :token:`AllIdentifiers`. The identifiers referenced in it are modifiable sets and parameters in both the WinUI and the WebUI. Consider a parameter :token:`P`. Without further specification, this parameter is a parameter that can be modified both in the WinUI and in the WebUI. By removing this element :token:`'P'` from :token:`CurrentInputs`, the parameter :token:`P` will no longer be modifiable in either the WinUI or the WebUI.
 

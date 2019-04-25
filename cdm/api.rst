@@ -121,7 +121,7 @@ Branch and Revision Functions
 
 .. js:function::  cdm::GetGlobalBranch(db,branch)
 
-   Get the branch name of the branch in the application database set as the global branch. The gobal branch is initially set to the :token:`master` branch. When calling the high-level :js:func:`cdm::ConnectToApplicationDB` procedure, the CDM library will checkout the latest revision of the global branch after connecting to an application database.
+   Get the branch name of the branch in the application database set as the global branch. The global branch is initially set to the :token:`master` branch. When calling the high-level :js:func:`cdm::ConnectToApplicationDB` procedure, the CDM library will checkout the latest revision of the global branch after connecting to an application database.
   
    :param db: specifies the name of the application database for which to retrieve the global branch
    :param branch: is the output parameter in which the global branch will be stored

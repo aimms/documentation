@@ -63,7 +63,7 @@ An example package.json could be:
 CSS styling
 -----------
 
-It is possible to (re)style your web application by providing a custom CSS. The home page in the "MealsRUsWebApp":{TOPIC-LINK+example-project} example shows a small dropdown button in the upper right corner of the page that lets you switch between several example styles. Please note that the class names that are referred to in the CSS might change in the future. Application-specific CSS files should be stored in the *resources/css* subfolder of the *WebUI* subfolder of your project folder. As an example of application-specific styling, the *MealsRUsWebApp* has been extended with a *theme-switch-addon* that consists of some JavaScript and CSS that result in the theme switch drop-down button being shown in the upper right corner of your web application.
+It is possible to (re)style your web application by providing a custom CSS. The home page in the "MealsRUsWebApp":{TOPIC-LINK+example-project} example shows a small drop-down button in the upper right corner of the page that lets you switch between several example styles. Please note that the class names that are referred to in the CSS might change in the future. Application-specific CSS files should be stored in the *resources/css* subfolder of the *WebUI* subfolder of your project folder. As an example of application-specific styling, the *MealsRUsWebApp* has been extended with a *theme-switch-addon* that consists of some JavaScript and CSS that result in the theme switch drop-down button being shown in the upper right corner of your web application.
 
 For more details on this addon, please check `this thread <https://groups.google.com/forum/#!category-topic/aimms/aimms-webui/wWXT91QVNBQ>`_ on our Google Group.
 

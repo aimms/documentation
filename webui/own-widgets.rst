@@ -6,7 +6,7 @@ Building apps with WebUI does not require any programming skills and the growing
 Open-sourcing WebUI
 -------------------
 
-The AIMMS Widget Framework (AWF) is intended to be a user-extendible framework on which the AIMMS WebUI is based. This allows you to add or modify AWF functionality to meet the requirements of your specific AIMMS WebUI-based application.
+The AIMMS Widget Framework (AWF) is intended to be a user-extendable framework on which the AIMMS WebUI is based. This allows you to add or modify AWF functionality to meet the requirements of your specific AIMMS WebUI-based application.
 
 We have decided to open source AWF in order to encourage the exchange of innovations made by members of the AIMMS WebUI user community. By open sourcing AWF we invite our clients to contribute to enhance or extend AWF to the benefit of the entire community.
 
@@ -43,7 +43,7 @@ Widget development tutorial
 
 To get you up-and-running with minimal effort, in the first few tutorials will try to minimize background information and only explain the essentials. Later tutorials will then provide means of explaining the underlying design decisions.
 
-It is important that you have done some of the End-user and App-dev tutorials prior to starting these tutorials. Or, that you have otherwise familiarized yourself with the AIMMS WebUI. You are also required to have some experience in HTML5 (i.e. Javascript, CSS, HTML, ...).
+It is important that you have done some of the End-user and App-dev tutorials prior to starting these tutorials. Or, that you have otherwise familiarized yourself with the AIMMS WebUI. You are also required to have some experience in HTML5 (i.e. JavaScript, CSS, HTML, ...).
 
 .. toctree::
 
