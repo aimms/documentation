@@ -4,7 +4,7 @@
 Widget Options
 =================
 
-The ‘cog wheel’ button |cog-widget| (in the upper right corner of a widget) will open a popup window that allows you to change the options for the widget. 
+The ‘cog wheel’ button |cog-widget| (in the upper right corner of a widget) will open a pop-up window that allows you to change the options for the widget. 
 
 .. image:: images/identifier-settings-options-editor.jpg
     :align: center
@@ -72,7 +72,7 @@ For every identifier that you have specified as part of the _Current Contents_ o
 * A procedure named :token:`UponChange_X`, which will automatically be run whenever the value of identifier :token:`X` is changed from within the WebUI. AIMMS accepts two forms of an UponChange procedure:
 
    #. a procedure without arguments. You can use this form if you are not interested in the which particular values changed, but do want to get a notification that a change took place
-   #. a procedure with two input arguments, both with the same domain as the identifer :token:`X`. The first argument should be a numeric parameter, and will hold a 1 for each tuple that was changed. The second argument should have the same type as the :token:`X` and will hold the old value for such a tuple, the changed value can be obtained via :token:`X`. 
+   #. a procedure with two input arguments, both with the same domain as the identifier :token:`X`. The first argument should be a numeric parameter, and will hold a 1 for each tuple that was changed. The second argument should have the same type as the :token:`X` and will hold the old value for such a tuple, the changed value can be obtained via :token:`X`. 
 
    .. code-block:: aimms
 
@@ -106,7 +106,7 @@ For every identifier that you have specified as part of the _Current Contents_ o
 Adding tooltips
 +++++++++++++++
 
-Almost all widgets offerred by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed. 
+Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed. 
 However, they can also be completely user-defined, giving the user maximum freedom in determining the contents to be shown. 
 In order to create your user-defined tooltips, you should add an auxiliary string parameter to your AIMMS model, called :token:`X_Tooltips`, where :token:`X` is the name of 
 an existing identifier that is displayed in the widget(s) for which you want to override the default tooltips. This auxiliary identifier must have the same index domain 
@@ -128,14 +128,14 @@ the result when hovering over the same cell as above looks like this:
 
 .. warning::
    **Security Warning:** 
-   Putting javascript code in an identifier (like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
+   Putting JavaScript code in an identifier (like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
    would allow a malicious user to do `Persistent XSS <https://en.wikipedia.org/wiki/Cross-site_scripting#Persistent_(or_stored)>`_.
    For example a malicious user could record all actions done by another user.	
 	
 HTML Tooltips
 +++++++++++++
 
-Besides the simple text-based tooltips illustrated above, one may also use HTML-based tooltips, which allow to display more sothisticated contents when hovering over the data entries in a widget.
+Besides the simple text-based tooltips illustrated above, one may also use HTML-based tooltips, which allow to display more sophisticated contents when hovering over the data entries in a widget.
 In this case the data of the string parameter :token:`X_Tooltips` (associated with an identifier :token:`X`) must be in HTML format; for more info on HTML, 
 see for example `html.com <https://html.com/>`_ or `www.w3schools.com <https://www.w3schools.com/html/>`_ .
 
@@ -216,6 +216,35 @@ In this case, the customized tooltip based on the HTML table layout (see also th
 
 .. image:: images/Tooltip_Ganttchart_1.png
     :align: center
+
+
+If you do not want to show the default tooltips for certain identifiers or data items, you can make this possible by clearing or emptying the data for the respective identifier or data point in the _tooltips identifier.  
+
+For example, consider the below table. You do not want to show the tooltip with the same value as the cell value, or if the value of a cell is 0.
+
+
+.. image:: images/Tooltip_default_table.png
+    :align: center
+
+
+In the _tooltips identifier, just clear/empty the data for these specific cases that you desire to hide the tooltip for.
+
+
+.. image:: images/Tooltip_Hidedefault_table.png
+    :align: center
+
+
+.. image:: images/Tooltip_hidden_table.png
+    :align: center
+
+
+.. image:: images/Tooltip_customvalue_table.png
+    :align: center
+
+
+.. note::
+    The feature to hide tooltips is available only in AIMMS releases from 4.65 onwards. 
+
 
 Filters
 -------
@@ -300,7 +329,7 @@ Examples
 
 To illustrate the above, here are some examples that show the difference between all usages of the display domain, applied to the same table. This table contains two columns and a number of rows containing checkboxes.
 
-First, here's the table, with the display domain not specified at all (i.e. the default behaviour) *and* the table containing only 0 values:
+First, here's the table, with the display domain not specified at all (i.e. the default behavior) *and* the table containing only 0 values:
 
 .. image:: images/tableonlyzeroesnodd.jpg
     :align: center
@@ -390,7 +419,7 @@ To easily clear the slicing of an identifier for all its indices, you can press 
 
 .. tip:: 
 
-    Whenever you slice one dimension (index) of an n-dimensional identifier to a *fixed element* or *element parameter*, its dimension will become n-1. This is good to realise, as some widgets require identifiers of a certain dimension. E.g: In the map widget, the arcs identifier needs to be two-dimensional over the set *nodes x nodes*. Whenever you slice one dimension to a fixed element (or element parameter), you effectively loose a dimension and it becomes impossible for the map widget to map data to arcs. As a work around you can consider to create a set containing a single element and use subset slicing here: whenever you do subset slicing, the dimension of the data that is displayed, is not reduced. 
+    Whenever you slice one dimension (index) of an n-dimensional identifier to a *fixed element* or *element parameter*, its dimension will become n-1. This is good to realize, as some widgets require identifiers of a certain dimension. E.g: In the map widget, the arcs identifier needs to be two-dimensional over the set *nodes x nodes*. Whenever you slice one dimension to a fixed element (or element parameter), you effectively loose a dimension and it becomes impossible for the map widget to map data to arcs. As a work around you can consider to create a set containing a single element and use subset slicing here: whenever you do subset slicing, the dimension of the data that is displayed, is not reduced. 
 	
 
 Please mind when slicing over a subset in a table, other identifiers defined over the corresponding superset are considered as defined over a different set. Thus you might end up with the following unexpected behavior: 
@@ -427,9 +456,9 @@ Expanding indexes
 .. note::
     The feature described in this section (and in the Example underneath) is available only in AIMMS releases from 4.62 onwards. 
 
-In some situations, some identifiers may be declared in the model over some super-sets and other indentifiers may be declared over some sub-sets of those super-sets. However, it may be beneficial to show all the data
+In some situations, some identifiers may be declared in the model over some super-sets and other identifiers may be declared over some sub-sets of those super-sets. However, it may be beneficial to show all the data
 of several such categories of identifiers in the same widget, for example in a table widget. If all indexes involved are used as separate indexes in a widget, then they are treated as "independent" 
-in the Pivot-ing section and the resulting layout of the data in the widget may not be an "intuitive" one. 
+in the Pivoting section and the resulting layout of the data in the widget may not be an "intuitive" one. 
 
 For example, in the Transnet application (see the "Quick Start: My First WebUI" section) the parameters Latitude(l) and Supply(f) are declared over the super-index l of the set Locations 
 and over the index f of the sub-set Factories, respectively. If the data of both parameters is shown in a table widget with their indexes as declared originally in the model, then the table 
@@ -442,11 +471,11 @@ However, such a layout may not look "intuitive", because the set of Factories ma
 
 In such situations, it is possible to expand an index to a super-index, that is, to an index in a super-set of the initial index set. Such expanding may be achieved through the same options 
 in the widget editor which are used for slicing, as explained above. However, in this case an identifier may be rendered over a larger domain than its declared domain and some "values" 
-may be just empty, i.e. flagged as "outside-domain". When an index has been expanded to a super-index, it will no longer be treated as a separate index in the Pivot-ing section, but rather 
+may be just empty, i.e. flagged as "outside-domain". When an index has been expanded to a super-index, it will no longer be treated as a separate index in the Pivoting section, but rather 
 as "contained" by its super-index. Please note that, like slicing, the index expanding is also applied per each identifier specified in the widget Contents.
 
 For example, in the Transnet application, the index f of parameter Supply may be expanded to the super-index l corresponding to the super-set Locations. In this case, the index f no longer appears
-in the Pivot-ing section and the resulting layout of the data in the widget looks more intutitive as illustrated below:
+in the Pivoting section and the resulting layout of the data in the widget looks more intuitive as illustrated below:
  
 .. image:: images/CubeDomain_Table2_View2.png
     :align: center
@@ -471,7 +500,7 @@ In this case, the layout of the data in the table widget looks like in the follo
 .. image:: images/CubeDomain_Table3_View1.png
     :align: center
 
-So, in this table all the data of the above mentioned identifiers is shown together, while the Pivot-ing section of the table only consider 2 indexes instead of the 5 original indexes used in the
+So, in this table all the data of the above mentioned identifiers is shown together, while the Pivoting section of the table only consider 2 indexes instead of the 5 original indexes used in the
 model declarations. All the cells which show no value are simply empty ("outside-domain") and not editable in the table.
 
 	
@@ -482,7 +511,7 @@ Hiding Widgets
 
 There are situations where you may want to hide certain widgets for certain users. Especially if many 'roles' can be identified among the users of your applications, this may apply: for some users, data displayed in a particular widget is of no interest, while for others it is.
 
-To help you in situations like this, every widget has an option called *Visible*, located on the *Miscellaneous* tab in its option editor. Setting this option to False (or 0) has the effect that the widget is not visible anymore. In order not to lose track of these widgets while developing your WebUI, there is an 'eye' icon |eye-blue| in the top bar, with which you can still show the hidden widgets. These are displayed in grey, in order to distinguish them easily from the visible widgets. This icon is not visible when running your WebUI app in a PRO environment (i.e. in the end-user scenario), or when you have no widgets that have the Visible option set.
+To help you in situations like this, every widget has an option called *Visible*, located on the *Miscellaneous* tab in its option editor. Setting this option to False (or 0) has the effect that the widget is not visible anymore. In order not to lose track of these widgets while developing your WebUI, there is an 'eye' icon |eye-blue| in the top bar, with which you can still show the hidden widgets. These are displayed in gray, in order to distinguish them easily from the visible widgets. This icon is not visible when running your WebUI app in a PRO environment (i.e. in the end-user scenario), or when you have no widgets that have the Visible option set.
 
 It is not only possible to just specify literal values like True/1 or False/0 for the 'Visible' option: you can use any scalar AIMMS parameter that you like. This is especially powerful, since it allows you to steer the visibility of each and every widget using whichever logic you want. As an illustration, you could create an AIMMS parameter like:
 

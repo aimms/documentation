@@ -14,7 +14,7 @@ The Bar Chart widget represents data as vertical bars. A typical situation is wh
     :align: center
 
 More generally, a bar chart widget offers the possibility to display multi-dimensional data in your model by using an X/Y-plane to display a bar 
-for each data point. The height of a bar provides information about the value of the correspoding data point. 
+for each data point. The height of a bar provides information about the value of the corresponding data point. 
 For example, in the TransNet application, the unit transport costs for every combination (factory, center) may be represented using a bar chart widget 
 like illustrated in more details in the sequel. More specifically, we discuss and illustrate below one-by-one the tabs in the bar chart's options editor 
 which may be accessed through the Settings wheel as shown in the picture above.
@@ -23,7 +23,7 @@ Contents and Pivoting
 +++++++++++++++++++++
 
 In order to determine the information to be rendered by a bar chart, first one has to specify the data identifier(s) in the Contents tab of the widget's options editor, where one may search 
-for the available model data using the correspoding functionality at the bottom:
+for the available model data using the corresponding functionality at the bottom:
 
 .. image:: images/BarChart-Contents.png
     :align: center
@@ -49,7 +49,7 @@ Change Type
 +++++++++++
 
 In the Change Type tab of the widget's options editor, one can switch from the bar chart type to some other representation type. 
-In the example at hand, one can switch eg. from the bar chart to the table, resulting in the tabular view of the same data values:
+In the example at hand, one can switch e.g.. from the bar chart to the table, resulting in the tabular view of the same data values:
 
 .. image:: images/BarChart-ViewTable.png
     :align: center
@@ -67,7 +67,7 @@ Filters
 +++++++
 
 In the Filters tab of the widget's options editor, some of the other widgets on the same page may be chosen for filtering the data points shown in the bar chart. 
-In our example, chosing TransportData widget as a filter results in a confined bar chart view as only those data points are shown for which the TransportData widget shows non-default values: 
+In our example, choosing TransportData widget as a filter results in a confined bar chart view as only those data points are shown for which the TransportData widget shows non-default values: 
 
 .. image:: images/BarChart-ViewFilters.png
     :align: center	

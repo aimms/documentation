@@ -1,7 +1,7 @@
 AD Settings
 -----------
 
-This subsection allows you to specify the Active Directory credentials to allow loging in to non-domain computers
+This subsection allows you to specify the Active Directory credentials to allow logging in to non-domain computers
 
 .. image:: images/ad-settings-new.jpg
     :align: center
@@ -17,7 +17,7 @@ This section allows you to set retention time (in days) after which a job will b
 Portal Customization
 --------------------
 
-These settings allows you to customise you AIMMS PRO Portal where you can upload Image for Login page and your Company logo. You can also specify in-house support contact details which will be displayed on all Portal Pages. (see below).
+These settings allows you to customize you AIMMS PRO Portal where you can upload Image for Login page and your Company logo. You can also specify in-house support contact details which will be displayed on all Portal Pages. (see below).
 
 .. image:: images/portalcustomization-new.jpg
     :align: center

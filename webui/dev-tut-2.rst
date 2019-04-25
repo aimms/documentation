@@ -17,7 +17,7 @@ running in your set-up.
 
 Since this is a (software) development tutorial, we are also assuming that you have experience in writing
 software in a generic programming language, and, that you have a basic knowledge on HTML5 technologies
-(HTML5 DOM, CSS, Javascript, and the likes). It is also beneficial, however not required, if you are
+(HTML5 DOM, CSS, JavaScript, and the likes). It is also beneficial, however not required, if you are
 familiar with `jQuery <http://jquery.org>`_ and, to lesser extent,
 `jQuery UI <https://jqueryui.com/>`_, as AIMMS WebUI is built on top of these technologies.
 
@@ -161,7 +161,7 @@ Changing the value
 After reloading the browser-tab, if we now open the widget's option dialog and navigate to the miscellaneous
 option editor (for historical reasons the icon is still denoted by a :token:`T`), we will see that a new
 option editor has become available for the *contents* option. By typing inside the contents
-option's textfield, we can see that our widgets content is updated! (See figure 2)
+option's text field, we can see that our widgets content is updated! (See figure 2)
 
 .. image:: images/simple-option-editor-of-new-literal-option.png
     :align: center

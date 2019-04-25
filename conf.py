@@ -37,8 +37,9 @@ extensions = ['sphinx.ext.doctest',
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
-	'sphinxcontrib.spelling']
-
+	'sphinx.builders.linkcheck']
+		
+	
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -111,6 +112,14 @@ html_theme_options = {
 
 }
 
+rst_epilog = """
+.. |date| date:: %B, %Y
+
+.. |time| date:: %H:%M
+
+Last Updated: |date|
+"""
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
@@ -149,7 +158,10 @@ html_sidebars = {
     ]
 }
 html_favicon = "_static/favicon.png"
-#rst_prolog = "\n.. include:: /special.rst\n"
+
+rst_prolog = """
+:tocdepth: 2
+"""
 
 # -- Options for HTMLHelp output ------------------------------------------
 
