@@ -63,7 +63,7 @@ High availability and failover
 
 The AIMMS Cloud Platform itself is designed for high availability and failover. 
 
-AIMMS Cloud Platform uses AWS Regions to allow our customers to manage network latency and meet regulatory compliance. Data stored in a specific region is not replicated outside that region. Regions are designed withavailability in mind and consist of at least two, often more, Availability Zones. Availability Zones are designed for fault isolation. They are connected to multiple Internet ServiceProviders (ISPs) and different power grids.
+AIMMS Cloud Platform uses AWS Regions to allow our customers to manage network latency and meet regulatory compliance. Data stored in a specific region is not replicated outside that region. Regions are designed with availability in mind and consist of at least two, often more, Availability Zones. Availability Zones are designed for fault isolation. They are connected to multiple Internet ServiceProviders (ISPs) and different power grids.
 
 AIMMS Cloud Platform uses  `Amazon EC2 <https://aws.amazon.com/ec2>`_ for obtaining computing resources and this service spreads the work across multiple Availability Zones in one Region, reducing the impact of the failure of a single Availability Zone. 
 

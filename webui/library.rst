@@ -32,7 +32,7 @@ Public Pages Support Procedures:
 
 * GetAllPages - This procedure is runs every time a page, side panel or dialog page is added to the page manager, which in turn updates the sets and identifiers in the Public Pages Support Declarations.
 * OpenSidePanel(pageId) - This procedure is used to open side panels via the model with respective pageIds as the argument. 
-* OpenPage(pageId) - This procedure is used to open/navigate to other pages in the application via the model, by passing the respecive pageId as the argument. 
+* OpenPage(pageId) - This procedure is used to open/navigate to other pages in the application via the model, by passing the respective pageId as the argument. 
 * OpenExternalLink(url) - This procedure is used to open external links, by passing the URL as the argument. These links will open in a new tab in the browser.
 * ResetRequestQueue - This procedure empties the RequestQueue and the Requests set in the Request Queue Declarations.
 
