@@ -8,6 +8,9 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
+1.9.0.12
+    - On-demand CDM service in AIMMS cloud could hang on exit, leading to new clients not being serviced properly
+    
 1.9.0.11
     - Automatic conversion of string to int did not work on all databases in cdm::NextUniqueInteger.
     - cdm::EmptyElementInCategory could assign empty value to non-existing tuple.
