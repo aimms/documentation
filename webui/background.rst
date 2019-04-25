@@ -17,7 +17,7 @@ Current Limitations
 
 Currently, there are some limitations on the usage of the AIMMS WebUI:
 
-* The AIMMS WebUI requires a recent version of the `Chrome <http://www.google.com/chrome/>`_ browser, Microsoft Edge or Micosoft Internet Explorer 11. Please note that the WebUI support for the latter two browsers is currently in the "beta" phase. On iPhone and iPad devices the Safari browser is supported for the end-users. Eventually, we will also add support for other HTML5 browsers. 
+* The AIMMS WebUI requires a recent version of the `Chrome <http://www.google.com/chrome/>`_ browser, Microsoft Edge or Microsoft Internet Explorer 11. Please note that the WebUI support for the latter two browsers is currently in the "beta" phase. On iPhone and iPad devices the Safari browser is supported for the end-users. Eventually, we will also add support for other HTML5 browsers. 
 * Changing the index domain of an identifier which is used by the WebUI while the WebUI (achieved by *Start WebUI*) is running, is not supported. Changes are propagated when *Stop WebUI*  is selected and subsequently *Start WebUI* is selected from the AIMMS menu. This limitation only applies to working in developer mode (i.e. not to end-user running apps from AIMMS PRO).
 
 .. tip::

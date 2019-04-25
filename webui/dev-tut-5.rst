@@ -199,7 +199,7 @@ cell element.
     });
 
 
-Having added the above *onDone* handler, the widget will come up with an popup whenever you try to enter
+Having added the above *onDone* handler, the widget will come up with an pop-up whenever you try to enter
 the string "A" as a new value (figure 2).
 
 .. image:: images/error-400.png
@@ -214,11 +214,11 @@ built in this tutorial does not take this into account. AWF is able to provide w
 from being editable. This however falls outside the scope of this tutorial.
 
 When writing a widget that should be able to deal with large amounts of data, creating an :token:`<input>`
-with a handler for every cell in the table might not be the best way to go. Instead you migth consider to have
+with a handler for every cell in the table might not be the best way to go. Instead you might consider to have
 one global table handler that is able to deal with generic cell changes instead.
 
 The data change handler that is used in this widget sends a number to AIMMS whenever the input can be parsed as
-a number. You migth get into troubles when you want to send a string that contains just numbers to AIMMS
+a number. You might get into troubles when you want to send a string that contains just numbers to AIMMS
 (for example the string "4321"). To cover for this case you need to build in more intelligence into your
 widget code.
 

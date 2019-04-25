@@ -24,7 +24,7 @@ Overview from left to right
 This discuss this overview as it corresponds by going from the user view to the realization view.
 
 1.	On the left we have the AIMMS PRO PORTAL in a browser.  Via this portal, a user can logon and subsequently launch either a WebUI data session or a Desktop client session.  
-2.	In the middle we have the enterprise firewall which is passed thru, always, via HTTPS. As you know, HTTPS bases its encryption on SSL.
+2.	In the middle we have the enterprise firewall which is passed through, always, via HTTPS. As you know, HTTPS bases its encryption on SSL.
 3.	On the right we have the PRO Cluster consisting of one or more PRO servers running Windows. Each server has three processes at the front: “WebUI Service”, “Portal Service”, and “Secure Websocket Proxy”. These three processes are serviced by a Jetty Application Server.  The central service at the backend is the “PRO Service”. The PRO service invokes zero, one or more data sessions and zero, one or more optimization sessions. The communication between these four services, data sessions and optimization sessions is via ARMI/SSL.
 4.	On the far right we have three resources shared by the servers: the PRO Storage, the PRO Administrative database, and the license service. The PRO Storage stores the AIMMS packages, the apps, and the cases and is only accessed via the PRO Service.  Here SMB or CIFS is used to communicate. The PRO Admin Database is a PostgreSQL database storing information about users and apps, and is only accessed by the PRO Service via a secure database connection. The License Service is a service that connects to the other services via a binary proprietary protocol. 
 

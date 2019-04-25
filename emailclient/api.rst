@@ -74,7 +74,7 @@ Email Client API
     
 .. js:function::  email::SendMail(_MessageId,_ErrorMessage,_SendToFile)
 
-    Sends the email message via the SMTP server specified thru the :js:func:`email::SetServer` function. Returns 1 if successful, or 0 otherwise.
+    Sends the email message via the SMTP server specified through the :js:func:`email::SetServer` function. Returns 1 if successful, or 0 otherwise.
     
     :param _MessageId: message id of the email message
     :param _ErrorMessage: output string argument holding the error message when the function call fails.

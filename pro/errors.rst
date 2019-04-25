@@ -20,7 +20,7 @@ Did not get a valid ticket from the server during Active Directory logons
 Empty AllIdentifiers
 --------------------
 
-* **Observed behavior**: your AIMMS PRO-enabled model will start displaying undefined behavior when you have a statement to empty the pre-defined AIMMS set AllIdentifiers in your model. The cause is that this pre-defined set also includes all identifiers that are in the PRO library. As the correct functioning of the PRO library relies on these identfiers, your model will start to behave incorrectly if these are emptied.
+* **Observed behavior**: your AIMMS PRO-enabled model will start displaying undefined behavior when you have a statement to empty the pre-defined AIMMS set AllIdentifiers in your model. The cause is that this pre-defined set also includes all identifiers that are in the PRO library. As the correct functioning of the PRO library relies on these identifiers, your model will start to behave incorrectly if these are emptied.
 
 * **Solution**: Don't use this statement. If you still want to empty 'all' of your identifiers (but not those in the PRO library), please create a subset of AllIdentifiers first which doesn't include the identifiers in the PRO library.
 

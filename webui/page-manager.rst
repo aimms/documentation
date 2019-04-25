@@ -132,7 +132,7 @@ Possible values are 'true' or 1 (visible), 'false' or 0 (hidden), or an AIMMS id
 
 By specifying an AIMMS identifier for the visibility option of a page, you can dynamically control from within the AIMMS model, which pages should be visible on a certain moment. 
 
-When a page is hidden, it will not show up in the `Page Menu <page-menu.html>`_. In the `Page Manager <page-manager.html>`_, hidden pages are 'greyed out' and they have a 'hidden' icon |hidden| behind their name.
+When a page is hidden, it will not show up in the `Page Menu <page-menu.html>`_. In the `Page Manager <page-manager.html>`_, hidden pages are 'grayed out' and they have a 'hidden' icon |hidden| behind their name.
 
 Deleting a Page
 ---------------
@@ -393,7 +393,7 @@ To configure side panels on a page, create a string parameter indexed on the Sid
 .. image:: images/SP_homepageSPidentifier.png
 			:align: center
 
-Right click the string paramter and click on the Data option in order to open the data page:
+Right click the string parameter and click on the Data option in order to open the data page:
 
 .. image:: images/SP_stringparameterdata.png
 			:align: center
@@ -489,7 +489,7 @@ Dialog pages can be added to any level in the page tree, just like a normal page
 
 You can chose a size for the dialog page, the dimension for which are:
 
-#.  Small: Width = 3 Columns, Height = 2 Rows. Here you can fit widgets with dimensions that add up to 3 columns and 2 rows, e.g. 1 widget with width = 3 columns or less and height = 2 rows or less OR 2 widgets with width = 3 colums or less and height = 1 row.
+#.  Small: Width = 3 Columns, Height = 2 Rows. Here you can fit widgets with dimensions that add up to 3 columns and 2 rows, e.g. 1 widget with width = 3 columns or less and height = 2 rows or less OR 2 widgets with width = 3 columns or less and height = 1 row.
 
 	.. image:: images/dialog_diffsizes_small.png
 				:align: center

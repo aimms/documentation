@@ -8,7 +8,7 @@ Selection Widgets with Element Parameter
 ++++++++++++++++++++++++++++++++++++++++
 
 It is possible to specify an element parameter as data identifier in the Contents tab of the widget's options editor, where one may search 
-for the available model data using the correspoding functionality at the bottom:
+for the available model data using the corresponding functionality at the bottom:
 
 .. image:: images/Selection-ContentsEP.png
     :align: center
@@ -22,8 +22,8 @@ The value of this element parameter may be viewed using a selectionbox, a multis
 Selection Widgets with an 1-dimensional Binary Parameter
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-It is also possible to specify a 1-dimentional binary parameter as data identifier in the Contents tab of the widget's options editor, where one may search 
-for the available model data using the correspoding functionality at the bottom:
+It is also possible to specify a 1-dimensional binary parameter as data identifier in the Contents tab of the widget's options editor, where one may search 
+for the available model data using the corresponding functionality at the bottom:
 
 .. image:: images/Selection-ContentsBP.png
     :align: center
@@ -34,7 +34,7 @@ type of widget which allows to select several elements from the underlying set:
 .. image:: images/Selection-MultiselectBP.png
     :align: center
 
-Note that, in this case it is still possible to switch to other representation type, eg. to selectiobox, but then the selection is restricted to just one element
+Note that, in this case it is still possible to switch to other representation type, e.g.. to selectionbox, but then the selection is restricted to just one element
 from the underlying set. 
 
 Identifier Settings

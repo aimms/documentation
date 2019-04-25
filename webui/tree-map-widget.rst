@@ -8,7 +8,7 @@ The Tree Map widget represents data as rectangles filling the surface of the wid
     :align: center
 
 More generally, a tree map widget offers the possibility to display multi-dimensional data in your model by displaying a rectangle for each data point. 
-The area of a rectangle provides information about the value of the correspoding data point. 
+The area of a rectangle provides information about the value of the corresponding data point. 
 For example, in the TransNet application, the unit transport costs for every combination (factory, center) may be represented using a tree map widget 
 like illustrated in more details in the sequel. More specifically, we discuss and illustrate below one-by-one the tabs in the tree map's options editor 
 which may be accessed through the Settings wheel.
@@ -17,7 +17,7 @@ Contents and Pivoting
 +++++++++++++++++++++
 
 In order to determine the information to be rendered by a tree map, one has to specify first the data identifier(s) in the Contents tab of the widget's options editor, which works in the same way 
-as for other widgets, eg. the same way as for the bar chart widget.
+as for other widgets, e.g.. the same way as for the bar chart widget.
 	
 Next, in the Pivot tab of the options editor, one can specify how the data dimensions are to be organized in the chart. 
 For example, if both the center index c and the factory index f are specified in the X-axis section (in this order, first c then f) and the <IDENTIFIER-SET> in the Totals section 
@@ -33,19 +33,19 @@ One may move some data indexes in the Totals section of the Pivot tab. In our ex
 .. image:: images/TreeMap-View2.png
     :align: center
 
-So, now for every center c there is only one rectagle in the chart representing the total transport to this center from all factories.
+So, now for every center c there is only one rectangle in the chart representing the total transport to this center from all factories.
 	
 Change Type
 +++++++++++
 
 In the Change Type tab of the widget's options editor, one can switch from the tree map type to some other representation type. 
-This functionality works in the same way as for other widgets, eg. the same way as for the bar chart widget.
+This functionality works in the same way as for other widgets, e.g.. the same way as for the bar chart widget.
 
 Filters
 +++++++
 
 In the Filters tab of the widget's options editor, some of the other widgets on the same page may be chosen for filtering the data points shown in the tree map. 
-In our example, chosing TransportData widget as a filter results in a confined tree map view as only those data points are shown for which the TransportData widget shows non-default values. 
+In our example, choosing TransportData widget as a filter results in a confined tree map view as only those data points are shown for which the TransportData widget shows non-default values. 
 
 Totals
 ++++++
@@ -62,7 +62,7 @@ Identifier Settings
 
 In the Identifier Settings tab of the widget's options editor, one can apply a display domain or some slicing to the data identifier(s).
 
-These functionalities work in the same way as for other widgets, eg. the same way as for the bar chart widget.
+These functionalities work in the same way as for other widgets, e.g.. the same way as for the bar chart widget.
 
 Hover and Select
 ++++++++++++++++
