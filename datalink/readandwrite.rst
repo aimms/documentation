@@ -56,13 +56,13 @@ DataLink supports the following types:
 
 
 
-The type in AIMMS is derived from the identifier. If it is a Set then the type is always a string. For parameters the type is a string in case of a string parameter or element parameter. Numeric here means a floating point representation (called a double), but AIMMS may detect that it is an interger when displaying the value. DateTime is used for calendar type and may not be supported by the provider.
+The type in AIMMS is derived from the identifier. If it is a Set then the type is always a string. For parameters the type is a string in case of a string parameter or element parameter. Numeric here means a floating point representation (called a double), but AIMMS may detect that it is an integer when displaying the value. DateTime is used for calendar type and may not be supported by the provider.
 
 
 Type Conversion
 ---------------
 
-Both AIMMS and the souce have to somehow represent the data and their representations may not be the same.
+Both AIMMS and the source have to somehow represent the data and their representations may not be the same.
 The provider makes sure that in whatever way the data is represented in the source, it is converted from or to one of the supported types. If the provider cannot do this then it will flag it as Error.
 
 Then it is still possible that they have different ideas about what the actual type of the data is, so conversion is needed. The table below show what can be converted.
@@ -152,7 +152,7 @@ ContainsHeaders
 
 Separator
 
-    This is used by the CSVProvider to turn each line into columns. Eventually this should be removed from the ReadWriteAttributes and become part of the provider.
+    This is used by the CSVProvider to turn each line into columns. Eventually this should be removed from the ReadWriteAttributes and become part of the provider. The default value is a comma :token:`,`.
 
 
 

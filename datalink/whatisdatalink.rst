@@ -1,5 +1,5 @@
-What is DataLink
-****************
+What is DataLink?
+*****************
 
 .. 
     Define the particular problem datalink is solving and give an overview on how it does this.
@@ -111,6 +111,7 @@ The :token:`ReadWriteAttributes` could be defined as:
 Here we use :token:`xlsprov::DataLink` as value, where *"xlsprov"* is the prefix of the XLSProvider library. DataLink needs to know where the executable code of the provider (i.e. the dll file on Windows) is located. To simplify this, all providers make sure that upon initialization a string parameter called :token:`DataLink` is set with the correct location needed by DataLink. This means that we can choose the provider by using this string parameter of the provider as value for *'DataProvider'*. 
 
 
+.. _LinkDataLinkInstallation:
 
 Installation and setup
 ======================

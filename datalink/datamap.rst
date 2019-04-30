@@ -216,7 +216,7 @@ One of the limitations of the classic data map is that we need to assign one col
 The Problem
 ```````````
 
-Let's look at a simple example to understand this limitation. Consider we have model with 
+Let's look at a simple example to understand this limitation. Consider we have a model with 
 
 .. code-block:: aimms
 
