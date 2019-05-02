@@ -16,7 +16,7 @@ Public Pages Support Declarations:
 * AllPageIDs - This set includes all the page ID for all page types added to the `Page Manager <page-manager.html>`_ (page tree). 
 * AllPageTypes - This set includes the different page types, currently page, side panel and dialog. 
 * AllSidePanelPages - This set includes all the side panel pages added to the Page Manager. 
-* AllDialogpage - This set includes all the dialog pages added to the Page Manager. 
+* AllDialogpages - This set includes all the dialog pages added to the Page Manager. 
 * PageType(indexPageId) - This string parameter indexed on AllPageIds set maps which page type applies to which page id.
 * PagePath(indexPageId) - This string parameter indexed on AllPageIds set maps the path for each page created.
 * PageName(indexPageId) - This string parameter indexed on AllPageIds set maps the path for each page created.
@@ -91,7 +91,7 @@ Arguments
 
 This procedure has the following arguments:
 
-* :token:`pageId`: An element parameter which should contain the pageId of a Dialog Page. When a Dialog page is created it has a unique pageId. You can find all the dialog pageIds in the set AllDialogPages under the Public Pages Support Declarations in the `Pages and Dialog Support section <library.html#pages-and-dialog-support-section>`_.   
+* :token:`pageId`: An element parameter(with range ``webui::AllDialogPages``) which should contain the ``pageId`` of the dialog page you want to open. When a dialog page is created, an entry is added to the set ``webui::AllDialogPages`` under the ``Public Pages Support Declarations`` with a unique ``pageId`` in the `Pages and Dialog Support section <library.html#pages-and-dialog-support-section>`_.   
 * :token:`title`: A string parameter which contains the text to be displayed as the title of the dialog box. If this is left blank, i.e "", it will display the dialog page name given during creation by default.
 * :token:`actions`: A set of custom actions. The elements of this set are represented as buttons in the message dialog and their text is the same as the action names. When an action is selected (button is clicked), it invokes the onDone procedure with the corresponding action as an argument. If this set is empty, the buttons will have "Cancel" and "OK" by default respectively. 
 * :token:`onDone`: A reference to a procedure in the set AllProcedures. The procedure should have a single input string parameter as argument. When a user selects an action, the onDone procedure is invoked with the action name as its argument.
