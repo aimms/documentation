@@ -544,7 +544,7 @@ The set WidgetActionSpecification declared inside the `Pages and Dialog Support 
 This set has 4 elements representing widget action properties: 
 
 #. *displaytext*: Is the text/label you would like to give the action.  
-#. *icon*: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the :download:`icon list. <resources/AIMMS-Icon-List.pdf>`			
+#. *icon*: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the `icon list. <../_static/aimms-icons/icons-reference.html>`_		
 #. *procedure*: The procedure you want to call when the respective action is clicked.  
 #. *state*: This is the state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
 
