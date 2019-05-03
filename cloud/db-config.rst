@@ -54,9 +54,9 @@ Specifications and Requirements for a VPN connection
 ----------------------------------------------------
 Before setting up the VPN, be sure you have the following information available, typically this requires the involvement of your IT department:
 
- * The AIMMS Cloud db network CIDR range; this can be any /26 network range in the any of the private network ranges: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16, but excluding the 10.32.0.0/12 and 172.17.0.0/16 ranges (which we use for our own services). Furthermore, it cannot have any overlap with any of our other customers PRO Cloud ranges. This range is specified as the address range of the network. When you submit this range to create a network, we will verify those range conditions.
- * The Customer network CIDR range; this is can be any network range in any of the private network ranges: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16, but excluding the 10.32.0.0/12 and 172.17.0.0/16 ranges (which we use for our own services). This range needs to be specified when creating the VPN (see below).
- * The Customer public IP address; this is the public IP address to reach your VPN appliance. This IP address needs to be specified when creating the VPN (see below).
+ * The AIMMS Cloud db network CIDR range: this can be any /26 network range in the any of the private network ranges: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16, but excluding the 10.32.0.0/12 and 172.17.0.0/16 ranges (which we use for our own services). Furthermore, it cannot have any overlap with any of our other customers PRO Cloud ranges. This range is specified as the address range of the network. When you submit this range to create a network, we will verify those range conditions.
+ * The Customer network CIDR range: this can be any network range in any of the private network ranges: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16, but excluding the 10.32.0.0/12 range (the 172.17.0.0/16 range is allowed). This range needs to be specified when creating the VPN (see below).
+ * The Customer public IP address: this is the public IP address to reach your VPN appliance. This range is needed when creating the VPN (see below).
 
 After setting up the VPN connection in the AIMMS Cloud, you will be able to download a document describing the steps necessary at your side to setup the VPN; this includes two pre-shared-key (PSKs) to setup the two VPN tunnels. We recommend you to setup two tunnels to ensure availability of your connection. We will be doing unanounced maintenance on the VPN tunnels, but we will make sure it will never be those two tunnels at the same time.
 
@@ -74,7 +74,7 @@ Pressing **Add New VPN Connection** will bring up the following dialog:
 .. image:: images/db-config-new-vpn-connection-add.png
     :align: center
 
-Where the Company CIDR is the ip range at your private network side, and the Company Gateway IP is the public IP address. Optionally you can add an description to identify this VPN connection, e.g. 'Seattle office'. After creating the new VPN you will be redirected to the VPN Connections/Network details page; the VPN is now being created. Typically this will take about 4-5 minutes.
+Where the Company CIDR is the ip range at your private network side, and the Company Gateway IP is the public IP address. Optionally you can add an description to identify this VPN connection, e.g. 'Seattle office'. After creating the new VPN you will be redirected to the VPN Connections/Network details page. Typically this will take about 4-5 minutes.
 
 .. image:: images/db-config-new-vpn-connection-added.png
     :align: center
