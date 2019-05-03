@@ -9,7 +9,7 @@ This section describes how to manage and administer the application database and
 
 General Idea
 ------------
-We would like to offer a secure environment to give you access to your application database. In the past we offered IP range filtering on your database, but leaving the database open to public the internet. In the current solution the database will only be accessible from within an AIMMS session.
+We would like to offer a secure environment to give you access to your application database. In the past we offered DB IP Range filtering on your database, but leaving the database open to public the internet. In the current solution the database will only be accessible from within an AIMMS session.
 
 If you however need direct access to the application database, we offer two possibilities:
 
@@ -23,7 +23,7 @@ The picture below shows the conceptual network topology:
 .. image:: images/AIMMS-Cloud-VPN.png
     :align: center
 
-When a VPN connection has been setup it will not be possible for sessions to reach anything on premise, because the sesions are configured to only have a route available to their appropriate Customer Single Tenant Private /26 network. Similarly using the Tunnel Service and the database tunnel application, will only allow access to the database of the appropriate customer. Access to that tunnel service is arranged via PRO user/group management.
+When a VPN connection has been setup it will not be possible for sessions to reach anything on premise, because the sessions are configured to only have a route available to their appropriate Customer Single Tenant Private /26 network. Similarly using the Tunnel Service and the database tunnel application, will only allow access to the database of the appropriate customer. Access to that tunnel service is arranged via PRO user/group management.
 
 Initial Database Setup
 ----------------------
@@ -37,7 +37,7 @@ Next it will show the following dialog:
 .. image:: images/db-config-create-initial-db.png
     :align: center
 
-where you need to fill in the username and password for the database administrator that will be accessing the to be created database. Note that password needs to be longer then 8 characters and can be any printable ASCII character except "/", """, or "@". Next to that, you can assign an IP address range for the private network that will be created to host the database in at the AIMMS Clouud side. You can also choose to automatically assign this range. The choice of this IP address range becomes important when you need/want to setup a VPN connection to this database. It will always be possible to migrate that database to a different IP range, but that will cost some downtime of the database, and thus some downtime for your applications. See the database migration and VPN section in this document for more details.
+Where you need to fill in the username and password for the database administrator that will be accessing the (to be created) database. Note that password needs to be longer then 8 characters and can be any printable ASCII character except "/", """, or "@". Next to that, you can assign an IP address range for the private network that will be created to host the database in at the AIMMS Clouud side. You can also choose to automatically assign this range. The choice of this IP address range becomes important when you need/want to setup a VPN connection to this database. It will always be possible to migrate that database to a different IP range, but that will cost some downtime of the database, and thus some downtime for your applications. See `Migrating the Database`_ and `Adding a VPN Connection`_ sections in this document for more details.
 
 After pressing the **Create Database** button you will be navigated back to the main page, where you will see that first a network will be created to host the database in:
 
