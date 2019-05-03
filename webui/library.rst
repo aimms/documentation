@@ -23,8 +23,8 @@ Public Pages Support Declarations:
 
 Public Page and Widget Specification Declarations:
 
-* SidePanelSpecification - This set is the specification for the side panel pages. The sting parameters used to `configure the side panels <page-manager.html#configuring-side-panels>`_ on pages are indexed on this set. 
-* WidgetActionSpecification - This set is the specification for adding widget actions. The sting parameters used to configure the widget actions on certain widgets are indexed on this set.
+* SidePanelSpecification - This set is the specification for the side panel pages. The string parameters used to `configure the side panels <page-manager.html#configuring-side-panels>`_ on pages are indexed on this set. 
+* WidgetActionSpecification - This set is the specification for adding widget actions. The string parameters used to configure the widget actions on certain widgets are indexed on this set.
 
 Request Queue Declarations is used to manage the number of requests from WebUI. 
 

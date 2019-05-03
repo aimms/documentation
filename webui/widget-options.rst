@@ -1,4 +1,5 @@
 .. |cog-widget| image:: images/cog-widget.png
+.. |widget-action| image:: images/widget-actions.png
 
 
 Widget Options
@@ -510,4 +511,91 @@ You can change the number of decimals for a widget:
 
 The number of decimals displayed has a limit, the **default** is 2 decimals.
 
+
+Widget Actions
+--------------
+
+.. important:: Widget Actions are available in software versions from AIMMS 4.66 onwards.
+
+Widget Actions are a set of actions/procedures that can be defined via the model and configured for individual widgets. These widget actions are grouped under the |widget-action| icon in the widget header. The widget action displays up to 10 actions. In case you configure more than 10, only the top 10 active and/or inactive actions will be displayed.
+
+The widget actions can be associated with any procedure in your model. For example: Resetting data, Saving data, etc.
+
+.. image:: images/WidgetAction_Example.png
+            :align: center
+
+Configuring Widget Actions
+++++++++++++++++++++++++++
+
+Widget Actions can be configured by the application developer via the AIMMS model. First you should create a set for the order of widget actions to be displayed on the widget action menu when it is opened on the respective widget.
+
+For illustration, let’s call this set “WidgetOrder” with index WOrder (as a developer, you can give this set a name and an index of your choice).
+
+.. image:: images/WidgetAction_OrderSet.png
+			:align: center
+
+This set determines the order in which the widget actions will appear from top to bottom, in the widget action menu. This set must be a subset of the pre-declared set of Integers. 
+
+The set WidgetActionSpecification declared inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section is used for configuring the widget actions, as illustrated here in the next steps. 
+
+.. image:: images/WidgetActionSpecification.png
+			:align: center
+
+This set has 4 elements representing widget action properties: 
+
+#. *displaytext*: Is the text/label you would like to give the action.  
+#. *icon*: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the :download:`icon list. <resources/AIMMS-Icon-List.pdf>`			
+#. *procedure*: The procedure you want to call when the respective action is clicked.  
+#. *state*: This is the state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
+
+.. tip:: If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append 'aimms-" to the selected icon name when adding it to the model. eg: The icon name is calculator. In AIMMS it needs to be aimms-calculator.
+
+To configure widget actions, create a string parameter indexed on WidgetOrder and WidgetActionSpecification, for example MyWidgetActions(WOrder,webui::indexWidgetActionSpec) as shown here:
+
+.. image:: images/WidgetActions_MyWidgetActions.png
+			:align: center
+
+Right click the string parameter and click on the Data option to open the data page:
+
+.. image:: images/WidgetActions_MyWidgetActionsdata.png
+			:align: center
+
+Add the details for the widget actions you would like to show for the widget. For example, 
+
+.. image:: images/WidgetActions_MyWidgetActionsdata_added.png
+			:align: center
+
+To activate the widget actions on a widget, go to the respective widget's settings by clicking on the |cog-widget| in the widget header. Click on the Widget Actions tab. Add the string parameter in the Widget Actions field using the identifier selector.
+
+.. image:: images/WidgetAction_StringParameter.png
+			:align: center 
+			:scale: 75
+
+You will notice the |widget-action| icon on the widget and when you click it you will see the configured widget actions.
+
+.. image:: images/WidgetActions_IcononWidget.png
+			:align: center 
+			:scale: 75
+
+
+Interacting with Widget Actions
++++++++++++++++++++++++++++++++
+
+The widget action menu can be opened and closed by clicking on the |widget-action| icon on the widget header. When the menu is open and you click anywhere outside the menu or on any other widget, the menu will close.
+
+To select any of the widget actions, just click on the respective action. You will not be able to click an inactive action; the cursor will also indicates this.
+
+Please notice the different combinations in the widget action menu.
+
+.. image:: images/WidgetAction_ActionStates.png
+			:align: center 
+			:scale: 75
+
+If a procedure is not defined for a certain action, clicking on the action will result in a "No action specified" error.
+
+In case you have a long displaytext for an action, the widget action menu will stretch to a width of 2 columns and ellipsis the text that does not fit. Hovering over the action will show the complete text in the tooltip.
+
+.. image:: images/WidgetAction_LongDisplayText.png
+			:align: center 
+			:scale: 75
 
