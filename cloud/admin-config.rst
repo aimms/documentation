@@ -7,4 +7,5 @@ Starting with AIMMS PRO 2.16, in the PRO Portal, all the members of the admin gr
 
     ../pro/admin-config-1
     admin-config-2
+    db-config
     ../pro/admin-config-3
