@@ -55,10 +55,10 @@ Specifications and Requirements for a VPN connection
 Before setting up the VPN, be sure you have the following information available, typically this requires the involvement of your IT department:
 
  * The AIMMS Cloud db network CIDR range; this can be any /26 network range in the any of the private network ranges: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16, but excluding the 10.32.0.0/12 and 172.17.0.0/16 ranges (which we use for our own services). Furthermore, it cannot have any overlap with any of our other customers PRO Cloud ranges. This range is specified as the address range of the network. When you submit this range to create a network, we will verify those range conditions.
- * The Customer network CIDR range; this is can be any network range in any of the private network ranges: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16, but excluding the 10.32.0.0/12 range (the 172.17.0.0/16 range is allowed). This range is needs to be specified when creating the VPN (see below).
- * The Customer public IP address; this is the public IP address to reach your VPN appliance. This range is needed when creating the VPN (see below).
+ * The Customer network CIDR range; this is can be any network range in any of the private network ranges: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16, but excluding the 10.32.0.0/12 and 172.17.0.0/16 ranges (which we use for our own services). This range needs to be specified when creating the VPN (see below).
+ * The Customer public IP address; this is the public IP address to reach your VPN appliance. This IP address needs to be specified when creating the VPN (see below).
 
-After setting up the VPN connection in the AIMMS Cloud, you can download a document describing the steps necessary at your side; this includes two pre-shared-key (PSK) to setup the two VPN tunnels. We recommend you to setup two tunnels to ensure availability of your connection. We will be doing unanounced maintenance on the VPN tunnels, but we will make sure it will never be those two tunnels at the same time.
+After setting up the VPN connection in the AIMMS Cloud, you will be able to download a document describing the steps necessary at your side to setup the VPN; this includes two pre-shared-key (PSKs) to setup the two VPN tunnels. We recommend you to setup two tunnels to ensure availability of your connection. We will be doing unanounced maintenance on the VPN tunnels, but we will make sure it will never be those two tunnels at the same time.
 
 Adding a VPN connection
 -----------------------
@@ -85,3 +85,16 @@ When the VPN connection has been created successfully, you can download a config
     :align: center
 
 We have several device specialized configurations available. If yours is not on the list, you can choose the Generic configuration file; alternatively you can contact our support services to check if we can help you with configuring your specific device.
+
+Setting up a new network
+------------------------
+You want to setup a new network because of either two reasons:
+ * The IP address range of the current network needs to change because of changed on-premise network conditions
+ * You want to migrate from the prior publicly available database to database on the private network (potentially using VPN to access it)
+ 
+You can do 
+ 
+ 
+ 
+ 
+ 
