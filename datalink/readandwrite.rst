@@ -133,7 +133,7 @@ The :token:`ReadWriteAttributes` is a string parameter:
 
 DataProvider
     
-    This is :red:`mandatory`. The string represents that absolute path to the executable code of the provider (on windows, the dll file). Instead of having to fill this in, each provider has a parameter "DataLink" containg the right value. So we choose a provider by defining this as :token:`csvprov::DataLink` or :token:`xlsprov::DataLink`.
+    This is **mandatory**. The string represents that absolute path to the executable code of the provider (on windows, the dll file). Instead of having to fill this in, each provider has a parameter "DataLink" containing the right value. So we choose a provider by defining this as :token:`csvprov::DataLink` or :token:`xlsprov::DataLink`.
 
 
 MissingValues 

@@ -18,7 +18,7 @@ As schema we consider data sources that are organized as a collection of tables,
 
 +------------------------------------------+
 |    *" Use the Source, Luke! "*           |
-|       -- :strike:`Yoda` DataLink         |
+|       --  DataLink                       |
 +------------------------------------------+
 
 .. 

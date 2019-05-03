@@ -331,7 +331,7 @@ Valid tables and their domains
 
 DataLink reads and writes tables row by row. This requires that for each parameter all elements of its index domain must be in that row. This makes that parameters become dependent on the presence of columns corresponding to their index domain. So there is a **restriction** on what kind of tables can be mapped by the data map.
 
-We will say that all data in columns representing a set in AIMMS will be :under:`"Domain Columns"` , because this data will also be passed on as values for the index domains of the parameters.
+We will say that all data in columns representing a set in AIMMS will be **"Domain Columns"** , because this data will also be passed on as values for the index domains of the parameters.
 
 
 
@@ -411,7 +411,7 @@ In the classic map the mapping of the indexdomain of parameters are very clear. 
 
 With the introduction of the new data map this all becomes less clear. The domain numbers are no longer used and with the column parameter, the index domains of parameters in the same table no longer have to be the same. We need some extra jargon. We will say that:
 
-* All domain columns of a table form the :under:`"Shared Domain"` of that table.
+* All domain columns of a table form the **"Shared Domain"** of that table.
 * All parameters in a table must be compatible with the shared domain of the table.
 
 Now we can reason about which parameters can be in the same table. Suppose we have a parameter :token:`P(i,j)`, what :token:`Q` can be added to the table?
