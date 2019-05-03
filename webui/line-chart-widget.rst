@@ -66,18 +66,6 @@ Additionally, one may also specify a step size which determines the distance bet
 .. image:: images/LineChart-ViewSettings.png
     :align: center	
 	
-Filters
-+++++++
-
-In the Filters tab of the widget's options editor, some of the other widgets on the same page may be chosen for filtering the data points shown in the line chart. 
-In our example, suppose we change the pivoting back to the initial situation where both the factory index f and the center index c are specified in the X-axis section 
-and the <IDENTIFIER-SET> in the Totals section. In this case, choosing TransportData widget as a filter results in a confined line chart view as only those data points 
-are shown for which the TransportData widget shows non-default values: 
-
-.. image:: images/LineChart-ViewFilters.png
-    :align: center	
-
-Not accidentally, these filtered values are among the lowest unit transport costs which are preferred when minimizing the overall costs for the entire network.
 
 Totals
 ++++++

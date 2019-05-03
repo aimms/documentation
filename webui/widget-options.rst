@@ -18,6 +18,9 @@ This Option Editor consists of several tabs. It depends on the widget type which
 .. tip::
     Option changes are automatically saved to the WebUI Server.
     
+.. important::
+	From AIMMS 4.66 onwards, the Filter tab is not present anymore in any widget. In existing projects where this functionality is still used, it is still working/supported by the WebUI. However, the preferred way of filtering is by using the newer slicing functionality on any identifier(s) displayed in your widgets. If you want to switch to using the slicing functionality instead of the old filters, you can do so by removing the old filters by either emptying the content in the 'Contents.filters.in' property on the 'Advanced' tab, or by opening the model in a previous AIMMS version to remove the filtering. After that, you should add the correct slicing to your identifier(s).
+    
 Pivot
 -----
 
@@ -245,41 +248,6 @@ In the _tooltips identifier, just clear/empty the data for these specific cases 
 .. note::
     The feature to hide tooltips is available only in AIMMS releases from 4.65 onwards. 
 
-
-Filters
--------
-
-The WebUI widgets offer the possibility to specify one or more filters for their data. These filters are widgets as well. Widgets that can be used as filters for other widgets are the Multiselect widget, the Selectionbox widget, the Legend widget and the Table widget.
-
-.. image:: images/filterdialog.jpg
-    :align: center
-
-In the filter dialog displayed in the image above, the widgets  that can act as a filter and which are on the same page as the current widget, are listed. You can select the ones that you want to use as a filter for the current widget, by clicking on them. Obviously, the contents of the widget used as a filter should at least contain an index which matches an index in the content of the widget to be filtered in order to yield any effect.
-
-Using a Multiselect widget as a filter
-++++++++++++++++++++++++++++++++++++++
-
-If you use a Multiselect widget as a filter for another widget, the one-dimensional binary parameter that serves as the content of the Multiselect widget will be used as a filter for your widget. For example, if your widget is displaying data over an index :token:`i`, and the Multiselect widget contains a one-dimensional binary parameter over this index :token:`i`, your widget will only display data for the index values of :token:`i` that are selected in the Multiselect widget. This way, you can for example restrict the number of bars in a bar chart, or the number of bubbles in a bubble chart, the number of rows in a table widget, ...
-
-Using a Selectionbox widget as a filter
-+++++++++++++++++++++++++++++++++++++++
-
-The Selectionbox widget used as a filter acts about the same as using a Multiselect widget. The one-dimensional parameter which serves as the content of the Selectionbox, will filter the data in your widget just as in the Multiselect case. In this case, though, your widget will only display data for the one value that you select using the selectionbox.
-
-Using a Legend widget as a filter
-+++++++++++++++++++++++++++++++++
-
-Using a Legend widget as a filter is similar to using a Selectionbox widget. It also restricts the filtered widget to display data for exactly one value that you select in the Legend widget.
-
-Using a Table widget as a filter
-++++++++++++++++++++++++++++++++
-
-The Table widget is a slightly more complicated widget type to use as a filter. It restricts the filtered widget to only display data for which the corresponding identifier(s) in the Table widget show(s) data. This means that, in case you display sparse data in your Table widget, those columns and/or rows which only contain default values in the Table (and are thus not displayed), are also filtered out in the filtered widget. So, suppose you show a bar chart with data for certain aircraft types, which is filtered by a table that only contains default values for a certain aircraft type, the bar for this particular type will also not display in the filtered widget.
-
-Combining filters
-+++++++++++++++++
-
-It is possible to combine filters as well. You can just select more than one filter for your widget. Of course, it depends on your specific widgets what effect this has on the filtered widget. 
 
 Totals
 ------

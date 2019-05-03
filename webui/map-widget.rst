@@ -260,5 +260,5 @@ A good practice is to show (only) slices of the data which may be visualized com
  
 Some ways to achieve that are: 
 
-*	Use selections/filters to control the (sub)sets for the shown data
+*	Use selections to control the (sub)sets for the shown data
 *	Use domain identifiers to display data which is relevant

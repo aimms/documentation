@@ -63,16 +63,6 @@ Additionally, one may also specify a step size which determines the distance bet
 .. image:: images/BarChart-ViewSettings.png
     :align: center	
 	
-Filters
-+++++++
-
-In the Filters tab of the widget's options editor, some of the other widgets on the same page may be chosen for filtering the data points shown in the bar chart. 
-In our example, choosing TransportData widget as a filter results in a confined bar chart view as only those data points are shown for which the TransportData widget shows non-default values: 
-
-.. image:: images/BarChart-ViewFilters.png
-    :align: center	
-
-Not accidentally, these filtered values are among the lowest unit transport costs which are preferred when minimizing the overall costs for the entire network.
 
 Totals
 ++++++
