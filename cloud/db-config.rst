@@ -18,6 +18,11 @@ If you however need direct access to the application database, we offer two poss
 
 When you need occasional access to the database (e.g. to inspect some tables, alter the schema, add users, etc.) just using the database tunnel application would probably be sufficient. However if you need more permanent access, e.g. when you regularly synchronize between an on-premise resource and the application database, we recommend setting up the VPN connection.
 
+The picture below shows the conceptual network topology:
+
+.. image:: images/AIMMS-Cloud-VPN.png
+    :align: center
+
 Initial database setup
 ----------------------
 When you have just received your administrator login credentials, the application database will not be immediately ready for use. You will first need to set it up. You can do so by pressing the Create link.
@@ -89,12 +94,47 @@ We have several device specialized configurations available. If yours is not on 
 Setting up a new network
 ------------------------
 You want to setup a new network because of either two reasons:
+
  * The IP address range of the current network needs to change because of changed on-premise network conditions
- * You want to migrate from the prior publicly available database to database on the private network (potentially using VPN to access it)
- 
-You can do 
- 
- 
- 
- 
- 
+ * You want to migrate from the prior publicly available database to a database on the private network (potentially using VPN to access it)
+In both situations you end up with a network of type **Test**. You can migrate your database to this network, after which it automatically becomes of type 'Production' and the potential prior network (and its VPN connections) will be deleted. Prior to that you might want to add VPN connections to this network and test wether you have setup the VPN correctly by pinging the pinghost, see also 'Adding a VPN Connection'.
+To setup a new network, you can press the **Add New Network** button on the main database configuration page. 
+
+.. image:: images/db-config-new-network.png
+    :align: center
+
+Here you will have the option to either auto assign the network CIDR range or specify it yourself. As listed at 'Specifications and Requirements for a VPN connection' this range can be any /26 network range in the any of the private network ranges: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16, but excluding the 10.32.0.0/12 and 172.17.0.0/16 ranges (which we use for our own services). Furthermore, it cannot have any overlap with any of our other customers PRO Cloud ranges. This range is specified as the address range of the network. When you submit this range to create a network, we will verify those range conditions.
+
+Creating a new network will take about 3 minutes:
+
+.. image:: images/db-config-new-network-creating.png
+    :align: center
+
+Migrating the database
+----------------------
+.. warning::
+
+    Migrating the database will result in a change of the database IP address. Please make sure that all your AIMMS applications and potentially other applications accessing your cloud database use the FQDN specified at the endpoint field before migrating. The migrate mechanism will update the DNS entry to reflect the new IP address.
+
+In order to migrate your database, you first need to setup the destination network to migrate to, see 'Setting up a new network' above. When there is a network of type *Test* it will have the action *Migrate Database Here* available. When you click that link you will directed to the Database Migration page. 
+
+.. image:: images/db-config-migrate-db.png
+    :align: center
+
+Here you need to enter the date and time to schedule the migration. The migration takes a downtime of approximately 45 minutes for access to your database. During this time your AIMMS applications will not be able to access the database and thus are likely to not be functional. The time is specified in your local time zone, according to the browser your accessing the AIMMS Cloud Portal with. After submitting the date and time for migration you will be directed to the main Database Configuration page where you will see the migration has been scheduled:
+
+.. image:: images/db-config-migration-scheduled.png
+    :align: center
+
+When looking at the Database Configuration page during the scheduled migration time, it will display both networks being in a 'migration in progress' state:
+
+.. image:: images/db-config-migration-inprogress.png
+    :align: center
+
+When the migration is finished it will display the migration status as *Completed* and the previous production network will have been removed:
+
+.. image:: images/db-config-migration-completed.png
+    :align: center
+
+
+
