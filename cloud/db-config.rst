@@ -23,6 +23,8 @@ The picture below shows the conceptual network topology:
 .. image:: images/AIMMS-Cloud-VPN.png
     :align: center
 
+When a VPN connection has been setup it will not be possible for sessions to reach anything on premise, because the sesions are configured to only have a route available to their appropriate Customer Single Tenant Private /26 network. Similarly using the Tunnel Service and the database tunnel application, will only allow access to the database of the appropriate customer. Access to that tunnel service is arranged via PRO user/group management.
+
 Initial Database Setup
 ----------------------
 When you have just received your administrator login credentials of AIMMS PRO Portal, the application database will not be immediately ready for use. You will first need to set it up. You can do so by pressing the **Create** link.
