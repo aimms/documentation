@@ -1,5 +1,9 @@
 :orphan:
 
+.. 
+    Not used any more, eventually this file should go
+
+
 DataLink configuration
 **********************
 

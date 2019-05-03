@@ -50,6 +50,8 @@ The string values *"ColumnNameInSource"* and *"OtherColumnNameInSource"* are the
 
 
 
+.. _LinkAddClassicDataMap:
+
 Add the Map
 -----------
 
