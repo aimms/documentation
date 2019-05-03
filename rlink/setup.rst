@@ -154,3 +154,47 @@ For situations where the AIMMS developer does not have control over the R instal
 
 The function :token:`rlink::CheckAndInstallPackage` should be called in the :token:`MainInitialization` of the project. The first time the project is run the installation may happen. In all subsequent runs of the project no installation is needed, but the R directory still should be added to the :token:`.libPath`.
 
+
+
+R-packages on the Aimms cloud
+=============================
+
+.. csv-table:: 
+   :header: "Package", "Version", "Package", "Version", "Package", "Version"
+   :widths: 20, 20, 20, 20, 20, 20
+    
+    assertthat,0.2.1,later,0.8.0,reshape2,1.4.3
+    base64enc,0.1-3,lazyeval,0.2.2,rgdal,1.4-3
+    BH,1.69.0-1,leaflet,2.0.2,rgeos,0.4-2
+    brew,1.0-6,littler,0.3.3,rlang,0.3.4
+    callr,3.2.0,lmtest,0.9-36,satellite,1.0.1
+    cellranger,1.1.0,maptools,0.9-5,scales,1.0.0
+    classInt,0.3-1,mapview,2.6.3,sf,0.7-3
+    cli,1.1.0,magrittr,1.5,shiny,1.3.0
+    colorspace,1.4-1,markdown,0.9,sourcetools,0.1.7
+    crayon,1.3.4,mime,0.6,sp,1.3-1
+    crosstalk,1.0.0,munsell,0.5.0,stringi,1.3.1
+    curl,3.3,pillar,1.3.1,stringr,1.4.0
+    DBI,1.0.0,pkgconfig,2.0.2,svglite,1.2.1
+    digest,0.6.18,plogr,0.2.0,tibble,2.1.1
+    docopt,0.6.1,plyr,1.8.4,tidyselect,0.2.5
+    dplyr,0.8.0.1,png,0.1-7,timeDate,3043.102
+    e1071,1.7-1,prettyunits,1.0.2,tseries,0.10-46
+    fansi,0.4.0,processx,3.3.0,TTR,0.23-4
+    forecast,8.5,progress,1.2.0,units,0.6-2
+    fracdiff,1.4-2,promises,1.0.1,urca,1.3-0
+    gdtools,0.1.8,ps,1.3.0,utf8,1.1.4
+    glue,1.3.0,purrr,0.3.2,uuid,0.1-2
+    ggplot2,3.1.1,quadprog,1.5-5,viridis,0.5.1
+    gridExtra,2.3,quantmod,0.4-14,viridisLite,0.3.0
+    gtable,0.3.0,R6,2.4.0,webshot,0.5.1
+    hms,0.4.2,raster,2.8-19,withr,2.1.2
+    htmltools,0.3.6,RColorBrewer,1.1-2,xtable,1.8-3
+    htmlwidgets,1.3,Rcpp,1.0.1,xts,0.11-2
+    httpuv,1.5.1,RcppArmadillo,0.9.300.2.0,yaml,2.2.0
+    jsonlite,1.6,readxl,1.3.1,zoo,1.8-5
+    labeling,0.3,rematch,1.0.1,,
+     
+
+
+
