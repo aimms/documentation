@@ -133,7 +133,7 @@ to show the default locations where R looks for packages. To pick a single locat
 
     .libPaths()[1] 
 
-will pick the first location from :token:`.libPaths()`. Now we are ready to install the packgae. We can do:
+will pick the first location from :token:`.libPaths()`. Now we are ready to install the package. We can do:
 
 .. code-block:: r
 

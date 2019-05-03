@@ -111,7 +111,7 @@ Being up-to-date
 
 Committing data will fail when when the data in your client session is not at the latest revision of the branch in the CDM database that you want to commit to. In such a case, you must first `pull <dtd.html#pulling-changes>`_ all changes from the CDM database to get your client to the latest revision on the current branch, and `resolve any conflicts <dtd.html#merging-branches-and-resolving-conflicts>`_ that may arise between the remote changes that you pulled in and the local changes that you actually want to commit. After you successfully pulled in the changes and resolved any conflicts, you may re-commit your local changes.
 
-Speciyfing a commit comment
+Specifying a commit comment
 +++++++++++++++++++++++++++
 
 With version control, it is a common practice to specify a *commit comment* in which you can describe, to some extent, which changes you made why in this commit. Along with the commit *author* and *date* , both of which are already added by the CDM library, this will allow you to inspect the list of changes made by multiple users of your application later on, and where necessary `revert <dtd.html#reverting-changes>`_ or `re-apply <dtd.html#cherry-picking-changes>`_ change sets from the list.
@@ -192,7 +192,7 @@ Creating multiple scenarios
 
 When you already have a data set from which you want to create multiple scenarios, you can do so by creating new branches at the revision in the CDM database representing that data set, one for each scenario you want to investigate. On each new branch created in this manner, you can commit the changes that make up the scenarios you want to investigate. By checking out the branch that represents a particular scenario, you can work with that scenario in your local session. You can then further adapt the data for that scenario, or perform an optimization run. 
 
-Eventually, if you have decided that you want to continue working with a single scenario, you can `*merge* <dtd.html#merging-branches-and-resolving-conflicts>`_ the corresponding branch back into the branch representing the original data set from which all scenarios were created. This will add all the individual data changes you made as part of the scenario to the original data set.
+Eventually, if you have decided that you want to continue working with a single scenario, you can `merge <dtd.html#merging-branches-and-resolving-conflicts>`_ the corresponding branch back into the branch representing the original data set from which all scenarios were created. This will add all the individual data changes you made as part of the scenario to the original data set.
 
 Creating branches
 -----------------
@@ -226,11 +226,32 @@ To delete a branch you can
   * update the set :token:`cdm::Branches` and :token:`cdm::Revisions` to remove the all branches and revisions deleted from the CDM database.
   
 * call the low-level API function :js:func:`cdm::DeleteBranch` to delete the branch as specified through its arguments.
+
+Comparing multiple branches
+---------------------------
+
+In the `branch comparison identifiers <impl.html#branch-comparison-identifiers>`_ AIMMS CDM allows you to compare multiple scenarios, the data of which is stored in multiple branches in the CDM database. You can directly display the contents of these branch comparison identifiers in either the Windows of Web UI. 
+
+To add and remove the identifier data of a particular branch you can
+
+* call the low-level API function :js:func:`cdm::AddBranchToCompareSnapshots` to add branch data
+* call the low-level API function :js:func:`cdm::RemoveBranchFromCompareSnapshots` to remove branch data
+
+Please note that these functions will add elements to the domain sets in the actual model, i.e., corresponding to the content of the *current branch*, if the data of held in the branches being added to the branch comparison identifiers are not present in the current branch. Without adding such elements, the branch data cannot be added to the branch comparison identifiers. Therefore, if you want to use the branch comparison functionality, you are advised to temporarily disable `auto-commit <#auto-committing-changes>`_ functionality if applicable, and `revert <dtd.html#reverting-changes>`_ the data of the current branch when you are done comparing scenarios before committing to the current branch.
  
 Merging branches and resolving conflicts
 ----------------------------------------
 
 After you have committed one or multiple changes to a particular branch, you may want to merge such a branch with another branch. For instance, you may want to merge the changes you made to data for a particular scenario you examined, back into the branch on which the scenario was based, because that particular scenario represents the desired action you want to implement for the main branch.
+
+Retiring intermediate branch data
+---------------------------------
+
+After you have been working with a given branch for a longer time, most probably only the most recent commits make sense to retain, as individual data changes in the past may have become obsolete, and may lead to longer checkout times, as the current branch data must be reconstructed from a larger amount of commits. Through the function :token:`cdm::RetireBranchData`, you can replace the cumulative changes for all categories from the root of a particular branch up and until a given revision by a single snapshot containing the same change set. 
+
+You can retire commits all branches except the :token:`system` branch. If the resulting branch is not the :token:`master` branch, the resulting branch will be relocated to branch off revision 2 of the master branch, as the snapshot can only be guaranteed to produce the right result if there no preceding commits. 
+
+The function works by first creating snapshots for all data categories on a temporary branch, subsequently deleting all intermediate commits from the data repository, injecting the snapshots into the branch as a single commit, and finally deleting the intermediate branch. Note that if data set to default (or for which elements in the domain are deleted from the root sets) *after* the snapshot, will still be stored in the data repository, although they will not be visible in any checkout. Only when such commits will be included in a snapshots, such data deletions will be completely removed from the data repository.
 
 Interactive merge
 +++++++++++++++++

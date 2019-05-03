@@ -1,9 +1,15 @@
 Requirements
 ============
 
-This section lists the requirements for the various phases passed through by an AIMMS WebUI application.
+For general system requirements for running an AIMMS WebUI application under AIMMS PRO or AIMMS Cloud, please refer to the corresponding sections in the 
+`PRO <../pro/system-requirements.html>`_ or `Cloud <../cloud/requirements.html>`_ documentation. 
 
-.. important:: Please mind the important note about browsers at the end of this section!
+.. note:: Please note that, in general, fast processing of JavaScript code (as the one used by the AIMMS WebUI) requires a powerful processor and enough workspace.
+   In particular, a more powerful processor is expected to result in better performance. 
+
+This section lists more specific requirements for the various phases passed through by an AIMMS application with a Web-based User interface.
+
+.. note:: Please mind the important note about browsers performance at the end of this section!
 
 Developing a WebUI app
 ----------------------
@@ -31,7 +37,7 @@ Publishing a WebUI app
 In order to `publish <publishing.html>`_ a web application on the `AIMMS PRO <../pro/index.html>`_ platform, the app publisher needs:
 
 * access to a running AIMMS WebUI-enabled PRO 2.x server, available as a single installer. During development, you might also consider to install a PRO server on your local computer.
-* a WebUI-enabled AIMMS PRO package matching the AIMMS version which was used to develop the WebUI app. The PRO package contains the AIMMS version that is used to run the WebUI application and should be `published on the PRO server <../pro/aimms-man.html>`_ before publishing the aimmpack containing the WebUI app.
+* a WebUI-enabled AIMMS PRO package matching the AIMMS version which was used to develop the WebUI app. The PRO package contains the AIMMS version that is used to run the WebUI application and should be `published on the PRO server <../pro/aimms-man.html>`_ before publishing the aimmspack containing the WebUI app.
  
  
 Running a WebUI app

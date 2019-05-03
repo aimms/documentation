@@ -15,6 +15,12 @@ Any PRO-enabled AIMMS project can be published onto an AIMMS PRO Server. PRO-ena
 * License profile: the license profile to be used for server-side optimization sessions of this application.  
 * Category: using this you can categorized your AIMMS PRO applications. This field is available only when you have added categories through Manage Categories. Please note that this feature is available starting with AIMMS PRO 2.25.
 
+Starting with AIMMS PRO 2.30, it is possible to quickly launch your app right after publishing using 'Launch App' button on top of the Apps page.
+
+.. image:: images/launch.png
+    :align: center
+	
+
 .. note::
 
 	Starting with **AIMMS PRO 2.28.3**, 'License profile' is no longer shown when there is only single profile for your AIMMS PRO.
@@ -22,7 +28,7 @@ Any PRO-enabled AIMMS project can be published onto an AIMMS PRO Server. PRO-ena
 Direct App Launch
 -----------------
 
-Starting with **AIMMS PRO 2.24**, it is possible to directly launch an application (desktop/WebUI) without first going to Portal's apps page after login. Any AIMMS application on your AIMMS PRO Portal is accesible by direct launch link i.e. *https://aimmsproserver/launch/AppName/AppVersion*
+Starting with **AIMMS PRO 2.24**, it is possible to directly launch an application (desktop/WebUI) without first going to Portal's apps page after login. Any AIMMS application on your AIMMS PRO Portal is accessible by direct launch link i.e. *https://aimmsproserver/launch/AppName/AppVersion*
 
 By default it will open default start page of an App. It is also possible to open a specific page by adding  */Main%20Project/Pagename*  to this link. i.e.  *https://aimmsproserver/launch/AppName/AppVersion/Main%20Project/Pagename*. 
 
@@ -83,7 +89,7 @@ For ordinary application access, you need to enable read and execute access.
 Hierarchy of Rights
 -------------------
 
-Next to each of the rights indicators, you will see a color. If the circle is grey, it means that this user, or user group has the same rights as its parent (i.e. a user will inherit the rights from the user groups it is in and a user group will inherit the rights from its parent environment). For the particular case of environments, if permissions have not been defined yet (i.e. are grey), the users of that environment will not have any kind of access to that application. If the circle is green, it means that the user has this particular right, while the color red indicates that the user, user group or environment has been denied this particular access right. Deny will always take precedence over any other permissions in the Hierarchy of rights (e.g.: setting a red execute permission for an app at the environment level will prevent anyone in that environment from executing the app, even if that user or group have explicitly set green execute permission for the app; this same rule applies for users that are part of different environments, deny will always take precedence).
+Next to each of the rights indicators, you will see a color. If the circle is gray, it means that this user, or user group has the same rights as its parent (i.e. a user will inherit the rights from the user groups it is in and a user group will inherit the rights from its parent environment). For the particular case of environments, if permissions have not been defined yet (i.e. are gray), the users of that environment will not have any kind of access to that application. If the circle is green, it means that the user has this particular right, while the color red indicates that the user, user group or environment has been denied this particular access right. Deny will always take precedence over any other permissions in the Hierarchy of rights (e.g.: setting a red execute permission for an app at the environment level will prevent anyone in that environment from executing the app, even if that user or group have explicitly set green execute permission for the app; this same rule applies for users that are part of different environments, deny will always take precedence).
 
 Changing Permissions
 --------------------

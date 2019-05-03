@@ -18,7 +18,7 @@ Please note that AIMMS Version must be 4.45.1 or higher for WebUI Apps once you 
 DB IP Range Blocking
 --------------------
 
-This section allows you to add a list of IPs or IP Ranges which enables you to enhance the security of your AIMMS PRO Application Databses by limiting the access to only specific IP-Ranges.
+This section allows you to add a list of IPs or IP Ranges which enables you to enhance the security of your AIMMS PRO Application Databases by limiting the access to only specific IP-Ranges.
 
 .. image:: images/db-ip-range.png
     :align: center

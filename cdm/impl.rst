@@ -89,6 +89,7 @@ All shadow identifiers created by the CDM library are part of the :token:`CDMRun
 * :token:`DeltaInIdentifiers` and :token:`DeltaInRevisionIdentifiers` (:token:`cdmrt::dii::` and :token:`cdmrt::diri::` prefixes)
 * :token:`ConflictResolutionIdentifiers` (:token:`cdmrt::cri::` prefix)
 * :token:`ValueLogIdentifiers` and :token:`ValueLogDomainIdentifiers` (:token:`cdmrt::vli::` and :token:`cdmrt::vldi::` prefixes)
+* :token:`BranchComparisonIdentifiers` (:token:`cdmrt::bci::` prefix)
 
 Shadow identifier domains and ranges
 ------------------------------------
@@ -129,12 +130,19 @@ Because the domain and range sets of the delta in identifiers are always defined
 Conflict Resolution values
 --------------------------
 
-The conflict resolution identifiers are defined color parameters that are used by the `conflict resolution UI <dtd.html#merging-branches-and-resolving-conflicts>`_ to indicate particular tuples and values have conflicts in the conflict resolution page.
+The conflict resolution identifiers are defined color parameters that are used by the `conflict resolution UI <dtd.html#merging-branches-and-resolving-conflicts>`_ to indicate particular tuples and values have conflicts in the conflict resolution page. Conflict resolution identifiers and the functionality for custom conflict resolution in CDM will be only be available if the pre-defined parameter :token:`cdm::EnableCustomConflictResolution` is set to 1 (default). 
 
 Value Log identifiers
 ---------------------
 
-The value log and value log domain identifiers are used by the CDM library to hold the collection of historic values retrieved from the CDM database when calling the function :js:func:`cdm::GetValuesLog`. Compared to the actual identifiers all value log identifiers hold one extra dimension, namely the :token:`cdm::rev` index, to allow these identifiers to hold the values for several revisions, as requested in the call to :js:func:`cdm::GetValuesLog`. These identifiers are primarily intended to be used directly in the end-user UI to display the historic values of an actual value also displayed in the same end-user UI.
+The value log and value log domain identifiers are used by the CDM library to hold the collection of historic values retrieved from the CDM database when calling the function :js:func:`cdm::GetValuesLog`. Compared to the actual identifiers all value log identifiers hold one extra dimension, namely the :token:`cdm::rev` index, to allow these identifiers to hold the values for several revisions, as requested in the call to :js:func:`cdm::GetValuesLog`. These identifiers are primarily intended to be used directly in the end-user UI to display the historic values of an actual value also displayed in the same end-user UI. Value log identifiers and the functions to retrieve the value log will only be available if the pre-defined parameter :token:`cdm::EnableValuesLog` is set to 1 (default).
+
+Branch Comparison identifiers
+-----------------------------
+
+The branch comparison identifiers are used by the CDM library to hold the identifier values of multiple branches in order to be able to compare multiple scenarios stored in branches.  
+Compared to the actual identifiers all branch comparison identifiers hold one extra dimension, namely the :token:`cdm::branch` index, to allow these identifiers to hold the values for several branches.
+Through the call :js:func:`cdm::AddBranchToCompareSnapshot` the data for a new branch can be added to the branch comparison identifiers. Branch comparison identifiers and the functions to retrieve to add and delete branch data to these identifiers will only be available if the pre-defined parameter :token:`cdm::EnableBranchComparison` is set to 1 (default).
 
 Data read sequence
 ==================

@@ -1,10 +1,11 @@
 .. |cog-widget| image:: images/cog-widget.png
+.. |widget-action| image:: images/widget-actions.png
 
 
 Widget Options
 =================
 
-The ‘cog wheel’ button |cog-widget| (in the upper right corner of a widget) will open a popup window that allows you to change the options for the widget. 
+The ‘cog wheel’ button |cog-widget| (in the upper right corner of a widget) will open a pop-up window that allows you to change the options for the widget. 
 
 .. image:: images/identifier-settings-options-editor.jpg
     :align: center
@@ -17,6 +18,9 @@ This Option Editor consists of several tabs. It depends on the widget type which
 
 .. tip::
     Option changes are automatically saved to the WebUI Server.
+    
+.. important::
+	From AIMMS 4.66 onwards, the Filter tab is not present anymore in any widget. In existing projects where this functionality is still used, it is still working/supported by the WebUI. However, the preferred way of filtering is by using the newer slicing functionality on any identifier(s) displayed in your widgets. If you want to switch to using the slicing functionality instead of the old filters, you can do so by removing the old filters by either emptying the content in the 'Contents.filters.in' property on the 'Advanced' tab, or by opening the model in a previous AIMMS version to remove the filtering. After that, you should add the correct slicing to your identifier(s).
     
 Pivot
 -----
@@ -72,7 +76,7 @@ For every identifier that you have specified as part of the _Current Contents_ o
 * A procedure named :token:`UponChange_X`, which will automatically be run whenever the value of identifier :token:`X` is changed from within the WebUI. AIMMS accepts two forms of an UponChange procedure:
 
    #. a procedure without arguments. You can use this form if you are not interested in the which particular values changed, but do want to get a notification that a change took place
-   #. a procedure with two input arguments, both with the same domain as the identifer :token:`X`. The first argument should be a numeric parameter, and will hold a 1 for each tuple that was changed. The second argument should have the same type as the :token:`X` and will hold the old value for such a tuple, the changed value can be obtained via :token:`X`. 
+   #. a procedure with two input arguments, both with the same domain as the identifier :token:`X`. The first argument should be a numeric parameter, and will hold a 1 for each tuple that was changed. The second argument should have the same type as the :token:`X` and will hold the old value for such a tuple, the changed value can be obtained via :token:`X`. 
 
    .. code-block:: aimms
 
@@ -106,7 +110,7 @@ For every identifier that you have specified as part of the _Current Contents_ o
 Adding tooltips
 +++++++++++++++
 
-Almost all widgets offerred by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed. 
+Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed. 
 However, they can also be completely user-defined, giving the user maximum freedom in determining the contents to be shown. 
 In order to create your user-defined tooltips, you should add an auxiliary string parameter to your AIMMS model, called :token:`X_Tooltips`, where :token:`X` is the name of 
 an existing identifier that is displayed in the widget(s) for which you want to override the default tooltips. This auxiliary identifier must have the same index domain 
@@ -128,14 +132,14 @@ the result when hovering over the same cell as above looks like this:
 
 .. warning::
    **Security Warning:** 
-   Putting javascript code in an identifier (like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
+   Putting JavaScript code in an identifier (like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
    would allow a malicious user to do `Persistent XSS <https://en.wikipedia.org/wiki/Cross-site_scripting#Persistent_(or_stored)>`_.
    For example a malicious user could record all actions done by another user.	
 	
 HTML Tooltips
 +++++++++++++
 
-Besides the simple text-based tooltips illustrated above, one may also use HTML-based tooltips, which allow to display more sothisticated contents when hovering over the data entries in a widget.
+Besides the simple text-based tooltips illustrated above, one may also use HTML-based tooltips, which allow to display more sophisticated contents when hovering over the data entries in a widget.
 In this case the data of the string parameter :token:`X_Tooltips` (associated with an identifier :token:`X`) must be in HTML format; for more info on HTML, 
 see for example `html.com <https://html.com/>`_ or `www.w3schools.com <https://www.w3schools.com/html/>`_ .
 
@@ -217,40 +221,34 @@ In this case, the customized tooltip based on the HTML table layout (see also th
 .. image:: images/Tooltip_Ganttchart_1.png
     :align: center
 
-Filters
--------
 
-The WebUI widgets offer the possibility to specify one or more filters for their data. These filters are widgets as well. Widgets that can be used as filters for other widgets are the Multiselect widget, the Selectionbox widget, the Legend widget and the Table widget.
+If you do not want to show the default tooltips for certain identifiers or data items, you can make this possible by clearing or emptying the data for the respective identifier or data point in the _tooltips identifier.  
 
-.. image:: images/filterdialog.jpg
+For example, consider the below table. You do not want to show the tooltip with the same value as the cell value, or if the value of a cell is 0.
+
+
+.. image:: images/Tooltip_default_table.png
     :align: center
 
-In the filter dialog displayed in the image above, the widgets  that can act as a filter and which are on the same page as the current widget, are listed. You can select the ones that you want to use as a filter for the current widget, by clicking on them. Obviously, the contents of the widget used as a filter should at least contain an index which matches an index in the content of the widget to be filtered in order to yield any effect.
 
-Using a Multiselect widget as a filter
-++++++++++++++++++++++++++++++++++++++
+In the _tooltips identifier, just clear/empty the data for these specific cases that you desire to hide the tooltip for.
 
-If you use a Multiselect widget as a filter for another widget, the one-dimensional binary parameter that serves as the content of the Multiselect widget will be used as a filter for your widget. For example, if your widget is displaying data over an index :token:`i`, and the Multiselect widget contains a one-dimensional binary parameter over this index :token:`i`, your widget will only display data for the index values of :token:`i` that are selected in the Multiselect widget. This way, you can for example restrict the number of bars in a bar chart, or the number of bubbles in a bubble chart, the number of rows in a table widget, ...
 
-Using a Selectionbox widget as a filter
-+++++++++++++++++++++++++++++++++++++++
+.. image:: images/Tooltip_Hidedefault_table.png
+    :align: center
 
-The Selectionbox widget used as a filter acts about the same as using a Multiselect widget. The one-dimensional parameter which serves as the content of the Selectionbox, will filter the data in your widget just as in the Multiselect case. In this case, though, your widget will only display data for the one value that you select using the selectionbox.
 
-Using a Legend widget as a filter
-+++++++++++++++++++++++++++++++++
+.. image:: images/Tooltip_hidden_table.png
+    :align: center
 
-Using a Legend widget as a filter is similar to using a Selectionbox widget. It also restricts the filtered widget to display data for exactly one value that you select in the Legend widget.
 
-Using a Table widget as a filter
-++++++++++++++++++++++++++++++++
+.. image:: images/Tooltip_customvalue_table.png
+    :align: center
 
-The Table widget is a slightly more complicated widget type to use as a filter. It restricts the filtered widget to only display data for which the corresponding identifier(s) in the Table widget show(s) data. This means that, in case you display sparse data in your Table widget, those columns and/or rows which only contain default values in the Table (and are thus not displayed), are also filtered out in the filtered widget. So, suppose you show a bar chart with data for certain aircraft types, which is filtered by a table that only contains default values for a certain aircraft type, the bar for this particular type will also not display in the filtered widget.
 
-Combining filters
-+++++++++++++++++
+.. note::
+    The feature to hide tooltips is available only in AIMMS releases from 4.65 onwards. 
 
-It is possible to combine filters as well. You can just select more than one filter for your widget. Of course, it depends on your specific widgets what effect this has on the filtered widget. 
 
 Totals
 ------
@@ -300,7 +298,7 @@ Examples
 
 To illustrate the above, here are some examples that show the difference between all usages of the display domain, applied to the same table. This table contains two columns and a number of rows containing checkboxes.
 
-First, here's the table, with the display domain not specified at all (i.e. the default behaviour) *and* the table containing only 0 values:
+First, here's the table, with the display domain not specified at all (i.e. the default behavior) *and* the table containing only 0 values:
 
 .. image:: images/tableonlyzeroesnodd.jpg
     :align: center
@@ -390,7 +388,7 @@ To easily clear the slicing of an identifier for all its indices, you can press 
 
 .. tip:: 
 
-    Whenever you slice one dimension (index) of an n-dimensional identifier to a *fixed element* or *element parameter*, its dimension will become n-1. This is good to realise, as some widgets require identifiers of a certain dimension. E.g: In the map widget, the arcs identifier needs to be two-dimensional over the set *nodes x nodes*. Whenever you slice one dimension to a fixed element (or element parameter), you effectively loose a dimension and it becomes impossible for the map widget to map data to arcs. As a work around you can consider to create a set containing a single element and use subset slicing here: whenever you do subset slicing, the dimension of the data that is displayed, is not reduced. 
+    Whenever you slice one dimension (index) of an n-dimensional identifier to a *fixed element* or *element parameter*, its dimension will become n-1. This is good to realize, as some widgets require identifiers of a certain dimension. E.g: In the map widget, the arcs identifier needs to be two-dimensional over the set *nodes x nodes*. Whenever you slice one dimension to a fixed element (or element parameter), you effectively loose a dimension and it becomes impossible for the map widget to map data to arcs. As a work around you can consider to create a set containing a single element and use subset slicing here: whenever you do subset slicing, the dimension of the data that is displayed, is not reduced. 
 	
 
 Please mind when slicing over a subset in a table, other identifiers defined over the corresponding superset are considered as defined over a different set. Thus you might end up with the following unexpected behavior: 
@@ -427,9 +425,9 @@ Expanding indexes
 .. note::
     The feature described in this section (and in the Example underneath) is available only in AIMMS releases from 4.62 onwards. 
 
-In some situations, some identifiers may be declared in the model over some super-sets and other indentifiers may be declared over some sub-sets of those super-sets. However, it may be beneficial to show all the data
+In some situations, some identifiers may be declared in the model over some super-sets and other identifiers may be declared over some sub-sets of those super-sets. However, it may be beneficial to show all the data
 of several such categories of identifiers in the same widget, for example in a table widget. If all indexes involved are used as separate indexes in a widget, then they are treated as "independent" 
-in the Pivot-ing section and the resulting layout of the data in the widget may not be an "intuitive" one. 
+in the Pivoting section and the resulting layout of the data in the widget may not be an "intuitive" one. 
 
 For example, in the Transnet application (see the "Quick Start: My First WebUI" section) the parameters Latitude(l) and Supply(f) are declared over the super-index l of the set Locations 
 and over the index f of the sub-set Factories, respectively. If the data of both parameters is shown in a table widget with their indexes as declared originally in the model, then the table 
@@ -442,11 +440,11 @@ However, such a layout may not look "intuitive", because the set of Factories ma
 
 In such situations, it is possible to expand an index to a super-index, that is, to an index in a super-set of the initial index set. Such expanding may be achieved through the same options 
 in the widget editor which are used for slicing, as explained above. However, in this case an identifier may be rendered over a larger domain than its declared domain and some "values" 
-may be just empty, i.e. flagged as "outside-domain". When an index has been expanded to a super-index, it will no longer be treated as a separate index in the Pivot-ing section, but rather 
+may be just empty, i.e. flagged as "outside-domain". When an index has been expanded to a super-index, it will no longer be treated as a separate index in the Pivoting section, but rather 
 as "contained" by its super-index. Please note that, like slicing, the index expanding is also applied per each identifier specified in the widget Contents.
 
 For example, in the Transnet application, the index f of parameter Supply may be expanded to the super-index l corresponding to the super-set Locations. In this case, the index f no longer appears
-in the Pivot-ing section and the resulting layout of the data in the widget looks more intutitive as illustrated below:
+in the Pivoting section and the resulting layout of the data in the widget looks more intuitive as illustrated below:
  
 .. image:: images/CubeDomain_Table2_View2.png
     :align: center
@@ -471,7 +469,7 @@ In this case, the layout of the data in the table widget looks like in the follo
 .. image:: images/CubeDomain_Table3_View1.png
     :align: center
 
-So, in this table all the data of the above mentioned identifiers is shown together, while the Pivot-ing section of the table only consider 2 indexes instead of the 5 original indexes used in the
+So, in this table all the data of the above mentioned identifiers is shown together, while the Pivoting section of the table only consider 2 indexes instead of the 5 original indexes used in the
 model declarations. All the cells which show no value are simply empty ("outside-domain") and not editable in the table.
 
 	
@@ -482,7 +480,7 @@ Hiding Widgets
 
 There are situations where you may want to hide certain widgets for certain users. Especially if many 'roles' can be identified among the users of your applications, this may apply: for some users, data displayed in a particular widget is of no interest, while for others it is.
 
-To help you in situations like this, every widget has an option called *Visible*, located on the *Miscellaneous* tab in its option editor. Setting this option to False (or 0) has the effect that the widget is not visible anymore. In order not to lose track of these widgets while developing your WebUI, there is an 'eye' icon |eye-blue| in the top bar, with which you can still show the hidden widgets. These are displayed in grey, in order to distinguish them easily from the visible widgets. This icon is not visible when running your WebUI app in a PRO environment (i.e. in the end-user scenario), or when you have no widgets that have the Visible option set.
+To help you in situations like this, every widget has an option called *Visible*, located on the *Miscellaneous* tab in its option editor. Setting this option to False (or 0) has the effect that the widget is not visible anymore. In order not to lose track of these widgets while developing your WebUI, there is an 'eye' icon |eye-blue| in the top bar, with which you can still show the hidden widgets. These are displayed in gray, in order to distinguish them easily from the visible widgets. This icon is not visible when running your WebUI app in a PRO environment (i.e. in the end-user scenario), or when you have no widgets that have the Visible option set.
 
 It is not only possible to just specify literal values like True/1 or False/0 for the 'Visible' option: you can use any scalar AIMMS parameter that you like. This is especially powerful, since it allows you to steer the visibility of each and every widget using whichever logic you want. As an illustration, you could create an AIMMS parameter like:
 
@@ -513,4 +511,91 @@ You can change the number of decimals for a widget:
 
 The number of decimals displayed has a limit, the **default** is 2 decimals.
 
+
+Widget Actions
+--------------
+
+.. important:: Widget Actions are available in software versions from AIMMS 4.66 onwards.
+
+Widget Actions are a set of actions/procedures that can be defined via the model and configured for individual widgets. These widget actions are grouped under the |widget-action| icon in the widget header. The widget action displays up to 10 actions. In case you configure more than 10, only the top 10 active and/or inactive actions will be displayed.
+
+The widget actions can be associated with any procedure in your model. For example: Resetting data, Saving data, etc.
+
+.. image:: images/WidgetAction_Example.png
+            :align: center
+
+Configuring Widget Actions
+++++++++++++++++++++++++++
+
+Widget Actions can be configured by the application developer via the AIMMS model. First you should create a set for the order of widget actions to be displayed on the widget action menu when it is opened on the respective widget.
+
+For illustration, let’s call this set “WidgetOrder” with index WOrder (as a developer, you can give this set a name and an index of your choice).
+
+.. image:: images/WidgetAction_OrderSet.png
+			:align: center
+
+This set determines the order in which the widget actions will appear from top to bottom, in the widget action menu. This set must be a subset of the pre-declared set of Integers. 
+
+The set WidgetActionSpecification declared inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section is used for configuring the widget actions, as illustrated here in the next steps. 
+
+.. image:: images/WidgetActionSpecification.png
+			:align: center
+
+This set has 4 elements representing widget action properties: 
+
+#. *displaytext*: Is the text/label you would like to give the action.  
+#. *icon*: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the :download:`icon list. <resources/AIMMS-Icon-List.pdf>`			
+#. *procedure*: The procedure you want to call when the respective action is clicked.  
+#. *state*: This is the state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
+
+.. tip:: If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append 'aimms-" to the selected icon name when adding it to the model. eg: The icon name is calculator. In AIMMS it needs to be aimms-calculator.
+
+To configure widget actions, create a string parameter indexed on WidgetOrder and WidgetActionSpecification, for example MyWidgetActions(WOrder,webui::indexWidgetActionSpec) as shown here:
+
+.. image:: images/WidgetActions_MyWidgetActions.png
+			:align: center
+
+Right click the string parameter and click on the Data option to open the data page:
+
+.. image:: images/WidgetActions_MyWidgetActionsdata.png
+			:align: center
+
+Add the details for the widget actions you would like to show for the widget. For example, 
+
+.. image:: images/WidgetActions_MyWidgetActionsdata_added.png
+			:align: center
+
+To activate the widget actions on a widget, go to the respective widget's settings by clicking on the |cog-widget| in the widget header. Click on the Widget Actions tab. Add the string parameter in the Widget Actions field using the identifier selector.
+
+.. image:: images/WidgetAction_StringParameter.png
+			:align: center 
+			:scale: 75
+
+You will notice the |widget-action| icon on the widget and when you click it you will see the configured widget actions.
+
+.. image:: images/WidgetActions_IcononWidget.png
+			:align: center 
+			:scale: 75
+
+
+Interacting with Widget Actions
++++++++++++++++++++++++++++++++
+
+The widget action menu can be opened and closed by clicking on the |widget-action| icon on the widget header. When the menu is open and you click anywhere outside the menu or on any other widget, the menu will close.
+
+To select any of the widget actions, just click on the respective action. You will not be able to click an inactive action; the cursor will also indicates this.
+
+Please notice the different combinations in the widget action menu.
+
+.. image:: images/WidgetAction_ActionStates.png
+			:align: center 
+			:scale: 75
+
+If a procedure is not defined for a certain action, clicking on the action will result in a "No action specified" error.
+
+In case you have a long displaytext for an action, the widget action menu will stretch to a width of 2 columns and ellipsis the text that does not fit. Hovering over the action will show the complete text in the tooltip.
+
+.. image:: images/WidgetAction_LongDisplayText.png
+			:align: center 
+			:scale: 75
 

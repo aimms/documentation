@@ -5,7 +5,7 @@ The AIMMS PRO framework also allows setting up a link to an Active Directory dom
 
 * Your IT department needs to *set up a service account*, with rights to delegate to any service using Kerberos.
 * You need to specify the credentials of this service account in the `AD settings <admin-config.html#ad-settings>`_ section under the Configuration Menu of AIMMS PRO Portal.
-* You need to* associate the Service Principal Name* of your PRO server with this service account through the *setspn* command.
+* You need to *associate the Service Principal Name* of your PRO server with this service account through the *setspn* command.
 * The users' browsers need to be properly configured.
  
 
@@ -25,16 +25,18 @@ Set Active directory settings under Configuration menu of PRO Portal
 Associate the Service Principal Name
 ++++++++++++++++++++++++++++++++++++
 
-To determine the Service Principal Name (SPN) for your PRO server, you must know the DNS name by which PRO clients will reach the PRO server. This is the host name you specified in the **Web URI** field in the PRO Configurator for this node. Assuming this DNS name is *pro.myhost.com*, the Service Principal Name you need to associate with the service account will be
-<p style="text-align: left">*HTTP/pro.myhost.com*</p>
+To determine the Service Principal Name (SPN) for your PRO server, you must know the DNS name by which PRO clients will reach the PRO server. This is the host name you specified in the **Web URI** field in the PRO Configurator for this node. Assuming this DNS name is *pro.myhost.com*, the Service Principal Name you need to associate with the service account will be *HTTP/pro.myhost.com*
+(please note the capitals used). 
 
-(please note the capitals used). If the service account username is *ADUser* within the AD domain *ADDomain*, you can associate the SPN with it through the command
+If the service account username is *ADUser* within the AD domain *ADDomain*, you can associate the SPN with it through the following command:
 
 .. code::
 
     setspn -a HTTP/pro.myhost.com ADUser
     
-If needed, you can associate multiple SPNs with a single service account. **Important notice:** do not run this command for PRO server instances that ARE in the AD domain. Running the command will result in breaking AD functionality (and this can be fixed by invoking setspn -d ...).
+If needed, you can associate multiple SPNs with a single service account. 
+
+.. warning:: Do not run this command for PRO server instances that ARE in the AD domain. Running the command will result in breaking AD functionality (and this can be fixed by invoking ``setspn -d ...`` ).
 
 You can check which SPNs are associated with the account by entering
 
@@ -46,7 +48,7 @@ After you have added the association, it may take some time before these changes
 
 After you have prepared the service account as above, you can associate a PRO environment with *ADDomain* by clicking the link icon on the right side of the environment box. Because your PRO server is now not a member of an AD domain, the domain field will show *noDomain*. You should replace it by *ADDomain*.
 
-**Please see the section Group SIDs (for a Server not in the AD Domain)** below in order to understand how to create user groups for a Server not in the AD Domain.
+**Please see the section** `Group SIDs`_ **(for a Server not in the AD Domain)** below in order to understand how to create user groups for a Server not in the AD Domain.
 
 Useful diagram explaining which AD setup you should choose. 
 
@@ -59,7 +61,7 @@ Browser configuration
 Below, you can find the configuration that needs to be done to the browsers of the AIMMS PRO users. You will need to go through these steps for HTTP as well as for HTTPS.
 
 * IE: Add example.com to the "Local intranet" zone. For this, click the Settings Gear in IE->Internet Options->Security->Local intranet->Sites->Advanced. Then add the url of the AIMMS PRO Portal (example: "http://example.com").
-* Google-chrome uses the IE configuration steps above.
+* Google Chrome uses the IE configuration steps above.
 * Firefox: go to about:config, "say you'll be careful", change the value for 'network.negotiate-auth.trusted-uris' into 'https://,http://example.com' and the value for 'network.negotiate-auth.delegation-uris' into 'http://example.com'
 
 
@@ -90,7 +92,7 @@ When the PRO server is not a member server of your AD domain, it will not be abl
 
 .. tip::
 
-    To obtain the AD group SID, use the command psgetsid from the `Sysinternals suite <https://technet.microsoft.com/en-us/sysinternals/bb545021.aspx>`_.
+    To obtain the AD group SID, use the command ``psgetsid`` from the `Sysinternals suite <https://technet.microsoft.com/en-us/sysinternals/bb545021.aspx>`_.
 
 On-demand User Information Retrieval
 ++++++++++++++++++++++++++++++++++++

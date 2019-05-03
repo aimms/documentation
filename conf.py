@@ -18,6 +18,8 @@
 #
 import os
 import sys
+from sphinx.util import logging
+	
 # sys.path.insert(0, os.path.abspath('.'))
 
 # -- General configuration ------------------------------------------------
@@ -33,8 +35,9 @@ extensions = ['sphinx.ext.doctest',
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
-    'cloud_sptheme.ext.table_styling']
-
+	'sphinx.builders.linkcheck']
+		
+	
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -91,51 +94,50 @@ html_theme = 'sphinx_rtd_theme'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    # "show_related" : "False",
-    # "fixed_sidebar" : "True",
-    # "sidebar_link": "Black",
-    # "sidebar_text": "#000081",
-	# "sidebar_list": "blue",
-    # "sidebar_width": "300px",
-    # ## Page
-    # "page_width" : "1400px",
-    # "logo" : "aimms-logo-s-rgb.png",
-    # "touch_icon" : "favicon.png",
-    # "logo_name" : "How to ...",
-    # #"logo_text_align" : "center",
-    # "description" : "How-To: A Practical User Guide",
-    # "description_font_style" : "oblique",
-    # "font_family" : "'Arial', serif;",
-    # "head_font_family": "'Arial', serif;",
-    # "font_size": "14px",
-    # "show_powered_by" : "false",
-	# "note_bg" : "#fce7a4",
-	# "note_border" : "grey"
-
-	'canonical_url': '',
-    'analytics_id': '',
-
+    'canonical_url': '',
+    # 'analytics_id': 'UA-XXXXXXX-1',  #  Provided by Google in your dashboard
     'logo_only': True,
-	#'logo': "aimms-logo-s-rgb.png",
     'display_version': False,
     'prev_next_buttons_location': 'bottom',
-    #'style_external_links': False,
-    #'vcs_pageview_mode': '',
+    'style_external_links': False,
+    # 'vcs_pageview_mode': '',
     # Toc options
     'collapse_navigation': False,
     'sticky_navigation': True,
     'navigation_depth': 4,
-    #'includehidden': True,
-    #'titles_only': False
+ #   'includehidden': True,
+ #   'titles_only': False
 
 }
+
+rst_epilog = """
+.. |date| date:: %B, %Y
+
+.. |time| date:: %H:%M
+
+Last Updated: |date|
+"""
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# if builds on GitLab (a Linux machine), force "Edit on Gitlab" not to be shown :)
+if os.name != 'nt':
+    Display_edit_on_gitlab = False
+else:   
+    Display_edit_on_gitlab = True
+
+    
 html_context = {
-    'css_files': ['_static/Hacks.css'],
+    'css_files': ['_static/Hacks.css','_static/theme.css', '_static/copycode.css'],
+    "display_gitlab": Display_edit_on_gitlab, # Integrate Gitlab
+    "gitlab_user": "aimms", # Username
+    "gitlab_repo": "documentation", # Repo name
+    "gitlab_version": "master", # Version
+    "conf_py_path": "", # Path in the checkout to the docs root
+    "suffix": ".rst",
 }
 
 # Custom sidebar templates, must be a dictionary that maps document names
@@ -154,13 +156,16 @@ html_sidebars = {
     ]
 }
 html_favicon = "_static/favicon.png"
-rst_prolog = "\n.. include:: /special.rst\n"
+
+rst_prolog = """
+:tocdepth: 2
+"""
 
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'AIMMSdoc'
-
+html_show_sourcelink = False
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -212,13 +217,21 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
+
 # -- Import the AIMMSLexer into local Pygments module (syntax highlighting). The styling is made with Hacks.css in the _static folder ----------------------------
 def setup(sphinx):
 	
+	# Import the AIMMSLexer into local Pygments module (syntax highlighting). The styling is made with Hacks.css in the _static folder
     sys.path.insert(0, os.path.abspath("./_static/AIMMSLexer/Lexer"))
     from aimms import AIMMSLexer
     from pygments.formatters import HtmlFormatter
     sphinx.add_lexer("aimms", AIMMSLexer())
+
+    # for copy code snippet, css file also referred to in html_context
+    sphinx.add_stylesheet('copycode.css')
+    sphinx.add_javascript('copycode.js')
+    sphinx.add_javascript("https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js")
+	
     
 highlight_language = 'aimms'
 

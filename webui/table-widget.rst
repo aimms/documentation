@@ -3,7 +3,7 @@ Table Widget
 
 .. |sort| image:: images/sort.png
 
-The Table widget allows you to vizualize and/or edit the data of one or more AIMMS identifiers represented in a tabular format:
+The Table widget allows you to visualize and/or edit the data of one or more AIMMS identifiers represented in a tabular format:
 
   .. image:: images/Table-View1.png 
         :align: center 
@@ -47,7 +47,7 @@ The table widget offers the user possibilities for various actions such as:
   
   * You can use the space bar to toggle binary values displayed as checkboxes that have the focus.
   
-  * You can use either ENTER or ALT+ARROW DOWN to open the dropdown list in focus, in order to change its value.
+  * You can use either ENTER or ALT+ARROW DOWN to open the drop-down list in focus, in order to change its value.
 
 Download Table Data
 +++++++++++++++++++
@@ -61,7 +61,7 @@ When you click it, the contents of the table, exactly as you configured it (in t
 
 If your table contains numerical data, the numbers will be written to the .csv file in their maximum precision. So, if you display only 2 decimals in the table, but the underlying number is for example 1.2345, the full precision is written to the file. This allows you to do calculations in Excel with the resulting file, without running into rounding errors. Furthermore, the value 'na' from AIMMS is written as the value '#N/A', which is used in Excel, in order to maximize the compatibility.
 
-Please note that the .csv file is constructed within your browser environment before downloading. This means that the performance might vary over the devices that you are using. You will get a warning if your download will be too big to handle for the WebUI: this is when the total number of cells involved exceeds 500.000. We have successfully tested up to the scenario of 5000 x 100 rows/columns, using the Chrome browser on a Windows desktop machine. When you go over this limit of 500.000 cells, the WebUI will download the CSV file, containing more or less these 500.000 values. Any additional data will not be included in the CSV file (the WebUI will display a "Data truncated" warning if this happens). Furthermore, there is a limit on the number of *rows* that can be downloaded: this is currently 50.000 rows (i.e. even when having just 1 column!).
+Please note that the .csv file is constructed within your browser environment before downloading. This means that the performance might vary over the devices that you are using. You will get a warning if your download will be too big to handle for the WebUI: this is when the total number of cells involved exceeds 500,000. We have successfully tested up to the scenario of 5,000 x 100 rows/columns, using the Chrome browser on a Windows desktop machine. When you go over this limit of 500,000 cells, the WebUI will download the CSV file, containing more or less these 500,000 values. Any additional data will not be included in the CSV file (the WebUI will display a "Data truncated" warning if this happens). Furthermore, there is a limit on the number of *rows* that can be downloaded: this is currently 50,000 rows (i.e. even when having just 1 column!).
  
 Creating Read-Only Cells
 ++++++++++++++++++++++++
@@ -86,5 +86,5 @@ In case you want to change a cell to become editable again, you have to assign t
 By using the CurrentInputs set
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Another way to influence the modifiability of cells, is to use the :token:`CurrentInputs` set of AIMMS. This set is a predeclared subset of :token:`AllIdentifiers`. The identifiers referenced in it are modifiable sets and parameters in both the WinUI and the WebUI. Consider a parameter :token:`P`. Without further specfication, this parameter is a parameter that can be modified both in the WinUI and in the WebUI. By removing this element :token:`'P'` from :token:`CurrentInputs`, the parameter :token:`P` will no longer be modifiable in either the WinUI or the WebUI.
+Another way to influence the modifiability of cells, is to use the :token:`CurrentInputs` set of AIMMS. This set is a predeclared subset of :token:`AllIdentifiers`. The identifiers referenced in it are modifiable sets and parameters in both the WinUI and the WebUI. Consider a parameter :token:`P`. Without further specification, this parameter is a parameter that can be modified both in the WinUI and in the WebUI. By removing this element :token:`'P'` from :token:`CurrentInputs`, the parameter :token:`P` will no longer be modifiable in either the WinUI or the WebUI.
 

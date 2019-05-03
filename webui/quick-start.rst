@@ -68,7 +68,7 @@ Subsequently, the following model declarations concern the input data for the mo
         }
     } 
 
-In the use case at hand, there are 3 factories (Hamburg, London, and Zurich) and 10 distribution centers (Amsterdam, Copenhagen, Dresden, Edinburgh, Frankfurt, Liege, Marseille, Nantes, Paris, and Vienna). The input data may be initialized upon the application start-up by using some simple procedures. The *Latitude* and *Longitude* parameters, as well as the *IsFactory* binary indicator parameter may be initialized in a procedure by using eg, a composite table (or, alternatively, by reading in their values from an external source):
+In the use case at hand, there are 3 factories (Hamburg, London, and Zurich) and 10 distribution centers (Amsterdam, Copenhagen, Dresden, Edinburgh, Frankfurt, Liege, Marseille, Nantes, Paris, and Vienna). The input data may be initialized upon the application start-up by using some simple procedures. The *Latitude* and *Longitude* parameters, as well as the *IsFactory* binary indicator parameter may be initialized in a procedure by using e.g., a composite table (or, alternatively, by reading in their values from an external source):
 
 .. code::
 
@@ -93,7 +93,7 @@ In the use case at hand, there are 3 factories (Hamburg, London, and Zurich) and
         }
     }
 
-The *Supply* and *Demand* parameters may be initialized eg, by using some random draws from uniform distributions, while the parameter *UnitCost* may be initialized eg, based on the (straight) distance between two locations (see further below).
+The *Supply* and *Demand* parameters may be initialized e.g., by using some random draws from uniform distributions, while the parameter *UnitCost* may be initialized e.g., based on the (straight) distance between two locations (see further below).
 
 Creating an empty WebUI
 -----------------------
@@ -431,7 +431,7 @@ Of course, one may experiment with several scenarios by altering (also simultane
 Modifying widget types
 ----------------------
 
-Now let's say we push again the data initialization button followed by the optimization button, such that we move back to the initial situation. However, one would like to visualize the inputs and outputs in a more graphical way. Some widgets allow to change type and show the data differently without defining a new widget for that. For example, in the Settings window of the table widgets for Supply or Demand, in the Change Type section the type may be changed, eg, to "bar chart", while for Transport to, eg, "pie chart", as shown below:
+Now let's say we push again the data initialization button followed by the optimization button, such that we move back to the initial situation. However, one would like to visualize the inputs and outputs in a more graphical way. Some widgets allow to change type and show the data differently without defining a new widget for that. For example, in the Settings window of the table widgets for Supply or Demand, in the Change Type section the type may be changed, e.g., to "bar chart", while for Transport to, e.g., "pie chart", as shown below:
 
 .. image:: images/transnet-joint-7.png
     :align: center

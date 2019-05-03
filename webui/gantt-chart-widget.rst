@@ -14,7 +14,7 @@ Features
 
 In the example Gantt chart displayed in the picture above, a number of features of this widget are visible:
 
-* The rows of the chart are alternately colored white and light grey, to make it easier for the user to distinguish between consecutive rows.
+* The rows of the chart are alternately colored white and light gray, to make it easier for the user to distinguish between consecutive rows.
 * Overlapping or partly overlapping bars in the chart are always displayed in such a way that it is unambiguously clear that they do.
 * The default or `custom <widget-manager.html#adding-tooltips>`_ tooltip appearing when you hover over a specific bar shows detailed information about the task.
 * The ability to add `additional text <widget-options.html#additional-identifier-properties>`_ in the bars to provide additional clarity about the task. Please note that the text will be clipped when it is too large for the task at hand. 

@@ -8,6 +8,8 @@ If you specify the literal name of the image file, make sure **not** to use quot
 The images themselves should be stored in the *resources*/*images* `sub-folder <folder.html#resouces#images>`_. 
 This folder is not created by default, so you need to create it yourself the very first time that you need it.
 
+Please keep in mind that on Linux the casing of the image files should be correct, otherwise your images will not display. Also, keep in mind that you need to specify the full name of the image, including the filename extension (like .jpg, ...). When you have set your Windows explorer to not show file extensions, this could easily lead to the latter situation.
+
 .. image:: images/Image-View.png
     :align: center
     
