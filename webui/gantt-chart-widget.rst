@@ -177,7 +177,7 @@ Please note that the AIMMS function :token:`StringToMoment` is used to convert a
 Minimum and Maximum Resource Height
 +++++++++++++++++++++++++++++++++++
 
-Starting from AIMMS 4.67 onwards, the resource height of the Gantt chart can be set with the Minimum and Maximum Resource Height options which makes it easier in viewing or interacting with the batches. By default, the Gantt chart calculates a height for the resources and fits them in the set height of the chart. The default behaviour either condenses the resources and makes it difficult to read or interact with, when the number of resources is high, or uses the area to spread out the resources when they are few.
+Starting from AIMMS 4.67 onwards, the resource height of the Gantt chart can be set with the Minimum and Maximum Resource Height options which makes it easier in viewing or interacting with the batches. By default, the Gantt chart calculates a height for the resources and fits them in the set height of the chart. The default behaviour either condenses the resources and makes it difficult to read or interact with when the number of resources is high or uses the area to spread out the resources when they are few.
 
 Minimum Resource Height
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -186,16 +186,16 @@ When the number of resources is high, the Gantt chart condenses all the resource
 .. image:: images/Ganttchart_highresource.png
     :align: center
 
-In this case when you assign a value to the Minimum Resource Height the chart adjusts the resource height to the set value. When the number of resources exceed the height of the Gantt chart a vertical scroll appears and the user can scroll to see the resources below.
+In this case, when you assign a value to the Minimum Resource Height the chart adjusts the resource height to the set value. When the number of resources exceeds the height of the Gantt chart a vertical scroll appears and the user can scroll to see the resources below.
 
 .. image:: images/Ganttchart_minheightpng.png
     :align: center
 
-If you define a value that is lesser than the default value of a resource there wont be any change in the resource height. Only when the Minimum Resource Height is greater than the default height the resource height changes.
+If you define a value that is lesser than the default value of a resource there won't be any change in the resource height. Only when the Minimum Resource Height is greater than the default height the resource height changes.
 
 Maximum Resource Height
 ^^^^^^^^^^^^^^^^^^^^^^^
-When the number of resources are few, the Gantt chart spreads the resources to fit the height of the chart. This makes the resource heights quite large.
+When the number of resources is few, the Gantt chart spreads the resources to fit the height of the chart. This makes the resource heights quite large.
 
 .. image:: images/Ganttchart_lowresource.png
     :align: center
@@ -205,9 +205,9 @@ Assigning a value to the Maximum Resource Height will condense the resources to 
 .. image:: images/Ganttchart_maxheightpng.png
     :align: center
 
-If you define a value that is greater than the default value of a resource there wont be any change in the resource height. Only when the Maximum Resource Height is lesser than the default height the resource height changes.
+If you define a value that is greater than the default value of a resource there won't be any change in the resource height. Only when the Maximum Resource Height is lesser than the default height the resource height changes.
 
-In the case when both Minimum and Maximum Resource Height are defined, the resource height is calculated as **Maximum(Minimum Resource Height, Minimum(Maximum Resource Height,Default Height))**:
+In the case when both Minimum and Maximum Resource Height are defined, the resource height is calculated as **Maximum(Minimum Resource Height, Minimum(Maximum Resource Height, Default Height))**:
 
 To understand all scenarios please refer to the table below:  
 
