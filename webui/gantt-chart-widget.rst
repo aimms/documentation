@@ -78,6 +78,8 @@ This paragraph gives you an overview of all the specific Gantt Chart options, wh
 * *Time resolution in (decimal) hours* (required): With this option you can determine precisely at which position or size the dragging or resizing of a bar will end. If you set this to, for example, 1, you can drag and resize in whole hours. So, a drag action to the left will place the bar at the nearest whole hour preceding the current position of the bar. And a resize action makes sure that the duration will be set in whole hours. You are not limited to multiples of whole hours here, though. When specifying 0.25, you set the resolution to quarters of an hour, for example.
 * *Viewport start time* (optional): With this option you can specify what time the leftmost part of the Gantt Chart displays. In combination with the *Viewport End Time* option, you can specify a 'time window' over your displayed data.
 * *Viewport end time* (optional): With this option you can specify what time the rightmost part of the Gantt Chart displays. In combination with the *Viewport Start Time* option, you can specify a 'time window' over your displayed data.
+* *Minimum Resource Height* (optional): With this option you can specify the minimum height of a resource. If your resources are condensed and not readable, when the Minimum Resource Height is specified, the resources resize to the specified value. If the resources exceed the height of the chart a vertical scroll appears. 
+* *Maximum Resource Height* (optional): With this option you can specify the maximum height of a resource. If your resources are limited the height of the resource is spread over the height of the Gantt chart. When the Maximum Resource Height is specified, the resources resize to the specified value.
 
 
 Pivoting
@@ -171,6 +173,64 @@ By using AIMMS string parameters to specify the *viewport start time* and *viewp
     }
 
 Please note that the AIMMS function :token:`StringToMoment` is used to convert a date string into a number. The number is then used to easily perform date calculations. After that, the number is converted back to a date string using the AIMMS function :token:`MomentToString`.
+
+Minimum and Maximum Resource Height
++++++++++++++++++++++++++++++++++++
+
+Starting from AIMMS 4.67 onwards, the resource height of the Gantt chart can be set with the Minimum and Maximum Resource Height options which makes it easier in viewing or interacting with the batches. By default, the Gantt chart calculates a height for the resources and fits them in the set height of the chart. The default behaviour either condenses the resources and makes it difficult to read or interact with, when the number of resources is high, or uses the area to spread out the resources when they are few.
+
+Minimum Resource Height
+^^^^^^^^^^^^^^^^^^^^^^^
+When the number of resources is high, the Gantt chart condenses all the resources to fit in the height of the chart.
+
+.. image:: images/Ganttchart_highresource.png
+    :align: center
+
+In this case when you assign a value to the Minimum Resource Height the chart adjusts the resource height to the set value. When the number of resources exceed the height of the Gantt chart a vertical scroll appears and the user can scroll to see the resources below.
+
+.. image:: images/Ganttchart_minheightpng.png
+    :align: center
+
+If you define a value that is lesser than the default value of a resource there wont be any change in the resource height. Only when the Minimum Resource Height is greater than the default height the resource height changes.
+
+Maximum Resource Height
+^^^^^^^^^^^^^^^^^^^^^^^
+When the number of resources are few, the Gantt chart spreads the resources to fit the height of the chart. This makes the resource heights quite large.
+
+.. image:: images/Ganttchart_lowresource.png
+    :align: center
+
+Assigning a value to the Maximum Resource Height will condense the resources to the set value.
+
+.. image:: images/Ganttchart_maxheightpng.png
+    :align: center
+
+If you define a value that is greater than the default value of a resource there wont be any change in the resource height. Only when the Maximum Resource Height is lesser than the default height the resource height changes.
+
+In the case when both Minimum and Maximum Resource Height are defined, the resource height is calculated as **Maximum(Minimum Resource Height, Minimum(Maximum Resource Height,Default Height))**:
+
+To understand all scenarios please refer to the table below:  
+
++----------------+-------------------------+--------------------------+------------------+
+| Default Height | Minimum Resource Height | Maximum Resource Height  | Resulting Height |  
++================+=========================+==========================+==================+
+|       10       |            5            |        Not defined       |        10        |
++----------------+-------------------------+--------------------------+------------------+
+|       10       |           15            |        Not defined       |        15        | 
++----------------+-------------------------+--------------------------+------------------+
+|       10       |        Not defined      |            5             |        5         | 
++----------------+-------------------------+--------------------------+------------------+
+|       10       |        Not defined      |            15            |        10        | 
++----------------+-------------------------+--------------------------+------------------+
+|       10       |           15            |            5             |        5         | 
++----------------+-------------------------+--------------------------+------------------+
+|       10       |            5            |            15            |        10        | 
++----------------+-------------------------+--------------------------+------------------+
+|       10       |            5            |            5             |        5         | 
++----------------+-------------------------+--------------------------+------------------+
+|       10       |            15           |            15            |        15        | 
++----------------+-------------------------+--------------------------+------------------+
+
 
 Retrieving the selected task
 ++++++++++++++++++++++++++++
