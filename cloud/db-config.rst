@@ -14,7 +14,7 @@ We would like to offer a secure environment to give you access to your applicati
 If you however need direct access to the application database, we offer two possibilities:
 
  * use the database tunnel application, or
- * setup a VPN connection.
+ * setup a VPN(Virtual Private Network) connection.
 
 When you need occasional access to the database (e.g. to inspect some tables, alter the schema, add users, etc.) just using the database tunnel application would probably be sufficient. However if you need more permanent access, e.g. when you regularly synchronize between an on-premise resource and the application database, we recommend setting up the VPN connection.
 
