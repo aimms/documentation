@@ -7,7 +7,7 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
-1.10.0.2
+1.10.0.3
     - Improve performance by not unnecessarily pulling category data upon new commit notifications when categories were already at the latest revision.
 
 1.9.0.12
