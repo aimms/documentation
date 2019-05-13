@@ -22,7 +22,7 @@ New Features and Bug Fixes
     - MSOBDCSQL13 driver for SQLServer did not accept automatic conversion from integer to string in cdm::NextUniqueInteger implementation.
 
 1.9.0.6
-    - Added DLL that was prevented CDM running from Windows PRO client
+    - Added DLL that was preventing CDM from being run from Windows PRO client
 
 1.9.0.4
     - :token:`cdm::Branches` set elements were determined wrt to incorrect set in :token:`cdm::AddBranchToCompareSnapshots`.
