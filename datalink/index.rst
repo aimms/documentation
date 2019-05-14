@@ -10,4 +10,5 @@ DataLink needs a second library, a so called provider, that is specific for the 
    config
    providers
    examples
+   release
 
