@@ -8,7 +8,7 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
-1.10.0.4 [14-05-2019]
+1.10.0.6 [14-05-2019]
     - Added support for release notes
 
 1.10.0.3 [11-05-2019]
