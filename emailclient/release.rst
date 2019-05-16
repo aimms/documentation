@@ -5,7 +5,7 @@ The first public release of EmailClient was version 0.9.0.15, release date Octob
 
 New Features and Bug Fixes
 --------------------------
-0.9.0.17 [14-05-2019]
+0.9.0.19 [14-05-2019]
     - Added support for release notes
     
 0.9.0.16 [31-01-2019]
