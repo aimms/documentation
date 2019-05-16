@@ -5,6 +5,8 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+1.0.0.66 [16-05-2019]
+    - :token:`aimmsunit::CompareEqual` could return false when either argument contained inactive data
 
 1.0.0.59 [14-05-2019]
     - Added support for release notes
