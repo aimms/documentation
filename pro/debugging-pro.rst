@@ -32,7 +32,7 @@ where the various fields should match the model name and version published on th
 Opening the Project
 -------------------
 
-When you open the project with an AIMMS developer license in the presence of a "pro arguments.txt" file, this file will define all the relevant command-line arguments necessary to setup the project's connection with the server. When such a file is present, opening the project with a developer license will cause the PRO library to use the contents of this file to properly initialize the project, as if it was started through the portal.
+When you open the project with an AIMMS developer license in the presence of a "pro arguments.txt" file, this file will define all the relevant command-line arguments necessary to setup the project's connection with the server. When such a file is present, opening the project with a developer license will cause the PRO library to use the contents of this file to properly initialize the project, as if it were started through the portal.
 
 Logging on
 ----------
