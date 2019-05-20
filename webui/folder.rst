@@ -182,7 +182,7 @@ In order to check the color palette of your WebUI project, please read this `thr
 Custom Icon Sets
 ++++++++++++++++
 
-Features like Page Actions and Widget Actions make use of icons. AIMMS has a predefined list of `1600+ icons <../_static/aimms-icons/icons-reference.html>`_ that can be used. Custom icons can also be used for the aforementioned features by adding the desired icon font to the CSS folder and using the class names defined in the .css file in the icon field in the model specification. The icon font folder will need to have at least the .ttf or .woff and the corresponding .css file that defines the icons.
+Certain features like the Widget Actions or the (experimental) Page Actions may use icons. AIMMS has a predefined list of `1600+ icons <../_static/aimms-icons/icons-reference.html>`_ which can be used. Custom icons can also be used for the aforementioned features by adding the desired icon font to the CSS folder and using the class names defined in the .css file in the icon field in the model specification. The icon font folder will need to have at least the .ttf file or the .woff file and the corresponding .css file, which together define the icon.
 
 When an icon font is downloaded it will have the CSS file with the TTF and/or WOFF files. Just add these to the Resources/CSS folder. To use the icons, open the CSS file and use the class name for the respective icon in the icon filed in the model specification.
 
@@ -191,7 +191,7 @@ When an icon font is downloaded it will have the CSS file with the TTF and/or WO
     :align: center
 
 
-The icofont.css will have classes defined for each icon as illustrated below:
+For eaxmple, the icofont.css may have classes defined for each icon as illustrated below:
 
 .. code-block:: css
 
@@ -210,7 +210,7 @@ The icofont.css will have classes defined for each icon as illustrated below:
         content: "\e898";
     }
 
-Pick the desired icon class and add use it in the icon field in the model specification. eg: :token:`icofont-brand-adidas` 
+You need to pick the name of the desired icon class and assign it to the icon field in the model specification. eg: :token:`icofont-brand-adidas` 
 
 
 JavaScript

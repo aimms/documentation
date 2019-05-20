@@ -549,7 +549,7 @@ This set has 4 elements representing widget action properties:
 #. *state*: This is the state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
 
 .. tip:: 
-    If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append 'aimms-" to the selected icon name when adding it to the model. eg: The icon name is calculator. In AIMMS it needs to be aimms-calculator.
+    If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append 'aimms-" to the selected icon name when adding it to the model. For example: if the icon name is "calculator", then in AIMMS it needs to be "aimms-calculator".
 
     `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
     
@@ -564,7 +564,7 @@ Right click the string parameter and click on the Data option to open the data p
 .. image:: images/WidgetActions_MyWidgetActionsdata.png
 			:align: center
 
-Add the details for the widget actions you would like to show for the widget. For example, 
+Add the details for the widget actions you would like to show for the widget. For example: 
 
 .. image:: images/WidgetActions_MyWidgetActionsdata_added.png
 			:align: center
