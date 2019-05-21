@@ -179,6 +179,40 @@ Switching The Color Palette
 
 In order to check the color palette of your WebUI project, please read this `thread <https://groups.google.com/forum/#!category-topic/aimms/aimms-webui/RvM8E_9QIVg>`_ on our Google Group for details on how to accomplish this.
 
+Custom Icon Sets
+++++++++++++++++
+
+Certain features like the Widget Actions or the (experimental) Page Actions may use icons. AIMMS has a predefined list of `1600+ icons <../_static/aimms-icons/icons-reference.html>`_ which can be used. Custom icons can also be used for the aforementioned features by adding the desired icon font to the CSS folder and using the class names defined in the .css file in the icon field in the model specification. The icon font folder will need to have at least the .ttf file or the .woff file and the corresponding .css file, which together define the icon.
+
+When an icon font is downloaded it will have the CSS file with the TTF and/or WOFF files. Just add these to the Resources/CSS folder. To use the icons, open the CSS file and use the class name for the respective icon in the icon filed in the model specification.
+
+
+.. image:: images/CustomIcon_Folder1.png
+    :align: center
+
+
+For eaxmple, the icofont.css may have classes defined for each icon as illustrated below:
+
+.. code-block:: css
+
+    .icofont-brand-acer:before
+    {
+        content: "\e896";
+    }
+
+    .icofont-brand-adidas:before
+    {
+        content: "\e897";
+    }
+
+    .icofont-brand-adobe:before
+    {
+        content: "\e898";
+    }
+
+You need to pick the name of the desired icon class and assign it to the icon field in the model specification. eg: :token:`icofont-brand-adidas` 
+
+
 JavaScript
 ----------
 
