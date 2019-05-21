@@ -220,7 +220,7 @@ When the user presses the Finish wizard button on the last page of the wizard, t
 Procedures in a Wizard
 ++++++++++++++++++++++
 
-A wizard contains a set of pages that the user should follow in a certain order. Each of these pages can have its own `page procedure <page-options.html>`_, which will always be run when the page is opened, also when the page is opened without using a wizard. Furthermore, when creating a wizard, the app developer can specify a start and end procedure for every page that is part of the wizard. These procedures are automatically run, *only when the user is following the wizard* (i.e.: when opening the same page(s) outside of the wizard, they will not be run). The exact order of execution of procedures for a wizard page is: 
+A wizard contains a set of pages that the user should follow in a certain order. Each of these pages can have its own `page procedure <page-settings.html>`_, which will always be run when the page is opened, also when the page is opened without using a wizard. Furthermore, when creating a wizard, the app developer can specify a start and end procedure for every page that is part of the wizard. These procedures are automatically run, *only when the user is following the wizard* (i.e.: when opening the same page(s) outside of the wizard, they will not be run). The exact order of execution of procedures for a wizard page is: 
 
 #. Start procedure 
 #. Page procedure
