@@ -331,9 +331,9 @@ In English, this means: for all rows for which the molecule :token:`m` contains 
 
 As expected, this table only shows the rows for which the molecules contain an O in their name, regardless of the value of their associated checkboxes (note the non-displayed row for the C7H16 molecule!). Specifying an identifier for the display domain is the most flexible way of determining the display domain. You can also use it to only display a slice of a displayed identifier, by only setting the associated display domain identifier to 1 for a specific value of one of its indexes.
 
-.. tip::
+.. warning ::
     
-    Please be aware that if you specify an identifier here which is defined over a subset, you should define the display domain identifier over the same subset (and not the master set).
+    Please be aware that you should define the display domain rigourously over **the same set** (or subset) than the identifier shown.
 
 Slicing
 +++++++
