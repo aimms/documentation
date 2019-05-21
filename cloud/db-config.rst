@@ -15,9 +15,9 @@ Now the database is only accessible from within an AIMMS session.
 
 If you however need direct access to the application database, we offer two possibilities:
 
- * *`Database Tunnel Application`_*
+ * *Database Tunnel Application*
 
-   Recommended if you need occasional access to the database (e.g. to inspect some tables, alter the schema, add users, etc.).
+   Recommended if you need occasional access to the database (e.g. to inspect some tables, alter the schema, add users, etc.). See `Database Tunnel Application`_ section in this document for more details.
    
  * *VPN (Virtual Private Network) connection*
 
@@ -159,7 +159,7 @@ When the migration is finished it will display the migration status as '*Complet
 	
 Database Tunnel Application
 ---------------------------
-We can provide the simple AIMMS Desktop Application which allows you to open up/close the local connection to the AIMMS Cloud App database. All you need to do is publish this application with AIMMS Version 4.66.2 or higher on your PRO Portal and configure the Tunnel from the `Configuration <https://manual.aimms.com/pro/admin-config-1.html#tunnel>`_ menu.  For more details on Tunnels please see `this <https://manual.aimms.com/pro/tunneling.html>`_.
+We can provide the simple AIMMS Desktop Application which allows you to open up/close the local connection to the AIMMS Cloud App database. All you need to do is publish this application with AIMMS Version 4.66.2 or higher on your PRO Portal and configure the Tunnel from the `Configuration <https://manual.aimms.com/pro/admin-config-1.html#tunnel>`_ menu. See `Tunneling Support <https://manual.aimms.com/pro/tunneling.html>`_.
 
 For example, if your app database is called example.db.cloud.aimms.com then your Tunnel configuration and DB Tunnel App would be as shown,
 
