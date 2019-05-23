@@ -20,8 +20,13 @@ Adding setup and teardown procedures
 
 By default, all procedures in a test suite will be considered as procedures that contain unit tests to be executed when testing the given test suite. By setting the additional annotations :token:`aimmsunit::Setup` or :token:`aimmsunit::TearDown` to the value *1* you indicate that these procedure do not contain tests, but are intended to set up the data and/or state of your model necessary for the tests in the test suite to run successfully (for :token:`aimmsunit::Setup`), or to restore the model to its original state (for :token:`aimmsunit::TearDown`). Any `assertion evaluators <#assertion-evaluators>`_ in the setup and teardown procedures of a test suite will be ignored.
 
+Duplicating test suites
+=======================
+
+If you want to test a test suite for different scenarios, you can duplicate an existing test suite through the function :token:`aimmsunit::DuplicateTestSuite`. This will create a new test suite with exactly the same setup, teardown and test procedures as the original test suite. When running the tests, you can use the element parameter :token:`aimmsunit::ActiveTestSuite` to select the proper scenario in the setup procedure of the test suite.
+
 Assertion evaluators
---------------------
+====================
 
 The results of your unit tests reported back by the AIMMS Unit Test framework are completely driven by the *assertion evaluators*
 * :token:`aimmsunit::AssertTrue`

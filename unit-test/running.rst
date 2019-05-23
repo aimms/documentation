@@ -49,3 +49,8 @@ The XML file :token:`log/AimmsUnit.xml` contains a detailed listing of the resul
     </testsuites>
 
 indicates that the test suite :token:`TestAimmsUnitTest` of the AIMMS Unit Test framework itself was run, with one failure for the test :token:`TestNumericalTolerances`. The test was run in 0.739 seconds, with the majority of the time being spent in the test :token:`TestComparingBigDatasets`. 
+
+Selecting the base name of the result file
+------------------------------------------
+
+Through the environment variable/command-line argument :token:`aimmsunit::ResultsBaseName` you can select the basename of the results files. The default basename is "AimmsUnit". You can use this feature to create multiple results files, when you want to run multiple test suites in parallel, for instance when an application uses the CDM library and you want to test the correct interaction between multiple sessions. To produce a single result file, you can merge the results stored in an alternative results file back into the current results through the function :token:`aimmsunit::MergeTestSuiteResults`.

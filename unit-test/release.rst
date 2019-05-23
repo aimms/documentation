@@ -5,6 +5,11 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+1.0.0.69 [23-05-2019]
+    - Added capability to duplicate existing test suite to allow for testing multiple scenarios of the same test suite
+    - Added capability to use different names for results files
+    - Added capability to merge results stored in a results file into the current results
+
 1.0.0.66 [16-05-2019]
     - :token:`aimmsunit::CompareEqual` could return false when either argument contained inactive data
 
