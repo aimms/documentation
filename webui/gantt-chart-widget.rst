@@ -277,6 +277,31 @@ This makes it easier for the user to either line up jobs from different tasks/re
 .. image:: images/GanttChart_Backdrop_1.png
     :align: center
 
+Making some or all tasks read-only in the Gantt Chart
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. All tasks read-only: remove the identifier from ``CurrentInputs`` built-in AIMMS Set
+
+.. code::
+
+    CurrentInputs := CurrentInputs - 'TaskStart' - 'TaskDuration';
+
+where ``TaskDuration`` and ``TaskStart`` are respectively your task duration parameter and your task start parameter
+
+2. cherry-pick read-only tasks
+
+You may rely on the same process than for the `table widget <table-widget.html#creating-read-only-cells>`_.
+
+You can use an extra string parameter in your model, which has the same name and index domain as the identifier which defines the content of the table, only post-fixed with "_flags". In order to actually make some cells read-only, you have to set the value of the right index combination(s) to "readonly".
+
+.. code::
+    
+    TaskStart_flags(t,tt,'some_value_for_p') := "readonly";
+
+.. tip::
+    
+    The flag should be created on the TaskStart parameter, not the TaskDuration (it will have no effect)
+    
 Creating a form to add, delete or modify a task
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -446,6 +471,7 @@ To link the element parameter that has been specified in the store focus option 
         }
     }
 
+   
 Gantt chart details form
 """"""""""""""""""""""""
 
