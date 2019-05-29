@@ -1,16 +1,17 @@
-Page Options
-************
+Page Settings
+*************
 
 .. |page-settings| image:: images/page-settings_v1.png
 
 .. |cog-grey| image:: images/cog-grey.png
 
-You can access the page options via the 'options wheel' in the `WebUI Menu Bar <#webui-menu-bar>`_ |page-settings|.
+You can access the Page Settings via the 'options wheel' in the `WebUI Menu Bar <menu-bar.html>`_ |page-settings|.
 
 Currently, the following options for a page are available:
 
-* Procedure (for specifying a procedure that should be run upon opening the page)
+* Action Upon Load (for specifying a procedure that should be run upon opening the page)
 * `MaxColumns <#maximum-number-of-columns>`_
+* `Side Panel Settings <page-manager.html#configuring-the-string-parameter-on-respective-pages>`_ (for configuring `Side Panels <page-manager.html#id6>`_ via the string parameter on respective pages)
 * A number of advanced options (not documented here).
 
 Maximum Number of Columns
