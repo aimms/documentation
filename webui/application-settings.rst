@@ -13,6 +13,52 @@ These settings can be accessed through the Application Settings menu, which you 
 .. image:: images/app_settings_open_new.png
     :align: center
 
+Workflow Panel Settings
+-----------------------
+
+From AIMMS 4.68 onwards, it is possible to design and configure Workflows. A Workflow is a progression of steps (tasks, events, interactions) that comprise a work/business process and create or add value to the organization's activities. 
+
+The Workflow Panel is used to represent and run any workflow which is designed and defined by the Application Developer in the model. AIMMS allows the application developer to configure multiple workflows in an application.
+
+The Workflow Panel helps guide the user through the defined set of steps in a specific workflow. It also gives the user the flexibility to enter or leave a workflow at any step of the process. The user can also navigate between workflows not restricting them to only one workflow at a given time. 
+
+The workflow has states for each step that indicate to a user which steps can be accessed and which cannot. Data states help indicate which steps are complete, incomplete or in an error state. 
+
+.. image:: images/Workflow_Demo.png
+    :align: center
+
+Configuring the Workflow Panel
+++++++++++++++++++++++++++++++
+
+The Workflow Panel can be configured by the application developer via the AIMMS model. Public Workflow Support Declarations has been defined in the inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section, used to configure different workflows and their respective steps.
+
+WorkflowSpecification - This set is used to configure the number of workflows and their respective titles. The properties of this set are:
+
+* :token:`title` - The Title for the workflow
+* :token:`style` - Select a style for the workflow (This property is not in use at this moment. We have made the provision to incorporate different styles that will be available in the near future.)
+
+WorkflowPageSpecification - This set is used to configure the steps for each workflow. The properties of this set are:
+
+* :token:`displayText` - The text/label you want to give the step.
+* :token:`icon` - The icon you want to associate with the respective step. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
+* :token:`pageId` - The pageId for the respective Page this step should be associated with.
+* :token:`tooltip` - The text to be displayed when the user hovers over that respective step.
+* :token:`workflowPageState` - The state of the page. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. If not defined, by default, the state is Hidden. 
+* :token:`pageDataState` - The data state of that page. Complete, Incomplete or Error. If not defined, by default it has an empty state.
+* :token:`redirectPageId` - The pageId for the page the user should be redirected to if the workflowPageState is Inactive or Hidden and the user tries to access by either clicking on the step or via the navigation menu.
+
+WorkflowNumbers - There are 2 indices in the set that the string parameters will be indexed over. The indices are used to reference the number and order of workflows (indexWorkflowOrder) and the no of pages (indexNoOfPages) in each workflow. 
+
+To create and configure the Workflow Panel in the application you will need to create 2 string parameters. The first to configure the number of workflows in the application and the second the steps of each workflow.
+
+For illustration, let's call the first sting parameter :token:`MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)`. This string parameter is indexed over the WorkflowNumbers set with the index :token:`indexWorkflowOrder` and the WorkflowSpecification set. This string parameter is used to define the number of workflow and their respective Titles. Right click the string parameter and click on the Data option in order to open the data page. Add the details for the Workflow and their Titles. Leave the style property empty for now.
+
+Create the second string parameter, let's call it :token:`MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)` indexed over the WorkflowNumbers set with both indices and the WorkflowPageSpecification set. This string parameter is used to define the steps for each Workflow that was defined in the first string parameter.
+
+There is no limit to the number of steps each workflow can have. AIMMS recommends not more than 10 steps per workflow. If there is more than 10 steps try to breakdown the workflow into smaller workflows, if possible.
+
+In the case of an invalid pageId or when the :token:`workflowPageState` for a certain pageId is Inactive or Hidden, the workflow will be redirected to the :token:`redirectPageId`. When the redirectPageId is also invalid an error is generated and the workflow is terminated at the current page. There is also a possibility when the workflow steps can enter a loop, in which case we check the redirect 25 times and then generate and error and terminate the workflow at the current page. Current page being the page the next step or any other step was attempted. 
+
 Use Classic Theme
 -----------------
 
