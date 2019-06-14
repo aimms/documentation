@@ -8,6 +8,10 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
+1.11.0.1 [14-06-2019]
+    - When domain set membership tables were stored in a category checked-out from a different branch than the categories containing identifier data dependent on these domain sets, checking out the data category containing such identifiers would result in empty data. Now, when checking out, identifier data will be filtered against the active set elements of domain sets with regard to the checked-out branch of the categories containing such domain sets. 
+    - When upgrading older CDM servers to more recent versions, the naming of truncated column names longer than the maximum column name length supported by the backing database could be changed depending on the deployment platform and compiler used to create the CDM server executables, leading to errors when checking out or committing data from such old databases. During the upgrade to version 1.11.0.1 or beyond, the existing truncated column names will now be stored in an additional column of the intrinsic CDM data definition table and used during data transfer. This will upgrade the CDM database version key. After the CDM database upgrade, the original CDM servers will still be able to use such upgraded CDM databases as before.
+      
 1.10.0.7 [20-05-2019]
     - Reading data for integer sets could cause a crash
  
@@ -59,16 +63,16 @@ New Features and Bug Fixes
 
 1.6.0.6 [06-09-2018]
     - Fixed foreign key constraint problem when deleting branches
-    - Modified code to catch connection lost exceptions and report properly to model
+    - Modified code to catch connection lost exceptions and report properly to the model
     
 1.6.0.0 [26-07-2018]
     - Added :token:`cdm::DeleteBranch` function.
     
 1.5.0.10 [09-05-2018]
-    - Modified code to use relative tolerance when comparing values
+    - Modified code to support relative tolerance when comparing values
     
 1.5.0.0 [15-04-2018]
-    - Initial public release of CDM library
+    - Initial public release of the CDM library
 
 
 
