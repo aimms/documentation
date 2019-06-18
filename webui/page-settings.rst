@@ -5,6 +5,9 @@ Page Settings
 
 .. |cog-grey| image:: images/cog-grey.png
 
+.. |workflow-items| image:: images/workflowitems-icon.png
+
+
 You can access the Page Settings via the 'options wheel' in the `WebUI Menu Bar <menu-bar.html>`_ |page-settings|.
 
 Currently, the following options for a page are available:
@@ -28,7 +31,7 @@ A procedure that can be called when a page change is requested. It should determ
 
 The  procedure should have three arguments, in the exact order below:
 
-* An Output parameter called :token:`requestId` that should contain the return value of the parameter RequestCounter.
+* An Output string parameter called :token:`requestId` that should contain the return value of the parameter RequestCounter.
 * An Output parameter called :token:`statusCode` representing the return value of the procedure.
 * An Output string parameter called :token:`statusDescription` that should contain a return message for the end-user.
 
@@ -40,7 +43,7 @@ The requestId and statusCode arguments should be filled as follows:
 
 :token:`statusCode := webui::ReturnStatusCode('OK');`  
 
-The requestId helps in identifying if a Dialog page or Message Dialog is open. This allows interaction when the user is not allowed to leave that page.
+The requestId helps in identifying if a Dialog page or Message Dialog is open. This allows interaction when the user is not allowed to leave that page. 
 
 The pre-defined function :token:`webui::ReturnStatusCode` has a number of possible arguments (OK, CREATED, BAD_REQUEST, UNAUTHORIZED, CONFLICT and ERROR). Because your procedure is expected to handle the navigation, the status OK is expected if the user is allowed to navigate to the next page successfully. You can use one of the other status codes to signal that the user still needs to stay on the same page. The preferred statuses are OK and ERROR.
 
@@ -60,7 +63,7 @@ The text representation of the procedure would be the following.
 
     Procedure UponLeave {
     Arguments: (requestId,statusCode,statusDescription);
-        Parameter requestId {
+        StringParameter requestId {
             Property: Output;
         }
         Parameter statusCode {
@@ -125,12 +128,7 @@ Secondary Action buttons consist of a label and an icon that can be configured i
 Configuring Page Actions
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Page Actions can be configured by the application developer via the AIMMS model. First, create a set for the order of actions to be displayed on the page. For illustration, let’s call this set “PageActionOrder” with index :token:`indexPageActionOrder` (as a developer, you can give this set a name and an index of your choice). This set determines the order in which the Primary and Secondary Actions will appear from top to bottom. This set must be a subset of the pre-declared set of Integers. 
-
-.. image:: images/PageActions_OrderSet.png
-    :align: center
-
-In the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section, the set PageActionSpecification is declared which is used for configuring Page Actions as illustrated in the next steps.
+The Page Actions can be configured by the application developer via the AIMMS model. In the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section, the set PageActionSpecification is declared which is used for configuring Page Actions as illustrated in the next steps.
 
 .. image:: images/PageActions_PageActionSpec.png
     :align: center
@@ -145,17 +143,30 @@ This set has 4 elements representing page action properties:
 Configuring the Primary Action
 ++++++++++++++++++++++++++++++
 
-Create a string parameter indexed by PageActionOrder and PageActionSpecification. Let's call this :token:`MyPrimaryActions(indexPageActionOrder,webui::indexPageActionSpec)`. Right click the string parameter and click on the Data option to open the data page. Add the details for the Primary Action you would like to show for the respective page(s). For example:
+Create a string parameter indexed by PageActionSpecification. Let's call this :token:`MyPrimaryActions(webui::indexPageActionSpec)`. Right click the string parameter and click on the Data option to open the data page. Add the details for the Primary Action you would like to show for the respective page(s). For example:
 
-.. image:: images/PageActions_StringParamAndData.png
+.. image:: images/PageActions_PrimaryStringParamAndData.png
     :align: center
 
-In the illustrated example, we have 3 actions defined with two of them as Active and one as Inactive. In this case the 1st action i.e. Optimize will be displayed as the Primary Action and the others will be ignored.
+The result of the illustrated example will be
+
+.. image:: images/PageActions_Optimize.png
+    :align: center
+
+By default, when the :token:`displayText` is not defined the Primary Action label will be "OPTIMIZE". When the :token:`icon` is not defined the AIMMS logo will be displayed.
+
+.. image:: images/PageActions_OptimizeDefault.png
+    :align: center
 
 Configuring Secondary Actions
 +++++++++++++++++++++++++++++
 
-Create a string parameter indexed on PageActionOrder and PageActionSpecification. Let's call this :token:`MySecondaryActions(indexPageActionOrder,webui::indexPageActionSpec)`. Right click the string parameter and click on the Data option to open the data page. Add the details for the Secondary Actions you would like to show for the respective page(s). For example:
+First, create a set for the order of actions to be displayed on the page. For illustration, let’s call this set “PageActionOrder” with index :token:`indexPageActionOrder` (as a developer, you can give this set a name and an index of your choice). This set determines the order in which the Secondary Actions will appear from top to bottom. This set must be a subset of the pre-declared set of Integers. 
+
+.. image:: images/PageActions_OrderSet.png
+    :align: center
+
+Create a string parameter indexed by PageActionOrder and PageActionSpecification. Let's call this :token:`MySecondaryActions(indexPageActionOrder,webui::indexPageActionSpec)`. Right click the string parameter and click on the Data option to open the data page. Add the details for the Secondary Actions you would like to show for the respective page(s). For example:
 
 .. image:: images/PageActions_SecondaryStringParamAndData.png
     :align: center
@@ -169,7 +180,7 @@ In the illustrated example, we have defined 5 Secondary Actions with different s
 Configuring Actions on Pages
 ++++++++++++++++++++++++++++
 
-In the WebUI, navigate to the respective page. In the Page Settings under the WorkFlow Items you will find the Primary Action and Secondary Actions fields. Add the respective string parameters in the fields that were configured for that page.
+In the WebUI, navigate to the respective page. In the Page Settings under the WorkFlow Items |workflow-items| you will find the Primary Action and Secondary Actions fields. Add the respective string parameters in the fields that were configured for that page.
 
 .. image:: images/PageActions_ConfigStringParam.png
     :align: center
@@ -183,6 +194,7 @@ Similarly, you can create some (other) string parameters for other pages and con
 
 The different combinations and possibilities are illustrated below:
 
+* Default Active Primary Action
 * Only Active Primary Action
 * Only Inactive Primary Action
 * Only One Secondary Action
