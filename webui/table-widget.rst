@@ -68,8 +68,8 @@ Furthermore, there is a limit on the number of *rows* that can be downloaded (i.
 Creating Read-Only Cells
 ++++++++++++++++++++++++
 
-By using flags
-^^^^^^^^^^^^^^
+By using flags (in runtime)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In a Table widget, it is possible to make specific cells read-only for the user. You can do this by using an extra string parameter in your model, which has the same name and index domain as the identifier which defines the content of the table, only post-fixed with :token:`_flags`. So, if you have a Table widget showing the content of parameter :token:`MyTableData(i, j)`, you should add a string parameter called :token:`MyTableData_flags(i, j)` in your model. In order to actually make some cells read-only, you have to set the value of the right index combination(s) to :token:`"readonly"`. So, in our example, you should add a line like:
 
@@ -85,11 +85,38 @@ In case you want to change a cell to become editable again, you have to assign t
 
     MyTableData_flags(i, 'some_value_for_j') := "";
 
-By using the CurrentInputs set
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+By using the ``CurrentInputs`` set (in runtime)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Another way to influence the modifiability of cells, is to use the :token:`CurrentInputs` set of AIMMS. This set is a predeclared subset of :token:`AllIdentifiers`. The identifiers referenced in it are modifiable sets and parameters in both the WinUI and the WebUI. Consider a parameter :token:`P`. Without further specification, this parameter is a parameter that can be modified both in the WinUI and in the WebUI. By removing this element :token:`'P'` from :token:`CurrentInputs`, the parameter :token:`P` will no longer be modifiable in either the WinUI or the WebUI.
 
 .. code::
 
     CurrentInputs := CurrentInputs - 'MyTableData';
+    
+By using the WebUI authorization (not in runtime)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You may use the Authorization support from the WebUI Library described in :doc:`../webui/creating`. 
+Please mind this authorization is not updated at WebUI runtime. Thus, the following code should be part of the `PostMainInitialization` predeclared procedure or the Startup Procedure ( :menuselection:`Settings-->Project Options--> Startup & authorization` ). 
+
+.. code::
+    
+    ! Turns MyTableData identifier read-only
+    webui::IdentifierAuthorization('MyTableData') := 4;
+
+Authorization Schema reminder:
+
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Identifier Authorization | Value | Description                                                                                                                                                                                                                       |
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| no access                | 0     | No data will be shown in the WebUI, even if the identifier is specified in a widget in the WebUI. Procedures will not be executed                                                                                                 |
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| read access              | 4     | Data will be displayed in the WebUI, but will be shown as read-only data. Data changes via the WebUI are prohibited. Procedures will not be executed.                                                                             |
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| read and execute access  | 5     | Data will be displayed in the WebUI, but will be shown as read-only data. Data changes via the WebUI are prohibited. Procedures with this permission can be executed from within the WebUI.                                       |
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| read and write access    | 6     | Data will be displayed in the WebUI, and are displayed as editable if no other restrictions prohibit editing the data (e.g. defined identifiers). Data changes via the WebUI are not prohibited. Procedures will not be executed. |
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| full access              | 7     | Data will be displayed in the WebUI, and are displayed as editable if no other restrictions prohibit editing the data (e.g. defined identifiers). Procedures with this permission can be executed from within the WebUI.          |
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

@@ -66,6 +66,9 @@
     {{ toc }}
 </div>
 {% endif %} {% endblock %} {% block footer %} {{ super() }}
+
+{% if Display_3rd_Party_Extensions %}
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1290545-13"></script>
 <script>
@@ -83,5 +86,6 @@
 <script>
 (function(w,d,s){var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='//embeddable-widgets-euw1.insided.com/aimms-en.insided-conversational.js';f.parentNode.insertBefore(j,f);})(window,document,'script');
 </script>
+{% endif %}
 
 {% endblock %}

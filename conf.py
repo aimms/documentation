@@ -123,11 +123,16 @@ Last Updated: |date|
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-# if builds on GitLab (a Linux machine), force "Edit on Gitlab" not to be shown :)
-if os.name != 'nt':
-    Display_edit_on_gitlab = False
-else:   
-    Display_edit_on_gitlab = True
+if os.name == 'nt':
+   
+   Display_edit_on_gitlab = True
+   # if builds on GitLab (a Linux machine), display Insided Embeddable (extensions) :)
+   Display_3rd_Party_Extensions = False
+else:
+
+   # if builds on GitLab (a Linux machine), force "Edit on Gitlab" not to be shown :)
+   Display_edit_on_gitlab = False
+   Display_3rd_Party_Extensions = True
 
     
 html_context = {
@@ -138,6 +143,7 @@ html_context = {
     "gitlab_version": "master", # Version
     "conf_py_path": "", # Path in the checkout to the docs root
     "suffix": ".rst",
+    "Display_3rd_Party_Extensions": Display_3rd_Party_Extensions
 }
 
 # Custom sidebar templates, must be a dictionary that maps document names
