@@ -171,7 +171,7 @@ Create a string parameter indexed by PageActionOrder and PageActionSpecification
 .. image:: images/PageActions_SecondaryStringParamAndData.png
     :align: center
 
-In the illustrated example, we have defined 5 Secondary Actions with different states. We display the Active and Inactive actions.
+In the illustrated example, we have defined 5 Secondary Actions with different states. We display the Active and Inactive actions.  
 
 .. image:: images/PageActions_SecondaryActionsResult.png
     :align: center
@@ -190,15 +190,38 @@ Once you have added the string parameter, the respective page actions buttons wi
 .. image:: images/PageActions_ActionResults.png
     :align: center
 
-Similarly, you can create some (other) string parameters for other pages and configure them using the same steps.
+Similarly, you can create other string parameters for other pages and configure them using the same steps.
 
-The different combinations and possibilities are illustrated below:
+The different combinations and possibilities with the states are illustrated below:
 
-* Default Active Primary Action
-* Only Active Primary Action
-* Only Inactive Primary Action
-* Only One Secondary Action
-* Multiple Secondary Actions (All Active)
-* Multiple Secondary Actions (Active and Inactive)
+* Default Primary Action
+
+    .. image:: images/PageActions_DefaultPrimary.png
+        :align: center
+
+* One Primary Action
+
+    .. image:: images/PageActions_PrimaryActiveInactive.png
+        :align: center
+
+* One Secondary Action 
+
+    .. image:: images/PageActions_SecondaryActiveInactive.png
+        :align: center
+
+* Multiple Secondary Actions
+
+    .. image:: images/PageActions_MultipleSecondary.png
+        :align: center
+
 * Primary Action with one Secondary Action
-* Primary Action with multiple Secondary Action
+
+    .. image:: images/PageActions_PrimaryAndSecondary.png
+        :align: center
+
+* Primary Action with multiple Secondary Actions
+
+    .. image:: images/PageActions_PrimaryAndMultipleSecondary.png
+        :align: center
+
+The labels for the Primary Action and single Secondary Action are shown when the user hovers the respective buttons.
