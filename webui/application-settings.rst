@@ -34,28 +34,41 @@ The Workflow Panel can be configured by the application developer via the AIMMS 
 
 WorkflowSpecification - This set is used to configure the number of workflows and their respective titles. The properties of this set are:
 
-* :token:`title` - The Title for the workflow
-* :token:`style` - Select a style for the workflow (This property is not in use at this moment. We have made the provision to incorporate different styles that will be available in the near future.)
+* :token:`title` - The Title for the workflow to be displayed on the top of the Workflow Panel.
+* :token:`style` - A defined style for the workflow (This property is not in use currently. We have made the provision to incorporate different styles that will be available in the near future)
 
 WorkflowPageSpecification - This set is used to configure the steps for each workflow. The properties of this set are:
 
-* :token:`displayText` - The text/label you want to give the step.
-* :token:`icon` - The icon you want to associate with the respective step. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
-* :token:`pageId` - The pageId for the respective Page this step should be associated with.
-* :token:`tooltip` - The text to be displayed when the user hovers over that respective step.
-* :token:`workflowPageState` - The state of the page. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. If not defined, by default, the state is Hidden. 
-* :token:`pageDataState` - The data state of that page. Complete, Incomplete or Error. If not defined, by default it has an empty state.
-* :token:`redirectPageId` - The pageId for the page the user should be redirected to if the workflowPageState is Inactive or Hidden and the user tries to access by either clicking on the step or via the navigation menu.
+* :token:`displayText` - The label you want to give the step.
+* :token:`icon` - The icon you want to associate with the step. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
+* :token:`pageId` - The pageId of the Page this step should be associated with.
+* :token:`tooltip` - The text to be displayed when the user hovers over the step.
+* :token:`workflowPageState` - The workflow state of the page. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. If not defined, by default, the state is Hidden. 
+* :token:`pageDataState` - The data state of the page. Complete, Incomplete or Error. If not defined, by default it has an empty state.
+* :token:`redirectPageId` - The pageId of the Page the user should be redirected to when the :token:`workflowPageState` is Inactive or Hidden. When the user tries to navigate to an Inactive or Hidden workflow step they are redirected to this Page.
 
 WorkflowNumbers - There are 2 indices in the set that the string parameters will be indexed over. The indices are used to reference the number and order of workflows (indexWorkflowOrder) and the no of pages (indexNoOfPages) in each workflow. 
 
 To create and configure the Workflow Panel in the application you will need to create 2 string parameters. The first to configure the number of workflows in the application and the second the steps of each workflow.
 
-For illustration, let's call the first sting parameter :token:`MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)`. This string parameter is indexed over the WorkflowNumbers set with the index :token:`indexWorkflowOrder` and the WorkflowSpecification set. This string parameter is used to define the number of workflow and their respective Titles. Right click the string parameter and click on the Data option in order to open the data page. Add the details for the Workflow and their Titles. Leave the style property empty for now.
+Configuring Workflows
++++++++++++++++++++++
 
-Create the second string parameter, let's call it :token:`MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)` indexed over the WorkflowNumbers set with both indices and the WorkflowPageSpecification set. This string parameter is used to define the steps for each Workflow that was defined in the first string parameter.
+For illustration, let's call the first sting parameter :token:`MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)`. This string parameter is indexed by the WorkflowNumbers set with the index :token:`indexWorkflowOrder` and the WorkflowSpecification set. This string parameter is used to define the number of workflows and their respective Titles. Right click the string parameter and click on the Data option in order to open the data page. Add the details for the Workflow and their Titles. Leave the style property empty for now.
 
-There is no limit to the number of steps each workflow can have. AIMMS recommends not more than 10 steps per workflow. If there is more than 10 steps try to breakdown the workflow into smaller workflows, if possible.
+.. image:: images/Workflow_MyWorkflowsParameter.png
+    :align: center
+
+This definition indicates that there are 3 workflows in the application.
+
+Configuring Steps of a Workflows
+++++++++++++++++++++++++++++++++
+
+Create the second string parameter, let's call it :token:`MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)` indexed over the WorkflowNumbers set with both indices and the WorkflowPageSpecification set. This string parameter is used to define the steps for each Workflow that was defined in the MyWorkflows string parameter.
+
+There is no limit to the number of steps each workflow can have. AIMMS recommends not more than 10 steps per workflow. If there are more than 10 steps try to breakdown the workflow into smaller workflows, if possible.
+
+Right click the MyWorkflowSteps string parameter and click on the Data option in order to open the data page.
 
 In the case of an invalid pageId or when the :token:`workflowPageState` for a certain pageId is Inactive or Hidden, the workflow will be redirected to the :token:`redirectPageId`. When the redirectPageId is also invalid an error is generated and the workflow is terminated at the current page. There is also a possibility when the workflow steps can enter a loop, in which case we check the redirect 25 times and then generate and error and terminate the workflow at the current page. Current page being the page the next step or any other step was attempted. 
 
