@@ -13,8 +13,8 @@ These settings can be accessed through the Application Settings menu, which you 
 .. image:: images/app_settings_open_new.png
     :align: center
 
-Workflow Panel Settings
------------------------
+Workflow Panel
+--------------
 
 From AIMMS 4.68 onwards, it is possible to design and configure Workflows. A Workflow is a progression of steps (tasks, events, interactions) that comprise a work/business process and create or add value to the organization's activities. 
 
@@ -70,7 +70,42 @@ There is no limit to the number of steps each workflow can have. AIMMS recommend
 
 Right click the MyWorkflowSteps string parameter and click on the Data option in order to open the data page.
 
-In the case of an invalid pageId or when the :token:`workflowPageState` for a certain pageId is Inactive or Hidden, the workflow will be redirected to the :token:`redirectPageId`. When the redirectPageId is also invalid an error is generated and the workflow is terminated at the current page. There is also a possibility when the workflow steps can enter a loop, in which case we check the redirect 25 times and then generate and error and terminate the workflow at the current page. Current page being the page the next step or any other step was attempted. 
+.. image:: images/Workflow_MyWorkflowStepsParameter_1.png
+    :align: center
+
+The data entered in the above illustration is for for 1st Workflow that was configured in "MyWorkflows" string parameter i.e. Route Optimization. There are 10 steps defined for that Workflow.
+
+To configure steps for the other workflows just select the respective value for indexWorkflowOrder at the top.
+
+Steps configured for the 2nd Workflow i.e. Inventory Management. We have defined 3 steps for this workflow.
+
+.. image:: images/Workflow_MyWorkflowStepsParameter_2.png
+    :align: center
+
+Similarly, 4 steps defined for the 3rd Workflow i.e. Quality Assurance.
+
+.. image:: images/Workflow_MyWorkflowStepsParameter_3.png
+    :align: center
+
+workflowPageState and pageDataState
++++++++++++++++++++++++++++++++++++
+
+The :token:`workflowPageState` determines the state of a step in the workflow. A step can have an Active (Displayed and Accessible), Inactive (Displayed and Not Accessible) or Hidden (Not Displayed) state. This state is used to control the flow of the workflow. Some steps can be made accessible only when certain conditions are met. For example, in a sequential workflow the next step should be accessible only when the current step is considered done. 
+
+.. image:: images/Workflow_ActiveInactiveState.png
+    :align: center
+
+The :token:`pageDataState` determines the data state of a page. This state indicates if a set is Complete, Incomplete or in an Error state. There is a default state as well when a certain step does not need a data state, for Example a Instruction Page or an Introduction Page.
+
+.. image:: images/Workflow_PageDataStates.png
+    :align: center
+
+These states can be changed dynamically as required and as the user progresses in the workflow. This is achievable with the Action Upon Leave procedure or with the Action Upon Load procedure.
+
+redirectPageId
+++++++++++++++
+
+In the case of an invalid pageId or when the :token:`workflowPageState` for a certain pageId is Inactive or Hidden, the workflow will be redirected to the :token:`redirectPageId`. When the redirectPageId is also invalid an error is generated and the workflow stays on the current step. There is also a possibility when the workflow steps can enter a loop, in which case we check the redirect 25 times and then generate and error and the workflow stays on the current step. Current page being the page the next step or any other step was attempted.
 
 Use Classic Theme
 -----------------
