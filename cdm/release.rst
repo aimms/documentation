@@ -8,58 +8,74 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
-1.9.0.12
+1.11.0.4 [16-06-2019]
+    - When domain set membership tables were stored in a category checked-out from a different branch than the categories containing identifier data dependent on these domain sets, checking out the data category containing such identifiers would result in empty data. Now, when checking out, identifier data will be filtered against the active set elements of domain sets with regard to the checked-out branch of the categories containing such domain sets. 
+    - When upgrading older CDM servers to more recent versions, the naming of truncated column names longer than the maximum column name length supported by the backing database could be changed depending on the deployment platform and compiler used to create the CDM server executables, leading to errors when checking out or committing data from such old databases. During the upgrade to version 1.11.0.1 or beyond, the existing truncated column names will now be stored in an additional column of the intrinsic CDM data definition table and used during data transfer. This will upgrade the CDM database version key. After the CDM database upgrade, the original CDM servers will still be able to use such upgraded CDM databases as before.
+    - Negative integer labels could erroneously be translated to unmapped labels from other sets, leading to data being stored for incorrect tuples, and possibly to duplicate tuple error during commits.
+    - Category ordering algorithm could lead to incorrect ordering in the presence of defined subsets that were artificially included in the identifier ordering to help the CDM dll to update such subsets when needed during checkouts.
+    - This build will no longer support Win32 AIMMS versions
+      
+1.10.0.7 [20-05-2019]
+    - Reading data for integer sets could cause a crash
+ 
+1.10.0.6 [14-05-2019]
+    - Added support for release notes
+
+1.10.0.3 [11-05-2019]
+    - Improve performance by not unnecessarily pulling category data upon new commit notifications when categories were already at the latest revision. Note that the commit notification procedures   have gotten a new optional 4th argument, which is required for this performance improvement to work. If you have implemented a custom commit notification procedure, then you should add the 4th argument and re-visit :token:`cdm::DefaultCommitInfoNotification` to investigate what further changes to your custom commit notification procedure are required.
+
+1.9.0.12 [25-04-2019]
     - On-demand CDM service in AIMMS cloud could hang on exit, leading to new clients not being serviced properly
     
-1.9.0.11
+1.9.0.11 [24-04-2019]
     - Automatic conversion of string to int did not work on all databases in cdm::NextUniqueInteger.
     - cdm::EmptyElementInCategory could assign empty value to non-existing tuple.
-    - Records of snapshot revision in cdm::RetireBranchData had ids potentially greater than ids of later revisions on same branch, leading to erroneous checkout results.
+    - Records of snapshot revision in :token:`cdm::RetireBranchData` had ids potentially greater than ids of later revisions on same branch, leading to erroneous checkout results.
 
-1.9.0.7
+1.9.0.7 [23-04-2019]
     - MSOBDCSQL13 driver for SQLServer did not accept automatic conversion from integer to string in cdm::NextUniqueInteger implementation.
 
-1.9.0.6
-    - Added DLL that was prevented CDM running from Windows PRO client
+1.9.0.6 [11-04-2019]
+    - Added DLL that was preventing CDM from being run from Windows PRO client
 
-1.9.0.4
+1.9.0.4 [09-04-2019]
     - :token:`cdm::Branches` set elements were determined wrt to incorrect set in :token:`cdm::AddBranchToCompareSnapshots`.
     
-1.9.0.3
+1.9.0.3 [05-04-2019]
     - Added capability to retire intermediate commits by a single snapshot, via :token:`cdm::RetireBranchData` function.
-    - Use non-persistent intermediate tables for storing current set content when checking out data to speed up checkout.
+    - Modified code to use non-persistent intermediate tables for storing current set content when checking out data to speed up checkout.
     - Added :token:`cdm::RevisionIdentifierCard` identifier, holding per-revision cardinality of changes for each individual identifier.
     - When checking out data, cleanup :token:`cdmrt::ci` and :token:`cdmrt::cri` identifiers in addition to emptying, in case domain sets have been cleared which might leave inactive data behind.
     
-1.8.0.27
+1.8.0.27 [27-03-2019]
     - Added capability to compare branches via :token:`cdmrt::bci` shadow identifiers, and :token:`cdm::AddBranchToCompareShapshot` and :token:`cdm::DeleteBranchFromCompareSnapshot` functions.
     
-1.8.0.22
-    - Fix CloneAndRollbackElementInCategory for integer sets where integer master set (i.e. not root set) is not in the category to which the function is applied.
-    - Inactive data due to inactive domain set elements will lead to delta out of identifiers with such inactive data not to be stored, and consequently the commit to be only partial.
+1.8.0.22 [04-03-2019]
+    - Fixed CloneAndRollbackElementInCategory for integer sets where integer master set (i.e. not root set) is not in the category to which the function is applied.
+    - Inactive data due to inactive domain set elements could lead to delta out of identifiers with such inactive data not to be stored, and consequently the commit to be only partial.
     - Element parameter with default that was not (by coincidence) an integer, lead to database query errors, because of not being translated to label number in all cases.
-    - Circumvent MSOBDCSQL13 driver problem.
-    - Skip unresolvable tuples when handling incoming changes for multi-dimensional identifiers, and log the corresponding offending label names, instead of skipping the entire assignment to the model identifiers
+    - Modified code to circumvent MSOBDCSQL13 driver problem.
+    - Modified code to skip unresolvable tuples when handling incoming changes for multi-dimensional identifiers, and log the corresponding offending label names, instead of skipping the entire assignment to the model identifiers
 
-1.8.0.3
+1.8.0.3 [09-10-2018]
     - Added :token:`cdm::NextUniqueInteger`, :token:`cdm::CloneAndRollbackElementInCategory` and :token:`cdm::RollbackElementInCategory` functions.
     - Identifier with additional index wasn't picked up correctly when connecting to database (non-matching or less indices were picked up correctly).
     
-1.7.0.0 
+1.7.0.0 [12-09-2018]
     - Added support for VS2017 builds of AIMMS.
 
-1.6.0.6
-    - Fix foreign key constraint problem when deleting branches
-    - Catch connection lost exceptions and report properly to model
+1.6.0.6 [06-09-2018]
+    - Fixed foreign key constraint problem when deleting branches
+    - Modified code to catch connection lost exceptions and report properly to the model
     
-1.6.0.0
+1.6.0.0 [26-07-2018]
     - Added :token:`cdm::DeleteBranch` function.
     
-1.5.0.10
-    - Use relative tolerance when comparing values
+1.5.0.10 [09-05-2018]
+    - Modified code to support relative tolerance when comparing values
     
-1.5.0.0
-    - Initial public release of CDM library
+1.5.0.0 [15-04-2018]
+    - Initial public release of the CDM library
 
 
 

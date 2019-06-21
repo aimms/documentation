@@ -12,4 +12,4 @@ The Email Client library provides a basic API through which emails can be create
 
     library
     api
-    
+    release

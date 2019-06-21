@@ -8,13 +8,13 @@ Installation Location and Default Ports
 
 The AIMMS Network License Server installs to
 
-.. code::
+.. code-block:: none
     
     C:\Program Files (x86)\AIMMS\AIMMS License Server
     
 and stores its runtime data in
 
-.. code::
+.. code-block:: none
 
     C:\ProgramData\AIMMS
 

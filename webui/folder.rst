@@ -6,17 +6,21 @@ An AIMMS WebUI-ready application is an ordinary AIMMS application that contains 
 .. image:: images/folderstructurewebui_v2.png
     :align: center
 
-All WebUI `pages <page-manager.html>`_ and `widgets <widget-manager.html>`_ will be stored (by the WebUI Server) in the *pages* and *widgets* subfolder of the *WebUI* folder. In addition, it is possible to store application-specific *resources* in the resources subfolder (of the *WebUI* folder). 
+	
+The entire application including *all pages and widgets* is stored in a single webui.json file. When opening your application in the IDE, the webui.json file will be automatically generated from your existing setup. During the conversion, only pages and their associated widgets that are actually referenced in the WebUI page manager will be included in the webui.json file. The conversion will *not* delete the contents of the existing pages, widgets and application folders on disk, allowing you to still use older AIMMS versions, which depend on the old format. If you make changes to the WebUI using older AIMMS versions, you can delete the webui.json file, in which case it will be automatically re-generated. Changes made with AIMMS 4.67 and higher will never be visible in older AIMMS versions.
 
-Pages
-=====
+If you are using version control on your WebUI project, please make sure to add the new webui.json file, and delete the pages, widgets and application folders from version control when you don't plan to use the project with AIMMS version 4.66 and lower any longer. The new format as a true json file will make the structure of the webui directly clear, allowing you to resolve merge conflicts in the WebUI much easier. It also makes searching where widgets are used in your WebUI application straightforward.
 
-All WebUI pages are stored (by the WebUI Server) in the *pages* subfolder of the WebUI folder. You can add pages via the `Page Manager <page-manager.html#add-a-page>`_.
+Via the `Widget Manager <widget-manager.html>`_ you can add widgets to your WebUI. You can add pages via the `Page Manager <page-manager.html#add-a-page>`_.
 
-Widgets
-=======
+.. important::
 
-Via the `Widget Manager <widget-manager.html>`_ you can add widgets to your WebUI. All widgets will be stored (by the WebUI Server) in the *widgets* subfolder of the *WebUI* folder.
+	The information above is valid for AIMMS versions 4.67 and higher. For older AIMMS versions, the following applies:
+	
+	All WebUI `pages <page-manager.html>`_ and `widgets <widget-manager.html>`_ will be stored (by the WebUI Server) in the *pages* and *widgets* subfolder of the *WebUI* folder. 
+
+	All WebUI pages are stored (by the WebUI Server) in the *pages* subfolder of the WebUI folder.
+
 
 Resources
 =========
@@ -178,6 +182,40 @@ Switching The Color Palette
 +++++++++++++++++++++++++++
 
 In order to check the color palette of your WebUI project, please read this `thread <https://groups.google.com/forum/#!category-topic/aimms/aimms-webui/RvM8E_9QIVg>`_ on our Google Group for details on how to accomplish this.
+
+Custom Icon Sets
+++++++++++++++++
+
+Certain features like the Widget Actions or the (experimental) Page Actions may use icons. AIMMS has a predefined list of `1600+ icons <../_static/aimms-icons/icons-reference.html>`_ which can be used. Custom icons can also be used for the aforementioned features by adding the desired icon font to the CSS folder and using the class names defined in the .css file in the icon field in the model specification. The icon font folder will need to have at least the .ttf file or the .woff file and the corresponding .css file, which together define the icon.
+
+When an icon font is downloaded it will have the CSS file with the TTF and/or WOFF files. Just add these to the Resources/CSS folder. To use the icons, open the CSS file and use the class name for the respective icon in the icon filed in the model specification.
+
+
+.. image:: images/CustomIcon_Folder1.png
+    :align: center
+
+
+For eaxmple, the icofont.css may have classes defined for each icon as illustrated below:
+
+.. code-block:: css
+
+    .icofont-brand-acer:before
+    {
+        content: "\e896";
+    }
+
+    .icofont-brand-adidas:before
+    {
+        content: "\e897";
+    }
+
+    .icofont-brand-adobe:before
+    {
+        content: "\e898";
+    }
+
+You need to pick the name of the desired icon class and assign it to the icon field in the model specification. eg: :token:`icofont-brand-adidas` 
+
 
 JavaScript
 ----------

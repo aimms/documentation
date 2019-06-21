@@ -331,9 +331,9 @@ In English, this means: for all rows for which the molecule :token:`m` contains 
 
 As expected, this table only shows the rows for which the molecules contain an O in their name, regardless of the value of their associated checkboxes (note the non-displayed row for the C7H16 molecule!). Specifying an identifier for the display domain is the most flexible way of determining the display domain. You can also use it to only display a slice of a displayed identifier, by only setting the associated display domain identifier to 1 for a specific value of one of its indexes.
 
-.. tip::
+.. warning ::
     
-    Please be aware that if you specify an identifier here which is defined over a subset, you should define the display domain identifier over the same subset (and not the master set).
+    Please be aware that you should define the display domain rigourously over **the same set** (or subset) than the identifier shown.
 
 Slicing
 +++++++
@@ -544,11 +544,15 @@ The set WidgetActionSpecification declared inside the `Pages and Dialog Support 
 This set has 4 elements representing widget action properties: 
 
 #. *displaytext*: Is the text/label you would like to give the action.  
-#. *icon*: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the :download:`icon list. <resources/AIMMS-Icon-List.pdf>`			
+#. *icon*: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the `icon list. <../_static/aimms-icons/icons-reference.html>`_		
 #. *procedure*: The procedure you want to call when the respective action is clicked.  
 #. *state*: This is the state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
 
-.. tip:: If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append 'aimms-" to the selected icon name when adding it to the model. eg: The icon name is calculator. In AIMMS it needs to be aimms-calculator.
+.. tip:: 
+    If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append 'aimms-" to the selected icon name when adding it to the model. For example: if the icon name is "calculator", then in AIMMS it needs to be "aimms-calculator".
+
+    `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
+    
 
 To configure widget actions, create a string parameter indexed on WidgetOrder and WidgetActionSpecification, for example MyWidgetActions(WOrder,webui::indexWidgetActionSpec) as shown here:
 
@@ -560,7 +564,7 @@ Right click the string parameter and click on the Data option to open the data p
 .. image:: images/WidgetActions_MyWidgetActionsdata.png
 			:align: center
 
-Add the details for the widget actions you would like to show for the widget. For example, 
+Add the details for the widget actions you would like to show for the widget. For example: 
 
 .. image:: images/WidgetActions_MyWidgetActionsdata_added.png
 			:align: center

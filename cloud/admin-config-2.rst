@@ -20,8 +20,15 @@ DB IP Range Blocking
 
 This section allows you to add a list of IPs or IP Ranges which enables you to enhance the security of your AIMMS PRO Application Databases by limiting the access to only specific IP-Ranges.
 
+.. note::
+
+    Starting with AIMMS PRO 2.31.1 this section is not available any more, as we have enabled secure VPN access to your application databases.
+
+
 .. image:: images/db-ip-range.png
     :align: center
 
 As shown in the above picture, AIMMS PRO Administrator can add IP addresses or subnets from which connection is allowed to your AIMMS PRO application database. 
+
+
 

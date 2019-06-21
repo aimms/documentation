@@ -45,4 +45,5 @@ As schema we consider data sources that are organized as a collection of tables,
    practicaltips
    providers
    examples
-   version
+   release
+

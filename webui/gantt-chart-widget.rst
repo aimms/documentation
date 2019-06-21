@@ -78,6 +78,8 @@ This paragraph gives you an overview of all the specific Gantt Chart options, wh
 * *Time resolution in (decimal) hours* (required): With this option you can determine precisely at which position or size the dragging or resizing of a bar will end. If you set this to, for example, 1, you can drag and resize in whole hours. So, a drag action to the left will place the bar at the nearest whole hour preceding the current position of the bar. And a resize action makes sure that the duration will be set in whole hours. You are not limited to multiples of whole hours here, though. When specifying 0.25, you set the resolution to quarters of an hour, for example.
 * *Viewport start time* (optional): With this option you can specify what time the leftmost part of the Gantt Chart displays. In combination with the *Viewport End Time* option, you can specify a 'time window' over your displayed data.
 * *Viewport end time* (optional): With this option you can specify what time the rightmost part of the Gantt Chart displays. In combination with the *Viewport Start Time* option, you can specify a 'time window' over your displayed data.
+* *Minimum Resource Height* (optional): With this option you can specify the minimum height of a resource. If your resources are condensed and not readable, when the Minimum Resource Height is specified, the resources resize to the specified value. If the resources exceed the height of the chart a vertical scroll appears. 
+* *Maximum Resource Height* (optional): With this option you can specify the maximum height of a resource. If your resources are limited the height of the resource is spread over the height of the Gantt chart. When the Maximum Resource Height is specified, the resources resize to the specified value.
 
 
 Pivoting
@@ -172,6 +174,64 @@ By using AIMMS string parameters to specify the *viewport start time* and *viewp
 
 Please note that the AIMMS function :token:`StringToMoment` is used to convert a date string into a number. The number is then used to easily perform date calculations. After that, the number is converted back to a date string using the AIMMS function :token:`MomentToString`.
 
+Minimum and Maximum Resource Height
++++++++++++++++++++++++++++++++++++
+
+Starting from AIMMS 4.67 onwards, the resource height of the Gantt chart can be set with the Minimum and Maximum Resource Height options which makes it easier for viewing or interacting with the batches. By default, the Gantt chart calculates a height for the resources and fits them in the height which is set for the chart. The default behaviour either condenses the resources (and makes it difficult to read or interact with) when the number of resources is high or uses the area to spread out the resources when they are few.
+
+Minimum Resource Height
+^^^^^^^^^^^^^^^^^^^^^^^
+When the number of resources is high, by default the Gantt chart condenses all the resources to fit in the height of the chart.
+
+.. image:: images/Ganttchart_highresource.png
+    :align: center
+
+In this case, you can assign a value to the Minimum Resource Height option and the chart will adjust the resource height to the set value. When the height of all resources exceeds the height of the Gantt chart widget, then a vertical scroll bar appears on the right and the user can scroll down in order to see the resources below.
+
+.. image:: images/Ganttchart_minheightpng.png
+    :align: center
+
+If you define a value that is lesser than the default value of a resource, then there will be no change in the resource height. Only when the Minimum Resource Height is greater than the default height the resource height changes accordingly.
+
+Maximum Resource Height
+^^^^^^^^^^^^^^^^^^^^^^^
+When the number of resources is few, by default the Gantt chart spreads the resources to fit the height of the chart. This may make the resource heights quite large.
+
+.. image:: images/Ganttchart_lowresource.png
+    :align: center
+
+In this case, one can assign a value to the Maximum Resource Height option, which will condense the resources to the set value.
+
+.. image:: images/Ganttchart_maxheightpng.png
+    :align: center
+
+If you define a value that is greater than the default value of a resource, then there will be no change in the resource height. Only when the Maximum Resource Height is lesser than the default height the resource height changes accordingly.
+
+In the case when both Minimum and Maximum Resource Height are defined, the resource height is calculated as **Maximum(Minimum Resource Height, Minimum(Maximum Resource Height, Default Height))**.
+
+To understand the possible scenarios please refer to the table below:  
+
++----------------+-------------------------+--------------------------+------------------+
+| Default Height | Minimum Resource Height | Maximum Resource Height  | Resulting Height |  
++================+=========================+==========================+==================+
+|       10       |            5            |        Not defined       |        10        |
++----------------+-------------------------+--------------------------+------------------+
+|       10       |           15            |        Not defined       |        15        | 
++----------------+-------------------------+--------------------------+------------------+
+|       10       |        Not defined      |            5             |        5         | 
++----------------+-------------------------+--------------------------+------------------+
+|       10       |        Not defined      |            15            |        10        | 
++----------------+-------------------------+--------------------------+------------------+
+|       10       |           15            |            5             |        5         | 
++----------------+-------------------------+--------------------------+------------------+
+|       10       |            5            |            15            |        10        | 
++----------------+-------------------------+--------------------------+------------------+
+|       10       |            5            |            5             |        5         | 
++----------------+-------------------------+--------------------------+------------------+
+|       10       |            15           |            15            |        15        | 
++----------------+-------------------------+--------------------------+------------------+
+
+
 Retrieving the selected task
 ++++++++++++++++++++++++++++
 
@@ -217,6 +277,31 @@ This makes it easier for the user to either line up jobs from different tasks/re
 .. image:: images/GanttChart_Backdrop_1.png
     :align: center
 
+Making some or all tasks read-only in the Gantt Chart
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. All tasks read-only: remove the identifier from ``CurrentInputs`` built-in AIMMS Set
+
+.. code::
+
+    CurrentInputs := CurrentInputs - 'TaskStart' - 'TaskDuration';
+
+where ``TaskDuration`` and ``TaskStart`` are respectively your task duration parameter and your task start parameter
+
+2. cherry-pick read-only tasks
+
+You may rely on the same process than for the `table widget <table-widget.html#creating-read-only-cells>`_.
+
+You can use an extra string parameter in your model, which has the same name and index domain as the identifier which defines the content of the table, only post-fixed with "_flags". In order to actually make some cells read-only, you have to set the value of the right index combination(s) to "readonly".
+
+.. code::
+    
+    TaskStart_flags(t,tt,'some_value_for_p') := "readonly";
+
+.. tip::
+    
+    The flag should be created on the TaskStart parameter, not the TaskDuration (it will have no effect)
+    
 Creating a form to add, delete or modify a task
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -386,6 +471,7 @@ To link the element parameter that has been specified in the store focus option 
         }
     }
 
+   
 Gantt chart details form
 """"""""""""""""""""""""
 
