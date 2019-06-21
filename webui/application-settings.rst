@@ -16,9 +16,9 @@ These settings can be accessed through the Application Settings menu, which you 
 Workflow Panel
 --------------
 
-From AIMMS 4.68 onwards, it is possible to design and configure Workflows. A Workflow is a progression of steps (tasks, events, interactions) that comprise a work/business process and create or add value to the organization's activities. 
+From AIMMS 4.68 onwards, it is possible to design and configure Workflows. The Workflow Panel is used to represent and run any workflow which is designed and defined by the Application Developer in the model. AIMMS allows the application developer to configure multiple workflows in an application.
 
-The Workflow Panel is used to represent and run any workflow which is designed and defined by the Application Developer in the model. AIMMS allows the application developer to configure multiple workflows in an application.
+A Workflow is a progression of steps (tasks, events, interactions) that comprise a work/business process and create or add value to the organization's activities. 
 
 The Workflow Panel helps guide the user through the defined set of steps in a specific workflow. It also gives the user the flexibility to enter or leave a workflow at any step of the process. The user can also navigate between workflows not restricting them to only one workflow at a given time. 
 
@@ -26,6 +26,18 @@ The workflow has states for each step that indicate to a user which steps can be
 
 .. image:: images/Workflow_Demo.png
     :align: center
+
+The Workflow Panel can also be collapsed and expanded.
+
+.. image:: images/Workflow_ExpandedCollapsed.png
+    :align: center
+    :scale: 75
+
+In the collapsed view when the user hovers over the steps the tooltip helps with identifying the step.
+
+.. image:: images/Workflow_CollapsedTooltips.png
+    :align: center
+
 
 Configuring the Workflow Panel
 ++++++++++++++++++++++++++++++
@@ -95,9 +107,14 @@ The :token:`workflowPageState` determines the state of a step in the workflow. A
 .. image:: images/Workflow_ActiveInactiveState.png
     :align: center
 
-The :token:`pageDataState` determines the data state of a page. This state indicates if a set is Complete, Incomplete or in an Error state. There is a default state as well when a certain step does not need a data state, for Example a Instruction Page or an Introduction Page.
+The :token:`pageDataState` determines the data state of a page. This state indicates if a step is Complete, Incomplete or in an Error state. There is a default state as well when a certain step does not need a data state, for Example an Instruction Page or Introduction Page.
 
 .. image:: images/Workflow_PageDataStates.png
+    :align: center
+
+These 2 states are interdependent in certain scenarios hence the  style of the step changes accordingly that is illustrated below:
+
+.. image:: images/Workflow_Workflowanddatastatecombo.png
     :align: center
 
 These states can be changed dynamically as required and as the user progresses in the workflow. This is achievable with the Action Upon Leave procedure or with the Action Upon Load procedure.
@@ -105,7 +122,19 @@ These states can be changed dynamically as required and as the user progresses i
 redirectPageId
 ++++++++++++++
 
-In the case of an invalid pageId or when the :token:`workflowPageState` for a certain pageId is Inactive or Hidden, the workflow will be redirected to the :token:`redirectPageId`. When the redirectPageId is also invalid an error is generated and the workflow stays on the current step. There is also a possibility when the workflow steps can enter a loop, in which case we check the redirect 25 times and then generate and error and the workflow stays on the current step. Current page being the page the next step or any other step was attempted.
+In the case of an invalid :token:`pageId` or when the :token:`workflowPageState` for a certain step is Inactive or Hidden, the workflow will be redirected to the :token:`redirectPageId`. This is a fallback scenario when a user tries to access a page in a workflow, via the Menu or by an OpenPage procedure defined somewhere in the application, that is not made available to the workflow yet. The :token:`redirectPageId` typically is a page that is part of that workflow. This ensures the user is in the workflow and knows that they need to complete a previous step before accessing other steps of the workflow.
+
+When the redirectPageId is also invalid an error is generated and the workflow stays on the current step. There is also a possibility when the workflow steps can enter a loop, in which case we redirect 25 times and then generate and error and the workflow stays on the current step. Current page being the page the next step or any other step was attempted.
+
+Changing states and controlling navigation with Action Upon Leave procedures
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+As mentioned earlier, the :token:`workflowPageState` and :token:`pageDataState` can be changed dynamically as and when the user performs actions on the workflow. The user can also be restricted from leaving a certain step if some data is incorrect or certain actions need to be performed before moving to any other step or page.
+
+One of the ways to change the states is to create a procedure and call it on the Action Upon Leave. For illustration, let create a procedure "NextStep".
+
+If you need to validate data or actions and retain the user on the same step, you have to follow the steps explained in Procedure for Restricting Page Navigation.
+
 
 Use Classic Theme
 -----------------
