@@ -171,7 +171,7 @@ For example, if your app database is called example.db.cloud.aimms.com then your
 	
 Where '*TunnelName*' is URI Context Path and '*Local*' Port can be any port between 1 to 65536. 
 
-You can Start/Stop Tunnel using **Start** and **Stop** buttons. Once you have provided '*TunnelName*' and '*Local Port*', you do not need to click **Start** or **Stop** each time. You can check '*Automatically connect at startup*' parameter, then tunnel can be staretd automatically upon launching the application. 
+You can Start/Stop Tunnel using **Start** and **Stop** buttons. Once you have provided '*TunnelName*' and '*Local Port*', you do not need to click **Start** or **Stop** each time. You can check '*Automatically connect at startup*' parameter, then tunnel can be started automatically upon launching the application. 
 
 When you close the application tunnel will be also closed. You can download DB Tunnel App from `here <https://download.aimms.com/aimms/download/data/PRO/DBTunnel/>`_. 
 
