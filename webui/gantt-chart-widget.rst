@@ -16,7 +16,7 @@ In the example Gantt chart displayed in the picture above, a number of features 
 
 * The rows of the chart are alternately colored white and light gray, to make it easier for the user to distinguish between consecutive rows.
 * Overlapping or partly overlapping bars in the chart are always displayed in such a way that it is unambiguously clear that they do.
-* The default or `custom <widget-manager.html#adding-tooltips>`_ tooltip appearing when you hover over a specific bar shows detailed information about the task.
+* The default or `custom tooltip <widget-options.html#adding-tooltips>`_ appearing when you hover over a specific bar shows detailed information about the task.
 * The ability to add `additional text <widget-options.html#additional-identifier-properties>`_ in the bars to provide additional clarity about the task. Please note that the text will be clipped when it is too large for the task at hand. 
 * The top X-axis annotation intelligently shows the points in time, based on the total time duration displayed in the chart. In this case, it displays hours. If, for example, you have a chart displaying data over a few months, the top X-axis will show dates instead of hours.
 * The bottom X-axis always shows the begin date on the left and the end date on the right. If you have a chart only showing hours on the top X-axis, the bottom X-axis makes it clear to which days these hours refer.
