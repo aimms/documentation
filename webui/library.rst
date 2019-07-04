@@ -13,28 +13,28 @@ Pages and Dialog Support has been added to the AimmsWebUI library to be able to 
 
 Public Pages Support Declarations: 
 
-* AllPageIDs - This set includes all the page ID for all page types added to the `Page Manager <page-manager.html>`_ (page tree). 
-* AllPageTypes - This set includes the different page types, currently page, side panel and dialog. 
-* AllSidePanelPages - This set includes all the side panel pages added to the Page Manager. 
-* AllDialogpages - This set includes all the dialog pages added to the Page Manager. 
-* PageType(indexPageId) - This string parameter indexed on AllPageIds set maps which page type applies to which page id.
-* PagePath(indexPageId) - This string parameter indexed on AllPageIds set maps the path for each page created.
-* PageName(indexPageId) - This string parameter indexed on AllPageIds set maps the path for each page created.
+* `AllPageIDs` - This set includes all the page ID for all page types added to the `Page Manager <page-manager.html>`_ (page tree). 
+* `AllPageTypes` - This set includes the different page types, currently page, side panel and dialog. 
+* `AllSidePanelPages` - This set includes all the side panel pages added to the Page Manager. 
+* `AllDialogpages` - This set includes all the dialog pages added to the Page Manager. 
+* `PageType(indexPageId)` - This string parameter indexed on `AllPageIDs` set maps which page type applies to which page id.
+* `PagePath(indexPageId)` - This string parameter indexed on `AllPageIDs` set maps the path for each page created.
+* `PageName(indexPageId)` - This string parameter indexed on `AllPageIDs` set maps the path for each page created.
 
 Public Page and Widget Specification Declarations:
 
-* SidePanelSpecification - This set is the specification for the side panel pages. The string parameters used to `configure the side panels <page-manager.html#configuring-side-panels>`_ on pages are indexed on this set. 
-* WidgetActionSpecification - This set is the specification for adding widget actions. The string parameters used to configure the widget actions on certain widgets are indexed on this set.
+* `SidePanelSpecification` - This set is the specification for the side panel pages. The string parameters used to `configure the side panels <page-manager.html#configuring-side-panels>`_ on pages are indexed on this set. 
+* `WidgetActionSpecification` - This set is the specification for adding widget actions. The string parameters used to configure the widget actions on certain widgets are indexed on this set.
 
 Request Queue Declarations is used to manage the number of requests from WebUI. 
 
 Public Pages Support Procedures:
 
-* GetAllPages - This procedure is runs every time a page, side panel or dialog page is added to the page manager, which in turn updates the sets and identifiers in the Public Pages Support Declarations.
-* OpenSidePanel(pageId) - This procedure is used to open side panels via the model with respective pageIds as the argument. 
-* OpenPage(pageId) - This procedure is used to open/navigate to other pages in the application via the model, by passing the respective pageId as the argument. 
-* OpenExternalLink(url) - This procedure is used to open external links, by passing the URL as the argument. These links will open in a new tab in the browser.
-* ResetRequestQueue - This procedure empties the RequestQueue and the Requests set in the Request Queue Declarations.
+* `GetAllPages` - This procedure is runs every time a page, side panel or dialog page is added to the page manager, which in turn updates the sets and identifiers in the Public Pages Support Declarations.
+* `OpenSidePanel(pageId)` - This procedure is used to open side panels via the model with respective pageIds as the argument. 
+* `OpenPage(pageId)` - This procedure is used to open/navigate to other pages in the application via the model, by passing the respective `pageId` as the argument. 
+* `OpenExternalLink(url)` - This procedure is used to open external links, by passing the URL as the argument. These links will open in a new tab in the browser.
+* `ResetRequestQueue` - This procedure empties the RequestQueue and the Requests set in the Request Queue Declarations.
 
 Public Dialog Support Procedures:  
 
@@ -43,7 +43,7 @@ Public Dialog Support Procedures:
 
 .. note::
 
-    The procedures OpenSidePanel, OpenPage, OpenExternalLink and OpenDialogPage currently do not work as expected when called on a page load procedure. This issue will be expected to be fixed in the coming releases.
+    The procedures `OpenSidePanel`, `OpenPage`, `OpenExternalLink` and `OpenDialogPage` currently do not work as expected when called on a page load procedure. This issue will be expected to be fixed in the coming releases.
 
 
 requestPerformWebUIDialog
