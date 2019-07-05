@@ -69,4 +69,4 @@ To be able to show data for identifiers that are declared in an AIMMS library, y
 
 One may wonder why should the corresponding index domain sets be present in the library interface? The reason is that these index domain sets are used to display aggregated values (by pivoting/moving indices to the *Aggregated* group) in a widget. More precisely, AIMMS creates runtime identifiers in order to calculate these aggregated values (such as totals). To be able to evaluate the definitions of these runtime identifiers, the domain indices of the identifier need to be accessible too.
 
-When adding `project-specific translations <project-specific-translations>`_ to your WebUI project and (some of) the translation identifiers are located in a library, please make sure to include the library prefixes to the .properties translation file.
+When adding `project-specific translations <folder.html#project-specific-translations>`_ to your WebUI project and (some of) the translation identifiers are located in a library, please make sure to include the library prefixes to the .properties translation file.
