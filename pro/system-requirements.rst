@@ -26,7 +26,7 @@ In assessing the actual server requirements, you have to take into account the 
 Client Requirements
 -------------------
 
-Client requirements differs a bit depending on the use(to develop or as a end user) and type(WinUI/WebUI) of the AIMMS Applications.
+Client requirements differs a bit depending on the use (to develop or as a end user) and type (WinUI/WebUI) of the AIMMS Applications.
 
 **For developing WinUI/WebUI applications and using WinUI applications:**
 
