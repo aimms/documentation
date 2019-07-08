@@ -26,12 +26,23 @@ In assessing the actual server requirements, you have to take into account the 
 Client Requirements
 -------------------
 
-The minimum client requirements are:
+Client requirements differs a bit depending on the use and type of the AIMMS Applications(WinUI/WebUI).
+
+**For developing a WinUI/WebUI applications and using WinUI applications:**
 
 * Windows 7 or higher, 32-bit (x86) or 64-bit (x64)
-* 8 GB RAM, or, for apps deploying desktop clients, as much memory as required to hold the application data
+* At least 8 GB RAM, maximum model size is only restricted by available RAM
 * 10 GB of available hard disk space
-* 32-bit browser: IE 8+, Firefox, Chrome, or Opera. Apps with Web User interface requires Internet Explorer 11 or Edge.
+* Browser: recent Chrome version, Internet Explorer 11 or recent Edge version
+
+
+**For using WebUI applications**
+
+* Any operating system including Windows, MacOS and iOS
+* Browser: recent Chrome version, Internet Explorer 11 or recent Edge version. 
+* For iOS the Safari browser is supported
+* For applications that have been built with the previous generation UI builder, ‘WinUI’ additional browsers are supported: IE8+, Firefox and Opera.
+
 
 Network Requirements
 --------------------
