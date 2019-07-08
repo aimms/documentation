@@ -28,20 +28,19 @@ Client Requirements
 
 Client requirements differs a bit depending on the use (to develop or as a end user) and type (WinUI/WebUI) of the AIMMS Applications.
 
-**For developing WinUI/WebUI applications and using WinUI applications:**
-
-* Windows 7 or higher, 32-bit (x86) or 64-bit (x64)
-* At least 8 GB RAM, maximum model size is only restricted by available RAM
-* 10 GB of available hard disk space
-* Browser: recent Chrome version, Internet Explorer 11 or recent Edge version
-
-
 **For using WebUI applications:**
 
 * Any operating system including Windows, MacOS and iOS
 * Browser: recent Chrome version, Internet Explorer 11 or recent Edge version. 
 * For iOS the Safari browser is supported
 * For applications that have been built with the previous generation UI builder, ‘WinUI’ additional browsers are supported: IE8+, Firefox and Opera.
+
+**For developing WinUI/WebUI applications and using WinUI applications:**
+
+* Windows 7 or higher, 32-bit (x86) or 64-bit (x64)
+* At least 8 GB RAM, maximum model size is only restricted by available RAM
+* 10 GB of available hard disk space
+* Browser: recent Chrome version, Internet Explorer 11 or recent Edge version.
 
 
 Network Requirements
