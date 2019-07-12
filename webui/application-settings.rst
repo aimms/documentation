@@ -7,10 +7,12 @@ Application Settings
 
 .. |use-classic-theme-on| image:: images/use_classic_theme_on.png
 
+.. |workflowicon| image:: images/workflowicon.png
+
 There are some settings that not only apply to a specific widget or page, but to the WebUI application as a whole. 
 These settings can be accessed through the Application Settings menu, which you can open by clicking on the |applicationsettings-icon| icon:
 
-.. image:: images/app_settings_open_new.png
+.. image:: images/app_settings_open_new_workflow.png
     :align: center
 
 Workflow Panel
@@ -20,7 +22,7 @@ From AIMMS 4.68 onwards, it is possible to design and configure Workflows. The W
 
 A Workflow is a progression of steps (tasks, events, interactions) that comprise a work/business process and create or add value to the organization's activities. 
 
-The Workflow Panel helps guide the user through the defined set of steps in a specific workflow. It also gives the user the flexibility to enter or leave a workflow at any step of the process. The user can also navigate between workflows not restricting them to only one workflow at a given time. 
+The Workflow Panel guides the user through the defined set of steps in a specific workflow. It also gives the user the flexibility to enter or leave a workflow at any step of the process. The user can also navigate between workflows not restricting them to only one workflow at a given time. 
 
 The workflow has states for each step that indicate to a user which steps can be accessed and which cannot. Data states help indicate which steps are complete, incomplete or in an error state. 
 
@@ -46,8 +48,8 @@ The Workflow Panel can be configured by the application developer via the AIMMS 
 
 WorkflowSpecification - This set is used to configure the number of workflows and their respective titles. The properties of this set are:
 
-* :token:`title` - The title for the workflow to be displayed on the top of the Workflow Panel.
-* :token:`style` - A defined style for the workflow (This property is not in use currently. We have made the provision to incorporate different styles that we expect will be available in the future)
+* :token:`title` - The title for the workflow to be displayed on top of the Workflow Panel.
+* :token:`style` - A defined style for the workflow (This property is not in use currently. We have made the provision to incorporate different styles that we expect will be available in the future.)
 
 WorkflowPageSpecification - This set is used to configure the steps for each workflow. The properties of this set are:
 
@@ -78,7 +80,21 @@ Configuring Steps of a Workflows
 
 Create the second string parameter, let's call it :token:`MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)` indexed over the WorkflowNumbers set with both indices and the WorkflowPageSpecification set. This string parameter is used to define the steps for each workflow that was defined in the MyWorkflows string parameter. Each :token:`pageId` configured is a step displayed in the Workflow Panel.
 
-A page can be configured to only one workflow. If a page is configured for more than one Workflow the page will be considered as a step for the first workflow that it has been configured to, but will be displayed in the other workflows as well. When the user clicks on the step when in another workflow the user will be redirected to the first workflow it finds that :token:`pageId`. For example, if a page 'Results' with :token:`pageId = results` is configured for workflows "Route Optimization" and "Inventory Management", Results will appear in both workflows but will guide the user to Route Management workflow when accessed.
+A page should be configured to only one workflow. If a page is configured to multiple workflows, although the page will be shown as a step in each workflow, when the user clicks on the step they will be taken to the step in the workflow where the :token:`pageId` appears first in the steps defined in the MyWorkflowSteps string parameter for workflows define in the MyWorkflows string parameter. For example, if a page 'Results' with :token:`pageId = results_1` is configured for two workflows "Route Optimization" and "Inventory Management", Results will appear in both workflows but will redirect the user to step in Route Optimization workflow when accessed, as illustrated below.
+
+Results is configured for two workflows.
+
+.. image:: images/Workflow_Pagein2Workflows_1.png
+    :align: center
+
+
+Results shows as a step in both workflows.
+
+.. image:: images/Workflow_Pagein2Workflows_2.png
+    :align: center
+    :scale: 75
+
+In this case, when the user is on the Inventory Management workflow and clicks on the Results step, they will be redirected to the Results step in the Route Optimization workflow since Route Optimization is the first workflow in the order in the MyWorkflows string parameter.
 
 There is no limit to the number of steps each workflow can have. AIMMS recommends not more than 10 steps per workflow. If there are more than 10 steps try to breakdown the workflow into smaller workflows, if possible.
 
@@ -152,6 +168,17 @@ Similarly, to change :token:`pageDataState`
     MyWorkflowSteps(1, 2, 'pageDataState') := 'Complete';
 
 If you need to validate data or actions and retain the user on the same step follow the steps explained in Procedure for Restricting Page Navigation.
+
+
+Configuring the string parameters in the Application settings
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+To enable the Workflow Panel click on the Workflow Panel icon |workflowicon|. Add the configured string parameters to the respective fields as illustrated.
+
+.. image:: images/Workflow_ConfiguringStringParameters.png
+    :align: center
+
+Once the string parameters are added in their respective fields, the Workflow Panel will be displayed on pages that are part of a workflow.
 
 
 Use Classic Theme
