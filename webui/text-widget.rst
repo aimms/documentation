@@ -29,7 +29,7 @@ Inserting images
 ++++++++++++++++
 
 
-To insert an image, the image would first have to be placed into the WebUI/resources/images folder of your AIMMS project. Then, click on the ‘Image’ button |image-button| and copy the complete image name (including the image type) into the box that pops up. If done correctly, you would be able to already see a preview of the image. Then click ‘Insert’ to insert the image into the text box.
+To insert an image, the image would first have to be placed into the WebUI/resources/images folder of your AIMMS project. Then, click on the ‘Image’ button |image-button| and copy the complete image name (including the image type) into the box that pops up. If done correctly, you would be able to already see a preview of the image. Then click ‘Insert’ to insert the image into the text box. Please keep in mind that on Linux the casing of the image files should be correct, otherwise your images will not display. 
 
 Creating links
 ++++++++++++++
