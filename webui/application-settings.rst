@@ -15,13 +15,13 @@ These settings can be accessed through the Application Settings menu, which you 
 .. image:: images/app_settings_open_new_workflow.png
     :align: center
 
-The application options under the Miscelaneous tab of the Application Settings are explained further down in this section. 
+The application options under the Miscellaneous tab of the Application Settings are explained further down in this section. 
 Firstly, the options of the Workflow Panel behind the icon |workflowicon| are described here.
 
 Workflow Panel
 --------------
 
-.. important:: Workflow panels are available in software versions from AIMMS 4.68 onwards.
+.. important:: Workflow panels are available in software versions from AIMMS 4.68 onwards as part of Experimental Features. Please reach out to User Support on how to enable Experimental Features.
 
 Starting from AIMMS 4.68, it is possible to design and configure Workflows in the AIMMS WebUI. The Workflow Panel is used to represent and run any workflow which is designed and defined by the application developer in the model. AIMMS allows the application developer to configure multiple workflows in an application.
 
