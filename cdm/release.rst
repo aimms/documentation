@@ -7,9 +7,13 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.13.1.15 [18-07-2019]
+    - Multiple clients retrieving domain set data simultaneously (e.g. upon commit notify), could result in a server crash due to a race condition introduced by the branch-dependent domain set filtering added in CDM version 1.11
+    - Newly added domain set elements during cdm::CommitElementInCategory are now restricted to the specified element in the specified set only
+    
 1.13.1.4 [11-07-2019]
     - Added client and service instance ids to improve service logging and matching of service and client log files
-    - Improve dumpfile creation on-premise.
+    - Improve dumpfile creation on-premise
     
 1.12.0.7 [09-07-2019]
     - Added support for new cdm::CommitElementInCategory method

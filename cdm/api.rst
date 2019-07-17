@@ -261,6 +261,17 @@ Commit and Pull Functions
    :param category: specifies the category for which to commit local changes to the current branch of the category in the application database
    :param commitInfoProcedure: specifies an (optional) callback procedure (with default :token:`cdm::CommitInfoProvider`), which will be called to retrieve the commit author and comment to be associated with the commit
 
+.. js:function::  cdm::CommitElementInCategory(category,setName,elemName,commitInfoProcedure)
+
+   Commit all data defined over the existing element in the given category. If the given set occurs at multiple index positions in a multi-dimensional identifier, only tuple changes will be committed where the tuple element equals the specified element at each of these locations. If the existing element occurs in data of multiple categories, you may have to call this function for each category to achieve the desired effect. 
+   
+   You can use this function, to perform a partial commit, for instance, when multiple elements have been added to a set, but you only want to commit one of these elements, and its associated data additions. See also the corresponding utility functions to empty, rollback, and clone and rollback data changes for a specific element.
+
+   :param category: specifies the category for which to commit all data for all identifiers in the category.
+   :param setName: specifies the set for which to commit all data for the existing element
+   :param elemName: specifies the element name of the existing element
+   :param commitInfoProcedure: specifies an (optional) callback procedure (with default :token:`cdm::CommitInfoProvider`), which will be called to retrieve the commit author and comment to be associated with the commit
+
 .. js:function::  cdm::RollbackChanges(category)
    
    Reset the actual values of all identifiers in the given category, back to the values stored in the :token:`CommittedIdentifiers` in the :token:`CDMRuntime` library for the given category.
