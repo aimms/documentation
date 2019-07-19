@@ -174,7 +174,7 @@ Similarly, to change :token:`pageDataState` an assignment statement like the fol
 
     MyWorkflowSteps(1, 2, 'pageDataState') := 'Complete';
 
-If you need to validate some data or actions and maybe to retain the user on the same step, please follow the steps explained in Procedure for Restricting Page Navigation.
+If you need to validate some data or actions and maybe to retain the user on the same step, please follow the steps explained in `Procedure for Restricting Page Navigation. <page-settings.html#procedure-for-restricting-page-navigation>`_ .
 
 
 Configuring the string parameters in the Application settings
