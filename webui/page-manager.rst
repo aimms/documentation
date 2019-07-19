@@ -475,7 +475,7 @@ When a dialog box is open, the user can interact with the dialog only. The dialo
 
 
 Adding a Dialog Page
-++++++++++++++++++++++++
+++++++++++++++++++++
 
 Adding a dialog page is similar to adding a page or side panel.
 
