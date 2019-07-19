@@ -35,6 +35,7 @@ Public Pages Support Procedures:
 * ``OpenPage(pageId)`` - This procedure is used to open/navigate to other pages in the application via the model, by passing the respective ``pageId`` as the argument. 
 * ``OpenExternalLink(url)`` - This procedure is used to open external links, by passing the URL as the argument. These links will open in a new tab in the browser.
 * ``ResetRequestQueue`` - This procedure empties the RequestQueue and the Requests set in the Request Queue Declarations.
+* `SetProgressMessage(message) <#setprogressmessage>`_ - This procedure allows one to overwrite the "Busy" message in the top left corner of the Menu bar by a customized message, which can better inform the user in case the AIMMS session is in "working/busy" state (ie, some code execution is going on in the background). 
 
 Public Dialog Support Procedures:  
 
@@ -45,8 +46,36 @@ Public Dialog Support Procedures:
 
     The procedures ``OpenSidePanel``, ``OpenPage``, ``OpenExternalLink`` and ``OpenDialogPage`` currently do not work as expected when called on a page load procedure. This issue will be expected to be fixed in the coming releases.
 
+SetProgressMessage
+==================
 
-requestPerformWebUIDialog
+In case that some longer code execution is going on in the background, your AIMMS WebUI session may be in "working/busy" state and the top left corner of the Menu bar may display the "Busy" message (instead of the application name
+shown normally): 
+
+.. image:: images/Busy_message.png
+    :align: center
+	
+In order to inform the user better on what is going on in such a situation, you can call the procedure :token:`webui::SetProgressMessage` and overwrite the "Busy" message by a customized message depending on the current phase of the underlying code execution. 
+
+Argument
+--------
+
+The :token:`message` argument of this procedure is a constant string or a string parameter which may be adjusted programmatically during the code execution.
+
+Example
+-------
+
+In case the application uses several procedures for executing first some initialization steps, then reading a substantial amount of data from a database and finally processing the data and computing some derived data, the procedure :token:`webui::SetProgressMessage` may be called several times displaying in turn some customized messages such as:
+
+.. image:: images/SetProgressMessage_Example.png
+    :align: center
+
+Remark
+------
+
+Note that when the procedure :token:`webui::SetProgressMessage` is called with an empty string argument, then the displayed message will be set back to the default "Busy" message.
+
+RequestPerformWebUIDialog
 =========================
 
 You can call the procedure :token:`webui::requestPerformWebUIDialog` to display a message dialog in a WebUI page. Along with the message you can also display buttons which you can bind to custom actions.
