@@ -160,9 +160,9 @@ To change the :token:`workflowPageState` of a step in a workflow, simply referen
 
 .. code:: 
 
-    MyWorkflowSteps(1, 2, 'workflowPageState') := 'Active';
+    MyWorkflowSteps(1, 2, 'workflowPageState') := "Active";
 
-The above illustration sets the :token:`workflowPageState` for Step 2 i.e. Inventory Allocation in Workflow 1 i.e Route Optimization to 'Active'.
+The above illustration sets the :token:`workflowPageState` for Step 2 i.e. Inventory Allocation in Workflow 1 i.e Route Optimization to "Active".
 
 .. image:: images/Workflow_ChangeState.png
     :align: center
