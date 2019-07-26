@@ -21,7 +21,7 @@ Example
 
 On the AIMMS model side, you have:
 
-1. A :token:`Declaration section`, with
+1. A *Declaration section*, with
 
     * :token:`Persons` - the set of which the index, :token:`p`, is used in the other identifiers
     * :token:`SelectedPersons(p)` - provides the selection parameter (its default is -1 and existing elements in the set :token:`Persons` initially have value 0)
@@ -85,9 +85,9 @@ On the WebUI side, you have:
         * :token:`webui_runtime::myform_SaveForm`
         * :token:`webui_runtime::myform_DeleteEntry`
         
-    * A `translation file <folder.html#project-specific-translations>`_ 'WebUI/resources/languages/person-form-messages.properties' which provides English translations for various form-specific internal names, containing, for example:
+    * A `translation file <folder.html#project-specific-translations>`_ ``WebUI/resources/languages/person-form-messages.properties`` which provides English translations for various form-specific internal names, containing, for example:
 
-    .. code::
+    .. code-block:: none
 
         validation-error-name-already-exists = A person with this name already exists
 
@@ -95,6 +95,6 @@ On the WebUI side, you have:
 
         Please note: when clicking on the 'Save' button, this only means that the data which you entered in your WebUI form is transferred to the underlying AIMMS model. It does **not** mean that your current AIMMS case is saved as well, so please make sure that you also `save your AIMMS data <data-manager.html>`_ before exiting. Otherwise, you'll lose your forms data.
 
-    .. tip.. 
+    .. tip::
 
         Add the form related widgets to a Group widget to make sure that the widgets remain grouped together when the browser window resizes.
