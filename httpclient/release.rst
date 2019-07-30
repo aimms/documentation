@@ -6,9 +6,11 @@ The first public release of HTTPClient was version 1.0.0.3, release date Decembe
 
 New Features and Bug Fixes
 --------------------------
+1.0.2.34 [30-07-2019]
+    - Fixed an issue with parsing (invalid) HTTP responses from servers that do not include the status text in the status line
 
 1.0.2.33 [22-07-2019]
-    - Fixed an issue with retrieving long (>255 characters) from identifiers
+    - Fixed an issue with retrieving long string values (>255 characters) from AIMMS identifiers
 
 1.0.2.30 [14-05-2019]
     - Added support for release notes
