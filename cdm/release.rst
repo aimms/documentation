@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.13.1.18 [31-07-2019]
+    - Translation vectors for set elements could be resized too small when extending sets, leading to potential data loss
+    
 1.13.1.15 [18-07-2019]
     - Multiple clients retrieving domain set data simultaneously (e.g. upon commit notify), could result in a server crash due to a race condition introduced by the branch-dependent domain set filtering added in CDM version 1.11
     - Newly added domain set elements during cdm::CommitElementInCategory are now restricted to the specified element in the specified set only
