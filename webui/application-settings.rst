@@ -124,6 +124,9 @@ Similarly, an example of configuring 4 steps for the 3rd workflow Quality Assura
 .. image:: images/Workflow_MyWorkflowStepsParameter_3.png
     :align: center
 
+.. Note::
+    Please do not use a page configured with the Wizard in a Workflow, this will result in unwanted behaviour.
+
 workflowPageState and pageDataState
 +++++++++++++++++++++++++++++++++++
 
@@ -144,6 +147,9 @@ These two states are actually interdependent, hence the style of a displayed ste
 
 These states can be changed dynamically, as required, and as the user progresses in the workflow. This is achievable either by applying data changes made on a page or by using model procedures which are triggered based on certain actions in the front end.
 
+.. Note:: 
+    To make changes on the page please ensure the workflowPageState is Active. Or, before configuring the workflow steps, first make changes to the respective pages and then configure the workflow steps. When the workflowPageState is Inactive or Hidden you will not be able to access the respective page. 
+
 redirectPageId
 ++++++++++++++
 
@@ -160,9 +166,9 @@ To change the :token:`workflowPageState` of a step in a workflow, simply referen
 
 .. code:: 
 
-    MyWorkflowSteps(1, 2, 'workflowPageState') := 'Active';
+    MyWorkflowSteps(1, 2, 'workflowPageState') := "Active";
 
-The above illustration sets the :token:`workflowPageState` for Step 2 i.e. Inventory Allocation in Workflow 1 i.e Route Optimization to 'Active'.
+The above illustration sets the :token:`workflowPageState` for Step 2 i.e. Inventory Allocation in Workflow 1 i.e Route Optimization to "Active".
 
 .. image:: images/Workflow_ChangeState.png
     :align: center
@@ -188,6 +194,7 @@ To enable the Workflow Panel click on the Workflow Panel icon |workflowicon| of 
 Once the string parameters are added in their respective fields, the Workflow Panel functionality will become visible on the pages which are part of a workflow.
 
 This sub-section concludes the explanation of the Workflow Panel functionality configured in the Application Settings of a WebUI app.
+
 
 Miscellaneous options
 ---------------------
