@@ -16,8 +16,6 @@ Creating a Download Widget
 After adding a (blank) Download widget to your WebUI page, you need to link it with an AIMMS procedure using the options editor of the Download widget. This procedure needs to have the following arguments in the exact way as below. 
 
 .. code::
-
-    MyFirstDownloadProc(FileLocation, statusCode, statusDescription)
     
     Procedure MyFirstDownloadProc {
         Arguments: (FileLocation,statusCode,statusDescription);
@@ -35,18 +33,18 @@ After adding a (blank) Download widget to your WebUI page, you need to link it w
 FileLocation
 ^^^^^^^^^^^^
 
-The download widget always looks for the file to be downloaded in the below listed folders depending on which AIMMS environment you are using and :token:`FileLocation` contains the name of the file you want to download. 
+The download widget always looks for the file to be downloaded in the below listed folders depending on which AIMMS environment you are using and ``FileLocation`` contains the name of the file you want to download. 
 
-* the main AIMMS project folder in development mode 
+* the main AIMMS project folder in developer mode 
 * the temporary PRO folder if the project is launched from a PRO server
 
-However, to create a file with name :token:`FileLocation` in the temporary PRO folder, you will need to know the path of that folder and append it before the file name. This can be done by using the pre-defined function :token:`webui::GetIOFilePath` after assigning a string value to :token:`FileLocation`.
+However, to create a file with name ``FileLocation`` in the temporary PRO folder, you will need to know the path of that folder and append it before the file name. This can be done by using the pre-defined function :token:`webui::GetIOFilePath` after assigning a string value to ``FileLocation``.
 
 .. code::
 
     webui::GetIOFilePath(FileLocation);
 
-The above function returns a string value with the absolute path to the file :token:`FileLocation` if you using from PRO and returns the unchanged file name if you are in Developer mode. By using this returned value as the location for the file to be created by your procedure, you will make it available for the download widget. 
+The above function returns a string value with the absolute path to the file ``FileLocation`` if you are using it from PRO and returns the unchanged file name if you are in Developer mode. By using this returned value as the location for the file to be created by your procedure, you will make it available for the download widget. 
 
 In case you want to be able to download a previously created file through the download widget, you will need to copy that file into the appropriate location. You can use the :token:`FileCopy` function as below to do that 
 
