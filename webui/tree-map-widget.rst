@@ -1,5 +1,5 @@
 Tree Map Widget
----------------
+====================
 
 The Tree Map widget represents data as rectangles filling the surface of the widget. A simple situation is when a 1-dimensional identifier such as the Supply(f) of a factory f in the TransNet application 
 (see the "Quick Start: My First WebUI" section) is displayed like in the following picture:
@@ -14,7 +14,7 @@ like illustrated in more details in the sequel. More specifically, we discuss an
 which may be accessed through the Settings wheel.
 
 Contents and Pivoting
-+++++++++++++++++++++
+-----------------------------
 
 In order to determine the information to be rendered by a tree map, one has to specify first the data identifier(s) in the Contents tab of the widget's options editor, which works in the same way 
 as for other widgets, e.g.. the same way as for the bar chart widget.
@@ -36,14 +36,14 @@ One may move some data indexes in the Totals section of the Pivot tab. In our ex
 So, now for every center c there is only one rectangle in the chart representing the total transport to this center from all factories.
 	
 Change Type
-+++++++++++
+--------------
 
 In the Change Type tab of the widget's options editor, one can switch from the tree map type to some other representation type. 
 This functionality works in the same way as for other widgets, e.g.. the same way as for the bar chart widget.
 
 
 Totals
-++++++
+---------
 
 In the Totals tab of the widget's options editor, aggregated values such as sum, mean, count, min, or max computed over one of the data indexes my be added to the map. 
 For example, when we add the mean over the factories f to our example tree map, then each center rectangle shows one additional sub-rectangle representing the mean value
@@ -53,14 +53,14 @@ of the other three sub-rectangles for factories:
     :align: center
 
 Identifier Settings
-+++++++++++++++++++
+--------------------------
 
 In the Identifier Settings tab of the widget's options editor, one can apply a display domain or some slicing to the data identifier(s).
 
 These functionalities work in the same way as for other widgets, e.g.. the same way as for the bar chart widget.
 
 Hover and Select
-++++++++++++++++
+------------------------
 
 In the tree map one may select one rectangle by clicking on it. In this case, the selected rectangle is highlighted, while the other rectangles are faded away. The picture below depicts this situation:
 
@@ -75,7 +75,7 @@ When a rectangle has been selected, the user may still hover over another rectan
 
 
 Miscellaneous
-+++++++++++++
+-----------------
 
 In the Miscellaneous tab of the tree map's options editor, other options may be set such as the title of the widget, whether or not the widget is visible (this may be determined by a model parameter)
 or the number of decimals for the values displayed in the map.

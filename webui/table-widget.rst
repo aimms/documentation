@@ -1,5 +1,5 @@
 Table Widget
-------------
+==================
 
 .. |sort| image:: images/sort.png
 
@@ -50,7 +50,7 @@ The table widget offers the user possibilities for various actions such as:
   * You can use either ENTER or ALT+ARROW DOWN to open the drop-down list in focus, in order to change its value.
 
 Download Table Data
-+++++++++++++++++++
+--------------------------
   
 The Table Widget offers you the possibility to download its current contents to a .csv file on your local machine, which you can use to further process your data in, for example, Excel. On the top right, left of the 'Full Screen' icon, you can find the download icon. 
 
@@ -66,7 +66,7 @@ Please note that the .csv file is constructed within your browser environment be
 Furthermore, there is a limit on the number of rows that can be downloaded (i.e. even when having just 1 column!): this is controlled by the value of the project option *WebUI_maximum_number_of_entries_in_widget*. The default value of this option is currently 1,000,000.
  
 Creating Read-Only Cells
-++++++++++++++++++++++++
+------------------------------------
 
 By using flags (in runtime)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -98,7 +98,7 @@ By using the WebUI authorization (not in runtime)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You may use the Authorization support from the WebUI Library described in :doc:`../webui/creating`. 
-Please mind this authorization is not updated at WebUI runtime. Thus, the following code should be part of the `PostMainInitialization` predeclared procedure or the Startup Procedure ( :menuselection:`Settings-->Project Options--> Startup & authorization` ). 
+Please mind this authorization is not updated at WebUI runtime. Thus, the following code should be part of the `PostMainInitialization` predeclared procedure or the Startup Procedure ( :menuselection:`Settings===>Project Options===> Startup & authorization` ). 
 
 .. code::
     
@@ -109,7 +109,7 @@ Authorization Schema reminder:
 
 +--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Identifier Authorization | Value | Description                                                                                                                                                                                                                       |
-+--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++==========================+=======+===================================================================================================================================================================================================================================+
 | no access                | 0     | No data will be shown in the WebUI, even if the identifier is specified in a widget in the WebUI. Procedures will not be executed                                                                                                 |
 +--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | read access              | 4     | Data will be displayed in the WebUI, but will be shown as read-only data. Data changes via the WebUI are prohibited. Procedures will not be executed.                                                                             |
@@ -120,3 +120,4 @@ Authorization Schema reminder:
 +--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | full access              | 7     | Data will be displayed in the WebUI, and are displayed as editable if no other restrictions prohibit editing the data (e.g. defined identifiers). Procedures with this permission can be executed from within the WebUI.          |
 +--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+

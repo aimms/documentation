@@ -1,11 +1,11 @@
 Selection Widgets
------------------
+========================
 
 Selection widgets allow the user to select one element in a set or a subset of elements in a set by using an element parameter or an 1-dimensional binary indicator parameter,
 respectively. The available types of selection widgets are selectionbox, multiselect, and legend (see further below).
 
 Selection Widgets with Element Parameter
-++++++++++++++++++++++++++++++++++++++++
+------------------------------------------------------------
 
 It is possible to specify an element parameter as data identifier in the Contents tab of the widget's options editor, where one may search 
 for the available model data using the corresponding functionality at the bottom:
@@ -20,7 +20,7 @@ The value of this element parameter may be viewed using a selectionbox, a multis
     :align: center
 
 Selection Widgets with an 1-dimensional Binary Parameter
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+------------------------------------------------------------------------------------
 
 It is also possible to specify a 1-dimensional binary parameter as data identifier in the Contents tab of the widget's options editor, where one may search 
 for the available model data using the corresponding functionality at the bottom:
@@ -38,7 +38,7 @@ Note that, in this case it is still possible to switch to other representation t
 from the underlying set. 
 
 Identifier Settings
-+++++++++++++++++++
+--------------------------
 
 In the Identifier Settings tab of the widget's options editor, one can apply a display domain in the "Set display domain" section, which works in the same way as for other widgets.
 
@@ -52,7 +52,7 @@ For instance, we can slice our center index c to the index pref_c of a subset Pr
 So, in such a case the multiselect widget may modify only those values of IsInSubsetCenters which correspond to some center which belongs to the PreferredCenters (sub)set.
 	
 Miscellaneous options
-+++++++++++++++++++++
+---------------------------
 
 In the Miscellaneous tab of the widget's options editor, other options may be set such as the title of the widget and whether or not the widget is visible (this may be determined by a constant 
 or by a parameter from the model).

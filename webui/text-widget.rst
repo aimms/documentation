@@ -1,5 +1,5 @@
 Text Widget
------------
+==============
 
 .. |link-button| image:: images/link-button.png
 
@@ -15,7 +15,7 @@ An example of what a text widget could look like can be seen below.
     :align: center
 
 Widget menu
-+++++++++++
+--------------
 
 When in edit mode, the text widget’s menu looks as follows:
 
@@ -26,14 +26,14 @@ When in edit mode, the text widget’s menu looks as follows:
 From left to right, the buttons can be used to change font size, to make text bold, italic, underlined, strikethrough and/or colored, to change the background color of a piece of text, to create links, to insert images, to create lists and bullet points and to change text alignment.
 
 Inserting images
-++++++++++++++++
+------------------------
 
 Firstly, the image must be placed into the *WebUI*/*resources*/*images* `sub-folder <folder.html#resouces#images>`_ of your *MainProject* directory. To insert an image, click on the ‘Image’ button |image-button| and copy the complete image name (including the image type/file extension) into the box that pops up. If done correctly, you should be able to see a preview of the image. Then click ‘Insert’ to insert the image into the text box. 
 
 .. note:: Please keep in mind that on Linux the casing of the image files should be correct, otherwise your images will not display. Also, please remember to specify the full name of the image, including the filename extension (like .jpg, .png etc). In particular, this is important to keep in mind in case your Windows Explorer is set to hide file extensions.
 
 Creating links
-++++++++++++++
+---------------------
 
 In a Text Widget it is possible to add links to internal pages or to external URL pages.
 

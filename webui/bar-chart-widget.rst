@@ -1,5 +1,5 @@
 Bar Chart Widget
-----------------
+===================
 
 .. |barchart-contents| image:: images/BarChart-Contents.png
 
@@ -7,20 +7,19 @@ Bar Chart Widget
 
 .. |barchart-layout1| image:: images/BarChart-Layout1.png
 
-The Bar Chart widget represents data as vertical bars. A typical situation is when a 1-dimensional identifier such as the Supply(f) of a factory f in the TransNet application 
-(see the "Quick Start: My First WebUI" section) is displayed like in the following picture:
+The Bar Chart widget represents data as vertical bars. An example is shown below
 
 .. image:: images/BarChart-1dimEx.png
     :align: center
 
-More generally, a bar chart widget offers the possibility to display multi-dimensional data in your model by using an X/Y-plane to display a bar 
+A bar chart widget offers the possibility to display multi-dimensional data in your model by using an X/Y-plane to display a bar 
 for each data point. The height of a bar provides information about the value of the corresponding data point. 
 For example, in the TransNet application, the unit transport costs for every combination (factory, center) may be represented using a bar chart widget 
 like illustrated in more details in the sequel. More specifically, we discuss and illustrate below one-by-one the tabs in the bar chart's options editor 
 which may be accessed through the Settings wheel as shown in the picture above.
 
 Contents and Pivoting
-+++++++++++++++++++++
+----------------------------
 
 In order to determine the information to be rendered by a bar chart, first one has to specify the data identifier(s) in the Contents tab of the widget's options editor, where one may search 
 for the available model data using the corresponding functionality at the bottom:
@@ -46,7 +45,7 @@ Similarly, one may move some data indexes in the Stacked section of the Pivot ta
     :align: center
 	
 Change Type
-+++++++++++
+--------------
 
 In the Change Type tab of the widget's options editor, one can switch from the bar chart type to some other representation type. 
 In the example at hand, one can switch e.g.. from the bar chart to the table, resulting in the tabular view of the same data values:
@@ -55,7 +54,7 @@ In the example at hand, one can switch e.g.. from the bar chart to the table, re
     :align: center
 
 Barchart Settings
-+++++++++++++++++
+----------------------
 
 In the Barchart Settings tab of the widget's options editor, a minimum and a maximum bound for the Y-axis may be specified, either as constants or as scalar identifiers from the model.
 Additionally, one may also specify a step size which determines the distance between the horizontal grid lines drawn in the chart:
@@ -65,7 +64,7 @@ Additionally, one may also specify a step size which determines the distance bet
 	
 
 Totals
-++++++
+---------
 
 In the Totals tab of the widget's options editor, aggregated values such as sum, mean, count, min, or max computed over one of the data indexes my be added to the chart. 
 For example, when we add the sum over the centers c to our example bar chart, three additional (gray) bars representing the aggregated values become visible in the chart 
@@ -75,7 +74,7 @@ and the Y-axis is re-scaled accordingly:
     :align: center
 
 Identifier Settings
-+++++++++++++++++++
+-----------------------
 
 In the Identifier Settings tab of the widget's options editor, one can apply a display domain or some slicing to the data identifier(s).
 
@@ -96,7 +95,7 @@ Similarly, one could slice the index f to an element parameter CurrentFactory ha
 or by a choice made through another widget in the user interface). 
 
 Store Focus, Hover and Select
-+++++++++++++++++++++++++++++
+--------------------------------
 
 In the Store Focus tab of the widget's options editor, for each index it is possible to specify an element parameter in the same set which will store the corresponding value when the user sets the
 focus on a specific bar in the chart. For example, we can specify SelectedFactory for the index f and SelectedCenter for the index c, where SelectedFactory and SelectedCenter are element parameters 
@@ -114,7 +113,7 @@ When a bar has been selected, the user may still hover over another bar and insp
     :align: center
 
 Miscellaneous
-+++++++++++++
+----------------
 
 In the Miscellaneous tab of the bar chart's options editor, other options may be set such as the title of the widget, whether or not the widget is visible (this may be determined by a model parameter)
 or the number of decimals for the values displayed in the chart.
