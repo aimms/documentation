@@ -1,5 +1,6 @@
+**************
 Page Settings
-*************
+**************
 
 .. |page-settings| image:: images/page-settings_v1.png
 

@@ -1,14 +1,22 @@
 Download Widget
 ---------------
 
-The Download widget and the related `Upload widget <upload-widget.html>`_ achieve complementary tasks.
+The Download widget and the related :doc:`upload-widget` achieve complementary tasks.
 
 The Download widget allows you to download a file created by the underlying AIMMS model (running on a PRO server) to your local computer.
 
 .. image:: images/Download-View.png
     :align: center
 
-In WebUI, pressing the button to the right of the download widget starts the AIMMS procedure that creates/prepares the file to be downloaded. When this process is finished, the default download functionality of your browser is used to let you download the file. In case the AIMMS procedure to create the file to be downloaded takes longer than 10 seconds, WebUI shows a 'Busy' state. By default, the status message displayed on the download widget changes from 'Prepare download' to 'File ready to download'. The button text changes to 'Get' and you can now start the file download by clicking on it. 
+In WebUI, pressing the button to the right of the download widget starts the AIMMS procedure that creates/prepares the file to be downloaded. 
+When this process is finished, the default download functionality of your browser is used to let you download the file. 
+
+.. note::
+    
+    In case the AIMMS procedure to create the file to be downloaded takes longer than 10 seconds, WebUI shows a 'Busy' state. 
+    
+By default, the status message displayed on the download widget changes from 'Prepare download' to 'File ready to download'. 
+The button text changes to 'Get' and you can now start the file download by clicking on it. 
 
 Creating a Download Widget
 ++++++++++++++++++++++++++
@@ -36,7 +44,7 @@ FileLocation
 The download widget always looks for the file to be downloaded in the below listed folders depending on which AIMMS environment you are using and ``FileLocation`` contains the name of the file you want to download. 
 
 * the main AIMMS project folder in developer mode 
-* the temporary PRO folder if the project is launched from a PRO server
+* the temporary PRO folder, if the project is launched from a PRO server (or the AIMMS Cloud)
 
 However, to create a file with name ``FileLocation`` in the temporary PRO folder, you will need to know the path of that folder and append it before the file name. This can be done by using the pre-defined function :token:`webui::GetIOFilePath` after assigning a string value to ``FileLocation``.
 
