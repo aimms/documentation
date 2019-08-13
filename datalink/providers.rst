@@ -41,7 +41,7 @@ Reading
     Reading the data happens row by row and only those cells are read that are in valid columns. Empty rows are skipped and the whole sheet is read to the end.
 
 Writing
-    The header with the column names is written in column 1, starting at cell A1. Then all data is written row by row under the column names in header.
+    The header with the column names is written in column 1, starting at cell A1. Then al data is written row by row under the column names in header.
 
 
 .. tip::
@@ -71,7 +71,7 @@ Formula
 CSVProvider
 ===========
 
-The CSVProvider can be used for Comma Separated Value (CVS) files with extension :token:`.csv`. These are normal text files in which a specific character call the separator is used to split each line data into column elements. The default separator is the comma and in can be changed in specifying  :ref:`ReadWriteAttributes`.
+The CSVProvider can be used for Comma Separated Value (CVS) files with extension :token:`.csv`. These are normal text files in which a specific character calle the separator is used to split each line data into column elements. The default separator is the comma and in can be changed in specifying  :ref:`ReadWriteAttributes`.
 
 Data source
     The directory containing the csv files. To specify the current directory use a dot. 

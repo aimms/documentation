@@ -30,7 +30,7 @@ New Features and Bug Fixes
 1.0.2.9 [12-07-2018]
     - Added Content-Type to the HttpHeader set
     - Added Content-Length header to request when an input file is specified
-    - Fixed issue with not writing received data to files
+    - Fixed issue with not writing received datat to files
     
 1.0.2.5 [31-05-2018]
     - Allowed access to response headers
@@ -41,10 +41,10 @@ New Features and Bug Fixes
     - Added support for chunked HTTP transfer encoding
     
 1.0.2.1 [26-03-2018]
-    - Added ``clientOptions`` to library interface
+    - Added clientOptions to library interface
     
 1.0.1.1 [09-02-2018]
-    - Added ``requestTimeout`` to the web download file example
+    - Added requestTimeout to the web download file example
 
 1.0.0.5 [13-12-2017]
     - Initial public release of HTTPClient library

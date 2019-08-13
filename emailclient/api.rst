@@ -3,7 +3,7 @@ Email Client API
 
 .. js:function::  email::SetServer(_HostName,_Port,_ConnectionType,_AuthType,_UserName,_Password,_OAuth2Token,_CheckCertificate)
 
-    Sets the STMP server to use for sending email messages through the :js:func:`email::SendMail` function. Returns 1 if successful, or 0 otherwise.
+    Sets the STMP server to use for sending email messages through the js:func:`email::SendMail` function. Returns 1 if successful, or 0 otherwise.
     
     :param _HostName: hostname of the SMTP server to which to connect to.
     :param _Port: IP port on which the SMTP server will listen for incoming SMTP connections (typically 25 or 587)
@@ -11,7 +11,7 @@ Email Client API
     :param _AuthType: optional argument specifying the type of authentication required for connecting to the SMTP server (default None). You can use the constants defined in the :token:`DLLInterface/Authentication Types` section to specify the required authentication type.
     :param _UserName: optional argument specifying the username to use when connecting to the STMP server
     :param _Password: optional argument specifying the password to use when connecting to the STMP server
-    :param _OAuth2Token: optional argument specifying the ``OAuth2`` token to use when connecting to the STMP server
+    :param _OAuth2Token: optional argument specifying the OAuth2 token to use when connecting to the STMP server
     :param _CheckCertificate: optional argument specifying whether to verify the certificate returned by the server when connecting via StartTLS or TLS connection type.
 
 .. js:function::  email::NewMail(_Subject,_Name,_Address,_MessageId)

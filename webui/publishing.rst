@@ -16,5 +16,5 @@ In our GitHub repository, some WebUI example projects are available. To run an e
 
 #. Download the example project from the `WebUI-Examples GitHub repository <https://github.com/aimms/WebUI-Examples>`_. 
 #. Unzip the downloaded application. 
-#. Start a recent AIMMS version and open the ``.aimms`` project file. 
+#. Start a recent AIMMS version and open the .aimms project file. 
 #. Once the project is opened, start the WebUI by pressing the *WebUI button* on the toolbar.

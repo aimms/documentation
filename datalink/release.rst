@@ -12,11 +12,11 @@ New Features and Bug Fixes
     - Adapted DataLink for RLink 1.1
 
 1.1.0.4 [06-03-2019]
-    - Support for new data map with possibility of column-header transformations
+    - Support for new datamap with possibility of column-header transformations
     - Added support for Unicode paths in provider names
 
 1.0.1.125 [11-02-2019]
-    - Matched version of ``libxl`` being used to that used in AimmsXLLibrary to prevent errors when using both libraries
+    - Matched version of libxl being used to that used in AimmsXLLibrary to prevent errors when using both libraries
     - Fixed an error where data of element parameters was not read correctly
     - Fixed an error where empty cells in an Excel spreadsheet lead to copying last read value
     - Incorrect mapping could lead to datalink crash

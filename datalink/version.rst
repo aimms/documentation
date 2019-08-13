@@ -12,7 +12,7 @@ Version 1.1
 1.1.1
 -----
 
-* Make adaptations to make RLink work with the new data map.
+* Make adaptions to make RLink work with the new data map.
 
 Version 1.0
 ===========

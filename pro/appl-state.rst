@@ -6,12 +6,12 @@ In many cases, it is not necessary to transfer the entire state of your client a
 Specifying Case Content
 +++++++++++++++++++++++
 
-To reduce the amount of data that is sent between the server and the client, or to prevent that data is transferred at all, you can provide the AIMMS PRO library with information about what data should be stored in the case files sent back and forth. The mechanisms are slightly different for projects using the data management style storing all cases in a single ``.dat`` file, as opposed to the data management style where all individual cases are directly stored in separate files on disk. The latter option is only available in AIMMS 3.12 and later.
+To reduce the amount of data that is sent between the server and the client, or to prevent that data is transferred at all, you can provide the AIMMS PRO library with information about what data should be stored in the case files sent back and forth. The mechanisms are slightly different for projects using the data management style storing all cases in a single .dat file, as opposed to the data management style where all individual cases are directly stored in separate files on disk. The latter option is only available in AIMMS 3.12 and later.
 
 Specifying Case Types
 ^^^^^^^^^^^^^^^^^^^^^
 
-For the single ``.dat`` file data management style, you can instruct the AIMMS PRO library to use a specific case type by setting the following element parameters:
+For the single .dat file data management style, you can instruct the AIMMS PRO library to use a specific case type by setting the following element parameters:
 
 * :token:`pro::ManagedSessionInputCaseType`, denoting which case type should be used for data transfer from the client to the server
 * :token:`pro::ManagedSessionOutputCaseType`, denoting which case type should be used for data transfer from the server to the client
