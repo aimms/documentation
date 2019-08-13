@@ -64,7 +64,7 @@ By checking the additional flag "I want to manually start up a server-side debug
 
 .. warning::
 
-    When the argument waitForCompletion of pro::DelegateToServer is set to 1, during the setup of the debug session, AIMMS will not return. Therefore you will need to set this argument to 0 when you setup a server side debug session.
+    When the argument ``waitForCompletion`` of ``pro::DelegateToServer`` is set to 1, during the setup of the debug session, AIMMS will not return. Therefore you will need to set this argument to 0 when you setup a server side debug session.
 
 Debugging a Server-side Session
 -------------------------------

@@ -1,7 +1,7 @@
 Read and Write
 **************
 
-When reading or writing we have to select the source and datamap. Also we have to set the ReadWriteAttribute. DataLink should take care of the rest. This include doing type conversions when needed.
+When reading or writing we have to select the source and data map. Also we have to set the ReadWriteAttribute. DataLink should take care of the rest. This include doing type conversions when needed.
 
 
 
@@ -91,7 +91,7 @@ Then it is still possible that they have different ideas about what the actual t
 
     Integer to string
 
-        For some providers al numerical values are stored in floating point representation. When converting this to a string it may look weird for integers. I.e. in Excel a cell value may look like 123, but the provider will see it as 123.0000 so it will become "123.00000000" when converting to string. For this reason DataLink tries to detect integers and remove the extra zeros.
+        For some providers la numerical values are stored in floating point representation. When converting this to a string it may look weird for integers. I.e. in Excel a cell value may look like 123, but the provider will see it as 123.0000 so it will become "123.00000000" when converting to string. For this reason DataLink tries to detect integers and remove the extra zeros.
 
 
 
