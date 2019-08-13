@@ -28,7 +28,7 @@ Each worksheet is considered a table and the name of the sheets are the table na
 
     .. seealso::
 
-        https://techblog.aimms.com/2016/06/07/how-to-use-the-aimms-excel-library/
+        https://how-to.aimms.com/C_Developer/Sub_Connectivity/sub_excel_csv/index.html
 
 
 Reading and Writing
