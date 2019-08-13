@@ -10,23 +10,24 @@ Most widget types are easy to add/use, but some of them benefit from some furthe
 More details on each widget are included in one of the corresponding sections below: 
 
 .. toctree::
+   :titlesonly:
 
-    bar-chart-widget   
-    bubble-chart-widget
-    button-widget
-    download-widget
-    gantt-chart-widget
-    group-widget
-    image-widget
-    label-widget
-    line-chart-widget 
-    map-widget
-    map-widget-old-style
-    pie-chart-widget
-    scalar-widget
-    selection-widgets	
-    slider-widget
-    table-widget
-    text-widget
-    tree-map-widget	
-    upload-widget
+   bar-chart-widget
+   bubble-chart-widget
+   button-widget
+   download-widget
+   gantt-chart-widget
+   group-widget
+   image-widget
+   label-widget
+   line-chart-widget
+   map-widget
+   map-widget-old-style
+   pie-chart-widget
+   scalar-widget
+   selection-widgets	
+   slider-widget
+   table-widget
+   text-widget
+   tree-map-widget	
+   upload-widget

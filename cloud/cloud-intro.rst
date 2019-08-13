@@ -19,7 +19,7 @@ optimization runs, the actual processing is dispatched automatically to (high pe
 servers connected by the AIMMS PRO Platform. So, instead of coding your own interfaces, deployment
 setups etc., AIMMS PRO does it all for you.
 
-The AIMMS Cloud Platform is a fully managed AIMMS PRO environment. It is secure, highly reliable, upto-
+The AIMMS Cloud Platform is a fully managed AIMMS PRO environment. It is secure, highly reliable, up-to-
 date and always provides all the IT capacity you need, of course within the confines of your
 subscription of license. All you have to do is develop and publish your apps. We take care of all else.
 

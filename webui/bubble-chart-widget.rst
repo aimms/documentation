@@ -1,5 +1,5 @@
 Bubble Chart Widget
--------------------
+====================
 
 The Bubble Chart widget offers the possibility to display 3 aspects of information about set elements in your model. 
 It uses an X/Y-plane to display circles (the so-called *bubbles*) for each data point. 
@@ -13,7 +13,7 @@ At the same time, please note the following:
    The capacity and performance of the bubble widget may depend on the specifications of your user’s machine, server and database speed, and the browser being used, among other factors.
 
 Specifying the contents
-+++++++++++++++++++++++
+-------------------------
 
 To create a bubble chart, you have to specify exactly 3 AIMMS parameters on the Bubblechart tab of the widget's option editor (the one with the lonely bubble in it). The top one ('X') should contain the X-coordinates, the second one ('Y') the Y-coordinates and the third one ('Size') the bubble sizes. All 3 parameters should have the same index domain. For a bubble chart displaying information about the planets in our solar system, the following identifiers could be used in your model:
 
@@ -28,10 +28,10 @@ In this particular case, the Y-coordinate doesn't mean anything. In such cases, 
     :align: center
 
 Overriding tooltips
-+++++++++++++++++++
+--------------------
 
 As described in the `Widget Options <widget-options.html#adding-tooltips>`_ section, you can also override the default tooltips for a bubble chart. 
-However, for this you need to add a string parameter based on the name of the identfier that represents the size of the bubble. 
+However, for this you need to add a string parameter based on the name of the identifier that represents the size of the bubble. 
 So, for example, if the parameter :token:`Diameter` represents the bubble sizes, you should add a string parameter called :token:`Diameter_Tooltips` with the same index domain as :token:`Diameter` 
 in order to override the default tooltip (in this case, index :token:`p`). In the chart above, you can see the result of using the following definition for the :token:`Diameter_Tooltips(p)` identifier:
 
@@ -40,12 +40,12 @@ in order to override the default tooltip (in this case, index :token:`p`). In th
     FormatString("The diameter of %e is %n km.", p, Diameter(p));
     
 Coloring
-++++++++
+--------
 
 The coloring of the individual bubbles in a bubble chart is determined by the last index that you have specified on the Groups tab of the options editor. For example, if you have a bubble chart with bubbles based on identifiers with a 3-dimensional index, let's say years, countries and seasons, and pivot the chart such that the years index is the last one, all bubbles with the same year will be colored equally.
 
 Specific options
-++++++++++++++++
+----------------
 
 The bubble chart has some specific options that you can specify. These are located on the Miscellaneous tab of the widget's options editor:
 
@@ -54,7 +54,7 @@ The bubble chart has some specific options that you can specify. These are locat
 * Size label: here you can specify a literal string or a model identifier to describe what piece of information is used as the bubble size. It is displayed in the top-right corner of your bubble chart.
 
 Additional Remarks
-++++++++++++++++++
+------------------
 
 A number of things are important to know when creating or interpreting the Bubble Chart widget:
 

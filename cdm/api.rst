@@ -121,7 +121,7 @@ Branch and Revision Functions
 
 .. js:function::  cdm::GetGlobalBranch(db,branch)
 
-   Get the branch name of the branch in the application database set as the global branch. The gobal branch is initially set to the :token:`master` branch. When calling the high-level :js:func:`cdm::ConnectToApplicationDB` procedure, the CDM library will checkout the latest revision of the global branch after connecting to an application database.
+   Get the branch name of the branch in the application database set as the global branch. The global branch is initially set to the :token:`master` branch. When calling the high-level :js:func:`cdm::ConnectToApplicationDB` procedure, the CDM library will checkout the latest revision of the global branch after connecting to an application database.
   
    :param db: specifies the name of the application database for which to retrieve the global branch
    :param branch: is the output parameter in which the global branch will be stored
@@ -259,6 +259,17 @@ Commit and Pull Functions
    Compute the local changes between the actual identifiers in the given category, and, if any, commit the resulting change set to the *current* branch of the category in the application database. If successful, update the :token:`CommittedIdentifiers` with the local changes, and set the revision for the category to the revision under which the change set was stored. The function will fail if the user has no write access to the category or branch, or if the client is not at the latest revision of the current branch of the category. In the latter case, the client application should first pull the changes of current category, resolve any conflicts, and re-commit. 
 
    :param category: specifies the category for which to commit local changes to the current branch of the category in the application database
+   :param commitInfoProcedure: specifies an (optional) callback procedure (with default :token:`cdm::CommitInfoProvider`), which will be called to retrieve the commit author and comment to be associated with the commit
+
+.. js:function::  cdm::CommitElementInCategory(category,setName,elemName,commitInfoProcedure)
+
+   Commit all data defined over the existing element in the given category. If the given set occurs at multiple index positions in a multi-dimensional identifier, only tuple changes will be committed where the tuple element equals the specified element at each of these locations. If the existing element occurs in data of multiple categories, you may have to call this function for each category to achieve the desired effect. 
+   
+   You can use this function, to perform a partial commit, for instance, when multiple elements have been added to a set, but you only want to commit one of these elements, and its associated data additions. See also the corresponding utility functions to empty, rollback, and clone and rollback data changes for a specific element.
+
+   :param category: specifies the category for which to commit all data for all identifiers in the category.
+   :param setName: specifies the set for which to commit all data for the existing element
+   :param elemName: specifies the element name of the existing element
    :param commitInfoProcedure: specifies an (optional) callback procedure (with default :token:`cdm::CommitInfoProvider`), which will be called to retrieve the commit author and comment to be associated with the commit
 
 .. js:function::  cdm::RollbackChanges(category)

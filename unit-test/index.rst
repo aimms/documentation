@@ -10,3 +10,4 @@ You can add the AIMMS Unit Test Library to your model through the **File - Libra
    creating
    running
    automated
+   release

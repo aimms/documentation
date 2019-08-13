@@ -1,5 +1,5 @@
 Group Widget
-------------
+============
 
 The Group widget allows you to group a number of widgets together. This way you can easily create form-like structures or simply keep two or more widgets together. It is not intended to be a replacement for page layout.
 
@@ -10,18 +10,18 @@ The Group widget comes with a number of templates. These provide you with variou
 When in edit mode, you can add widgets, or remove them by dragging them onto the top bar (where it says “drag widgets here to delete”). Currently, you cannot drag widgets from one area to another, or outside of/into the Group widget. This might change in the future. You can get out of edit mode by clicking the “edit group” button again, or by pressing the “x” in the top right corner of the edit bar. Not all widgets are suitable to be placed in all template areas. For now, the Group widget does not take this into account (note: in the future we will prevent the Group widget from showing widgets in areas that do not support them).
 
 Form Input
-++++++++++
+----------
 
 As a WebUI app developer, you can now let your users change or add new input data into your models by means of forms. Instead of directly manipulating the data in your model, the form will act as a staged commit. The advantage of a staged commit over direct manipulation is that while the information is in the form, before it is applied, you can perform input validation. Only if all the form fields pass validation, the data on the form can be committed back to your model. Normally, implementing a staged commit with validation support requires a lot of logic to be written by the developer. For example, when you want to call a validation routine or prevent accidental loss of information. This could happen when there are uncommitted changes and the user requests to change the form contents by changing the selection. However, we have put all form logic in the AIMMS WebUI Library, allowing you to create a staged commit form for your end users.
 
 As a WebUI app developer, adding a form to your application requires the following steps, as demonstrated in the following example: we provide a working demonstration in the `AddressBook <https://github.com/aimms/WebUI-Examples/tree/master/AddressBook/>`_ application. The steps needed to create a form, are described below. You can also read our extensive explanation in the following blog post: `Using AIMMS WebUI Forms to Create and Edit Data <http://techblog.aimms.com/2016/03/10/using-aimms-webui-forms-to-create-and-edit-data/>`_.
 
 Example
-^^^^^^^
+---------
 
 On the AIMMS model side, you have:
 
-1. A :token:`Declaration section`, with
+1. A *Declaration section*, with
 
     * :token:`Persons` - the set of which the index, :token:`p`, is used in the other identifiers
     * :token:`SelectedPersons(p)` - provides the selection parameter (its default is -1 and existing elements in the set :token:`Persons` initially have value 0)
@@ -85,9 +85,9 @@ On the WebUI side, you have:
         * :token:`webui_runtime::myform_SaveForm`
         * :token:`webui_runtime::myform_DeleteEntry`
         
-    * A `translation file <folder.html#project-specific-translations>`_ 'WebUI/resources/languages/person-form-messages.properties' which provides English translations for various form-specific internal names, containing, for example:
+    * A `translation file <folder.html#project-specific-translations>`_ ``WebUI/resources/languages/person-form-messages.properties`` which provides English translations for various form-specific internal names, containing, for example:
 
-    .. code::
+    .. code-block:: none
 
         validation-error-name-already-exists = A person with this name already exists
 
@@ -95,6 +95,6 @@ On the WebUI side, you have:
 
         Please note: when clicking on the 'Save' button, this only means that the data which you entered in your WebUI form is transferred to the underlying AIMMS model. It does **not** mean that your current AIMMS case is saved as well, so please make sure that you also `save your AIMMS data <data-manager.html>`_ before exiting. Otherwise, you'll lose your forms data.
 
-    .. tip.. 
+    .. tip::
 
         Add the form related widgets to a Group widget to make sure that the widgets remain grouped together when the browser window resizes.

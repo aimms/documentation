@@ -179,7 +179,7 @@ Utility functions
     
 .. js::function:: web::downloadFile(url,destination,username,password)
 
-    White-box utility function to download a file from an HTTP server, using the native methods provided through the HTTP CLient API. The implementation of this function may also serve as an example how to use the HTTP CLient library. The method will optionally use basic authentication for retrieving the file. 
+    White-box utility function to download a file from an HTTP server, using the native methods provided through the HTTP Client API. The implementation of this function may also serve as an example how to use the HTTP Client library. The method will optionally use basic authentication for retrieving the file. 
     
     :param url: URL to retrieve the file from
     :param destination: file name to store the retrieved file into
@@ -191,6 +191,6 @@ Library Management
 
 .. js:function::  web::library_termination
 
-    This function is called during the termination sequence of the HTTP CLient Library. It will close all outstanding requests.
+    This function is called during the termination sequence of the HTTP Client Library. It will close all outstanding requests.
 
     

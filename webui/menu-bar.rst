@@ -37,7 +37,7 @@ In the middle:
 
 On the right:
 
-* |page-settings-new| `Page Options <page-options.html>`_ 
+* |page-settings-new| `Page Settings <page-settings.html>`_ 
 * |pencil-blue-new| `Widget Manager <widget-manager.html>`_
 * |data-manager-new| `Data Manager <data-manager.html>`_ 
 * |menu-messages-new| Messages 
@@ -70,7 +70,7 @@ On the left:
  
 * |page-manager| `Page Manager <page-manager.html>`_ (available in AIMMS developer mode, not in PRO)
 * The name of your project, followed by the current page path.
-* |page-settings| `Page Options <page-options.html>`_ 
+* |page-settings| `Page Settings <page-settings.html>`_ 
 * |pencil-blue| `Widget Manager <widget-manager.html>`_
 * |data-manager| `Data Manager <data-manager.html>`_ 
 
@@ -91,7 +91,7 @@ The detailed description of all menu bar related topics can be accessed using th
 
    page-menu
    page-manager
-   page-options
+   page-settings
    widget-manager
    widget-types
    widget-options

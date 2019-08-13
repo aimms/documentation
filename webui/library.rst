@@ -13,28 +13,29 @@ Pages and Dialog Support has been added to the AimmsWebUI library to be able to 
 
 Public Pages Support Declarations: 
 
-* AllPageIDs - This set includes all the page ID for all page types added to the `Page Manager <page-manager.html>`_ (page tree). 
-* AllPageTypes - This set includes the different page types, currently page, side panel and dialog. 
-* AllSidePanelPages - This set includes all the side panel pages added to the Page Manager. 
-* AllDialogpage - This set includes all the dialog pages added to the Page Manager. 
-* PageType(indexPageId) - This string parameter indexed on AllPageIds set maps which page type applies to which page id.
-* PagePath(indexPageId) - This string parameter indexed on AllPageIds set maps the path for each page created.
-* PageName(indexPageId) - This string parameter indexed on AllPageIds set maps the path for each page created.
+* ``AllPageIDs`` - This set includes all the page ID for all page types added to the `Page Manager <page-manager.html>`_ (page tree). 
+* ``AllPageTypes`` - This set includes the different page types, currently page, side panel and dialog. 
+* ``AllSidePanelPages`` - This set includes all the side panel pages added to the Page Manager. 
+* ``AllDialogpages`` - This set includes all the dialog pages added to the Page Manager. 
+* ``PageType(indexPageId)`` - This string parameter indexed on ``AllPageIDs`` set maps which page type applies to which page id.
+* ``PagePath(indexPageId)`` - This string parameter indexed on ``AllPageIDs`` set maps the path for each page created.
+* ``PageName(indexPageId)`` - This string parameter indexed on ``AllPageIDs`` set maps the path for each page created.
 
 Public Page and Widget Specification Declarations:
 
-* SidePanelSpecification - This set is the specification for the side panel pages. The sting parameters used to `configure the side panels <page-manager.html#configuring-side-panels>`_ on pages are indexed on this set. 
-* WidgetActionSpecification - This set is the specification for adding widget actions. The sting parameters used to configure the widget actions on certain widgets are indexed on this set.
+* ``SidePanelSpecification`` - This set is the specification for the side panel pages. The string parameters used to `configure the side panels <page-manager.html#configuring-side-panels>`_ on pages are indexed on this set. 
+* ``WidgetActionSpecification`` - This set is the specification for adding widget actions. The string parameters used to configure the widget actions on certain widgets are indexed on this set.
 
 Request Queue Declarations is used to manage the number of requests from WebUI. 
 
 Public Pages Support Procedures:
 
-* GetAllPages - This procedure is runs everytime a page, side panel or dialog page is added to the page manager, which inturn updates the sets and identifiers in the Public Pages Support Declarations.
-* OpenSidePanel(pageId) - This procedure is used to open side panels via the model with respective pageIds as the argument. 
-* OpenPage(pageId) - This procedure is used to open/navigate to other pages in the application via the model, by passing the respecive pageId as the argument. 
-* OpenExternalLink(url) - This procedure is used to open external links, by passing the URL as the argument. These links will open in a new tab in the browser.
-* ResetRequestQueue - This procedure emptys the RequestQueue and the Requests set in the Request Queue Declarations.
+* ``GetAllPages`` - This procedure is runs every time a page, side panel or dialog page is added to the page manager, which in turn updates the sets and identifiers in the Public Pages Support Declarations.
+* ``OpenSidePanel(pageId)`` - This procedure is used to open side panels via the model with respective pageIds as the argument. 
+* ``OpenPage(pageId)`` - This procedure is used to open/navigate to other pages in the application via the model, by passing the respective ``pageId`` as the argument. 
+* ``OpenExternalLink(url)`` - This procedure is used to open external links, by passing the URL as the argument. These links will open in a new tab in the browser.
+* ``ResetRequestQueue`` - This procedure empties the RequestQueue and the Requests set in the Request Queue Declarations.
+* `SetProgressMessage(message) <#setprogressmessage>`_ - This procedure allows one to overwrite the "Busy" message in the top left corner of the Menu bar by a customized message, which can better inform the user in case the AIMMS session is in "working/busy" state (ie, some code execution is going on in the background). 
 
 Public Dialog Support Procedures:  
 
@@ -43,10 +44,38 @@ Public Dialog Support Procedures:
 
 .. note::
 
-    The procedures OpenSidePanel, OpenPage, OpenExternalLink and OpenDialogPage currently do not work as expected when called on a page load procedure. This issue will be expected to be fixed in the coming releases.
+    The procedures ``OpenSidePanel``, ``OpenPage``, ``OpenExternalLink`` and ``OpenDialogPage`` currently do not work as expected when called on a page load procedure. This issue will be expected to be fixed in the coming releases.
 
+SetProgressMessage
+==================
 
-requestPerformWebUIDialog
+In case that some longer code execution is going on in the background, your AIMMS WebUI session may be in "working/busy" state and the top left corner of the Menu bar may display the "Busy" message (instead of the application name
+shown normally): 
+
+.. image:: images/Busy_message.png
+    :align: center
+	
+In order to inform the user better on what is going on in such a situation, you can call the procedure :token:`webui::SetProgressMessage` and overwrite the "Busy" message by a customized message depending on the current phase of the underlying code execution. 
+
+Argument
+--------
+
+The :token:`message` argument of this procedure is a constant string or a string parameter which may be adjusted programmatically during the code execution.
+
+Example
+-------
+
+In case the application uses several procedures for executing first some initialization steps, then reading a substantial amount of data from a database and finally processing the data and computing some derived data, the procedure :token:`webui::SetProgressMessage` may be called several times displaying in turn some customized messages such as:
+
+.. image:: images/SetProgressMessage_Example.png
+    :align: center
+
+Remark
+------
+
+Note that when the procedure :token:`webui::SetProgressMessage` is called with an empty string argument, then the displayed message will be set back to the default "Busy" message.
+
+RequestPerformWebUIDialog
 =========================
 
 You can call the procedure :token:`webui::requestPerformWebUIDialog` to display a message dialog in a WebUI page. Along with the message you can also display buttons which you can bind to custom actions.
@@ -54,7 +83,7 @@ You can call the procedure :token:`webui::requestPerformWebUIDialog` to display 
 Arguments
 ---------
 
-This procedure has the following aguments:
+This procedure has the following arguments:
 
 * :token:`title`: A string parameter which contains the text to be displayed as the title of the dialog box.
 * :token:`message`: A string parameter which contains the message to be displayed in the dialog box.
@@ -89,9 +118,9 @@ You can call the procedure :token:`webui::OpenDialogPage` to invoke a `dialog pa
 Arguments
 ---------
 
-This procedure has the following aguments:
+This procedure has the following arguments:
 
-* :token:`pageId`: When a dialog page is created it is has a unique pageId. You can find all the dialog pageIds in the set AllDialogPages under the Public Pages Support Declarations in the `Pages and Dialog Support section <library.html#pages-and-dialog-support-section>`_.   
+* :token:`pageId`: An element parameter(with range ``webui::AllDialogPages``) which should contain the ``pageId`` of the dialog page you want to open. When a dialog page is created, an entry is added to the set ``webui::AllDialogPages`` under the ``Public Pages Support Declarations`` with a unique ``pageId`` in the `Pages and Dialog Support section <library.html#pages-and-dialog-support-section>`_.   
 * :token:`title`: A string parameter which contains the text to be displayed as the title of the dialog box. If this is left blank, i.e "", it will display the dialog page name given during creation by default.
 * :token:`actions`: A set of custom actions. The elements of this set are represented as buttons in the message dialog and their text is the same as the action names. When an action is selected (button is clicked), it invokes the onDone procedure with the corresponding action as an argument. If this set is empty, the buttons will have "Cancel" and "OK" by default respectively. 
 * :token:`onDone`: A reference to a procedure in the set AllProcedures. The procedure should have a single input string parameter as argument. When a user selects an action, the onDone procedure is invoked with the action name as its argument.

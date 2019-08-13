@@ -25,7 +25,7 @@ software in a generic programming language, and, that you have a basic knowledge
 familiar with `jQuery <http://jquery.org>`_ and, to lesser extent,
 `jQuery UI <https://jqueryui.com/>`_, as AIMMS WebUI is built on top of these technologies.
 
-More specificly, since we will be creating an HTML table widget, we assume that you are familiar with
+More specifically, since we will be creating an HTML table widget, we assume that you are familiar with
 the basics to create an `HTML table <http://www.w3.org/wiki/HTML_tables>`_.
 
 Finally, since this tutorial uses the concepts that have been introduced in the previous tutorials, we expect that 
@@ -170,8 +170,8 @@ the data for both parts as well as for the resulting *grid* area, the following 
         function onReady(dataBlocks) {
             ['rowHeader', 'colHeader', 'values'].forEach(function(type) {
                 var partDataSource = dataSource[type];
-                partDataSource.getNumRows().times(function(row) {
-                    partDataSource.getNumCols().times(function(col) {
+                _.times(partDataSource.getNumRows(), function(row) {
+                    _.times(partDataSource.getNumCols(), function(col) {
                         console.log('The value in cell ( '+ row + ',' + col +
                                     ') of the ' + type + ' part is '+
                                     dataBlocks[type].getLayer("values").get(row, col));
@@ -399,9 +399,9 @@ the table to your liking.
 
         // Step 1: Create the column header
         var theadElQ = $('&lt;thead&gt;');
-        numRowsInColHeader.times(function(col) {
+        _.times(numRowsInColHeader, function(col) {
             var trElQ = $('&lt;tr&gt;');
-            numColsInColHeader.times(function(row) {
+            _.times(numColsInColHeader, function(row) {
                 trElQ.append(createCellElQ('th', 'colHeader', row, col));
             });
             theadElQ.append(trElQ);
@@ -413,12 +413,12 @@ the table to your liking.
         // Step 3: Create the row header and grid
         var numColsInGrid = numColsInColHeader;
         var tbodyElQ = $('&lt;tbody&gt;');
-        numRowsInRowHeader.times(function(row) {
+        _.times(numRowsInRowHeader, function(row) {
             var trElQ = $('&lt;tr&gt;');
-            numColsInRowHeader.times(function(col) {
+            _.times(numColsInRowHeader, function(col) {
                 trElQ.append(createCellElQ('th', 'rowHeader', row, col));
             });
-            numColsInGrid.times(function(col) {
+            _.times(numColsInGrid, function(col) {
                 trElQ.append(createCellElQ('td', 'values', row, col));
             });
             tbodyElQ.append(trElQ);
@@ -462,8 +462,8 @@ fills the table with data:
                 function onReady(layeredDataBlocks) {
                     ['rowHeader', 'colHeader', 'values'].forEach(function(type) {
                         var partDataSource = dataSource[type];
-                        partDataSource.getNumRows().times(function(row) {
-                            partDataSource.getNumCols().times(function(col) {
+                        _.times(partDataSource.getNumRows(), function(row) {
+                            _.times(partDataSource.getNumCols(), function(col) {
                                 updateTableCell(type, row, col, layeredDataBlocks[type].getLayer("values").get(row, col));
                             });
                         });

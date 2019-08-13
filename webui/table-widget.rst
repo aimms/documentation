@@ -1,9 +1,9 @@
 Table Widget
-------------
+==================
 
 .. |sort| image:: images/sort.png
 
-The Table widget allows you to vizualize and/or edit the data of one or more AIMMS identifiers represented in a tabular format:
+The Table widget allows you to visualize and/or edit the data of one or more AIMMS identifiers represented in a tabular format:
 
   .. image:: images/Table-View1.png 
         :align: center 
@@ -47,10 +47,10 @@ The table widget offers the user possibilities for various actions such as:
   
   * You can use the space bar to toggle binary values displayed as checkboxes that have the focus.
   
-  * You can use either ENTER or ALT+ARROW DOWN to open the dropdown list in focus, in order to change its value.
+  * You can use either ENTER or ALT+ARROW DOWN to open the drop-down list in focus, in order to change its value.
 
 Download Table Data
-+++++++++++++++++++
+--------------------------
   
 The Table Widget offers you the possibility to download its current contents to a .csv file on your local machine, which you can use to further process your data in, for example, Excel. On the top right, left of the 'Full Screen' icon, you can find the download icon. 
 
@@ -61,13 +61,15 @@ When you click it, the contents of the table, exactly as you configured it (in t
 
 If your table contains numerical data, the numbers will be written to the .csv file in their maximum precision. So, if you display only 2 decimals in the table, but the underlying number is for example 1.2345, the full precision is written to the file. This allows you to do calculations in Excel with the resulting file, without running into rounding errors. Furthermore, the value 'na' from AIMMS is written as the value '#N/A', which is used in Excel, in order to maximize the compatibility.
 
-Please note that the .csv file is constructed within your browser environment before downloading. This means that the performance might vary over the devices that you are using. You will get a warning if your download will be too big to handle for the WebUI: this is when the total number of cells involved exceeds 500.000. We have successfully tested up to the scenario of 5000 x 100 rows/columns, using the Chrome browser on a Windows desktop machine. When you go over this limit of 500.000 cells, the WebUI will download the CSV file, containing more or less these 500.000 values. Any additional data will not be included in the CSV file (the WebUI will display a "Data truncated" warning if this happens). Furthermore, there is a limit on the number of *rows* that can be downloaded: this is currently 50.000 rows (i.e. even when having just 1 column!).
+Please note that the .csv file is constructed within your browser environment before downloading. This means that the performance might vary over the devices that you are using. You will get a warning if your download will be too big to handle for the WebUI: this is when the total number of cells involved exceeds 1,000,000. We have successfully tested up to the scenario of 10,000 x 100 rows/columns, using the Chrome browser on a Windows desktop machine. When you go over the limit of 1,000,000 cells, the WebUI will download the CSV file, containing more or less these 1,000,000 values. Any additional data will not be included in the CSV file (the WebUI will display a “Data truncated” warning if this happens). For large data-sets over 1,000,000 cells, we suggest you create a custom CSV and use the 'download widget' to download the file. 
+
+Furthermore, there is a limit on the number of rows that can be downloaded (i.e. even when having just 1 column!): this is controlled by the value of the project option *WebUI_maximum_number_of_entries_in_widget*. The default value of this option is currently 1,000,000.
  
 Creating Read-Only Cells
-++++++++++++++++++++++++
+------------------------------------
 
-By using flags
-^^^^^^^^^^^^^^
+By using flags (in runtime)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In a Table widget, it is possible to make specific cells read-only for the user. You can do this by using an extra string parameter in your model, which has the same name and index domain as the identifier which defines the content of the table, only post-fixed with :token:`_flags`. So, if you have a Table widget showing the content of parameter :token:`MyTableData(i, j)`, you should add a string parameter called :token:`MyTableData_flags(i, j)` in your model. In order to actually make some cells read-only, you have to set the value of the right index combination(s) to :token:`"readonly"`. So, in our example, you should add a line like:
 
@@ -83,8 +85,39 @@ In case you want to change a cell to become editable again, you have to assign t
 
     MyTableData_flags(i, 'some_value_for_j') := "";
 
-By using the CurrentInputs set
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+By using the ``CurrentInputs`` set (in runtime)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Another way to influence the modifiability of cells, is to use the :token:`CurrentInputs` set of AIMMS. This set is a predeclared subset of :token:`AllIdentifiers`. The identifiers referenced in it are modifiable sets and parameters in both the WinUI and the WebUI. Consider a parameter :token:`P`. Without further specfication, this parameter is a parameter that can be modified both in the WinUI and in the WebUI. By removing this element :token:`'P'` from :token:`CurrentInputs`, the parameter :token:`P` will no longer be modifiable in either the WinUI or the WebUI.
+Another way to influence the modifiability of cells, is to use the :token:`CurrentInputs` set of AIMMS. This set is a predeclared subset of :token:`AllIdentifiers`. The identifiers referenced in it are modifiable sets and parameters in both the WinUI and the WebUI. Consider a parameter :token:`P`. Without further specification, this parameter is a parameter that can be modified both in the WinUI and in the WebUI. By removing this element :token:`'P'` from :token:`CurrentInputs`, the parameter :token:`P` will no longer be modifiable in either the WinUI or the WebUI.
+
+.. code::
+
+    CurrentInputs := CurrentInputs - 'MyTableData';
+    
+By using the WebUI authorization (not in runtime)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You may use the Authorization support from the WebUI Library described in :doc:`../webui/creating`. 
+Please mind this authorization is not updated at WebUI runtime. Thus, the following code should be part of the `PostMainInitialization` predeclared procedure or the Startup Procedure ( :menuselection:`Settings===>Project Options===> Startup & authorization` ). 
+
+.. code::
+    
+    ! Turns MyTableData identifier read-only
+    webui::IdentifierAuthorization('MyTableData') := 4;
+
+Authorization Schema reminder:
+
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Identifier Authorization | Value | Description                                                                                                                                                                                                                       |
++==========================+=======+===================================================================================================================================================================================================================================+
+| no access                | 0     | No data will be shown in the WebUI, even if the identifier is specified in a widget in the WebUI. Procedures will not be executed                                                                                                 |
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| read access              | 4     | Data will be displayed in the WebUI, but will be shown as read-only data. Data changes via the WebUI are prohibited. Procedures will not be executed.                                                                             |
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| read and execute access  | 5     | Data will be displayed in the WebUI, but will be shown as read-only data. Data changes via the WebUI are prohibited. Procedures with this permission can be executed from within the WebUI.                                       |
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| read and write access    | 6     | Data will be displayed in the WebUI, and are displayed as editable if no other restrictions prohibit editing the data (e.g. defined identifiers). Data changes via the WebUI are not prohibited. Procedures will not be executed. |
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| full access              | 7     | Data will be displayed in the WebUI, and are displayed as editable if no other restrictions prohibit editing the data (e.g. defined identifiers). Procedures with this permission can be executed from within the WebUI.          |
++--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
