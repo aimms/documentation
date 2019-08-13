@@ -91,7 +91,7 @@ You can add new VPN connections to a network by navigating to the **View VPN Con
 .. image:: images/db-config-new-vpn-connection.png
     :align: center
 
-Here you will see more details of the network. After creating the VPN and setting it up locally, you should be able to ping this host with the ``Pinghost`` IP address.
+Here you will see more details of the network. After creating the VPN and setting it up locally, you should be able to ping this host with the Pinghost IP address.
 
 Click **Add New VPN Connection** and the following dialog appears:
 
@@ -117,7 +117,7 @@ You want to set up a new network for one of two reasons:
  * The IP address range of the current network needs to change because of changed on-premise network conditions.
  * You want to migrate from the prior publicly available database to a database on the private network (potentially using a VPN to access it).
 
-In both situations you end up with a network with Type **Test**. You can migrate your database to this network, after which Type automatically becomes **Production** and the potential prior network (and its VPN connections) will be deleted. Prior to that you might want to add VPN connections to this network and test whether you have set up the VPN correctly by pinging the ``Pinghost``. See also `Adding a VPN Connection`_.
+In both situations you end up with a network with Type **Test**. You can migrate your database to this network, after which Type automatically becomes **Production** and the potential prior network (and its VPN connections) will be deleted. Prior to that you might want to add VPN connections to this network and test whether you have set up the VPN correctly by pinging the pinghost. See also `Adding a VPN Connection`_.
 
 To set up a new network, click **Add New Network** on the main database configuration page. 
 
@@ -161,7 +161,7 @@ Database Tunnel Application
 ---------------------------
 We can provide the simple AIMMS Desktop Application which allows you to open up/close the local connection to the AIMMS Cloud App database. All you need to do is publish this application with AIMMS Version 4.66.2 or higher on your PRO Portal and configure the Tunnel from the `Configuration <https://manual.aimms.com/pro/admin-config-1.html#tunnel>`_ menu. See also `Tunneling Support <https://manual.aimms.com/pro/tunneling.html>`_ for more details on Tunnels.
 
-For example, if your app database is called ``example.db.cloud.aimms.com`` then your Tunnel configuration and DB Tunnel App would be as shown,
+For example, if your app database is called example.db.cloud.aimms.com then your Tunnel configuration and DB Tunnel App would be as shown,
 
 .. image:: images/dbtunnelconfig.png
     :align: center

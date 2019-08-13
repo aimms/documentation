@@ -206,7 +206,7 @@ Then the resulting tooltip in the bubblechart widget looks as follows:
     :align: center
 
 Finally, suppose that in a Gantt chart widget we show some schedule data for several activities performed by a few people, with the duration given by the data of a parameter JobDuration(pe,j),
-where ``pe`` is the index of the set Persons and ``j`` is the index of the set ``Jobs``. When using the default tooltip, the info for a block in the chart is rendered as:
+where pe is the index of the set Persons and j is the index of the set Jobs. When using the default tooltip, the info for a block in the chart is rendered as:
 
 .. image:: images/Tooltip_Ganttchart_0.png
     :align: center
@@ -333,7 +333,7 @@ As expected, this table only shows the rows for which the molecules contain an O
 
 .. warning ::
     
-    Please be aware that you should define the display domain rigorously over **the same set** (or subset) than the identifier shown.
+    Please be aware that you should define the display domain rigourously over **the same set** (or subset) than the identifier shown.
 
 Slicing
 +++++++
@@ -549,7 +549,7 @@ This set has 4 elements representing widget action properties:
 #. *state*: This is the state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
 
 .. tip:: 
-    If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append ``aimms-`` to the selected icon name when adding it to the model. For example: if the icon name is "calculator", then in AIMMS it needs to be ``aimms-calculator``.
+    If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append 'aimms-" to the selected icon name when adding it to the model. For example: if the icon name is "calculator", then in AIMMS it needs to be "aimms-calculator".
 
     `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
     

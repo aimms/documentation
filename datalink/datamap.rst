@@ -7,7 +7,7 @@ The data map is a string parameter that describes how columns in the source are 
 What is a data map
 ==================
 
-There are two kinds of data maps, an old one referred to as the "classic data map", and a new one referred to as the "data map". The classic data map was created by reusing some parts of the ``flatfilereader`` and augmenting it by adding support for other providers. The use of the classic data map still has elements that are there for historic reasons. Parts that are no longer used by DataLink still exist for backward compatibility of existing models. The new data map was introduced because the structure of the classic data map, particular when it comes to column numbers, was to rigid for some new features.
+There are two kinds of data maps, an old one referred to as the "classic data map", and a new one referred to as the "data map". The classic data map was created by reusing some parts of the flatfilereader and augmenting it by adding support for other providers. The use of the classic data map still has elements that are there for historic reasons. Parts that are no longer used by DataLink still exist for backward compatibility of existing models. The new data map was introduced because the structure of the classic data map, particular when it comes to column numbers, was to rigid for some new features.
 
 
 The "Classic" Data Map
@@ -59,7 +59,7 @@ To use a data map we first have to add it to DataLink and assign a name to it th
 
 .. js:function:: dl::AddDataSourceMapping(MapName,DataMap,ColDepend,TableAttribute,ColAttribute)
 
-    :param MapName: String representing the name of the data map
+    :param MapName: String representing the name of the datamap
     :param DataMap: The data map we add to DataLink
     :param ColDepend: not used
     :param TableAttribute: not used
@@ -111,7 +111,7 @@ A data map can be removed
 
 .. js:function:: dl::RemoveDataSourceMapping(MapName)
 
-    :param MapName: String representing the name of the data map
+    :param MapName: String representing the name of the datamap
   
 
 .. note::
@@ -152,7 +152,7 @@ The first two element have not changed, so we also have to make sure that the ta
     dl::DataTables+={'TableName'};  ! define a tablename
 
 
-We use the same example as in the description of the classic data map. We assume that we have a set identifier  :token:`S_TheSet` in AIMMS, and a parameter  :token:`P_TheParameter` indexed over :token:`S_TheSet`. Then we can specify the data map as:
+We tae the same example as in the description of the classic data map. We assume that we have a set identifier  :token:`S_TheSet` in AIMMS, and a parameter  :token:`P_TheParameter` indexed over :token:`S_TheSet`. Then we can specify the data map as:
 
 .. code-block:: aimms
 
@@ -183,7 +183,7 @@ For the new style data map a new function is created to add it to DataLink:
 
 .. js:function:: dl::AddDataMap(MapName,DataMap)
 
-    :param MapName: String representing the name of the data map
+    :param MapName: String representing the name of the datamap
     :param DataMap: The data map (new style) we add to DataLink 
 
 
@@ -199,7 +199,7 @@ Again we have to make sure that the data map name already does not exist in Data
 
     dl::RemoveDataSourceMapping("TheMapping");  
 
-Since this function only has a string as argument we can use the same function to remove a new style data map as the classic data map. 
+Since this function only has a string as argument we can use the same function to remove a new style data map as the classic datamap. 
 
 
 .. tip ::
@@ -283,11 +283,11 @@ We want to read all the data in the multi-column table into one parameter :token
 Here the values 1, 2 and 3 for :token:`dl::xd` have no meaning, any non zero positive integer is allowed. The purpose of these numbers is that it allows us to specify multiple columns per table/identifier pair. So they only have to be distinct for each column. When DataLink encounters those non zero numbers then:
 
 1. DataLink will see the non zero positive value for :token:`dl::xd` and concludes that :token:`P_NutrientValue` is **NOT** a normal single column parameter.
-2. DataLink looks at the index domain of parameter :token:`P_NutrientValue` and sees that it has :token:`f` and :token:`n` as index domain.
+2. DataLink looks at the indexdomain of parameter :token:`P_NutrientValue` and sees that it has :token:`f` and :token:`n` as indexdomain.
 3. DataLink looks at all sets defined for table *"TableName"* and finds only set :token:`S_FoodType` with index :token:`f`.
 4. DataLink understands that the columns correspond to elements from the set with :token:`n` as index.
 
-This procedure will only work if the parameter have an index in the index domain that is not mapped to a column in the data map. The location of this index can be anywhere. So if :token:`C` is the column index we could have a parameter :token:`P(i,j,C)`, or :token:`P(i,C,j)`, or :token:`P(C,i,j)`.
+This procedure will only work if the parameter have an index in the indexdomain that is not mapped to a column in the data map. The location of this index can be anywhere. So if :token:`C` is the column index we could have a parameter :token:`P(i,j,C)`, or :token:`P(i,C,j)`, or :token:`P(C,i,j)`.
 
 .. tip ::
 
@@ -350,7 +350,7 @@ Suppose we have a parameter :token:`P(i,j)` and a set:
         Index: i,j;
     }
 
-Then in the data map below it is clear that data from domain column "Si" is mapped onto the first domain index of :token:`P(i,j)` and data from domain column ``Sj`` is mapped onto onto the second domain index:
+Then in the datamap below it is clear that data from domain column "Si" is mapped onto the first domain index of :token:`P(i,j)` and data from domain column "Sj" is mapped onto onto the second domain index:
 
 .. code-block:: aimms
 
@@ -361,7 +361,7 @@ Then in the data map below it is clear that data from domain column "Si" is mapp
     };
 
 
-We cannot do the same in the new data map because we do not specify the domain number. Instead of using the names of the set :token:`S`, we can use the names of the indices :token:`i` and :token:`j` to map them onto domain columns ``Si`` and ``Sj``:
+We cannot do the same in the new data map because we do not specify the domain number. Instead of using the names of the set :token:`S`, we can use the names of the indices :token:`i` and :token:`j` to map them onto domain columns "Si" and "Sj":
 
 .. code-block:: aimms
 
@@ -409,7 +409,7 @@ The shared domain of a table
 ----------------------------
 
 
-In the classic map the mapping of the index domain of parameters are very clear. If we have a parameter :token:`P(i,j)` we know that the first column must be set containing index :token:`i`, and a second column must be the set with index :token:`j`. These will have domain number 1 and 2 and :token:`P` will have domain number 0. It clear that we cannot just add any parameter to the table, because with the domain numbers we are basically saying "use the first two columns as index domain". For this reason we can only add parameters that have the same index domain as :token:`P(i,j)`.
+In the classic map the mapping of the indexdomain of parameters are very clear. If we have a parameter :token:`P(i,j)` we know that the first column must be set containing index :token:`i`, and a second column must be the set with index :token:`j`. These will have domain number 1 and 2 and :token:`P` will have domain number 0. It clear that we cannot just add any parameter to the table, because with the domain numbers we are basically saying "use the first two columns as index domain". For this reason we can only add parameters that have the same index domain as :token:`P(i,j)`.
 
 With the introduction of the new data map this all becomes less clear. The domain numbers are no longer used and with the column parameter, the index domains of parameters in the same table no longer have to be the same. We need some extra jargon. We will say that:
 

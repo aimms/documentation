@@ -70,7 +70,7 @@ The R session
 
 RLink starts by looking at the system to find an installment of R. It looks at :token:`R_HOME`, at some predefined locations and on windows it queries the registry. Once an installment of R is found it will establish a connection. 
 
-The next step is that it will make sure that ``Rcpp`` and the ``aimms`` package are loaded by executing :token:`library(Rcpp)` and :token:`library(aimms)`. In case the :token:`rlink::CheckAndInstallPackage` function is called, the ``aimms`` package may be installed as well. The last step is initialing the ``aimms`` package by telling it how to communicate with RLink.
+The next step is that it will make sure that Rcpp and the aimms package are loaded by executing :token:`library(Rcpp)` and :token:`library(aimms)`. In case the :token:`rlink::CheckAndInstallPackage` function is called, the aimms package may be installed as well. The last step is initialing the aimms package by telling it how to communicate with RLink.
 
 The above initialization happens on the very first call to :token:`dl::ExecScript` where :token:`rlink::datalink` is chosen as provider. After that the connection has been established and the R session keeps running. This means that if we create a variable in R in one call it still exists in a next call. We can do:
 
@@ -132,7 +132,7 @@ Here :token:`Name` is a string and :token:`Dataframe` is a data frame.
 
 Both :token:`aimms::SetData` and :token:`aimms::GetData` have as first argument a name. This is the *table name* in DataLink jargon, and represents a table specified in the data map. When we call :token:`SetData` or :token:`GetData`, the table name is used to determine how the names in the data frame are mapped onto the identifiers in AIMMS. Unlike :token:`DataRead` and :token:`DataWrite` that read and write all tables in the data map, SetData and GetData only write to the one particular table specified as first argument.
 
-Now we can describe the setup of DataLink to Assume the AIMMS model contains a parameter :token:`AIMMS_age` that has as domain an index from set :token:`AIMMS_name`. Then the data frame described above can be read from R using ``aimms::SetData``.
+Now we can describe the setup of DataLink to Assume the AIMMS model contains a parameter :token:`AIMMS_age` that has as domain an index from set :token:`AIMMS_name`. Then the data frame described above can be read from R using aimms::SetData.
 
 First we have to create a data map:
 

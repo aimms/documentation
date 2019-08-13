@@ -5,7 +5,7 @@ Tips and Tricks
 Read from file
 ==============
 
-If the data map is defined in the AIMMS model then this model will contain the names of the tables and columns in the source. When we want to use this model using a source with different names we have to modify the model. 
+If the data map is defined in the Aimms model then this model will contain the names of the tables and columns in the source. When we want to use this model using a source with different names we have to modify the model. 
 
 An easy way to decouple the model from the source is by defining the data map in a separate text file and store it next to the source. We can then use :token:`read from file` ,to read the data map.
 

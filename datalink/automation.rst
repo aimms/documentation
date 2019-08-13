@@ -7,7 +7,7 @@ The data map requires to manually specify a lot of details about the mapping of 
 Category Mapping
 ================
 
-It is possible to group parameters into categories and tables using annotations. Then there is a function to automatically turn this into a specific kind of data map call category map. Inside DataLink this is an ordinary classic data map and has a data map name. But we can add this data map using the name of the category.
+It is possible to group parameters into catagories and tables using annotations. Then there is a function to automatically turn this into a specific kind of data map call category map. Inside DataLink this is an ordinary classic data map and has a data map name. But we can add this data map using the name of the category.
 
 .. js:function:: dl::AddCategoryMapping(MapName,Category,Attributes)
 

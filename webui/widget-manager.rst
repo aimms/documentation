@@ -49,7 +49,7 @@ The WebUI offers you a search box in various widgets. For example, there is one 
 
 The simple behavior of the search box is to just enter some text (or numbers). All possible items that contain this text are found and presented in a small list below your search box. Please note: the current maximum number of search results is 100. Should the item that you are looking for not be included in these 100 results, you should refine your search further. In the search box of the drop-down list, the currently selected item is always put on top of the list of search results (even if it doesn't contain the currently entered search criteria!). This allows you to reselect the original value, and lets you easily remember the currently selected value.
 
-A step further is to use so-called regular expressions in your search terms. Regular expressions offer a lot of possibilities (a good quick start is offered `here <http://www.regular-expressions.info/quickstart.html>`_. Some of the more useful features are listed below:
+A step further is to use so-called regular expressions in your search terms. Regular expressions offer a lot of possibilities (a good quickstart is offered `here <http://www.regular-expressions.info/quickstart.html>`_. Some of the more useful features are listed below:
 
 * The '|' character functions as an 'or' operator. So, searching for 'aap|noot' will result in all strings that contain the substring 'aap' or 'noot'.
 * The '[]' characters function as a 'whichever one of these' operator. So, searching for 'l[ae]g' will result in all strings that contain the substrings 'lag' or 'leg'.

@@ -101,7 +101,7 @@ Go to the `AIMMS WebUI Example page <https://github.com/aimms/WebUI-Examples>`_,
 locate and press the *Download ZIP* button in the lower-right corner. Extract the .zip file somewhere
 on your computer.
 
-Now start AIMMS and open the NetworkData app in AIMMS. The app is located in
+Now start AIMMS and open de NetworkData app in AIMMS. The app is located in
 :token:`/NetworkTestApp/src/main/aimms/NetworkData`. 
 Start the WebUI as you would normally do from the *tools* menu.
     
@@ -165,7 +165,7 @@ After that, we create the factory:
 
 To see our new widget in action, we first create a new page to work on. Click the navigation icon in the top-left
 of the screen and add a new page by clicking on the **+** button, give it a name *my-widget-page*
-and then press **enter**.
+and then press &lt;enter>.
  
 After we have created the page, navigate to the page by clicking on it in the navigation menu. After the page
 finishes loading (which should be rather quickly, since the page is still empty), we add a new widget to the page.
@@ -180,7 +180,7 @@ for End-user usage. When you navigate to a new page using the navigation menu, A
 from disk, it will *only* load the contents of the new page. Therefore until we reload the whole browser
 page, it will not pick up any changes in your JavaScript code.
  
-Now that we know that our new widget has not been loaded yet, press **F5** (or use the reload button) so that
+Now that we know that our new widget has not been loaded yet, press &lt;F5> (or use the reload button) so that
 AIMMS WebUI reloads *with* our new widget.
  
 When we now press the **+** button in the widget manager and try to locate our *my-widget*

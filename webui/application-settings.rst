@@ -199,7 +199,7 @@ This sub-section concludes the explanation of the Workflow Panel functionality c
 Miscellaneous options
 ---------------------
 
-The application options under the Miscellaneous tab of the Application Settings are explained below.
+The application options under the Miscelaneous tab of the Application Settings are explained below.
 
 Use Classic Theme
 +++++++++++++++++
