@@ -849,3 +849,7 @@ li {
     border: solid 1px lightgrey;
     padding: 5px;
 }
+
+.wy-nav-content {
+    max-width: 1200px !important;
+}
