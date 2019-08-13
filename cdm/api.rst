@@ -108,7 +108,7 @@ Branch and Revision Functions
  
    :param db: specifies the name of the application database in which to delete a branch
    :param branchName: specifies the name of the branch to delete
-   :param revision: specifies the revision on the given branch, all commits up and until should be replaced by the snapshots on snapshotBranch
+   :param revision: specifies the revision on the given branch, all commits up and until should be replaced by the snapshots on ``snapshotBranch``
    :param snapshotBranch: specifies the branch containing the snapshot to replace the branch range with
 
 .. js:function::  cdm::SetBranchStatus(db,branchName,active)
