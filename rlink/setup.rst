@@ -160,7 +160,7 @@ The function :token:`rlink::CheckAndInstallPackage` should be called in the :tok
 
 
 
-R-packages on the Aimms cloud
+R-packages on the AIMMS cloud
 =============================
 
 .. csv-table:: 

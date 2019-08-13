@@ -103,7 +103,7 @@ Partitioning the indices
 ++++++++++++++++++++++++
 
 In the above example every one of the three indices needs to be assigned to either the *rows* or the *columns*.
-In case of a table, the *rows* and *columns* can be viewed as the parts. In a gantt chart, parts like *resources* 
+In case of a table, the *rows* and *columns* can be viewed as the parts. In a GanttChart, parts like *resources* 
 (to specify the resource rows to be rendered) and *jobs* (to specify what indices to be used to color the bars) would 
 probably make more sense.
 
