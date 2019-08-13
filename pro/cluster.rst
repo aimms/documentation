@@ -11,14 +11,14 @@ Step 1. Connecting all Nodes to the Same Database
 
 All your nodes need to be connected to the same database. This can be a database on one of the nodes (AIMMS PRO comes with a bundled PostgreSQL database) or a PostgreSQL database running on a dedicated server.
 
-Before proceeding to connect all the nodes to the database, make sure that your PostgreSQL server settings allow non-local connections. Stop your 'Aimms PRO Postgresql-x64-9.3' Windows service, modify *pg_hba.conf* (located in "*dataDir*\\pgsql\\data\\", by default that would be "C:\\ProgramData\\AimmsPRO 2.0\\pgsql\\data\\"). The comments in the file will tell you what you need to do.
+Before proceeding to connect all the nodes to the database, make sure that your PostgreSQL server settings allow non-local connections. Stop your ``Aimms PRO Postgresql-x64-9.3`` Windows service, modify *pg_hba.conf* (located in "*dataDir*\\pgsql\\data\\", by default that would be "C:\\ProgramData\\AimmsPRO 2.0\\pgsql\\data\\"). The comments in the file will tell you what you need to do.
 For example, to enable all incoming IPv4 connections (this is a security risk), add the following line in the IPv4 local connections section:
 
 .. code-block:: none
 
     host all all 127.0.0.1/0 md5
 
-After you're done, start the 'Aimms PRO Postgresql-x64-9.3' Windows service again.
+After you're done, start the ``Aimms PRO Postgresql-x64-9.3`` Windows service again.
 
 .. important::
 
@@ -34,7 +34,7 @@ Step 2: Shared storage directory
 In order to successfully work, the AIMMS PRO cluster needs to have access to a network shared directory (supporting `SMB/CIFS <http://en.wikipedia.org/wiki/Server_Message_Block>`_). It can be a directory on a dedicated file server or a shared directory on one of your cluster nodes. You should set the path to that directory in the *Storage Directory* parameter in the PRO configuration section of the AIMMS PRO Configurator as described above.
 
 .. important::
-    Note that AIMMS PRO 2.0 runs as a service, so the windows user that runs that service (Local system by default) needs to have full access to the directory. This may require changing the *Log On* settings for your 'Aimms PRO 2.0 Service' Windows service.
+    Note that AIMMS PRO 2.0 runs as a service, so the windows user that runs that service (Local system by default) needs to have full access to the directory. This may require changing the *Log On* settings for your ``Aimms PRO 2.0 Service`` Windows service.
 
 Step 3: ActiveMQ Setup
 ----------------------
@@ -70,7 +70,7 @@ The formula is: 16*N + 2*S, where N is the number of nodes in the cluster, S is 
 
 You will see a warning message in the `Start/stop services <config-sections.html#start-stop-services>`_ section of the AIMMS PRO Configurator if your database server allows less connections than the number required.
 
-By default, the bundled PostgreSQL server that comes with your AIMMS PRO installation is configured to allow a maximum of 128 connections. If that is not enough, you will need to stop the 'Aimms PRO Postgresql-x64-9.3' Windows service, modify the *postgresql.conf* file (located in "*dataDir*\\pgsql\\data\\"; by default that would be "C:\\ProgramData\\AimmsPRO 2.0\\pgsql\\data\\") and start the Windows service again. The setting you need to modify is called *max_connections*.
+By default, the bundled PostgreSQL server that comes with your AIMMS PRO installation is configured to allow a maximum of 128 connections. If that is not enough, you will need to stop the ``Aimms PRO Postgresql-x64-9.3`` Windows service, modify the *postgresql.conf* file (located in "*dataDir*\\pgsql\\data\\"; by default that would be "C:\\ProgramData\\AimmsPRO 2.0\\pgsql\\data\\") and start the Windows service again. The setting you need to modify is called *max_connections*.
 
 
 Other prerequisites

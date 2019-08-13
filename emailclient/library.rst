@@ -63,7 +63,7 @@ The following example shows how to send an email with and attachment. It demonst
 Creating HTML and text templates
 --------------------------------
 
-If you don't already have a HTML and text template for the body of your email message, a straightforward approach to create such templates is to start from a Word document with the layout as you wish the email body to look like, and subsequently to use *Save As* functionality in Word, and choose the type *Web Page, Filtered (*.htm, *.html)* before saving your document as an HTML template. Likewise you can select type *Plain Text (*.txt)* to create a text template.
+If you don't already have a HTML and text template for the body of your email message, a straightforward approach to create such templates is to start from a Word document with the layout as you wish the email body to look like, and subsequently to use *Save As* functionality in Word, and choose the type *Web Page, Filtered (``*.htm``, ``*.html``)* before saving your document as an HTML template. Likewise you can select type *Plain Text (*.txt)* to create a text template.
 
 Before saving you can already include the placeholders in the document that you want to replace with the replacement text added via the :js:func:`email::SetMessageFromFile` method. 
 If your message body contains images, Word will save these in a subfolder :token:`license_files` (if you named your document :token:`license.html`). In your HTML file, it will then contain references such as:

@@ -23,7 +23,7 @@ A table is a collection of data organized in columns. All columns have a name, w
    "Alice", "Smith", 40
    "Bob", "Johnson", 20
 
-When we look at the "structure" of this table we see that we have 3 columns named "firstname", "lastname" and "age". The first two columns have string values and the last column has a numeric value. We can make another table with two string columns and one numerical column.
+When we look at the "structure" of this table we see that we have 3 columns named ``firstname``, ``lastname`` and ``age``. The first two columns have string values and the last column has a numeric value. We can make another table with two string columns and one numerical column.
 
 .. csv-table:: The NameCity table
    :header: "fullname", "city", "age"
@@ -33,7 +33,7 @@ When we look at the "structure" of this table we see that we have 3 columns name
    "Bob Johnson", "London", 20
 
 
-Besides the column names there are no differences between these two tables except for the data. But looking at the data and interpreting its meaning, we could see that there is still a difference. In the FirstnameLastname table we need both firstname and lastname otherwise the age would not have any meaning. The age tells us something about a person that is identified in the table with two "keys", the first name and last name. The NameCity table only needs one key, the full name, and the table gives us two pieces of information related to the corresponding person. 
+Besides the column names there are no differences between these two tables except for the data. But looking at the data and interpreting its meaning, we could see that there is still a difference. In the FirstnameLastname table we need both ``firstname`` and ``lastname`` otherwise the age would not have any meaning. The age tells us something about a person that is identified in the table with two "keys", the first name and last name. The ``NameCity`` table only needs one key, the full name, and the table gives us two pieces of information related to the corresponding person. 
 
 AIMMS being a modeling language, this is exactly the kind of information that is important. In our AIMMS model we do need identifiers that take into account the relations between the columns of the table. We could have in AIMMS the sets :token:`S_Firstname` with index :token:`I_Firstname` and  :token:`S_Lastname` with index :token:`I_Lastname`. Also we could have a parameter :token:`P_Age(I_Firstname,I_Lastname)`. Then we could do the reading, and reading the first table would be doing in AIMMS something like:
 
@@ -131,7 +131,7 @@ You need at least two libraries:
     Always choose the provider first! If we choose the provider, the library manager is smart enough to figure out that it needs to install the DataLink library as well. It will automatic install DataLink with the right version (from the "Depends On" field for the provider in the Library Repository Browser).
 
 
-It is possible to deal with dfferent types of data sources in the same model. This is just a matter of adding the providers for each type that is needed. However, a  model can have only one DataLink (version) installed, and so all added providers must depend on that very same DataLink version.
+It is possible to deal with different types of data sources in the same model. This is just a matter of adding the providers for each type that is needed. However, a  model can have only one DataLink (version) installed, and so all added providers must depend on that very same DataLink version.
 
 
 .. warning::
