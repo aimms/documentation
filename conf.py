@@ -37,7 +37,11 @@ extensions = ['sphinx.ext.doctest',
     'sphinx.ext.githubpages',
 	'sphinx.builders.linkcheck']
 		
-	
+if os.name != 'nt':
+
+#Import spelling extension
+    extensions.append('sphinx_sitemap')
+        
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -173,6 +177,12 @@ rst_prolog = """
 htmlhelp_basename = 'AIMMSdoc'
 html_show_sourcelink = False
 
+# index page for your site
+html_baseurl = 'https://documentation.aimms.com/'
+
+# adding path to non-rst files that go to the build
+html_extra_path = ['robots.txt']
+
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
@@ -222,6 +232,7 @@ texinfo_documents = [
      author, 'AimmsDoc', 'AIMMS Documentation',
      'Miscellaneous'),
 ]
+
 
 
 # -- Import the AIMMSLexer into local Pygments module (syntax highlighting). The styling is made with Hacks.css in the _static folder ----------------------------
