@@ -7,6 +7,11 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.13.1.26 [20-08-2019]
+    - Failed data pull would rollback local changes instead of clearing delta-in identifiers.
+    - :js:func:`cdm::ConnectToCategory` could be called multiple times, leading to multiple commit notifications being fired to single client.
+    - Category-dependent notification and datachange procedures communicated when calling :js:func:`cdm::ConnectToApplicationDB` can now be set via element parameters :token:`cdm::DefaultNotificationProcedure` and :token:`cdm::DefaultDataChangeProcedure`.
+
 1.13.1.18 [31-07-2019]
     - Translation vectors for set elements could be resized too small when extending sets, leading to potential data loss
     
