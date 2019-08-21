@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.13.1.30 [21-08-2019]
+    - CDM schema update CDM-2019-06-01 could leave upgraded CDM databases with wrong value column names
+    - Introduced runtime parameter to allow for alternative filtering strategy that works more performant for a low active/total ratio of domain set elements during checkout.
+
 1.13.1.26 [20-08-2019]
     - Failed data pull would rollback local changes instead of clearing delta-in identifiers.
     - :js:func:`cdm::ConnectToCategory` could be called multiple times, leading to multiple commit notifications being fired to single client.
