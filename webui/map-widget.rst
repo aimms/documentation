@@ -1,5 +1,5 @@
 Map Widget
-----------
+==========
 
 .. important:: This section applies to the new style Map widget, i.e. the map widget available in software versions from AIMMS 4.61 onwards.  
 
@@ -24,7 +24,7 @@ In this section we illustrate how to create, configure, and use such a map widge
 .. important:: We also provide some guidelines and best practices for the map widget usage at the end of this section, please consider them before employing the map widget within your application.
 
 Creating a map widget
-+++++++++++++++++++++
+-----------------------
 	
 A map widget can be added to a page using the same steps as for any other widget, see `adding a new widget <widget-manager.html>`_. 
 After adding the map widget in the Widget Manager one can click on its Settings wheel in order to configure the widget.
@@ -43,7 +43,7 @@ In the settings options editor one can find the following sections:
     :align: center
 
 Adding node sets
-++++++++++++++++
+-------------------
 
 After selecting the "Node Sets" section and clicking on the "+" sign at the bottom, one can add options for the first node set:
 
@@ -66,7 +66,7 @@ The available options to be specified are the following:
     * The default node size radius is 3 px. One can set a dynamic node size to each node set by selecting an appropriate identifier for the Size parameter in the desired node set (the index domain of such a parameter must be the same as the index of the node set).
 
 Adding identifiers to node option fields
-++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When clicking on the identifier selector of the Index field (as shown above), a pop-up dialog is shown where the index of the node set may be selected:
 
@@ -83,8 +83,8 @@ Similarly, one can follow the steps for the Longitude and the Size fields. Once 
 .. image:: images/MapV2-Nodes0-Layout.png
     :align: center
 
-Maps with multiple node sets
-++++++++++++++++++++++++++++
+Multiple node sets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As mentioned above, multiple node sets may be added to the map widget. For instance, suppose that in the TransNet application we would like to add the factories f and the centers c
 as separate node sets. After having added first the node set f, one can again select the Latitude parameter as discussed above, but in this case one may need to slice the parameter
@@ -100,7 +100,7 @@ These actions result in a map widget with 2 node sets:
     :align: center
 
 Store Focus, Hover and Select for nodes
-+++++++++++++++++++++++++++++++++++++++
+-----------------------------------------
 
 Nodes on the map widget also have the functionality to store focus. This means that one can store the value of a selected node in the network in an element parameter declared in the model.
 The store focus functionality opens up various interaction possibilities, because the value of the element parameter may be further used by other widgets or may impact
@@ -127,7 +127,7 @@ Note that, when a node has been selected, the user may still hover over another 
 (remark: a selected node may be unselected by clicking on it again). The hover effect is that the node which is hovered over has a thin outline.
 	
 Adding arc sets
-+++++++++++++++
+-----------------
  
 After selecting the "Arc Sets" section in the options editor and clicking on the "+" sign at the bottom, one can add options for an arc set:
 
@@ -148,7 +148,7 @@ The available options to be specified are the following:
     Note that, except for the “Value” field, all other options can be controlled either by constant values or by using scalar parameters declared in the model.
 
 Adding identifiers to arc option fields
-+++++++++++++++++++++++++++++++++++++++
+-----------------------------------------
 
 We illustrate first the addition of an arc set for the example at hand where only the root set Locations with index l has been added as node set. 
 In this example, let's assume that l_from and l_to are two alias indexes spanning the same Locations set as the index l.
@@ -185,8 +185,8 @@ the factories f and the centers c in the node sets and with the variable Transpo
 
 So, in this latter case the arcs are drawn between nodes belonging to two different node sets. 
 	
-Maps with multiple arc sets
-+++++++++++++++++++++++++++
+Multiple arc sets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As mentioned in the beginning of this section, multiple arc sets may be added to the map. Suppose that in an example as ours we may distinguish several subsets of the
 Locations set: a (sub)set of Plants with index p, a s(sub)set of DistributionCenters with index d, and a subset of CustomerRegions with index r. Moreover, suppose 
@@ -219,7 +219,7 @@ In the same vein, when considering the destinations nodes, the set of distributi
 
 
 Ordering and deleting node/arc sets
-+++++++++++++++++++++++++++++++++++
+-------------------------------------
 
 The ordering of the added node/arc sets may be changed by hovering over the title bar of the set and then clicking on the respective button, to move up or down.
 An entire node/arc set may be deleted by clicking on the bin icon. These options are illustrated in the following picture:
@@ -229,7 +229,7 @@ An entire node/arc set may be deleted by clicking on the bin icon. These options
 
 	
 Miscellaneous options
-+++++++++++++++++++++
+-----------------------
 
 In the Miscellaneous section of the options editor one can find several options:
 
@@ -245,8 +245,8 @@ Here are more explanations about the meaning of these options:
 
 .. important:: If your widget has been created in the past by using an older type Map widget, you may continue to use this widget as is, but it is not possible to upgrade the widget from an older Map type to the current Map type by just changing the widget type in the Advanced options. In order to use the current Map type, the node and arc sets have to be added explicitly to the widget using the style described in this section.
 
-Some guidelines and best practices
-++++++++++++++++++++++++++++++++++
+Guidelines and best practices
+----------------------------------
 
 While using the map widget, there are some pointers on how to leverage the features in order to represent data efficiently.
 
@@ -260,5 +260,5 @@ A good practice is to show (only) slices of the data which may be visualized com
  
 Some ways to achieve that are: 
 
-*	Use selections/filters to control the (sub)sets for the shown data
+*	Use selections to control the (sub)sets for the shown data
 *	Use domain identifiers to display data which is relevant

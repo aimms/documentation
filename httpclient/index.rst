@@ -12,4 +12,5 @@ The HTTP Client library provides a basic API through which HTTP requests can be 
 
     library
     api
+    release
     

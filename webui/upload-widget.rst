@@ -1,39 +1,142 @@
 Upload Widget
--------------
+==================
 
-The Upload widget and the related `Download widget <download-widget.html>`_ achieve complementary tasks.
-
-With the Upload Widget, end-users can upload a file to the AIMMS PRO server, which can then be further processed by the AIMMS model. This is very useful for Web Apps that depend on user specific data that is not yet available on the server (e.g. Excel data input). 
+The Upload widget and the related :doc:`download-widget` achieve complementary tasks.
 
 .. image:: images/Upload-View.png
-    :align: center
+    :align: right
 
+With the Upload Widget, end-users can upload a file to the AIMMS application, which can then be further processed by the AIMMS model. This is very useful for applications that depend on users to provide input data (e.g. an Excel file with a predetermined template). 
 
-Like the Button Widget, the Upload Widget has a call 'Procedure' option, in which you can specify the AIMMS procedure that will run, once the upload is finished. You can specify this option via the option editor of the upload widget, or assign it to its current contents when creating a new upload widget.
+    
+Creating an Upload Widget
+----------------------------
 
-The AIMMS procedure should have three arguments, in the exact order below:
+After adding a new Upload widget to your WebUI page, you need to link it with an AIMMS procedure using the options editor of the Upload widget. This procedure needs to have three arguments in the exact way as below. 
 
+.. code::
+    
+    Procedure MyFirstUploadProc {
+        Arguments: (FileLocation,StatusCode,StatusDescription);
+        StringParameter FileLocation {
+            Property: Input;
+        }
+        Parameter StatusCode {
+            Property: Output;
+        }
+        StringParameter StatusDescription {
+            Property: Output;
+        }
+    }
 
-* An Input string parameter that will contain the name of the uploaded file. WebUI will add a GUID postfix to the name to make sure it is unique.
-* An Output parameter called :token:`statusCode` representing the return value of the procedure.
-* An Output string parameter called :token:`statusDescription` that should contain a return message for the end-user.
+.. warning::
 
-Please note that the latter two (output) arguments should have the exact names as stated, as they are treated in a special way in the underlying procedure call mechanism.
+   The latter two (output) arguments should have the exact names, as they are treated in a special way in the underlying procedure call mechanism.
 
-The end-user can add a file to the upload widget by pressing the 'add' button. After that, a file can be selected using the standard browser controls for selecting files. Once a file is added, the end-user can start the upload by pressing the 'start' button. The Upload Widget will show the progress of the upload. Once the upload is successfully finished, the specified AIMMS procedure is called, which should take care of any further processing of the file.
+    
+FileLocation
+^^^^^^^^^^^^^^
 
-The location of the uploaded file on the AIMMS PRO server is different from the location when running the AIMMS model in developer mode. In order to be able to always get the correct file path, you can use the :token:`webui::GetIOFilePath` function that is available in the :token:`AimmsWebUI` library. When running on the AIMMS PRO server, this function adds the temporary PRO path to the file name. You can use this function in your AIMMS procedure to be able to further process the uploaded file. 
+The upload widget always copies the file to be uploaded to a location depending on which AIMMS environment you are using. ``FileLocation`` contains the name of the uploaded file. 
 
-The StatusCode argument should be filled as follows:
+* the root folder of the AIMMS project if in Developer mode 
+* the temporary PRO folder, if the app is launched from a PRO server (or AIMMS Cloud)
+
+However, to access this uploaded file with name ``FileLocation`` in the temporary PRO folder, you will need to know the path of that "PRO temporary" folder and append it before the file name. This can be done by using the pre-defined function ``webui::GetIOFilePath`` after assigning a string value to ``FileLocation``.
+
+.. code::
+
+   webui::GetIOFilePath(FileLocation);
+
+The above function returns a string value with the absolute path to the file ``FileLocation`` if you are using it from PRO and returns the unchanged file name if you are in Developer mode. By using this returned value as the location for the file you just uploaded, you will make it available for your model.
+
+.. note::
+
+    In case you want to be able to download a previously uploaded file through the download widget, you can copy that file into the appropriate location. You can use the ``FileCopy`` function as below to do that 
+
+    .. code::
+
+      FileCopy(FileLocation, webui::GetIOFilePath(FileLocation));
+    
+StatusCode
+^^^^^^^^^^
+
+The ``StatusCode`` argument should be filled as follows:
 
 .. code::
 
     statusCode := webui::ReturnStatusCode('OK');
 
-During or after this processing, you should update both the return value parameter and the return message string parameter. The pre-defined function :token:`webui::ReturnStatusCode` has a number of possible arguments (:token:`OK`, :token:`CREATED`, :token:`BAD_REQUEST`, :token:`UNAUTHORIZED`, :token:`CONFLICT` and :token:`ERROR`). Because your procedure is expected to handle the file, the status OK is expected if all goes well. You can use one of the other status codes to signal that something went wrong when handling your file.
+The pre-defined function ``webui::ReturnStatusCode`` has the below possible arguments 
 
-Once the AIMMS procedure run has finished, the WebUI will show the return message to the end-user. Depending on the return value, messages are shown as messages (in the message log) or errors. By providing clear messages, you can provide your user with feedback on the uploaded file.
+    * ``OK``
+    * ``CREATED``
+    * ``BAD_REQUEST``
+    * ``UNAUTHORIZED``
+    * ``CONFLICT``
+    * ``ERROR``
+    
+As your widget is expected to upload a file, the status ``OK`` is expected if all goes well. You can use one of the other status codes to signal that something went wrong when creating your file.
 
-When the uploaded file is no longer needed, you should delete it (e.g. by using :token:`FileDelete` from within the AIMMS procedure). As an app developer, you know best when the file is no longer needed. Please note that uploaded files at the AIMMS PRO server will be deleted automatically once the current data session is closed. In developer mode, however, files are not automatically deleted.
+.. note::
 
-Please note that if you need to use folder names in your model, use forward slashes to separate them. This ensures that your WebUI using this model is also capable of running on Linux.
+   Please note that these status codes are standard HTTP status codes. For further reference, please go to https://en.wikipedia.org/wiki/List_of_HTTP_status_codes 
+    
+StatusDescription
+^^^^^^^^^^^^^^^^^^^
+
+The ``StatusDescription`` argument can be used to display custom text as the status messages in the Upload widget. 
+
+
+Example
+----------
+
+An example for the body of the Upload procedure is shown below. This particular example shows how to upload and read a text file. An example AIMMS project which illustrates the usage of this procedure can be downloaded from :download:`here <resources/DownloadWidgetExample.7z>`.
+
+
+.. code::
+
+   ! we store the location of the file in string parameter UploadLocation 
+   UploadLocation := webui::GetIOFilePath(FileLocation); 
+   
+   ! reading the file UploadLocation into an string parameter
+   sp_TextOfUploadedFile := FileRead(UploadLocation); 
+
+   ! checking if the previous read statement was successful or not
+   if sp_TextOfUploadedFile <> '' then 
+
+      ! if successful, statusCode is set to 'OK' which will trigger the WebUI to show the message below in a grey box
+      StatusCode := webui::ReturnStatusCode('OK'); 
+
+      ! displaying the status message, and logging it in the webui messages
+      StatusDescription := "File was uploaded and read successfully"; 
+      
+   else    !if previous read statement was not successful 
+      
+      ! setting the statusCode to 'ERROR' 
+      statusCode := webui::ReturnStatusCode('ERROR'); 
+
+      !displaying a custom error message 
+      statusDescription := "Could not read the file or the file is empty."; 
+      
+   endif;
+
+When executed through the upload widget, this procedure will let you upload a file at ``UploadLocation`` and read it in a string parameter ``sp_TextOfUploadedFile``. 
+
+The name of the uploaded file will be appended with a random "big" number, to be sure to not overwrite any other file on the server. 
+If you've uploaded "*MyExcel.xlsx*", the uploaded file name could be "*MyExcel-1564733452728.xlsx*"
+
+If launched from PRO, the file name will still remain the same but the value for UploadLocation will be "temporary PRO path + MyExcel-1564733452728.xlsx"
+
+Note that this uploaded file is NOT automatically deleted if you are running WebUI in AIMMS Developer mode. If you want to delete this file after an upload, you should use the function ``FileDelete`` as below. 
+
+.. code::
+
+   FileDelete(UploadLocation)
+
+This step is not required on PRO as the temporary PRO folder in which the file is created will be automatically deleted sometime after the session is ended. 
+
+.. tip::
+
+	If you need to use folder names in your model, use forward slashes to separate them. This ensures that your project will be able to be executed on a Linux server
+

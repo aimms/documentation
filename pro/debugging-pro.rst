@@ -32,12 +32,12 @@ where the various fields should match the model name and version published on th
 Opening the Project
 -------------------
 
-When you open the project with an AIMMS developer license in the presence of a "pro arguments.txt" file, this file will define all the relevant command-line arguments necessary to setup the project's connection with the server. When such a file is present, opening the project with a developer license will cause the PRO library to use the contents of this file to properly initialize the project as if it were started through the portal.
+When you open the project with an AIMMS developer license in the presence of a "pro arguments.txt" file, this file will define all the relevant command-line arguments necessary to setup the project's connection with the server. When such a file is present, opening the project with a developer license will cause the PRO library to use the contents of this file to properly initialize the project, as if it were started through the portal.
 
 Logging on
 ----------
 
-The first time the PRO library actually tries to connect to the PRO server, you will be asked to provide your logon information, as displayed in the figure below. The username and environment will be preset to the username through which you logged on to the portal. When you click **Connect**, you will be asked for your password, after which the connection to the PRO server is made. When you log on via Active Directory; you do not need to retype your password.
+The first time the PRO library actually tries to connect to the PRO server, you will be asked to provide your logon information, as displayed in the figure below. The username and environment will be preset to the username through which you logged on to the portal. When you click **Connect**, you will be asked for your password, after which the connection to the PRO server is made. When you log on via Active Directory, you do not need to retype your password.
 
 .. image:: images/login.jpg
     :align: center
@@ -64,7 +64,7 @@ By checking the additional flag "I want to manually start up a server-side debug
 
 .. warning::
 
-    When the argument waitForCompletion of pro::DelegateToServer is set to 1, during the setup of the debug session, AIMMS will not return. Therefore you will need to set this argument to 0 when you setup a server side debug session.
+    When the argument ``waitForCompletion`` of ``pro::DelegateToServer`` is set to 1, during the setup of the debug session, AIMMS will not return. Therefore you will need to set this argument to 0 when you setup a server side debug session.
 
 Debugging a Server-side Session
 -------------------------------

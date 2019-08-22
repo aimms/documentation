@@ -1,5 +1,5 @@
 Label Widget
-------------
+================
 
 The Label widget allows the user to add some text in a "Button-like" widget, but without any action behind it. 
 

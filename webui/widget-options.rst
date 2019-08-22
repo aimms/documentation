@@ -1,4 +1,5 @@
 .. |cog-widget| image:: images/cog-widget.png
+.. |widget-action| image:: images/widget-actions.png
 
 
 Widget Options
@@ -17,6 +18,9 @@ This Option Editor consists of several tabs. It depends on the widget type which
 
 .. tip::
     Option changes are automatically saved to the WebUI Server.
+    
+.. important::
+	From AIMMS 4.66 onwards, the Filter tab is not present anymore in any widget. In existing projects where this functionality is still used, it is still working/supported by the WebUI. However, the preferred way of filtering is by using the newer slicing functionality on any identifier(s) displayed in your widgets. If you want to switch to using the slicing functionality instead of the old filters, you can do so by removing the old filters by either emptying the content in the 'Contents.filters.in' property on the 'Advanced' tab, or by opening the model in a previous AIMMS version to remove the filtering. After that, you should add the correct slicing to your identifier(s).
     
 Pivot
 -----
@@ -202,7 +206,7 @@ Then the resulting tooltip in the bubblechart widget looks as follows:
     :align: center
 
 Finally, suppose that in a Gantt chart widget we show some schedule data for several activities performed by a few people, with the duration given by the data of a parameter JobDuration(pe,j),
-where pe is the index of the set Persons and j is the index of the set Jobs. When using the default tooltip, the info for a block in the chart is rendered as:
+where ``pe`` is the index of the set Persons and ``j`` is the index of the set ``Jobs``. When using the default tooltip, the info for a block in the chart is rendered as:
 
 .. image:: images/Tooltip_Ganttchart_0.png
     :align: center
@@ -245,41 +249,6 @@ In the _tooltips identifier, just clear/empty the data for these specific cases 
 .. note::
     The feature to hide tooltips is available only in AIMMS releases from 4.65 onwards. 
 
-
-Filters
--------
-
-The WebUI widgets offer the possibility to specify one or more filters for their data. These filters are widgets as well. Widgets that can be used as filters for other widgets are the Multiselect widget, the Selectionbox widget, the Legend widget and the Table widget.
-
-.. image:: images/filterdialog.jpg
-    :align: center
-
-In the filter dialog displayed in the image above, the widgets  that can act as a filter and which are on the same page as the current widget, are listed. You can select the ones that you want to use as a filter for the current widget, by clicking on them. Obviously, the contents of the widget used as a filter should at least contain an index which matches an index in the content of the widget to be filtered in order to yield any effect.
-
-Using a Multiselect widget as a filter
-++++++++++++++++++++++++++++++++++++++
-
-If you use a Multiselect widget as a filter for another widget, the one-dimensional binary parameter that serves as the content of the Multiselect widget will be used as a filter for your widget. For example, if your widget is displaying data over an index :token:`i`, and the Multiselect widget contains a one-dimensional binary parameter over this index :token:`i`, your widget will only display data for the index values of :token:`i` that are selected in the Multiselect widget. This way, you can for example restrict the number of bars in a bar chart, or the number of bubbles in a bubble chart, the number of rows in a table widget, ...
-
-Using a Selectionbox widget as a filter
-+++++++++++++++++++++++++++++++++++++++
-
-The Selectionbox widget used as a filter acts about the same as using a Multiselect widget. The one-dimensional parameter which serves as the content of the Selectionbox, will filter the data in your widget just as in the Multiselect case. In this case, though, your widget will only display data for the one value that you select using the selectionbox.
-
-Using a Legend widget as a filter
-+++++++++++++++++++++++++++++++++
-
-Using a Legend widget as a filter is similar to using a Selectionbox widget. It also restricts the filtered widget to display data for exactly one value that you select in the Legend widget.
-
-Using a Table widget as a filter
-++++++++++++++++++++++++++++++++
-
-The Table widget is a slightly more complicated widget type to use as a filter. It restricts the filtered widget to only display data for which the corresponding identifier(s) in the Table widget show(s) data. This means that, in case you display sparse data in your Table widget, those columns and/or rows which only contain default values in the Table (and are thus not displayed), are also filtered out in the filtered widget. So, suppose you show a bar chart with data for certain aircraft types, which is filtered by a table that only contains default values for a certain aircraft type, the bar for this particular type will also not display in the filtered widget.
-
-Combining filters
-+++++++++++++++++
-
-It is possible to combine filters as well. You can just select more than one filter for your widget. Of course, it depends on your specific widgets what effect this has on the filtered widget. 
 
 Totals
 ------
@@ -362,9 +331,9 @@ In English, this means: for all rows for which the molecule :token:`m` contains 
 
 As expected, this table only shows the rows for which the molecules contain an O in their name, regardless of the value of their associated checkboxes (note the non-displayed row for the C7H16 molecule!). Specifying an identifier for the display domain is the most flexible way of determining the display domain. You can also use it to only display a slice of a displayed identifier, by only setting the associated display domain identifier to 1 for a specific value of one of its indexes.
 
-.. tip::
+.. warning ::
     
-    Please be aware that if you specify an identifier here which is defined over a subset, you should define the display domain identifier over the same subset (and not the master set).
+    Please be aware that you should define the display domain rigorously over **the same set** (or subset) than the identifier shown.
 
 Slicing
 +++++++
@@ -542,4 +511,98 @@ You can change the number of decimals for a widget:
 
 The number of decimals displayed has a limit, the **default** is 2 decimals.
 
+
+Widget Actions
+--------------
+
+.. important:: Widget Actions are available in software versions from AIMMS 4.66 onwards.
+
+Widget Actions are a set of actions/procedures that can be defined via the model and configured for individual widgets. These widget actions are grouped under the |widget-action| icon in the widget header. The widget action displays up to 10 actions. In case you configure more than 10, only the top 10 active and/or inactive actions will be displayed.
+
+The widget actions can be associated with any procedure in your model. For example: Resetting data, Saving data, etc.
+
+.. image:: images/WidgetAction_Example.png
+            :align: center
+
+Configuring Widget Actions
+++++++++++++++++++++++++++
+
+Widget Actions can be configured by the application developer via the AIMMS model. First you should create a set for the order of widget actions to be displayed on the widget action menu when it is opened on the respective widget.
+
+For illustration, let’s call this set “WidgetOrder” with index WOrder (as a developer, you can give this set a name and an index of your choice).
+
+.. image:: images/WidgetAction_OrderSet.png
+			:align: center
+
+This set determines the order in which the widget actions will appear from top to bottom, in the widget action menu. This set must be a subset of the pre-declared set of Integers. 
+
+The set WidgetActionSpecification declared inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section is used for configuring the widget actions, as illustrated here in the next steps. 
+
+.. image:: images/WidgetActionSpecification.png
+			:align: center
+
+This set has 4 elements representing widget action properties: 
+
+#. *displaytext*: Is the text/label you would like to give the action.  
+#. *icon*: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the `icon list. <../_static/aimms-icons/icons-reference.html>`_		
+#. *procedure*: The procedure you want to call when the respective action is clicked.  
+#. *state*: This is the state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
+
+.. tip:: 
+    If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append ``aimms-`` to the selected icon name when adding it to the model. For example: if the icon name is "calculator", then in AIMMS it needs to be ``aimms-calculator``.
+
+    `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
+    
+
+To configure widget actions, create a string parameter indexed on WidgetOrder and WidgetActionSpecification, for example MyWidgetActions(WOrder,webui::indexWidgetActionSpec) as shown here:
+
+.. image:: images/WidgetActions_MyWidgetActions.png
+			:align: center
+
+Right click the string parameter and click on the Data option to open the data page:
+
+.. image:: images/WidgetActions_MyWidgetActionsdata.png
+			:align: center
+
+Add the details for the widget actions you would like to show for the widget. For example: 
+
+.. image:: images/WidgetActions_MyWidgetActionsdata_added.png
+			:align: center
+
+To activate the widget actions on a widget, go to the respective widget's settings by clicking on the |cog-widget| in the widget header. Click on the Widget Actions tab. Add the string parameter in the Widget Actions field using the identifier selector.
+
+.. image:: images/WidgetAction_StringParameter.png
+			:align: center 
+			:scale: 75
+
+You will notice the |widget-action| icon on the widget and when you click it you will see the configured widget actions.
+
+.. image:: images/WidgetActions_IcononWidget.png
+			:align: center 
+			:scale: 75
+
+.. note::
+    Widget Actions can be configured for the `Table <table-widget.html>`_, `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_, `Gantt Chart <gantt-chart-widget.html>`_, `Bubble Chart <bubble-chart-widget.html>`_, `Pie Chart <pie-chart-widget.html>`_, `Tree Map <tree-map-widget.html>`_, `Multiselect <selection-widgets.html>`_ and `Map <map-widget.html>`_ widgets.
+
+
+Interacting with Widget Actions
++++++++++++++++++++++++++++++++
+
+The widget action menu can be opened and closed by clicking on the |widget-action| icon on the widget header. When the menu is open and you click anywhere outside the menu or on any other widget, the menu will close.
+
+To select any of the widget actions, just click on the respective action. You will not be able to click an inactive action; the cursor will also indicates this.
+
+Please notice the different combinations in the widget action menu.
+
+.. image:: images/WidgetAction_ActionStates.png
+			:align: center 
+			:scale: 75
+
+If a procedure is not defined for a certain action, clicking on the action will result in a "No action specified" error.
+
+In case you have a long displaytext for an action, the widget action menu will stretch to a width of 2 columns and ellipsis the text that does not fit. Hovering over the action will show the complete text in the tooltip.
+
+.. image:: images/WidgetAction_LongDisplayText.png
+			:align: center 
+			:scale: 75
 

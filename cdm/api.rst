@@ -55,6 +55,22 @@ ApplicationDB Functions
    :param key: specifies the key to look for
    :param value: specifies the output argument in which the value will be stored.
 
+.. js:function::  cdm::SetParam(db,param,value)
+
+   Set the value for the given runtime parameter in the key-value store embedded within given application database. The runtime parameter values are persisted, i.e., are *not* restricted to the lifetime of the session in which they are set.
+  
+   :param db: specifies the application database
+   :param param: specifies the runtime parameter to set
+   :param value: specifies the value to be stored.
+
+.. js:function::  cdm::GetParam(db,param,value)
+  
+   Retrieve the value for the given runtime parameter from the key-value store embedded within given application database. The function will fail if the specified runtime parameter cannot be found.
+  
+   :param db: specifies the application database
+   :param param: specifies the runtime parameter to look for
+   :param value: specifies the output argument in which the value will be stored.
+
 .. js:function::  cdm::SetKeyValue(db,key,value)
 
    Set the value for the given key in the key-value store embedded within given application database. The function will fail if the user attempts to set the value for a protected key.
@@ -108,7 +124,7 @@ Branch and Revision Functions
  
    :param db: specifies the name of the application database in which to delete a branch
    :param branchName: specifies the name of the branch to delete
-   :param revision: specifies the revision on the given branch, all commits up and until should be replaced by the snapshots on snapshotBranch
+   :param revision: specifies the revision on the given branch, all commits up and until should be replaced by the snapshots on ``snapshotBranch``
    :param snapshotBranch: specifies the branch containing the snapshot to replace the branch range with
 
 .. js:function::  cdm::SetBranchStatus(db,branchName,active)
@@ -202,6 +218,8 @@ Commit and Pull Functions
 .. js:function::  cdm::CheckoutSnapshot(category,branch,revid,labelsOnly,skipInactive)
    
    Checkout a data snapshot for all identifiers the specified category from the application database, for a given branch and revision. The snapshot can be specified to only retrieve the labels for root sets, or to also contain inactive data, i.e. identifier values registered in the application database for tuples containing root set elements that are not actually contained in the root set themselves in the snapshot. As a result of the call both the actual identifiers of the category will be updated, as well as the shadow identifiers holding the latest committed values and the revision numbers at which these values where committed. Also the branch and revision information for the category will be set to checkout revision. The function will fail if the user has no read access for the category or branch.
+   
+   When checking out data with the argument :token:`skipInactive` set (default), the CDM service can employ an alternative domain filtering strategy on a per-category basis. This alternative strategy is slower when retrieving the data for identifiers with high cardinality and no substantial filtering due to inactive elements in one or more domain sets, but may speed up data retrieval considerably when there is substantial filtering due to inactive elements in domain sets. You can specify that you want to use the alternative domain filtering strategy for a particular category, by setting the runtime parameter :token:`alternativeFilterStrategy-\<category\>` to 1 through the function :js:func:`cdm::SetParam`. By default, the alternative strategy is not used for any category.
 
    :param category: specifies the category for which to retrieve the data snapshot
    :param branch: specifies the branch from which to retrieve the data snapshot for the category
@@ -257,8 +275,20 @@ Commit and Pull Functions
 .. js:function::  cdm::CommitChanges(category,commitInfoProcedure)
    
    Compute the local changes between the actual identifiers in the given category, and, if any, commit the resulting change set to the *current* branch of the category in the application database. If successful, update the :token:`CommittedIdentifiers` with the local changes, and set the revision for the category to the revision under which the change set was stored. The function will fail if the user has no write access to the category or branch, or if the client is not at the latest revision of the current branch of the category. In the latter case, the client application should first pull the changes of current category, resolve any conflicts, and re-commit. 
+   Through the runtime parameter :token:`logCommittedValues` you can specify the number of tuples for which the transferred tuple-value pairs will be logged server side at TRACE level. By default, no logging of such tuple-value pairs will occur. You can set the runtime parameter through the function :js:func:`cdm::SetParam`.
 
    :param category: specifies the category for which to commit local changes to the current branch of the category in the application database
+   :param commitInfoProcedure: specifies an (optional) callback procedure (with default :token:`cdm::CommitInfoProvider`), which will be called to retrieve the commit author and comment to be associated with the commit
+
+.. js:function::  cdm::CommitElementInCategory(category,setName,elemName,commitInfoProcedure)
+
+   Commit all data defined over the existing element in the given category. If the given set occurs at multiple index positions in a multi-dimensional identifier, only tuple changes will be committed where the tuple element equals the specified element at each of these locations. If the existing element occurs in data of multiple categories, you may have to call this function for each category to achieve the desired effect. 
+   
+   You can use this function, to perform a partial commit, for instance, when multiple elements have been added to a set, but you only want to commit one of these elements, and its associated data additions. See also the corresponding utility functions to empty, rollback, and clone and rollback data changes for a specific element.
+
+   :param category: specifies the category for which to commit all data for all identifiers in the category.
+   :param setName: specifies the set for which to commit all data for the existing element
+   :param elemName: specifies the element name of the existing element
    :param commitInfoProcedure: specifies an (optional) callback procedure (with default :token:`cdm::CommitInfoProvider`), which will be called to retrieve the commit author and comment to be associated with the commit
 
 .. js:function::  cdm::RollbackChanges(category)

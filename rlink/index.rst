@@ -17,4 +17,5 @@ This manual is written for:
    setup
    using
    example
+   release
 

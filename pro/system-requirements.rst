@@ -17,17 +17,31 @@ The minimum server requirements for **Windows Server** are:
 * minimum of 16 GB RAM
 * 500 GB available hard disk space
 
+.. note::
+
+	For Windows Server lower than 2016 you may need to install an update for Universal C Runtime (CRT). Please refer `Update for Universal C Runtime in Windows <https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows>`_.
+
 In assessing the actual server requirements, you have to take into account the anticipated number of concurrent server sessions n, in which case n + 1 cores would be advisable. Similarly, the memory requirements for the server are determined by the size of the data of the largest job running on the server multiplied by the number of concurrent server sessions. Using AIMMS PRO over time may accumulate application data in the PRO storage directory.
 
 Client Requirements
 -------------------
 
-The minimum client requirements are:
+Client requirements differs a bit depending on the use (to develop or as a end user) and type (WinUI/WebUI) of the AIMMS Applications.
+
+**For using WebUI applications:**
+
+* Any operating system including Windows, MacOS and iOS
+* Browser: recent Chrome version, Internet Explorer 11 or recent Edge version. 
+* For iOS the Safari browser is supported
+* For applications that have been built with the previous generation UI builder, ‘WinUI’ additional browsers are supported: IE8+, Firefox and Opera.
+
+**For developing WinUI/WebUI applications and using WinUI applications:**
 
 * Windows 7 or higher, 32-bit (x86) or 64-bit (x64)
-* 8 GB RAM, or, for apps deploying desktop clients, as much memory as required to hold the application data
+* At least 8 GB RAM, maximum model size is only restricted by available RAM
 * 10 GB of available hard disk space
-* 32-bit browser: IE 8+, Firefox, Chrome, or Opera. Apps with Web User interface requires Internet Explorer 11 or Edge.
+* Browser: recent Chrome version, Internet Explorer 11 or recent Edge version.
+
 
 Network Requirements
 --------------------

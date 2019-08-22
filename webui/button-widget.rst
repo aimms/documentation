@@ -1,5 +1,5 @@
 Button Widget
--------------
+==============
 
 The Button widget allows the user to execute an action upon clicking on it. The type of action executed is determined by the widget settings:
 
@@ -12,7 +12,7 @@ In the sequel we discuss and illustrate the type of actions which may be specifi
    In fact, calling :token:`ExitAimms()` only works for the main AIMMS thread itself and not for any of the other AIMMS contexts (of which WebUI is just one example). Exiting only from the underlying AIMMS session itself is not deemed as a proper behavior for an application with Web-based User Interface. See also: `"Constructs to Avoid" section in the AIMMS PRO documentation <../pro/conversion-to-pro.html>`_.
 
 Action
-++++++
+------
 
 For example, in the TransNet application, when the action type is set to Procedure, then one may select one of the procedures in the model, e.g.. SolveProcedure, as the
 action to be executed:
@@ -31,7 +31,7 @@ Finally, if the action type chosen is ExternalLink, then one may select an URL f
     :align: center
 	
 Miscellaneous
-+++++++++++++
+-------------
 
 In the Miscellaneous tab of the button's options editor, other options may be set such as the title of the widget and whether or not the widget is visible (this may be determined by a model parameter):
 

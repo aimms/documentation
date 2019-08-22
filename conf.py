@@ -39,7 +39,11 @@ extensions = ['sphinx.ext.doctest',
     'sphinx.ext.githubpages',
 	'sphinx.builders.linkcheck']
 		
-	
+if os.name != 'nt':
+
+#Import spelling extension
+    extensions.append('sphinx_sitemap')
+        
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -54,7 +58,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'AIMMS Documentation'
-copyright = u'2018, AIMMS'
+copyright = u'2018-2019, AIMMS'
 author = u'AIMMS'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -125,21 +129,27 @@ Last Updated: |date|
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-# if builds on GitLab (a Linux machine), force "Edit on Gitlab" not to be shown :)
-if os.name != 'nt':
-    Display_edit_on_gitlab = False
-else:   
-    Display_edit_on_gitlab = True
+if os.name == 'nt':
+   
+   Display_edit_on_gitlab = True
+   # if builds on GitLab (a Linux machine), display Insided Embeddable (extensions) :)
+   Display_3rd_Party_Extensions = False
+else:
+
+   # if builds on GitLab (a Linux machine), force "Edit on Gitlab" not to be shown :)
+   Display_edit_on_gitlab = False
+   Display_3rd_Party_Extensions = True
 
     
 html_context = {
-    'css_files': ['_static/Hacks.css','_static/theme.css', '_static/copycode.css'],
+    'css_files': ['_static/Hacks.css', '_static/copycode.css'],
     "display_gitlab": Display_edit_on_gitlab, # Integrate Gitlab
     "gitlab_user": "aimms", # Username
     "gitlab_repo": "documentation", # Repo name
     "gitlab_version": "master", # Version
     "conf_py_path": "", # Path in the checkout to the docs root
     "suffix": ".rst",
+    "Display_3rd_Party_Extensions": Display_3rd_Party_Extensions
 }
 
 # Custom sidebar templates, must be a dictionary that maps document names
@@ -168,6 +178,12 @@ rst_prolog = """
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'AIMMSdoc'
 html_show_sourcelink = False
+
+# index page for your site
+html_baseurl = 'https://documentation.aimms.com/'
+
+# adding path to non-rst files that go to the build
+html_extra_path = ['robots.txt']
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -225,6 +241,7 @@ if os.name == 'nt':
 	urllib.urlretrieve("https://gitlab.aimms.com/Arthur/unified-spelling_word_list_filename/raw/master/spelling_wordlist.txt", "spelling_wordlist.txt", context=context)
 
 #spelling_word_list_filename = ''
+
 
 
 # -- Import the AIMMSLexer into local Pygments module (syntax highlighting). The styling is made with Hacks.css in the _static folder ----------------------------

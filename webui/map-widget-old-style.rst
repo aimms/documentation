@@ -1,5 +1,5 @@
 Map Widget old style
---------------------
+====================
 
 .. important:: This section applies only to the old style Map widget, i.e. the map widget type available before the release of AIMMS 4.61. 
 
@@ -70,7 +70,7 @@ along with the following data:
 .. important:: After you have set up your coordinates, points and arcs in the options editor of your Map widget, the map doesn't automatically move/scale such that all your points are in the visible area. You may have to scroll and zoom before you actually see your data on the map. After that, your zoom level and your position is automatically saved.
 
 Dynamic Node Sizing
-+++++++++++++++++++
+--------------------
 
 It is possible to specify the size of the nodes that are displayed in your Map widget. You can do so by specifying a one-dimensional parameter in the Contents options editor, indexed over the locations. You can use any size you want; the Map widget will automatically scale the sizes provided relatively to each other. There are two special cases:
 

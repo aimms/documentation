@@ -5,4 +5,5 @@
 *.dmp
 *.dmp
 *.pyc
+*.vscode
 _build
