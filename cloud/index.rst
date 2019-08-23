@@ -1,9 +1,10 @@
 Cloud Platform 
-**************
+==============
 
-The AIMMS Cloud Platform is a fully managed AIMMS PRO environment. It is secure, highly reliable, up-to-date and always provides all the IT capacity you need, of course within the confines of your subscription of license. All you have to do is develop and publish your apps. We take care of all else. 
+The AIMMS Cloud Platform is a fully managed AIMMS PRO environment. It is secure, reliable and up-to-date, and provides all the IT capacity you need within the limits of your license subscription. All you have to do is develop and publish your apps, and we take care of the rest.
 
 .. toctree::
+   :maxdepth: 1
 
    cloud-intro
    architecture
