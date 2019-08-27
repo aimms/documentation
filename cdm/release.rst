@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.13.1.31 [27-08-2019]
+    - Improved code to implement CDM schema update CDM-2019-06-01 to prevent empty column names for redefined tables.
+    
 1.13.1.30 [21-08-2019]
     - CDM schema update CDM-2019-06-01 could leave upgraded CDM databases with wrong value column names
     - Introduced runtime parameter to allow for alternative filtering strategy that works more performant for a low active/total ratio of domain set elements during checkout.
