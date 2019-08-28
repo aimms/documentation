@@ -71,7 +71,8 @@ The resources
 Third let’s zoom in to the far right and detail the resources.
 
 
-The PRO Servers in the PRO cluster make use of three unique resources:
+The PRO Servers in the PRO cluster make use of three unique resources
+
 *	The PRO Storage: disk space where the AIMMS packages, the apps, and cases (binary compressed data snapshots) are stored.
 *	The PRO Admin database, this is a PostgreSQL databases where administrative data concerning, users, apps, access rights and so forth are stored.
 *	The License service, this is a tool that allows you to monitor AIMMS usage.
