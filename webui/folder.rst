@@ -107,6 +107,45 @@ By default, all core WebUI plugins (including widgets) will prefix user annotati
 
 The WebUI uses flags to indicate whether a certain DOM element corresponds to a *readOnly* value or not. DOM elements that correspond to editable values are annotated with a :token:`flag-editable` CSS class while read-only DOM elements are annotated with a :token:`flag-readOnly` class. You can make data that is editable from a model perspective appear as read-only in the WebUI by using user-flags by defining by a new string parameter in your model :token:`X_flags(i,j)` and set its value to "readOnly" for the (updatable) values that you want to appear as read-only.
 
+
+Highlighting (experimental)
+++++++++++++++++++++++++++++++++++++++
+
+.. important:: Highlighting is available in software versions from AIMMS 4.68.5 onwards as part of Experimental Features. Please reach out to AIMMS support on how to enable Experimental Features.
+
+Next to the annotations mechanism described above, we offer a lightweight way to responsively highlight certain tuples in the Table and the Gantt Chart widget. As opposed to former, this feature removes the need to re-render the whole widget just for highlighting a specific (small) selection of tuples, making it more responsive. To use it, you have to provide an additional string parameter in your model, which has the exact same index domain as the identifier(s) displayed in the widget, extended with an extra index :token:`indexIdentifiers`. You need to specify this identifier in the Highlight option provided in the Miscellaneous tab of the widget's options editor. For example, if you display an identifier :token:`JobDuration(i, j)` in a Gantt Chart, you need to introduce a string parameter like :token:`GanttHighlight(i, j, indexIdentifiers)`. You can choose any identifier name which suits your model.
+
+In your model, you can determine which tuples you want to highlight in your widget, by assigning values to the additional string parameter. For example, you could write something like: 
+
+.. code::
+
+	if JobDuration(i, j) > max_duration then
+		GanttHighlight(Selected_i, Selected_j, 'JobDuration') := "exceeds-time-limit";
+	endif;
+
+This would result in an annotation :token:`annotation-exceeds-time-limit` on the Gantt Chart's bar representing the :token:`(i, j)` tuple. In css, you could then add a rule like:
+
+.. code-block:: CSS
+
+	.annotation-exceeds-time-limit {
+		fill: red;
+	}
+
+to color the bar red.
+
+You are of course not restriced to highlight just a single cell. You could also write something like:
+
+.. code::
+
+	if JobDuration(i, j) > max_duration then
+		GanttHighlight(Selected_i, j, 'JobDuration') := "exceeds-time-limit";
+	endif;
+
+In combination with the css rule above, this would result in all jobs for the :token:`Selected_i` to be colored red. Do however keep in mind that this mechanism is intended for use with a relatively low number of tuples. If you want to style a huge number of tuples, we recommend using the annotations method described above.
+
+If you display more than one identifier in a widget, you can specify the tuples for those by using the corresponding identifier name(s) in the extra index.
+
+
 Annotations or Flags in Custom Plugins
 ++++++++++++++++++++++++++++++++++++++
 
