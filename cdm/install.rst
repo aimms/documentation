@@ -53,6 +53,8 @@ The CDM service supports the following databases for data storage
 
 You can select the database to back the CDM service, through the :token:`CDMConfig.xml` file contained in the directory containing the CDMService executable. The subdirectory :token:`ConfigExamples` contains example configurations for all databases supported by the CDM service. In these example configurations you have to replace the fields :token:`host`, :token:`port`, :token:`database`, :token:`servername`, :token:`instancename`, :token:`user`, and :token:`password` fields by their actual values (without :token:`{` and :token:`}` characters), required to connect your database server of choice.
 
+Through the configuration fields :token:`DBMaxInserts`, :token:`DBStringFieldType`, :token:`Threads`, :token:`AutoTerminate` and :token:`LowerCaseTableNames` you can arrange the maximum number of rows to insert in a single SQL insert statement when committing data, the database column type to use for string fields, the number of threads to retrieve data from the database in parallel when checking out or pulling data, whether to auto-terminate the service when no client connections are left (intended for the on-demand CDM service in the AIMMS cloud), and whether to convert the schema and table names to lower case in all SQL statements. 
+
 SQLite
 ++++++
 

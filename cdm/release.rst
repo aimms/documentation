@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.13.1.33 [29-08-2019]
+    - Index columns of multidimensional identifier tables were not declared as :token:`not null`.
+    - Added option to database configuration file to convert schema and table names to lower case.
+
 1.13.1.31 [27-08-2019]
     - Improved code to implement CDM schema update CDM-2019-06-01 to prevent empty column names for redefined tables.
     
