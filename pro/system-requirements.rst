@@ -12,7 +12,7 @@ Minimum Server Requirements
 
 The minimum server requirements for **Windows Server** are:
 
-* Windows Server 2008 64-bit or Windows Server 2012 64-bit or Windows Server 2016 64-bit, up-to-date with latest security patches
+* Windows Server 2008, 2012, 2016 or 2019 (64-bit) up-to-date with latest security patches
 * minimum of 4 cores
 * minimum of 16 GB RAM
 * 500 GB available hard disk space
