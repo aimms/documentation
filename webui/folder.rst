@@ -22,10 +22,14 @@ Via the `Widget Manager <widget-manager.html>`_ you can add widgets to your WebU
 	All WebUI pages are stored (by the WebUI Server) in the *pages* subfolder of the WebUI folder.
 
 
-Resources
-=========
+Add the **resources** folder
+------------------------------
 
-It is possible to store application-specific *resources* in the resources subfolder of the WebUI folder:
+In order to use any of the following listed features, you will need to create a new folder called **resources** (case sensitive), located in:
+
+*<.aimms Root folder> > MainProject > WebUI > resources*. 
+
+This folder will be loaded each time the WebUI will start, or at every reload (F5) of your WebUI browser page.
 
 .. image:: images/folderstructureresources.png
     :align: center
