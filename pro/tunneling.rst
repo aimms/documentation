@@ -51,7 +51,7 @@ The configuration parameters for the tunnel are the following:
 
 * **URI context path** – path in the URI of the AIMMS PRO Web sockets proxy to which this tunnel will be mapped. URI context paths are case-insensitive (so “Context” and “context” point to the same path).
 * **Socket address (TCP)** – the combination of an IP address (or a host name) and a port number for the proxied application.
-* **User Groups** – semicolon (;) separated list of AIMMS PRO users that can use this tunnel (Do not use *spaces* in the list i.e. *group1@ROOT; group2@Test* is not valid).
+* **User Groups** – semicolon (;) separated list of AIMMS PRO users that can use this tunnel (Do not use *spaces* in the list i.e. *group1@ROOT;  group2@Test* is not valid).
  
     * The default is .*@.* meaning all PRO users are authorized to use this tunnel. 
     * Specific groups go in the form Group@Environment. 
