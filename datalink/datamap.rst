@@ -273,7 +273,7 @@ We want to read all the data in the multi-column table into one parameter :token
 
     dl::DataMap := data{
         ! table name  ,  identifier          , X ,  attribute   : value
-        ( 'TableName' ,  'S_FoodTypes'        , 0 , 'colname' )  : "FoodType", 
+        ( 'TableName' ,  'S_FoodTypes'        , 0 , 'colname' ) : "FoodType", 
         ( 'TableName' ,  'P_NutrientValue'   , 1 , 'colname' )  : "Protein",
         ( 'TableName' ,  'P_NutrientValue'   , 2 , 'colname' )  : "Fat" ,
         ( 'TableName' ,  'P_NutrientValue'   , 3 , 'colname' )  : "Carbohydrates"
@@ -315,7 +315,7 @@ If we want to read from the multi-column table we need to somehow tell which col
 
     dl::DataMap := data{
         ! table name  ,  identifier          , X ,  attribute   : value
-        ( 'TableName' ,  'S_FoodTypes'        , 0 , 'colname' )  : "FoodType", 
+        ( 'TableName' ,  'S_FoodTypes'        , 0 , 'colname' ) : "FoodType", 
         ( 'TableName' ,  'P_NutrientValue'   , 1 , 'colname' )  : "Protein",   ! xd = 1: column name "Protein" in the source
         ( 'TableName' ,  'P_NutrientValue'   , 1 , 'idxmap' )   : "p",         ! xd = 1: index n has value 'p' 
         ( 'TableName' ,  'P_NutrientValue'   , 2 , 'colname' )  : "Fat" ,
@@ -327,6 +327,10 @@ If we want to read from the multi-column table we need to somehow tell which col
 In this table for *'TableName'*, *'P_NutrientValue'* and *'dl::xd = 1'* we see both a :token:`colname` and an :token:`idxmap` specified.
 Here we say that column *"Protein"* in the source corresponds to :token:`P_NutrientValue(f,'p')` in the AIMMS model.  
 
+Downloadable example
+````````````````````
+
+:download:`XLSProvider.zip<downloads/XLSProvider.zip>`
 
 Valid tables and their domains
 ==============================

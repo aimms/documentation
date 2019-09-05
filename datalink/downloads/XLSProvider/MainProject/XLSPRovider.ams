@@ -1,0 +1,40 @@
+## ams_version=1.0
+
+Model Main_testingProvider {
+    DeclarationSection ThingsWeNeed {
+        Set S_FoodTypes {
+            Index: f;
+        }
+        Set S_Nutrients {
+            Index: n;
+            Definition: {
+                {'p', 'f', 'c' }
+            }
+        }
+        Parameter P_NutrientValue {
+            IndexDomain: (f,n);
+        }
+    }
+    Procedure ReadExcel {
+        Body: {
+            dl::RemoveDataSourceMapping("mappingpleasework");
+            dl::DataTables += 'Munka1';
+            dl::DataMap := data{
+               ! table name,  identifier           , X ,  attribute  : value
+                ( 'Munka1' ,  'S_FoodTypes'        , 0 , 'colname' ) : "FoodType",
+                ( 'Munka1' ,  'P_NutrientValue'   , 1 , 'colname' )  : "Protein",   ! xd = 1: column name "Protein" in the source
+                ( 'Munka1' ,  'P_NutrientValue'   , 1 , 'idxmap' )   : "p",         ! xd = 1: index n has value 'p'
+                ( 'Munka1' ,  'P_NutrientValue'   , 2 , 'colname' )  : "Fat" ,
+                ( 'Munka1' ,  'P_NutrientValue'   , 2 , 'idxmap' )   : "f",
+                ( 'Munka1' ,  'P_NutrientValue'   , 3 , 'colname' )  : "Carbohydrates",
+                ( 'Munka1' ,  'P_NutrientValue'   , 3 , 'idxmap' )   : "c"
+            };
+            dl::AddDataMap("mappingpleasework", dl::DataMap);
+            psProviderType := {'DataProvider': xlsprovider::DataLink};
+            dl::DataRead("Foods.xlsx", "mappingpleasework", psProviderType);
+        }
+        StringParameter psProviderType {
+            IndexDomain: dl::rwattr;
+        }
+    }
+}
