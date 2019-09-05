@@ -273,7 +273,7 @@ We want to read all the data in the multi-column table into one parameter :token
 
     dl::DataMap := data{
         ! table name  ,  identifier          , X ,  attribute   : value
-        ( 'TableName' ,  'S_FoodType'        , 0 , 'colname' )  : "FoodType", 
+        ( 'TableName' ,  'S_FoodTypes'        , 0 , 'colname' )  : "FoodType", 
         ( 'TableName' ,  'P_NutrientValue'   , 1 , 'colname' )  : "Protein",
         ( 'TableName' ,  'P_NutrientValue'   , 2 , 'colname' )  : "Fat" ,
         ( 'TableName' ,  'P_NutrientValue'   , 3 , 'colname' )  : "Carbohydrates"
@@ -284,7 +284,7 @@ Here the values 1, 2 and 3 for :token:`dl::xd` have no meaning, any non zero pos
 
 1. DataLink will see the non zero positive value for :token:`dl::xd` and concludes that :token:`P_NutrientValue` is **NOT** a normal single column parameter.
 2. DataLink looks at the index domain of parameter :token:`P_NutrientValue` and sees that it has :token:`f` and :token:`n` as index domain.
-3. DataLink looks at all sets defined for table *"TableName"* and finds only set :token:`S_FoodType` with index :token:`f`.
+3. DataLink looks at all sets defined for table *"TableName"* and finds only set :token:`S_FoodTypes` with index :token:`f`.
 4. DataLink understands that the columns correspond to elements from the set with :token:`n` as index.
 
 This procedure will only work if the parameter have an index in the index domain that is not mapped to a column in the data map. The location of this index can be anywhere. So if :token:`C` is the column index we could have a parameter :token:`P(i,j,C)`, or :token:`P(i,C,j)`, or :token:`P(C,i,j)`.
@@ -315,7 +315,7 @@ If we want to read from the multi-column table we need to somehow tell which col
 
     dl::DataMap := data{
         ! table name  ,  identifier          , X ,  attribute   : value
-        ( 'TableName' ,  'S_FoodType'        , 0 , 'colname' )  : "FoodType", 
+        ( 'TableName' ,  'S_FoodTypes'        , 0 , 'colname' )  : "FoodType", 
         ( 'TableName' ,  'P_NutrientValue'   , 1 , 'colname' )  : "Protein",   ! xd = 1: column name "Protein" in the source
         ( 'TableName' ,  'P_NutrientValue'   , 1 , 'idxmap' )   : "p",         ! xd = 1: index n has value 'p' 
         ( 'TableName' ,  'P_NutrientValue'   , 2 , 'colname' )  : "Fat" ,
