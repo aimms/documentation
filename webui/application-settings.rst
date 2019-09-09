@@ -83,7 +83,13 @@ The values in the example above indicate that there are 3 workflows in the appli
 Configuring Steps of a Workflows
 ++++++++++++++++++++++++++++++++
 
-Create the second string parameter, let's call it :token:`MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)` indexed over both indices of the WorkflowNumbers set and over the  index of the WorkflowPageSpecification set. This string parameter is used to define the steps for each workflow which has been defined in the MyWorkflows string parameter. In particular, each :token:`pageId` which is configured becomes a step displayed in the Workflow Panel, see further below.
+Create the second string parameter, let's call it :token:`MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)` indexed over both indices of the WorkflowNumbers set and over the  index of the WorkflowPageSpecification set. This string parameter is used to define the steps for each workflow which has been defined in the MyWorkflows string parameter. In particular, each :token:`pageId` which is configured becomes a step displayed in the Workflow Panel, see further below. 
+
+.. Note::
+
+    The indices must follow the same order as described in the string parameter :token:`MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)`
+
+    IMPORTANT: When configuring steps for a Workflow, do not use pageIds of Side Panels or Dialog pages in :token:`pageId` or :token:`redirectPageId`. This will result in unwanted behaviour. 
 
 Most of the times, configuring a page only in one workflow could suffice for the application at hand. However, the Workflow functionality is flexible enough such that one page may be configured in multiple workflows, if necessary. Although the page will be shown as a step in each of those workflow, there will be one workflow with the highest rank (ie, the smallest order number) referencing the page and this workflow will be the one shown on the page when the page is opened. So, whenever you click on that step (in any workflow) you will be taken to the corresponding step in the first workflow where the :token:`pageId` is referenced. Here "first workflow" is meant in the order of the workflows as defined by the MyWorkflows string parameter. 
 
