@@ -52,7 +52,7 @@ Typically usage would however be way lower; an *acquireTimeout* of 1 second and 
 
 If you have a high user volume on your server and often you need to do a solve, you might better use a DelegateToServer call. The WebUI session will be blocked in the busy state while running the leased solve. 
 
-If you do want to provide feedback on progress to the end user during the solve your only option is the DelegateToServer (with a waitForCompletion set to 0).
+If you do want to provide feedback on progress to the end user during the solve your only option is the DelegateToServer (with a *waitForCompletion* set to 0).
 
 
 Specifying the solve using solver leases
