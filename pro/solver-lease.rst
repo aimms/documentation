@@ -50,7 +50,7 @@ Typically usage would however be way lower; an *acquireTimeout* of 1 second and 
     
     As a rule of thumb, if the actual solve time is less then 10 seconds you probably want to use solver leases instead of the DelegateToServer call. 
 
-If you have a high user volume on your server and often you need to do a solve, you might be better of doing a DelegateToServer call. The WebUI session will be blocked in the busy state while running the leased solve. 
+If you have a high user volume on your server and often you need to do a solve, you might better use a DelegateToServer call. The WebUI session will be blocked in the busy state while running the leased solve. 
 
 If you do want to provide feedback on progress to the end user during the solve your only option is the DelegateToServer (with a waitForCompletion set to 0).
 
