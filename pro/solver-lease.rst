@@ -32,7 +32,27 @@ When the leased solve is running, it is also visible in the PRO portal at the Jo
 Limits and best practice
 ++++++++++++++++++++++++++++++++++++++++++++
 
-Currently both the *acquireTimeout* and *leaseMaxDuration* must have a value in the range [1,60] seconds and the *jobDescription* (see below) cannot be longer then 255 characters. These timeout values are intended to be so (relatively) low indicating the typical use case for using solver leases instead of DelegateToServer. Typically usage would however be way lower; an *acquireTimeout* of 1 second and *leaseMaxDuration* of 5 seconds is more along the lines of intended usage. There might be some edge cases in which you would want to set these values higher. As a rule of thumb, if the actual solve time is less then 10 seconds you probably want to use solver leases instead of the DelegateToServer call. If you have a high user volume on your server and often you need to do a solve, you might be better of doing a DelegateToServer call. The WebUI session will be blocked in the busy state while running the leased solve. If you do want to provide feedback on progress to the end user during the solve your only option is the DelegateToServer (with a waitForCompletion set to 0).
+Currently both the *acquireTimeout* and *leaseMaxDuration* must have a value in the range [1,60] seconds and the *jobDescription* (see below) cannot be longer then 255 characters. These timeout values are intended to be so (relatively) low indicating the typical use case for using solver leases instead of DelegateToServer. 
+
++--------------------+-------------------------------+---------------+
+| Argument           | Limitation                    | Best practise |
++--------------------+-------------------------------+---------------+
+| *acquireTimeout*   | in the range [1,60] (seconds) | 1             |
++--------------------+-------------------------------+---------------+
+| *leaseMaxDuration* | in the range [1,60] (seconds) | 5             |
++--------------------+-------------------------------+---------------+
+| *jobDescription*   | <= 255 characters             | _             |
++--------------------+-------------------------------+---------------+
+
+Typically usage would however be way lower; an *acquireTimeout* of 1 second and *leaseMaxDuration* of 5 seconds is more along the lines of intended usage. There might be some edge cases in which you would want to set these values higher. 
+
+.. tip::
+    
+    As a rule of thumb, if the actual solve time is less then 10 seconds you probably want to use solver leases instead of the DelegateToServer call. 
+
+If you have a high user volume on your server and often you need to do a solve, you might be better of doing a DelegateToServer call. The WebUI session will be blocked in the busy state while running the leased solve. 
+
+If you do want to provide feedback on progress to the end user during the solve your only option is the DelegateToServer (with a waitForCompletion set to 0).
 
 
 Specifying the solve using solver leases
