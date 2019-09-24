@@ -51,7 +51,7 @@ Checking folders or files exists in the PRO Storage
     
 * :token:`pro::storage::ExistsObject(path, objectExists)` -  checks whether a file exists in the PRO Storage, where :token:`path` is input string parameter and :token:`objectExists` is output parameter, which determines the status whether object(File) exists(1) or not(0).
 	  
-.. note:: The return value of these functions indicates whether there was an error; this is typically the case when you do not have the appropriate access rights to those buckets/objects. Suppose the bucket exists, but you're not allowed to access it's parent bucket it will return an error, but also leave the output argument to 0 (false). So you should check the return value and retrieve the last PRO error if applicable prior to evaluating the return value.
+.. note:: The return value of these functions indicates whether there was an error; this is typically the case when you do not have the appropriate access rights to those buckets/objects. Suppose the bucket exists, but you're not allowed to access it's parent bucket it will return an error, but also leave the output argument to 0 (false). So you should check the return value and retrieve the last PRO error if applicable prior to evaluating the return value. These functions are available starting with **AIMMS PRO 2.33.1** and **AIMMS 4.69.1**.
  
 Transferring Files
 ------------------
