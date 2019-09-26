@@ -169,13 +169,21 @@ For example, if your app database is called ``example.db.cloud.aimms.com`` then 
 .. image:: images/dbtunnelapp.png
     :align: center
 	
-Where '*TunnelName*' is URI Context Path and '*Local*' Port can be any port between 1 to 65536. 
+Where '*TunnelName*' is URI Context Path and '*Local Port*' can be any port between **1 to 65536**. 
 
 You can Start/Stop Tunnel using **Start** and **Stop** buttons. Once you have provided '*TunnelName*' and '*Local Port*', you do not need to click **Start** or **Stop** each time. You can check '*Automatically connect at startup*' parameter, then tunnel can be started automatically upon launching the application. 
 
 When you close the application tunnel will be also closed. You can download DB Tunnel App from `here <https://download.aimms.com/aimms/download/data/PRO/DBTunnel/>`_. 
 
+Connecting to Cloud DB using MySQL Workbench
+--------------------------------------------
 
+Once the tunnel is started, you can connect to the AIMMS Cloud App database locally via MySQL database administrative tool i.e. **MySQL Workbench**. Your connection parameters should be as shown,
+
+.. image:: images/MySQL Workbench connect cloud DB.png
+    :align: center
+
+Please make sure that '*Hostname*' is 'localhost' and '*Port*' is same as 'Local Port' specified in Tunnel App (i.e. in this example it is 2201).
 
   
 
