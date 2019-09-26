@@ -183,7 +183,9 @@ Once the tunnel is started, you can connect to the AIMMS Cloud App database loca
 .. image:: images/MySQL Workbench connect cloud DB.png
     :align: center
 
-Please make sure that '*Hostname*' is 'localhost' and '*Port*' is same as 'Local Port' specified in Tunnel App (i.e. in this example it is 2201).
+.. note:: 
+
+	Please make sure that '*Hostname*' is **localhost** and '*Port*' is same as **Local Port** specified in Tunnel App (i.e. in this example it is 2201).
 
   
 
