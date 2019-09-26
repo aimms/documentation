@@ -23,7 +23,13 @@ Currently, there are some limitations on the usage of the AIMMS WebUI:
 .. tip::
 
     There is a known problem with Internet Explorer 11: if you face a blue screen after starting your WebUI app in the browser, you should verify that the setting "Display Intranet Sites in Compatibility View" is set to unchecked. You can find this option under "Compatibility View Options" in the main menu of IE11.
-
+ 
+    
+.. warning::
+    
+    Use of zooming in WebUI may lead to visual aberrations. The WebUI was developed assuming a 100% zoom in your browser.
+    
+ 
 Project Conversion
 ==================
 
