@@ -180,7 +180,7 @@ Connecting to Cloud DB using MySQL Workbench
 
 Once the tunnel is started, you can connect to the AIMMS Cloud App database locally via MySQL database administrative tool i.e. **MySQL Workbench**. Your connection parameters should be as shown,
 
-.. image:: images/MySQL Workbench connect cloud DB.png
+.. image:: images/MySQLWorkbench connect cloud DB.png
     :align: center
 
 .. note:: 
