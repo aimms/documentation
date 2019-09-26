@@ -31,13 +31,14 @@ Library Management Functions
 ApplicationDB Functions
 =======================
 
-.. js:function::  cdm::ConnectToApplicationDatabase(URL,dbName,timeout)
+.. js:function::  cdm::ConnectToApplicationDatabase(URL,dbName,callTimeout,commitTimeout)
 
    Create a connection to the CDM server at the specified hostname and port, connect to the given application database, and register the given application database to use this connection for subsequent low-level calls. If the application database requested does not exist yet, the CDM server will create an empty application database with the given name. The call will fail if the server cannot be reached, of if the user is not `authorized <auth.html>`_ to access the application database. 
 
    :param URL: should be of the form :token:`tcp://hostname:port` and specifies the hostname and TCP port where the CDM server can be reached
    :param dbName: specifies the name of the application database to connect to. Notice that a single CDM server can serve multiple application database, each hosting a separate CDM data repository.
-   :param timeout: specifies the timeout that will be applied on any call to the given CDM server (default 90000 ms). Increase this number only when your application makes huge commits, which cannot be handled by the CDM server within the default timeout.
+   :param callTimeout: specifies the timeout that will be applied on any call to the given CDM server (default 30000 ms). 
+   :param commitTimeout: specifies the timeout that will be applied waiting for commits to be finished (default 300000 ms). Increase this number only when your application makes huge commits, which cannot be handled by the CDM server within the default timeout. 
    
    When successfully connecting to the CDM service, the :js:func:`cdm::ConnectToApplicationDatabase` function will call the :js:func:`cdm::SetCDMConnectedState` callback. This callback will also be called whenever the connection to the CDM service drops. The :js:func:`cdm::SetCDMConnectedState` will store the connected state in the :token:`cdm::ConnectedToCDMService` parameter, and will call the procedure pointed to by the :token:`cdm::ConnectedStateProcedureHook` parameter. This allows you to gracefully handle connection state changes in your application code, e.g. by trying to reconnects if the connection drops.
 
@@ -291,6 +292,12 @@ Commit and Pull Functions
    :param elemName: specifies the element name of the existing element
    :param commitInfoProcedure: specifies an (optional) callback procedure (with default :token:`cdm::CommitInfoProvider`), which will be called to retrieve the commit author and comment to be associated with the commit
 
+.. js:function::  cdm::WaitForCommitNotifications(timeout)
+
+    Wait for incoming commit notifications for the specified timeout, and execute the corresponding commit notification procedure for all commit notifications. The function will return 1 when all available (but at least one) commit notifications are handled, or 0 when the given timeout is reached.
+    
+    :param timeout: specifies the for which the function will wait for external commit notification to arrive.
+    
 .. js:function::  cdm::RollbackChanges(category)
    
    Reset the actual values of all identifiers in the given category, back to the values stored in the :token:`CommittedIdentifiers` in the :token:`CDMRuntime` library for the given category.
