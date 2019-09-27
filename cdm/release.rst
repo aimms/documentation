@@ -7,15 +7,15 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
-1.13.1.55 [27-09-2019]
+1.14.0.1 [27-09-2019]
     - Selected sensible default and alternative filter strategies for all supported databases.
     - Added commit timeout next to call timeout argument in :js:func:`cdm::ConnectToApplicationDatabase`, and lowered default call timeout.
     - Suppressed commit dialog that appeared when commits lasted at least 60 seconds in the WinUI by default.
     - Added customizable notification and datachange procedures to :js:func:`cdm::CreateCategories` call as well
     - Introduced state machine for correctly keeping CDM identifier state in all use cases
-    - Merging in external data could lead to AIMMS error in certain situations
-    - Commit notifications could be held back by the CDM DLL, causing certain revision of some categories not to be updated as much as they could. All commit notifications are now forwarded to the specified commit notification procedure in the model.
-    - Introduced :js:func:`cdm::WaitForCommitNotifications` function, to allow the model to wait for and execute commit notifications synchronously prior to e.g. committing category changes.
+    - Merging in external data could lead to AIMMS errors in certain situations
+    - Commit notifications could be held back by the CDM DLL, causing certain revisions of some categories not to be updated as much as they could by the default commit notification procedure. All commit notifications are now forwarded to the specified commit notification procedure in the model.
+    - Introduced :js:func:`cdm::WaitForCommitNotifications` function, to allow the model to wait for and execute commit notifications synchronously prior to e.g. committing category changes to minimize the chance of failed commits due to running behind compared to the CDM server.
     
 1.13.1.33 [29-08-2019]
     - Index columns of multidimensional identifier tables were not declared as :token:`not null`.
