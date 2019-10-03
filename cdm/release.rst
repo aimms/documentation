@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.14.0.4 [03-10-2019]
+    - Changes in multi-dimensional identifiers due to data becoming inactive due to elements being removed from domain sets that were true *subsets* were committed on the first *real* change to such identifiers. Changes due to data becoming inactive are now never committed regardless of whether the domain sets are root set or subsets.
+    - Yet unhandled data change events could cause the function :js:func:`cdm::WaitForCommitNotifications` to timeout
+    
 1.14.0.1 [27-09-2019]
     - Selected sensible default and alternative filter strategies for all supported databases.
     - Added commit timeout next to call timeout argument in :js:func:`cdm::ConnectToApplicationDatabase`, and lowered default call timeout.
