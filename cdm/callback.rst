@@ -11,7 +11,7 @@ Upon every commit to a category in CDM, all connected clients will get a notific
 Default implementation
 ----------------------
 
-By default, the CDM library will call the procedure :token:`cdm::DefaultCommitInfoNotification` for every commit notification. It will automatically pull the changes for the category, if the branch being committed to is current branch for the specified category, and :token:`cdm::AutoPullCategory` has been set for the category.
+By default, the CDM library will call the procedure :token:`cdm::DefaultCommitInfoNotification` for every commit notification. It will automatically pull the changes for the category, if the branch being committed to is current branch for the specified category, and :token:`cdm::AutoPullCategory` has been set for the category. Through the parameter :token:`cdm::SequentialPullCategory` you can indicate whether you want commits for that category to be pulled strictly sequentially. If there are more commits ready to be pulled the first commit notification would normally cause all changes upto the head to the current branch to be pulled in a single call to :js:func:`cdm::PullChanges`. By indicating that you want a category to be pulled sequentially, each commit notification will cause only the changes for that particular commit to be pulled. This may be necessary, for instance, when your model has cross-category rootset - subset dependencies, where non-sequential pulling might cause a subset to be filled with elements that the rootset does not yet contain.
 
 Providing commit info
 =====================

@@ -237,12 +237,13 @@ Commit and Pull Functions
    :param revid: specifies the (optional) specific revision on the branch from which to retrieve the snapshot, if not specified the head of the specified branch will be taken
    :param skipInactive: specifies an optional argument whether or not to skip inactive data in the snapshot, defaults to 1
 
-.. js:function::  cdm::PullChanges(category,resolved)
+.. js:function::  cdm::PullChanges(category,resolved,revto)
    
    Retrieve and apply the changes for all identifiers in the given category, compared to the state of the model data for the current branch and revision of that category. The resulting changes will be applied to the actual identifiers, as well as to the shadow identifiers holding the latest committed values and the revision numbers at which these values where committed. In case there are conflicts between the changes being applied pulled from the application database, and changes made to the local identifiers by the end-user, the CDM library will try to `resolve the conflicts <dtd.html#merging-branches-and-resolving-conflicts>`_ based on the current model settings. The function will fail if the user has no read access to the category or branch. If the function succeeds without conflicts, the branch and revision information for the category will be set to latest revision on the current branch.
 
    :param category: specifies the category for which o 
    :param resolved: specifies an output argument, which indicates whether any conflicts were successfully resolved.
+   :param revto: an optional argument, indicating to pull all changes upto which revision. In the absence of this argument, CDM will pull upto the head to the current branch.
 
 .. js:function::  cdm::CherryPickChanges(category,branch,revfrom,revto,resolved)
    

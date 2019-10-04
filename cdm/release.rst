@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.14.0.5 [04-10-2019]
+    - Modified :js:func:`cdm::DefaultCommitInfoNotification` to allow strictly sequential pulling per commit per category in order to maintain proper cross-category root set - subset relationships in special cases.
+
 1.14.0.4 [03-10-2019]
     - Changes in multi-dimensional identifiers due to data becoming inactive due to elements being removed from domain sets that were true *subsets* were committed on the first *real* change to such identifiers. Changes due to data becoming inactive are now never committed regardless of whether the domain sets are root set or subsets.
     - Yet unhandled data change events could cause the function :js:func:`cdm::WaitForCommitNotifications` to timeout
