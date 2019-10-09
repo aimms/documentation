@@ -28,7 +28,7 @@ In order to `develop <creating.html>`_ a web interface for an AIMMS application 
 
     .. warning::
 
-        The rendering of your WebUI is not guaranteed under all zoom levels of your browser. There are combinations of widget types and zoom levels, which give a slightly distorted end-result.
+        The rendering of your WebUI is not guaranteed under all zoom levels of your browser. There are combinations of widget types and zoom levels, which give a slightly distorted end-result.  The WebUI was developed assuming a 100% zoom in your browser.
 
 
 Publishing a WebUI app
