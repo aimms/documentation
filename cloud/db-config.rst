@@ -187,7 +187,7 @@ Once the tunnel is started, you can connect to the AIMMS Cloud App database loca
 
 	Please make sure that '*Hostname*' is **localhost** and '*Port*' is same as **Local Port** specified in Tunnel App (i.e. in this example it is 2201).
 
-  
-
+To use tunnels in your AIMMS model, please check 
+`model changes for tunneling <https://documentation.aimms.com/pro/tunneling.html#changes-to-aimms-model>`_
 
 

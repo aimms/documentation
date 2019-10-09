@@ -213,7 +213,7 @@ As a second example:
 
 .. code::
 
-    DBConnectString:="DRIVER=Oracle in OraDB12Home1;dbq=oracle.example.com;UID=tester;DSN=OracleTestDB;Pwd=test123;" ;"
+    DBConnectString:="DRIVER=Oracle in OraDB12Home1;dbq=oracle.example.com;UID=tester;DSN=OracleTestDB;Pwd=test123;" ;
 
 It needs to be altered such that it connects to the local tunnel entry-point like this:
 
@@ -222,6 +222,75 @@ It needs to be altered such that it connects to the local tunnel entry-point lik
     DBConnectString:=FormatString("DRIVER=Oracle in OraDB12Home1;dbq=localhost:%1;UID=tester;DSN=OracleTestDB;Pwd=test123;", tunnelPortNumber);
 
 Note the differences between these examples; the connection string should be built according to the specifications of the database vendor.
+
+For VPN tunnels using AIMMS cloud, there is the option to use the Tunnel App to a MySQL database.  
+The connection to a MySQL database that is hosted on an AMMS Cloud from an AIMMS application, depends on how the AIMMS app is run:
+
+#.  As a published AIMMS WebUI application
+
+#.  As a published AIMMS WinUI application
+
+#.  Using the AIMMS IDE
+
+    #.  With an active Tunnel app, explained `here <https://documentation.aimms.com/cloud/db-config.html?highlight=download#database-tunnel-application>`_.
+
+    #.  With a connection to the AIMMS PRO system, via a valid ``pro_arguments.txt`` file in the project folder.  See also `Connecting to AIMMS PRO server  <https://documentation.aimms.com/pro/debugging-pro.html#connecting-with-the-pro-server>`_.
+
+Sample code that caters for these variations in connection is presented below:
+
+.. code-block:: aimms
+    :linenos:
+
+    Procedure pr_MakeConnection {
+        Body: {
+            pr_GetMySQLDriver( sp_DriverName );
+            
+            ! The following connection information selection is an example for development of an app for the cloud.
+            if projectDeveloperMode then
+                if pro::GetPROEndPoint() then
+                    ! In project developer mode with a connection to an AIMMS Cloud available.
+                    ! We don't need the Tunnel App, but can create our own tunnel and use it here.
+                    pro::Initialize(); ! Ensure the PRO connection is initialized.
+                    p_TunnelNo := pro::tunnel::TunnelStart( contextPath : "mysql" ); 
+                    sp_ServerName := "localhost" ; 
+                else
+                    ! No connection to an AIMMS Cloud available.
+                    ! This only works if a tunnel is active using the tunnel app.
+                    ! Here we assume that the tunnel is using port 13306
+                    p_TunnelNo := 13306 ;
+                    sp_ServerName := "localhost" ; 
+                endif ;
+            else
+                ! Assume app is published on an AIMMS Cloud.
+                if DirectoryExists( "MainProject/WebUI" ) then
+                    ! The app is run as a published WebUI app, we can connect directly to the database.
+                    p_TunnelNo := 3306 ;
+                    sp_ServerName := "aimms-sandbox.db.cloud.aimms.com" ; 
+                else 
+                    ! The app is run as a published WinUI app
+                    ! Going to assume that no Tunnel App is running, so we need to setup our own tunnel
+                    p_TunnelNo := pro::tunnel::TunnelStart( contextPath :  "mysql" );
+                    sp_ServerName := "localhost" ; 
+                endif ;
+            endif ;
+            
+            sp_DatabaseConnection := SQLCreateConnectionString(
+                DatabaseInterface              :  'ODBC', 
+                DriverName                     :  sp_DriverName, 
+                ServerName                     :  sp_ServerName,  
+                DatabaseName                   :  "demoideandpro", 
+                UserId                         :  sp_User, 
+                Password                       :  sp_Pwd, 
+                AdditionalConnectionParameters :  formatString("port=%i",p_TunnelNo));
+            
+            if not TestDataSource(sp_DatabaseConnection) then
+                raise error "Cannot connect to database: " + CurrentErrorMessage;
+            endif ;
+        }
+        Parameter p_TunnelNo;
+        StringParameter sp_ServerName;
+    }
+
 
 Tunnel shutdown
 +++++++++++++++
