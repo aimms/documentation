@@ -226,11 +226,11 @@ Note the differences between these examples; the connection string should be bui
 For VPN tunnels using AIMMS cloud, there is the option to use the Tunnel App to a MySQL database.  
 The connection to a MySQL database that is hosted on an AMMS Cloud from an AIMMS application, depends on how the AIMMS app is run:
 
-#.  As a published AIMMS WebUI application
+#.  As a published AIMMS WebUI application. The AIMMS session behind a deployed WebUI application runs on the AIMMS PRO system itself. Therefore, it doesn't need a tunnel.
 
-#.  As a published AIMMS WinUI application
+#.  As a published AIMMS WinUI application. The AIMMS session behind a deployed WinUI application runs on the laptop or desktop of the user, and therefore it needs a tunnel.
 
-#.  Using the AIMMS IDE
+#.  Using the AIMMS IDE. The AIMMS session behind a deployed WinUI application runs on the laptop or desktop of the user, and therefore it needs a tunnel.
 
     #.  With an active Tunnel app, explained `here <https://documentation.aimms.com/cloud/db-config.html?highlight=download#database-tunnel-application>`_.
 
@@ -310,4 +310,4 @@ Known bugs/things not yet operational:
 ++++++++++++++++++++++++++++++++++++++
  
 * The actual tunnel is setup upon first connect from the client; if an error occurs on pro-level, e.g. not allowed to use tunnel, no proper error message is given, instead the socket is just closed and the client connecting (e.g. the ODBC SQL driver) will give an error, saying it is not able to connect
-* When you have started a tunnel, you must close it as well, otherwise this will cause a hang when trying to exit AIMMS. It is possible to circumvent this by calling pro::tunnel:TunnelStopAll() in pro::LibraryTermination.
+* When you have started a tunnel, you must close it as well, otherwise this will cause a hang when trying to exit AIMMS. It is possible to circumvent this by calling ``pro::tunnel:TunnelStopAll()`` in ``pro::LibraryTermination``.
