@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.14.0.6 [14-10-2019]
+    - Checkout of a simple *integer* subset with large amount of both element additions and deletions could lead to crash
+    
 1.14.0.5 [04-10-2019]
     - Modified :js:func:`cdm::DefaultCommitInfoNotification` to allow strictly sequential pulling per commit per category in order to maintain proper cross-category root set - subset relationships in special cases.
 
