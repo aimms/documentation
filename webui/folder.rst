@@ -213,7 +213,7 @@ Below are the illustrations for the widgets that support annotations using the a
     :scale: 75
 
 .. Tip:: 
-    There are hover and select effects on the charts and Map widgets which can be changed, but are not supported by AIMMS. If you would like to change the properties of those states as well, please look at our How To document on changing CSS effects on charts.
+    There are hover and select effects on the charts and Map widgets which can be changed, but are not supported by AIMMS. If you would like to change the properties of those states as well, please look at our How To document on `changing CSS effects on charts <https://how-to.aimms.com/Articles/315/315-hover-and-select-effects-webui-charts.html>`_.
 
 Highlighting (experimental)
 +++++++++++++++++++++++++++
