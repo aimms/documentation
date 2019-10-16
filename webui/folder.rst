@@ -115,7 +115,7 @@ The WebUI uses flags to indicate whether a certain DOM element corresponds to a 
 Widgets and CSS properties supported for Annotation
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 
-There are several CSS properties that can be changed for each widget that support annotations. AIMMS provides limited support with respect to CSS customization. The below table denotes the supported widgets and their respective CSS properties that can be changed.
+There are several CSS properties that can be changed for each widget that support annotations. AIMMS provides support for specific CSS properties with respect to CSS customization. The below table denotes the supported widgets and their respective CSS properties that can be changed.
 
 +------------------------+------------------------------------------------------------------------------+
 | Widgets                | CSS Property                                                                 |
@@ -142,9 +142,9 @@ There are several CSS properties that can be changed for each widget that suppor
 .. Tip:: 
     For Line Chart, Bubble Chart and Map the radius property "r" is supported only on the Chrome browser, and not on IE 11 and Edge browsers.
 
-The Bar Chart, Line Chart, Pie Chart, Gantt Chart, Bubble Chart and Map widget use SVG elements. AIMMS supports the use of the fill and stroke properties. 
+The Bar Chart, Line Chart, Pie Chart, Gantt Chart, Bubble Chart and Map widget use SVG elements. SVG stands for Scalable Vector Graphics, and uses a coordinates system to draw different vectors, like the rectangles and circles in charts. AIMMS supports the use of the fill and stroke properties for SVG elements. 
 
-The illustration below shows the use of SVG properties to change the fill and stroke of a bar chart when the annotation "blue" is added to the identifier.
+The illustration below shows the use of SVG properties to change the fill and stroke of a bar chart when the annotation "blue" is added to the identifier. Followed by illustrations of the other charts.
 
 .. code::
 
@@ -162,9 +162,29 @@ The illustration below shows the use of SVG properties to change the fill and st
     :align: center
     :scale: 75
 
-The Table, Treemap Chart and Scalar widget use the DIV element. AIMMS supports the use of background and font properties.
+.. image:: images/Line_annotations.png
+    :align: center
+    :scale: 75
 
-The illustration below shows the use of DIV properties to change the background and font of a table cell when the annotation "blue" is added to the identifier.
+.. image:: images/Pie_annotations.png
+    :align: center
+    :scale: 75
+
+.. image:: images/Gantt_annotations.png
+    :align: center
+    :scale: 75
+
+.. image:: images/Bubble_annotations.png
+    :align: center
+    :scale: 75
+
+.. image:: images/Map_annotations.png
+    :align: center
+    :scale: 75
+
+The Table, Treemap Chart and Scalar widget use the DIV element. A DIV defines a division or a section in an HTML document. The <div> element is often used as a container for other HTML elements to style them with CSS or to perform certain tasks with JavaScript. AIMMS supports the use of background and font properties.
+
+The illustration below shows the use of DIV properties to change the background and font of a table cell when the annotation "blue" is added to the identifier. Followed by illustrations of the TreeMap and Scalar widgets.
 
 .. code::
 
@@ -182,28 +202,6 @@ The illustration below shows the use of DIV properties to change the background 
 .. image:: images/Table_annotations.png
     :align: center
 
-Below are the illustrations for the widgets that support annotations using the annotation "blue" as defined above.
-
-.. image:: images/Line_annotations.png
-    :align: center
-    :scale: 75
-
-.. image:: images/Pie_annotations.png
-    :align: center
-    :scale: 75
-
-.. image:: images/Gantt_annotations.png
-    :align: center
-    :scale: 75
-
-.. image:: images/Map_annotations.png
-    :align: center
-    :scale: 75
-    
-.. image:: images/Bubble_annotations.png
-    :align: center
-    :scale: 75
-
 .. image:: images/Treemap_annotations.png
     :align: center
     :scale: 75
@@ -213,7 +211,7 @@ Below are the illustrations for the widgets that support annotations using the a
     :scale: 75
 
 .. Tip:: 
-    There are hover and select effects on the charts and Map widgets which can be changed, but are not supported by AIMMS. If you would like to change the properties of those states as well, please look at our How To document on `changing CSS effects on charts <https://how-to.aimms.com/Articles/315/315-hover-and-select-effects-webui-charts.html>`_.
+    There are hover and select effects on the charts and Map widgets which can be changed, but are not yet supported by AIMMS. If you would like to change the properties of those states as well, please look at our How To document on `changing CSS effects on charts <https://how-to.aimms.com/Articles/315/315-hover-and-select-effects-webui-charts.html>`_.
 
 Highlighting (experimental)
 +++++++++++++++++++++++++++
