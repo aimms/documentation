@@ -15,11 +15,11 @@ Now the database is only accessible from within an AIMMS session.
 
 If you however need direct access to the application database, we offer two possibilities:
 
- * *Database Tunnel Application*
+ * **Database Tunnel Application**
 
    Recommended if you need occasional access to the database (e.g. to inspect some tables, alter the schema, add users, etc.). See `Database Tunnel Application`_ section in this document for more details.
    
- * *VPN (Virtual Private Network) connection*
+ * **VPN (Virtual Private Network) connection**
 
    Recommended if you need more permanent access, e.g. when you regularly synchronize between an on-premise resource and the application database
 
@@ -44,7 +44,7 @@ Next it will show the following dialog:
 .. image:: images/db-config-create-initial-db.png
     :align: center
 
-Fill in the username and password for the database administrator who will be accessing the database. Note that password needs to be longer then 8 characters and can be any printable ASCII character except "/", """, or "@". 
+Fill in the username and password for the database administrator who will be accessing the database. Note that password needs to be longer then 8 characters and can be any printable ASCII character except spaces,"/", """, or "@". 
 
 Next to that, you can assign an IP address range for the private network that will be created to host the database on the AIMMS Cloud side. You can also choose to automatically assign this range. 
 
