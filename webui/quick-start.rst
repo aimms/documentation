@@ -113,7 +113,7 @@ On this page one can `add widgets <widget-manager.html#add-a-widget>`_ for rende
 
 The SupplyData widget can be further configured in its Settings window, for example by swapping indexes in the Pivot section or by typing a title in the Miscellaneous section, as illustrated below. After these steps, the SupplyData table should look like in the last picture on the right hand side below:
 
-.. image:: images/transnet-joint-2.png
+.. image:: images/transnet-joint-2_v470.png
     :align: center
  
 In a very similar manner, one can undertake steps as above for adding and configuring a second table widget named "DemandData" with sizes of 3 columns and 2 rows, rendering the data of the parameter *Demand*. The two added table widgets should now look like in the following picture:
