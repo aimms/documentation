@@ -118,7 +118,7 @@ The SupplyData widget can be further configured in its Settings window, for exam
  
 In a very similar manner, one can undertake steps as above for adding and configuring a second table widget named "DemandData" with sizes of 3 columns and 2 rows, rendering the data of the parameter *Demand*. The two added table widgets should now look like in the following picture:
 
-.. image:: images/supply-demand-1_v1.png
+.. image:: images/supply-demand-1_v470.png
     :align: center
 
 Next, one can add a map widget with 4 columns and 3 rows in order to show the locations of the network. Before actually adding the widget, the following declarations should be made in the model:
