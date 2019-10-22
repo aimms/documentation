@@ -108,7 +108,7 @@ Adding the widgets for input data
 
 On this page one can `add widgets <widget-manager.html#add-a-widget>`_ for rendering the data of the input parameters *Supply* and *Demand*. For example, one can add a table widget named "SupplyData" with sizes of 2 columns and 2 rows, rendering the data of the parameter *Supply*. In the `Widget Manager <widget-manager.html>`_, pressing the "+" sign at the bottom opens the "Add widget" pop-up window, where the fields can be filled in as shown below, resulting in a widget like here on the right hand side:  
 
-.. image:: images/transnet-joint-1_v3.png
+.. image:: images/transnet-joint-1_v470.png
     :align: center
 
 The SupplyData widget can be further configured in its Settings window, for example by swapping indexes in the Pivot section or by typing a title in the Miscellaneous section, as illustrated below. After these steps, the SupplyData table should look like in the last picture on the right hand side below:
