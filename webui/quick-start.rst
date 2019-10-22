@@ -5,7 +5,7 @@ This section illustrates how to create quickly a first WebUI for a simple Transp
 
 A first Web-based User Interface for such an AIMMS optimization application may look like in the following picture:
 
-.. image:: images/transnet-overview_v470.png
+.. image:: images/transnet-overview-v470.png
     :align: center
 
 In order to build such a WebUI, one needs to add and configure step-by-step a number of widgets on the Home application page opened in a browser tab. Most widgets reference data of identifiers or run procedures present in the AIMMS model. The underlying mathematical optimization model used in this application is essentially the one described in the `AIMMS tutorial for beginners <https://download.aimms.com/aimms/download/references/AIMMS_tutorial_beginner.pdf>`_. 
