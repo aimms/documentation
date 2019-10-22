@@ -100,7 +100,7 @@ Creating an empty WebUI
 
 One may start by opening the Home page of the WebUI application in the browser (see `Create a WebUI <creating.html>`_ section for details):
 
-.. image:: images/transnet-empty-start.png
+.. image:: images/transnet-empty-start-v470.png
     :align: center
 
 Adding the widgets for input data
