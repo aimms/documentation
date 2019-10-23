@@ -121,19 +121,21 @@ In a very similar manner, one can undertake steps as above for adding and config
 .. image:: images/supply-demand-1_v470.png
     :align: center
 
-Next, one can add a map widget with 4 columns and 3 rows in order to show the locations of the network. The map widget can be added by using the same "Add widget" window as discussed before. Then in the Settings window of the map widget the Node Sets and the Miscellaneous sections can be filled in as shown below, resulting in a widget as below on the right:
+Next one can add a map widget with 4 columns and 3 rows in order to show the locations of the network. The map widget can be added by using the same "Add widget" window as discussed before. Then in the Settings window of the map widget the Node Sets and the Miscellaneous sections can be filled in as shown below, resulting in a map widget as here on the right:
 
 .. image:: images/transnet-joint-3_v470.png
     :align: center
 
-Another table widget with 5 columns and 1 row may be added for showing the unit transport costs between a factory and a distribution center. The widget tile may be added in the same way as above, while the splitting of indexes of this parameter between the row area and the  column area may be configured in the Pivot section of the Setting window as illustrated below:
+Clearly, two types of nodes have been added explicitly to the network: one for the factories f and the other one for the distribution centers c. Please note that for specifying the Latitude, the Longitude and the NodeSize correspoding to each of the indexes f and c, the slicing functionality (as described in the `Slicing section <widget-options.html#id8>`_) can be used. 
+	
+Another table widget with 5 columns and 1 row may be added for showing the unit transport costs between a factory and a distribution center. The widget tile may be added in the same way as above, while the splitting of indexes of this parameter between the row area and the  column area may be configured in the Pivot section of the Settings window as illustrated below:
 
-.. image:: images/transnet-joint-4.png 
+.. image:: images/transnet-joint-4_v470.png 
     :align: center
 
 In the Miscellaneous section of Page Setting window, one can set a maximum number of 11 columns for the page as shown here:
 
-.. image:: images/transnet-pagesettings.png
+.. image:: images/transnet-pagesettings-1_v470.png
     :align: center
 
 After performing all the steps so far, the WebUI should look like in the following picture:
