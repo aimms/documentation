@@ -140,7 +140,7 @@ In the Miscellaneous section of Page Setting window, one can set a maximum numbe
 
 After performing all the steps so far, the WebUI should look like in the following picture:
 
-.. image:: images/transnet-step3.png
+.. image:: images/transnet-step3_v470.png
     :align: center
 
 Including widgets for optimization data
