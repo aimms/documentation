@@ -121,30 +121,9 @@ In a very similar manner, one can undertake steps as above for adding and config
 .. image:: images/supply-demand-1_v470.png
     :align: center
 
-Next, one can add a map widget with 4 columns and 3 rows in order to show the locations of the network. Before actually adding the widget, the following declarations should be made in the model:
+Next, one can add a map widget with 4 columns and 3 rows in order to show the locations of the network. The map widget can be added by using the same "Add widget" window as discussed before. Then in the Settings window of the map widget the Node Sets and the Miscellaneous sections can be filled in as shown below, resulting in a widget as below on the right:
 
-.. code::
-
-    DeclarationSection WebUI_Section {
-        Set sLonLat {
-            Index: iLonLat;
-            Definition: data { 'Lon', 'Lat' };
-        }
-        Parameter MapCoordinates {
-            IndexDomain: (l,iLonLat);
-            Definition: {
-                if ( iLonLat = 'Lon' ) 
-                     then Longitude(l) 
-                     elseif (iLonLat = 'Lat' )
-                             then Latitude(l) 
-                endif
-            }
-        }
-    }
-
-Now the map widget can be added by using the "Add widget" window as before and then in the Setting window of the map widget the Map Contents and the Miscellaneous sections can be filled in as shown below, resulting in a widget as below on the right:
-
-.. image:: images/transnet-joint-3.png
+.. image:: images/transnet-joint-3_v470.png
     :align: center
 
 Another table widget with 5 columns and 1 row may be added for showing the unit transport costs between a factory and a distribution center. The widget tile may be added in the same way as above, while the splitting of indexes of this parameter between the row area and the  column area may be configured in the Pivot section of the Setting window as illustrated below:
