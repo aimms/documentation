@@ -354,8 +354,8 @@ One may add to the WebUI a selectionbox widget with 2 columns and 1 row showing 
 .. image:: images/transnet-step8_v470.png
     :align: center
 
-Providing more structure to the UI
-----------------------------------
+Providing more structure to the WebUI
+-------------------------------------
 
 In order to indicate more clearly the input, the optimization, and the output parts in the WebUI, one may add 3 label widgets called InputLabel (contents INPUT), OptimizationLabel (contents OPTIMIZATION), and OutputLabel (contents OUTPUT), in this order. All labels can have 1 row, while the columns sizes may be 5 columns, 4 columns, and 2 columns, respectively. The label widgets may be moved up (by drag-and-drop) as the first 3 widgets in the Widgets Manager, in the same order, while the rest of the widgets may follow up by keeping their relative order in which they have been added. Furthermore, a new text widget may be also added as the very first widget in the Widget Manager in order to show a title / introduction section for the entire application (like the one shown in the first overview picture in the very beginning of this documentation section). Formatting the contents of such a text widget is self-explanatory in its Edit window by using the options on the top:
 
