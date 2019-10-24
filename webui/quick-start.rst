@@ -276,11 +276,11 @@ Similarly as before, one can add another button widget with 2 columns and 1 row 
 Solving the optimization model
 ------------------------------
 
-Now it's time to actually solve the optimization model and show the resulting output data in the WebUI. In developer model, solving the model normally requires a simple procedure as the following:
+Now it is time to actually solve the optimization model and show the resulting output data in the WebUI. In developer model, solving the model normally requires a simple procedure as the following:
 
 .. code::
 
-    Procedure SolveModel {
+    Procedure Solve_Model {
         Body: {
             
             solve TransportModel;
@@ -288,7 +288,7 @@ Now it's time to actually solve the optimization model and show the resulting ou
             IsTheModelSolved := 1;
             
             !If the problem was not solved to optimality, make sure that the decision variables
-            !are emptied, because they do correspond to actual solution.
+            !are emptied, because they do not correspond to an actual solution.
             
             if ( TransportModelStatus <> 'Optimal' ) then
                 empty Transport, TransportCost  ;
@@ -300,7 +300,7 @@ However, in case the application is run on AIMMS PRO, the WebUI client needs to 
 
 .. code::
 
-    Procedure DelegateSolve {
+    Procedure Solve_Delegate {
         Body: {
             
             if pro::DelegateToServer( waitForCompletion : 1, completionCallback : 'pro::session::LoadResultsCallback' ) 
@@ -315,33 +315,38 @@ So, the overall solving procedure which addresses all situations (developer mode
 
 .. code::
 
-    Procedure SolveProcedure {
+    Procedure Solve_Procedure {
         Body: {
             
             if ProjectDeveloperMode then
             
-                   SolveModel;
+                   Solve_Model;
             
             elseif pro::GetPROEndPoint() then
             
                     if pro::IsRunningAtServer then
             
-                    SolveModel;
+                       Solve_Model;
+					   
                     else
-                    DelegateSolve;
+					
+                       Solve_Delegate;
+					   
                     endif;
             endif ;
         }
     }
 
-After making sure that the above declarations are present in the AIMMS model, one can add to the WebUI a new button widget with 4 columns and 1 row (title COMPUTE OPTIMAL TRANSPORT) running upon click the last procedure mention above, which actually solves the model. After pushing this button the output data is filled in for the Transport table and the Total Transport Costs scalar. However, the Transport amounts are not yet shown in the map widget. In order to achieve this, one needs to open the Settings window of the map widget and add the arcs in the Map Contents section of as follows:
+After making sure that the above declarations are present in the AIMMS model, one can add to the WebUI a new button widget with 4 columns and 1 row (title COMPUTE OPTIMAL TRANSPORT) running upon click the last procedure mention above, which actually solves the transport optimization model. 
 
-.. image:: images/networkmap-contents-2.png
+So, after pushing this button the output data is filled in for the Transport table and the Total Transport Costs scalar. However, the Transport amounts are not yet shown in the map widget. In order to achieve this, one needs to open the Settings window of the map widget and add the arcs in the Map Contents section of as follows:
+
+.. image:: images/transnet-maparcs_v470.png
     :align: center
 
 So, after performing all the steps so far the WebUI should look as shown here:
 
-.. image:: images/transnet-step7.png
+.. image:: images/transnet-step7_v470.png
     :align: center
 
 One may add to the WebUI a selectionbox widget with 2 columns and 1 row showing the value of the element parameter *TransportModelStatus*. After pushing the "MODIFY UNIT COSTS" button and then solving the model again by using the "COMPUTE OPTIMAL TRANSPORT" button, the WebUI overview should now show the new solution (with visible model status Optimal ) as in the following picture:
