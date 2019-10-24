@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.14.0.7 [24-10-2019]
+    - Left-over temporary tables are now removed at service startup
+
 1.14.0.6 [14-10-2019]
     - Checkout of a simple *integer* subset with large amount of both element additions and deletions could lead to crash
     
