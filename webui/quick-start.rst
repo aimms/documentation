@@ -351,7 +351,7 @@ So, after performing all the steps so far the WebUI should look as shown here:
 
 One may add to the WebUI a selectionbox widget with 2 columns and 1 row showing the value of the element parameter *TransportModelStatus*. After pushing the "MODIFY UNIT COSTS" button and then solving the model again by using the "COMPUTE OPTIMAL TRANSPORT" button, the WebUI overview should now show the new solution (with visible model status Optimal ) as in the following picture:
 
-.. image:: images/transnet-step8.png
+.. image:: images/transnet-step8_v470.png
     :align: center
 
 Providing more structure to the UI
