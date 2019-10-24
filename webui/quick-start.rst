@@ -126,7 +126,7 @@ Next one can add a map widget with 4 columns and 3 rows in order to show the loc
 .. image:: images/transnet-joint-3_v470.png
     :align: center
 
-Clearly, two types of nodes have been added explicitly to the network: one for the factories f and the other one for the distribution centers c. Please note that for specifying the Latitude, the Longitude and the NodeSize correspoding to each of the indexes f and c, the slicing functionality (as described in the `Slicing section <widget-options.html#id8>`_) can be used. 
+As the snapshots above show, two types of nodes have been added explicitly to the network: one type for the factories f and one other type for the distribution centers c. Please note that for specifying the Latitude, the Longitude and the NodeSize correspoding to each of the indexes f and c, the slicing functionality (as described in the `Slicing section <widget-options.html#id8>`_) can be used. 
 	
 Another table widget with 5 columns and 1 row may be added for showing the unit transport costs between a factory and a distribution center. The widget tile may be added in the same way as above, while the splitting of indexes of this parameter between the row area and the  column area may be configured in the Pivot section of the Settings window as illustrated below:
 
@@ -143,8 +143,8 @@ After performing all the steps so far, the WebUI should look like in the followi
 .. image:: images/transnet-step3_v470.png
     :align: center
 
-Including widgets for optimization data
----------------------------------------
+Including widgets for optimization and output data
+--------------------------------------------------
 
 The mathematical optimization declarations in the AIMMS model look as follows:
 
@@ -199,14 +199,14 @@ Some additional declarations for the model output can be added as follows:
         }
     }
  
-For output data one may add to the Home page in the WebUI a table widget with 2 columns and 2 rows (title Transport) showing the data of the Transport variable and a scalar widget with 2 columns and 1 row  (tile Total Transport Costs) rendering the data of the variable TransportCosts. These Settings of two widgets may be configured as shown in these two pictures, respectively:
+For output data one may add to the Home page in the WebUI a table widget with 2 columns and 2 rows (title Transport) showing the data of the Transport variable and a scalar widget with 2 columns and 1 row  (tile Total Transport Cost) rendering the data of the variable TransportCost. These Settings of two widgets may be configured as shown in these two pictures, respectively:
 
-.. image:: images/transnet-joint-5.png
+.. image:: images/transnet-joint-5_v470.png
     :align: center
 
 The last two widgets have no data to be shown before the model is solved, so, after performing also the last steps, the WebUI should look as follows:
 
-.. image:: images/transnet-step4.png
+.. image:: images/transnet-step4_v470.png
     :align: center
 
 Adding buttons
