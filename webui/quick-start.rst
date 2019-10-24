@@ -1,9 +1,9 @@
 Quick Start: My First WebUI App
 ===============================
 
-This section illustrates how to create quickly a first WebUI for a simple Transport Network (TransNet) application using a set of locations divided in two (disjoint) subsets of factories and distribution centers. Each factory has an amount of supply of a product and each distribution center has some demand for that product. Decisions have to be made on how much to transport from a factory to a distribution center in order to satisfy demand, while not exceeding the available supply. Unit transport costs are associated with any pair of factory and distribution center and the transport decisions aim to minimize the total transport cost for the entire network. 
+This section illustrates how to create quickly a first Web-based User Interface (WebUI) for a simple Transport Network (TransNet) application using a set of locations divided in two (disjoint) subsets of factories and distribution centers. Each factory has an amount of supply of a product and each distribution center has some demand for that product. Decisions have to be made on how much to transport from a factory to a distribution center in order to satisfy demand, while not exceeding the available supply. Unit transport costs are associated with any pair of factory and distribution center and the transport decisions aim to minimize the total transport cost for the entire network. 
 
-A first Web-based User Interface (WebUI) for such an AIMMS optimization application may look like in the following picture:
+A first WebUI for such an AIMMS optimization application may look like in the following picture:
 
 .. image:: images/transnet-overview-v470.png
     :align: center
@@ -72,7 +72,7 @@ In the use case at hand, there are 3 factories (Hamburg, London, and Zurich) and
 
 .. code::
 
-    Procedure InitializeNetwork {
+    Procedure Initialize_Network {
         Body: {
             COMPOSITE TABLE:
             l                Longitude      Latitude     IsFactory          
@@ -93,7 +93,7 @@ In the use case at hand, there are 3 factories (Hamburg, London, and Zurich) and
         }
     }
 
-The *Supply* and *Demand* parameters may be initialized e.g., by using some random draws from uniform distributions, while the parameter *UnitCost* may be initialized e.g., based on the (straight) distance between two locations (see further below).
+The *Supply* and *Demand* parameters may be initialized e.g., by using some random draws from uniform distributions, while the parameter *UnitCost* may be initialized e.g., based on the (straight line) distance between two locations (see further below).
 
 Creating an empty WebUI
 -----------------------
@@ -111,24 +111,24 @@ On this page one can `add widgets <widget-manager.html#add-a-widget>`_ for rende
 .. image:: images/transnet-joint-1_v470.png
     :align: center
 
-The SupplyData widget can be further configured in its Settings window, for example by swapping indexes in the Pivot section or by typing a title in the Miscellaneous section, as illustrated below. After these steps, the SupplyData table should look like in the last picture on the right hand side below:
+The SupplyData widget can be further configured in its Settings window, for example by swapping indexes in the Pivot section or by typing the title Supply in the Miscellaneous section, as illustrated below. After these steps, the SupplyData table should look like in the last picture on the right hand side below:
 
 .. image:: images/transnet-joint-2_v470.png
     :align: center
  
-In a very similar manner, one can undertake steps as above for adding and configuring a second table widget named "DemandData" with sizes of 3 columns and 2 rows, rendering the data of the parameter *Demand*. The two added table widgets should now look like in the following picture:
+In a very similar manner, one can undertake steps as above for adding and configuring a second table widget named "DemandData" with sizes of 3 columns and 2 rows (title Demand), rendering the data of the parameter *Demand*. The two added table widgets should now look like in the following picture:
 
 .. image:: images/supply-demand-1_v470.png
     :align: center
 
-Next one can add a map widget with 4 columns and 3 rows in order to show the locations of the network. The map widget can be added by using the same "Add widget" window as discussed before. Then in the Settings window of the map widget the Node Sets and the Miscellaneous sections can be filled in as shown below, resulting in a map widget as here on the right:
+Next one can add a map widget with 4 columns and 3 rows (title Transport Network) in order to show the locations of the network. The map widget can be added by using the same "Add widget" window as discussed before. Then in the Settings window of the map widget the Node Sets and the Miscellaneous sections can be filled in as shown below, resulting in a map widget as here on the right:
 
 .. image:: images/transnet-joint-3_v470.png
     :align: center
 
-As the snapshots above show, two types of nodes have been added explicitly to the network: one type for the factories f and one other type for the distribution centers c. Please note that for specifying the Latitude, the Longitude and the NodeSize correspoding to each of the indexes f and c, the slicing functionality (as described in the `Slicing section <widget-options.html#id8>`_) can be used. 
+As shown in the snapshots above, two types of nodes have been added explicitly to the network in the map widget: one type for the factories f and one other type for the distribution centers c. Please note that for specifying the Latitude, the Longitude and the NodeSize correspoding to each of the indexes f and c, the slicing functionality (as described in the `Slicing section <widget-options.html#id8>`_) can be used. 
 	
-Another table widget with 5 columns and 1 row may be added for showing the unit transport costs between a factory and a distribution center. The widget tile may be added in the same way as above, while the splitting of indexes of this parameter between the row area and the  column area may be configured in the Pivot section of the Settings window as illustrated below:
+Another table widget with 5 columns and 1 row (title Unit Costs) may be added for showing the unit transport costs between a factory and a distribution center. The widget tile may be added in the same way as above, while the splitting of indexes of this parameter between the row area and the  column area may be configured in the Pivot section of the Settings window as illustrated below:
 
 .. image:: images/transnet-joint-4_v470.png 
     :align: center
@@ -199,7 +199,7 @@ Some additional declarations for the model output can be added as follows:
         }
     }
  
-For output data one may add to the Home page in the WebUI a table widget with 2 columns and 2 rows (title Transport) showing the data of the Transport variable and a scalar widget with 2 columns and 1 row  (tile Total Transport Cost) rendering the data of the variable TransportCost. These Settings of two widgets may be configured as shown in these two pictures, respectively:
+For output data one may add to the Home page in the WebUI a table widget with 2 columns and 2 rows (title Transport) showing the data of the Transport variable and a scalar widget with 2 columns and 1 row  (tile Total Transport Cost) rendering the data of the variable TransportCost. The Settings of these two widgets may be configured as shown in the following two pictures, respectively:
 
 .. image:: images/transnet-joint-5_v470.png
     :align: center
@@ -216,61 +216,61 @@ The procedures which initializes the input state before solving the model may be
 
 .. code::
 
-    Procedure InitializeUnitCosts {
-        Body: {        
-                    UnitCost(f,c) := Round( Sqrt(Sqr(Latitude(f)-Latitude(c)) + Sqr(Longitude(f)-Longitude(c))), 2 );
-        }
-    }
-
-    Procedure InitializeInput {
+    Procedure Initialize_Input {
         Body: {        
             option seed = 1234;
             
             Supply(f) := Round( Uniform(40,80), 2 );
             Demand(c) := Round( Uniform(10,20), 2 );
             
-            InitializeUnitCosts;
+            Initialize_UnitCosts;
             
-            EmptyVariables;
+            Empty_Variables;
         }
     }
 
-where the procedure on the last line above simply empties the output state:
+    Procedure Initialize_UnitCosts {
+        Body: {        
+                    UnitCost(f,c) := Round( Sqrt(Sqr(Latitude(f)-Latitude(c)) + Sqr(Longitude(f)-Longitude(c))), 2 );
+        }
+    }
+
+where the procedure Empty_Variables called above simply empties the output state:
 
 .. code::
 
-    Procedure EmptyVariables {
+    Procedure Empty_Variables {
         Body: {
             
             empty Transport, TransportCost, IsTheModelSolved;
         }
     }
 
-On the WebUI page one can now add a button widget with 3 columns and 1 row (tile (RE-)INITIALIZE DATA) and configure it in the Action section of its Settings window in order to run upon click the procedure *InitializeInput* as illustrated below:
+On the WebUI page one can now add a button widget with 3 columns and 1 row (tile (RE-)INITIALIZE INPUT) and configure it in the Action section of its Settings window in order to run upon click the procedure *Initialize_Input* as illustrated below:
 
-.. image:: images/transnet-joint-6.png
+.. image:: images/transnet-joint-6_v470.png
      :align: center
 
 In order to experiment using other unit transport costs than the initial ones, a procedure as the following may be used:
 
 .. code::
 
-    Procedure ModifyUnitCosts {
+    Procedure Modify_UnitCosts {
         Body: {
             
-            InitializeUnitCosts;
+            Initialize_UnitCosts;
             
             option seed = 5678;
             
             UnitCost(f,c) *= Uniform(0.3,2.5);
             
-            EmptyVariables;
+            Empty_Variables;
         }
     }
 
 Similarly as before, one can add another button widget with 2 columns and 1 row (title MODIFY UNIT COSTS) running upon click the last procedure mentioned above. After performing all the steps so far, the WebUI page should look like shown below:
 
-.. image:: images/transnet-step5.png
+.. image:: images/transnet-step5_v470.png
     :align: center
 
 Solving the optimization model
