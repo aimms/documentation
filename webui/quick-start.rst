@@ -414,6 +414,11 @@ One may try and repeat the experiment for the scenario in which Demand value in 
 
 Of course, one may experiment with several scenarios by altering (also simultaneously) several values in Supply, Demand, and UnitCosts, re-solving the model and observing the impact of the new input to the model status and the solution, in case the model is feasible.
 
+Any such scenario may be saved as a data case using the Data Manager. For example, one may re-initialize input, then optimize, and then save the correspoding scenario as Case_Scenario_1. Similarly, one may modify input, then optimize, and then save the resulting scenario as Case_Scenario_2 in the Data Manager:
+
+.. image:: images/transnet-savecases_v470.png 
+    :align: center
+
 Modifying widget types
 ----------------------
 
