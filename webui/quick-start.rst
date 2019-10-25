@@ -409,7 +409,7 @@ After pushing again the "COMPUTE OPTIMAL TRANSPORT" button, the new solution is 
 
 One may try and repeat the experiment for the scenario in which Demand value in Amsterdam would increase, for example, to 70. In this case the model becomes infeasible, because the total demand exceeds the total available supply. So, the output data stays empty and the model status is set to Infeasible:
 
-.. image:: images/transnet-whatif-supplya70-inf.png
+.. image:: images/transnet-whatif-supplya70-inf_v470.png
     :align: center
 
 Of course, one may experiment with several scenarios by altering (also simultaneously) several values in Supply, Demand, and UnitCosts, re-solving the model and observing the impact of the new input to the model status and the solution, in case the model is feasible.
