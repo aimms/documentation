@@ -429,7 +429,16 @@ Once a case has been loaded as active, another saved case may be compared to the
 .. image:: images/transnet-compcase_v470.png 
     :align: center
 	
+When comparing cases, some widgets show the data of both cases at the same time and therefore, the available vizualization area of the widget may become insufficient for all these data to be shown without scrolling. 
+In this case one may maximize the vizualization area by using the "Toggle FullScreen" functionality of the widget, such that the data may be inspected more easily:
 
+.. image:: images/transnet-compcase_v470.png 
+    :align: center
+
+.. image:: images/transnet-compcase_v470.png 
+    :align: center
+	
+ 
 
 Modifying widget types
 ----------------------
