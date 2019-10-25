@@ -452,7 +452,7 @@ By this we move back to the situation with the initial input data and the optimi
 Using widget actions and page actions
 -------------------------------------
 
-The actions performed above using buttons may also be executed using widget actions or page actions.
+The same actions performed above using buttons may also be executed using the WebUI functionalities for widget actions or page actions.
 
 For example, for the UnitCostsData widget the action for modifying unit costs may be configured by specifying an appropriate string parameter UnitCostsWidgetAction in the Widget Actions section of the widget Settings:
 
@@ -464,7 +464,7 @@ This configuration string parameter should be declared and filled with some data
 .. image:: images/transnet-widgetaction-string_v470.png
     :align: center
 
-For details about declaring and filling the configuration string for widget actions please see the Widget Actions section.
+For details about declaring and filling the configuration string for the widget actions please see the Widget Actions section.
 
 In our case at hand the specification of the widget actions introduced above results in the functionality shown below, which executes the same action as the button for modifying input data:
 
@@ -476,9 +476,23 @@ Moreover, one may specify some appropriate string parameters PrimaryAction_Optim
 .. image:: images/transnet-pageactions-setting_v470.png
     :align: center
 
+The configuration string parameter for the primary page action should be declared and filled with some data as illustrated in this model snapshot:
 
+.. image:: images/transnet-primaryaction-string_v470.png
+    :align: center
 
- 
+The configuration string parameter for the secondary page actions should be declared and filled with some data as illustrated in this model snapshot:
+
+.. image:: images/transnet-secondaryaction-string_v470.png
+    :align: center
+
+For details about declaring and filling the configuration string for the page actions please see the Page Actions section.
+
+In our case at hand the specification of the page actions introduced above results in the functionality shown below, which is displayed in the bottom-right area of the application WebUI and executes the same actions as the three buttons added initially to the page:
+
+.. image:: images/transnet-pageactions-view1_v470.png
+    :align: center
+
 	
 Modifying widget types
 ----------------------
