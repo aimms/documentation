@@ -426,6 +426,9 @@ Any saved case may be loaded as the active case using the Data Manager:
 	
 Once a case has been loaded as active, another saved case may be compared to the currently active case:
 
+.. image:: images/transnet-compcase_v470.png 
+    :align: center
+	
 
 
 Modifying widget types
