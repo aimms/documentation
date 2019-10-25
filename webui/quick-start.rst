@@ -422,10 +422,12 @@ Now let's say we push again the data initialization button followed by the optim
 .. image:: images/transnet-joint-7_v470.png
     :align: center
 
+These changes lead to a WebUI as the one illustrated in the very beginning of this documentation section. 
+
 The final result
 ----------------
 
-These changes lead to a WebUI as the one illustrated in the very beginning of this documentation section. Moreover, other visualizations are possible as well. For example, if the type of the table for UnitCosts is changed to tree-map and the indexes are swapped in the order (c,f), then the final WebUI may look like in this picture:
+In the created WebUI various other visualizations of the same data are possible as well. For example, if the type of the table for UnitCosts is changed to tree-map and the indexes are swapped in the order (c,f), then the final WebUI may look like in this picture:
 
 .. image:: images/transnet-overview-2_v470.png
     :align: center
