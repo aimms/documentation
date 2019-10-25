@@ -441,17 +441,18 @@ In this case one may maximize the vizualization area by using the "Toggle FullSc
 
 .. image:: images/transnet-transp-max-view_v470.png 
     :align: center
-	
-
-Modifying widget types
-----------------------
 
 Now let's keep the Case_Scenario_1 as active, but remove the case comparison with Case_Scenario_2: 
 
 .. image:: images/transnet-uncompcase_v470.png 
     :align: center
 
-By this we move back to the situation with the initial input and optimization model solved. However, now one would like to visualize the inputs and outputs in a more graphical way. Some widgets allow to change type and show the data differently without defining a new widget for that. For example, in the Settings window of the table widgets for Supply or Demand, in the Change Type section the type may be changed, e.g., to "bar chart", while for Transport to, e.g., "pie chart", as shown below:
+By this we move back to the situation with the initial input data and the optimization model solved. 
+
+Modifying widget types
+----------------------
+
+Now one may want to visualize the input and the output data in a more graphical way. Some widgets allow to change type and show the data differently without defining a new widget for that. For example, in the Settings window of the table widgets for Supply or Demand, in the Change Type section the type may be changed, e.g., to "bar chart", while for Transport to, e.g., "pie chart", as shown below:
 
 .. image:: images/transnet-joint-7_v470.png
     :align: center
