@@ -464,6 +464,14 @@ This configuration string parameter should be declared and filled with some data
 .. image:: images/transnet-widgetaction-string_v470.png
     :align: center
 
+For details about declaring and filling the configuration string for widget actions please see the Widget Actions section.
+
+In our case at hand the specification of the widget actions introduced above results in the functionality shown below, which executes the same action as the button for modifying input data:
+
+.. image:: images/transnet-widgetaction-view_v470.png
+    :align: center
+
+
  
 	
 Modifying widget types
