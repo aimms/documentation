@@ -404,7 +404,7 @@ One may change for example, the Demand value in Amsterdam to 50 and this action 
 
 After pushing again the "COMPUTE OPTIMAL TRANSPORT" button, the new solution is shown and the model status becomes Optimal again:
 
-.. image:: images/transnet-whatif-suppa50-opt.png
+.. image:: images/transnet-whatif-suppa50-opt_v470.png
     :align: center
 
 One may try and repeat the experiment for the scenario in which Demand value in Amsterdam would increase, for example, to 70. In this case the model becomes infeasible, because the total demand exceeds the total available supply. So, the output data stays empty and the model status is set to Infeasible:
