@@ -142,7 +142,7 @@ else:
 
     
 html_context = {
-    'css_files': ['_static/Hacks.css', '_static/copycode.css'],
+    'css_files': ['_static/aimms_2019_10_25.css', '_static/copycode.css'],
     "display_gitlab": Display_edit_on_gitlab, # Integrate Gitlab
     "gitlab_user": "aimms", # Username
     "gitlab_repo": "documentation", # Repo name
