@@ -427,7 +427,7 @@ The final result
 
 These changes lead to a WebUI as the one illustrated in the very beginning of this documentation section. Moreover, other visualizations are possible as well. For example, if the type of the table for UnitCosts is changed to tree-map and the indexes are swapped in the order (c,f), then the final WebUI may look like in this picture:
 
-.. image:: images/transnet-overview-2.png
+.. image:: images/transnet-overview-2_v470.png
     :align: center
 
 Hopefully this quick tour will give the reader a good understanding of how to start using the AIMMS WebUI. The next sections of this manual provide all the details required for building full-scope, professionally looking  Web-based User Interfaces for the AIMMS applications.
