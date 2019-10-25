@@ -464,7 +464,7 @@ This configuration string parameter should be declared and filled with some data
 .. image:: images/transnet-widgetaction-string_v470.png
     :align: center
 
-For details about declaring and filling the configuration string for the widget actions please see the Widget Actions section.
+For details about declaring and filling the configuration string for the widget actions please see the `Widget Actions section <widget-options.html#widget-actions>`_.
 
 In our case at hand the specification of the widget actions introduced above results in the functionality shown below, which executes the same action as the button for modifying input data:
 
@@ -486,13 +486,14 @@ The configuration string parameter for the secondary page actions should be decl
 .. image:: images/transnet-secondaryaction-string_v470.png
     :align: center
 
-For details about declaring and filling the configuration string for the page actions please see the Page Actions section.
+For details about declaring and filling the configuration string for the page actions please see the `Page Actions section <page-settings.html#page-actions>`_.
 
 In our case at hand the specification of the page actions introduced above results in the functionality shown below, which is displayed in the bottom-right area of the application WebUI and executes the same actions as the three buttons added initially to the page:
 
 .. image:: images/transnet-pageactions-view1_v470.png
     :align: center
 
+.. note:: Please note that after adding widget actions or page actions executing the same procedures as some buttons on the page, the corresponding buttons may as well be removed from the page in order to free up space, possibly for other widgets to be added to the page. However, in this introductory section we chose to still keep the buttons (which became redundant) on the page purely for the sake of illustrating various WebUI functionalities.  
 	
 Modifying widget types
 ----------------------
