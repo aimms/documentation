@@ -381,25 +381,25 @@ One can perform a "What-If" type of analysis by changing values for Supply, Dema
 
     Procedure UponChange_Supply {
         Body: {
-                    EmptyVariables;
+                    Empty_Variables;
         }
     }
 
     Procedure UponChange_Demand {
         Body: {
-                    EmptyVariables;
+                    Empty_Variables;
         }
     }
 
     Procedure UponChange_UnitCost {
         Body: {
-                    EmptyVariables;
+                    Empty_Variables;
         }
     }
 
 One may change for example, the Demand value in Amsterdam to 50 and this action will also empty the widgets for output data and show in the model status that the solver has not been called yet:
 
-.. image:: images/transnet-whatif-supplya50_v2.png 
+.. image:: images/transnet-whatif-supplya50_v470.png 
     :align: center
 
 After pushing again the "COMPUTE OPTIMAL TRANSPORT" button, the new solution is shown and the model status becomes Optimal again:
