@@ -419,7 +419,7 @@ Modifying widget types
 
 Now let's say we push again the data initialization button followed by the optimization button, such that we move back to the initial situation. However, one would like to visualize the inputs and outputs in a more graphical way. Some widgets allow to change type and show the data differently without defining a new widget for that. For example, in the Settings window of the table widgets for Supply or Demand, in the Change Type section the type may be changed, e.g., to "bar chart", while for Transport to, e.g., "pie chart", as shown below:
 
-.. image:: images/transnet-joint-7.png
+.. image:: images/transnet-joint-7_v470.png
     :align: center
 
 The final result
