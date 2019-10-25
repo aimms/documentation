@@ -372,8 +372,8 @@ After pushing again the input initialization button and the optimization button,
 .. image:: images/transnet-step10_v470.png 
     :align: center
 
-Adding What-If analysis
------------------------
+Performing What-If analysis and saving cases
+--------------------------------------------
 
 One can perform a "What-If" type of analysis by changing values for Supply, Demand, or UnitCosts, and subsequently re-solving the model. When input data changes, it may be handy to empty right away the output data resulted from the previous runs. This can be achieved by declaring procedures with names starting with "UponChange\_" followed by the name of the identifier which incurs a change, similar to the ones below:
 
@@ -418,6 +418,15 @@ Any such scenario may be saved as a data case using the Data Manager. For exampl
 
 .. image:: images/transnet-savecases_v470.png 
     :align: center
+	
+Any saved case may be loaded as the active case using the Data Manager:
+
+.. image:: images/transnet-loadcase_v470.png 
+    :align: center
+	
+Once a case has been loaded as active, another saved case may be compared to the currently active case:
+
+
 
 Modifying widget types
 ----------------------
