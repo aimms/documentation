@@ -364,12 +364,12 @@ In order to indicate more clearly the input, the optimization, and the output pa
 
 The final Widget Manager showing all widgets and their relative order looks like shown here:
 
-.. image:: images/transnet-widgetmanager.png
+.. image:: images/transnet-widgetmanager_v470.png
     :align: center
 
-After pushing again the data initialization button and the optimization button, one should retrieve the initial solution and the WebUI should look now as follows:
+After pushing again the input initialization button and the optimization button, one should retrieve the initial solution and the WebUI should look as follows:
 
-.. image:: images/transnet-step10_v1.png 
+.. image:: images/transnet-step10_v470.png 
     :align: center
 
 Adding What-If analysis
