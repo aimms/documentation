@@ -10,8 +10,8 @@ A first WebUI for such an AIMMS optimization application may look like in the fo
 
 In order to build such a WebUI, one needs to add and configure step-by-step a number of widgets on the Home application page opened in a browser tab. Most widgets reference data of identifiers or run procedures present in the AIMMS model. The underlying mathematical optimization model used in this application is essentially the one described in the `AIMMS tutorial for beginners <https://download.aimms.com/aimms/download/references/AIMMS_tutorial_beginner.pdf>`_. 
 
-Underlying model
-----------------
+The underlying optimization model
+---------------------------------
 
 In the sequel, some code snippets from the underlying AIMMS model show identifiers from the model declarations. The declarations for the network locations look as follows:
 
@@ -372,8 +372,8 @@ After pushing again the input initialization button and the optimization button,
 .. image:: images/transnet-step10_v470.png 
     :align: center
 
-Performing What-If analysis and saving cases
---------------------------------------------
+Performing What-If analysis 
+---------------------------
 
 One can perform a "What-If" type of analysis by changing values for Supply, Demand, or UnitCosts, and subsequently re-solving the model. When input data changes, it may be handy to empty right away the output data resulted from the previous runs. This can be achieved by declaring procedures with names starting with "UponChange\_" followed by the name of the identifier which incurs a change, similar to the ones below:
 
@@ -414,7 +414,11 @@ One may try and repeat the experiment for the scenario in which Demand value in 
 
 Of course, one may experiment with several scenarios by altering (also simultaneously) several values in Supply, Demand, and UnitCosts, re-solving the model and observing the impact of the new input to the model status and the solution, in case the model is feasible.
 
-Any such scenario may be saved as a data case using the Data Manager. For example, one may re-initialize input, then optimize, and then save the correspoding scenario as Case_Scenario_1. Similarly, one may modify input, then optimize, and then save the resulting scenario as Case_Scenario_2 in the Data Manager:
+
+Saving and comparing cases
+--------------------------
+
+Any such scenario (as discussed above) may be saved as a data case using the Data Manager. For example, one may re-initialize input, then optimize, and then save the correspoding scenario as Case_Scenario_1. Similarly, one may modify input, then optimize, and then save the resulting scenario as Case_Scenario_2 in the Data Manager:
 
 .. image:: images/transnet-savecases_v470.png 
     :align: center
@@ -432,18 +436,22 @@ Once a case has been loaded as active, another saved case may be compared to the
 When comparing cases, some widgets show the data of both cases at the same time and therefore, the available vizualization area of the widget may become insufficient for all these data to be shown without scrolling. 
 In this case one may maximize the vizualization area by using the "Toggle FullScreen" functionality of the widget, such that the data may be inspected more easily:
 
-.. image:: images/transnet-compcase_v470.png 
+.. image:: images/transnet-unitcosts-max-view_v470.png 
     :align: center
 
-.. image:: images/transnet-compcase_v470.png 
+.. image:: images/transnet-transp-max-view_v470.png 
     :align: center
 	
- 
 
 Modifying widget types
 ----------------------
 
-Now let's say we push again the data initialization button followed by the optimization button, such that we move back to the initial situation. However, one would like to visualize the inputs and outputs in a more graphical way. Some widgets allow to change type and show the data differently without defining a new widget for that. For example, in the Settings window of the table widgets for Supply or Demand, in the Change Type section the type may be changed, e.g., to "bar chart", while for Transport to, e.g., "pie chart", as shown below:
+Now let's keep the Case_Scenario_1 as active, but remove the case comparison with Case_Scenario_2: 
+
+.. image:: images/transnet-uncompcase_v470.png 
+    :align: center
+
+By this we move back to the situation with the initial input and optimization model solved. However, now one would like to visualize the inputs and outputs in a more graphical way. Some widgets allow to change type and show the data differently without defining a new widget for that. For example, in the Settings window of the table widgets for Supply or Demand, in the Change Type section the type may be changed, e.g., to "bar chart", while for Transport to, e.g., "pie chart", as shown below:
 
 .. image:: images/transnet-joint-7_v470.png
     :align: center
