@@ -471,6 +471,12 @@ In our case at hand the specification of the widget actions introduced above res
 .. image:: images/transnet-widgetaction-view_v470.png
     :align: center
 
+Moreover, one may specify some appropriate string parameters PrimaryAction_Optimize and SecondaryActions in the Workflow Items section of the page Settings:
+
+.. image:: images/transnet-pageactions-setting_v470.png
+    :align: center
+
+
 
  
 	
