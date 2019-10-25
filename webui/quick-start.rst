@@ -449,6 +449,23 @@ Now let's keep the Case_Scenario_1 as active, but remove the case comparison wit
 
 By this we move back to the situation with the initial input data and the optimization model solved. 
 
+Using widget actions and page actions
+-------------------------------------
+
+The actions performed above using buttons may also be executed using widget actions or page actions.
+
+For example, for the UnitCostsData widget the action for modifying unit costs may be configured by specifying an appropriate string parameter UnitCostsWidgetAction in the Widget Actions section of the widget Settings:
+
+.. image:: images/transnet-widgetaction-setting_v470.png
+    :align: center
+
+This configuration string parameter should be declared and filled with some data as illustrated in this model snapshot:
+
+.. image:: images/transnet-widgetaction-string_v470.png
+    :align: center
+
+ 
+	
 Modifying widget types
 ----------------------
 
@@ -459,12 +476,12 @@ Now one may want to visualize the input and the output data in a more graphical 
 
 These changes lead to a WebUI as the one illustrated in the very beginning of this documentation section. 
 
-The final result
-----------------
-
-In the created WebUI various other visualizations of the same data are possible as well. For example, if the type of the table for UnitCosts is changed to tree-map and the indexes are swapped in the order (c,f), then the final WebUI may look like in this picture:
+Moreover, in the created WebUI various other visualizations of the same data are possible as well. For example, if the type of the table for UnitCosts is changed to tree-map and the indexes are swapped in the order (c,f), then the final WebUI may look like in this picture:
 
 .. image:: images/transnet-overview-2_v470.png
     :align: center
 
+Conclusion and final remarks
+----------------------------
+	
 Hopefully this quick tour will give the reader a good understanding of how to start using the AIMMS WebUI. The next sections of this manual provide all the details required for building full-scope, professionally looking  Web-based User Interfaces for the AIMMS applications.
