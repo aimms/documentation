@@ -230,7 +230,7 @@ StatusBarSpecification - This set is used to configure messages in the Status Ba
 
 * :token:`header` - The Header/Title text you want to display for the status message. This is an optional field. If left empty, no value is displayed.
 * :token:`icon` - The icon you want to associate with the message. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required. This is an optional field and if left empty, no icon will be displayed.
-* :token:`color` - The color you want to display for the icon configured. This is an optional field. You can also use Hex codes eg: #FF0000 for Red.
+* :token:`color` - The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes eg: #FF0000 for Red.
 * :token:`text` - The text you want to display for the status message. This is a required field.
 * :token:`tooltip` - The text to be displayed when the user hovers over the status message. This is an optional field and if left empty, no tooltip is displayed.
 * :token:`procedure` - The procedure you want to execute when the respective status message is clicked. This is an optional field.
@@ -249,7 +249,7 @@ In the illustrated example, we have defined four status messages. We display the
 .. image:: images/StatusBar_StringprarmeterData.png
     :align: center
 
-There is no limit to the number of status messages that you can configure. AIMMS recommends not more than seven.
+The status messages are added to the right hand side of the footer. Each new message is added to the right, shifting the existing messages to the left. There is no limit to the number of status messages that you can configure. AIMMS recommends not more than seven. The footer is divided into two sections with 30% width for the Breadcrumb on the left and 70% for the Status Bar. When the messages exceed the alloted space, the header is first displayed with an ellipsis. If the messages still cannot be fit, the text of the message is also displayed with an ellipsis. When too many messages are added, only the icon will be displayed for each message.
 
 Configuring the string parameter in the Application settings
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
