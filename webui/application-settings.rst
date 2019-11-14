@@ -249,7 +249,7 @@ In the illustrated example, we have defined four status messages. We display the
 .. image:: images/StatusBar_StringprarmeterData.png
     :align: center
 
-The status messages are added to the right hand side of the footer. Each new message is added to the right, shifting the existing messages to the left. There is no limit to the number of status messages that you can configure. AIMMS recommends not more than seven. The footer is divided into two sections with 30% width for the Breadcrumb on the left and 70% for the Status Bar. When the messages exceed the alloted space, the header is first displayed with an ellipsis. If the messages still cannot be fit, the text of the message is also displayed with an ellipsis. When too many messages are added, only the icon will be displayed for each message.
+The status messages are added to the right hand side of the footer. Each new message is added to the right, shifting the existing messages to the left. There is no limit to the number of status messages that you can configure. AIMMS recommends not more than seven. The footer is divided into two sections with 30% width for the Breadcrumb on the left and 70% for the Status Bar. When the messages exceed the alloted space, the header is first displayed with an ellipsis. If the messages still cannot fit, the text of the message is also displayed with an ellipsis. When too many messages are added, only the icon will be displayed for each message.
 
 Configuring the string parameter in the Application settings
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
