@@ -6,7 +6,7 @@ When preparing your AIMMS model for use with the WebUI, you have to add the WebU
 Pages and Dialog Support section
 ================================
 
-Pages and Dialog Support has been added to the AimmsWebUI library to be able to configure `Side panels <page-manager.html#id6>`_ , `Dialog pages <page-manager.html#dialog-pages>`_ and some useful procedures in AIMMS. This section can also be used to identify the different page types, their PageId's and Paths. 
+Pages and Dialog Support has been added to the AimmsWebUI library to be able to configure `Side panels <page-manager.html#sidepanels>`_ , `Dialog pages <page-manager.html#dialog-pages>`_ and some useful procedures in AIMMS. This section can also be used to identify the different page types, their PageId's and Paths. 
 
 .. image:: images/pageanddialogsupportsection.png
 			:align: center

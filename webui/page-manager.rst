@@ -78,7 +78,7 @@ After adding a page, you can `add widgets <widget-manager.html#adding-a-widget>`
 
 .. important::
 
-	There are some changes made to the page manager with the introduction of `Side Panels <page-manager.html#id6>`_ from software version 4.64. The changes are explained in :ref:`adding a side panel page`.
+	There are some changes made to the page manager with the introduction of `Side Panels <page-manager.html#sidepanels>`_ from software version 4.64. The changes are explained in :ref:`adding a side panel page`.
 
 Renaming a Page
 ---------------
@@ -261,6 +261,8 @@ or
 
 The statusCode value at the end of the end/cancel procedure will decide whether or not to continue. This means that in case the statusCode is *not* 200 ('OK'), the user will remain on the current page. The WebUI will display the statusDescription string to provide the user with extra information. In case the statusCode *is* 200 ('OK'), the user will continue to either the next page (in case of an end procedure) or the wizard will be canceled (in case of the cancel procedure). The statusDescription in such a case will only be displayed when it is not equal to "OK" or "". 
 
+.. _SidePanels: 
+
 Side Panels
 -----------
 
@@ -353,16 +355,7 @@ Configuring Side panels
 +++++++++++++++++++++++
 
 Side panels can be configured by the application developer via the AIMMS model. 
-Firstly, create a set for the order of side panels to be displayed on the page.
-For illustration, let’s call this set “SidePanelOrder” with index SP_order (as a developer, you can give this set a name and an index of your choice).
-
-.. image:: images/SP_setSPorder.png
-			:align: center
-
-This set determines the order in which the side panels tabs will appear from top to bottom. This set must be a subset of the pre-declared set of Integers. 
-
-A new section has been added to the AimmsWebUI library called `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_, used to configuring side panels.
-The set SidePanelSpecification declared inside the Pages and Dialog Support section is used for configuring the side panels as illustrated here in the next steps. 
+A new declaration has been added to the AimmsWebUI library called Public Page and Widget Specification Declarations under the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section, used to configuring side panels. The set SidePanelSpecification declared inside Public Page and Widget Specification Declarations is used for configuring the side panels as illustrated here in the next steps. 
 
 .. image:: images/SidePanelSpecificationset.png
 			:align: center
@@ -388,7 +381,7 @@ This set has 4 elements representing side panels properties:
 	* If the set AllSidePanelPages is not yet filled with all side panel pages, please run the procedure GetAllPages. You can find this procedure in Page Support section under Public Pages Support Procedures. 
 	* The "state" property is not yet in use, but will be applicable in future releases. In side panels it is considered as Active by default. You can use domain conditions to show or hide side panels on a page.
 	
-To configure side panels on a page, create a string parameter indexed on the SidePanelOrder and SidePanelSpecification, for example homepageSP(SP_order,webui::indexSidePanelSpec) as shown here:
+To configure side panels on a page, create a string parameter indexed on the ExtensionOrder set with :token:`webui::indexPageExtension` and SidePanelSpecification set with :token:`webui::indexSidePanelSpec` indices, for example :token:`homepageSP(webui::indexPageExtension,webui::indexSidePanelSpec)` as shown here:
 
 .. image:: images/SP_homepageSPidentifier.png
 			:align: center
@@ -424,13 +417,13 @@ then the data in the configuration string parameter may be filled in as follows:
 Configuring the string parameter on respective pages
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-In the WebUI, navigate to the respective page. In the Page Settings you can locate the Side panel Settings option:
+In the WebUI, navigate to the respective page. In the Page Settings you can locate the Page Extensions option:
 
 .. image:: images/SP_configuresidepanel.png
 			:align: center
 			:scale: 75
 			
-Add the string parameter created for that respective page in the side panels field. 
+Add the string parameter created for that respective page in the "Side Panels" field. 
 
 .. image:: images/SP_configurehomepage2.png
 			:align: center

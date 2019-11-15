@@ -42,7 +42,7 @@ Realizing not everybody is immediately ready for this change, or possibly has cu
 Hiding Sidepanels in the Old Style Menu
 ---------------------------------------
 
-With the introduction of `Sidepanels <page-manager.html#id6>`_ from AIMMS version 4.64, any sidepanels added to the page manager will also show in the old style menu.
+With the introduction of `Sidepanels <page-manager.html#sidepanels>`_ from AIMMS version 4.64, any sidepanels added to the page manager will also show in the old style menu.
 
 To hide the sidepanel pages in the menu, please add the below HTML code to the “header-override.css“ file that you had copied into your CSS folder, as mentioned above.
 
