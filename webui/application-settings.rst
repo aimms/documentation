@@ -9,6 +9,8 @@ Application Settings
 
 .. |workflowicon| image:: images/workflowicon.png
 
+.. |ApplicationExtension| image:: images/ApplicationExtensionIcon.png
+
 There are some settings that not only apply to a specific widget or page, but to the WebUI application as a whole. 
 These settings can be accessed through the Application Settings menu, which you can open by clicking on the |applicationsettings-icon| icon:
 
@@ -16,7 +18,7 @@ These settings can be accessed through the Application Settings menu, which you 
     :align: center
 
 The application options under the Miscellaneous tab of the Application Settings are explained further down in this section. 
-Firstly, the options of the Workflow Panel behind the icon |workflowicon| are described here.
+Firstly, the options of the Workflow Panel behind the Application Extensions icon |ApplicationExtension| are described here.
 
 Workflow Panel
 --------------
@@ -66,14 +68,18 @@ WorkflowPageSpecification - This set is used to configure the steps for each wor
 * :token:`pageDataState` - The data state of the page, which may be Complete, Incomplete or Error. The specification of this state is optional. If not defined, by default it has an Empty state.
 * :token:`redirectPageId` - The pageId of the page the user should be redirected to when the :token:`workflowPageState` is Inactive or Hidden. When the user tries to navigate to an Inactive or Hidden workflow step they are redirected to this page. The pageId's can be referred from the elements of the pre-declared set :token:`AllRegularPages`.
 
-WorkflowNumbers - This is a sub-set of the pre-declared set of Integers, which has two pre-declared indices: :token:`indexWorkflowOrder`, used to reference the number of workflows, and :token:`indexNoOfPages`, used to reference he number of pages or steps in each workflow. These indexes are used as dimensions of the string parameters which will configure the application workflows, see further below.
+ExtensionOrder - This is a sub-set of the pre-declared set of Integers, which has several pre-declared indices. This set was created to make it easier to create and configure string parameters and also differentiate them for Workflows, Page and Application Extensions. For configuring workflows and their steps you can choose two of those indices. :token:`indexWorkflowOrder` used to reference the number of workflows, and :token:`indexNoOfPages`, used to reference he number of pages or steps in each workflow. These indexes are used as dimensions of the string parameters which will configure the application workflows, see further below.
 
 To create and configure the Workflow Panel in the application you will need to create two string parameters. The first string parameter will configure the number of workflows in the application, while the second string parameter will configure the steps of each workflow.
+
+.. Note::
+
+    When creating the string parameters to configure workflows and their steps, the first index for configuring Workflows, the first and second index for configuring Workflow Steps needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the indices from the pre-declared set **ExtensionOrder** for this purpose i.e. :token:`indexWorkflowOrder` and :token:`indexNoOfPages`.
 
 Configuring Workflows
 +++++++++++++++++++++
 
-For illustration, let's call the first sting parameter :token:`MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)`. This string parameter is indexed by the WorkflowNumbers set with the index :token:`indexWorkflowOrder` and the WorkflowSpecification set with the index :token:`indexWorkflowSpec`. This string parameter is used to define the number of workflows and their respective titles. The values of this string parameter may be initialized in the Initial Data attribute, in a procedure or manually, by right clicking the string parameter and clicking on the Data option in order to open its data page. There you can add the details for the Workflow and their titles (leave the style property empty for now):
+For illustration, let's call the first sting parameter :token:`MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)`. This string parameter is indexed by the ExtensionOrder set with the index :token:`indexWorkflowOrder` and the WorkflowSpecification set with the index :token:`indexWorkflowSpec`. This string parameter is used to define the number of workflows and their respective titles. The values of this string parameter may be initialized in the Initial Data attribute, in a procedure or manually, by right clicking the string parameter and clicking on the Data option in order to open its data page. There you can add the details for the Workflow and their titles (leave the style property empty for now):
 
 .. image:: images/Workflow_MyWorkflowsParameter.png
     :align: center
@@ -83,7 +89,7 @@ The values in the example above indicate that there are 3 workflows in the appli
 Configuring Steps of a Workflows
 ++++++++++++++++++++++++++++++++
 
-Create the second string parameter, let's call it :token:`MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)` indexed over both indices of the WorkflowNumbers set and over the  index of the WorkflowPageSpecification set. This string parameter is used to define the steps for each workflow which has been defined in the MyWorkflows string parameter. In particular, each :token:`pageId` which is configured becomes a step displayed in the Workflow Panel, see further below. 
+Create the second string parameter, let's call it :token:`MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)` indexed over both indices of the ExtensionOrder set and over the  index of the WorkflowPageSpecification set. This string parameter is used to define the steps for each workflow which has been defined in the MyWorkflows string parameter. In particular, each :token:`pageId` which is configured becomes a step displayed in the Workflow Panel, see further below. 
 
 .. Note::
 
@@ -190,7 +196,7 @@ If you need to validate some data or actions and maybe to retain the user on the
 Configuring the string parameters in the Application settings
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To enable the Workflow Panel click on the Application Extensions icon |workflowicon| of the Application Settings and add the configured string parameters to the respective fields as illustrated below:
+To enable the Workflow Panel click on the Application Extensions icon |ApplicationExtension| of the Application Settings and add the configured string parameters to the respective fields as illustrated below:
 
 .. image:: images/Workflow_ConfiguringStringParameters.png
     :align: center
@@ -254,14 +260,14 @@ The status messages are added to the right hand side of the footer. Each new mes
 Configuring the string parameter in the Application settings
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To enable the Status Bar, click on the Application Extension icon |workflowicon| of the Application Settings and add the configured string parameter to the Status Bar field as illustrated below:
+To enable the Status Bar, click on the Application Extension icon |ApplicationExtension| of the Application Settings and add the configured string parameter to the Status Bar field as illustrated below:
 
 .. image:: images/StatusBar_ApplicationExtensionSettings.png
     :align: center
 
 Once the string parameter is added, the Status Bar is displayed with the configured status messages, in the footer of the application.
 
-This sub-section concludes the explanation of the Status Bar functionality configured in the Application Settings of a WebUI app.
+This sub-section concludes the explanation of the Status Bar functionality configured in the Application Settings of a WebUI application.
 
 
 Miscellaneous options
