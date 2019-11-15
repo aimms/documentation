@@ -8,6 +8,7 @@ Page Settings
 
 .. |workflow-items| image:: images/workflowitems-icon.png
 
+.. |PageExtensionsicon| image:: images/PageExtensionsicon.png
 
 You can access the Page Settings via the 'options wheel' in the `WebUI Menu Bar <menu-bar.html>`_ |page-settings|.
 
@@ -129,7 +130,7 @@ Secondary Action buttons consist of a label and an icon that can be configured i
 Configuring Page Actions
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Page Actions can be configured by the application developer via the AIMMS model. In the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section, the set PageActionSpecification is declared which is used for configuring Page Actions as illustrated in the next steps.
+Page Actions can be configured by the application developer via the AIMMS model. In the Public Page and Widget Specification Declarations under the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section, the set PageActionSpecification is declared which is used for configuring Page Actions as illustrated in the next steps.
 
 .. image:: images/PageActions_PageActionSpec.png
     :align: center
@@ -162,12 +163,7 @@ By default, when the :token:`displayText` is not defined the Primary Action labe
 Configuring Secondary Actions
 +++++++++++++++++++++++++++++
 
-First, create a set for the order of actions to be displayed on the page. For illustration, let’s call this set “PageActionOrder” with index :token:`indexPageActionOrder` (as a developer, you can give this set a name and an index of your choice). This set determines the order in which the Secondary Actions will appear from top to bottom. This set must be a subset of the pre-declared set of Integers. 
-
-.. image:: images/PageActions_OrderSet.png
-    :align: center
-
-Create a string parameter indexed by PageActionOrder and PageActionSpecification. Let's call this :token:`MySecondaryActions(indexPageActionOrder,webui::indexPageActionSpec)`. Right click the string parameter and click on the Data option to open the data page. Add the details for the Secondary Actions you would like to show for the respective page(s). For example:
+Create a string parameter indexed by the ExtensionOrder set with :token:`webui::indexPageExtension` and PageActionSpecification with the index :token:`webui::indexPageActionSpec`. Let's call this :token:`MySecondaryActions(webui::indexPageExtension,webui::indexPageActionSpec)`. Right click the string parameter and click on the Data option to open the data page. Add the details for the Secondary Actions you would like to show for the respective page(s). For example:
 
 .. image:: images/PageActions_SecondaryStringParamAndData.png
     :align: center
@@ -181,7 +177,7 @@ In the illustrated example, we have defined 5 Secondary Actions with different s
 Configuring Actions on Pages
 ++++++++++++++++++++++++++++
 
-In the WebUI, navigate to the respective page. In the Page Settings under the WorkFlow Items |workflow-items| you will find the Primary Action and Secondary Actions fields. Add the respective string parameters in the fields that were configured for that page.
+In the WebUI, navigate to the respective page. In the Page Settings under the Page Extensions tab |PageExtensionsicon| you will find the Primary Page Action and Secondary Page Actions fields. Add the respective string parameters in the fields that were configured for that page.
 
 .. image:: images/PageActions_ConfigStringParam.png
     :align: center
