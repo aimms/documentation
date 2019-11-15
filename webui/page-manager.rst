@@ -386,6 +386,10 @@ To configure side panels on a page, create a string parameter indexed on the Ext
 .. image:: images/SP_homepageSPidentifier.png
 			:align: center
 
+.. Note::
+
+    When creating the string parameter to configure side panels, the first index needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the index from the pre-declared set **ExtensionOrder** for this purpose i.e. :token:`indexPageExtension`.
+
 Right click the string parameter and click on the Data option in order to open the data page:
 
 .. image:: images/SP_stringparameterdata.png

@@ -168,6 +168,11 @@ Create a string parameter indexed by the ExtensionOrder set with :token:`webui::
 .. image:: images/PageActions_SecondaryStringParamAndData.png
     :align: center
 
+.. Note::
+
+    When creating the string parameter to configure secondary page actions, the first index needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the index from the pre-declared set **ExtensionOrder** for this purpose i.e. :token:`indexPageExtension`.
+
+
 In the illustrated example, we have defined 5 Secondary Actions with different states. We display the Active and Inactive actions.  
 
 .. image:: images/PageActions_SecondaryActionsResult.png
