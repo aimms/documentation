@@ -159,6 +159,21 @@ By default, when the :token:`displayText` is not defined the Primary Action labe
 .. image:: images/PageActions_OptimizeDefault.png
     :align: center
 
+Configuring Actions on Pages
+++++++++++++++++++++++++++++
+
+In the WebUI, navigate to the respective page. In the Page Settings under the WorkFlow Items |workflow-items| you will find the Primary Action and Secondary Actions fields. Add the respective string parameters in the fields that were configured for that page.
+
+.. image:: images/PageActions_ConfigStringParam.png
+    :align: center
+
+Once you have added the string parameter, the respective page actions buttons will appear on that page.
+
+.. image:: images/PageActions_ActionResults.png
+    :align: center
+
+Similarly, you can create other string parameters for other pages and configure them using the same steps.
+    
 Configuring Secondary Actions
 +++++++++++++++++++++++++++++
 
@@ -178,20 +193,8 @@ In the illustrated example, we have defined 5 Secondary Actions with different s
     :align: center
 
 
-Configuring Actions on Pages
-++++++++++++++++++++++++++++
-
-In the WebUI, navigate to the respective page. In the Page Settings under the WorkFlow Items |workflow-items| you will find the Primary Action and Secondary Actions fields. Add the respective string parameters in the fields that were configured for that page.
-
-.. image:: images/PageActions_ConfigStringParam.png
-    :align: center
-
-Once you have added the string parameter, the respective page actions buttons will appear on that page.
-
-.. image:: images/PageActions_ActionResults.png
-    :align: center
-
-Similarly, you can create other string parameters for other pages and configure them using the same steps.
+Possible combinations of action states
+++++++++++++++++++++++++++++++++++++++++
 
 The different combinations and possibilities with the states are illustrated below:
 
