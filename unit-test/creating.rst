@@ -29,9 +29,10 @@ Assertion evaluators
 ====================
 
 The results of your unit tests reported back by the AIMMS Unit Test framework are completely driven by the *assertion evaluators*
-* :token:`aimmsunit::AssertTrue`
-* :token:`aimmsunit::AssertFalse`
-* :token:`aimmsunit::AssertThrow`
+
+* :js:func:`aimmsunit::AssertTrue`
+* :js:func:`aimmsunit::AssertFalse`
+* :js:func:`aimmsunit::AssertThrow`
 
 .. js:function:: aimmsunit::AssertTrue(desc, expression)
    
