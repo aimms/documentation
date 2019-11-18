@@ -160,15 +160,15 @@ By default, when the :token:`displayText` is not defined the Primary Action labe
 .. image:: images/PageActions_OptimizeDefault.png
     :align: center
 
-Configuring Actions on Pages
-++++++++++++++++++++++++++++
+Configuring the Primary Action on Pages
++++++++++++++++++++++++++++++++++++++++
 
-In the WebUI, navigate to the respective page. In the Page Settings under the WorkFlow Items |workflow-items| you will find the Primary Action and Secondary Actions fields. Add the respective string parameters in the fields that were configured for that page.
+In the WebUI, navigate to the respective page. In the Page Settings under the Page Extensions tab |PageExtensionsicon| you will find the Primary Action field. Add the respective string parameter that was configured.
 
 .. image:: images/PageActions_ConfigStringParam.png
     :align: center
 
-Once you have added the string parameter, the respective page actions buttons will appear on that page.
+Once you have added the string parameter, the primary action will appear on that page.
 
 .. image:: images/PageActions_ActionResults.png
     :align: center
@@ -187,15 +187,14 @@ Create a string parameter indexed by the ExtensionOrder set with :token:`webui::
 
     When creating the string parameter to configure secondary page actions, the first index needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the index from the pre-declared set **ExtensionOrder** for this purpose i.e. :token:`indexPageExtension`.
 
-
 In the illustrated example, we have defined 5 Secondary Actions with different states. We display the Active and Inactive actions.  
 
 .. image:: images/PageActions_SecondaryActionsResult.png
     :align: center
 
 
-Configuring Actions on Pages
-++++++++++++++++++++++++++++
+Configuring Secondary Actions on Pages
+++++++++++++++++++++++++++++++++++++++
 
 In the WebUI, navigate to the respective page. In the Page Settings under the Page Extensions tab |PageExtensionsicon| you will find the Primary Page Action and Secondary Page Actions fields. Add the respective string parameters in the fields that were configured for that page.
 
