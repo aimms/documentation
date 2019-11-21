@@ -253,12 +253,17 @@ In the _tooltips identifier, just clear/empty the data for these specific cases 
 Totals
 ------
 
-You can add aggregators to most widget types. To do so, open the `widget options <widget-options.html>`_ and go to the Totals tab:
+You can add aggregators to most widget types. To do so, open the `Widget Options <widget-options.html>`_ and go to the Totals tab:
 
-.. image:: images/totals.png
+.. image:: images/New_Totals_Options.png
     :align: center
 
-For each index in your widget, you can turn on several aggregators, such as: sum, mean, count, min, max. Adding these totals results in additional data in the widget view.
+For each index in your widget, you can turn on several aggregators, such as: summation, mean values, count of the number of entries, minimum values, maximum values. Clearly, adding these totals results in additional data in the widget view. For example, activating the "total sum" aggregator for one index adds up all (numerical) values corresponding to that index and displays the resulting sum as additional value in the widget view:
+
+.. image:: images/New_Totals_totalsum.png
+    :align: center
+
+ 
 
 Identifier Settings
 -------------------
