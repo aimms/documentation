@@ -258,7 +258,7 @@ You can add aggregators to most widget types. To do so, open the `widget options
 .. image:: images/totals.png
     :align: center
 
-For each index in your widget, you can turn on several aggregators, like: sum, mean, count, min, max. Adding these totals will result in extra data in your widget.
+For each index in your widget, you can turn on several aggregators, such as: sum, mean, count, min, max. Adding these totals results in additional data in the widget view.
 
 Identifier Settings
 -------------------
