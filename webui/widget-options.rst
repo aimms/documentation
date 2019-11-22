@@ -287,11 +287,15 @@ In order to provide you with control over the sparsity pattern of your widget da
 
 The domain that you enter in the options editor above, can be an identifier, or, in its simplest form, just a 0/1 value:
 
-* Specifying no value at all (the default situation) means that  the identifier displays in a sparse way, i.e. only the rows/columns containing non-default values are displayed.
+* Specifying no value at all (the default situation) means that  the identifier displays in a sparse way, i.e. only the rows/columns containing non-default values are displayed. (except for the scalar widget, please see warning below)
 * Specifying a value of 0 means that the identifier displays nothing at all.
 * Specifying a value of 1 means that the whole identifier will always be displayed, even if it only contains default values.
 
 You can obtain a more fine-grained level of control by specifying an *identifier* which contains a sparsity pattern.
+
+.. warning::
+    
+    The default behavior of the scalar widget (when specifying no value ``Display domain : <empty>`` ) is ``Display domain : 1``, whereas it is ``Display domain : 0`` in every other widget. This enables you to see by default every identifier added in the scalar widget. 
 
 Examples
 ^^^^^^^^
