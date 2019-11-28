@@ -159,12 +159,12 @@ html_context = {
 # refs: http://alabaster.readthedocs.io/en/latest/installation.html#sidebars
 html_sidebars = {
     '**': [
-        'about.html',
-        'navigation.html',
-        'localtoc.html',
+        #'about.html',
+        #'navigation.html',
+        #'localtoc.html',
         #'relations.html',  # needs 'show_related': True theme option to display
         #'sourcelink.html',
-        'searchbox.html'
+        #'searchbox.html'
     ]
 }
 html_favicon = "_static/favicon.png"

@@ -22,7 +22,10 @@
 <meta name="description" content="AIMMS Documentation is a help resource containing detailed product documentation and other reference materials including user guide, function list, modeling manual, language reference."> {% endif %} 
 <!-- Algolia's docsearch stylesheet -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
-{% endblock %} {% block sidebartitle %} {% if pagename == "ContentIndex" %}
+{% endblock %} 
+
+
+{% block sidebartitle %} {% if pagename == "ContentIndex" %}
 
 <style>
     .wy-nav-content {
@@ -40,7 +43,11 @@
 <a href="{{ pathto(master_doc) }}">
     <img src="{{ pathto('_static/AIMMS_logo_H_RGB_rev.png', 1) }}" class="logo" alt="AIMMS Logo" /></a>
 
-{% include "searchbox.html" %} {% endblock %} {% block body %} {% if pagename == "index" %}
+{% include "searchbox.html" %} {% endblock %} 
+
+{% block menu %} <li class="toctree-l1"><a class="reference internal" href="functionreference/index.html">Function Reference</a></li> {{ super() }} {% endblock %}
+
+{% block body %} {% if pagename == "index" %}
 
 <style>
     .wy-nav-content {
