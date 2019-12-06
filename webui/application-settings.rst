@@ -269,3 +269,8 @@ Page Manager Hidden
 +++++++++++++++++++
 
 This is a logical condition which determines whether or not the Page Manager button on the menu bar is visible or is hidden.
+
+Data Manager Hidden
++++++++++++++++++++
+
+This is a logical condition which determines whether or not the Data Manager button on the menu bar is visible or is hidden.
