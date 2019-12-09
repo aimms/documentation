@@ -253,12 +253,22 @@ In the _tooltips identifier, just clear/empty the data for these specific cases 
 Totals
 ------
 
-You can add aggregators to most widget types. To do so, open the `widget options <widget-options.html>`_ and go to the Totals tab:
+You can add totals, i.e. aggregators of (numerical) values to most widget types, such as tables or bar charts. To do so, open the `Widget Options <widget-options.html>`_ and go to the Totals tab:
 
-.. image:: images/totals.png
+.. image:: images/New_Totals_Options.png
     :align: center
 
-For each index in your widget, you can turn on several aggregators, like: sum, mean, count, min, max. Adding these totals will result in extra data in your widget.
+For each index in your widget, you can turn on one or several aggregators, such as summation, mean value, count of the number of entries, minimum value, maximum value. Clearly, adding such totals results in additional data being displayed in the widget view. For example, activating the "Total sum" aggregator for one index adds up all (numerical) values corresponding to that index and displays the resulting sum as an additional value in the widget view:
+
+.. image:: images/New_Totals_totalsum.png
+    :align: center
+
+If no display domain has been specified for the shown identifier, then the "Sum" aggregator has the same effect (ie, same value) as the "Total sum" aggregator. However, if a restricting display domain has been specified such that the widget displays less values than the full identifier domain, then the "Sum" aggregator only considers the displayed values, whereas the "Total sum" aggregator still considers all the values from the full domain. Consequently, in this case the "Sum" and the "Total sum" aggregators may result in different values being added to the widget view:
+
+.. image:: images/New_Totals_w_DisplayDomain_view.png
+    :align: center
+
+In case of an active display domain, the differences between the other aggregators, e.g. between "Mean" and "Total mean", between "Count" and "Total count", etc, are similar to the difference between "Sum" and "Total sum" illustrated above.
 
 Identifier Settings
 -------------------
