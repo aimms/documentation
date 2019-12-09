@@ -2,7 +2,7 @@
 Page Settings
 **************
 
-.. |page-settings| image:: images/page-settings_v1.png
+.. |page-settings| image:: images/PageSettings_snap1.png
 
 .. |cog-grey| image:: images/cog-grey.png
 
