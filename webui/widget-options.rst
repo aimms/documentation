@@ -383,7 +383,7 @@ You can select from three different types of slicing, with corresponding slice v
 Index
 ^^^^^^
 
-When selecting an index in the index selectionbox, you can also see an overview of how all the indices in your widget are sliced. E.g. in this picture, you can see that there are 2 indices, both sliced. The first index, l, is sliced to the Element Parameter (EP) 'ThisLocation'. The second index, iLonLat, is fixed to element 'Lon'.
+When selecting an index in the index selectionbox, you can also see an overview of how all the indices in your widget are sliced. E.g. in this picture, you can see that there are 2 indices, both sliced. The first index, f, is sliced to the Element Parameter (EP) 'SelectedFactory'. The second index, c, is fixed to element 'Amsterdam':
 
 .. image:: images/WidgetOptions_snap9.png
     :align: center
@@ -392,9 +392,6 @@ Clear slicing
 ^^^^^^^^^^^^^
 
 To easily clear the slicing of an identifier for all its indices, you can press the 'Clear slicing for this identifier' button. Of course you need to make sure that you have selected the identifier for which you want to clear the slicing in this widget.
-
-.. image:: images/clearslicing.png
-    :align: center
 
 .. important::
 
