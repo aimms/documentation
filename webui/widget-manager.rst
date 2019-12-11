@@ -40,7 +40,7 @@ The position of a widget on a page is automatically determined based on the widg
 * Open the Widget sidebar by pressing the Edit Page button |pencil-only| next to the page title |pencil-black|.
 * Click on the widget and tick the *Custom Position* option. 
 
-.. image:: images/sticky-widget.png
+.. image:: images/WidgetManager_snap5.png
     :align: center
 
 A widget with a *Custom Position* is placed on top of the widget list. To position it where you want, drag the widget (using its title bar) to your preferred location, where it will stay.
