@@ -3,14 +3,19 @@ Data Manager
 
 .. |data-manager| image:: images/DataManager_snap1.png
 
-To use the data management features through the WebUI, the :token:`Data management style` option of your AIMMS application has to be set to :token:`Disk files and folders`. This is the default for AIMMS 4 projects. The WebUI has a data management pane, which lists all available data cases. The data management pane allows you to load, save and delete cases associated with your AIMMS project. It can be opened with the 'list' icon |data-manager|. When running your WebUI app in development mode, the cases will be stored in the *Data* subfolder of your project folder. When running your WebUI app through PRO, cases will be stored on the PRO server. Bundled cases (i.e. cases that are included in a subfolder of your published application) are still accessible, but are read-only.
+To use the data management features through the WebUI, the :token:`Data management style` option of your AIMMS application has to be set to :token:`Disk files and folders`. This is the default for AIMMS 4 projects. The WebUI has a data management pane, which lists all available data cases. The data management pane allows you to load, save and delete cases associated with your AIMMS project. It can be opened with the 'list' icon |data-manager|:
+
+.. image:: images/DataManager_snap6.png
+    :align: center
+
+When running your WebUI app in development mode, the cases will be stored in the *Data* subfolder of your project folder. When running your WebUI app through PRO, cases will be stored on the PRO server. Bundled cases (i.e. cases that are included in a subfolder of your published application) are still accessible, but are read-only.
 
 
 User Actions
 ============
 
+There are several data case actions the user can perform.
 
-The WebUI has a data management pane, which lists all available data cases. The data management pane allows you to load, save and delete cases associated to your AIMMS project. It can be opened with the 'list' icon |data-manager|. 
 
 Active case
 -----------
