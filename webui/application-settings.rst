@@ -18,7 +18,10 @@ These settings can be accessed through the Application Settings menu, which you 
     :align: center
 
 The application options under the Miscellaneous tab of the Application Settings are explained further down in this section. 
-Firstly, the options of the Workflow Panel behind the Application Extensions icon |ApplicationExtension| are described here.
+Firstly, the options of the Workflow Panel and the Status Bar behind the Application Extensions icon |ApplicationExtension| are described below.
+
+.. image:: images/AppSettings_snap3.png
+    :align: center
 
 Workflow Panel
 --------------
