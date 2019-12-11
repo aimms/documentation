@@ -14,7 +14,7 @@ Application Settings
 There are some settings that not only apply to a specific widget or page, but to the WebUI application as a whole. 
 These settings can be accessed through the Application Settings menu, which you can open by clicking on the |applicationsettings-icon| icon:
 
-.. image:: images/app_settings_open_new_workflow.png
+.. image:: images/AppSettings_snap1.png
     :align: center
 
 The application options under the Miscellaneous tab of the Application Settings are explained further down in this section. 
@@ -273,7 +273,10 @@ This sub-section concludes the explanation of the Status Bar functionality confi
 Miscellaneous options
 ---------------------
 
-The application options under the Miscellaneous tab of the Application Settings are explained below.
+The application options under the Miscellaneous tab of the Application Settings are explained below. Please note that some of these options may no longer be available in the latest AIMMS versions, but may be still visible in apps running under some older AIMMS versions.
+
+.. image:: images/AppSettings_snap2.png
+    :align: center
 
 Use Classic Theme
 +++++++++++++++++
