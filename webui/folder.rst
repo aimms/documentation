@@ -432,7 +432,7 @@ To provide a translation for a language-locale, e.g. :token:`en-GB`, create a fi
 Element Text
 ++++++++++++
 
-In addition to the project-specific translations, you can also use string parameters from your model to provide translations for set elements in your WebUI applications. You have to specify these through so-called _annotations_ in AIMMS. To do so, open the attribute form of a Set identifier and click on the 'Add Annotation' wizard button below the comment attribute:
+In addition to the project-specific translations, you can also use string parameters from your model to provide translations for set elements in your WebUI applications. You have to specify these through so-called *annotations* in AIMMS. To do so, open the attribute form of a Set identifier and click on the 'Add Annotation' wizard button below the comment attribute:
 
 .. image:: images/addannotation.jpg
     :align: center
