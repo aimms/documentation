@@ -101,7 +101,7 @@ R package aimms
 
 The **aimms** package is included in RLink. In this way RLink and the aimms package can be developed further, and the most recent version of aimms can be released together with newer versions of RLink.
 
-It is possible to install aimms at a location that is in the :token:`.libPath` of R. This is the directory list used by R to find installed packages. It is possible to install aimms at a location that is in the :token:`.libPath`. In that case RLink can call R and R can find and use the aimms package.
+It is possible to install aimms at a location that is in the :token:`.libPath` of R. This is the directory list used by R to find installed packages. In that case RLink can call R and R can find and use the aimms package.
 
 To install the aimms package locally we first need to know where the package is. To do this open an AIMMS project for which library RLink is added. The libraries from the repository typically get installed in a writable :token:`temp` directory. Go to library RLink and look at the data of string parameter :token:`rlink::LIBRARY_ROOT`. 
 
