@@ -66,18 +66,18 @@ You can delete an identifier from *Current Contents* by clicking on the cross on
 
     In case you cannot find the identifier that you are looking for at *Available Data*, you might need to make sure that the identifier is in the set AllPublicIdentifiers.
 
-Additional identifier properties
+Additional Identifier Properties
 ++++++++++++++++++++++++++++++++
 
 For every identifier which you have specified as part of the Contents_ option in your widget you can also specify some additional identifiers in AIMMS in order to indicate certain properties for that identifier. More specifically, for a given identifier :token:`X` you can specify (create in AIMMS) the following:
 
-* :token:`X_annotations` to hold annotations that are put as CSS classes on associated DOM elements in your model. See the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
-* :token:`X_tooltips` to hold a string representing some (additional) info which may be displayed in a tooltip associated with the identifier :token:`X` used by a widget
+* :token:`X_annotations` to hold annotations that are put as CSS classes on associated DOM elements in your model. Please see the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
+* :token:`X_flags` to make updatable identifiers appear as read-only in the WebUI. Please see the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
 * :token:`X_text` to hold additional text to be shown within the DOM element associated with a data tuple. This option is currently only supported by the Gantt chart. The CSS classes defined via the annotations identifier of the identifier :token:`X` itself will also be set for text displayed in the associated DOM element. You can use this, for instance, to change the styling of the displayed text of elements you want your end-users to pay extra attention to. 
     
     * For the Gantt chart, you can set CSS for the task text via ``.tag-ganttchart .label``, possible compounded with the additional CSS classes set via the annotations identifier of the <duration> parameter.
  
-* :token:`X_flags` to make updatable identifiers appear as read-only in the WebUI.  See the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
+* :token:`X_tooltips` to hold a string representing some (additional) info which may be displayed in a tooltip associated with the identifier :token:`X` used by a widget
 * A procedure named :token:`UponChange_X`, which will automatically be run whenever the value of identifier :token:`X` is changed from within the WebUI. AIMMS accepts two forms of an UponChange procedure:
 
    #. a procedure without arguments. You can use this form if you are not interested in the which particular values changed, but do want to get a notification that a change took place
@@ -104,12 +104,36 @@ For every identifier which you have specified as part of the Contents_ option in
    In the above example, ``X`` and ``OldValue`` should have the same type.
     
   The latter form can be used, for instance, to detect which tasks in a Gantt chart has moved, or to act upon a block edit in a table.
-  
 
+Identifier Annotations
+++++++++++++++++++++++
 
+The kind of additional identifier properties discussed above may be specified more elegantly by using the so-called *annotations* in the AIMMS model. 
+
+.. important::
+	This is possible for '_annotations' kind of properties starting from AIMMS 4.49 on and for '_flags', '_text", and '_tooltips' kind of properties starting from AIMMS 4.71 on.
+
+For example, in the attribute form of the identifier for which you want to specify annotations, you should add the :token:`webui::AnnotationsIdentifier` annotation attribute and then fill in the string parameter containing the desired annotations there:
+
+.. image:: images/Annotations_view1.png
+    :align: center
+
+The specified string parameter should have as value a space-separated string of class-names (that will be used to decorate the DOM elements with). Such a string may be then used in combination with an additional project-specific `CSS <#css-styling>`_ file in order to define or refine the styling of some parts of the WebUI which reference the original identifier. Please see the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
+
+The string parameter used in the annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier. Therefore,  when the original identifier is renamed, one no longer needs to rename the annotation parameter accordingly.
+
+If an identifier X does not have the :token:`webui::AnnotationsIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_annotations`, if this is present in the model.
+
+Similarly, in the attribute form of the identifier for which you want to specify flags, you should add the :token:`webui::FlagsIdentifier` annotation attribute and then fill in the string parameter containing the desired flags there:
+
+.. image:: images/Annotations_view2.png
+    :align: center
+
+Again, such a string may be then used for styling purposes, please see the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details. Also, the string parameter used in the flags annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier.
+
+If an identifier X does not have the :token:`webui::FlagsIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_flags`, if this is present in the model.
 	
-	
-Adding tooltips
+Adding Tooltips
 +++++++++++++++
 
 Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed. 

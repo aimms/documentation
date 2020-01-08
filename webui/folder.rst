@@ -78,7 +78,7 @@ For more info on CSS in general, see `this Wikipedia article <https://en.wikiped
 Data-Dependent Styling
 ++++++++++++++++++++++
 
-You can define user-annotations in your AIMMS model which will be used to style the corresponding so-called `DOM <https://en.wikipedia.org/wiki/Document_Object_Model>`_ elements in the WebUI page. To define user annotations for an identifier :token:`X(i,j)` that is being displayed in a widget, you can define a string parameter, say :token:`DangerValuesOfX(i,j)`, defined over a valid subdomain of the original identifier. This string parameter should be a space-separated string of class-names (that will be used to decorate the DOM elements with). In the attribute form of the identifier for which you are specifying the annotations, you should add a :token:`webui::AnnotationsIdentifier` annotation and fill in the string parameter containing the annotation(s) there:
+You can define user-annotations in your AIMMS model which will be used to style the corresponding so-called `DOM <https://en.wikipedia.org/wiki/Document_Object_Model>`_ elements in the WebUI page. In order to define user annotations for an identifier :token:`X(i,j)` that is being displayed in a widget, you can define a string parameter, say :token:`DangerValuesOfX(i,j)`, defined over a valid subdomain of the original identifier. This string parameter should have as value a space-separated string of class-names (that will be used to decorate the DOM elements with). In the attribute form of the identifier for which you are specifying the annotations, you should add the :token:`webui::AnnotationsIdentifier` annotation attribute and then fill in the string parameter containing the desired annotation(s) there:
 
 .. image:: images/Annotations_view1.png
     :align: center
@@ -440,7 +440,7 @@ To provide a translation for a language-locale, e.g. :token:`en-GB`, create a fi
 Element Text
 ++++++++++++
 
-In addition to the project-specific translations, you can also use string parameters from your model to provide translations for set elements in your WebUI applications. You have to specify these through so-called *annotations* in AIMMS. To do so, open the attribute form of a Set identifier and click on the 'Add Annotation' wizard button below the comment attribute:
+In addition to the project-specific translations, you can also use string parameters from your model to provide translations for set elements in your WebUI applications. You can specify these by using the so-called *annotations* in the AIMMS model. To do so, open the attribute form of a Set identifier and click on the 'Add Annotation' wizard button below the comment attribute:
 
 .. image:: images/addannotation.jpg
     :align: center
