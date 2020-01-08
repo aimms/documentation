@@ -7,7 +7,7 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
-1.15.0.19 [06-01-2020]
+1.15.0.20 [08-01-2020]
     - Failed commit could lead to labels to be translated to non-existent label numbers in subsequent commits
     - Label numbers erroneously ending up with an empty label name in the database could confuse the corresponding set in model and lead to an execution error; such labels are now skipped
     - Fix a potential commit error when committing to a newly created database a label that was added as a default to an element parameter
