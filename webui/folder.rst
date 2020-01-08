@@ -17,9 +17,8 @@ Via the `Widget Manager <widget-manager.html>`_ you can add widgets to your WebU
 
 	The information above is valid for AIMMS versions 4.67 and higher. For older AIMMS versions, the following applies:
 	
-	All WebUI `pages <page-manager.html>`_ and `widgets <widget-manager.html>`_ will be stored (by the WebUI Server) in the *pages* and *widgets* subfolder of the *WebUI* folder. 
+	All WebUI `pages <page-manager.html>`_ and `widgets <widget-manager.html>`_ will be stored (by the WebUI Server) respectively in the *pages* and *widgets* subfolders of the *WebUI* folder. 
 
-	All WebUI pages are stored (by the WebUI Server) in the *pages* subfolder of the WebUI folder.
 
 
 Add the **resources** folder
@@ -84,9 +83,8 @@ You can define user-annotations in your AIMMS model which will be used to style 
 
 In combination with an additional project-specific `CSS <#css-styling>`_ file, you can then specify the styling on, for example, a per-table-cell basis.
 
-.. tip:: 
-
-    In AIMMS versions prior to 4.49.1, you had to define a string parameter called :token:`X_annotations(i,j)` (with the domain of this 'annotations' identifier being a valid subdomain of the original identifier) in order to achieve the same result. This had the disadvantage that when you renamed the original identifier, the '_annotations identifier' was not automatically renamed with it, possibly leading to unexpected effects in your WebUI widgets.
+.. note:: 
+     Please note that in AIMMS versions prior to 4.49, you had to define a string parameter called :token:`X_annotations(i,j)` (with the domain of this '_annotations identifier' being a valid subdomain of the original identifier) in order to achieve the same result. This had the disadvantage that when you renamed the original identifier, the '_annotations identifier' was not automatically renamed with it, possibly leading to unexpected effects in the WebUI front-end.
 
 For example, the following 'user annotation'
 
@@ -111,9 +109,8 @@ By default, all core WebUI plugins (including widgets) will prefix user annotati
 
 The WebUI uses flags to indicate whether a certain DOM element corresponds to a *readOnly* value or not. DOM elements that correspond to editable values are annotated with a :token:`flag-editable` CSS class while read-only DOM elements are annotated with a :token:`flag-readOnly` class. It is possible to make the data which is editable from a model perspective appear as read-only in the WebUI by using user-flags. One can achieve this as follows: define a new string parameter in the model, say FlagsOfX(i,j), add a :token:`webui::FlagsIdentifier` annotation to the attribute form of the original identifier X, and fill in the new string FlagsOfX(i,j) as the contents of this annotation. Finally, one can assign the value "readOnly" to FlagsOfX(i,j) for the (updatable) values of X(i,j) which should appear as read-only in the front-end.
 
-.. tip:: 
-
-    In AIMMS versions prior to 4.71, you had to define a string parameter called :token:`X_flags(i,j)` (with the domain of this 'annotations' identifier being a valid subdomain of the original identifier) in order to achieve the same result. This had the disadvantage that when you renamed the original identifier, the '_flags identifier' was not automatically renamed with it, possibly leading to unexpected effects in your WebUI widgets.
+.. note:: 
+     Please note that in AIMMS versions prior to 4.71, you had to define a string parameter called :token:`X_flags(i,j)` (with the domain of this '_flags identifier' being a valid subdomain of the original identifier) in order to achieve the same result. This had the disadvantage that when you renamed the original identifier, the '_flags identifier' was not automatically renamed with it, possibly leading to unexpected effects in the WebUI front-end.
 
 
 Widgets and CSS properties supported for Annotation
@@ -143,7 +140,7 @@ There are several CSS properties that can be changed for each widget that suppor
 | Scalar                 | background, opacity      | font-size, font-family, font-style, font-weight   |
 +------------------------+--------------------------+---------------------------------------------------+
 
-.. Tip:: 
+.. warning:: 
     For Line Chart, Bubble Chart and Map the radius property "r" is supported only on the Chrome browser, and not on IE 11 and Edge browsers.
 
 The Bar Chart, Line Chart, Pie Chart, Gantt Chart, Bubble Chart and Map widget use SVG elements. SVG stands for Scalable Vector Graphics, and uses a coordinates system to draw different vectors, like the rectangles and circles in charts. AIMMS supports the use of the fill and stroke properties for SVG elements. 
@@ -214,7 +211,7 @@ The illustration below shows the use of DIV properties to change the background 
     :align: center
     :scale: 75
 
-.. Tip:: 
+.. tip:: 
     There are hover and select effects on the charts and Map widgets which can be changed, but are not yet supported by AIMMS. If you would like to change the properties of those states as well, please look at our How To document on `changing CSS effects on charts <https://how-to.aimms.com/Articles/315/315-hover-and-select-effects-webui-charts.html>`_.
 
 Highlighting (experimental)
@@ -377,7 +374,7 @@ In the WebUI, units from your AIMMS model will per default be displayed in the T
 
 The units that are displayed follow the Convention identifier in your model that is specified in the Convention attribute of you Main model.
 
-.. tip:: 
+.. note:: 
 
     In AIMMS 4.50 and lower versions, unit support was handled in the manner described below. When opening your WebUI in AIMMS 4.51 or higher, you will automatically get a warning dialog if this 'old-style' unit support is detected. You are encouraged to adapt your model to the new standard.
 
@@ -456,7 +453,7 @@ Please note that when you display elements of a subset in the WebUI, it will aut
 
     The above mechanism is featured in AIMMS 4.46 and later. If you are still using an older version of AIMMS, the following applies:
 
-For now, the element text identifiers need to be specified in a project-specific JavaScript resource (located in the :token:`resources` subfolder) that lists the string parameter on a per-index level. For example, a project specific resource with the following contents
+In older AIMMS versions the element text identifiers need(ed) to be specified in a project-specific JavaScript resource (located in the :token:`resources` subfolder) that lists the string parameter on a per-index level. For example, a project specific resource with the following contents
 
 .. code-block:: js
 
