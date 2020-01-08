@@ -243,6 +243,8 @@ Here are more explanations about the meaning of these options:
 *	Center: The “center” option is split into 2 options, “Center Latitude” and “Center Longitude”. Similarly to the zoom option, if one sets the Center Latitude and Center Longitude, then the initial load will start from that “center” point. One can also control this option via identifiers in the model.
 *	Visible: Specify whether or not the widget is visible on the page. This option may also be controlled using a model identifier.
 
+.. note:: When using the Zoom and Center options, ensure that the values for these identifiers are defined as Initial Data and not Definitions.  
+
 .. important:: If your widget has been created in the past by using an older type Map widget, you may continue to use this widget as is, but it is not possible to upgrade the widget from an older Map type to the current Map type by just changing the widget type in the Advanced options. In order to use the current Map type, the node and arc sets have to be added explicitly to the widget using the style described in this section.
 
 Guidelines and best practices
