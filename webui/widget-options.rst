@@ -147,21 +147,21 @@ Again, the string parameter used in the item text annotation attribute may have 
 
 If an identifier X does not have the :token:`webui::ItemTextIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_text` discussed above, if this is present in the model.
 
+Last (but not least), we come to the identifier annotations related to tooltips. Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed.  However, they can also be completely user-defined, giving the user freedom in determining the contents to be shown. 
+In order to create user-defined tooltips, in the attribute form of the identifier for which you want to specify tooltips, you can add the :token:`webui::TooltipIdentifier` annotation attribute and then fill in the auxiliary string parameter containing the desired tooltips there:
 
-	
-Adding Tooltips
-+++++++++++++++
+.. image:: images/Annotations_view3.png
+    :align: center
 
-Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed. 
-However, they can also be completely user-defined, giving the user maximum freedom in determining the contents to be shown. 
-In order to create your user-defined tooltips, you should add an auxiliary string parameter to your AIMMS model, called :token:`X_Tooltips`, where :token:`X` is the name of 
-an existing identifier that is displayed in the widget(s) for which you want to override the default tooltips. This auxiliary identifier must have the same index domain 
-as the corresponding model identifier. For example, consider the following table, which shows aircraft types for specific flights:
+Such an auxiliary string parameter may have any name of choice, but must have the same index domain as the corresponding model identifier. 
+
+For example, consider the following table, which shows aircraft types for specific flights through the identifier :token:`AircraftType` for which you want to override the default tooltips:
 
 .. image:: images/defaulttooltip.jpg
     :align: center
 
-As you can see, hovering over the cell with value 'A319' just shows this value in the default tooltip. In order to change that, in addition to the displayed :token:`AircraftType(a1, a2, dt)` identifier, the auxiliary :token:`AircraftType_Tooltips(a1, a2, dt)` identifier is added to the model. When using the following definition:
+As one can see, hovering over the cell with value 'A319' just shows this value in the default tooltip. In order to change this, in addition to the displayed :token:`AircraftType(a1,a2,dt)`, the auxiliary :token:`AircraftTypeInfo(a1,a2,dt)` string parameter is added to the model and filled into the :token:`webui::TooltipIdentifier` annotation attribute of the original :token:`AircraftType` identifier. 
+When using the following definition for :token:`AircraftTypeInfo(a1,a2,dt)`:
 
 .. code::
 
@@ -172,9 +172,11 @@ the result when hovering over the same cell as above looks like this:
 .. image:: images/userdefinedtooltip.jpg
     :align: center
 
+If an identifier X does not have the :token:`webui::TooltipIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_tooltips` discussed above, if this is present in the model.
+
 .. warning::
    **Security Warning:** 
-   Putting JavaScript code in an identifier (like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
+   Putting JavaScript code in an identifier (like the string filled in the :token:`webui::TooltipIdentifier` annotation attribute or like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
    would allow a malicious user to do `Persistent XSS <https://en.wikipedia.org/wiki/Cross-site_scripting#Persistent_(or_stored)>`_.
    For example a malicious user could record all actions done by another user.	
 	
