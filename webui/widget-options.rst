@@ -150,14 +150,14 @@ If an identifier X does not have the :token:`webui::ItemTextIdentifier` annotati
 Last (but not least), we come to the identifier annotations related to tooltips. Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed.  However, they can also be completely user-defined, giving the user freedom in determining the contents to be shown. 
 In order to create user-defined tooltips, in the attribute form of the identifier for which you want to specify tooltips, you can add the :token:`webui::TooltipIdentifier` annotation attribute and then fill in the auxiliary string parameter containing the desired tooltips there:
 
-.. image:: images/Annotations_view3.png
+.. image:: images/Annotations_view4.png
     :align: center
 
 Such an auxiliary string parameter may have any name of choice, but must have the same index domain as the corresponding model identifier. 
 
 For example, consider the following table, which shows aircraft types for specific flights through the identifier :token:`AircraftType` for which you want to override the default tooltips:
 
-.. image:: images/defaulttooltip.jpg
+.. image:: images/Annotations_default_tooltip.png
     :align: center
 
 As one can see, hovering over the cell with value 'A319' just shows this value in the default tooltip. In order to change this, in addition to the displayed :token:`AircraftType(a1,a2,dt)`, the auxiliary :token:`AircraftTypeInfo(a1,a2,dt)` string parameter is added to the model and filled into the :token:`webui::TooltipIdentifier` annotation attribute of the original :token:`AircraftType` identifier. 
@@ -169,7 +169,7 @@ When using the following definition for :token:`AircraftTypeInfo(a1,a2,dt)`:
 
 the result when hovering over the same cell as above looks like this:
 
-.. image:: images/userdefinedtooltip.jpg
+.. image:: images/Annotations_user_tooltip.png
     :align: center
 
 If an identifier X does not have the :token:`webui::TooltipIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_tooltips` discussed above, if this is present in the model.
