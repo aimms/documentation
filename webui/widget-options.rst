@@ -135,6 +135,15 @@ Again, such a string may be then used for front-end styling purposes, please see
 
 If an identifier X does not have the :token:`webui::FlagsIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_flags` discussed previously, if this is present in the model.
 
+Next, in the attribute form of the identifier for which you want to specify some item text, you can add the :token:`webui::ItemTextIdentifier` annotation attribute and then fill in the string parameter containing the desired item text there:
+
+.. image:: images/Annotations_view3.png
+    :align: center
+
+Again, the string parameter used in the item text annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier. 
+
+If an identifier X does not have the :token:`webui::ItemTextIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_text` discussed above, if this is present in the model.
+
 
 	
 Adding Tooltips
