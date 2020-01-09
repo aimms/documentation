@@ -140,7 +140,10 @@ Next, in the attribute form of the identifier for which you want to specify some
 .. image:: images/Annotations_view3.png
     :align: center
 
-Again, the string parameter used in the item text annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier. 
+Again, the string parameter used in the item text annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier. The specified string for the item text is currently only used by the Gantt chart widget in the AIMMS WebUI. For example, in case the item text string has a value like "Selected Time Interval" for some block in a timeline Gantt chart, this text will appear on the correspoding block in the Gantt chart widget:
+
+.. image:: images/Annotations_view4_Gantt_text.png
+    :align: center
 
 If an identifier X does not have the :token:`webui::ItemTextIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_text` discussed above, if this is present in the model.
 
