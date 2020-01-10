@@ -37,7 +37,7 @@ You can delete an identifier from *Current Contents* by clicking on the cross on
 
 .. tip::
 
-    In case you cannot find the identifier that you are looking for at *Available Data*, you might need to check whether the identifier is in the set AllPublicIdentifiers.
+    In case you cannot find the identifier which you are looking for in *Available Data*, you might need to check whether the identifier is present in the (authorization) set `AllPublicIdentifiers <creating.html#public-identifiers>`_.
 
 Additional Identifier Properties
 ++++++++++++++++++++++++++++++++
@@ -162,16 +162,25 @@ HTML Tooltips
 +++++++++++++
 
 Besides the simple text-based tooltips illustrated above, one may also use HTML-based tooltips, which allow to display more sophisticated contents when hovering over the data entries in a widget.
-In this case the data of the string parameter filled in the :token:`webui::TooltipIdentifier` annotation attribute ( or the :token:`X_Tooltips` associated with an identifier :token:`X`) must be in HTML format. 
-For more info on HTML, see for example `html.com <https://html.com/>`_ or `www.w3schools.com <https://www.w3schools.com/html/>`_ .
+In this case the data of the string parameter filled in the :token:`webui::TooltipIdentifier` annotation attribute (or the data of the old style :token:`X_Tooltips` associated with an identifier :token:`X`) must be in HTML format. For more info on HTML in general, please see for example websites like `html.com <https://html.com/>`_ or `www.w3schools.com <https://www.w3schools.com/html/>`_ .
 
 Next we illustrate this feature based on some concrete examples for various widgets.
 
 Suppose the data of a 2-dimensional parameter DailyNumberOfPassengers(i1,i2) is shown in a table widget, where i1 and i2 are alias indexes in a set Islands. 
-One can declare the string parameter DailyNumberOfPassengers_Tooltips(i1,i2) and defined its HTML data value as follows:
+One can declare the string parameter DailyNumberOfPassengersInfo(i1,i2) to be filled in the :token:`webui::TooltipIdentifier` annotation attribute and defined its HTML data value in the AIMMS model as follows:
 
-.. image:: images/Def_Tooltip_DailyNumberOfPassengers.png
-    :align: center
+.. code::
+
+	FormatString(
+	"<div align=\"left\"> <font size=\"+1\" color=\"green\" face=\"times new roman\"> <i>From:</i> %e <br><font color=\"white\"> <i>To:</i> %e <br><font color=\"red\"> <i>Pax:</i> %n", 
+	i1, 
+	i2, 
+	DailyNumberOfPassengers(i1,i2)
+	);
+
+.. The following is part is commented out
+   .. image:: images/Def_Tooltip_DailyNumberOfPassengers.png
+      :align: center
 
 In this case the tooltip for a cell in the table looks like in the following picture:
 
@@ -183,13 +192,22 @@ In this case the tooltip for a cell in the table looks like in the following pic
    Where in a simple text-based tooltip you used \\n to move to a new line, in a HTML-based tooltip this needs to be replaced by <br>, see example above.
    Similarly, the usage of \\t in text-based tooltips should be replaced by HTML tables, see further below.
 
-Next, suppose that the data of a 1-dimensional parameter TotalCostPerIsland(i) is rendered in a barchart widget. A HTML-based tooltip may be added by the string parameter
-TotalCostPerIsland_Tooltips(i) defined as
+Next, suppose that the data of a 1-dimensional parameter TotalCostPerIsland(i) is rendered in a barchart widget. A HTML-based tooltip may be added to the :token:`webui::TooltipIdentifier` annotation attribute of this parameter by using an auxiliary string parameter, say TotalCostPerIslandInfo(i), defined in the AIMMS model as
 
-.. image:: images/Def_Tooltip_TotalCostPerIsland.png
-    :align: center
+.. code::
 
-where for each element i of a set Islands, IslandImageURLs(i) is a string parameter holding the web URL of a corresponding (island) image. 
+	FormatString(
+	"<font size=\"-1\" color=\"orange\"> Total cost %e: %n <br><img src=\"%s\" width=\"180\">", 
+	i, 
+	TotalCostPerIsland(i), 
+	IslandImageURLs(i)
+	);
+
+.. The following is part is commented out
+   .. image:: images/Def_Tooltip_TotalCostPerIsland.png
+       :align: center
+
+where for each element i of the set Islands, IslandImageURLs(i) is a string parameter holding the web URL of a corresponding (island) image. 
 In this case the tooltip for a bar in the chart looks like in the following picture:
 
 .. image:: images/Tooltip_Barchart_1.png
@@ -201,59 +219,105 @@ Of course, one can easily change type of the widget to linechart, piechart, or t
     :align: center
 
 In case the costs of all islands were aggregated in a scalar parameter TotalCostALLIslands which is then shown in a scalar widget, a similar HTML-based tooltip contents may be added 
-as well in the TotalCostALLIslands_Tooltips string parameter, which may be defined for instance as follows:
+using a TotalCostALLIslandsInfo string parameter in the :token:`webui::TooltipIdentifier` annotation attribute of TotalCostALLIslands. This string parameter may be defined in the AIMMS model for instance as follows:
 
-.. image:: images/Tooltip_Scalar_Def_1.png
-    :align: center
+.. code::
 
-.. note::
-   **Using Application-Specific Resources:** 
-   By using a string of the form *"/app-resources/resources/images/Canarias.png"* like illustrated in this example at hand, one may refer to an image included in the *resources/images* subfolder of the 
-   `WebUI folder <folder.html>`_ of the application directory.
-   
-In this case the tooltip in the WebUI looks like in the following picture:
+	FormatString(
+	"<font size=\"-1\" color=\"orange\"> Total costs all islands: %n <br><img src=\"%s\" width=\"180\">",  
+	TotalCostALLIslands,
+	ALLIslandsImageURL
+	);
+
+.. The following is part is commented out
+   .. image:: images/Tooltip_Scalar_Def_1.png
+       :align: center
+
+where ALLIslandImageURL is a string parameter holding the web URL of a corresponding (all islands) image. In this case the tooltip in the WebUI looks like in the following picture:
 
 .. image:: images/Tooltip_Scalar_1.png
     :align: center
-
+	
+.. note::
+   **Using Application-Specific Resources:** 
+   By using a string of the form *"/app-resources/resources/images/Canarias.png"*, one may refer to an image included in the *resources/images* subfolder of the `WebUI folder <folder.html>`_ of the application directory.
+   
 Now, suppose that some aircraft data is shown in a bubblechart, where the size of the bubbles is determined by a parameter NumberOfSeats(p) with p being the index of a set Planes.
-Again, one may add a string parameter NumberOfSeats_Tooltips(p) defined for example by using the HTML data value as shown here on the right:  
+Again, one may add and fill in a string parameter NumberOfSeatsInfo(p) to the :token:`webui::TooltipIdentifier` annotation attribute of NumberOfSeats. This string parameter may be defined for example by using the HTML data value as shown here:  
 
-.. image:: images/Tooltip_Bubblechart_contentsDef.png
-    :align: center
+.. code::
 
-Then the resulting tooltip in the bubblechart widget looks as follows:
+	FormatString(
+	"<font size=\"+1\" color=\"yellow\">%e: %n seats <br><img src=\"%s\" width=\"200\">", 
+	p, 
+	NumberOfSeats(p), 
+	PlaneImageURL(p)
+	);
+
+.. The following is part is commented out
+   .. image:: images/Tooltip_Bubblechart_contentsDef.png
+       :align: center
+
+where for each element p of the set Planes, PlaneImageURL(p) is a string parameter holding the web URL of a corresponding (plane) image. Then the resulting tooltip in the bubblechart widget looks as follows:
 
 .. image:: images/Tooltip_Bubblechart_1.png
     :align: center
 
 Finally, suppose that in a Gantt chart widget we show some schedule data for several activities performed by a few people, with the duration given by the data of a parameter JobDuration(pe,j),
-where ``pe`` is the index of the set Persons and ``j`` is the index of the set ``Jobs``. When using the default tooltip, the info for a block in the chart is rendered as:
+where "pe" is the index of the set Persons and j is the index of the set Jobs. When using the default tooltip, the info for a block in the chart is rendered as:
 
 .. image:: images/Tooltip_Ganttchart_0.png
     :align: center
 
-However, one may customize the info by adding a string parameter JobDuration_Tooltips(pe,j) defined for example like here on the right:
+However, one may customize the info by adding a string parameter JobDuration_Tooltips(pe,j) to the :token:`webui::TooltipIdentifier` annotation attribute of JobDuration, holding HTML data for example as shown here:
 
-.. image:: images/Tooltip_Ganttchart_contentsDef.png
-    :align: center
+.. code::
+
+	"<div align=\"left\">"  +
+	"<Table>" +
+		"<TR>"  +
+			"<TD>"  +
+					"<B> Person : </B>" +
+			"</TD>" +
+			"<TD>"  +
+					pe +
+			"</TD>" +
+		"</TR>" +
+		"<TR>"  +
+			"<TD>"  +
+					"<B> Activity : </B>" +
+			"</TD>" +
+			"<TD>"  +
+					j +
+			"</TD>" +
+		"</TR>" +
+		"<TR>"  +
+			"<TD>"  +
+					"<B> Duration : </B>" +
+			"</TD>" +
+			"<TD>"  +
+					JobDuration(pe,j) +
+			"</TD>" +
+		"</TR>" +		
+	"</Table>"
+
+.. The following is part is commented out
+   .. image:: images/Tooltip_Ganttchart_contentsDef.png
+       :align: center
 
 In this case, the customized tooltip based on the HTML table layout (see also the Note above regarding HTML format) looks like in the following picture:
 
 .. image:: images/Tooltip_Ganttchart_1.png
     :align: center
 
+If you do not want to show the default tooltips for certain identifiers or data items, you can make this possible by clearing or emptying the data for the respective identifier or data point in the string parameter defining the tooltips.  
 
-If you do not want to show the default tooltips for certain identifiers or data items, you can make this possible by clearing or emptying the data for the respective identifier or data point in the _tooltips identifier.  
-
-For example, consider the below table. You do not want to show the tooltip with the same value as the cell value, or if the value of a cell is 0.
-
+For example, consider the table below. Say, you do not want to show the tooltip with the same value as the cell value, or if the value of a cell is 0.
 
 .. image:: images/Tooltip_default_table.png
     :align: center
 
-
-In the _tooltips identifier, just clear/empty the data for these specific cases that you desire to hide the tooltip for.
+Then in the string parameter defining the tooltips, you can just clear/empty the data for these specific cases that you desire to hide the tooltip for.
 
 
 .. image:: images/Tooltip_Hidedefault_table.png
@@ -269,7 +333,7 @@ In the _tooltips identifier, just clear/empty the data for these specific cases 
 
 
 .. note::
-    The feature to hide tooltips is available only in AIMMS releases from 4.65 onwards. 
+    This feature fro hiding tooltips is available only in AIMMS releases starting from version 4.65 onwards. 
 
 
 Identifier Settings
@@ -349,7 +413,7 @@ As expected, this table only shows the rows for which the molecules contain an O
 
 .. warning ::
     
-    Please be aware that you should define the display domain rigorously over **the same set** (or subset) than the identifier shown.
+    Please be aware that you should define the display domain rigorously over **the same set** (or subset) as the domain of the shown identifier.
 
 Slicing
 +++++++
