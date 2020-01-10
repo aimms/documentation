@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.15.0.21 [10-01-2020]
+    - Terminating the cache update thread would crash AIMMS developer when closing a project running an embedded CDM service
+    
 1.15.0.20 [08-01-2020]
     - Failed commit could lead to labels to be translated to non-existent label numbers in subsequent commits
     - Label numbers erroneously ending up with an empty label name in the database could confuse the corresponding set in model and lead to an execution error; such labels are now skipped
