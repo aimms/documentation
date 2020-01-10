@@ -15,40 +15,13 @@ This Option Editor consists of several tabs. It depends on the widget type which
 .. contents:: Widget Options List
     :local:
     :depth: 1
-
+       
 .. tip::
-    Option changes are automatically saved to the WebUI Server.
-    
-.. important::
 	From AIMMS 4.66 onwards, the Filter tab is not present anymore in any widget. In existing projects where this functionality is still used, it is still working/supported by the WebUI. However, the preferred way of filtering is by using the newer slicing functionality on any identifier(s) displayed in your widgets. If you want to switch to using the slicing functionality instead of the old filters, you can do so by removing the old filters by either emptying the content in the 'Contents.filters.in' property on the 'Advanced' tab, or by opening the model in a previous AIMMS version to remove the filtering. After that, you should add the correct slicing to your identifier(s).
-    
-Pivot
------
 
-You can pivot the indices in most of the widget types. E.g. you can change which indices should appear in the row or column of a Table widget, or which index should be stacked in a Bar Chart widget. To pivot indices, you should open the `widget options <#widget-options>`_ and go to the Pivot tab:
-
-.. image:: images/WidgetOptions_snap3.png
-    :align: center
-
-There you can drag-and-drop the indices to the different areas in your widget. E.g. in case of a Table widget, to the *Rows*, *Columns* or *Totals* area.
-
-Change Type
------------
-
-You can use all kind of widgets to display your AIMMS data. By changing the type of a widget, you can easily switch between e.g. a table or a chart, without creating a new widget for that. To do so, you should open the `widget options <#widget-options>`_ of your widget and go to the Change Type tab. There you will see the possible types to which you can switch.
-
-
-Store Focus
------------
-
-Some WebUI widgets offer you the possibility to store the (combination of) element(s) that currently have focus in the widget. E.g. in the Table widget you can store the focus cell, in the Bubble chart widget you can store the focus bubble. In WinUI you have similar functionality like this, called 'Reverse Link'. Specifying the Store Focus option opens up all kinds of interactive opportunities. E.g. by changing the focus cell in a table, other widgets could display relevant information for that specific cell.
-
-At the *Store Focus* tab in the `widget options <#widget-options>`_ you will see a list of indices. For each index you can specify the element parameter that should be filled with the element that has the focus in the widget. 
-
-.. image:: images/WidgetOptions_snap4.png
-    :align: center
-    
-The list of indices also includes an index referring to IDENTIFIER-SET. You can specify an element parameter over the set AllSymbols there. This allows you to also store the identifier that currently has focus in the widget. This could be relevant when you display multiple identifiers in your widget.
+.. note::
+    Option changes are automatically saved to the WebUI Server.
+	
 
 Contents
 --------
@@ -174,6 +147,11 @@ the result when hovering over the same cell as above looks like this:
 
 If an identifier X does not have the :token:`webui::TooltipIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_tooltips` discussed above, if this is present in the model.
 
+.. note::
+	Upon starting up a project AIMMS checks whether ther are old style annotations in your model and if so, AIMMS points them up and recommends updating to new style annotations. 
+	 
+	This is controlled through the project option *Check_for_old_style_WebUI_annotations*, which has default value 'Yes'. When this option is set to 'No', the checking step is skipped upon project startup.
+	
 .. warning::
    **Security Warning:** 
    Putting JavaScript code in an identifier (like the string filled in the :token:`webui::TooltipIdentifier` annotation attribute or like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
@@ -184,8 +162,8 @@ HTML Tooltips
 +++++++++++++
 
 Besides the simple text-based tooltips illustrated above, one may also use HTML-based tooltips, which allow to display more sophisticated contents when hovering over the data entries in a widget.
-In this case the data of the string parameter :token:`X_Tooltips` (associated with an identifier :token:`X`) must be in HTML format; for more info on HTML, 
-see for example `html.com <https://html.com/>`_ or `www.w3schools.com <https://www.w3schools.com/html/>`_ .
+In this case the data of the string parameter filled in the :token:`webui::TooltipIdentifier` annotation attribute ( or the :token:`X_Tooltips` associated with an identifier :token:`X`) must be in HTML format. 
+For more info on HTML, see for example `html.com <https://html.com/>`_ or `www.w3schools.com <https://www.w3schools.com/html/>`_ .
 
 Next we illustrate this feature based on some concrete examples for various widgets.
 
@@ -293,26 +271,6 @@ In the _tooltips identifier, just clear/empty the data for these specific cases 
 .. note::
     The feature to hide tooltips is available only in AIMMS releases from 4.65 onwards. 
 
-
-Totals
-------
-
-You can add totals, i.e. aggregators of (numerical) values to most widget types, such as tables or bar charts. To do so, open the `Widget Options <widget-options.html>`_ and go to the Totals tab:
-
-.. image:: images/New_Totals_Options.png
-    :align: center
-
-For each index in your widget, you can turn on one or several aggregators, such as summation, mean value, count of the number of entries, minimum value, maximum value. Clearly, adding such totals results in additional data being displayed in the widget view. For example, activating the "Total sum" aggregator for one index adds up all (numerical) values corresponding to that index and displays the resulting sum as an additional value in the widget view:
-
-.. image:: images/New_Totals_totalsum.png
-    :align: center
-
-If no display domain has been specified for the shown identifier, then the "Sum" aggregator has the same effect (ie, same value) as the "Total sum" aggregator. However, if a restricting display domain has been specified such that the widget displays less values than the full identifier domain, then the "Sum" aggregator only considers the displayed values, whereas the "Total sum" aggregator still considers all the values from the full domain. Consequently, in this case the "Sum" and the "Total sum" aggregators may result in different values being added to the widget view:
-
-.. image:: images/New_Totals_w_DisplayDomain_view.png
-    :align: center
-
-In case of an active display domain, the differences between the other aggregators, e.g. between "Mean" and "Total mean", between "Count" and "Total count", etc, are similar to the difference between "Sum" and "Total sum" illustrated above.
 
 Identifier Settings
 -------------------
@@ -527,9 +485,76 @@ In this case, the layout of the data in the table widget looks like in the follo
 So, in this table all the data of the above mentioned identifiers is shown together, while the Pivoting section of the table only consider 2 indexes instead of the 5 original indexes used in the
 model declarations. All the cells which show no value are simply empty ("outside-domain") and not editable in the table.
 
-	
+
+Pivot
+-----
+
+You can pivot the indices in most of the widget types. E.g. you can change which indices should appear in the row or column of a Table widget, or which index should be stacked in a Bar Chart widget. To pivot indices, you should open the `widget options <#widget-options>`_ and go to the Pivot tab:
+
+.. image:: images/WidgetOptions_snap3.png
+    :align: center
+
+There you can drag-and-drop the indices to the different areas in your widget. E.g. in case of a Table widget, to the *Rows*, *Columns* or *Totals* area.
+
+
+Store Focus
+-----------
+
+Some WebUI widgets offer you the possibility to store the (combination of) element(s) that currently have focus in the widget. E.g. in the Table widget you can store the focus cell, in the Bubble chart widget you can store the focus bubble. In WinUI you have similar functionality like this, called 'Reverse Link'. Specifying the Store Focus option opens up all kinds of interactive opportunities. E.g. by changing the focus cell in a table, other widgets could display relevant information for that specific cell.
+
+At the *Store Focus* tab in the `widget options <#widget-options>`_ you will see a list of indices. For each index you can specify the element parameter that should be filled with the element that has the focus in the widget. 
+
+.. image:: images/WidgetOptions_snap4.png
+    :align: center
+    
+The list of indices also includes an index referring to IDENTIFIER-SET. You can specify an element parameter over the set AllSymbols there. This allows you to also store the identifier that currently has focus in the widget. This could be relevant when you display multiple identifiers in your widget.
+
+
+Totals
+------
+
+You can add totals, i.e. aggregators of (numerical) values to most widget types, such as tables or bar charts. To do so, open the `Widget Options <widget-options.html>`_ and go to the Totals tab:
+
+.. image:: images/New_Totals_Options.png
+    :align: center
+
+For each index in your widget, you can turn on one or several aggregators, such as summation, mean value, count of the number of entries, minimum value, maximum value. Clearly, adding such totals results in additional data being displayed in the widget view. For example, activating the "Total sum" aggregator for one index adds up all (numerical) values corresponding to that index and displays the resulting sum as an additional value in the widget view:
+
+.. image:: images/New_Totals_totalsum.png
+    :align: center
+
+If no display domain has been specified for the shown identifier, then the "Sum" aggregator has the same effect (ie, same value) as the "Total sum" aggregator. However, if a restricting display domain has been specified such that the widget displays less values than the full identifier domain, then the "Sum" aggregator only considers the displayed values, whereas the "Total sum" aggregator still considers all the values from the full domain. Consequently, in this case the "Sum" and the "Total sum" aggregators may result in different values being added to the widget view:
+
+.. image:: images/New_Totals_w_DisplayDomain_view.png
+    :align: center
+
+In case of an active display domain, the differences between the other aggregators, e.g. between "Mean" and "Total mean", between "Count" and "Total count", etc, are similar to the difference between "Sum" and "Total sum" illustrated above.
+
+
+Change Type
+-----------
+
+You can use all kind of widgets to display your AIMMS data. By changing the type of a widget, you can easily switch between e.g. a table or a chart, without creating a new widget for that. To do so, you should open the `widget options <#widget-options>`_ of your widget and go to the Change Type tab. There you will see the possible types to which you can switch.
+
+Miscellaneous
+-------------
+
+Several widget options which are easier to specify are available under the *Miscellaneous* tab of the widget option editor.
+
+Number of decimals
+++++++++++++++++++
+
+You can change the number of decimals for a widget:
+
+* Open the `option editor <widget-options.html>`_ for the widget
+* Go to the *Miscellaneous* tab, and
+* Change the *Decimal Points* option.
+
+The number of decimals displayed has a limit, the **default** is 2 decimals.
+
+
 Hiding Widgets
---------------
+++++++++++++++
 
 .. |eye-blue| image:: images/eye-blue.png
 
@@ -552,19 +577,6 @@ to make sure that only finance people and people from the management can see one
 .. important:: 
 
     Please note that if you want to make sure that *not* all your users can see all available data (e.g. because some of it is confidential), hiding certain widgets is not sufficient. Users can still create new widgets for showing all available data. To avoid this, you need to adapt the set `AllPublicIdentifiers <creating.html#public-identifiers>`_, such that it only contains the identifiers that the current user is allowed to see. Furthermore, you need to make sure that users cannot edit the parameter that you specified for the Visible option (e.g. by giving it a definition).
-
-
-
-Number of decimals
-------------------
-
-You can change the number of decimals for a widget:
-
-* Open the `option editor <widget-options.html>`_ for the widget
-* Go to the *Miscellaneous* tab, and
-* Change the *Decimal Points* option.
-
-The number of decimals displayed has a limit, the **default** is 2 decimals.
 
 
 Widget Actions
