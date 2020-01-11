@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.15.0.22 [11-01-2020]
+    - Add cdm::IdentifierCategoryOverride to CDM library to allow adding identifiers from read-only libraries to categories
+
 1.15.0.21 [10-01-2020]
     - Terminating the cache update thread would crash AIMMS developer when closing a project running an embedded CDM service
     
