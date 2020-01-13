@@ -8,7 +8,9 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 1.15.0.22 [11-01-2020]
-    - Add cdm::IdentifierCategoryOverride to CDM library to allow adding identifiers from read-only libraries to categories
+    - Add :token:`cdm::IdentifierCategoryOverride` to CDM library to allow adding identifiers from read-only libraries to categories
+
+    Up until release 1.15.0.20, set membership for newly added labels to any (non-integer) root set in your model was *never* set explicitly, but was *always* implicitly set server-side when such labels were presented to the CDM service. In support of the commit changeset caching feature introduced in CDM release 1.15, set membership is now always required to be set explicitly,  but explicitly setting set membership is only possible if the root set is actually contained in *some* category in your CDM setup. However, for any root set that is part of read-only libraries of your model, adding it to a category was impossible because it was impossible to add the :token:`cdm::category` annotation. Through the identifier :token:`cdm::IdentifierCategoryOverride`, you now have the ability to add such root sets to a CDM category. 
 
 1.15.0.21 [10-01-2020]
     - Terminating the cache update thread would crash AIMMS developer when closing a project running an embedded CDM service
