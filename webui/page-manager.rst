@@ -1,21 +1,23 @@
 Page Manager
 ============
 
-.. |page-manager| image:: images/pagemanager-button.png
+.. |page-manager| image:: images/PageManager_snap1.png
+
+.. |dots| image:: images/PageManager_snap3.png
+
+.. |pencil| image:: images/PageManager_snap3_1.png
+
+.. |eye| image:: images/PageManager_snap3_2.png
+
+.. |hidden| image:: images/PageManager_snap3_3.png
+
+.. |bin| image:: images/PageManager_snap3_4.png
+
+.. |home| image:: images/PageManager_snap3_5.png
+
+.. |wizard| image:: images/PageManager_snap3_6.png
 
 .. |plus| image:: images/plus.png
-
-.. |pencil| image:: images/pencil.png
-
-.. |eye| image:: images/eye.png
-
-.. |hidden| image:: images/hidden.png
-
-.. |bin| image:: images/bin.png
-
-.. |home| image:: images/home.png
-
-.. |wizard| image:: images/wizard.png
 
 .. |kebab|  image:: images/kebab.png
 
@@ -25,9 +27,9 @@ Page Manager
 
 .. |dialog|  image:: images/dialogicon.png 
 
-Just like in WinUI, you can add multiple pages to your WebUI. To see the list of available pages in your WebUI, press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. The Page Manager (a page tree) will open. 
+A WebUI app can consist of multiple pages. To see the list of available pages in your WebUI, press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. The Page Manager will open rendering the page tree structure: 
 
-.. image:: images/pagemanager-tree.png
+.. image:: images/PageManager_snap6.png
     :align: center
 
 You can add your pages here and structure them in a tree. You can access your pages by clicking on their name 
@@ -54,18 +56,22 @@ To add a new root page to your AIMMS WebUI:
 
 * Press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. A page tree sidebar will open.
 
-  .. image:: images/pagemanager-onlyhome.png
+  .. image:: images/PageManager_snap2.png
     :align: center
 
-  By default, one page is available, called 'home', located in the 'Main Project'. 
+  By default, one page is available, called 'Home', located in the 'Main Project'. 
 * Press the plus button behind 'Main Project'.  
 * Specify a name for your new page and press the Enter key to add the new page to the list of available pages. Press the Escape key if you want to cancel the creation of the new page. 
 
 To add a new subpage to your AIMMS WebUI:
 
 * Press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. 
-* Press the dots button behind the parent page of your new subpage. 
-* A list of page control buttons appears. Press the plus button |plus|  to add the subpage. 
+* Press ‘dots’ button |dots| behind the parent page of your new subpage. 
+* A list of page control buttons appears. Press the button for adding a subpage:
+
+  .. image:: images/PageManager_snap4.png
+    :align: center
+ 
 * Specify a name for your new subpage and press the Enter key to add the new subpage to the list of available pages. Press Escape if you want to cancel the creation of the new subpage.
 
 .. tip:: 
@@ -85,14 +91,13 @@ Renaming a Page
 
 To rename a page in your AIMMS WebUI:  
 
-* Press the ‘hamburger’ icon |page-manager| on the top left position of your browser window.    A page tree sidebar will open. 
-
-    
-  .. image:: images/pagemanager-treeandcontrols.png
+* Press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. A page tree sidebar will open. 
+* Press the ‘dots’ button |dots| behind the page that you want to rename. 
+* A list of page control buttons appears. Press the pencil button |pencil| for renaming the page:
+  
+  .. image:: images/PageManager_snap5.png
     :align: center
   
-* Press the dots button behind the page that you want to rename. 
-* A list of page control buttons appears. Press the pencil button |pencil|  to rename the page. 
 * Specify a name for your new page and press the Enter key to commit the new page name. Press the Escape key if you want to cancel renaming the page.
 
 
@@ -105,9 +110,9 @@ Moving a Page
 
 To move a page to a new position in your page tree in the AIMMS WebUI:  
 
-* Press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. A page tree sidebar will open. 
+* Press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. A page tree sidebar will open:
 
-  .. image:: images/pagemanager-tree.png
+  .. image:: images/PageManager_snap6.png
     :align: center
     
 * Click on the page that you want to move and hold your mouse button down. 
@@ -119,13 +124,13 @@ Changing the Visibility of a Page
 
 By default, all pages in your page tree are visible for all users of your WebUI app. However, sometimes you may want to hide certain pages. E.g. when they should only be visible for certain users of your WebUI app, or only after certain actions are performed. In such cases, you can change the visibility of a page in the following way:  
 
-* Press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. A page tree sidebar will open. 
+* Press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. A page tree sidebar will open.    
+* Press the ‘dots’ button |dots| behind the page for which you want to change the visibility. 
+* A list of page control buttons appears. Press the eye button |eye|  to open the visibility option for the page: 
 
-  .. image:: images/pagemanager-treeandcontrols.png
+  .. image:: images/PageManager_snap7.png
     :align: center
-    
-* Press the dots button behind the page for which you want to change the visibility. 
-* A list of page control buttons appears. Press the eye button |eye|  to open the visibility option for the page. 
+
 * Specify a value for the visibility option and press the Enter key to commit it. 
 
 Possible values are 'true' or 1 (visible), 'false' or 0 (hidden), or an AIMMS identifier that contains one of these values.
@@ -140,19 +145,18 @@ Deleting a Page
 To delete a page:  
 
 * Press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. A page tree sidebar will open.   
+* Press the ‘dots’ button |dots| behind the page that you wish to delete.
+* A list of page control buttons appears. Press the bin button |bin| to delete the page:
 
-  .. image:: images/pagemanager-treeandcontrols.png
+  .. image:: images/PageManager_snap8.png
     :align: center
-    
-* Press the dots button behind the page that you wish to delete.
-* A list of page control buttons appears. Press the bin button |bin| to delete the page.
 
 Setting the Home Page
 ---------------------
 
 In the `Page Manager <page-manager.html>`_, the first page in the *Main Project* has a home icon |home|. This means that when opening your WebUI app (in develop mode or in PRO) you are automatically being navigated to this first page.
 
-.. image:: images/pagemanager-tree.png
+.. image:: images/PageManager_snap9.png
     :align: center
     
 By default, there is one page in your WebUI app called *home*. This is the first page and thus the 'startup' page. However, as an app developer you can make another page the startup page if you want, by `moving another page to the first position <#move-a-page>`_. This automatically makes this page the new startup page. Of course, if you just want to give the default home page another name, you can do so by `renaming the page <#rename-a-page>`_.
@@ -162,12 +166,12 @@ Wizards
 
 In AIMMS WebUI it is possible to create so-called *Wizards*. A *Wizard* is a set of pages that an app user should follow in a certain order. On every page in a wizard, the user can click on Next or Previous,
 
-.. image:: images/wizard-step2.png
+.. image:: images/PageManager_snap10.png
     :align: center
 
 or Start wizard/Finish wizard in case of the first/last page.
  
-.. image:: images/wizard-step1.png
+.. image:: images/PageManager_snap11.png
     :align: center
     
 Example
@@ -191,11 +195,11 @@ Create, Update or Delete a Wizard
 To create, update or delete a wizard:
 
 * Press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. 
-* Press the dots button behind the page that should be the start page of your wizard. 
+* Press the ‘dots’ button |dots| behind the page that should be the start page of your wizard. 
 * A list of page control buttons appears. Press the wizard button |wizard| to create or update the wizard. 
-* The Wizard editor will pop up. 
+* The Wizard editor will pop up similar to the one in the following picture: 
 
-  .. image:: images/wizard-example.png
+  .. image:: images/PageManager_snap12.png
     :align: center
 
 After having made your changes, you can press the Create wizard/Update wizard button at the bottom of the Wizard editor. To delete a wizard, use the Delete wizard button at the top of the Wizard editor.

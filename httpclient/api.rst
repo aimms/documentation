@@ -155,6 +155,12 @@ Request Getters and Setters
 
 Utility functions
 -----------------
+.. js:function::  web::request_generate_curl(requestId, curlCmdFile)
+   
+   This function will generate a file containg a curl command for the specified request object. This is usefull for debugging and triaging network/connection related issues
+   
+   :param requestId: id of the request object generate the curl command for
+   :param curlCmdFile: the file to write the curl command to
 
 .. js:function::  web::base64_encode(src,dest)
 

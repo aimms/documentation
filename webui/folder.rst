@@ -112,8 +112,109 @@ By default, all core WebUI plugins (including widgets) will prefix user annotati
 The WebUI uses flags to indicate whether a certain DOM element corresponds to a *readOnly* value or not. DOM elements that correspond to editable values are annotated with a :token:`flag-editable` CSS class while read-only DOM elements are annotated with a :token:`flag-readOnly` class. You can make data that is editable from a model perspective appear as read-only in the WebUI by using user-flags by defining by a new string parameter in your model :token:`X_flags(i,j)` and set its value to "readOnly" for the (updatable) values that you want to appear as read-only.
 
 
+Widgets and CSS properties supported for Annotation
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+There are several CSS properties that can be changed for each widget that support annotations. AIMMS provides support for specific CSS properties with respect to CSS customization. The below table denotes the supported widgets and their respective CSS properties that can be changed.
+
++------------------------+------------------------------------------------------------------------------+
+| Widgets                | CSS Property                                                                 |
++========================+==========================+===================================================+
+| Bar Chart              | fill, fill-opacity       | stroke, stroke-width, stroke-dasharray            |
++------------------------+--------------------------+---------------------------------------------------+
+| Line Chart             | fill, fill-opacity       | stroke, stroke-width, stroke-dasharray            |
++------------------------+--------------------------+---------------------------------------------------+
+| Pie Chart              | fill, fill-opacity       | stroke, stroke-width, stroke-dasharray            |
++------------------------+--------------------------+---------------------------------------------------+
+| TreeMap Chart          | background, opacity      | font-size, font-family, font-style, font-weight   |
++------------------------+--------------------------+---------------------------------------------------+
+| Gantt Chart            | fill, fill-opacity       | stroke, stroke-width, stroke-dasharray            |
++------------------------+--------------------------+---------------------------------------------------+
+| Table                  | background, opacity      | font-size, font-family, font-style, font-weight   |
++------------------------+--------------------------+---------------------------------------------------+
+| Bubble Chart           |  fill, fill-opacity      | stroke, stroke-width, stroke-dasharray            |
++------------------------+--------------------------+---------------------------------------------------+
+| Map (Nodes)            |  fill, fill-opacity      | stroke, stroke-width, stroke-dasharray            |
++------------------------+--------------------------+---------------------------------------------------+
+| Scalar                 | background, opacity      | font-size, font-family, font-style, font-weight   |
++------------------------+--------------------------+---------------------------------------------------+
+
+.. Tip:: 
+    For Line Chart, Bubble Chart and Map the radius property "r" is supported only on the Chrome browser, and not on IE 11 and Edge browsers.
+
+The Bar Chart, Line Chart, Pie Chart, Gantt Chart, Bubble Chart and Map widget use SVG elements. SVG stands for Scalable Vector Graphics, and uses a coordinates system to draw different vectors, like the rectangles and circles in charts. AIMMS supports the use of the fill and stroke properties for SVG elements. 
+
+The illustration below shows the use of SVG properties to change the fill and stroke of a bar chart when the annotation "blue" is added to the identifier. Followed by illustrations of the other charts.
+
+.. code::
+
+    .annotation-blue{
+    /* fill changes */
+        fill: Blue;
+        fill-opacity: .5;
+    /* stroke changes */
+        stroke: aqua !important;
+        stroke-width: 4 !important;
+        stroke-dasharray: 5;
+    }
+
+.. image:: images/Bar_annotations.png
+    :align: center
+    :scale: 75
+
+.. image:: images/Line_annotations.png
+    :align: center
+    :scale: 75
+
+.. image:: images/Pie_annotations.png
+    :align: center
+    :scale: 75
+
+.. image:: images/Gantt_annotations.png
+    :align: center
+    :scale: 75
+
+.. image:: images/Bubble_annotations.png
+    :align: center
+    :scale: 75
+
+.. image:: images/Map_annotations.png
+    :align: center
+    :scale: 75
+
+The Table, Treemap Chart and Scalar widget use the DIV element. A DIV defines a division or a section in an HTML document. The <div> element is often used as a container for other HTML elements to style them with CSS or to perform certain tasks with JavaScript. AIMMS supports the use of background and font properties.
+
+The illustration below shows the use of DIV properties to change the background and font of a table cell when the annotation "blue" is added to the identifier. Followed by illustrations of the TreeMap and Scalar widgets.
+
+.. code::
+
+    .annotation-blue{
+    /* fill changes */
+	    background: Blue;
+        opacity: .5;
+	/* text changes */
+	    font-size: 30px !important;
+        font-family: sans-serif;
+        font-style: italic;
+        font-weight: bold;
+    }
+
+.. image:: images/Table_annotations.png
+    :align: center
+
+.. image:: images/Treemap_annotations.png
+    :align: center
+    :scale: 75
+
+.. image:: images/Scalar_annotations.png
+    :align: center
+    :scale: 75
+
+.. Tip:: 
+    There are hover and select effects on the charts and Map widgets which can be changed, but are not yet supported by AIMMS. If you would like to change the properties of those states as well, please look at our How To document on `changing CSS effects on charts <https://how-to.aimms.com/Articles/315/315-hover-and-select-effects-webui-charts.html>`_.
+
 Highlighting (experimental)
-++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++
 
 .. important:: Highlighting is available in software versions from AIMMS 4.68.5 onwards as part of Experimental Features. Please reach out to AIMMS support on how to enable Experimental Features.
 
@@ -265,8 +366,8 @@ JavaScript
 
 Application-specific JavaScript files (e.g. `widget [addons] <own-widgets.html>`_ or Unit Support files should be stored in the *resources/javascript* subfolder.
 
-Unit Support
-++++++++++++
+Support for Units of Measurement
+--------------------------------
 
 In the WebUI, units from your AIMMS model will per default be displayed in the Table, Scalar and Slider widgets. These widgets have an option 'Show Units' in the 'Miscellaneous' tab of their options editor where you can overrule this. For all widget types, the units will be displayed in the tooltips as well.
 
@@ -331,7 +432,7 @@ To provide a translation for a language-locale, e.g. :token:`en-GB`, create a fi
 Element Text
 ++++++++++++
 
-In addition to the project-specific translations, you can also use string parameters from your model to provide translations for set elements in your WebUI applications. You have to specify these through so-called _annotations_ in AIMMS. To do so, open the attribute form of a Set identifier and click on the 'Add Annotation' wizard button below the comment attribute:
+In addition to the project-specific translations, you can also use string parameters from your model to provide translations for set elements in your WebUI applications. You have to specify these through so-called *annotations* in AIMMS. To do so, open the attribute form of a Set identifier and click on the 'Add Annotation' wizard button below the comment attribute:
 
 .. image:: images/addannotation.jpg
     :align: center

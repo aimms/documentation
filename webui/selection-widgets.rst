@@ -56,3 +56,23 @@ Miscellaneous options
 
 In the Miscellaneous tab of the widget's options editor, other options may be set such as the title of the widget and whether or not the widget is visible (this may be determined by a constant 
 or by a parameter from the model).
+
+Warnings and trouble shooting
+--------------------------------
+
+.. warning::
+    
+    The current implementation of all Selection widgets (``selectionbox``, ``multiselect``, and ``legend``) fetches the entire input set from AIMMS, and then applies the filtering in the browser. 
+
+    Please keep in mind that if you have a very large set, slow computer or high latency & low bandwidth network, the selection widget might end up in an "Empty" state, because the browser hits the time limit while fetching the data. For example, a ``selectionbox`` will look as shown below.
+    
+    .. image:: images/EmptySelectionbox.png
+    
+    If you are in this situation:
+    
+    * Please try to work with several subsets, or try to use another widget. 
+    * The `table widget <table-widget.html>`_ for example is our most advanced widget. It can be used to make a selection, together with a custom scalar string search updating the table widget's `display domain <widget-options.html#id7>`_.
+    
+.. note::
+
+    In the last 4.70.2 release of AIMMS, we increased the timeout from 15s to 25s. https://www.aimms.com/english/developers/downloads/download-aimms/release-notes

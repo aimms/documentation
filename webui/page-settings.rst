@@ -2,28 +2,29 @@
 Page Settings
 **************
 
-.. |page-settings| image:: images/page-settings_v1.png
+.. |page-settings| image:: images/PageSettings_snap1.png
 
-.. |cog-grey| image:: images/cog-grey.png
+.. |cog-grey| image:: images/PageSettings_snap2.png
+
+.. |page-misc| image:: images/PageSettings_snap3.png
+
+.. |page-extensions| image:: images/PageSettings_snap5.png
 
 .. |workflow-items| image:: images/workflowitems-icon.png
 
 
-You can access the Page Settings via the 'options wheel' in the `WebUI Menu Bar <menu-bar.html>`_ |page-settings|.
+You can access the Page Settings via the 'options wheel' |cog-grey| in the `WebUI Menu Bar <menu-bar.html>`_ :
+
+.. image:: images/PageSettings_snap0.png
+    :align: center    
 
 Currently, the following options for a page are available:
 
 * Action Upon Load (for specifying a procedure that should be run upon opening the page)
 * Action Upon Leave (for specifying a procedure that should be run before navigating to another page). The application developer can also run a `procedure that can restrict page navigation <#procedure-for-restricting-page-navigation>`_ based on certain conditions.
 * `MaxColumns <#maximum-number-of-columns>`_
-* `Side Panel Settings <page-manager.html#configuring-the-string-parameter-on-respective-pages>`_ (for configuring `Side Panels <page-manager.html#id6>`_ via the string parameter on respective pages)
+* Page Extensions for `Side Panel Settings <page-manager.html#configuring-the-string-parameter-on-respective-pages>`_ (configuring `Side Panels <page-manager.html#id6>`_ described in the Page Manager section) and for Page Action Settings (described further below)
 * A number of advanced options (not documented here).
-
-Maximum Number of Columns
-=========================
-
-You may find that when you change your window size, the widgets re-arrange too often. A simple way to prevent this is to limit the maximum number of columns. You can do this via the 'page settings' icon |cog-grey| just to the right of the page name. At the *miscellaneous* tab you can edit the maxcolumns setting. The maximum value that this setting can have, is 14 columns.
-
 
 Procedure for Restricting Page Navigation
 =========================================
@@ -95,7 +96,13 @@ For illustration, we have a binary parameter PageChange_Flag which determines if
 
 When the PageChange_Flag is 0, the statusCode returned is ERROR, which keeps the user on the same page. Then the message dialog opens to display the message. When the PageChange_Flag is 1, the user can navigate to the respective page.
 
+Maximum Number of Columns
+=========================
 
+You may find that when you change your window size, the widgets re-arrange too often. A simple way to prevent this is to limit the maximum number of columns. You can do this via the 'page settings' icon |cog-grey| on the app menu bar. At the *miscellaneous* tab |page-misc| of the page settings you can edit the maxcolumns value (the maximum value that this setting may have is 14 columns):
+
+.. image:: images/PageSettings_snap4.png
+    :align: center    
 
 Page Actions
 ============
@@ -159,6 +166,21 @@ By default, when the :token:`displayText` is not defined the Primary Action labe
 .. image:: images/PageActions_OptimizeDefault.png
     :align: center
 
+Configuring Actions on Pages
+++++++++++++++++++++++++++++
+
+In the WebUI, navigate to the respective page. In the Page Settings under the Page Extensions |page-extensions| you will find the Primary Action and Secondary Actions fields. Add the respective string parameters in the fields that were configured for that page.
+
+.. image:: images/PageSettings_snap6.png
+    :align: center
+
+Once you have added the string parameter, the respective page actions buttons will appear on that page.
+
+.. image:: images/PageActions_ActionResults.png
+    :align: center
+
+Similarly, you can create other string parameters for other pages and configure them using the same steps.
+    
 Configuring Secondary Actions
 +++++++++++++++++++++++++++++
 
@@ -178,20 +200,8 @@ In the illustrated example, we have defined 5 Secondary Actions with different s
     :align: center
 
 
-Configuring Actions on Pages
-++++++++++++++++++++++++++++
-
-In the WebUI, navigate to the respective page. In the Page Settings under the WorkFlow Items |workflow-items| you will find the Primary Action and Secondary Actions fields. Add the respective string parameters in the fields that were configured for that page.
-
-.. image:: images/PageActions_ConfigStringParam.png
-    :align: center
-
-Once you have added the string parameter, the respective page actions buttons will appear on that page.
-
-.. image:: images/PageActions_ActionResults.png
-    :align: center
-
-Similarly, you can create other string parameters for other pages and configure them using the same steps.
+Possible combinations of action states
+++++++++++++++++++++++++++++++++++++++++
 
 The different combinations and possibilities with the states are illustrated below:
 

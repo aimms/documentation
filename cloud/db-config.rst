@@ -15,11 +15,11 @@ Now the database is only accessible from within an AIMMS session.
 
 If you however need direct access to the application database, we offer two possibilities:
 
- * *Database Tunnel Application*
+ * **Database Tunnel Application**
 
    Recommended if you need occasional access to the database (e.g. to inspect some tables, alter the schema, add users, etc.). See `Database Tunnel Application`_ section in this document for more details.
    
- * *VPN (Virtual Private Network) connection*
+ * **VPN (Virtual Private Network) connection**
 
    Recommended if you need more permanent access, e.g. when you regularly synchronize between an on-premise resource and the application database
 
@@ -44,7 +44,7 @@ Next it will show the following dialog:
 .. image:: images/db-config-create-initial-db.png
     :align: center
 
-Fill in the username and password for the database administrator who will be accessing the database. Note that password needs to be longer then 8 characters and can be any printable ASCII character except "/", """, or "@". 
+Fill in the username and password for the database administrator who will be accessing the database. Note that password needs to be longer then 8 characters and can be any printable ASCII character except spaces,"/", """, or "@". 
 
 Next to that, you can assign an IP address range for the private network that will be created to host the database on the AIMMS Cloud side. You can also choose to automatically assign this range. 
 
@@ -159,7 +159,7 @@ When the migration is finished it will display the migration status as '*Complet
 	
 Database Tunnel Application
 ---------------------------
-We can provide the simple AIMMS Desktop Application which allows you to open up/close the local connection to the AIMMS Cloud App database. All you need to do is publish this application with AIMMS Version 4.66.2 or higher on your PRO Portal and configure the Tunnel from the `Configuration <https://manual.aimms.com/pro/admin-config-1.html#tunnels>`_ menu. See also `Tunneling Support <https://manual.aimms.com/pro/tunneling.html>`_ for more details on Tunnels.
+We can provide the simple AIMMS Desktop Application which allows you to open up/close the local connection to the AIMMS Cloud App database. All you need to do is publish this application with **AIMMS Version 4.66.2 or higher** on your PRO Portal and configure the Tunnel from the `Configuration <https://manual.aimms.com/pro/admin-config-1.html#tunnels>`_ menu. See also `Tunneling Support <https://manual.aimms.com/pro/tunneling.html>`_ for more details on Tunnels.
 
 For example, if your app database is called ``example.db.cloud.aimms.com`` then your Tunnel configuration and DB Tunnel App would be as shown,
 
@@ -169,15 +169,25 @@ For example, if your app database is called ``example.db.cloud.aimms.com`` then 
 .. image:: images/dbtunnelapp.png
     :align: center
 	
-Where '*TunnelName*' is URI Context Path and '*Local*' Port can be any port between 1 to 65536. 
+Where '*TunnelName*' is URI Context Path and '*Local Port*' can be any port between **1 to 65536**. 
 
 You can Start/Stop Tunnel using **Start** and **Stop** buttons. Once you have provided '*TunnelName*' and '*Local Port*', you do not need to click **Start** or **Stop** each time. You can check '*Automatically connect at startup*' parameter, then tunnel can be started automatically upon launching the application. 
 
 When you close the application tunnel will be also closed. You can download DB Tunnel App from `here <https://download.aimms.com/aimms/download/data/PRO/DBTunnel/>`_. 
 
+Connecting to Cloud DB using MySQL Workbench
+--------------------------------------------
 
+Once the tunnel is started, you can connect to the AIMMS Cloud App database locally via MySQL database administrative tool i.e. **MySQL Workbench**. Your connection parameters should be as shown,
 
-  
+.. image:: images/MySQLWorkbench-connect-cloud-DB.png
+    :align: center
 
+.. note:: 
+
+	Please make sure that '*Hostname*' is **localhost** and '*Port*' is same as **Local Port** specified in Tunnel App (i.e. in this example it is 2201).
+
+To use tunnels in your AIMMS model, please check 
+`model changes for tunneling <https://documentation.aimms.com/pro/tunneling.html#changes-to-aimms-model>`_
 
 

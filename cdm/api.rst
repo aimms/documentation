@@ -31,13 +31,14 @@ Library Management Functions
 ApplicationDB Functions
 =======================
 
-.. js:function::  cdm::ConnectToApplicationDatabase(URL,dbName,timeout)
+.. js:function::  cdm::ConnectToApplicationDatabase(URL,dbName,callTimeout,commitTimeout)
 
    Create a connection to the CDM server at the specified hostname and port, connect to the given application database, and register the given application database to use this connection for subsequent low-level calls. If the application database requested does not exist yet, the CDM server will create an empty application database with the given name. The call will fail if the server cannot be reached, of if the user is not `authorized <auth.html>`_ to access the application database. 
 
    :param URL: should be of the form :token:`tcp://hostname:port` and specifies the hostname and TCP port where the CDM server can be reached
    :param dbName: specifies the name of the application database to connect to. Notice that a single CDM server can serve multiple application database, each hosting a separate CDM data repository.
-   :param timeout: specifies the timeout that will be applied on any call to the given CDM server (default 90000 ms). Increase this number only when your application makes huge commits, which cannot be handled by the CDM server within the default timeout.
+   :param callTimeout: specifies the timeout that will be applied on any call to the given CDM server (default 30000 ms). 
+   :param commitTimeout: specifies the timeout that will be applied waiting for commits to be finished (default 300000 ms). Increase this number only when your application makes huge commits, which cannot be handled by the CDM server within the default timeout. 
    
    When successfully connecting to the CDM service, the :js:func:`cdm::ConnectToApplicationDatabase` function will call the :js:func:`cdm::SetCDMConnectedState` callback. This callback will also be called whenever the connection to the CDM service drops. The :js:func:`cdm::SetCDMConnectedState` will store the connected state in the :token:`cdm::ConnectedToCDMService` parameter, and will call the procedure pointed to by the :token:`cdm::ConnectedStateProcedureHook` parameter. This allows you to gracefully handle connection state changes in your application code, e.g. by trying to reconnects if the connection drops.
 
@@ -115,17 +116,6 @@ Branch and Revision Functions
  
    :param db: specifies the name of the application database in which to delete a branch
    :param branchName: specifies the name of the branch to delete
-
-.. js:function::  cdm::ReplaceBranchRangeWithSnapshot(db,branchName,revision,snapshotBranch)
-
-   Replace the given branch, from its root up and until the given revision by the snapshots of all categories stored on :token:`snapshotBranch`. All sub-branches of the given branch, started prior to the given revision will be deleted in the process, unless such branches are started at the root of the branch. The snapshot branch should branch directly off revision 2 of the :token:`master` branch. 
-   This function is intended to be used only by the higher-level procedure :js:func:`cdm::RetireBranchData`. Using this function directly, may result in grave data loss.
-   The function will fail if the branch does not exists, if you do not have the permission to read, delete, or write to the branch, if the snapshot branch does not branch off revision 2, or if you try to apply it to the protected :token:`system` branch.
- 
-   :param db: specifies the name of the application database in which to delete a branch
-   :param branchName: specifies the name of the branch to delete
-   :param revision: specifies the revision on the given branch, all commits up and until should be replaced by the snapshots on ``snapshotBranch``
-   :param snapshotBranch: specifies the branch containing the snapshot to replace the branch range with
 
 .. js:function::  cdm::SetBranchStatus(db,branchName,active)
 
@@ -215,17 +205,20 @@ Category Functions
 Commit and Pull Functions
 =========================
 
-.. js:function::  cdm::CheckoutSnapshot(category,branch,revid,labelsOnly,skipInactive)
+.. js:function::  cdm::CheckoutSnapshot(category,branch,revid,labelsOnly,skipInactive,cacheUpdate)
    
    Checkout a data snapshot for all identifiers the specified category from the application database, for a given branch and revision. The snapshot can be specified to only retrieve the labels for root sets, or to also contain inactive data, i.e. identifier values registered in the application database for tuples containing root set elements that are not actually contained in the root set themselves in the snapshot. As a result of the call both the actual identifiers of the category will be updated, as well as the shadow identifiers holding the latest committed values and the revision numbers at which these values where committed. Also the branch and revision information for the category will be set to checkout revision. The function will fail if the user has no read access for the category or branch.
    
    When checking out data with the argument :token:`skipInactive` set (default), the CDM service can employ an alternative domain filtering strategy on a per-category basis. This alternative strategy is slower when retrieving the data for identifiers with high cardinality and no substantial filtering due to inactive elements in one or more domain sets, but may speed up data retrieval considerably when there is substantial filtering due to inactive elements in domain sets. You can specify that you want to use the alternative domain filtering strategy for a particular category, by setting the runtime parameter :token:`alternativeFilterStrategy-\<category\>` to 1 through the function :js:func:`cdm::SetParam`. By default, the alternative strategy is not used for any category.
+   
+   Through the argument :token:`cacheUpdate` you can indicate whether or not you want the checkout snapshot to be cached in the database. By specifying -1 (the default), the checkout snapshot will not be cached. By specifying a value >= 0, you indicate the interval in seconds since creation after which you want to snapshot to be updated with the latest data on the given category and branch. A value of 0 indicates that the snapshot will be created, but never updated. You can use this for instance to create a cached snapshot that can be used for all branches branching off a given revision higher than the cached snapshot revision.
 
    :param category: specifies the category for which to retrieve the data snapshot
    :param branch: specifies the branch from which to retrieve the data snapshot for the category
    :param revid: specifies the (optional) specific revision on the branch from which to retrieve the snapshot, if not specified the head of the specified branch will be taken
    :param labelsOnly: specifies an optional argument whether or not to only retrieve root set elements, defaults to 0
    :param skipInactive: specifies an optional argument whether or not to skip inactive data in the snapshot, defaults to 1 
+   :param cacheUpdate: specifies an optional argument indicating which cache update interval to employ (in seconds), defaults to -1 (i.e. no caching) 
 
 .. js:function::  cdm::RevertToSnapshot(category,branch,revid,skipInactive)
    
@@ -236,12 +229,13 @@ Commit and Pull Functions
    :param revid: specifies the (optional) specific revision on the branch from which to retrieve the snapshot, if not specified the head of the specified branch will be taken
    :param skipInactive: specifies an optional argument whether or not to skip inactive data in the snapshot, defaults to 1
 
-.. js:function::  cdm::PullChanges(category,resolved)
+.. js:function::  cdm::PullChanges(category,resolved,revto)
    
    Retrieve and apply the changes for all identifiers in the given category, compared to the state of the model data for the current branch and revision of that category. The resulting changes will be applied to the actual identifiers, as well as to the shadow identifiers holding the latest committed values and the revision numbers at which these values where committed. In case there are conflicts between the changes being applied pulled from the application database, and changes made to the local identifiers by the end-user, the CDM library will try to `resolve the conflicts <dtd.html#merging-branches-and-resolving-conflicts>`_ based on the current model settings. The function will fail if the user has no read access to the category or branch. If the function succeeds without conflicts, the branch and revision information for the category will be set to latest revision on the current branch.
 
    :param category: specifies the category for which o 
    :param resolved: specifies an output argument, which indicates whether any conflicts were successfully resolved.
+   :param revto: an optional argument, indicating to pull all changes upto which revision. In the absence of this argument, CDM will pull upto the head to the current branch.
 
 .. js:function::  cdm::CherryPickChanges(category,branch,revfrom,revto,resolved)
    
@@ -291,6 +285,12 @@ Commit and Pull Functions
    :param elemName: specifies the element name of the existing element
    :param commitInfoProcedure: specifies an (optional) callback procedure (with default :token:`cdm::CommitInfoProvider`), which will be called to retrieve the commit author and comment to be associated with the commit
 
+.. js:function::  cdm::WaitForCommitNotifications(timeout)
+
+    Wait for incoming commit notifications for the specified timeout, and execute the corresponding commit notification procedure for all commit notifications. The function will return 1 when all available (but at least one) commit notifications are handled, or 0 when the given timeout is reached.
+    
+    :param timeout: specifies the for which the function will wait for external commit notification to arrive.
+    
 .. js:function::  cdm::RollbackChanges(category)
    
    Reset the actual values of all identifiers in the given category, back to the values stored in the :token:`CommittedIdentifiers` in the :token:`CDMRuntime` library for the given category.
@@ -339,7 +339,34 @@ Commit and Pull Functions
   
    :param category: specifies the category for which to remove branch data from the branch compare identifiers
    :param branch: specifies the branch for which to remove data from the branch compare identifiers
+
+Snapshot Functions
+==================
    
+.. js:function::  cdm::ReplaceBranchRangeWithSnapshot(db,branchName,revision,snapshotBranch)
+
+   Replace the given branch, from its root up and until the given revision by the snapshots of all categories stored on :token:`snapshotBranch`. All sub-branches of the given branch, started prior to the given revision will be deleted in the process, unless such branches are started at the root of the branch. The snapshot branch should branch directly off revision 2 of the :token:`master` branch. 
+   This function is intended to be used only by the higher-level procedure :js:func:`cdm::RetireBranchData`. Using this function directly, may result in grave data loss.
+   The function will fail if the branch does not exists, if you do not have the permission to read, delete, or write to the branch, if the snapshot branch does not branch off revision 2, or if you try to apply it to the protected :token:`system` branch.
+ 
+   :param db: specifies the name of the application database in which to delete a branch
+   :param branchName: specifies the name of the branch to delete
+   :param revision: specifies the revision on the given branch, all commits up and until should be replaced by the snapshots on ``snapshotBranch``
+   :param snapshotBranch: specifies the branch containing the snapshot to replace the branch range with
+
+.. js:function::  cdm::GetSnapshotCache(db)
+
+   Retrieve the collection of checkout snapshots stored in the current database. The snapshot information retrieved is stored in the section :token:`Library State/Snapshot Information` of the CDM library. The function returns 1 is successful, or 0 otherwise.
+ 
+   :param db: specifies the name of the application database for which to retrieve the collection of cached snapshots
+
+.. js:function::  cdm::DeleteSnapshot(db,snapshotId)
+
+   Delete a given snapshot from the collection of checkout snapshots stored in the current database. The function returns 1 if successful, or 0 otherwise.
+ 
+   :param db: specifies the name of the application database in which to delete the given snapshot
+   :param snapshotId: specifies the id of the snapshot to be deleted.
+  
 Embedded Server Functions
 =========================
 

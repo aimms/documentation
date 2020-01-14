@@ -1,4 +1,4 @@
-.. |cog-widget| image:: images/cog-widget.png
+.. |cog-widget| image:: images/WidgetOptions_snap1.png
 .. |widget-action| image:: images/widget-actions.png
 
 
@@ -7,7 +7,7 @@ Widget Options
 
 The ‘cog wheel’ button |cog-widget| (in the upper right corner of a widget) will open a pop-up window that allows you to change the options for the widget. 
 
-.. image:: images/identifier-settings-options-editor.jpg
+.. image:: images/WidgetOptions_snap2.png
     :align: center
 
 This Option Editor consists of several tabs. It depends on the widget type which tabs are available. Tabs that are available for most of the widgets are:
@@ -27,7 +27,7 @@ Pivot
 
 You can pivot the indices in most of the widget types. E.g. you can change which indices should appear in the row or column of a Table widget, or which index should be stacked in a Bar Chart widget. To pivot indices, you should open the `widget options <#widget-options>`_ and go to the Pivot tab:
 
-.. image:: images/pivot.png
+.. image:: images/WidgetOptions_snap3.png
     :align: center
 
 There you can drag-and-drop the indices to the different areas in your widget. E.g. in case of a Table widget, to the *Rows*, *Columns* or *Totals* area.
@@ -45,7 +45,7 @@ Some WebUI widgets offer you the possibility to store the (combination of) eleme
 
 At the *Store Focus* tab in the `widget options <#widget-options>`_ you will see a list of indices. For each index you can specify the element parameter that should be filled with the element that has the focus in the widget. 
 
-.. image:: images/storefocus.png
+.. image:: images/WidgetOptions_snap4.png
     :align: center
     
 The list of indices also includes an index referring to IDENTIFIER-SET. You can specify an element parameter over the set AllSymbols there. This allows you to also store the identifier that currently has focus in the widget. This could be relevant when you display multiple identifiers in your widget.
@@ -55,7 +55,7 @@ Contents
 
 At the Contents tab of the Widget Options, you can specify for which AIMMS identifier(s) the widget should show the data. 
 
-.. image:: images/contents-tab.png
+.. image:: images/WidgetOptions_snap5.png
     :align: center
 
 You can change the *Current Contents* by searching for a specific identifier at *Available Data*. By clicking on the identifier, it is added to the *Current Contents* list. In case only one identifier is allowed for a specific widget, adding another identifier will delete the previous identifier from *Current Contents*. If multiple identifiers are allowed in a widget type, adding an identifier will extend *Current Contents*. 
@@ -69,9 +69,14 @@ You can delete an identifier from *Current Contents* by clicking on the cross on
 Additional identifier properties
 ++++++++++++++++++++++++++++++++
 
-For every identifier that you have specified as part of the _Current Contents_ option in your widget you can specify additional identifiers in AIMMS to specify additional properties for each identifier. For a given identifier :token:`X` you can specify (create in AIMMS)
+For every identifier which you have specified as part of the Contents_ option in your widget you can also specify some additional identifiers in AIMMS in order to indicate certain properties for that identifier. More specifically, for a given identifier :token:`X` you can specify (create in AIMMS) the following:
 
 * :token:`X_annotations` to hold annotations that are put as CSS classes on associated DOM elements in your model. See the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
+* :token:`X_tooltips` to hold a string representing some (additional) info which may be displayed in a tooltip associated with the identifier :token:`X` used by a widget
+* :token:`X_text` to hold additional text to be shown within the DOM element associated with a data tuple. This option is currently only supported by the Gantt chart. The CSS classes defined via the annotations identifier of the identifier :token:`X` itself will also be set for text displayed in the associated DOM element. You can use this, for instance, to change the styling of the displayed text of elements you want your end-users to pay extra attention to. 
+    
+    * For the Gantt chart, you can set CSS for the task text via ``.tag-ganttchart .label``, possible compounded with the additional CSS classes set via the annotations identifier of the <duration> parameter.
+ 
 * :token:`X_flags` to make updatable identifiers appear as read-only in the WebUI.  See the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
 * A procedure named :token:`UponChange_X`, which will automatically be run whenever the value of identifier :token:`X` is changed from within the WebUI. AIMMS accepts two forms of an UponChange procedure:
 
@@ -100,11 +105,8 @@ For every identifier that you have specified as part of the _Current Contents_ o
     
   The latter form can be used, for instance, to detect which tasks in a Gantt chart has moved, or to act upon a block edit in a table.
   
-* :token:`X_text` to hold additional text to be shown within the DOM element associated with a data tuple. This option is currently only supported by the Gantt chart. The CSS classes defined via the annotations identifier of the identifier :token:`X` itself will also be set for text displayed in the associated DOM element. You can use this, for instance, to change the styling of the displayed text of elements you want your end-users to pay extra attention to. 
-    
-    * For the Gantt chart, you can set CSS for the task text via ``.tag-ganttchart .label``, possible compounded with the additional CSS classes set via the annotations identifier of the <duration> parameter.
 
-* :token:`X_tooltips` to hold a string representing some (additional) info which may be displayed in a tooltip associated with the identifier :token:`X` used by a widget 
+
 	
 	
 Adding tooltips
@@ -253,19 +255,29 @@ In the _tooltips identifier, just clear/empty the data for these specific cases 
 Totals
 ------
 
-You can add aggregators to most widget types. To do so, open the `widget options <widget-options.html>`_ and go to the Totals tab:
+You can add totals, i.e. aggregators of (numerical) values to most widget types, such as tables or bar charts. To do so, open the `Widget Options <widget-options.html>`_ and go to the Totals tab:
 
-.. image:: images/totals.png
+.. image:: images/New_Totals_Options.png
     :align: center
 
-For each index in your widget, you can turn on several aggregators, like: sum, mean, count, min, max. Adding these totals will result in extra data in your widget.
+For each index in your widget, you can turn on one or several aggregators, such as summation, mean value, count of the number of entries, minimum value, maximum value. Clearly, adding such totals results in additional data being displayed in the widget view. For example, activating the "Total sum" aggregator for one index adds up all (numerical) values corresponding to that index and displays the resulting sum as an additional value in the widget view:
+
+.. image:: images/New_Totals_totalsum.png
+    :align: center
+
+If no display domain has been specified for the shown identifier, then the "Sum" aggregator has the same effect (ie, same value) as the "Total sum" aggregator. However, if a restricting display domain has been specified such that the widget displays less values than the full identifier domain, then the "Sum" aggregator only considers the displayed values, whereas the "Total sum" aggregator still considers all the values from the full domain. Consequently, in this case the "Sum" and the "Total sum" aggregators may result in different values being added to the widget view:
+
+.. image:: images/New_Totals_w_DisplayDomain_view.png
+    :align: center
+
+In case of an active display domain, the differences between the other aggregators, e.g. between "Mean" and "Total mean", between "Count" and "Total count", etc, are similar to the difference between "Sum" and "Total sum" illustrated above.
 
 Identifier Settings
 -------------------
 
 The various widget types in the WebUI offer the possibility to specify settings for identifiers that are specific for the widget at hand. Currently, in the Identifier Settings options editor, you can specify the `Display Domain <#display-domain>`_ and `Slicing <#slicing>`_ for each identifier that is specified in the `Contents <#contents>`_ section of the widget:
 
-.. image:: images/identifier-settings-set-slicing-per-index_v1.png
+.. image:: images/WidgetOptions_snap6.png
     :align: center
 
 
@@ -282,16 +294,20 @@ Specifying Display Domain
 
 In order to provide you with control over the sparsity pattern of your widget data, you can specify a so-called *display domain* for each identifier that is present in your widget:
 
-.. image:: images/identifier-settings-options-editor.jpg
+.. image:: images/WidgetOptions_snap7.png
     :align: center
 
 The domain that you enter in the options editor above, can be an identifier, or, in its simplest form, just a 0/1 value:
 
-* Specifying no value at all (the default situation) means that  the identifier displays in a sparse way, i.e. only the rows/columns containing non-default values are displayed.
+* Specifying no value at all (the default situation) means that  the identifier displays in a sparse way, i.e. only the rows/columns containing non-default values are displayed. (except for the scalar widget, please see warning below)
 * Specifying a value of 0 means that the identifier displays nothing at all.
 * Specifying a value of 1 means that the whole identifier will always be displayed, even if it only contains default values.
 
 You can obtain a more fine-grained level of control by specifying an *identifier* which contains a sparsity pattern.
+
+.. warning::
+    
+    The default behavior of the scalar widget (when specifying no value ``Display domain : <empty>`` ) is ``Display domain : 1``, whereas it is ``Display domain : 0`` in every other widget. This enables you to see by default every identifier added in the scalar widget. 
 
 Examples
 ^^^^^^^^
@@ -344,7 +360,7 @@ However, there are also cases where you only want to see part of the dimensions/
 In situations like this, you can slice the indices of one or more identifiers in your widget. This can be done by the 'Set slicing per index' option at the 
 `Identifier Settings <#identifier-settings>`_ tab of the `Widget Options <widget-options.html>`_.
 
-.. image:: images/identifier-settings-set-slicing-per-index_v1.png
+.. image:: images/WidgetOptions_snap8.png
     :align: center
 
 Set slicing per index
@@ -369,18 +385,15 @@ You can select from three different types of slicing, with corresponding slice v
 Index
 ^^^^^^
 
-When selecting an index in the index selectionbox, you can also see an overview of how all the indices in your widget are sliced. E.g. in this picture, you can see that there are 2 indices, both sliced. The first index, l, is sliced to the Element Parameter (EP) 'ThisLocation'. The second index, iLonLat, is fixed to element 'Lon'.
+When selecting an index in the index selectionbox, you can also see an overview of how all the indices in your widget are sliced. E.g. in this picture, you can see that there are 2 indices, both sliced. The first index, f, is sliced to the Element Parameter (EP) 'SelectedFactory'. The second index, c, is fixed to element 'Amsterdam':
 
-.. image:: images/slicingatindices_v1.png
+.. image:: images/WidgetOptions_snap9.png
     :align: center
 
 Clear slicing
 ^^^^^^^^^^^^^
 
 To easily clear the slicing of an identifier for all its indices, you can press the 'Clear slicing for this identifier' button. Of course you need to make sure that you have selected the identifier for which you want to clear the slicing in this widget.
-
-.. image:: images/clearslicing.png
-    :align: center
 
 .. important::
 
