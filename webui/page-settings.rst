@@ -24,7 +24,7 @@ Currently, the following options for a page are available:
 * Action Upon Load (for specifying a procedure that should be run upon opening the page)
 * Action Upon Leave (for specifying a procedure that should be run before navigating to another page). The application developer can also run a `procedure that can restrict page navigation <#procedure-for-restricting-page-navigation>`_ based on certain conditions.
 * `MaxColumns <#maximum-number-of-columns>`_
-* Page Extensions for `Side Panel Settings <page-manager.html#configuring-the-string-parameter-on-respective-pages>`_ (configuring `Side Panels <page-manager.html#id6>`_ described in the Page Manager section) and for Page Action Settings (described further below)
+* Page Extensions for `Side Panel Settings <page-manager.html#configuring-the-string-parameter-on-respective-pages>`_ (configuring `Side Panels <page-manager.html#sidepanels>`_ described in the Page Manager section) and for Page Action Settings (described further below)
 * A number of advanced options (not documented here).
 
 Procedure for Restricting Page Navigation
