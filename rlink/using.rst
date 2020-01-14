@@ -63,7 +63,8 @@ Usually the file would not contain just one line of code but many, and then the 
 
 .. important::
 
-    Always use the slash as path separator, **even on windows**. The backslash is also the path separator in windows and should be escaped. R does accept the slash on windows so the backslash is not needed for paths in :token:`ExecScript`. This also makes the project **platform independent**, which is important if you develop on windows and wants to publish the project in the cloud.
+    * Always use the slash as path separator, **even on windows**. The backslash is also the path separator in windows and should be escaped. R does accept the slash on windows so the backslash is not needed for paths in :token:`ExecScript`. This also makes the project **platform independent**, which is important if you develop on windows and wants to publish the project in the cloud.
+    * Always apply case sensitivity, as AIMMS installation on AIMMS Cloud is case sensitive
 
 The R session
 -------------
