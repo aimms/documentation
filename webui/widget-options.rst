@@ -595,7 +595,7 @@ You will notice the |widget-action| icon on the widget and when you click it you
 			:scale: 75
 
 .. note::
-    Widget Actions can be configured for the `Table <table-widget.html>`_, `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_, `Gantt Chart <gantt-chart-widget.html>`_, `Bubble Chart <bubble-chart-widget.html>`_, `Pie Chart <pie-chart-widget.html>`_, `Tree Map <tree-map-widget.html>`_, `Multiselect <selection-widgets.html>`_ and `Map <map-widget.html>`_ widgets.
+    Widget Actions can be configured for the `Table <table-widget.html>`_, `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_, `Gantt Chart <gantt-chart-widget.html>`_, `Bubble Chart <bubble-chart-widget.html>`_, `Pie Chart <pie-chart-widget.html>`_, `Tree Map <tree-map-widget.html>`_, `Multiselect <selection-widgets.html>`_, `Slider <slider-widget.html>`_, `Legend <selection-widgets.html>`_, `Map <map-widget.html>`_ and `Scalar <scalar-widget.html>`_ (except in Compact Mode) widgets.
 
 
 Interacting with Widget Actions
