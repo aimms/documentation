@@ -47,7 +47,7 @@ where :token:`MapName` and :token:`XA` are defined as:
         }
     }
 
-The first thing to notice is that :token:`ExecScript` is a "DataLink":http://manual.aimms.com/datalink/ function and RLink is only attached as a provider. In this simple example this seems a bit silly. Here :token:`MapName` is a string that DataLink uses for the data map, so before the call can be made :token:`dl::AddDataSourceMapping` has to be called to associate :token:`MapName` with a data map. By making RLink a DataLink provider it seems that we added a lot of unnecessary overhead.
+The first thing to notice is that :token:`ExecScript` is a `DataLink <http://documentation.aimms.com/datalink/>`_ function and RLink is only attached as a provider. In this simple example this seems a bit silly. Here :token:`MapName` is a string that DataLink uses for the data map, so before the call can be made :token:`dl::AddDataSourceMapping` has to be called to associate :token:`MapName` with a data map. By making RLink a DataLink provider it seems that we added a lot of unnecessary overhead.
 
 The second thing to notice are backslashes (:token:`\\`) in front of the quotes (:token:`\"`) in the R code around *Hello World*. This is because the command is passed as a string starting and ending with a quote. The backslash tells that the quote following the backslash does not end the string. Using the backslash like this is called escaping.
 
