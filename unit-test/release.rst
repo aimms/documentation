@@ -11,7 +11,7 @@ New Features and Bug Fixes
     - Added capability to merge results stored in a results file into the current results
 
 1.0.0.66 [16-05-2019]
-    - :token:`aimmsunit::CompareEqual` could return false when either argument contained inactive data
+    - :js:func:`aimmsunit::CompareEqual` could return false when either argument contained inactive data
 
 1.0.0.59 [14-05-2019]
     - Added support for release notes
@@ -30,7 +30,7 @@ New Features and Bug Fixes
  
 1.0.0.40 [01-05-2018]
     - Fixed fetching AIMMS executable in automation script
-    - Added relative comparison to :token:`aimmsunit::CompareEqual`
+    - Added relative comparison to :js:func:`aimmsunit::CompareEqual`
     
 1.0.0.35 [30-04-2018]
     - Added python script for test automation

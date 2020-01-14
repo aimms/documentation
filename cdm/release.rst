@@ -7,6 +7,22 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.15.0.22 [11-01-2020]
+    - Add :token:`cdm::IdentifierCategoryOverride` to CDM library to allow adding identifiers from read-only libraries to categories
+
+    Up until release 1.15.0.20, set membership for newly added labels to any (non-integer) root set in your model was *never* set explicitly, but was *always* implicitly set server-side when such labels were presented to the CDM service. In support of the commit changeset caching feature introduced in CDM release 1.15, set membership is now always required to be set explicitly,  but explicitly setting set membership is only possible if the root set is actually contained in *some* category in your CDM setup. However, for any root set that is part of read-only libraries of your model, adding it to a category was impossible because it was impossible to add the :token:`cdm::category` annotation. Through the identifier :token:`cdm::IdentifierCategoryOverride`, you now have the ability to add such root sets to a CDM category. 
+
+1.15.0.21 [10-01-2020]
+    - Terminating the cache update thread would crash AIMMS developer when closing a project running an embedded CDM service
+    
+1.15.0.20 [08-01-2020]
+    - Failed commit could lead to labels to be translated to non-existent label numbers in subsequent commits
+    - Label numbers erroneously ending up with an empty label name in the database could confuse the corresponding set in model and lead to an execution error; such labels are now skipped
+    - Fix a potential commit error when committing to a newly created database a label that was added as a default to an element parameter
+    - Speed-up of :js:func:`cdm::EnumerateBranches` and :js:func:`cdm::ConnectToCategory` by reducing the number of database queries used to produce the result
+    - *Commit changesets* are now cached, allowing other clients pulling the same changeset due to a commit notification to retrieve it without any database access, leading to a drastic reduction in database load and pull timings 
+    - *Checkout snapshots* for a specific category-branch combination can now be cached, with a specified interval for the cached snapshot to be updated by the server. Checkout requests on the same category-branch combination will now look for a cached snapshot, and combine this with a pull request from the cached snapshot to the head of the branch to produce the requests checkout. When snapshot caching is enabled, this will lead to drastically reduced checkout times.
+    
 1.14.0.7 [24-10-2019]
     - Left-over temporary tables are now removed at service startup
 

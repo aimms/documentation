@@ -9,7 +9,9 @@ To run tests in an automated fashion, the AIMMS Unit Test framework comes with a
 * the name of the project file (e.g. :token:`MyProject.aimms`)
 * optionally, the names of the test suites to test (:token:`--suites` argument), if not specified all test suites will be run.
 
-You can use this script, for instance, when checking in a new version of your project into your version control system. 
+.. tip::
+    
+    You can use this script, for instance, when checking in a new version of your project into your version control system. 
 
 Requirements for the Python script
 ==================================
@@ -20,8 +22,8 @@ To successfully run the script, you should have the following software installed
 * Python requests module installed (install via :token:`pip install requests`)
 * 7-zip (Windows only, installed in :token:`C:\\Program Files\\7-zip\\7z.exe`
 
-Example
-=======
+Example - we practise what we preach
+=======================================
 
 When checking in a new version of the AIMMS Unit Test library into our internal *Gitlab* repository, a build script will automatically be run to
 
@@ -31,7 +33,7 @@ When checking in a new version of the AIMMS Unit Test library into our internal 
 
 The following output of running the test suites is returned during the second step
 
-.. code::
+.. code-block:: none
 
     AimmsCmd.exe (build 4.45.3.0)
     Copyright 1993 - 2014 AIMMS B.V.

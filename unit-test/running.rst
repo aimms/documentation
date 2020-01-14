@@ -27,7 +27,7 @@ Detailed inspection of results
 
 The XML file :token:`log/AimmsUnit.xml` contains a detailed listing of the results of running your tests. Per test suite, it will list the all tests, their run times, and their failures (if any). For example, the file 
 
-.. code::
+.. code-block:: xml
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <testsuites>

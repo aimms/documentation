@@ -3,14 +3,18 @@ Scalar Widget
 
 The Scalar Widget allows you to show one or more scalar values in your WebUI. A scalar value can be 
 
-*  the data of a scalar identifier in AIMMS
+* the data of a scalar identifier in AIMMS
 * a multi-dimensional identifier that is automatically aggregated (summed up) for all its dimensions
 * a multi-dimensional identifier that is sliced to one of the above.
 
 Just like most of the other widgets, the Scalar Widget has a set of `Widget Options <widget-options.html>`_. At the Miscellaneous tab of the option editor, the following Scalar Widget specific options are available:
 
-* contents.labels.visible: By default, the labels (e.g. identifier name) of the scalar values are displayed. By setting this option to 0, the labels are no longer displayed. This is especially useful when you display a single scalar value and you already use the Title of the widget to explain what value is displayed.
-* Enable Multi-Line (1/0): By default, the scalar values (also strings) are displayed on a single line (edit) field. If you set this option to 1, string values are displayed in multi-line mode. This allows the user to read and write values that use more than one line. E.g. when a description is displayed/edited. If you want to add line breaks to your string value, you can do this in the Scalar Widget by using the Enter key. From within the AIMMS code, you can use the newline character '\n' (without quotes), like described in the AIMMS Language Reference.
+* ``contents.labels.visible``: By default, the labels (e.g. identifier name) of the scalar values are displayed. By setting this option to 0, the labels are no longer displayed. This is especially useful when you display a single scalar value and you already use the Title of the widget to explain what value is displayed.
+* ``Enable Multi-Line (1/0)``: By default, the scalar values (also strings) are displayed on a single line (edit) field. If you set this option to 1, string values are displayed in multi-line mode. This allows the user to read and write values that use more than one line. E.g. when a description is displayed/edited. If you want to add line breaks to your string value, you can do this in the Scalar Widget by using the Enter key. From within the AIMMS code, you can use the newline character '\n' (without quotes), like described in the AIMMS Language Reference.
+
+.. warning::
+    
+    The default behavior of the scalar widget (when specifying no value ``Display domain : <empty>`` ) is ``Display domain : 1``, whereas it is ``Display domain : 0`` in every other widget. This enables you to see by default every identifier added in the scalar widget. 
 
 Examples
 ------------

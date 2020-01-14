@@ -40,7 +40,6 @@
    aimms_user
    aimms_ref
    aimms_modeling
-   aimms_func
    webui/index
    pro/index
    cloud/index   

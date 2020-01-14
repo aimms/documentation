@@ -4,21 +4,28 @@
 
 .. |plus-widget| image:: images/plus-widget.png
 
+.. |pencil-black| image:: images/WidgetManager_snap1.png
+
+.. |pencil-only| image:: images/WidgetManager_snap2.png
+
+.. |plus-add-widget| image:: images/WidgetManager_snap3.png
+
+
 Widget Manager
 **************
 
-You can access the Widget Manager by pressing the pencil icon |pencil-blue| in the `(blank)WebUI Menu Bar <menu-bar.html>`_.
+You can access the Widget Manager by pressing the pencil icon |pencil-black| in the `WebUI Menu Bar <menu-bar.html>`_.
 
 Adding a widget
 ================
 
 In order to put a new widget on your page:
 
-* Press the Widget Manager button |pencil-grey| next to the page title |pencil-blue|.
+* Press the Widget Manager button |pencil-only| next to the page title |pencil-black|.
 * The widget manager will open from the left. This widget manager lists all widgets that are present on the page. 
-* By pressing the big |plus-widget| at the bottom of this list, the Add Widget wizard will pop-up. This wizard allows you to specify the contents, the name and the widget-type (e.g. table, bar chart). 
+* By pressing the big |plus-add-widget| at the bottom of this list, the Add Widget wizard will pop-up. This wizard allows you to specify the contents, the name and the widget-type (e.g. table, bar chart). 
 
-.. image:: images/addwidgetwizard_v1.png
+.. image:: images/WidgetManager_snap4.png
     :align: center
 
 .. tip::
@@ -30,10 +37,10 @@ Custom Position
 
 The position of a widget on a page is automatically determined based on the widget order in the list of widgets, and the widget size. However, you can also take a widget out of this natural flow, and instead position it exactly where you want it. To do so, you need to turn on the *Custom Position* setting for a widget:
 
-* Open the Widget sidebar by pressing the Edit Page button |pencil-grey| next to the page title |pencil-blue|.
+* Open the Widget sidebar by pressing the Edit Page button |pencil-only| next to the page title |pencil-black|.
 * Click on the widget and tick the *Custom Position* option. 
 
-.. image:: images/sticky-widget.png
+.. image:: images/WidgetManager_snap5.png
     :align: center
 
 A widget with a *Custom Position* is placed on top of the widget list. To position it where you want, drag the widget (using its title bar) to your preferred location, where it will stay.
