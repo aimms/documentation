@@ -37,10 +37,10 @@ If not specified explicitly, both sets will default to AllIdentifiers. If you as
 
 which has as default the value 'AllDefinedParameters'. Sometimes, e.g. when doing case comparisons, you do want to store the defined parameters in the case in order to have case comparison work correctly. In that case you can empty the above identifier set, resulting into actually saving AllIdentifiers into the case.
 
-Caveats:
- 
-* :token:`pro::ManagedSessionOutputCaseIdentifierSet` needs to be assigned during the solver session.
-* Make sure that the data of sets and parameters referenced in the index domain attribute of the variables computed server side and communicated via the output case to the client side, are also available client side or passed in the output case.
+.. warnings::
+     
+    * :token:`pro::ManagedSessionOutputCaseIdentifierSet` needs to be assigned during the solver session.
+    * Make sure that the data of sets and parameters referenced in the index domain attribute of the variables computed server side and communicated via the output case to the client side, are also available client side or passed in the output case.
 
 .. note::
 
