@@ -36,9 +36,13 @@ if os.name == 'nt':
 extensions = ['sphinx.ext.doctest',
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
-    'sphinx.ext.githubpages',
-	'sphinx.builders.linkcheck']
-		
+	  'sphinx.builders.linkcheck',
+    'sphinx.ext.intersphinx',
+    'sphinx_aimms_theme']
+
+intersphinx_mapping = {'functionreference': ('https://documentation.aimms.com/functionreference/',
+                                  (None,'objects-functionreference.inv'))}
+	
 if os.name != 'nt':
 
 #Import spelling extension
@@ -88,20 +92,30 @@ pygments_style = 'sphinx'
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
 
-
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_aimms_theme'
+
+if os.name == 'nt':
+   
+   Display_edit_on_gitlab = True
+   # if builds locally (a windows machine), do not displays external extensions (Google Analytics, Community Embeddable, Algolia search, etc.)
+   Display_3rd_Party_Extensions = False
+else:
+
+   # if builds on GitLab (a Linux machine), force "Edit on Gitlab" not to be shown, and displays external extensions (Google Analytics, Community Embeddable, Algolia search, etc.)
+   Display_edit_on_gitlab = False
+   Display_3rd_Party_Extensions = True
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'canonical_url': '',
-    # 'analytics_id': 'UA-XXXXXXX-1',  #  Provided by Google in your dashboard
+
+
     'logo_only': True,
     'display_version': False,
     'prev_next_buttons_location': 'bottom',
@@ -112,14 +126,21 @@ html_theme_options = {
     'sticky_navigation': True,
     'navigation_depth': 4,
  #   'includehidden': True,
-    'titles_only': True
-
+    'titles_only': True,
+    'doc_title' : 'Documentation',
+    'home_page_title': 'AIMMS Documentation',
+    'home_page_description': "AIMMS Documentation is a help resource containing detailed product documentation and other reference materials including user guide, function list, modeling manual, language reference.",
+    'display_community_embeddable' : Display_3rd_Party_Extensions,
+    'google_analytics_id': 'UA-1290545-13',
+    'generate_google_analytics' : Display_3rd_Party_Extensions,
+    'display_algolia_search' : Display_3rd_Party_Extensions,
+    'algolia_appid': 'BH4D9OD16A', 
+    'algolia_appkey': 'f7e44f5b57ababa5c5ceb1e1087ae3b1', 
+    'algolia_indexname': 'aimms',
 }
 
 rst_epilog = """
 .. |date| date:: %B, %Y
-
-.. |time| date:: %H:%M
 
 Last Updated: |date|
 """
@@ -127,27 +148,16 @@ Last Updated: |date|
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+#html_static_path = ['_static']
 
-if os.name == 'nt':
-   
-   Display_edit_on_gitlab = True
-   # if builds on GitLab (a Linux machine), display Insided Embeddable (extensions) :)
-   Display_3rd_Party_Extensions = False
-else:
-
-   # if builds on GitLab (a Linux machine), force "Edit on Gitlab" not to be shown :)
-   Display_edit_on_gitlab = False
-   Display_3rd_Party_Extensions = True
-
-    
+# Add any variable here that you will be able to call in your templates   
 html_context = {
-    'css_files': ['_static/aimms_2019_10_25.css', '_static/copycode.css'],
+    #'css_files': ['_static/aimms_2019_10_25.css'],
     "display_gitlab": Display_edit_on_gitlab, # Integrate Gitlab
     "gitlab_user": "aimms", # Username
     "gitlab_repo": "documentation", # Repo name
     "gitlab_version": "master", # Version
-    "conf_py_path": "", # Path in the checkout to the docs root
+#    "conf_py_path": "", # Path in the checkout to the docs root
     "suffix": ".rst",
     "Display_3rd_Party_Extensions": Display_3rd_Party_Extensions
 }
@@ -167,7 +177,6 @@ html_sidebars = {
         #'searchbox.html'
     ]
 }
-html_favicon = "_static/favicon.png"
 
 rst_prolog = """
 :tocdepth: 2
@@ -236,29 +245,11 @@ texinfo_documents = [
 ]
 
 #import the one and only spelling exception central file 
-if os.name == 'nt':
-	context = ssl._create_unverified_context()
-	urllib.urlretrieve("https://gitlab.aimms.com/Arthur/unified-spelling_word_list_filename/raw/master/spelling_wordlist.txt", "spelling_wordlist.txt", context=context)
+# if os.name == 'nt':
+	# context = ssl._create_unverified_context()
+	# urllib.urlretrieve("https://gitlab.aimms.com/Arthur/unified-spelling_word_list_filename/raw/master/spelling_wordlist.txt", "spelling_wordlist.txt", context=context)
 
 #spelling_word_list_filename = ''
-
-
-
-# -- Import the AIMMSLexer into local Pygments module (syntax highlighting). The styling is made with Hacks.css in the _static folder ----------------------------
-def setup(sphinx):
-	
-	# Import the AIMMSLexer into local Pygments module (syntax highlighting). The styling is made with Hacks.css in the _static folder
-    sys.path.insert(0, os.path.abspath("./_static/AIMMSLexer/Lexer"))
-    from aimms import AIMMSLexer
-    from pygments.formatters import HtmlFormatter
-    sphinx.add_lexer("aimms", AIMMSLexer())
-
-    # for copy code snippet, css file also referred to in html_context
-    sphinx.add_stylesheet('copycode.css')
-    sphinx.add_javascript('copycode.js')
-    sphinx.add_javascript("https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js")
-	
-    
+		   
 highlight_language = 'aimms'
-
 
