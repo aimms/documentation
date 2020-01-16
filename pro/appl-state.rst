@@ -19,10 +19,6 @@ For the single ``.dat`` file data management style, you can instruct the AIMMS P
 
 If you do not set these two element parameters explicitly, the AIMMS PRO library will use the predefined case type :token:`AllIdentifiers` by default. This means that the values of all identifiers that do not have the ``NoSave`` property set will be transferred back and forth. If you set any of the above element parameters explicitly to the empty element, AIMMS PRO will not create and transfer an input, and/or output case file respectively.
 
-.. warning::
-
-	We thus advise you to set those 2 element parameters, if you would like to specify the case type to transfer and optimize your data transfer time.
-
 Specifying Case Content
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -44,8 +40,9 @@ which has as default the value 'AllDefinedParameters'. Sometimes, e.g. when doin
 
 .. note::
 
-    The function ReferencedIdentifiers can be used to find all referenced identifiers in a given subset of AllIdentifiers and thus extend the identifier subsets pointed to by :token:`pro::ManagedSessionInputCaseIdentifierSet` and :token:`pro::ManagedSessionOutputCaseIdentifierSet` as needed.
+    * The function ReferencedIdentifiers can be used to find all referenced identifiers in a given subset of AllIdentifiers and thus extend the identifier subsets pointed to by :token:`pro::ManagedSessionInputCaseIdentifierSet` and :token:`pro::ManagedSessionOutputCaseIdentifierSet` as needed.
 
+	* We advise you to use those 2 sets, if you would like to optimize your data transfer time.
 
 Optional action to be taken after case load
 +++++++++++++++++++++++++++++++++++++++++++
