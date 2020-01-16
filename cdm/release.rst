@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.16.0.0 [16-01-2020]
+    - Data manipulations involving shadow identifiers when committing, checking out and pulling changes, are now running faster by executing them in a procedure in the CDM runtime library, instead of retrieving, comparing and setting all data thru the AIMMS API.
+
 1.15.0.22 [11-01-2020]
     - Add :token:`cdm::IdentifierCategoryOverride` to CDM library to allow adding identifiers from read-only libraries to categories
 
