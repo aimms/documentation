@@ -23,6 +23,8 @@ New Features and Bug Fixes
     - *Commit changesets* are now cached, allowing other clients pulling the same changeset due to a commit notification to retrieve it without any database access, leading to a drastic reduction in database load and pull timings 
     - *Checkout snapshots* for a specific category-branch combination can now be cached, with a specified interval for the cached snapshot to be updated by the server. Checkout requests on the same category-branch combination will now look for a cached snapshot, and combine this with a pull request from the cached snapshot to the head of the branch to produce the requests checkout. When snapshot caching is enabled, this will lead to drastically reduced checkout times.
     
+    For CDM backends backed by a MySQL database, you may need to increase the value of the MySQL option :token:`max_allowed_packet` for categories containing a lot of data. If packet size is not big enough to contain the entire snapshot, the connection to the database will be lost when the CDM service tries to store the snapshot. 
+    
 1.14.0.7 [24-10-2019]
     - Left-over temporary tables are now removed at service startup
 

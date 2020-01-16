@@ -262,6 +262,10 @@ Besides completely retiring all old commits on a given branch, CDM also allows y
 
 If you specify the value of 0 for the :token:`cacheUpdate` argument, the CDM service will cache a snapshot, but will never update it. You can use such cached snapshots, for instance, to speed up the retrieval of data on branches that branch off the given branch posterior to the cached revision. If you store multiple snapshots with a positive :token:`cacheUpdate` value on a given category-branch combination, the CDM service will remove all but the youngest cache entry. Through the functions :js:func:`cdm::GetSnapshotCache` and :js:func:`cdm::DeleteSnapshot` you can retrieve a list of all snapshots currently in the cache, and manually delete snapshot that are no longer of interest to you. 
 
+.. note::
+
+    For CDM backends backed by a MySQL database, you may need to increase the value of the MySQL option :token:`max_allowed_packet` for categories containing a lot of data. If packet size is not big enough to contain the entire snapshot, the connection to the database will be lost when the CDM service tries to store the snapshot. 
+
 Interactive merge
 +++++++++++++++++
 
