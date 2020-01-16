@@ -54,24 +54,7 @@ In the collapsed view, when the user hovers over a step the tooltip helps with i
 Configuring the Workflow Panel
 ++++++++++++++++++++++++++++++
 
-The Workflow Panel can be configured by the application developer via the AIMMS model. Public Workflow Support Declarations have been defined in the inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section of the AIMMS WebUI system library. These pre-declared identifiers can be used to configure different workflows and their respective steps.
-
-WorkflowSpecification - This set is used to configure the number of workflows and their respective titles. The elements of this set (defining workflow properties) are the following:
-
-* :token:`title` - The title for the workflow to be displayed on top of the Workflow Panel
-* :token:`style` - A defined style for the workflow (This property is not in use currently. We have made the provision to incorporate different styles that we expect will be available in the future.)
-
-WorkflowPageSpecification - This set is used to configure the steps for each workflow. The elements of this set (defining workflow properties) are as follows:
-
-* :token:`displayText` - The label you want to give to the workflow step
-* :token:`icon` - The icon you want to associate with the step. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
-* :token:`pageId` - The pageId of the Page this step should be associated with. Ideally, every page in a workflow is a step in the Workflow Panel. The pageIds can be referred from the pre-declared :token:`AllRegularPages` set. Using pageIds of Side Panel or Dialog page will result in unwanted behaviour.
-* :token:`tooltip` - The text to be displayed when the user hovers over the step
-* :token:`workflowPageState` - The workflow state of the page, which may be Active (displayed and clickable), Inactive (displayed and not clickable) or Hidden (not visible). If not defined, by default the state is Hidden. 
-* :token:`pageDataState` - The data state of the page, which may be Complete, Incomplete or Error. The specification of this state is optional. If not defined, by default it has an Empty state.
-* :token:`redirectPageId` - The pageId of the page the user should be redirected to when the :token:`workflowPageState` is Inactive or Hidden. When the user tries to navigate to an Inactive or Hidden workflow step they are redirected to this page. The pageId's can be referred from the elements of the pre-declared set :token:`AllRegularPages`.
-
-ExtensionOrder - This is a sub-set of the pre-declared set of Integers, which has several pre-declared indices. This set was created to make it easier to create and configure string parameters and also differentiate them for Workflows, Page and Application Extensions. For configuring workflows and their steps you can choose two of those indices, :token:`indexWorkflowOrder` used to reference the number of workflows, and :token:`indexNoOfPages`, used to reference he number of pages or steps in each workflow. These indexes are used as dimensions of the string parameters which will configure the application workflows, see further below.
+The Workflow Panel can be configured by the application developer via the AIMMS model. `Public Workflow Support Declarations <library.html#workflowspecification>`_ have been defined in the inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section of the AIMMS WebUI system library. These pre-declared identifiers are  used to configure different workflows and their respective steps.
 
 To create and configure the Workflow Panel in the application you will need to create two string parameters. The first string parameter will configure the number of workflows in the application, while the second string parameter will configure the steps of each workflow.
 
@@ -82,17 +65,17 @@ To create and configure the Workflow Panel in the application you will need to c
 Configuring Workflows
 +++++++++++++++++++++
 
-For illustration, let's call the first sting parameter :token:`MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)`. This string parameter is indexed by the ExtensionOrder set with the index :token:`indexWorkflowOrder` and the WorkflowSpecification set with the index :token:`indexWorkflowSpec`. This string parameter is used to define the number of workflows and their respective titles. The values of this string parameter may be initialized in the Initial Data attribute, in a procedure or manually, by right clicking the string parameter and clicking on the Data option in order to open its data page. There you can add the details for the Workflow and their titles (leave the style property empty for now):
+For illustration, let's call the first sting parameter :token:`MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)`. This string parameter is indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with the index :token:`indexWorkflowOrder` and the `WorkflowSpecification <library.html#workflowspecificationset>`_ set with the index :token:`indexWorkflowSpec`. This string parameter is used to define the number of workflows and their respective titles. The values of this string parameter may be initialized in the Initial Data attribute, in a procedure or manually, by right clicking the string parameter and clicking on the Data option in order to open its data page. There you can add the details for the Workflow and their titles (leave the style property empty for now):
 
 .. image:: images/Workflow_MyWorkflowsParameter.png
     :align: center
 
 The values in the example above indicate that there are 3 workflows in the application at hand.
 
-Configuring Steps of a Workflows
-++++++++++++++++++++++++++++++++
+Configuring Steps of Workflows
+++++++++++++++++++++++++++++++
 
-Create the second string parameter, let's call it :token:`MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)` indexed over both indices of the ExtensionOrder set and over the  index of the WorkflowPageSpecification set. This string parameter is used to define the steps for each workflow which has been defined in the MyWorkflows string parameter. In particular, each :token:`pageId` which is configured becomes a step displayed in the Workflow Panel, see further below. 
+Create the second string parameter, let's call it :token:`MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)` indexed over both indices of the `ExtensionOrder <library.html#extensionorder>`_ set and over the  index of the `WorkflowPageSpecification <library.html#workflowpagespecification>`_ set. This string parameter is used to define the steps for each workflow which has been defined in the MyWorkflows string parameter. In particular, each :token:`pageId` which is configured becomes a step displayed in the Workflow Panel, see further below. 
 
 .. Note::
 

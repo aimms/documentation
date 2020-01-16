@@ -185,14 +185,14 @@ Similarly, you can create other string parameters for other pages and configure 
 Configuring Secondary Actions
 +++++++++++++++++++++++++++++
 
-Create a string parameter indexed by the ExtensionOrder set with :token:`webui::indexPageExtension` and PageActionSpecification with the index :token:`webui::indexPageActionSpec`. Let's call this :token:`MySecondaryActions(webui::indexPageExtension,webui::indexPageActionSpec)`. Right click the string parameter and click on the Data option to open the data page. Add the details for the Secondary Actions you would like to show for the respective page(s). For example:
+Create a string parameter indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with :token:`webui::indexPageExtension` and PageActionSpecification with the index :token:`webui::indexPageActionSpec`. Let's call this :token:`MySecondaryActions(webui::indexPageExtension,webui::indexPageActionSpec)`. Right click the string parameter and click on the Data option to open the data page. Add the details for the Secondary Actions you would like to show for the respective page(s). For example:
 
 .. image:: images/PageActions_SecondaryStringParamAndData.png
     :align: center
 
 .. Note::
 
-    When creating the string parameter to configure secondary page actions, the first index needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the index from the pre-declared set **ExtensionOrder** for this purpose i.e. :token:`indexPageExtension`.
+    When creating the string parameter to configure secondary page actions, the first index needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the index from the pre-declared set `ExtensionOrder <library.html#extensionorder>`_ for this purpose i.e. :token:`indexPageExtension`.
 
 In the illustrated example, we have defined 5 Secondary Actions with different states. We display the Active and Inactive actions.  
 

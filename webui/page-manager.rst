@@ -385,14 +385,14 @@ This set has 4 elements representing side panels properties:
 	* If the set AllSidePanelPages is not yet filled with all side panel pages, please run the procedure GetAllPages. You can find this procedure in Page Support section under Public Pages Support Procedures. 
 	* The "state" property is not yet in use, but will be applicable in future releases. In side panels it is considered as Active by default. You can use domain conditions to show or hide side panels on a page.
 	
-To configure side panels on a page, create a string parameter indexed on the ExtensionOrder set with :token:`webui::indexPageExtension` and SidePanelSpecification set with :token:`webui::indexSidePanelSpec` indices, for example :token:`homepageSP(webui::indexPageExtension,webui::indexSidePanelSpec)` as shown here:
+To configure side panels on a page, create a string parameter indexed on the `ExtensionOrder <library.html#extensionorder>`_ set with :token:`webui::indexPageExtension` and SidePanelSpecification set with :token:`webui::indexSidePanelSpec` indices, for example :token:`homepageSP(webui::indexPageExtension,webui::indexSidePanelSpec)` as shown here:
 
 .. image:: images/SP_homepageSPidentifier.png
 			:align: center
 
 .. Note::
 
-    When creating the string parameter to configure side panels, the first index needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the index from the pre-declared set **ExtensionOrder** for this purpose i.e. :token:`indexPageExtension`.
+    When creating the string parameter to configure side panels, the first index needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the index from the pre-declared set `ExtensionOrder <library.html#extensionorder>`_ for this purpose i.e. :token:`indexPageExtension`.
 
 Right click the string parameter and click on the Data option in order to open the data page:
 
