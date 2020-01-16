@@ -1,39 +1,38 @@
 
 .. raw:: html
 
-    <div id="topo"> 
-    <br><h1>Welcome to AIMMS Documentation</h1><h2>Find out how AIMMS Software works</h2></div>
-	
-	<div id="content_home_page">
-		<a href="webui/index.html">
-			<div class="box_home_page">
-				<h1 align="center">WebUI</h1>
-				<p align="center">Documentation for AIMMS WebUI</p>
-			</div>
-		</a>
-		<a href="pro/index.html">
-			<div class="box_home_page">
-				<h1 align="center">PRO</h1>
-				<p align="center">Documentation for the AIMMS PRO platform</p>
-			</div>
-		</a>
-		<a href="cloud/index.html">
-			<div class="box_home_page">
-				<h1 align="center">Cloud Platform</h1>
-				<p align="center">Documentation for the AIMMS Cloud platform</p>
-			</div>
-		</a>
-		<a href="library-repository.html">
-			<div class="box_home_page">
-				<h1 align="center">Library Repository</h1>
-				<p align="center">Documentation for the AIMMS Library repository</p>
-			</div>
-		</a>
-	</div>
+    <br>
+    <h1 class="home_header">WELCOME TO THE DOCUMENTATION</h1>
+    <h3 class="home_header">Find out how AIMMS Software works</h3>
 
-.. image:: Images/icons/favicon.png
-    :scale: 0
-   
+.. raw:: html
+    
+    <div id="content_home_page">
+
+        <p>AIMMS Documentation is a help resource containing detailed product documentation and other reference materials including user guide, function list, modeling manual, language reference.</p>
+
+        <div class="boxes">
+            <a class="box_home_page" href="webui/index.html">
+                <h1>WebUI</h1>
+                <div>Documentation for AIMMS WebUI</div>
+            </a>
+            <a class="box_home_page" href="pro/index.html">
+                <h1>PRO</h1>
+                <div>Documentation for the AIMMS PRO platform</div>
+            </a>
+            <a class="box_home_page" href="cloud/index.html">
+                <h1>Cloud Platform</h1>
+                <div>Documentation for the AIMMS Cloud platform</div>
+            </a>
+            <a class="box_home_page" href="library-repository.html">
+                <h1>Library Repository</h1>
+                <div>Documentation for the AIMMS Library repository</div>
+            </a>
+        </div>
+    </div>
+    
+-----------------------------------------------------------
+      
 .. toctree::
    :hidden:
 
