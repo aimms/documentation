@@ -41,7 +41,6 @@ which has as default the value 'AllDefinedParameters'. Sometimes, e.g. when doin
 .. note::
 
     * The function ReferencedIdentifiers can be used to find all referenced identifiers in a given subset of AllIdentifiers and thus extend the identifier subsets pointed to by :token:`pro::ManagedSessionInputCaseIdentifierSet` and :token:`pro::ManagedSessionOutputCaseIdentifierSet` as needed.
-
 	* We advise you to use those 2 sets, if you would like to optimize your data transfer time.
 
 Optional action to be taken after case load
