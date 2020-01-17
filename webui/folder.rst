@@ -19,8 +19,6 @@ Via the `Widget Manager <widget-manager.html>`_ you can add widgets to your WebU
 	
 	All WebUI `pages <page-manager.html>`_ and `widgets <widget-manager.html>`_ will be stored (by the WebUI Server) in the *pages* and *widgets* subfolder of the *WebUI* folder. 
 
-	All WebUI pages are stored (by the WebUI Server) in the *pages* subfolder of the WebUI folder.
-
 
 Add the **resources** folder
 ------------------------------
