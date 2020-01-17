@@ -12,6 +12,7 @@ Page Settings
 
 .. |workflow-items| image:: images/workflowitems-icon.png
 
+.. |PageExtensionsicon| image:: images/PageExtensionsicon.png
 
 You can access the Page Settings via the 'options wheel' |cog-grey| in the `WebUI Menu Bar <menu-bar.html>`_ :
 
@@ -23,7 +24,7 @@ Currently, the following options for a page are available:
 * Action Upon Load (for specifying a procedure that should be run upon opening the page)
 * Action Upon Leave (for specifying a procedure that should be run before navigating to another page). The application developer can also run a `procedure that can restrict page navigation <#procedure-for-restricting-page-navigation>`_ based on certain conditions.
 * `MaxColumns <#maximum-number-of-columns>`_
-* Page Extensions for `Side Panel Settings <page-manager.html#configuring-the-string-parameter-on-respective-pages>`_ (configuring `Side Panels <page-manager.html#id6>`_ described in the Page Manager section) and for Page Action Settings (described further below)
+* Page Extensions for `Side Panel Settings <page-manager.html#configuring-the-string-parameter-on-respective-pages>`_ (configuring `Side Panels <page-manager.html#sidepanels>`_ described in the Page Manager section) and for Page Action Settings (described further below)
 * A number of advanced options (not documented here).
 
 Procedure for Restricting Page Navigation
@@ -136,7 +137,7 @@ Secondary Action buttons consist of a label and an icon that can be configured i
 Configuring Page Actions
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Page Actions can be configured by the application developer via the AIMMS model. In the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section, the set PageActionSpecification is declared which is used for configuring Page Actions as illustrated in the next steps.
+Page Actions can be configured by the application developer via the AIMMS model. In the Public Page and Widget Specification Declarations under the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section, the set PageActionSpecification is declared which is used for configuring Page Actions as illustrated in the next steps.
 
 .. image:: images/PageActions_PageActionSpec.png
     :align: center
@@ -166,15 +167,15 @@ By default, when the :token:`displayText` is not defined the Primary Action labe
 .. image:: images/PageActions_OptimizeDefault.png
     :align: center
 
-Configuring Actions on Pages
-++++++++++++++++++++++++++++
+Configuring the Primary Action on Pages
++++++++++++++++++++++++++++++++++++++++
 
 In the WebUI, navigate to the respective page. In the Page Settings under the Page Extensions |page-extensions| you will find the Primary Action and Secondary Actions fields. Add the respective string parameters in the fields that were configured for that page.
 
 .. image:: images/PageSettings_snap6.png
     :align: center
 
-Once you have added the string parameter, the respective page actions buttons will appear on that page.
+Once you have added the string parameter, the primary action will appear on that page.
 
 .. image:: images/PageActions_ActionResults.png
     :align: center
@@ -184,21 +185,35 @@ Similarly, you can create other string parameters for other pages and configure 
 Configuring Secondary Actions
 +++++++++++++++++++++++++++++
 
-First, create a set for the order of actions to be displayed on the page. For illustration, let’s call this set “PageActionOrder” with index :token:`indexPageActionOrder` (as a developer, you can give this set a name and an index of your choice). This set determines the order in which the Secondary Actions will appear from top to bottom. This set must be a subset of the pre-declared set of Integers. 
-
-.. image:: images/PageActions_OrderSet.png
-    :align: center
-
-Create a string parameter indexed by PageActionOrder and PageActionSpecification. Let's call this :token:`MySecondaryActions(indexPageActionOrder,webui::indexPageActionSpec)`. Right click the string parameter and click on the Data option to open the data page. Add the details for the Secondary Actions you would like to show for the respective page(s). For example:
+Create a string parameter indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with :token:`webui::indexPageExtension` and PageActionSpecification with the index :token:`webui::indexPageActionSpec`. Let's call this :token:`MySecondaryActions(webui::indexPageExtension,webui::indexPageActionSpec)`. Right click the string parameter and click on the Data option to open the data page. Add the details for the Secondary Actions you would like to show for the respective page(s). For example:
 
 .. image:: images/PageActions_SecondaryStringParamAndData.png
     :align: center
+
+.. Note::
+
+    When creating the string parameter to configure secondary page actions, the first index needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the index from the pre-declared set `ExtensionOrder <library.html#extensionorder>`_ for this purpose i.e. :token:`indexPageExtension`.
 
 In the illustrated example, we have defined 5 Secondary Actions with different states. We display the Active and Inactive actions.  
 
 .. image:: images/PageActions_SecondaryActionsResult.png
     :align: center
 
+
+Configuring Secondary Actions on Pages
+++++++++++++++++++++++++++++++++++++++
+
+In the WebUI, navigate to the respective page. In the Page Settings under the Page Extensions tab |PageExtensionsicon| you will find the Primary Page Action and Secondary Page Actions fields. Add the respective string parameters in the fields that were configured for that page.
+
+.. image:: images/PageActions_ConfigStringParam.png
+    :align: center
+
+Once you have added the string parameter, the respective page actions buttons will appear on that page.
+
+.. image:: images/PageActions_ActionResults.png
+    :align: center
+
+Similarly, you can create other string parameters for other pages and configure them using the same steps.
 
 Possible combinations of action states
 ++++++++++++++++++++++++++++++++++++++++

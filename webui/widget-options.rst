@@ -540,16 +540,7 @@ The widget actions can be associated with any procedure in your model. For examp
 Configuring Widget Actions
 ++++++++++++++++++++++++++
 
-Widget Actions can be configured by the application developer via the AIMMS model. First you should create a set for the order of widget actions to be displayed on the widget action menu when it is opened on the respective widget.
-
-For illustration, let’s call this set “WidgetOrder” with index WOrder (as a developer, you can give this set a name and an index of your choice).
-
-.. image:: images/WidgetAction_OrderSet.png
-			:align: center
-
-This set determines the order in which the widget actions will appear from top to bottom, in the widget action menu. This set must be a subset of the pre-declared set of Integers. 
-
-The set WidgetActionSpecification declared inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section is used for configuring the widget actions, as illustrated here in the next steps. 
+Widget Actions can be configured by the application developer via the AIMMS model. The set WidgetActionSpecification declared inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section is used for configuring the widget actions, as illustrated here in the next steps. 
 
 .. image:: images/WidgetActionSpecification.png
 			:align: center
@@ -566,8 +557,7 @@ This set has 4 elements representing widget action properties:
 
     `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
     
-
-To configure widget actions, create a string parameter indexed on WidgetOrder and WidgetActionSpecification, for example MyWidgetActions(WOrder,webui::indexWidgetActionSpec) as shown here:
+To configure widget actions, create a string parameter indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with :token:`webui::indexPageExtension` and WidgetActionSpecification with the index :token:`webui::indexWidgetActionSpec`, for example MyWidgetActions(webui::indexPageExtension,webui::indexWidgetActionSpec) as shown here:
 
 .. image:: images/WidgetActions_MyWidgetActions.png
 			:align: center
