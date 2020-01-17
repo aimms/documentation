@@ -1,3 +1,8 @@
+.. image:: ../Images/pro-calendar-128.png
+   :scale: 100
+   :align: right
+   :alt: AIMMS PRO
+
 PRO Platform
 *************
 

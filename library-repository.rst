@@ -1,3 +1,8 @@
+.. image:: Images/library-bulleted-list-128.png
+   :scale: 100
+   :align: right
+   :alt: AIMMS Library Repository
+
 Library Repository
 ******************
 

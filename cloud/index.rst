@@ -1,3 +1,8 @@
+.. image:: ../Images/cloud-checked-128.png
+   :scale: 100
+   :align: right
+   :alt: AIMMS Cloud
+
 Cloud Platform 
 ==============
 

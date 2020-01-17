@@ -1,3 +1,8 @@
+.. image:: ../Images/webui-design-128.png
+   :scale: 100
+   :align: right
+   :alt: AIMMS WebUI
+
 WebUI
 *****
 
