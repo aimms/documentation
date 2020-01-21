@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.16.0.1 [21-01-2020]
+    - When contents of root sets was added thru multiple change sets during checkout (e.g. when using cached checkout snapshots), the root set would only contain the elements added during the last change set. 
+
 1.16.0.0 [16-01-2020]
     - Data manipulations involving shadow identifiers when committing, checking out and pulling changes, are now running faster by executing them in a procedure in the CDM runtime library, instead of retrieving, comparing and setting all data thru the AIMMS API.
 
