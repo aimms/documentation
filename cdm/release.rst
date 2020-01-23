@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.16.0.3 [22-01-2020]
+    - Predeclared identifiers could not be part of any category.
+
 1.16.0.2 [21-01-2020]
     - When contents of root sets was added thru multiple change sets during checkout (e.g. when using cached checkout snapshots), the root set would only contain the elements added during the last change set. 
     - Recompile CDM runtime library before calling action procedures to prevent compile errors due to edit actions in other runtime libraries such as the WebUI runtime library.
