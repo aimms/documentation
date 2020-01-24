@@ -306,13 +306,14 @@ This is a logical condition which determines whether or not the PRO user of the 
 Please note that, when the "UI Editable" option value evaluates to "false", then the value of this "Limited Options Editor" is not relevant.
 
 When the "UI Editable" option value evaluates to "true" and the value of the "Limited Options Editor" evaluates to "true" as well, then the editing options available
-in developer mode are made available to the end-user who runs the application in AIMMS PRO/Cloud except from the following:
+in developer mode are made available to the end-user who runs the application in AIMMS PRO/Cloud. For example, the order of the widgets on a page in the Widget Manager can still be changed in this latter case. 
+
+However, in this latter case there are also some exceptions, such as the following:
 
 * The Application Settings are not available for editing
 
-* The Miscellaneous and Advanced sections are not available for editing in the Settings of any widget
+* In widget options editor only the following sections are shown: Pivoting, Contents, Change Type, and Totals. So, in particular, the Miscellaneous and Advanced sections are not available for editing in the settings of any widget.
 
-For example, the order of the widgets on a page in the Widget Manager can still be changed in this latter case.
 
 Licenseinfo
 +++++++++++
