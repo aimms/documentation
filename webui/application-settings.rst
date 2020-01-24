@@ -308,7 +308,7 @@ Please note that, when the "UI Editable" option value evaluates to "false", then
 When the "UI Editable" option value evaluates to "true" and the value of the "Limited Options Editor" evaluates to "true" as well, then the editing options available
 in developer mode are made available to the end-user who runs the application in AIMMS PRO/Cloud. For example, the order of the widgets on a page in the Widget Manager can still be changed in this latter case. 
 
-However, in this latter case there are also some exceptions, such as the following:
+However, in this latter case there are also some limitations, such as the following:
 
 * The Application Settings are not available for editing
 
