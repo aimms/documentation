@@ -7,9 +7,7 @@ For general system requirements for running an AIMMS WebUI application under AIM
 .. note:: Please note that, in general, fast processing of JavaScript code (as the one used by the AIMMS WebUI) requires a powerful processor and enough workspace.
    In particular, a more powerful processor is expected to result in better performance. 
 
-This section lists more specific requirements for the various phases passed through by an AIMMS application with a Web-based User interface.
-
-.. note:: Please mind the important note about browsers performance at the end of this section!
+This section lists more specific requirements for the various phases passed through by an AIMMS application with a Web-based User Interface (WebUI).
 
 Developing a WebUI app
 ----------------------
@@ -19,12 +17,11 @@ In order to `develop <creating.html>`_ a web interface for an AIMMS application 
 * a recent AIMMS 4 developer system, and
 * to have the latest version of one of the following browsers installed on the developer machine:
     * `Chrome <https://www.google.com/intl/en/chrome/browser/>`_, or
-    * Microsoft Edge, or
-    * Microsoft Internet Explorer 11.
+    * `Microsoft Edge <https://www.microsoft.com/en-us/edge>`_.
 
     .. important::
 
-        There is a known problem with Internet Explorer 11: if you face a blue screen after starting your WebUI app in the browser, you should verify that the setting "Display Intranet Sites in Compatibility View" is set to unchecked. You can find this option under "Compatibility View Options" in the main menu of IE11.
+        Support for Microsoft Internet Explorer 11 has been deprecated. Internet Explorer 11 is a poorer browser for advanced applications like AIMMS WebUI when compared to Edge or Chrome (i.e., it is slower, less stable, crashes sooner, etc). Therefore, we strongly recommend our users to try and use Edge or Chrome, instead. Please be informed that we are no longer servicing issues related to Internet Explorer 11. 
 
     .. warning::
 
@@ -50,13 +47,9 @@ In order to **run/use** a web application from the AIMMS PRO portal, the app use
 
 * for Windows machines:
     * `Chrome <https://www.google.com/intl/en/chrome/browser/>`_, or
-    * Microsoft Edge, or
-    * Microsoft Internet Explorer 11.
+    * `Microsoft Edge <https://www.microsoft.com/en-us/edge>`_.
 
-    Please note that, out of all these browsers Google Chrome offers the best performance when running an app with WebUI.
+    Please note that, currently, out of all these browsers Google Chrome offers the best performance when running an app with WebUI.
 
-.. important:: We do our best to provide support when Internet Explorer 11 is the used browser. However, Internet Explorer 11 is a poorer browser for advanced applications like AIMMS WebUI 
-    when compared to Edge or Chrome (i.e., it is slower, less stable, crashes sooner, etc). So, we strongly recommend our users to try and use Edge or Chrome, instead. Please be informed that 
-    in some cases we might decide not to service issues related to Internet Explorer 11 poor performance, where Edge and Chrome show no such issues.
 
 
