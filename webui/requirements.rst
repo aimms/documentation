@@ -42,7 +42,7 @@ Running a WebUI app
 
 In order to **run/use** a web application from the AIMMS PRO portal, the app user needs to have one of the following browsers on the end-user device:
 
-* for iPad and iPhone (iOS devices): 
+* for iPad (iOS operating system): 
     * Safari
 
 * for Windows machines:
