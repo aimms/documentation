@@ -27,4 +27,4 @@ Please note that when using these libraries on AIMMS PRO, it needs access to the
 
 .. note::
 
-	We use `Amazon Cloudfront <https://aws.amazon.com/cloudfront/details/>`_ to distribute the AIMMS libraries in the fastest way. This means content is served from a server that is closest to where AIMMS is attempting to download the library, therefore there is no single IP address associated with the AIMMS library repository. There is however a list of IP ranges that Amazon uses for CloudFront, see https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html"
+	We use `Amazon Cloudfront <https://aws.amazon.com/cloudfront/details/>`_ to distribute the AIMMS libraries in the fastest way. This means content is served from a server that is closest to where AIMMS is attempting to download the library, therefore there is no single IP address associated with the AIMMS library repository. There is however a list of `IP ranges that Amazon uses for CloudFront <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html>`. 
