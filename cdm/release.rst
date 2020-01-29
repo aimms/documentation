@@ -7,8 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
-1.16.0.4 [29-01-2020]
+1.16.0.5 [29-01-2020]
     - Pull changesets being appended to checkout snapshots could represent revision ranges that add root set elements with associated data, and subsequently delete such elements, leading to partially failed checkouts because of inactive data when handling the changeset.
+    - Domain errors when pulling in changes would only appear in log files and not in client session.
 
 1.16.0.3 [22-01-2020]
     - Predeclared identifiers could not be part of any category.
