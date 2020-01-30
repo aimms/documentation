@@ -6,7 +6,6 @@ An AIMMS WebUI-ready application is an ordinary AIMMS application that contains 
 .. image:: images/folderstructurewebui_v2.png
     :align: center
 
-	
 The entire application including *all pages and widgets* is stored in a single ``webui.json`` file. When opening your application in the IDE, the ``webui.json`` file will be automatically generated from your existing setup. During the conversion, only pages and their associated widgets that are actually referenced in the WebUI page manager will be included in the ``webui.json`` file. The conversion will *not* delete the contents of the existing pages, widgets and application folders on disk, allowing you to still use older AIMMS versions, which depend on the old format. If you make changes to the WebUI using older AIMMS versions, you can delete the webui.json file, in which case it will be automatically re-generated. Changes made with AIMMS 4.67 and higher will never be visible in older AIMMS versions.
 
 If you are using version control on your WebUI project, please make sure to add the new webui.json file, and delete the pages, widgets and application folders from version control when you don't plan to use the project with AIMMS version 4.66 and lower any longer. The new format as a true json file will make the structure of the WebUI directly clear, allowing you to resolve merge conflicts in the WebUI much easier. It also makes searching where widgets are used in your WebUI application straightforward.
@@ -17,7 +16,8 @@ Via the `Widget Manager <widget-manager.html>`_ you can add widgets to your WebU
 
 	The information above is valid for AIMMS versions 4.67 and higher. For older AIMMS versions, the following applies:
 	
-	All WebUI `pages <page-manager.html>`_ and `widgets <widget-manager.html>`_ will be stored (by the WebUI Server) in the *pages* and *widgets* subfolder of the *WebUI* folder. 
+	All WebUI `pages <page-manager.html>`_ and `widgets <widget-manager.html>`_ will be stored (by the WebUI Server) respectively in the *pages* and *widgets* subfolders of the *WebUI* folder. 
+
 
 
 Add the **resources** folder
@@ -69,30 +69,29 @@ An example package.json could be:
 CSS styling
 -----------
 
-It is possible to (re)style your web application by providing a custom CSS. The home page in the "MealsRUsWebApp":{TOPIC-LINK+example-project} example shows a small drop-down button in the upper right corner of the page that lets you switch between several example styles. Please note that the class names that are referred to in the CSS might change in the future. Application-specific CSS files should be stored in the *resources/css* subfolder of the *WebUI* subfolder of your project folder. As an example of application-specific styling, the *MealsRUsWebApp* has been extended with a *theme-switch-addon* that consists of some JavaScript and CSS that result in the theme switch drop-down button being shown in the upper right corner of your web application.
+It is possible to (re)style your web application by providing a custom CSS. Application-specific CSS files should be stored in the *resources/css* subfolder of the *WebUI* subfolder of your project folder. 
 
-For more details on this addon, please check `this thread <https://groups.google.com/forum/#!category-topic/aimms/aimms-webui/wWXT91QVNBQ>`_ on our Google Group.
+As an example of application-specific styling, the *MealsRUsWebApp* has been extended with a *theme-switch-addon* that consists of some JavaScript and CSS that result in the theme switch drop-down button being shown in the upper right corner of your web application (please note that the class names that are referred to in the CSS might change in the future). For more details on this addon, please check `this thread <https://groups.google.com/forum/#!category-topic/aimms/aimms-webui/wWXT91QVNBQ>`_ on our Google Group.
 
 For more info on CSS in general, see `this Wikipedia article <https://en.wikipedia.org/wiki/Cascading_Style_Sheets>`_.
 
 Data-Dependent Styling
 ++++++++++++++++++++++
 
-You can define user-annotations in your AIMMS model that will be used to style corresponding so-called `DOM <https://en.wikipedia.org/wiki/Document_Object_Model>`_ elements in the WebUI page. To define user annotations for an identifier :token:`X(i,j,k)` that is being displayed in a widget, you can define a string parameter defined over a valid subdomain of the original identifier. This string parameter should be a space-separated string of class-names (that will be used to decorate the DOM elements with). In the attribute form of the identifier for which you are specifying the annotations, you should add a :token:`webui::AnnotationsIdentifier` annotation and fill in the string parameter containing the annotation(s) there.
+You can define user-annotations in your AIMMS model which will be used to style the corresponding so-called `DOM <https://en.wikipedia.org/wiki/Document_Object_Model>`_ elements in the WebUI page. In order to define user annotations for an identifier :token:`X(i,j)` that is being displayed in a widget, you can define a string parameter, say :token:`DangerValuesOfX(i,j)`, defined over a valid subdomain of the original identifier. This string parameter should have as value a space-separated string of class-names (that will be used to decorate the DOM elements with). In the attribute form of the identifier for which you are specifying the annotations, you should add the :token:`webui::AnnotationsIdentifier` annotation attribute and then fill in the string parameter containing the desired annotation(s) there:
+
+.. image:: images/Annotations_view1.png
+    :align: center
 
 In combination with an additional project-specific `CSS <#css-styling>`_ file, you can then specify the styling on, for example, a per-table-cell basis.
-
-.. tip:: 
-
-    In AIMMS versions prior to 4.49.1, you had to define a string parameter called :token:`X_annotations(i,k)` (with the domain of this 'annotations' identifier being a valid subdomain of the original identifier) in order to achieve the same. This had the disadvantage that when you renamed the original identifier, the '_annotations identifier' was not automatically renamed with it, leading to unexpected effects in your WebUI widgets.
 
 For example, the following 'user annotation'
 
 .. code::	
 
     StringParameter DangerValuesOfX {
-        IndexDomain: (i,k);	
-        Definition: "invalid-value danger" onlyif ( Y(i,k)  >= Y_UB(i,k) );
+        IndexDomain: (i,j);	
+        Definition: "invalid-value danger" onlyif ( Y(i,j)  >= Y_UB(i,j) );
     }
 
 In combination with the following CSS rule
@@ -103,11 +102,22 @@ In combination with the following CSS rule
         background-color : red;
     }
 
-will show all cells in tables (because of the :token:`.td` class), where the annotation has the value :token:`invalid-value` with a red background color. The :token:`DangerValuesOfX` shows a combination of two annotations: :token:`invalid-value` as well as :token:`danger`.
+will show all cells in tables (because of the :token:`.td` class), where the annotation has the value :token:`invalid-value` with a red background color. Note that the :token:`DangerValuesOfX` shows a combination of two annotations: :token:`invalid-value` as well as :token:`danger`, but only the former is used in the example above.
 
 By default, all core WebUI plugins (including widgets) will prefix user annotations with :token:`annotation-` and replace whitespace characters, like spaces or tabs, with a hyphen (-). It is recommended that app developers use this as well. For more information: see `AWF.Util.getAsCSSClasses <#applying- annotations-or-flags>`_.
 
-The WebUI uses flags to indicate whether a certain DOM element corresponds to a *readOnly* value or not. DOM elements that correspond to editable values are annotated with a :token:`flag-editable` CSS class while read-only DOM elements are annotated with a :token:`flag-readOnly` class. You can make data that is editable from a model perspective appear as read-only in the WebUI by using user-flags by defining by a new string parameter in your model :token:`X_flags(i,j)` and set its value to "readOnly" for the (updatable) values that you want to appear as read-only.
+.. note:: 
+     Please note that in AIMMS versions prior to 4.49, you had to define a string parameter called :token:`X_annotations(i,j)` (with the domain of this '_annotations identifier' being a valid subdomain of the original identifier) in order to achieve the same result. This had the disadvantage that when you renamed the original identifier, the '_annotations identifier' was not automatically renamed with it, possibly leading to unexpected effects in the WebUI front-end.
+
+The WebUI uses flags to indicate whether a certain DOM element corresponds to a *readOnly* value or not. DOM elements that correspond to editable values are annotated with a :token:`flag-editable` CSS class while read-only DOM elements are annotated with a :token:`flag-readOnly` class. It is possible to make the data which is editable from a model perspective appear as read-only in the WebUI by using user-flags. One can achieve this as follows: define a new string parameter in the model, say FlagsOfX(i,j), add a :token:`webui::FlagsIdentifier` annotation to the attribute form of the original identifier X, and fill in the new string FlagsOfX(i,j) as the contents of this annotation: 
+
+.. image:: images/Annotations_view2.png
+    :align: center
+
+Finally, one can assign the value "readOnly" to FlagsOfX(i,j) for the (updatable) values of X(i,j) which should appear as read-only in the front-end.
+
+.. note:: 
+     Please note that in AIMMS versions prior to 4.71, you had to define a string parameter called :token:`X_flags(i,j)` (with the domain of this '_flags identifier' being a valid subdomain of the original identifier) in order to achieve the same result. This had the disadvantage that when you renamed the original identifier, the '_flags identifier' was not automatically renamed with it, possibly leading to unexpected effects in the WebUI front-end.
 
 
 Widgets and CSS properties supported for Annotation
@@ -137,7 +147,7 @@ There are several CSS properties that can be changed for each widget that suppor
 | Scalar                 | background, opacity      | font-size, font-family, font-style, font-weight   |
 +------------------------+--------------------------+---------------------------------------------------+
 
-.. Tip:: 
+.. warning:: 
     For Line Chart, Bubble Chart and Map the radius property "r" is supported only on the Chrome browser, and not on IE 11 and Edge browsers.
 
 The Bar Chart, Line Chart, Pie Chart, Gantt Chart, Bubble Chart and Map widget use SVG elements. SVG stands for Scalable Vector Graphics, and uses a coordinates system to draw different vectors, like the rectangles and circles in charts. AIMMS supports the use of the fill and stroke properties for SVG elements. 
@@ -208,7 +218,7 @@ The illustration below shows the use of DIV properties to change the background 
     :align: center
     :scale: 75
 
-.. Tip:: 
+.. tip:: 
     There are hover and select effects on the charts and Map widgets which can be changed, but are not yet supported by AIMMS. If you would like to change the properties of those states as well, please look at our How To document on `changing CSS effects on charts <https://how-to.aimms.com/Articles/315/315-hover-and-select-effects-webui-charts.html>`_.
 
 Highlighting (experimental)
@@ -371,7 +381,7 @@ In the WebUI, units from your AIMMS model will per default be displayed in the T
 
 The units that are displayed follow the Convention identifier in your model that is specified in the Convention attribute of you Main model.
 
-.. tip:: 
+.. note:: 
 
     In AIMMS 4.50 and lower versions, unit support was handled in the manner described below. When opening your WebUI in AIMMS 4.51 or higher, you will automatically get a warning dialog if this 'old-style' unit support is detected. You are encouraged to adapt your model to the new standard.
 
@@ -430,7 +440,7 @@ To provide a translation for a language-locale, e.g. :token:`en-GB`, create a fi
 Element Text
 ++++++++++++
 
-In addition to the project-specific translations, you can also use string parameters from your model to provide translations for set elements in your WebUI applications. You have to specify these through so-called *annotations* in AIMMS. To do so, open the attribute form of a Set identifier and click on the 'Add Annotation' wizard button below the comment attribute:
+In addition to the project-specific translations, you can also use string parameters from your model to provide translations for set elements in your WebUI applications. You can specify these by using the so-called *annotations* in the AIMMS model. To do so, open the attribute form of a Set identifier and click on the 'Add Annotation' wizard button below the comment attribute:
 
 .. image:: images/addannotation.jpg
     :align: center
@@ -448,9 +458,9 @@ Please note that when you display elements of a subset in the WebUI, it will aut
 
 .. important::
 
-    The above mechanism is featured in AIMMS 4.46 and later. If you are still using an older version of AIMMS, the following applies:
+    The above mechanism is featured from AIMMS 4.46 on. If you are still using an older version of AIMMS, the following paragraph applies.
 
-For now, the element text identifiers need to be specified in a project-specific JavaScript resource (located in the :token:`resources` subfolder) that lists the string parameter on a per-index level. For example, a project specific resource with the following contents
+In older AIMMS versions the element text identifiers need(ed) to be specified in a project-specific JavaScript resource (located in the :token:`resources` subfolder) that lists the string parameter on a per-index level. For example, a project specific resource with the following contents
 
 .. code-block:: js
 

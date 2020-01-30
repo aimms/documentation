@@ -15,40 +15,13 @@ This Option Editor consists of several tabs. It depends on the widget type which
 .. contents:: Widget Options List
     :local:
     :depth: 1
-
+       
 .. tip::
-    Option changes are automatically saved to the WebUI Server.
-    
-.. important::
 	From AIMMS 4.66 onwards, the Filter tab is not present anymore in any widget. In existing projects where this functionality is still used, it is still working/supported by the WebUI. However, the preferred way of filtering is by using the newer slicing functionality on any identifier(s) displayed in your widgets. If you want to switch to using the slicing functionality instead of the old filters, you can do so by removing the old filters by either emptying the content in the 'Contents.filters.in' property on the 'Advanced' tab, or by opening the model in a previous AIMMS version to remove the filtering. After that, you should add the correct slicing to your identifier(s).
-    
-Pivot
------
 
-You can pivot the indices in most of the widget types. E.g. you can change which indices should appear in the row or column of a Table widget, or which index should be stacked in a Bar Chart widget. To pivot indices, you should open the `widget options <#widget-options>`_ and go to the Pivot tab:
-
-.. image:: images/WidgetOptions_snap3.png
-    :align: center
-
-There you can drag-and-drop the indices to the different areas in your widget. E.g. in case of a Table widget, to the *Rows*, *Columns* or *Totals* area.
-
-Change Type
------------
-
-You can use all kind of widgets to display your AIMMS data. By changing the type of a widget, you can easily switch between e.g. a table or a chart, without creating a new widget for that. To do so, you should open the `widget options <#widget-options>`_ of your widget and go to the Change Type tab. There you will see the possible types to which you can switch.
-
-
-Store Focus
------------
-
-Some WebUI widgets offer you the possibility to store the (combination of) element(s) that currently have focus in the widget. E.g. in the Table widget you can store the focus cell, in the Bubble chart widget you can store the focus bubble. In WinUI you have similar functionality like this, called 'Reverse Link'. Specifying the Store Focus option opens up all kinds of interactive opportunities. E.g. by changing the focus cell in a table, other widgets could display relevant information for that specific cell.
-
-At the *Store Focus* tab in the `widget options <#widget-options>`_ you will see a list of indices. For each index you can specify the element parameter that should be filled with the element that has the focus in the widget. 
-
-.. image:: images/WidgetOptions_snap4.png
-    :align: center
-    
-The list of indices also includes an index referring to IDENTIFIER-SET. You can specify an element parameter over the set AllSymbols there. This allows you to also store the identifier that currently has focus in the widget. This could be relevant when you display multiple identifiers in your widget.
+.. note::
+    Option changes are automatically saved to the WebUI Server.
+	
 
 Contents
 --------
@@ -64,20 +37,20 @@ You can delete an identifier from *Current Contents* by clicking on the cross on
 
 .. tip::
 
-    In case you cannot find the identifier that you are looking for at *Available Data*, you might need to make sure that the identifier is in the set AllPublicIdentifiers.
+    In case you cannot find the identifier which you are looking for in *Available Data*, you might need to check whether the identifier is present in the (authorization) set `AllPublicIdentifiers <creating.html#public-identifiers>`_.
 
-Additional identifier properties
+Additional Identifier Properties
 ++++++++++++++++++++++++++++++++
 
 For every identifier which you have specified as part of the Contents_ option in your widget you can also specify some additional identifiers in AIMMS in order to indicate certain properties for that identifier. More specifically, for a given identifier :token:`X` you can specify (create in AIMMS) the following:
 
-* :token:`X_annotations` to hold annotations that are put as CSS classes on associated DOM elements in your model. See the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
-* :token:`X_tooltips` to hold a string representing some (additional) info which may be displayed in a tooltip associated with the identifier :token:`X` used by a widget
-* :token:`X_text` to hold additional text to be shown within the DOM element associated with a data tuple. This option is currently only supported by the Gantt chart. The CSS classes defined via the annotations identifier of the identifier :token:`X` itself will also be set for text displayed in the associated DOM element. You can use this, for instance, to change the styling of the displayed text of elements you want your end-users to pay extra attention to. 
+* :token:`X_annotations` to hold WebUI annotations that are put as CSS classes on associated DOM elements in your model. Please see the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
+* :token:`X_flags` to make updatable identifiers appear as read-only in the WebUI. Please see the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
+* :token:`X_text` to hold additional text to be shown within the DOM element associated with a data tuple. This option is currently only supported by the Gantt chart widget in the AIMMS WebUI. The CSS classes defined via the annotations identifier of the identifier :token:`X` itself will also be set for text displayed in the associated DOM element. You can use this, for instance, to change the styling of the displayed text of elements you want your end-users to pay extra attention to. 
     
     * For the Gantt chart, you can set CSS for the task text via ``.tag-ganttchart .label``, possible compounded with the additional CSS classes set via the annotations identifier of the <duration> parameter.
  
-* :token:`X_flags` to make updatable identifiers appear as read-only in the WebUI.  See the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
+* :token:`X_tooltips` to hold a string representing some (additional) info which may be displayed in a tooltip associated with the identifier :token:`X` used by a widget
 * A procedure named :token:`UponChange_X`, which will automatically be run whenever the value of identifier :token:`X` is changed from within the WebUI. AIMMS accepts two forms of an UponChange procedure:
 
    #. a procedure without arguments. You can use this form if you are not interested in the which particular values changed, but do want to get a notification that a change took place
@@ -104,24 +77,64 @@ For every identifier which you have specified as part of the Contents_ option in
    In the above example, ``X`` and ``OldValue`` should have the same type.
     
   The latter form can be used, for instance, to detect which tasks in a Gantt chart has moved, or to act upon a block edit in a table.
-  
 
+Identifier Annotations
+++++++++++++++++++++++
 
+The kind of additional identifier properties discussed above may be specified more elegantly by using the so-called *annotations* in the AIMMS model. 
+
+.. important::
+	This feature is available for '_annotations' kind of properties starting from AIMMS 4.49 on and for '_flags', '_text", and '_tooltips' kind of properties starting from AIMMS 4.71 on.
 	
-	
-Adding tooltips
-+++++++++++++++
+	It is referred to as the "new style annotations" (versus the "old style annotations" as discussed in the previous section). These new style annotations are the recommended ones from the moment they became available in AIMMS.
 
-Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed. 
-However, they can also be completely user-defined, giving the user maximum freedom in determining the contents to be shown. 
-In order to create your user-defined tooltips, you should add an auxiliary string parameter to your AIMMS model, called :token:`X_Tooltips`, where :token:`X` is the name of 
-an existing identifier that is displayed in the widget(s) for which you want to override the default tooltips. This auxiliary identifier must have the same index domain 
-as the corresponding model identifier. For example, consider the following table, which shows aircraft types for specific flights:
+To start with, in the attribute form of the identifier for which you want to specify annotations, you can add the :token:`webui::AnnotationsIdentifier` annotation attribute and then fill in the string parameter containing the desired annotations there:
 
-.. image:: images/defaulttooltip.jpg
+.. image:: images/Annotations_view1.png
     :align: center
 
-As you can see, hovering over the cell with value 'A319' just shows this value in the default tooltip. In order to change that, in addition to the displayed :token:`AircraftType(a1, a2, dt)` identifier, the auxiliary :token:`AircraftType_Tooltips(a1, a2, dt)` identifier is added to the model. When using the following definition:
+The specified string parameter should have as value a space-separated string of class-names (that will be used to decorate the so-called DOM elements with in the front-end). Such a string may be then used in combination with an additional project-specific `CSS <folder.html#css-styling>`_ file in order to define or refine the styling of some parts of the WebUI which reference the original identifier. Please see the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
+
+The string parameter used in the annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier. Therefore,  when the original identifier is renamed, one no longer needs to rename the annotation parameter accordingly.
+
+If an identifier X does not have the :token:`webui::AnnotationsIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_annotations` discussed above, if this is present in the model.
+
+Similarly, in the attribute form of the identifier for which you want to specify flags, you can add the :token:`webui::FlagsIdentifier` annotation attribute and then fill in the string parameter containing the desired flags there:
+
+.. image:: images/Annotations_view2.png
+    :align: center
+
+Again, such a string may be then used for front-end styling purposes, please see the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details. Also, the string parameter used in the flags annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier.
+
+If an identifier X does not have the :token:`webui::FlagsIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_flags` discussed previously, if this is present in the model.
+
+Next, in the attribute form of the identifier for which you want to specify some item text, you can add the :token:`webui::ItemTextIdentifier` annotation attribute and then fill in the string parameter containing the desired item text there:
+
+.. image:: images/Annotations_view3.png
+    :align: center
+
+Again, the string parameter used in the item text annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier. The specified string for the item text is currently only used by the Gantt chart widget in the AIMMS WebUI. For example, in case the item text string has a value like "Selected Time Interval" for some block in a timeline Gantt chart, this text will appear on the correspoding block in the Gantt chart widget:
+
+.. image:: images/Annotations_view4_Gantt_text.png
+    :align: center
+
+If an identifier X does not have the :token:`webui::ItemTextIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_text` discussed above, if this is present in the model.
+
+Last (but not least), we come to the identifier annotations related to tooltips. Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed.  However, they can also be completely user-defined, giving the user freedom in determining the contents to be shown. 
+In order to create user-defined tooltips, in the attribute form of the identifier for which you want to specify tooltips, you can add the :token:`webui::TooltipIdentifier` annotation attribute and then fill in the auxiliary string parameter containing the desired tooltips there:
+
+.. image:: images/Annotations_view4.png
+    :align: center
+
+Such an auxiliary string parameter may have any name of choice, but must have the same index domain as the corresponding model identifier. 
+
+For example, consider the following table, which shows aircraft types for specific flights through the identifier :token:`AircraftType` for which you want to override the default tooltips:
+
+.. image:: images/Annotations_default_tooltip.png
+    :align: center
+
+As one can see, hovering over the cell with value 'A319' just shows this value in the default tooltip. In order to change this, in addition to the displayed :token:`AircraftType(a1,a2,dt)`, the auxiliary :token:`AircraftTypeInfo(a1,a2,dt)` string parameter is added to the model and filled into the :token:`webui::TooltipIdentifier` annotation attribute of the original :token:`AircraftType` identifier. 
+When using the following definition for :token:`AircraftTypeInfo(a1,a2,dt)`:
 
 .. code::
 
@@ -129,12 +142,19 @@ As you can see, hovering over the cell with value 'A319' just shows this value i
 
 the result when hovering over the same cell as above looks like this:
 
-.. image:: images/userdefinedtooltip.jpg
+.. image:: images/Annotations_user_tooltip.png
     :align: center
 
+If an identifier X does not have the :token:`webui::TooltipIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_tooltips` discussed above, if this is present in the model.
+
+.. note::
+	Upon starting up a project AIMMS checks whether ther are old style annotations in your model and if so, AIMMS points them up and recommends updating to new style annotations. 
+	 
+	This is controlled through the project option *Check_for_old_style_WebUI_annotations*, which has default value 'Yes'. When this option is set to 'No', the checking step is skipped upon project startup.
+	
 .. warning::
    **Security Warning:** 
-   Putting JavaScript code in an identifier (like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
+   Putting JavaScript code in an identifier (like the string filled in the :token:`webui::TooltipIdentifier` annotation attribute or like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
    would allow a malicious user to do `Persistent XSS <https://en.wikipedia.org/wiki/Cross-site_scripting#Persistent_(or_stored)>`_.
    For example a malicious user could record all actions done by another user.	
 	
@@ -142,16 +162,25 @@ HTML Tooltips
 +++++++++++++
 
 Besides the simple text-based tooltips illustrated above, one may also use HTML-based tooltips, which allow to display more sophisticated contents when hovering over the data entries in a widget.
-In this case the data of the string parameter :token:`X_Tooltips` (associated with an identifier :token:`X`) must be in HTML format; for more info on HTML, 
-see for example `html.com <https://html.com/>`_ or `www.w3schools.com <https://www.w3schools.com/html/>`_ .
+In this case the data of the string parameter filled in the :token:`webui::TooltipIdentifier` annotation attribute (or the data of the old style :token:`X_Tooltips` associated with an identifier :token:`X`) must be in HTML format. For more info on HTML in general, please see for example websites like `html.com <https://html.com/>`_ or `www.w3schools.com <https://www.w3schools.com/html/>`_ .
 
 Next we illustrate this feature based on some concrete examples for various widgets.
 
 Suppose the data of a 2-dimensional parameter DailyNumberOfPassengers(i1,i2) is shown in a table widget, where i1 and i2 are alias indexes in a set Islands. 
-One can declare the string parameter DailyNumberOfPassengers_Tooltips(i1,i2) and defined its HTML data value as follows:
+One can declare the string parameter DailyNumberOfPassengersInfo(i1,i2) to be filled in the :token:`webui::TooltipIdentifier` annotation attribute and defined its HTML data value in the AIMMS model as follows:
 
-.. image:: images/Def_Tooltip_DailyNumberOfPassengers.png
-    :align: center
+.. code::
+
+	FormatString(
+	"<div align=\"left\"> <font size=\"+1\" color=\"green\" face=\"times new roman\"> <i>From:</i> %e <br><font color=\"white\"> <i>To:</i> %e <br><font color=\"red\"> <i>Pax:</i> %n", 
+	i1, 
+	i2, 
+	DailyNumberOfPassengers(i1,i2)
+	);
+
+.. The following is part is commented out
+   .. image:: images/Def_Tooltip_DailyNumberOfPassengers.png
+      :align: center
 
 In this case the tooltip for a cell in the table looks like in the following picture:
 
@@ -163,13 +192,22 @@ In this case the tooltip for a cell in the table looks like in the following pic
    Where in a simple text-based tooltip you used \\n to move to a new line, in a HTML-based tooltip this needs to be replaced by <br>, see example above.
    Similarly, the usage of \\t in text-based tooltips should be replaced by HTML tables, see further below.
 
-Next, suppose that the data of a 1-dimensional parameter TotalCostPerIsland(i) is rendered in a barchart widget. A HTML-based tooltip may be added by the string parameter
-TotalCostPerIsland_Tooltips(i) defined as
+Next, suppose that the data of a 1-dimensional parameter TotalCostPerIsland(i) is rendered in a barchart widget. A HTML-based tooltip may be added to the :token:`webui::TooltipIdentifier` annotation attribute of this parameter by using an auxiliary string parameter, say TotalCostPerIslandInfo(i), defined in the AIMMS model as
 
-.. image:: images/Def_Tooltip_TotalCostPerIsland.png
-    :align: center
+.. code::
 
-where for each element i of a set Islands, IslandImageURLs(i) is a string parameter holding the web URL of a corresponding (island) image. 
+	FormatString(
+	"<font size=\"-1\" color=\"orange\"> Total cost %e: %n <br><img src=\"%s\" width=\"180\">", 
+	i, 
+	TotalCostPerIsland(i), 
+	IslandImageURLs(i)
+	);
+
+.. The following is part is commented out
+   .. image:: images/Def_Tooltip_TotalCostPerIsland.png
+       :align: center
+
+where for each element i of the set Islands, IslandImageURLs(i) is a string parameter holding the web URL of a corresponding (island) image. 
 In this case the tooltip for a bar in the chart looks like in the following picture:
 
 .. image:: images/Tooltip_Barchart_1.png
@@ -181,59 +219,105 @@ Of course, one can easily change type of the widget to linechart, piechart, or t
     :align: center
 
 In case the costs of all islands were aggregated in a scalar parameter TotalCostALLIslands which is then shown in a scalar widget, a similar HTML-based tooltip contents may be added 
-as well in the TotalCostALLIslands_Tooltips string parameter, which may be defined for instance as follows:
+using a TotalCostALLIslandsInfo string parameter in the :token:`webui::TooltipIdentifier` annotation attribute of TotalCostALLIslands. This string parameter may be defined in the AIMMS model for instance as follows:
 
-.. image:: images/Tooltip_Scalar_Def_1.png
-    :align: center
+.. code::
 
-.. note::
-   **Using Application-Specific Resources:** 
-   By using a string of the form *"/app-resources/resources/images/Canarias.png"* like illustrated in this example at hand, one may refer to an image included in the *resources/images* subfolder of the 
-   `WebUI folder <folder.html>`_ of the application directory.
-   
-In this case the tooltip in the WebUI looks like in the following picture:
+	FormatString(
+	"<font size=\"-1\" color=\"orange\"> Total costs all islands: %n <br><img src=\"%s\" width=\"180\">",  
+	TotalCostALLIslands,
+	ALLIslandsImageURL
+	);
+
+.. The following is part is commented out
+   .. image:: images/Tooltip_Scalar_Def_1.png
+       :align: center
+
+where ALLIslandImageURL is a string parameter holding the web URL of a corresponding (all islands) image. In this case the tooltip in the WebUI looks like in the following picture:
 
 .. image:: images/Tooltip_Scalar_1.png
     :align: center
-
+	
+.. note::
+   **Using Application-Specific Resources:** 
+   By using a string of the form *"/app-resources/resources/images/Canarias.png"*, one may refer to an image included in the *resources/images* subfolder of the `WebUI folder <folder.html>`_ of the application directory.
+   
 Now, suppose that some aircraft data is shown in a bubblechart, where the size of the bubbles is determined by a parameter NumberOfSeats(p) with p being the index of a set Planes.
-Again, one may add a string parameter NumberOfSeats_Tooltips(p) defined for example by using the HTML data value as shown here on the right:  
+Again, one may add and fill in a string parameter NumberOfSeatsInfo(p) to the :token:`webui::TooltipIdentifier` annotation attribute of NumberOfSeats. This string parameter may be defined for example by using the HTML data value as shown here:  
 
-.. image:: images/Tooltip_Bubblechart_contentsDef.png
-    :align: center
+.. code::
 
-Then the resulting tooltip in the bubblechart widget looks as follows:
+	FormatString(
+	"<font size=\"+1\" color=\"yellow\">%e: %n seats <br><img src=\"%s\" width=\"200\">", 
+	p, 
+	NumberOfSeats(p), 
+	PlaneImageURL(p)
+	);
+
+.. The following is part is commented out
+   .. image:: images/Tooltip_Bubblechart_contentsDef.png
+       :align: center
+
+where for each element p of the set Planes, PlaneImageURL(p) is a string parameter holding the web URL of a corresponding (plane) image. Then the resulting tooltip in the bubblechart widget looks as follows:
 
 .. image:: images/Tooltip_Bubblechart_1.png
     :align: center
 
 Finally, suppose that in a Gantt chart widget we show some schedule data for several activities performed by a few people, with the duration given by the data of a parameter JobDuration(pe,j),
-where ``pe`` is the index of the set Persons and ``j`` is the index of the set ``Jobs``. When using the default tooltip, the info for a block in the chart is rendered as:
+where "pe" is the index of the set Persons and j is the index of the set Jobs. When using the default tooltip, the info for a block in the chart is rendered as:
 
 .. image:: images/Tooltip_Ganttchart_0.png
     :align: center
 
-However, one may customize the info by adding a string parameter JobDuration_Tooltips(pe,j) defined for example like here on the right:
+However, one may customize the info by adding a string parameter JobDuration_Tooltips(pe,j) to the :token:`webui::TooltipIdentifier` annotation attribute of JobDuration, holding HTML data for example as shown here:
 
-.. image:: images/Tooltip_Ganttchart_contentsDef.png
-    :align: center
+.. code::
+
+	"<div align=\"left\">"  +
+	"<Table>" +
+		"<TR>"  +
+			"<TD>"  +
+					"<B> Person : </B>" +
+			"</TD>" +
+			"<TD>"  +
+					pe +
+			"</TD>" +
+		"</TR>" +
+		"<TR>"  +
+			"<TD>"  +
+					"<B> Activity : </B>" +
+			"</TD>" +
+			"<TD>"  +
+					j +
+			"</TD>" +
+		"</TR>" +
+		"<TR>"  +
+			"<TD>"  +
+					"<B> Duration : </B>" +
+			"</TD>" +
+			"<TD>"  +
+					JobDuration(pe,j) +
+			"</TD>" +
+		"</TR>" +		
+	"</Table>"
+
+.. The following is part is commented out
+   .. image:: images/Tooltip_Ganttchart_contentsDef.png
+       :align: center
 
 In this case, the customized tooltip based on the HTML table layout (see also the Note above regarding HTML format) looks like in the following picture:
 
 .. image:: images/Tooltip_Ganttchart_1.png
     :align: center
 
+If you do not want to show the default tooltips for certain identifiers or data items, you can make this possible by clearing or emptying the data for the respective identifier or data point in the string parameter defining the tooltips.  
 
-If you do not want to show the default tooltips for certain identifiers or data items, you can make this possible by clearing or emptying the data for the respective identifier or data point in the _tooltips identifier.  
-
-For example, consider the below table. You do not want to show the tooltip with the same value as the cell value, or if the value of a cell is 0.
-
+For example, consider the table below. Say, you do not want to show the tooltip with the same value as the cell value, or if the value of a cell is 0.
 
 .. image:: images/Tooltip_default_table.png
     :align: center
 
-
-In the _tooltips identifier, just clear/empty the data for these specific cases that you desire to hide the tooltip for.
+Then in the string parameter defining the tooltips, you can just clear/empty the data for these specific cases that you desire to hide the tooltip for.
 
 
 .. image:: images/Tooltip_Hidedefault_table.png
@@ -249,28 +333,8 @@ In the _tooltips identifier, just clear/empty the data for these specific cases 
 
 
 .. note::
-    The feature to hide tooltips is available only in AIMMS releases from 4.65 onwards. 
+    This feature fro hiding tooltips is available only in AIMMS releases starting from version 4.65 onwards. 
 
-
-Totals
-------
-
-You can add totals, i.e. aggregators of (numerical) values to most widget types, such as tables or bar charts. To do so, open the `Widget Options <widget-options.html>`_ and go to the Totals tab:
-
-.. image:: images/New_Totals_Options.png
-    :align: center
-
-For each index in your widget, you can turn on one or several aggregators, such as summation, mean value, count of the number of entries, minimum value, maximum value. Clearly, adding such totals results in additional data being displayed in the widget view. For example, activating the "Total sum" aggregator for one index adds up all (numerical) values corresponding to that index and displays the resulting sum as an additional value in the widget view:
-
-.. image:: images/New_Totals_totalsum.png
-    :align: center
-
-If no display domain has been specified for the shown identifier, then the "Sum" aggregator has the same effect (ie, same value) as the "Total sum" aggregator. However, if a restricting display domain has been specified such that the widget displays less values than the full identifier domain, then the "Sum" aggregator only considers the displayed values, whereas the "Total sum" aggregator still considers all the values from the full domain. Consequently, in this case the "Sum" and the "Total sum" aggregators may result in different values being added to the widget view:
-
-.. image:: images/New_Totals_w_DisplayDomain_view.png
-    :align: center
-
-In case of an active display domain, the differences between the other aggregators, e.g. between "Mean" and "Total mean", between "Count" and "Total count", etc, are similar to the difference between "Sum" and "Total sum" illustrated above.
 
 Identifier Settings
 -------------------
@@ -349,7 +413,7 @@ As expected, this table only shows the rows for which the molecules contain an O
 
 .. warning ::
     
-    Please be aware that you should define the display domain rigorously over **the same set** (or subset) than the identifier shown.
+    Please be aware that you should define the display domain rigorously over **the same set** (or subset) as the domain of the shown identifier.
 
 Slicing
 +++++++
@@ -485,9 +549,76 @@ In this case, the layout of the data in the table widget looks like in the follo
 So, in this table all the data of the above mentioned identifiers is shown together, while the Pivoting section of the table only consider 2 indexes instead of the 5 original indexes used in the
 model declarations. All the cells which show no value are simply empty ("outside-domain") and not editable in the table.
 
-	
+
+Pivot
+-----
+
+You can pivot the indices in most of the widget types. E.g. you can change which indices should appear in the row or column of a Table widget, or which index should be stacked in a Bar Chart widget. To pivot indices, you should open the `widget options <#widget-options>`_ and go to the Pivot tab:
+
+.. image:: images/WidgetOptions_snap3.png
+    :align: center
+
+There you can drag-and-drop the indices to the different areas in your widget. E.g. in case of a Table widget, to the *Rows*, *Columns* or *Totals* area.
+
+
+Store Focus
+-----------
+
+Some WebUI widgets offer you the possibility to store the (combination of) element(s) that currently have focus in the widget. E.g. in the Table widget you can store the focus cell, in the Bubble chart widget you can store the focus bubble. In WinUI you have similar functionality like this, called 'Reverse Link'. Specifying the Store Focus option opens up all kinds of interactive opportunities. E.g. by changing the focus cell in a table, other widgets could display relevant information for that specific cell.
+
+At the *Store Focus* tab in the `widget options <#widget-options>`_ you will see a list of indices. For each index you can specify the element parameter that should be filled with the element that has the focus in the widget. 
+
+.. image:: images/WidgetOptions_snap4.png
+    :align: center
+    
+The list of indices also includes an index referring to IDENTIFIER-SET. You can specify an element parameter over the set AllSymbols there. This allows you to also store the identifier that currently has focus in the widget. This could be relevant when you display multiple identifiers in your widget.
+
+
+Totals
+------
+
+You can add totals, i.e. aggregators of (numerical) values to most widget types, such as tables or bar charts. To do so, open the `Widget Options <widget-options.html>`_ and go to the Totals tab:
+
+.. image:: images/New_Totals_Options.png
+    :align: center
+
+For each index in your widget, you can turn on one or several aggregators, such as summation, mean value, count of the number of entries, minimum value, maximum value. Clearly, adding such totals results in additional data being displayed in the widget view. For example, activating the "Total sum" aggregator for one index adds up all (numerical) values corresponding to that index and displays the resulting sum as an additional value in the widget view:
+
+.. image:: images/New_Totals_totalsum.png
+    :align: center
+
+If no display domain has been specified for the shown identifier, then the "Sum" aggregator has the same effect (ie, same value) as the "Total sum" aggregator. However, if a restricting display domain has been specified such that the widget displays less values than the full identifier domain, then the "Sum" aggregator only considers the displayed values, whereas the "Total sum" aggregator still considers all the values from the full domain. Consequently, in this case the "Sum" and the "Total sum" aggregators may result in different values being added to the widget view:
+
+.. image:: images/New_Totals_w_DisplayDomain_view.png
+    :align: center
+
+In case of an active display domain, the differences between the other aggregators, e.g. between "Mean" and "Total mean", between "Count" and "Total count", etc, are similar to the difference between "Sum" and "Total sum" illustrated above.
+
+
+Change Type
+-----------
+
+You can use all kind of widgets to display your AIMMS data. By changing the type of a widget, you can easily switch between e.g. a table or a chart, without creating a new widget for that. To do so, you should open the `widget options <#widget-options>`_ of your widget and go to the Change Type tab. There you will see the possible types to which you can switch.
+
+Miscellaneous
+-------------
+
+Several widget options which are easier to specify are available under the *Miscellaneous* tab of the widget option editor.
+
+Number of decimals
+++++++++++++++++++
+
+You can change the number of decimals for a widget:
+
+* Open the `option editor <widget-options.html>`_ for the widget
+* Go to the *Miscellaneous* tab, and
+* Change the *Decimal Points* option.
+
+The number of decimals displayed has a limit, the **default** is 2 decimals.
+
+
 Hiding Widgets
---------------
+++++++++++++++
 
 .. |eye-blue| image:: images/eye-blue.png
 
@@ -510,19 +641,6 @@ to make sure that only finance people and people from the management can see one
 .. important:: 
 
     Please note that if you want to make sure that *not* all your users can see all available data (e.g. because some of it is confidential), hiding certain widgets is not sufficient. Users can still create new widgets for showing all available data. To avoid this, you need to adapt the set `AllPublicIdentifiers <creating.html#public-identifiers>`_, such that it only contains the identifiers that the current user is allowed to see. Furthermore, you need to make sure that users cannot edit the parameter that you specified for the Visible option (e.g. by giving it a definition).
-
-
-
-Number of decimals
-------------------
-
-You can change the number of decimals for a widget:
-
-* Open the `option editor <widget-options.html>`_ for the widget
-* Go to the *Miscellaneous* tab, and
-* Change the *Decimal Points* option.
-
-The number of decimals displayed has a limit, the **default** is 2 decimals.
 
 
 Widget Actions
