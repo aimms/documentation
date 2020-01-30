@@ -14,7 +14,7 @@ Here you can find a summary of the steps to be taken for creating a WebUI for yo
 
 .. note::
 
-    There is a known problem with Internet Explorer 11: if you face a blue screen after starting your WebUI app in the browser, you should verify that the setting "Display Intranet Sites in Compatibility View" is set to unchecked. You can find this option under "Compatibility View Options" in the main menu of IE11.
+    As mentioned in `Requirements <requirements.html>`_ section, support for Internet Explorer 11 has been deprecated. Should you nevertheless run IE11, please note that there is a known problem: if you face a blue screen after starting your WebUI app in the browser, you should verify that the setting "Display Intranet Sites in Compatibility View" is set to unchecked. You can find this option under "Compatibility View Options" in the main menu of IE11.
 
     
 Authorizing model content for use in the WebUI
