@@ -69,9 +69,7 @@ An example package.json could be:
 CSS styling
 -----------
 
-It is possible to (re)style your web application by providing a custom CSS. Application-specific CSS files should be stored in the *resources/css* subfolder of the *WebUI* subfolder of your project folder. 
-
-As an example of application-specific styling, the *MealsRUsWebApp* has been extended with a *theme-switch-addon* that consists of some JavaScript and CSS that result in the theme switch drop-down button being shown in the upper right corner of your web application (please note that the class names that are referred to in the CSS might change in the future). For more details on this addon, please check `this thread <https://groups.google.com/forum/#!category-topic/aimms/aimms-webui/wWXT91QVNBQ>`_ on our Google Group.
+It is possible to (re)style your web application by providing custom Cascading Style Sheets (CSS). Application-specific CSS files should be stored in the *resources/css* subfolder of the *WebUI* subfolder of your project folder. 
 
 For more info on CSS in general, see `this Wikipedia article <https://en.wikipedia.org/wiki/Cascading_Style_Sheets>`_.
 
@@ -329,11 +327,6 @@ The prefixed annotation or flag should still be properly escaped for use in a se
     .my-widget.flag-readOnly {
         color: #808080;
     }
-
-Switching The Color Palette
-+++++++++++++++++++++++++++
-
-In order to check the color palette of your WebUI project, please read this `thread <https://groups.google.com/forum/#!category-topic/aimms/aimms-webui/RvM8E_9QIVg>`_ on our Google Group for details on how to accomplish this.
 
 Custom Icon Sets
 ++++++++++++++++
