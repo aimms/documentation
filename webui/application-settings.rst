@@ -334,3 +334,8 @@ Data Manager Hidden
 +++++++++++++++++++
 
 This is a logical condition which determines whether or not the Data Manager button on the menu bar is visible or is hidden.
+
+Menu Hidden
++++++++++++
+
+This is a logical condition which determines whether or not the dropdown navigation menu is visible or is hidden.
