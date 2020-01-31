@@ -7,8 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
-1.16.0.6 [30-01-2020]
+1.16.0.7 [30-01-2020]
     - Having predeclared identifiers in :token:`cdm::AllCDMIdentifiers` would make the call to :token:`AttributeToString` fail PRO solver sessions.
+    - Add :token:`cdm::IdentifierOrderOverride` to CDM library to allow manually setting identifier order for category identifiers set via :token:`cdm::IdentifierCategoryOverride`.
     
 1.16.0.5 [29-01-2020]
     - Pull changesets being appended to checkout snapshots could represent revision ranges that add root set elements with associated data, and subsequently delete such elements, leading to partially failed checkouts because of inactive data when handling the changeset.
