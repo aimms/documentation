@@ -5,6 +5,9 @@ The first public release of DataLink was version 1.0.0.106, release date January
 
 New Features and Bug Fixes
 --------------------------
+1.1.1.13 [30-01-2020]
+    - Extra validation check in AddDataSourceMapping
+
 1.1.1.7 [05-12-2019]
     - Support for parameters with integer range in CSVProvider
     - Support for double quote escaping in CSVProvider
