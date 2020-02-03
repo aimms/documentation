@@ -13,7 +13,7 @@ when using widget configuration options available to them while running the WebU
 .. toctree::
 
    getting-started
-   menu-bar
+   webui-app-development
    folder
    library
    background
