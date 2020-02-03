@@ -1,9 +1,8 @@
+Widget Options
+==============
+
 .. |cog-widget| image:: images/WidgetOptions_snap1.png
 .. |widget-action| image:: images/widget-actions.png
-
-
-Widget Options
-=================
 
 The ‘cog wheel’ button |cog-widget| (in the upper right corner of a widget) will open a pop-up window that allows you to change the options for the widget. 
 

@@ -21,7 +21,7 @@ Via the `Widget Manager <widget-manager.html>`_ you can add widgets to your WebU
 
 
 Add the **resources** folder
-------------------------------
+----------------------------
 
 In order to use any of the following listed features, you will need to create a new folder called **resources** (case sensitive), located in:
 
@@ -33,7 +33,7 @@ This folder will be loaded each time the WebUI will start, or at every reload (F
     :align: center
 
 Images
--------
+------
 
 Application-specific images should be stored in the *resources/images* subfolder. This folder is not created by default, so you need to create it yourself the very first time that you need it.
 
