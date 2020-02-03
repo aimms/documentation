@@ -1,5 +1,5 @@
-Quick Start: My First WebUI App
-===============================
+Quick Start: My First WebUI App 
+================================
 
 This section illustrates how to create quickly a first Web-based User Interface (WebUI) for a simple Transport Network (TransNet) application using a set of locations divided in two (disjoint) subsets of factories and distribution centers. Each factory has an amount of supply of a product and each distribution center has some demand for that product. Decisions have to be made on how much to transport from a factory to a distribution center in order to satisfy demand, while not exceeding the available supply. Unit transport costs are associated with any pair of factory and distribution center and the transport decisions aim to minimize the total transport cost for the entire network. 
 

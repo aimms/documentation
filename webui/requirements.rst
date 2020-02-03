@@ -1,5 +1,5 @@
-Requirements
-============
+Requirements 
+=============
 
 For general system requirements for running an AIMMS WebUI application under AIMMS PRO or AIMMS Cloud, please refer to the corresponding sections in the 
 `PRO <../pro/system-requirements.html>`_ or `Cloud <../cloud/requirements.html>`_ documentation. 
