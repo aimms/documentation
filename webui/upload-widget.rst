@@ -1,5 +1,5 @@
 Upload Widget
-==================
+=============
 
 The Upload widget and the related :doc:`download-widget` achieve complementary tasks.
 
@@ -10,7 +10,7 @@ With the Upload Widget, end-users can upload a file to the AIMMS application, wh
 
     
 Creating an Upload Widget
-----------------------------
+-------------------------
 
 After adding a new Upload widget to your WebUI page, you need to link it with an AIMMS procedure using the options editor of the Upload widget. This procedure needs to have three arguments in the exact way as below. 
 
@@ -35,7 +35,7 @@ After adding a new Upload widget to your WebUI page, you need to link it with an
 
     
 FileLocation
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
 The upload widget always copies the file to be uploaded to a location depending on which AIMMS environment you are using. ``FileLocation`` contains the name of the uploaded file. 
 
@@ -83,13 +83,13 @@ As your widget is expected to upload a file, the status ``OK`` is expected if al
    Please note that these status codes are standard HTTP status codes. For further reference, please go to https://en.wikipedia.org/wiki/List_of_HTTP_status_codes 
     
 StatusDescription
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 The ``StatusDescription`` argument can be used to display custom text as the status messages in the Upload widget. 
 
 
 Example
-----------
+-------
 
 An example for the body of the Upload procedure is shown below. This particular example shows how to upload and read a text file. An example AIMMS project which illustrates the usage of this procedure can be downloaded from :download:`here <resources/DownloadWidgetExample.7z>`.
 

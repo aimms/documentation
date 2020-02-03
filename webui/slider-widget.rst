@@ -1,5 +1,5 @@
 Slider Widget
-=================
+=============
 
 The slider widget allows you to show an intuitive slider with which the user of the WebUI page can specify scalar values between specified boundaries. Please note that the parameter that you specify does not necessarily need to be a scalar one: you can use multi-dimensional parameters, which you can then slice to select a specific fixing of the indices.
 

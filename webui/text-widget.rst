@@ -1,5 +1,5 @@
 Text Widget
-==============
+===========
 
 .. |link-button| image:: images/link-button.png
 

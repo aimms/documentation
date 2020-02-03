@@ -1,5 +1,5 @@
 Button Widget
-==============
+=============
 
 The Button widget allows the user to execute an action upon clicking on it. The type of action executed is determined by the widget settings:
 

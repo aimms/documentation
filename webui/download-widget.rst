@@ -1,5 +1,5 @@
 Download Widget
-====================
+===============
 
 The Download widget and the related :doc:`upload-widget` achieve complementary tasks.
 

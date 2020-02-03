@@ -1,6 +1,5 @@
-**************
 Page Settings
-**************
+*************
 
 .. |page-settings| image:: images/PageSettings_snap1.png
 

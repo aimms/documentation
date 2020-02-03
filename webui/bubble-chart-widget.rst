@@ -1,5 +1,5 @@
 Bubble Chart Widget
-====================
+===================
 
 The Bubble Chart widget offers the possibility to display 3 aspects of information about set elements in your model. 
 It uses an X/Y-plane to display circles (the so-called *bubbles*) for each data point. 
