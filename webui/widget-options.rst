@@ -1,5 +1,5 @@
-Widget Options
-==============
+Widget Options 
+===============
 
 .. |cog-widget| image:: images/WidgetOptions_snap1.png
 .. |widget-action| image:: images/widget-actions.png
