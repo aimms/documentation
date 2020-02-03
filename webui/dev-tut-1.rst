@@ -21,7 +21,7 @@ familiar with `jQuery <http://jquery.org>`_ and, to lesser extent,
 `jQuery UI <https://jqueryui.com>`_, as AIMMS WebUI is built on top of these technologies.
 
 Let's start - A quick introduction to AWF
-+++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------
 
 Extending the AIMMS WebUI by writing your own widgets is not a complicated task. It is useful to have at least a basic understanding of what is involved. Let's look at those key components now. For the sake of simplicity we will only concentrate on the stuff that is running in the browser, which we will call
 the *AIMMS WebUI Runtime*.
@@ -41,7 +41,7 @@ such a change by updating its associated DOM element. Likewise, if the associate
 can update its option values and thereby make changes in a model.
 
 The basic components of a widget
-++++++++++++++++++++++++++++++++
+--------------------------------
 
 In AWF, a widget consists of two parts:
  
@@ -49,7 +49,7 @@ In AWF, a widget consists of two parts:
 * a widget *factory*.
  
 The widget itself
-^^^^^^^^^^^^^^^^^
++++++++++++++++++
 
 The widget itself has the responsibility of keeping its associated DOM element synchronized with the underlying
 model. This means that it typically creates child DOM elements under its associated DOM element, that it will
@@ -62,7 +62,7 @@ case this is also the responsibility of the widget itself.
     In software engineering this is often called a `model-view-controller <http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller>`_ (MVC) software pattern, but, as promised, in this tutorial we will refrain from such a theoretical approach.
     
 The widget factory
-^^^^^^^^^^^^^^^^^^
+++++++++++++++++++
 
 The widget factory is mainly responsible for starting and terminating the lifecycle of a widget whenever AWF
 requests this. This means that it takes care of widget construction and destruction.
@@ -76,7 +76,7 @@ Finally, a widget factory takes care of registering the primary options and opti
 widget.
 
 A final note on Widgets, Factories and AWF
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++++++++++
 
 It is good to know that a widget *itself* interacts with AWF on a *per-widget basis* (for instance,
 only a single widget is informed when its model changes), and that a widget *factory* interacts with AWF
@@ -85,7 +85,7 @@ What this means exactly, and what the implications are, will be explained in lat
 this distinction in mind.
 
 Your first custom widget
-++++++++++++++++++++++++
+------------------------
 
 We are now ready to start creating our first custom widget. We will develop this widget within a running
 WebUI app (in development mode), as we think this is the most convenient way (but feel free to use whatever

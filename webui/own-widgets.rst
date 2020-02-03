@@ -1,10 +1,10 @@
 Developing Custom Widgets
-========================= 
+*************************
 
 Building apps with WebUI does not require any programming skills and the growing built-in widget collection will increasingly cover all your possible requirements for building wonderful apps. However, we do offer the option to add your own widget types, for example adding company-specific data visualizations. The following paragraph describes how to get started.
 
 Open-sourcing WebUI
--------------------
+===================
 
 The AIMMS Widget Framework (AWF) is intended to be a user-extendable framework on which the AIMMS WebUI is based. This allows you to add or modify AWF functionality to meet the requirements of your specific AIMMS WebUI-based application.
 
@@ -31,15 +31,15 @@ Header included in each open-sourced file:
 
     A commercial use license is available from AIMMS B.V. as part of the AIMMS PRO offering.
  
-Creating a custom widgets
--------------------------
+Creating custom widgets
+=======================
  
 AWF allows you to create custom widgets. However, creating your own widgets requires (advanced) knowledge of the AIMMS Widget Framework (AWF), HTML5/JavaScript/CSS and the Cube Server data interface. 
 
 If you want to explore developing your own widgets, please take a closer look at the code for a sample simple-table-widget.
 
 Widget development tutorial
----------------------------
+===========================
 
 To get you up-and-running with minimal effort, in the first few tutorials will try to minimize background information and only explain the essentials. Later tutorials will then provide means of explaining the underlying design decisions.
 
