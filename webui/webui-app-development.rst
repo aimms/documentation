@@ -1,5 +1,5 @@
 WebUI App Development
-*********************
+**********************
 
 .. |menu-bar-new| image:: images/page_menu_new.png
 

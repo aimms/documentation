@@ -1,5 +1,5 @@
 App Menu Bar
-************
+*************
 
 .. |menu-bar-new| image:: images/page_menu_new.png
 
