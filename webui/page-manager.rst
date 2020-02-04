@@ -49,6 +49,8 @@ The Page Navigator can be used in combination with the Page Menu, but there are 
 
 When running on PRO, only the add/rename/delete options are offered to the end-user (i.e. the visibility-toggling and the wizard-creation options are left out).
 
+Details on creating and managing various pages can be accessed using the following scheme: 
+
 .. toctree::
 
    webui-pages

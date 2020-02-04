@@ -27,6 +27,7 @@ WebUI Pages
 
 .. |dialog|  image:: images/dialogicon.png 
 
+This section describes various tasks related to (regular) WebUI pages.
 
 Adding a Page
 -------------

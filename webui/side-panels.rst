@@ -28,6 +28,8 @@ Side Panels
 .. |dialog|  image:: images/dialogicon.png 
 
 
+This section describes various tasks related to WebUI side panels.
+
 .. important:: Side panels are available in software versions from AIMMS 4.64 onwards.
 
 Side panels are 2 column width pages that can be configured with different widgets and accessed on different/all pages in an application via tabs on the right-hand side of the page.  
