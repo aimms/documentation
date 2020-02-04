@@ -27,6 +27,6 @@ Details on these topics can be accessed using the following scheme:
 
 .. toctree::
 
+   app-misc-settings
    workflow-panels
    status-bar
-   app-misc-settings
