@@ -167,8 +167,8 @@ Similarly, to change :token:`pageDataState` an assignment statement like the fol
 If you need to validate some data or actions and maybe to retain the user on the same step, please follow the steps explained in `Procedure for Restricting Page Navigation. <page-settings.html#procedure-for-restricting-page-navigation>`_ .
 
 
-Configuring the string parameters in the Application settings
--------------------------------------------------------------
+Configuring Workflows in the Application Settings
+-------------------------------------------------
 
 To enable the Workflow Panel click on the Application Extensions icon |ApplicationExtension| of the Application Settings and add the configured string parameters to the respective fields as illustrated below:
 
@@ -177,5 +177,4 @@ To enable the Workflow Panel click on the Application Extensions icon |Applicati
 
 Once the string parameters are added in their respective fields, the Workflow Panel functionality will become visible on the pages which are part of a workflow.
 
-This sub-section concludes the explanation of the Workflow Panel functionality configured in the Application Settings of a WebUI app.
 

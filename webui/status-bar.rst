@@ -14,7 +14,7 @@ Status Bar
 
 This section describes various tasks related to the application status bar.
 
-.. important:: Status Bar is available in software versions from AIMMS 4.70 onwards as part of Experimental Features. Please reach out to User Support on how to enable Experimental Features.
+.. important:: Status Bar is available in software versions from AIMMS 4.70 onwards.
 
 The Status Bar is used to display custom messages i.e status messages, like the dataset that is currently in use or the connection status to a database to users. The Status Bar is displayed in the footer across the application, on all pages. These status messages can be updated when necessary or as required.
 
@@ -63,7 +63,7 @@ In the illustrated example, we have defined four status messages. We display the
 
 The status messages are added to the right hand side of the footer. Each new message is added to the right, shifting the existing messages to the left. There is no limit to the number of status messages that you can configure. AIMMS recommends not more than seven. The footer is divided into two sections with 30% width for the Breadcrumb on the left and 70% for the Status Bar. When the messages exceed the alloted space, the header is first displayed with an ellipsis. If the messages still cannot fit, the text of the message is also displayed with an ellipsis. When too many messages are added, only the icon will be displayed for each message.
 
-Configuring the Status Bar in the Application Settings
+Configuring Status Bar in the Application Settings
 ------------------------------------------------------------
 
 To enable the Status Bar, click on the Application Extension icon |ApplicationExtension| of the Application Settings and add the configured string parameter to the Status Bar field as illustrated below:
