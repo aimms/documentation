@@ -1,80 +1,10 @@
-WebUI Folder
-************
+CSS Styling
+============
 
-An AIMMS WebUI-ready application is an ordinary AIMMS application that contains a *WebUI* subfolder in the *MainProject* folder (this folder is created automatically when `starting WebUI <publishing.html>`_ for the first time). 
-
-.. image:: images/folderstructurewebui_v2.png
-    :align: center
-
-The entire application including *all pages and widgets* is stored in a single ``webui.json`` file. When opening your application in the IDE, the ``webui.json`` file will be automatically generated from your existing setup. During the conversion, only pages and their associated widgets that are actually referenced in the WebUI page manager will be included in the ``webui.json`` file. The conversion will *not* delete the contents of the existing pages, widgets and application folders on disk, allowing you to still use older AIMMS versions, which depend on the old format. If you make changes to the WebUI using older AIMMS versions, you can delete the webui.json file, in which case it will be automatically re-generated. Changes made with AIMMS 4.67 and higher will never be visible in older AIMMS versions.
-
-If you are using version control on your WebUI project, please make sure to add the new webui.json file, and delete the pages, widgets and application folders from version control when you don't plan to use the project with AIMMS version 4.66 and lower any longer. The new format as a true json file will make the structure of the WebUI directly clear, allowing you to resolve merge conflicts in the WebUI much easier. It also makes searching where widgets are used in your WebUI application straightforward.
-
-Via the `Widget Manager <widget-manager.html>`_ you can add widgets to your WebUI. You can add pages via the `Page Manager <page-manager.html#add-a-page>`_.
-
-.. important::
-
-	The information above is valid for AIMMS versions 4.67 and higher. For older AIMMS versions, the following applies:
-	
-	All WebUI `pages <page-manager.html>`_ and `widgets <widget-manager.html>`_ will be stored (by the WebUI Server) respectively in the *pages* and *widgets* subfolders of the *WebUI* folder. 
-
-
-
-Add the **resources** folder
-----------------------------
-
-In order to use any of the following listed features, you will need to create a new folder called **resources** (case sensitive), located in:
-
-*<.aimms Root folder> > MainProject > WebUI > resources*. 
-
-This folder will be loaded each time the WebUI will start, or at every reload (F5) of your WebUI browser page.
-
-.. image:: images/folderstructureresources.png
-    :align: center
-
-Images
-------
-
-Application-specific images should be stored in the *resources/images* subfolder. This folder is not created by default, so you need to create it yourself the very first time that you need it.
-
-Load ordering
--------------
-
-By default, resources are loaded in alphabetical order. You can influence this loading order by putting a :token:`package.json` file in the folder alongside the resources to be loaded and specify a specific loading order in it.
-
-An example package.json could be:
-
-.. code-block:: JSON
-
-    {
-       "name": "my-application-specific-resource",
-       "version": "0.0.1",
-       "config": {
-         "aimms:asr": {
-           "files": [
-             "b.js",
-             "a.js",
-             "c.css",
-           ]
-         }
-       }
-    }
-
-.. note::
-
-    * Your project can have multiple :token:`package.json` files.
-    * All resources loaded explicitly by a :token:`package.json` file will no longer be loaded through alphabetical order.
-    * The loading order of the same file specified in multiple :token:`package.json` files is undefined and is best avoided.
-
-CSS styling
------------
-
-It is possible to (re)style your web application by providing custom Cascading Style Sheets (CSS). Application-specific CSS files should be stored in the *resources/css* subfolder of the *WebUI* subfolder of your project folder. 
-
-For more info on CSS in general, see `this Wikipedia article <https://en.wikipedia.org/wiki/Cascading_Style_Sheets>`_.
+As mentioned before, it is possible to (re)style your web application by providing custom Cascading Style Sheets (CSS). This section discusses this topic in more detail.
 
 Data-Dependent Styling
-++++++++++++++++++++++
+----------------------
 
 You can define user-annotations in your AIMMS model which will be used to style the corresponding so-called `DOM <https://en.wikipedia.org/wiki/Document_Object_Model>`_ elements in the WebUI page. In order to define user annotations for an identifier :token:`X(i,j)` that is being displayed in a widget, you can define a string parameter, say :token:`DangerValuesOfX(i,j)`, defined over a valid subdomain of the original identifier. This string parameter should have as value a space-separated string of class-names (that will be used to decorate the DOM elements with). In the attribute form of the identifier for which you are specifying the annotations, you should add the :token:`webui::AnnotationsIdentifier` annotation attribute and then fill in the string parameter containing the desired annotation(s) there:
 
@@ -118,8 +48,8 @@ Finally, one can assign the value "readOnly" to FlagsOfX(i,j) for the (updatable
      Please note that in AIMMS versions prior to 4.71, you had to define a string parameter called :token:`X_flags(i,j)` (with the domain of this '_flags identifier' being a valid subdomain of the original identifier) in order to achieve the same result. This had the disadvantage that when you renamed the original identifier, the '_flags identifier' was not automatically renamed with it, possibly leading to unexpected effects in the WebUI front-end.
 
 
-Widgets and CSS properties supported for Annotation
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Widgets and CSS properties supported for annotations
+----------------------------------------------------
 
 There are several CSS properties that can be changed for each widget that support annotations. AIMMS provides support for specific CSS properties with respect to CSS customization. The below table denotes the supported widgets and their respective CSS properties that can be changed.
 
@@ -220,7 +150,7 @@ The illustration below shows the use of DIV properties to change the background 
     There are hover and select effects on the charts and Map widgets which can be changed, but are not yet supported by AIMMS. If you would like to change the properties of those states as well, please look at our How To document on `changing CSS effects on charts <https://how-to.aimms.com/Articles/315/315-hover-and-select-effects-webui-charts.html>`_.
 
 Highlighting (experimental)
-+++++++++++++++++++++++++++
+---------------------------
 
 .. important:: Highlighting is available in software versions from AIMMS 4.68.5 onwards as part of Experimental Features. Please reach out to AIMMS support on how to enable Experimental Features.
 
@@ -258,10 +188,10 @@ If you display more than one identifier in a widget, you can specify the tuples 
 
 
 Annotations or Flags in Custom Plugins
-++++++++++++++++++++++++++++++++++++++
+--------------------------------------
 
 Applying annotations or flags
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++
 
 Core plugins (widgets, addons, etc.) now prefix all model annotations and flags with e.g. :token:`annotation-` or :token:`flag-` when these are used in HTML element attributes. Additionally, to ensure valid values, all sequences of whitespace are converted into single hyphens: for example, the annotation :token:`some model info` becomes :token:`annotation-some-model-info`.
 
@@ -296,14 +226,14 @@ This will result in an element with the following :token:`class` attribute:
     ... class="annotation-foo annotation-bar-baz flag-readOnly" ...
 
 Manipulating and selecting elements by annotations or flags
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Once an annotation or flag has been applied to an HTML element in a plugin, that element can be selected programmatically, or styled, with CSS selectors.
 
 To achieve this, the prefixed annotation or flag should always be CSS-escaped using the standards-track `CSS.escape <https://drafts.csswg.org/cssom/#utility-apis>`_ method. A substitute for this method is provided by the WebUI runtime when the user's browser does not yet support it.
 
 Example 1: Programmatically selecting and manipulating HTML elements by annotation or flag
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Example JavaScript:
 
@@ -316,8 +246,7 @@ Example JavaScript:
     ;
 
 Example 2: Using the annotation or flag in a stylesheet
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The prefixed annotation or flag should still be properly escaped for use in a selector (see `CSS.escape <https://drafts.csswg.org/cssom/#utility-apis>`_), although in these examples it is not strictly necessary. Example CSS:
 
@@ -329,7 +258,7 @@ The prefixed annotation or flag should still be properly escaped for use in a se
     }
 
 Custom Icon Sets
-++++++++++++++++
+----------------
 
 Certain features like the Widget Actions or the (experimental) Page Actions may use icons. AIMMS has a predefined list of `1600+ icons <../_static/aimms-icons/icons-reference.html>`_ which can be used. Custom icons can also be used for the aforementioned features by adding the desired icon font to the CSS folder and using the class names defined in the .css file in the icon field in the model specification. The icon font folder will need to have at least the ``.ttf`` file or the ``.woff`` file and the corresponding ``.css`` file, which together define the icon.
 
@@ -360,111 +289,3 @@ For example, the ``icofont.css`` may have classes defined for each icon as illus
     }
 
 You need to pick the name of the desired icon class and assign it to the icon field in the model specification. eg: :token:`icofont-brand-adidas` 
-
-
-JavaScript
-----------
-
-Application-specific JavaScript files (e.g. `widget [addons] <own-widgets.html>`_ or Unit Support files should be stored in the *resources/javascript* subfolder.
-
-Support for Units of Measurement
---------------------------------
-
-In the WebUI, units from your AIMMS model will per default be displayed in the Table, Scalar and Slider widgets. These widgets have an option 'Show Units' in the 'Miscellaneous' tab of their options editor where you can overrule this. For all widget types, the units will be displayed in the tooltips as well.
-
-The units that are displayed follow the Convention identifier in your model that is specified in the Convention attribute of you Main model.
-
-.. note:: 
-
-    In AIMMS 4.50 and lower versions, unit support was handled in the manner described below. When opening your WebUI in AIMMS 4.51 or higher, you will automatically get a warning dialog if this 'old-style' unit support is detected. You are encouraged to adapt your model to the new standard.
-
-.. code-block:: js
-
-    IdentifierUnitMap = {
-		"Distance" : "km"
-	};
-
-will display the distance values in 'km'. Input for the 'Distance' identifier will also be interpreted in terms of 'km'. Please note that you can only specify display units for which there exists a valid conversion to the base unit of the identifier in your model.
-
-Multi-Language Support
-----------------------
-
-WebUI offers multi-language support. Depending on the language settings of your browser, all strings that are displayed in the WebUI will be checked against a language specific translation table. If a translation is available, the translation is displayed. Otherwise, the original string is displayed.
-
-Project-Specific Translations
-+++++++++++++++++++++++++++++
-
-In addition to the built-in translations in WebUI, you can add your own translation files to your WebUI applications. Model identifier names can then be translated according to the browser's language.
-
-Please note that you can translate not only from one language to another, but also from model abbreviations to strings that are more readable by the end-user, e.g.:
-
-.. code-block:: js
-
-   F_X_EGG = Egg
-
-Translation files should be placed anywhere below your project's `resources <folder.html#resources>`_ folder, and must use the following naming-conventions:
-
-* :token:`<anything>.properties`: Default translations, also used as fallbacks when a specific translation is unavailable in another language. These translations should not be duplicated in a separate language-specific file, but may be overridden to provide translations for a particular locale.
-* :token:`<anything>_xx.properties`: Translations for a specific language, using an `ISO 639 language-code <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`_, e.g. :token:`xx` becomes :token:`nl` for Dutch.
-* :token:`<anything>_xx-YY.properties`: Translations for a specific language-and-country combination, using an `ISO 639 language-code</a> and an <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166 country-code <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`_, e.g. :token:`xx-YY` becomes :token:`pt-BR` for Brazilian Portuguese.
-
-.. tip::
-
-    Please note that you can create as many translation files as you like. This allows you to keep a clear topic/subject per file.
-
-To provide a default translation in English for your WebUI app, create a file :token:`<anything>.properties` with your translation pairs:
-
-.. code-block:: js
-
-    org_name = Organi***z***ation name
-
-To provide a translation for another language, e.g. :token:`nl`, create a file :token:`<anything>_nl.properties` with your translation pairs:
-
-.. code-block:: js    
-
-    org_name = Organisatienaam
-
-To provide a translation for a language-locale, e.g. :token:`en-GB`, create a file :token:`<anything>_en-GB.properties` with your translation pairs:
-
-.. code-block:: js
-
-    org_name = Organi***s***ation name
-
-Element Text
-++++++++++++
-
-In addition to the project-specific translations, you can also use string parameters from your model to provide translations for set elements in your WebUI applications. You can specify these by using the so-called *annotations* in the AIMMS model. To do so, open the attribute form of a Set identifier and click on the 'Add Annotation' wizard button below the comment attribute:
-
-.. image:: images/addannotation.jpg
-    :align: center
-
-Select the :token:`Webui::ElementTextIdentifier` annotation type and specify the name of the 1-dimensional string parameter which holds the translated element values:
-
-.. image:: images/specifiedannotation.jpg
-    :align: center
-
-Please be aware that AIMMS does not provide syntax checking in the annotations field, so make sure you type the identifier name correctly. Furthermore, please also note that you should not add the index to the identifier name (so, in the example above, :token:`PlaneNames` is specified rather than :token:`PlaneNames(p)`).
-
-The effect of this will be that wherever the element names would normally be displayed in your WebUI widgets, the corresponding string values will be displayed instead. This allows you to provide your users with clearer text than the 'raw' element names as they exist in your AIMMS model.
-
-Please note that when you display elements of a subset in the WebUI, it will automatically use the element text as specified in its rootset. However, you are allowed to override the element text for each (sub) subset of a set. The WebUI will use the most specific text. So, if you have :token:`SetA`, :token:`SetB` and :token:`SetC`, where :token:`SetC` is a subset of :token:`SetB` and :token:`SetB` is a subset of :token:`SetA`, and you display elements from :token:`SetC`, the WebUI will use the translation specified for :token:`SetC`. If this is not available, it will use the translation specified for :token:`SetB`. If that is not available, it will use the translation specified for :token:`SetA`. 
-
-.. important::
-
-    The above mechanism is featured from AIMMS 4.46 on. If you are still using an older version of AIMMS, the following paragraph applies.
-
-In older AIMMS versions the element text identifiers need(ed) to be specified in a project-specific JavaScript resource (located in the :token:`resources` subfolder) that lists the string parameter on a per-index level. For example, a project specific resource with the following contents
-
-.. code-block:: js
-
-    ElementTextMap = {
-         "i" : "ItemDescription"
-    };
-
-will display :token:`ItemDescription` instead of the element :token:`i` in your widgets. Please note, that the string parameters that are specified in the *ElementTextMap* need to be declared as one-dimensional identifiers over the associated index in your AIMMS model.
-
-.. important:: 
-
-    In AIMMS versions lower than 4.46, this feature does not work properly when used in combination with the selectionbox widget.
-
-

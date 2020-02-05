@@ -14,7 +14,7 @@ when using widget configuration options available to them while running the WebU
 
    getting-started
    webui-app-development
-   folder
+   webui-folder
    library
    background
    own-widgets
