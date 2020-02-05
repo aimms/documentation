@@ -6,6 +6,7 @@ In order to get started as app developer working with the AIMMS WebUI, please re
 .. toctree::
 
     requirements
+    background	
     creating
     publishing
     quick-start
