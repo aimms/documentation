@@ -7,6 +7,12 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.17.1.2 [12-02-2020]
+    - Data changes for identifiers in some category associated with set elements added and removed to a root set contained in another category in a revision range loaded after a cached snapshot would lead to a runtime error, because such set elements would not be contained in this root set when loading the data. Data changes for such elements are now filtered out when loading the data in the AIMMS client.
+    - In rare occassions, CDM could try to retrieve the element name of set elements that were registered as being added at one time, but removed from the model later on, leading to faulty element names. Element names are now registered when the corresponding newly added elements are discovered by CDM.
+
+NB. This fix required a change in the format of the changesets sent over the wire, which is also the format of the cached snapshots in the CDM database. Consequently, any existing old-format snapshots stored in the CDM database will be deleted on first load, and should be re-created from within the CDM-enabled application.
+
 1.16.0.8 [05-02-2020]
     - Labels added prior to a snapshot revision, but then removed from the set in the snapshot revision, could lead to client-side data loss when such a label was re-added as part of a revision range passed to the client during a checkout based on a cached snapshot.
 1.16.0.7 [30-01-2020]
