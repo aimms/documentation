@@ -1,5 +1,5 @@
 Selection Widgets
-========================
+=================
 
 Selection widgets allow the user to select one element in a set or a subset of elements in a set by using an element parameter or an 1-dimensional binary indicator parameter,
 respectively. The available types of selection widgets are selectionbox, multiselect, and legend (see further below).

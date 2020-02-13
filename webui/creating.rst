@@ -1,6 +1,5 @@
-================
 Creating a WebUI
-================
+****************
 
 Here you can find a summary of the steps to be taken for creating a WebUI for your AIMMS app:
 

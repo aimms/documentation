@@ -11,20 +11,19 @@ Application Settings
 
 .. |ApplicationExtension| image:: images/ApplicationExtensionIcon.png
 
-There are some settings that not only apply to a specific widget or page, but to the WebUI application as a whole. 
+There are some settings that not only apply to a specific widget or page, but also to the WebUI application as a whole. 
 These settings can be accessed through the Application Settings menu, which you can open by clicking on the |applicationsettings-icon| icon:
 
 .. image:: images/AppSettings_snap1.png
     :align: center
 
-The application options under the Miscellaneous tab of the Application Settings are explained further down in this section. 
-Firstly, the options of the Workflow Panel and the Status Bar behind the Application Extensions icon |ApplicationExtension| are described below.
+Firstly, the application options under the Miscellaneous tab of the Application Settings are explained.  
+Thereafter the options of the Workflow Panel and the Status Bar behind the Application Extensions icon |ApplicationExtension| are described.
 
 .. image:: images/AppSettings_snap3.png
     :align: center
 
-Workflow Panel
---------------
+Details on these topics can be accessed using the following scheme:
 
 Starting from AIMMS 4.68, it is possible to design and configure Workflows in the AIMMS WebUI. The Workflow Panel is used to represent and run any workflow which is designed and defined by the application developer in the model. AIMMS allows the application developer to configure multiple workflows in an application.
 
@@ -337,3 +336,9 @@ Menu Hidden
 +++++++++++
 
 This is a logical condition which determines whether or not the dropdown navigation menu is visible or is hidden.
+
+.. toctree::
+
+   app-misc-settings
+   workflow-panels
+   status-bar

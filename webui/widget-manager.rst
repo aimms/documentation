@@ -1,3 +1,6 @@
+Widget Manager
+**************
+
 .. |pencil-blue| image:: images/pencil-blue_v1.png
 
 .. |pencil-grey| image:: images/pencil-grey.png
@@ -10,9 +13,6 @@
 
 .. |plus-add-widget| image:: images/WidgetManager_snap3.png
 
-
-Widget Manager
-**************
 
 You can access the Widget Manager by pressing the pencil icon |pencil-black| in the `WebUI Menu Bar <menu-bar.html>`_.
 

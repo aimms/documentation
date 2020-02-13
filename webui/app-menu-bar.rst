@@ -1,5 +1,5 @@
-WebUI Menu Bar
-**************
+App Menu Bar
+*************
 
 .. |menu-bar-new| image:: images/page_menu_new.png
 
@@ -21,8 +21,7 @@ WebUI Menu Bar
 
 .. |menu-bar-453| image:: images/page_menu_453.png
 
-
-All pages in your WebUI (except for Wizards) have a *Menu Bar*, consisting of several buttons and text:
+All (regular) pages in your WebUI app have a *Menu Bar*, consisting of several buttons and text:
 
 |menu-bar-new|
 
@@ -85,16 +84,7 @@ On the right:
 * About AIMMS
 * `Application Settings <application-settings.html>`_
 
-The detailed description of all menu bar related topics can be accessed using the following navigation scheme:
+The detailed description of all menu bar related topics can be found in the next sections.
 
-.. toctree::
 
-   page-menu
-   page-manager
-   page-settings
-   widget-manager
-   widget-types
-   widget-options
-   data-manager
-   application-settings
 

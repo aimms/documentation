@@ -1,5 +1,5 @@
 Scalar Widget
-==============
+=============
 
 The Scalar Widget allows you to show one or more scalar values in your WebUI. A scalar value can be 
 

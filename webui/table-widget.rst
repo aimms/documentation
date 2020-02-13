@@ -1,5 +1,5 @@
 Table Widget
-==================
+============
 
 .. |sort| image:: images/sort.png
 

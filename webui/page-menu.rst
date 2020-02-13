@@ -1,5 +1,5 @@
-Page Menu
-*********
+Page Menu 
+**********
 
 From AIMMS 4.53.1 onwards, we offer a newly designed Page Navigation Menu. This menu helps you find your way around AIMMS Apps and get a general overview much more easily. As this new menu will become the new default, your existing Apps will change automatically. The menu looks like this:
 

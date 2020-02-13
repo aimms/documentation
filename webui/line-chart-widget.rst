@@ -1,5 +1,5 @@
 Line Chart Widget
-==================
+=================
 
 The Line Chart widget is a X-Y plot and represents data as a graph with lines and dots. A typical situation is when a 1-dimensional identifier such as the Demand(c) of a distribution center c in the TransNet application 
 (see the "Quick Start: My First WebUI" section) is displayed like in the following picture:

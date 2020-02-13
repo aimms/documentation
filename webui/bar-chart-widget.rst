@@ -1,5 +1,5 @@
 Bar Chart Widget
-===================
+================
 
 .. |barchart-contents| image:: images/BarChart-Contents.png
 
