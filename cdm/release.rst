@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.17.1.9 [17-02-2020]
+    - Listen to incoming commit notifications in default callback :token:`cdm::DataChangeProcedure` to minimize the chance for :token:`cdm::CommitChanges` to fail for auto-commit categories.
+
 1.17.1.8 [14-02-2020]
     - Fixed membership check for element parameters into root sets.
     - Deleted root set elements would not be deleted properly from other sessions in all circumstances.
