@@ -33,7 +33,7 @@ A procedure that can be called when a page change is requested. It should determ
 
 The  procedure should have three arguments, in the exact order below:
 
-* An Output parameter called :token:`requestId` that should contain the return value of the parameter RequestCounter.
+* An Output string parameter called :token:`requestId` that should contain the return value of the parameter RequestCounter.
 * An Output parameter called :token:`statusCode` representing the return value of the procedure.
 * An Output string parameter called :token:`statusDescription` that should contain a return message for the end-user.
 
