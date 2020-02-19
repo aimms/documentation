@@ -82,4 +82,35 @@ Once the string parameters are added in their respective fields, the items will 
 
 If the list groups and items exceed the widgets height, a scroll bar will appear.
 
+For list group items that are configured with a procedure and the state as "Active", when the user hovers over those list item, the text is highlighted in blue and the cursor changes to a pointer indicating to the user that an action can be executed.
+
+.. image:: images/List_ExecuteProcedure.png
+    :align: center
+
+If a list group items that are configured with a procedure and the state as "Inactive", the text is grey, the cursor does not change and clicking will not execute the procedure.
+
+.. image:: images/List_InactiveItem.png
+    :align: center
+
 The list widget can be added on all page types, i.e Regular pages, Side Panels and Dialog Pages.
+
+.. image:: images/List_WidgetSidePanelDialogPage.png
+    :align: center
+
+Slicing the List Group and List Group Items
++++++++++++++++++++++++++++++++++++++++++++
+
+You can also create lists for different users and then slice the data based on the current user. You can simply extend the string parameter with an additional index of the Users set. Then slice the data based on the element parameter for the selected user.
+
+Lets say we have a set :token:`Users` with the index :token:`indexUsers`. You can add this index to the :token:`MyListsGroups` and :token:`MyListGroupItems` string parameters as illustrated below.
+
+.. code::
+
+    MyListsGroups(indexUsers,webui::indexListGroupOrder,webui::indexListGroupSpec)
+    MyListGroupItems(indexUsers,webui::indexListGroupOrder,webui::indexNoOfListItems,webui::indexListGroupItemsSpec)
+
+You can then slice these string parameters on :token:'indexUsers' with an element parameter that determines the current user.
+
+.. Note::
+
+    It is currently not possible to slice on the key indices, i.e :token:`webui::indexListGroupOrder`, :token:`webui::indexNoOfListItems`, :token:`webui::indexListGroupSpec` and :token:`webui::indexListGroupItemsSpec` defined in the string parameters.
