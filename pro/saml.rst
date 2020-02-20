@@ -11,7 +11,7 @@ In order to enable SAML authentication, you need to configure few things,
 AIMMS PRO Configuration
 -----------------------
 
-Setting up the link is straightforward: Click on the 'Edit Environment Details' icon on the right side of the environment box in the users tab of the AIMMS PRO Portal. This will open a dialog in which you must specify the SAML metadata URL. For example, https://saml.adfs/federationmetadata/2007-06/federationmetadata.xml. Leave the URL blank to remove the association.
+Setting up the link is straightforward: Click on the 'Link to SAML' 2nd icon on the right side of the environment box in the users tab of the AIMMS PRO Portal. This will open a dialog in which you must specify the SAML metadata URL. For example, https://saml.adfs/federationmetadata/2007-06/federationmetadata.xml. Leave the URL blank to remove the association.
 
 It is allowed to have two environments pointing to the same SAML IDP.
 
