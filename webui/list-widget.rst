@@ -21,7 +21,7 @@ In the settings options editor one can find the following sections:
 *	Miscellaneous: Title and Visibility can be controlled here.
 *	Advanced: Advanced options for this widget are available here.
 
-To configure list groups and their items in the widget you will need to create two string parameters. The first string parameter will configure the number of list groups, while the second string parameter will configure the items for each of these list groups.
+To configure list groups and their items in the widget you will need to create two string parameters. The first string parameter will configure the list groups with titles and tooltips, while the second string parameter will configure the items for each of these list groups.
 
 
 Configuring List Groups
@@ -109,7 +109,7 @@ Lets say we have a set :token:`Users` with the index :token:`indexUsers`. You ca
     MyListsGroups(indexUsers,webui::indexListGroupOrder,webui::indexListGroupSpec)
     MyListGroupItems(indexUsers,webui::indexListGroupOrder,webui::indexNoOfListItems,webui::indexListGroupItemsSpec)
 
-You can then slice these string parameters on :token:'indexUsers' with an element parameter that determines the current user.
+You can then slice these string parameters on :token:`indexUsers` with an element parameter that determines the current user.
 
 .. Note::
 
