@@ -593,6 +593,13 @@ If no display domain has been specified for the shown identifier, then the "Sum"
 
 In case of an active display domain, the differences between the other aggregators, e.g. between "Mean" and "Total mean", between "Count" and "Total count", etc, are similar to the difference between "Sum" and "Total sum" illustrated above.
 
+By default, totals are added "at the bottom" of a sequence of (numerical) values. For example, for the parameter UnitCost(f,c) we may add two aggregators such as "min" and "max" for each of the indexes of the factories f and the distribution centers c, which results in the corresponding aggregated values being displayed at the bottom:
+
+.. image:: images/Totals_onTop_view0.png
+    :align: center
+
+   
+
 
 Change Type
 -----------
