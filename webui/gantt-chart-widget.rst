@@ -145,7 +145,7 @@ By using AIMMS string parameters to specify the *viewport start time* and *viewp
         }
     }
 
-Please note that the AIMMS function :token:`StringToMoment` is used to convert a date string into a number. The number is then used to easily perform date calculations. After that, the number is converted back to a date string using the AIMMS function :token:`MomentToString`.
+Please note that the AIMMS function :any:`StringToMoment` is used to convert a date string into a number. The number is then used to easily perform date calculations. After that, the number is converted back to a date string using the AIMMS function :any:`MomentToString`.
 
 Indication of Today and Now
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

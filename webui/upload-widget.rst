@@ -52,7 +52,7 @@ The above function returns a string value with the absolute path to the file ``F
 
 .. note::
 
-    In case you want to be able to download a previously uploaded file through the download widget, you can copy that file into the appropriate location. You can use the ``FileCopy`` function as below to do that 
+    In case you want to be able to download a previously uploaded file through the download widget, you can copy that file into the appropriate location. You can use the :any:`FileCopy` function as below to do that 
 
     .. code::
 
@@ -128,7 +128,7 @@ If you've uploaded "*MyExcel.xlsx*", the uploaded file name could be "*MyExcel-1
 
 If launched from PRO, the file name will still remain the same but the value for UploadLocation will be "temporary PRO path + MyExcel-1564733452728.xlsx"
 
-Note that this uploaded file is NOT automatically deleted if you are running WebUI in AIMMS Developer mode. If you want to delete this file after an upload, you should use the function ``FileDelete`` as below. 
+Note that this uploaded file is NOT automatically deleted if you are running WebUI in AIMMS Developer mode. If you want to delete this file after an upload, you should use the function :any:`FileDelete` as below. 
 
 .. code::
 
