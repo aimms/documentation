@@ -11,5 +11,5 @@ build_and_install:
     # - rsync -rt _build/html/ support@data.aimms.com:/home/aimms/www/documentation.aimms.com
   tags:
     - ubuntu
-  only:
-    - master
+ # only:
+ # - master
