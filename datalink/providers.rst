@@ -101,13 +101,21 @@ Writing
         The precision defines the max number of characters. If the actual value has more characters it gets truncated.
 
     Numeric:
-        The precision defines the number of decimals.
+        Column attribute :token:`Format` can be used to select the output format: 
 
+        Float (default) :
+            The values is written as 123.4567 and column attribute :token:`Precision` defines the number of decimals.
+
+        Exponential :
+            The values is written as 1.2345e+67 and column attribute :token:`Precision` defines the number of decimals.
+
+        Automatic:
+            Choose automatically Float or Exponential, whichever is shortest.  Column attribute :token:`Precision` defines the number of significant digits.
 
 
 Limitations
 -----------
 
-DataTime
-    The Calender format in AIMMS is send in an internal binary format to DataLink. The current CSVProvider cannot translate this into a string that is needed for the CSV format, so DateTime is not supported yet.
+DateTime
+    The Calender format in AIMMS is transfered in an internal binary format to DataLink. The current CSVProvider cannot translate this into a string that is needed for the CSV format, so DateTime is not supported yet.
 

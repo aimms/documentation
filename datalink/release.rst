@@ -5,6 +5,9 @@ The first public release of DataLink was version 1.0.0.106, release date January
 
 New Features and Bug Fixes
 --------------------------
+1.1.1.15 [26-02-2020]
+    - Add support for writing floats in exponential format in CSVProvider
+
 1.1.1.13 [30-01-2020]
     - Extra validation check in AddDataSourceMapping
 
