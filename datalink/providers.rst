@@ -116,6 +116,6 @@ Writing
 Limitations
 -----------
 
-DataTime
-    The Calender format in AIMMS is send in an internal binary format to DataLink. The current CSVProvider cannot translate this into a string that is needed for the CSV format, so DateTime is not supported yet.
+DateTime
+    The Calender format in AIMMS is transfered in an internal binary format to DataLink. The current CSVProvider cannot translate this into a string that is needed for the CSV format, so DateTime is not supported yet.
 
