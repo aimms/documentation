@@ -27,7 +27,17 @@ Public Page and Widget Specification Declarations:
 * ``WidgetActionSpecification`` - This set is the specification for adding `widget actions <widget-options.html#widget-actions>`_ . The string parameters used to configure the widget actions on certain widgets are indexed on this set.
 * ``PageActionSpecification`` - This set is the specification for adding `page actions <page-settings.html#page-actions>`_. The string parameters used to configure the primary action and secondary actions on certain pages are indexed on this set.
 
+Public WebUI Frontend State Support Declarations: 
+
+(note: this section was introduced with AIMMS 4.72, as an experimental feature.)
+
+* ``AllOpenWebUITabs`` - This set contains one element for each WebUI tab currently open. The element has the form of a UUID. 
+* ``LastActiveWebUITab`` - An element parameter in ``AllOpenWebUITabs``, which contains the UUID of the currently open WebUI tab in the browser (if any, it is empty otherwise).
+* ``CurrentPageId`` - This string parameter contains the currently loaded page ID for all open tabs.
+* ``CurrentSidePanelPageId`` - This string parameter contains the page ID for all open currently loaded side panels.
+
 .. _workflowspecification:
+
 
 Public Workflow Support Declarations:
 
