@@ -7,9 +7,6 @@ stages:
 build_and_install:
   stage: build
   script:
-    - sphinx-build -M html . _build
-    # - rsync -rt _build/html/ support@data.aimms.com:/home/aimms/www/documentation.aimms.com
+    - ./run.sh
   tags:
     - ubuntu
- # only:
- # - master
