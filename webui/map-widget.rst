@@ -36,6 +36,8 @@ In the settings options editor one can find the following sections:
 
 *	Node Sets: Multiple node sets can be added here.
 *	Arc Sets: Multiple arc sets can be added here.
+*	Widget Actions: Widget actions can be configured here.
+*	Heatmap: A heatmap can be added here. 
 *	Miscellaneous: Title, Zoom, Center Latitude, Center Longitude and Visibility can be controlled here.
 *	Advanced: Advanced options for this widget are available here.
 
@@ -55,7 +57,14 @@ The available options to be specified are the following:
 *	Index: Select the index of the node set to be displayed
 *	Latitude: A 1-dimensional parameter specifying the latitude coordinates for the nodes set with the selected index
 *	Longitude: A 1-dimensional parameter specifying the longitude coordinates for the node set with the selected index
-*	Size: A 1-dimensional parameter specifying the dynamic sizes for the node set with the selected index
+*	Size: A 1-dimensional parameter specifying the dynamic sizes for the node set with the selected index. Nodes which have an undefined size or 0 will not be drawn on the map.
+*	Maximum Reference Size: A scalar parameter that is used to relative size the nodes based on a fixed value when Size is configured. When undefined, the nodes are relatively sized based on the maximum value in the Size identifier. This option is applicable only when the Size has also been configured for the node set.
+*	Icon: The icon you want to associate with a node set. You can select from a list of 1600+ icons, the reference can be found in the `icon list. <../_static/aimms-icons/icons-reference.html>`_
+
+.. tip:: 
+    If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append ``aimms-`` to the selected icon name when adding it to the model. For example: if the icon name is "calculator", then in AIMMS it needs to be ``aimms-calculator``.
+
+    `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
 
 .. note::
 
@@ -63,7 +72,7 @@ The available options to be specified are the following:
 	
     * The values of the Latitude and the Longitude parameters must be within the geographical bounds, i.e. between (-90,90) and (-180,180), respectively. Not keeping the Latitude and the Longitude within these bounds can lead to unexpected or unresponsive behavior of the Map widget. In order to avoid such undesirable behavior, one can specify the bounds intervals in the Range attributes of the corresponding identifiers in the model.	
 	
-    * The default node size radius is 3 px. One can set a dynamic node size to each node set by selecting an appropriate identifier for the Size parameter in the desired node set (the index domain of such a parameter must be the same as the index of the node set).
+    * The default node size radius is 2 px. One can set a dynamic node size to each node set by selecting an appropriate identifier for the Size parameter in the desired node set (the index domain of such a parameter must be the same as the index of the node set).
 
 Adding identifiers to node option fields
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -98,6 +107,64 @@ These actions result in a map widget with 2 node sets:
 
 .. image:: images/MapV2-NodesFC.png
     :align: center
+
+Relative Node Sizing
+^^^^^^^^^^^^^^^^^^^^
+
+Sizes of nodes for a node set are relative to their surface area, with the largest value of the size identifier taking the largest area on the map. The areas of the other nodes are calculated with reference of the largest value. Hence, the area of one node is twice as big or small if the node size value is twice as large or small from another node in the same set. Consider the below illustration:
+
+.. image:: images/MapV3_RelativeSizing.png
+    :align: center
+
+Since Zurich has the largest value it is assigned the largest area on the map. All the other nodes are relatively sized with Zurich as the reference. Hence, Hamburg is three times smaller than Zurich in area.
+
+Maximum Reference Size
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Maximum Reference Size is a scalar parameter used when you want to relatively size the areas of the nodes in a node set based on a user defined value. When defined, the areas of all the nodes will be calculated based on the maximum reference size, rather than the largest value of the Size identifier. For example:
+
+.. image:: images/MapV3_MaxReferenceSize_500.png
+    :align: center
+
+The areas of the nodes are now calculated with the Maximum Reference Size of 500. Hence, the areas are now smaller as compared to the illustration in the Relative Node Sizing section.
+
+Another illustration is when the Maximum Reference Size is smaller than the highest value in the Size identifier. 
+
+.. image:: images/MapV3_MaxReferenceSize_150.png
+    :align: center
+
+The areas are now larger since the reference value is now 150.
+
+This also allows you to relatively size nodes from different node sets with the same reference value.
+
+.. image:: images/MapV3_MaxReferenceSize_nodesets.png
+    :align: center
+
+
+Icons for nodes
+^^^^^^^^^^^^^^^
+
+You can add icons within nodes to represent a node set, eg: Factories or Centers. To configure icons for a node set, create a string parameter that is indexed by the index of the respective node set. Define an icon name that you selected from the list of icons available, as illustrated below.   
+
+.. image:: images/MapV3_FactoryIcon.png
+    :align: center
+
+Add this string parameter in the Icon option of the node set. The icon will appear in the nodes. 
+
+.. image:: images/MapV3_FactoryIconinNodes.png
+    :align: center
+
+You can also define different icons for each individual node. Right click the string parameter and click on the Data option to open the data page and add icons for each location:
+
+.. image:: images/MapV3_DifferentFactoryIcon.png
+    :align: center
+
+Similarly, you can define different icons for different node sets.
+
+.. image:: images/MapV3_MultipleNodeSetIcons.png
+    :align: center
+
+To view icons you might have to also configure the Size identifier. The icons are scaled as per the node size. If you do not configure the Size parameter, the icons will not be visible. However you can also control the size via annotations. 
 
 Store Focus, Hover and Select for nodes
 -----------------------------------------
@@ -221,12 +288,13 @@ In the same vein, when considering the destinations nodes, the set of distributi
 Ordering and deleting node/arc sets
 -------------------------------------
 
-The ordering of the added node/arc sets may be changed by hovering over the title bar of the set and then clicking on the respective button, to move up or down.
+The ordering of the added node/arc sets may be changed by hovering over the title bar of the set and then clicking on the respective button, to move up or down. 
 An entire node/arc set may be deleted by clicking on the bin icon. These options are illustrated in the following picture:
 
 .. image:: images/MapV2-Nodes-UpDownDelete.png
     :align: center
 
+The order of nodes sets determines which node sets should be drawn on top of others in case there are overlapping nodes.
 	
 Miscellaneous options
 -----------------------
