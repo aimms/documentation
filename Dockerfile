@@ -22,6 +22,7 @@ RUN apt-get update -y \
     libssl-dev \
     libsqlite3-dev \
     libffi-dev \
+    rsync \
 	&& curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 
 

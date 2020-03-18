@@ -20,8 +20,6 @@ function cleanup {
 
 trap cleanup EXIT INT TERM
 
-# TODO: Move installing python packages into the docker image
-
 rm -rf /tmp/workdir
 cp -r "$DIR" /tmp/workdir
 cd /tmp/workdir
@@ -35,5 +33,18 @@ echo -e "\e[0m"
 pipenv run sphinx-build -M html . _build
 
 if [[ "$CI_COMMIT_REF_NAME" == "master" ]]; then
+  # Setup .ssh directory
+  mkdir -p "$HOME/.ssh"
+
+  tee "$HOME/.ssh/config" <<EOF
+Host data.aimms.com
+User support
+UserKnownHostsFile /dev/null
+StrictHostKeyChecking no
+EOF
+
+  cp /host-ssh/id_rsa "$HOME/.ssh"
+  chmod -R 600 "$HOME/.ssh"
+
   rsync -rt _build/html/ support@data.aimms.com:/home/aimms/www/documentation.aimms.com
 fi
