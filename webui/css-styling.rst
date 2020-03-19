@@ -82,7 +82,7 @@ The Bar Chart, Line Chart, Pie Chart, Gantt Chart, Bubble Chart and Map widget u
 
 The illustration below shows the use of SVG properties to change the fill and stroke of a bar chart when the annotation "blue" is added to the identifier. Followed by illustrations of the other charts.
 
-.. code::
+.. code:: CSS
 
     .annotation-blue{
     /* fill changes */
@@ -122,7 +122,7 @@ The Table, Treemap Chart and Scalar widget use the DIV element. A DIV defines a 
 
 The illustration below shows the use of DIV properties to change the background and font of a table cell when the annotation "blue" is added to the identifier. Followed by illustrations of the TreeMap and Scalar widgets.
 
-.. code::
+.. code:: CSS
 
     .annotation-blue{
     /* fill changes */
