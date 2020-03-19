@@ -21,6 +21,7 @@ More details on each widget are included in one of the corresponding sections be
    image-widget
    label-widget
    line-chart-widget
+   list-widget
    map-widget
    map-widget-old-style
    pie-chart-widget
