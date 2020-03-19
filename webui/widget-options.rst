@@ -119,7 +119,7 @@ Again, the string parameter used in the item text annotation attribute may have 
 
 If an identifier X does not have the :token:`webui::ItemTextIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_text` discussed above, if this is present in the model.
 
-Last (but not least), we come to the identifier annotations related to tooltips. Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed.  However, they can also be completely user-defined, giving the user freedom in determining the contents to be shown. 
+Next, we come to the identifier annotations related to tooltips. Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed.  However, they can also be completely user-defined, giving the user freedom in determining the contents to be shown. 
 In order to create user-defined tooltips, in the attribute form of the identifier for which you want to specify tooltips, you can add the :token:`webui::TooltipIdentifier` annotation attribute and then fill in the auxiliary string parameter containing the desired tooltips there:
 
 .. image:: images/Annotations_view4.png
@@ -145,6 +145,15 @@ the result when hovering over the same cell as above looks like this:
     :align: center
 
 If an identifier X does not have the :token:`webui::TooltipIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_tooltips` discussed above, if this is present in the model.
+
+Last (but not least), we discuss the identifier annotations related to the procedures "upon change". In order to specify a procedures "upon change", in the attribute form of the identifier for which you want to specify such a procedure, you can add the :token:`webui::UponChangeProcedure` annotation attribute and then fill in the name of the desired procedure there:
+
+.. image:: images/Annotations_view5.png
+    :align: center
+
+Such a procedures "upon change" may have any name of choice, so not necessarily related to the name of the underlying identifier itself. 
+
+If an identifier X does not have the :token:`webui::UponChangeProcedure` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the :token:`UponChange_X` procedure discussed above, if this is present in the model.
 
 .. note::
 	Upon starting up a project AIMMS checks whether ther are old style annotations in your model and if so, AIMMS points them up and recommends updating to new style annotations. 
