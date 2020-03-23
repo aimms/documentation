@@ -21,6 +21,10 @@ In order to `develop <creating.html>`_ a web interface for an AIMMS application 
 
     .. important::
 
+        For these browsers we support Current and Current-1 versions, where Current is the latest released browser version.
+		
+    .. important::
+
         Support for Microsoft Internet Explorer 11 has been deprecated. Internet Explorer 11 is a poorer browser for advanced applications like AIMMS WebUI when compared to Edge or Chrome (i.e., it is slower, less stable, crashes sooner, etc). Therefore, we strongly recommend our users to try and use Edge or Chrome, instead. Please be informed that we are no longer servicing issues related to Internet Explorer 11. 
 
     .. warning::
