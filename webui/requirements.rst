@@ -15,7 +15,7 @@ Developing a WebUI app
 In order to `develop <creating.html>`_ a web interface for an AIMMS application using the AIMMS WebUI, the app developer needs:
 
 * a recent AIMMS 4 developer system, and
-* to have the latest version of one of the following browsers installed on the developer machine:
+* to have one of the following browsers installed on the developer machine:
     * `Chrome <https://www.google.com/intl/en/chrome/browser/>`_, or
     * `Microsoft Edge <https://www.microsoft.com/en-us/edge>`_.
 
