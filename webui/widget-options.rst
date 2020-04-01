@@ -602,6 +602,45 @@ If no display domain has been specified for the shown identifier, then the "Sum"
 
 In case of an active display domain, the differences between the other aggregators, e.g. between "Mean" and "Total mean", between "Count" and "Total count", etc, are similar to the difference between "Sum" and "Total sum" illustrated above.
 
+By default, totals are added "at the bottom" of a sequence of (numerical) values. For example, for the parameter UnitCost(f,c) we may add two aggregators such as "min" and "max" for each of the indexes of the factories f and the distribution centers c, which results in the corresponding aggregated values being displayed at the bottom:
+
+.. image:: images/Totals_onTop_view0.png
+    :align: center
+
+In this case the Advanced option :token:`Contents.totals` has as value the following string:
+
+.. code::
+
+    literal:[{"indexName":"c","operators":["min_only_visible","max_only_visible"]},{"indexName":"f","operators":["min_only_visible","max_only_visible"]}]
+
+However, it seems more natural to move one aggretator, for instance "min", "on top" of the shown sequence of values. For now, this possibility is provided through editing the Advanced option above.
+More specifically, one may append the postfix "_on_top" to any existing total specification. For example, if we edit the Advanced option :token:`Contents.totals` to read as
+
+.. code::
+
+    literal:[{"indexName":"c","operators":["min_only_visible_on_top","max_only_visible"]},{"indexName":"f","operators":["min_only_visible_on_top","max_only_visible"]}]
+	
+then the "min" aggregators are rendered on top of the correspoding sequence of values:
+
+.. image:: images/Totals_onTop_view0Top.png
+    :align: center
+
+.. note::
+	Please note that once having specified a "_on_top" postfix, the existing option editor should not be used anymore on aggregators, as it removes any existing "_on_top" total once you use the total options editor to make a change. So, it is advisable to add the "_on_top" postfix at the end of the process of specifying the widget options.
+
+For the values for the "corner cells" (i.e. grand totals) AIMMS uses the natural reading order in the sense that a cell that contain aggregated values will only use information from cells to the left or on top of that cell.
+This is natural in the sense that the top right cell (containing the value 7.87) contains the maximum of the cells on its left (instead of the minimum of cell underneath that cell): 
+
+.. image:: images/Totals_onTop_MaxOfMin1.png
+    :align: center
+
+Similarly, the bottom left cell (containing the value 3.64) shows the maximum of cells on top (instead of the minimum of cell on the right):
+
+.. image:: images/Totals_onTop_MaxOfMin2.png
+    :align: center
+
+We envision that in future AIMMS versions, the possibility to add totals "on top" will be provided through dedicated, more user friendly features in the widget options editor.
+
 
 Change Type
 -----------
