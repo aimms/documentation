@@ -7,6 +7,17 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.17.1.13 [10-03-2020]
+    - In :token:`cdm::DataChangeProcedure` pass on exception only on last retry.
+    
+1.17.1.12 [25-02-2020]
+    - CDM runtime identifiers for identifiers with defaults and a derived unit, would inadvertently get a default in the base unit, leading to unnecessary commits to the CDM database.
+    - Identifier-specific commit cardinalities could fail the cdm::GetRevisions function for identifiers that no longer exist in the model
+    - The CDM runtime could fail when retrieving branch data for branch- and revision-related identifiers in the CDM library with different internal AIMMS storage types.
+
+1.17.1.9 [17-02-2020]
+    - Listen to incoming commit notifications in default callback :token:`cdm::DataChangeProcedure` to minimize the chance for :token:`cdm::CommitChanges` to fail for auto-commit categories.
+
 1.17.1.8 [14-02-2020]
     - Fixed membership check for element parameters into root sets.
     - Deleted root set elements would not be deleted properly from other sessions in all circumstances.

@@ -1,0 +1,40 @@
+# If you modify this file, run `pipenv install` and commit the updated Pipfile.lock file
+# Otherwise, you will *not* trigger building the docker image; hence your changes will *not* be applied.
+#
+# Pipfile.lock is needed to make sure nested dependencies work as expected:
+# https://en.wikipedia.org/wiki/Dependency_hell
+#
+# To setup pyenv & pipenv check their official docs:
+# https://pipenv.kennethreitz.org/en/latest/install/#installing-pipenv
+# https://github.com/pyenv/pyenv-installer
+#
+# On git-bash, you may try those commands to setup pyenv & pipenv
+#    curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+# pyenv install $PYTHON_VERSION
+# pyenv global $PYTHON_VERSION
+# pyenv rehash
+# pip install --user pipenv
+#
+# More into DEV setup check:
+# https://jacobian.org/2018/feb/21/python-environment-2018/
+# https://jacobian.org/2019/nov/11/python-environment-2020/
+#
+# If you think there is a good reason to migrate from pipenv to poetry for dependency management, please let me know.
+
+
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+sphinx = "==2.4.4"
+sphinx-sitemap = "==2.1.0"
+sphinx-rtd-theme = "==0.4.3"
+sphinx-aimms-theme = "==0.1.15"
+shell = "==1.0.1"
+
+[requires]
+python_version = "3.8.2"
