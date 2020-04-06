@@ -771,12 +771,12 @@ Select the identifier that you want to define the item actions:
 .. image:: images/ItemActions_StringParameterDataIdentifier.png
 			:align: center
 
-Add the details for the item actions. In the illustration below we are adding four item actions to the identifier :token:`SupplyUSAWest(usw)`
+Add the details for the item actions. In the illustration below we are adding four item actions to the identifier :token:`SupplyUSAWest(usw)`.
 
 .. image:: images/ItemActions_StringParameterDataIdentifier_Filled.png
 			:align: center
 
-Similarly, you can add item action to other identifiers as well. As illustrated below, we have added 3 item actions to the identifier :token:`DemandUSAEast(use)`
+Similarly, you can add item actions to other identifiers as well. As illustrated below, we have added 3 item actions to the identifier :token:`DemandUSAEast(use)`.
 
 .. image:: images/ItemActions_StringParameterDataIdentifier_Filled2.png
 			:align: center
@@ -798,16 +798,17 @@ In the illustration above, the two identifiers :token:`SupplyUSAWest(usw)` and :
     For the right-click item action menu to appear you will need to ensure that the widget contains the identifier for which the item actions were configured in the string parameter.
 
 .. note::
-    For the map widget, you can configure the item action to either the identifier that will be specified as the Size of the node set or the set used to define the node set. If item actions have been defined for both the size identifier as well as for the set, the item actions configured for the size identifier will be considered.
+    In the map widget, for node sets, you can configure the item action to either the identifier that will be specified as the Size of the node set or the set used to define the node set. If item actions have been defined for both the size identifier as well as for the set, the item actions configured for the size identifier will be considered.
+    For arc sets, item actions need to be defined on the identifier specified as the Value for the arc set. 
 
-You could also define different item actions for the same identifier but in two different string parameters and configure each of those string parameters to different widgets, as illustrated below:
+You could also define different item actions for the same identifier but in two different string parameters and configure each of those string parameters to different widgets.
 
 Interacting with Item Actions
 +++++++++++++++++++++++++++++
 
 The item action menu can be opened by right-clicking on the data elements in the widget. When the menu is open and you click anywhere outside the menu or on any other widget, the menu will close.
 
-Please note that when you right-click on a data element to reveal the item action menu, that element will get selected. If any store focus has been define for the widget, the respective element parameter will also be populated.
+Please note that when you right-click on a data element to reveal the item action menu, that element will get selected. If any store focus has been defined for the widget, the respective element parameter will also be populated.
 
 To select any of the actions, just click on the respective action. You will not be able to click an inactive action; the cursor will also indicate this.
 
@@ -821,3 +822,8 @@ If a procedure is not defined for a certain action, clicking on the action will 
 
 When Item actions are configured for a widget the default right-click menu for the browser will not be displayed in that widget.
 
+In case you have a long displaytext for an action, the item action menu will stretch to a width of 2 columns and ellipsis the text that does not fit. Hovering over the action will show the complete text in the tooltip.
+
+.. image:: images/ItemActions_LongDisplaytext.png
+			:align: center 
+			:scale: 75
