@@ -739,7 +739,7 @@ In case you have a long displaytext for an action, the widget action menu will s
 Item Actions
 ------------
 
-.. important:: Item Actions are available in software versions from AIMMS 4.73 onwards. Item Actions is currently available only for the Map widget.
+.. important:: Item Actions are available in software versions from AIMMS 4.73 onwards as part of Experimental Features. Item Actions is currently available only for the Map widget. Please reach out to AIMMS support on how to enable Experimental Features.
 
 Item Actions are a set of actions/procedures that can be defined via the model and configured for identifiers that are specified for a widget. These item actions are displayed when the user performs a right-click on the data elements in the widget. Item actions are defined per identifier and the right-click item action menu only appears on the data element associated with that identifier.  
 
