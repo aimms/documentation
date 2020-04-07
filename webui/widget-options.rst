@@ -119,7 +119,7 @@ Again, the string parameter used in the item text annotation attribute may have 
 
 If an identifier X does not have the :token:`webui::ItemTextIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_text` discussed above, if this is present in the model.
 
-Last (but not least), we come to the identifier annotations related to tooltips. Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed.  However, they can also be completely user-defined, giving the user freedom in determining the contents to be shown. 
+Next, we come to the identifier annotations related to tooltips. Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed.  However, they can also be completely user-defined, giving the user freedom in determining the contents to be shown. 
 In order to create user-defined tooltips, in the attribute form of the identifier for which you want to specify tooltips, you can add the :token:`webui::TooltipIdentifier` annotation attribute and then fill in the auxiliary string parameter containing the desired tooltips there:
 
 .. image:: images/Annotations_view4.png
@@ -145,6 +145,15 @@ the result when hovering over the same cell as above looks like this:
     :align: center
 
 If an identifier X does not have the :token:`webui::TooltipIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_tooltips` discussed above, if this is present in the model.
+
+Last (but not least), we discuss the identifier annotations related to the procedures "upon change". In order to specify a procedures "upon change", in the attribute form of the identifier for which you want to specify such a procedure, you can add the :token:`webui::UponChangeProcedure` annotation attribute and then fill in the name of the desired procedure there:
+
+.. image:: images/Annotations_view5.png
+    :align: center
+
+Such a procedures "upon change" may have any name of choice, so not necessarily related to the name of the underlying identifier itself. 
+
+If an identifier X does not have the :token:`webui::UponChangeProcedure` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the :token:`UponChange_X` procedure discussed above, if this is present in the model.
 
 .. note::
 	Upon starting up a project AIMMS checks whether ther are old style annotations in your model and if so, AIMMS points them up and recommends updating to new style annotations. 
@@ -592,6 +601,45 @@ If no display domain has been specified for the shown identifier, then the "Sum"
     :align: center
 
 In case of an active display domain, the differences between the other aggregators, e.g. between "Mean" and "Total mean", between "Count" and "Total count", etc, are similar to the difference between "Sum" and "Total sum" illustrated above.
+
+By default, totals are added "at the bottom" of a sequence of (numerical) values. For example, for the parameter UnitCost(f,c) we may add two aggregators such as "min" and "max" for each of the indexes of the factories f and the distribution centers c, which results in the corresponding aggregated values being displayed at the bottom:
+
+.. image:: images/Totals_onTop_view0.png
+    :align: center
+
+In this case the Advanced option :token:`Contents.totals` has as value the following string:
+
+.. code::
+
+    literal:[{"indexName":"c","operators":["min_only_visible","max_only_visible"]},{"indexName":"f","operators":["min_only_visible","max_only_visible"]}]
+
+However, it seems more natural to move one aggretator, for instance "min", "on top" of the shown sequence of values. For now, this possibility is provided through editing the Advanced option above.
+More specifically, one may append the postfix "_on_top" to any existing total specification. For example, if we edit the Advanced option :token:`Contents.totals` to read as
+
+.. code::
+
+    literal:[{"indexName":"c","operators":["min_only_visible_on_top","max_only_visible"]},{"indexName":"f","operators":["min_only_visible_on_top","max_only_visible"]}]
+	
+then the "min" aggregators are rendered on top of the correspoding sequence of values:
+
+.. image:: images/Totals_onTop_view0Top.png
+    :align: center
+
+.. note::
+	Please note that once having specified a "_on_top" postfix, the existing option editor should not be used anymore on aggregators, as it removes any existing "_on_top" total once you use the total options editor to make a change. So, it is advisable to add the "_on_top" postfix at the end of the process of specifying the widget options.
+
+For the values for the "corner cells" (i.e. grand totals) AIMMS uses the natural reading order in the sense that a cell that contain aggregated values will only use information from cells to the left or on top of that cell.
+This is natural in the sense that the top right cell (containing the value 7.87) contains the maximum of the cells on its left (instead of the minimum of cell underneath that cell): 
+
+.. image:: images/Totals_onTop_MaxOfMin1.png
+    :align: center
+
+Similarly, the bottom left cell (containing the value 3.64) shows the maximum of cells on top (instead of the minimum of cell on the right):
+
+.. image:: images/Totals_onTop_MaxOfMin2.png
+    :align: center
+
+We envision that in future AIMMS versions, the possibility to add totals "on top" will be provided through dedicated, more user friendly features in the widget options editor.
 
 
 Change Type

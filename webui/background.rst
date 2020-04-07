@@ -17,19 +17,17 @@ Current Limitations
 
 Currently, there are some limitations on the usage of the AIMMS WebUI:
 
-* The AIMMS WebUI requires a recent version of the `Chrome <http://www.google.com/chrome/>`_ browser (latest version, or one release before the latest), Microsoft Edge or Microsoft Internet Explorer 11. Please note that the WebUI support for the latter two browsers is currently in the "beta" phase. On iPhone and iPad devices the Safari browser is supported for the end-users. Eventually, we will also add support for other HTML5 browsers. 
+* The AIMMS WebUI requires a recent version (latest version, or one release before the latest) of the `Chrome <http://www.google.com/chrome/>`_ browser or the Microsoft Edge browser. On iPad devices the Safari browser is supported for the end-users. Eventually, we may add support for other HTML5 browsers as well. 
 * Changing the index domain of an identifier which is used by the WebUI while the WebUI (achieved by *Start WebUI*) is running, is not supported. Changes are propagated when *Stop WebUI*  is selected and subsequently *Start WebUI* is selected from the AIMMS menu. This limitation only applies to working in developer mode (i.e. not to end-user running apps from AIMMS PRO).
 
-.. tip::
+.. note::
 
-    There is a known problem with Internet Explorer 11: if you face a blue screen after starting your WebUI app in the browser, you should verify that the setting "Display Intranet Sites in Compatibility View" is set to unchecked. You can find this option under "Compatibility View Options" in the main menu of IE11.
+    As mentioned in `Requirements <requirements.html>`_ section, support for Internet Explorer 11 has been deprecated. Should you nevertheless run IE11, please note that there is a known problem with Internet Explorer 11: if you face a blue screen after starting your WebUI app in the browser, you should verify that the setting "Display Intranet Sites in Compatibility View" is set to unchecked. You can find this option under "Compatibility View Options" in the main menu of IE11.
  
-    
 .. warning::
     
     Use of zooming in WebUI may lead to visual aberrations. The WebUI was developed assuming a 100% zoom in your browser.
     
- 
 Project Conversion
 ==================
 

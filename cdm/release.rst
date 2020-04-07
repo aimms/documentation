@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.17.1.13 [10-03-2020]
+    - In :token:`cdm::DataChangeProcedure` pass on exception only on last retry.
+    
 1.17.1.12 [25-02-2020]
     - CDM runtime identifiers for identifiers with defaults and a derived unit, would inadvertently get a default in the base unit, leading to unnecessary commits to the CDM database.
     - Identifier-specific commit cardinalities could fail the cdm::GetRevisions function for identifiers that no longer exist in the model

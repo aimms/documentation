@@ -27,7 +27,17 @@ Public Page and Widget Specification Declarations:
 * ``WidgetActionSpecification`` - This set is the specification for adding `widget actions <widget-options.html#widget-actions>`_ . The string parameters used to configure the widget actions on certain widgets are indexed on this set.
 * ``PageActionSpecification`` - This set is the specification for adding `page actions <page-settings.html#page-actions>`_. The string parameters used to configure the primary action and secondary actions on certain pages are indexed on this set.
 
+Public WebUI Frontend State Support Declarations: 
+
+(note: this section was introduced with AIMMS 4.72, as the 'webui state support' experimental feature.)
+
+* ``AllOpenWebUITabs`` - This set contains one element for each WebUI tab currently open. The element has the form of a UUID. 
+* ``LastActiveWebUITab`` - An element parameter in ``AllOpenWebUITabs``, which contains the UUID of the currently open WebUI tab in the browser (if any, it is empty otherwise).
+* ``CurrentPageId`` - This string parameter contains the currently loaded page ID for all open tabs.
+* ``CurrentSidePanelPageId`` - This string parameter contains the page ID for all open currently loaded side panels.
+
 .. _workflowspecification:
+
 
 Public Workflow Support Declarations:
 
@@ -61,6 +71,27 @@ Public Workflow Support Declarations:
 Public StatusBar Support Declarations:
 
 :token:`StatusBarSpecification` - This set is the specification used to configure Status Messages on the `Status Bar <application-settings.html#status-bar>`_ that appears on the footer. You will need to create string parameters indexed over this set.
+
+Public List Support Declarations
+
+.. _listgroupspecification:
+
+:token:`ListGroupSpecification` - This set is the specification used to `configure List Groups <list-widget.html#configuring-list-groups>`_ in the `List Widget <list-widget.html>`_. You will need to create string parameters indexed over this set. The elements of this set (defining list groups) are the following:
+
+* :token:`title` - The title for the list group to be displayed in the List widget.
+* :token:`tooltip` - Tooltip to be displayed when the user hovers over the respective list group's title.
+
+.. _listgroupitemsspecification:
+
+:token:`ListGroupItemsSpecification` - This set is used to `configure the list items <list-widget.html#configuring-items-for-lists>`_ in a specific list group. You will need to create a string parameter indexed over this set. The elements of this set (defining list group items) are the following:
+
+* :token:`icon` - The icon you want to display for the respective list item. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
+* :token:`color` - The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around 140 color names. This is an optional field. You can also use Hex codes eg: #FF0000 for Red.
+* :token:`text` - The text you want to display for the list item. This is a required field.
+* :token:`tooltip` - Tooltip to be displayed when the user hovers over the respective list item.
+* :token:`procedure` - The procedure you want to call when the respective list item is clicked.
+* :token:`external` - Boolean value to indicate the list item procedure leads to an external link. By default, this option is 0/false.
+* :token:`state` - Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden (not displayed). By default, the state is Hidden.
 
 Request Queue Declarations is used to manage the number of requests from WebUI. 
 

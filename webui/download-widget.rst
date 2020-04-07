@@ -53,7 +53,7 @@ However, to create a file with name ``FileLocation`` in the temporary PRO folder
 
 The above function returns a string value with the absolute path to the file ``FileLocation`` if you are using it from PRO and returns the unchanged file name if you are in Developer mode. By using this returned value as the location for the file to be created by your procedure, you will make it available for the download widget. 
 
-In case you want to be able to download a previously created file through the download widget, you will need to copy that file into the appropriate location. You can use the :token:`FileCopy` function as below to do that 
+In case you want to be able to download a previously created file through the download widget, you will need to copy that file into the appropriate location. You can use the :any:`FileCopy` function as below to do that 
 
 .. code::
 
@@ -124,7 +124,7 @@ An example for the body of the download procedure is shown below. This particula
 
 When executed through the download widget, this procedure will let you download a file named MyDownloadFile.txt with FinalLocation := "MyDownloadFile.txt" as its content. If launched from PRO, the file name will still remain same but the value for FinalLocation will be "temporary PRO path + MyDownloadFile.txt"
 
-Note that this generated file is NOT automatically deleted if you are running WebUI in AIMMS developer mode. If you want to delete this file after a download, you should use the function :token:`FileDelete` as below. 
+Note that this generated file is NOT automatically deleted if you are running WebUI in AIMMS developer mode. If you want to delete this file after a download, you should use the function :any:`FileDelete` as below. 
 
 .. code::
 
