@@ -251,6 +251,9 @@ the factories f and the centers c in the node sets and with the variable Transpo
     :align: center
 
 So, in this latter case the arcs are drawn between nodes belonging to two different node sets. 
+
+.. Note::
+    While specifying an identifier for the Value field for an arc set, it is possible to `slice <widget-options.html#id6>`_ the identifier to display part of the dimensions/data. Inorder to slice the value identifier, the resulting dimension for the identifier needs to be atleast 2. Please refer to the `Slicing <widget-options.html#id6>`_ section for more details.
 	
 Multiple arc sets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
