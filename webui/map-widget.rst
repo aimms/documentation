@@ -36,7 +36,7 @@ In the settings options editor one can find the following sections:
 
 *	Node Sets: Multiple node sets can be added here.
 *	Arc Sets: Multiple arc sets can be added here.
-*	Widget Actions: Widget actions can be configured here.
+*	Widget Actions: `Widget actions <widget-options.html#widget-actions>`_ and `Item actions <widget-options.html#item-actions>`_ can be configured here.
 *	Heatmap: A heatmap can be added here. 
 *	Miscellaneous: Title, Zoom, Center Latitude, Center Longitude and Visibility can be controlled here.
 *	Advanced: Advanced options for this widget are available here.
@@ -58,7 +58,7 @@ The available options to be specified are the following:
 *	Latitude: A 1-dimensional parameter specifying the latitude coordinates for the nodes set with the selected index
 *	Longitude: A 1-dimensional parameter specifying the longitude coordinates for the node set with the selected index
 *	Size: A 1-dimensional parameter specifying the dynamic sizes for the node set with the selected index. Nodes which have an undefined size or 0 will not be drawn on the map.
-*	Maximum Reference Size: A scalar parameter that is used to relative size the nodes based on a fixed value when Size is configured. When undefined, the nodes are relatively sized based on the maximum value in the Size identifier. This option is applicable only when the Size has also been configured for the node set.
+*	Maximum Reference Size: A scalar parameter that is used to relative size the nodes based on a fixed value when Size is specified. When undefined, the nodes are relatively sized based on the maximum value in the Size identifier. This option is applicable only when the Size has also been specified for the node set.
 *	Icon: The icon you want to associate with a node set. You can select from a list of 1600+ icons, the reference can be found in the `icon list. <../_static/aimms-icons/icons-reference.html>`_
 
 .. tip:: 
@@ -215,7 +215,7 @@ The available options to be specified are the following:
     Note that, except for the “Value” field, all other options can be controlled either by constant values or by using scalar parameters declared in the model.
 
 Adding identifiers to arc option fields
------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We illustrate first the addition of an arc set for the example at hand where only the root set Locations with index l has been added as node set. 
 In this example, let's assume that l_from and l_to are two alias indexes spanning the same Locations set as the index l.
@@ -285,8 +285,50 @@ Applying this note to the source nodes in our example here at hand means that th
 In the same vein, when considering the destinations nodes, the set of distribution centers d and the set of customer regions r should not contain any elements with the same element names.
 
 
+Store Focus, Hover and Select for arcs
+--------------------------------------
+
+Similar to the nodes, arcs also have the functionality to store focus. This means that when an arc is selected by clicking it, you can store the value of the nodes that the arc was drawn between, in element parameters declared in the model.
+
+While adding the identifier for the arc set, one will notice an option for “Store focus”. Here an element parameter may be specified for either one or both of the indices, which will store the value of the node(s) when an arc is selected upon clicking in the network.
+
+.. image:: images/Map_ArcsStoreFocusDialog.png
+    :align: center
+    :scale: 75
+
+Once the element parameter has been specified, you will be able to see this reflected in the "Value" field of the corresponding arc set in the options editor. For example, while specifying the Value of the arc set with the identifier :token:`FactoriestoSuppliers(usw,use)`, you can specify :token:`SelectedFactory` for the index :token:`usw` and :token:`SelectedSupplier` for the index :token:`use`, where :token:`SelectedFactory` and :token:`SelectedSupplier` are element parameters in our application at hand with ranges Factories and Suppliers, respectively.
+
+.. image:: images/Map_ArcsStoreFocusSelection.png
+    :align: center
+    :scale: 50
+
+.. image:: images/Map_ArcsStoreFocusOptions.png
+    :align: center
+    :scale: 75
+
+When the user hovers over a certain arc, the arc darkens so that the user can easily identify the complete arc. Incidentally, the other arcs become slightly lighter. When the user clicks on the arc, in order to select it, that arc stays dark and the other arcs become even lighter. This allows the user to identify which arc has been selected even when the focus is not on the map widget. 
+
+When no arcs are selected or hovered.
+
+.. image:: images/Map_ArcNormal.png
+    :align: center
+
+When the user hovers over an arc.
+
+.. image:: images/Map_ArcHovered.png
+    :align: center
+
+When the user selects that arc.
+
+.. image:: images/Map_ArcSelected.png
+    :align: center
+
+These effects are specific to arcs that belong to the same arc set. Arcs that belong to other arc sets are not effected.
+
+
+
 Ordering and deleting node/arc sets
--------------------------------------
+-----------------------------------
 
 The ordering of the added node/arc sets may be changed by hovering over the title bar of the set and then clicking on the respective button, to move up or down. 
 An entire node/arc set may be deleted by clicking on the bin icon. These options are illustrated in the following picture:
@@ -295,7 +337,42 @@ An entire node/arc set may be deleted by clicking on the bin icon. These options
     :align: center
 
 The order of nodes sets determines which node sets should be drawn on top of others in case there are overlapping nodes.
+
+Heatmap
+-------
+
+A Heatmap is used to represent data where values are depicted by color. Heatmaps make it easy to visualize complex data in a simple manner and understand it in a glance.
+
+.. image:: images/Heatmap_Example.png
+    :align: center
+
+To configure a Heatmap in AIMMS you will require the set of locations, the latitude and longitude for those locations and the data for each of the locations.
+
+You can configure only one heatmap for a map widget.
+
+Adding a Heatmap
+^^^^^^^^^^^^^^^^
+
+After selecting the “Heatmap” section and clicking on the “+” sign at the bottom, one can add options for the the heatmap:
+
+.. image:: images/Heatmap_OptionsEditor.png
+    :align: center
+
+The available options to be specified are the following:
 	
+*	Index: Select the index of the set to be displayed
+*	Latitude: A 1-dimensional parameter specifying the latitude coordinates for the heatmap with the selected index
+*	Longitude: A 1-dimensional parameter specifying the longitude coordinates for the heatmap with the selected index
+*	Data: A 1-dimensional parameter specifying the data for the heatmap with the selected index.
+*	Hide Heatmap: A boolean value to hide the heatmap. Switch this option on to hide the heatmap.
+
+Similar to how `identifiers are added to node option fields <map-widget.html#adding-identifiers-to-node-option-fields>`_, add identifiers for the Index, Latitude, Longitude and Data. Once all fields have been assigned, the heatmap will be drawn on the map.
+
+.. image:: images/Heatmap_OptionsAdded.png
+    :align: center
+
+A legend is also displayed inside the map widget. The legend shows the identifier name that was speficied as the Data for the heatmap as the title. It also displays the minimum value (on the left) and maximum value (on the right) of the data set and how the gradient is spread betwen those values, as illustrated in the above example.
+
 Miscellaneous options
 -----------------------
 
@@ -314,6 +391,53 @@ Here are more explanations about the meaning of these options:
 .. note:: When using the Zoom and Center options, ensure that the values for these identifiers are defined as Initial Data and not Definitions.  
 
 .. important:: If your widget has been created in the past by using an older type Map widget, you may continue to use this widget as is, but it is not possible to upgrade the widget from an older Map type to the current Map type by just changing the widget type in the Advanced options. In order to use the current Map type, the node and arc sets have to be added explicitly to the widget using the style described in this section.
+
+Custom HTML tooltips
+--------------------
+
+As described in the `Widget Options <widget-options.html#html-tooltips>`_ section, in order to create user-defined tooltips, in the attribute form of the identifier you can add the :token:`webui::TooltipIdentifier` annotation attribute and then fill in the auxiliary string parameter containing the desired tooltips there.
+
+Tooltips for Nodes
+^^^^^^^^^^^^^^^^^^
+
+To display user-defined tooltip for nodes, you will have to add the :token:`webui::TooltipIdentifier` annotation attribute to the identifier that was specified as the "Size" for the respective node set. As illustrated below, :token:`SupplyUSAWest(usw)` is specified as the Size for the node set and the string parameter :token:`SupplyUSAWestTooltip(usw)` added to the :token:`webui::TooltipIdentifier` annotation attribute:
+
+.. image:: images/Map_NodeTooltipIdentifier.png
+    :align: center
+
+.. image:: images/Map_NodeTooltipResult.png
+    :align: center
+
+
+In the illustration above, you can see the result of using the following definition for the string parameter :token:`SupplyUSAWestTooltip(usw)`:
+
+.. code::
+
+    formatstring("This is a factory in %e",usw);
+
+Similary, you can add user-defined tooltips to each node set.
+
+Tooltips for Arcs
+^^^^^^^^^^^^^^^^^
+
+To display user-defined tooltip for arcs, you will have to add the :token:`webui::TooltipIdentifier` annotation attribute to the identifier that was specified as the "Value" for the respective arc set. As illustrated below, :token:`FactoriestoSuppliers(usw,use)` is specified as the Value for the arc set and the string parameter :token:`FactoriestoSuppliersTooltips(usw,use)` added to the :token:`webui::TooltipIdentifier` annotation attribute:
+
+.. image:: images/Map_ArcTooltipIdentifier.png
+    :align: center
+
+.. image:: images/Map_ArcTooltipResult.png
+    :align: center
+
+
+In the illustration above, you can see the result of using the following definition for the string parameter :token:`FactoriestoSuppliersTooltips(usw,use)`:
+
+.. code::
+
+    formatstring("%e %s %e %s %n",usw,"<br><br>to<br><br><strong>",use,"</strong> is",FactoriestoSuppliers(usw, use));
+
+
+Similary, you can add user-defined tooltips to each node set.
+
 
 Guidelines and best practices
 ----------------------------------
