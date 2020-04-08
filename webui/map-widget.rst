@@ -346,12 +346,11 @@ A Heatmap is used to represent data where values are depicted by color. Heatmaps
 .. image:: images/Heatmap_Example.png
     :align: center
 
-To configure a Heatmap in AIMMS you will require the set of locations, the latitude and longitude for those locations and the data for each of the locations.
-
-You can configure only one heatmap for a map widget.
 
 Adding a Heatmap
 ^^^^^^^^^^^^^^^^
+
+To configure a Heatmap in AIMMS you will require the set of locations, the latitude and longitude for those locations and the data for each of the locations.
 
 After selecting the “Heatmap” section and clicking on the “+” sign at the bottom, one can add options for the the heatmap:
 
@@ -372,6 +371,13 @@ Similar to how `identifiers are added to node option fields <map-widget.html#add
     :align: center
 
 A legend is also displayed inside the map widget. The legend shows the identifier name that was speficied as the Data for the heatmap as the title. It also displays the minimum value (on the left) and maximum value (on the right) of the data set and how the gradient is spread betwen those values, as illustrated in the above example.
+
+You can configure only one heatmap for a map widget.
+
+.. Note::
+    If node sets and arc sets are also configured along with the heatmap, the nodes and arcs will overlap the heatmap.
+
+    If the number of locations on the heatmap exceed 5000, there might be a slight delay in rendering the heatmap.
 
 Miscellaneous options
 -----------------------
