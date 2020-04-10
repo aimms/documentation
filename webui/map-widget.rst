@@ -253,7 +253,7 @@ the factories f and the centers c in the node sets and with the variable Transpo
 So, in this latter case the arcs are drawn between nodes belonging to two different node sets. 
 
 .. Note::
-    While specifying an identifier for the Value field for an arc set, it is possible to `slice <widget-options.html#id6>`_ the identifier to display part of the dimensions/data. Inorder to slice the value identifier, the resulting dimension for the identifier needs to be atleast 2. Please refer to the `Slicing <widget-options.html#id6>`_ section for more details.
+    While specifying an identifier for the Value field for an arc set, it is possible to `slice <widget-options.html#id6>`_ the identifier to display part of the dimensions/data. If you use a sliced identifier, the resulting dimension for the identifier needs to be at least 2. Please refer to the `Slicing <widget-options.html#id6>`_ section for more details.
 	
 Multiple arc sets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -311,7 +311,7 @@ Once the element parameter has been specified, you will be able to see this refl
 
 When the user hovers over a certain arc, the arc darkens so that the user can easily identify the complete arc. Incidentally, the other arcs become slightly lighter. When the user clicks on the arc, in order to select it, that arc stays dark and the other arcs become even lighter. This allows the user to identify which arc has been selected even when the focus is not on the map widget. 
 
-When no arcs are selected or hovered.
+When no arcs are hovered or selected.
 
 .. image:: images/Map_ArcNormal.png
     :align: center
