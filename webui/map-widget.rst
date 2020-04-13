@@ -1,20 +1,27 @@
 Map Widget
 ==========
 
-.. important:: This section applies to the new style Map widget, i.e. the map widget available in software versions from AIMMS 4.61 onwards.  
+.. |nodeset| image:: images/Icon_NodeSet.png
+.. |arcset| image:: images/Icon_ArcSet.png
+.. |heatmap| image:: images/Icon_Heatmap.png
+.. |miscicon| image:: images/Icon_Misc.png
+.. |widgetactionicon| image:: images/Icon_WidgetActions.png
+.. |advicon| image:: images/Icon_Advanced.png
+
+.. important:: This section applies to the new style Map widget, i.e. the map widget available in software versions from AIMMS 4.73 onwards. Most of this section also applies to the map widget available in software versions from AIMMS 4.61 upto 4.72. Features like Maximum Relative Size, Icons for Nodes, Store Focus with hover and select for arcs, Heatmap and Custom HTML Tooltips are available only from version 4.73 onwards.    
 
 The Map widget allows you to display a map in the background and show a network with nodes and arcs on top of the map.
 A simple situation is for example when a transport identifier indexed over factories f and centers c in the TransNet application 
 (see the "Quick Start: My First WebUI" section) is displayed like in the following picture:
 
-.. image:: images/MapV2-1simpleEx.png
+.. image:: images/Map_Example.png
     :align: center
 
 The map displayed in the background is provided by the OpenStreetMap organization, see the `openstreetmap.org web site <https://www.openstreetmap.org>`_. 
 Since one must be able to reach OpenStreetMap online, an Internet connection is required for rendering the map. Assuming the connection is available, 
 the map may be zoomed at various levels (see also the Zoom option mentioned further below):
 
-.. image:: images/MapV2-ZoomLevels.png
+.. image:: images/Map_ZoomLevels.png
     :align: center
 
 The network with nodes and arcs on top of the map must be defined in terms of identifiers declared in the AIMMS model.
@@ -29,27 +36,24 @@ Creating a map widget
 A map widget can be added to a page using the same steps as for any other widget, see `adding a new widget <widget-manager.html>`_. 
 After adding the map widget in the Widget Manager one can click on its Settings wheel in order to configure the widget.
 
-.. image:: images/MapV2-StartLayout.png
+.. image:: images/Map_StartLayout.png
     :align: center
 
 In the settings options editor one can find the following sections:
 
-*	Node Sets: Multiple node sets can be added here.
-*	Arc Sets: Multiple arc sets can be added here.
-*	Widget Actions: `Widget actions <widget-options.html#widget-actions>`_ and `Item actions <widget-options.html#item-actions>`_ can be configured here.
-*	Heatmap: A heatmap can be added here. 
-*	Miscellaneous: Title, Zoom, Center Latitude, Center Longitude and Visibility can be controlled here.
-*	Advanced: Advanced options for this widget are available here.
-
-.. image:: images/MapV2-StartAllOptions.png
-    :align: center
+*	|nodeset| Node Sets: Multiple node sets can be added here.
+*	|arcset| Arc Sets: Multiple arc sets can be added here.
+*	|widgetactionicon| Widget Actions: `Widget actions <widget-options.html#widget-actions>`_ and `Item actions <widget-options.html#item-actions>`_ can be configured here.
+*	|heatmap| Heatmap: A heatmap can be added here. 
+*	|miscicon| Miscellaneous: Title, Zoom, Center Latitude, Center Longitude and Visibility can be controlled here.
+*	|advicon| Advanced: Advanced options for this widget are available here.
 
 Adding node sets
 -------------------
 
 After selecting the "Node Sets" section and clicking on the "+" sign at the bottom, one can add options for the first node set:
 
-.. image:: images/MapV2-Nodes0-Options.png
+.. image:: images/Map_NodeOptions.png
     :align: center
 
 The available options to be specified are the following:
@@ -89,7 +93,7 @@ Next, when clicking on the identifier selector of the Latitude, a 1-dimensional 
 
 Similarly, one can follow the steps for the Longitude and the Size fields. Once all fields have been assigned, the nodes will be drawn on the map:
 
-.. image:: images/MapV2-Nodes0-Layout.png
+.. image:: images/Map_NodesAdded.png
     :align: center
 
 Multiple node sets
@@ -229,6 +233,13 @@ Once the arc identifier has been properly specified, the arcs will be drawn on t
 .. image:: images/MapV2-Arc0-View1.png
     :align: center
 
+Arcs are drawn in a clockwise manner. Meaning, arcs that are drawn from North to South or West to East will be drawn with an upward curve, and arcs that are drawn from South to North or East to West will be drawn with a downward curve.
+
+Arcs that have a positive value will be drawn with a solid line whereas arcs that have a negative value will be drawn as a dot-dashed line, as illustrated below:
+
+.. image:: images/Map_ArcNegative.png
+    :align: center
+ 
 When the "Hide Labels" option is turned on, the map is drawn as follows:
 
 .. image:: images/MapV2-HideLabels-View.png
