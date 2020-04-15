@@ -27,7 +27,13 @@ To configure list groups and their items in the widget you will need to create t
 Configuring List Groups
 -----------------------
 
-For illustration, let's call the first sting parameter :token:`MyListsGroups(webui::indexListGroupOrder,webui::indexListGroupSpec)`. This string parameter is indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with the index :token:`indexListGroupOrder` and the `ListGroupSpecification <library.html#listgroupspecification>`_ set with the index :token:`indexListGroupSpec`. This string parameter is used to define the number of list groups, their respective titles and tooltips. The values of this string parameter may be initialized in the Initial Data attribute, in a procedure or manually, by right clicking the string parameter and clicking on the Data option in order to open its data page. There you can add the details for the list groups, their titles and their tooltips:
+For illustration, let's call the first sting parameter 
+
+.. code:: 
+    
+    MyListsGroups(webui::indexListGroupOrder,webui::indexListGroupSpec) 
+
+This string parameter is indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with the index :token:`indexListGroupOrder` and the `ListGroupSpecification <library.html#listgroupspecification>`_ set with the index :token:`indexListGroupSpec`. This string parameter is used to define the number of list groups, their respective titles and tooltips. The values of this string parameter may be initialized in the Initial Data attribute, in a procedure or manually, by right clicking the string parameter and clicking on the Data option in order to open its data page. There you can add the details for the list groups, their titles and their tooltips:
 
 .. image:: images/List_ListGroupDeclaration.png
     :align: center
@@ -37,7 +43,13 @@ The values in the example above indicate that there are 3 list groups.
 Configuring Items for Lists
 ---------------------------
 
-Create the second string parameter, let's call it :token:`MyListGroupItems(webui::indexListGroupOrder,webui::indexNoOfListItems,webui::indexListGroupItemsSpec)` indexed over both indices of the `ExtensionOrder <library.html#extensionorder>`_ set and over the index of the `ListGroupItemsSpecification <library.html#listgroupitemsspecification>`_ set. This string parameter is used to define the items for each list group which has been defined in the MyListsGroups string parameter.
+Create the second string parameter, let's call it 
+
+.. code:: 
+    
+    MyListGroupItems(webui::indexListGroupOrder,webui::indexNoOfListItems,webui::indexListGroupItemsSpec)
+
+indexed over both indices of the `ExtensionOrder <library.html#extensionorder>`_ set and over the index of the `ListGroupItemsSpecification <library.html#listgroupitemsspecification>`_ set. This string parameter is used to define the items for each list group which has been defined in the MyListsGroups string parameter.
 
 .. image:: images/List_ListGroupItemsDeclaration.png
     :align: center
