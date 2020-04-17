@@ -8,7 +8,7 @@ Map Widget
 .. |widgetactionicon| image:: images/Icon_WidgetActions.png
 .. |advicon| image:: images/Icon_Advanced.png
 
-.. important:: This section applies to the new style Map widget, i.e. the map widget available in software versions from AIMMS 4.73 onwards. Most of this section also applies to the map widget available in software versions from AIMMS 4.61 upto 4.72. Features like Maximum Relative Size, Icons for Nodes, Store Focus with hover and select for arcs, Heatmap and Custom HTML Tooltips are available only from version 4.73 onwards.    
+.. important:: This section applies to the new style Map widget, i.e. the map widget available in software versions from AIMMS 4.73 onwards. Most of this section also applies to the map widget available in software versions from AIMMS 4.61 upto 4.72. Maximum Relative Size, Icons for Nodes, Store Focus with hover and select for arcs, Heatmap and Custom HTML Tooltips for nodes and arcs are available only from version 4.73 onwards.    
 
 The Map widget allows you to display a map in the background and show a network with nodes and arcs on top of the map.
 A simple situation is for example when a transport identifier indexed over factories f and centers c in the TransNet application 
@@ -17,9 +17,8 @@ A simple situation is for example when a transport identifier indexed over facto
 .. image:: images/Map_Example.png
     :align: center
 
-The map displayed in the background is provided by the OpenStreetMap organization, see the `openstreetmap.org web site <https://www.openstreetmap.org>`_. 
-Since one must be able to reach OpenStreetMap online, an Internet connection is required for rendering the map. Assuming the connection is available, 
-the map may be zoomed at various levels (see also the Zoom option mentioned further below):
+The map displayed in the background is provided by `Omniscale <https://maps.omniscale.com/en/>`_, when the application is running on localhost (developer mode, or on a local AIMMS PRO setup) and also when the application is deployed on the AIMMS PRO cloud. If the application has been deployed on-premise using a different domain the map server will roll back to OpenStreetMaps. 
+An Internet connection is required for rendering the map. Assuming the connection is available, the map may be zoomed at various levels (see also the Zoom option mentioned further below):
 
 .. image:: images/Map_ZoomLevels.png
     :align: center
@@ -168,7 +167,15 @@ Similarly, you can define different icons for different node sets.
 .. image:: images/MapV3_MultipleNodeSetIcons.png
     :align: center
 
-To view icons you might have to also configure the Size identifier. The icons are scaled as per the node size. If you do not configure the Size parameter, the icons will not be visible. However you can also control the size via annotations. 
+To view icons you might have to also configure the Size identifier. The icons are scaled as per the node size. If you do not configure the Size parameter, the icons will not be visible. However you can also control the size via annotations.
+
+Custom Tooltips and Annotations for nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When a user hovers over a node a tooltip displays the name of the node. It is also possible to override the defalut tooltips for these node by adding the :token:`webui::TooltipIdentifier` annotation attribute to the identifier that was specified as the "Size" for the respective node set. You can find further details in `Tooltips for nodes section <map-widget.html#tooltips-for-nodes>`_ on this page.
+
+It is also possible to add user-annotations in your AIMMS model which will be used to style the corresponding node styles with CSS. This can be achieved by adding the :token:`webui::AnnotationsIdentifier` annotation attribute to either the Set that the nodes are indexed over or the Size identifier. We suggest adding the :token:`webui::AnnotationsIdentifier` annotation attribute to the Size identifier, and if the size is not speficied to add it to the Set. You can find more details with the supported CSS properties in the `CSS properties supported for annotations section <css-styling.html#widgets-and-css-properties-supported-for-annotations>`_.
+
 
 Store Focus, Hover and Select for nodes
 -----------------------------------------
@@ -298,6 +305,12 @@ are drawn as curved lines):
 Applying this note to the source nodes in our example here at hand means that the set of plants p and the set of distribution d centers should not contain any elements with the same element names.
 In the same vein, when considering the destinations nodes, the set of distribution centers d and the set of customer regions r should not contain any elements with the same element names.
 
+Custom Tooltips and Annotations for arcs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When a user hovers over an arc there is no tooltip that displayed, since the information is displayed on the label. It is possible to configure user-defined tooltips for these arcs by adding the :token:`webui::TooltipIdentifier` annotation attribute to the identifier that was specified as the "Value" for the respective arc set. You can find further details in `Tooltips for nodes section <map-widget.html#tooltips-for-arcs>`_ on this page.
+
+It is also possible to add user-annotations in your AIMMS model which will be used to style the corresponding arc styles with CSS. This can be achieved by adding the :token:`webui::AnnotationsIdentifier` annotation attribute to the Value identifier. You can find more details with the supported CSS properties in the `CSS properties supported for annotations section <css-styling.html#widgets-and-css-properties-supported-for-annotations>`_.
 
 Store Focus, Hover and Select for arcs
 --------------------------------------
@@ -412,8 +425,8 @@ Here are more explanations about the meaning of these options:
 
 .. important:: If your widget has been created in the past by using an older type Map widget, you may continue to use this widget as is, but it is not possible to upgrade the widget from an older Map type to the current Map type by just changing the widget type in the Advanced options. In order to use the current Map type, the node and arc sets have to be added explicitly to the widget using the style described in this section.
 
-Custom HTML tooltips
---------------------
+Custom HTML tooltips for Nodes and Arcs
+---------------------------------------
 
 As described in the `Widget Options <widget-options.html#html-tooltips>`_ section, in order to create user-defined tooltips, in the attribute form of the identifier you can add the :token:`webui::TooltipIdentifier` annotation attribute and then fill in the auxiliary string parameter containing the desired tooltips there.
 
@@ -458,6 +471,31 @@ In the illustration above, you can see the result of using the following definit
 
 Similary, you can add user-defined tooltips to each node set.
 
+
+Using Google Maps with API key 
+------------------------------
+
+If you already use services from Google Maps, it is possible to override the default map provider in AIMMS with Google Maps, by adding an `Application Specific Resource <resources-subfolder.html#webui-resources>`_ file. 
+
+Create a .js file, lets call it GoogleAPI.js, in the resources/js folder. In the GoogleAPI.js, add the below code with your valid Google API key. Ensure you replace YOUR_API_KEY with your actual API key within the quotes.
+
+.. code::
+
+    global.googleMapId = '[YOUR_API_KEY]';
+
+Once this is done, all the map widgets in your application will serve Google maps.
+
+Please note, if the API key does not have the correct permissions, the map will not render the background and you may get an error as illustrated below:
+
+.. image:: images/Map_GoogleAPIError.png
+    :align: center
+    :scale: 50
+
+.. Important::
+
+    **Disclaimer**
+
+    All usage of a Google API key is subjective to license terms set forth by the holders of this API key. AIMMS shall not be responsible or liable for any misuse of such API keys. Furthermore, it is the user's responsibility to be compliant with securing the API keys and the license agreement of the respective providers; see e.g. https://developers.google.com/maps/api-key-best-practices.
 
 Guidelines and best practices
 ----------------------------------
