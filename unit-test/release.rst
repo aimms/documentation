@@ -5,6 +5,10 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+1.0.0.76 [23-04-2020]
+    - Added support for cloning and comparing cloned datasets
+    - Adapted AIMMSUnitTest.py for python 3 compatability
+    
 1.0.0.69 [23-05-2019]
     - Added capability to duplicate existing test suite to allow for testing multiple scenarios of the same test suite
     - Added capability to use different names for results files
