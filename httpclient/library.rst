@@ -1,7 +1,7 @@
 Introduction
 ============
 
-The HTTP Client library provides you with a low-level `API <api.html>`_ to create and execute HTTP requests. You can use this library download files from the web, or call REST APIs of web services required by your model. The library provides you with complete freedom to programmatically construct an HTTP request with all headers required for the service that you want to call.
+The HTTP Client library provides you with a low-level `API <api.html>`_ to create and execute HTTP requests (over both plain TCP/HTTP and secure SSL/TLS/HTTPS connections). You can use this library download files from the web, or call REST APIs of web services required by your model. The library provides you with complete freedom to programmatically construct an HTTP request with all headers required for the service that you want to call.
 
 The library does *not* create request bodies, nor does it interpret and translate response bodies into AIMMS data. The latter is left completely to your AIMMS model. 
 If the response body is 
