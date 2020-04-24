@@ -3,7 +3,7 @@ Automated testing
 
 To run tests in an automated fashion, the AIMMS Unit Test framework comes with a Python script :token:`AIMMSUnitTests.py` that you can call from the command line to run all, or selected tests. You can copy the :token:`AIMMSUnitTest.py` script to your project folder by calling the procedure :token:`aimmsunit::CopyPythonScript`. The arguments of the Python script are:
 
-* the AIMMS version to be used to run the test (e.g. :token:`4.53.1.8`), the test script will automatically download the AIMMS version from the AIMMS download site and unpack it in the *aimms* subfolder of the location from which you run the script
+* the AIMMS version to be used to run the test (e.g. :token:`4.53.1.8`), the test script will automatically download the AIMMS version from the AIMMS download site and unpack it in the *aimms* subfolder of the location from which you run the script. This may take some time when you run the script for the first time.
 * the architecture to run the test on (:token:`x86` / :token:`x64` on Windows, or :token:`x64` on Linux)
 * the project folder, relative to the working folder, containing the AIMMS project to test
 * the name of the project file (e.g. :token:`MyProject.aimms`)
@@ -18,7 +18,7 @@ Requirements for the Python script
 
 To successfully run the script, you should have the following software installed on your test machine:
 
-* Python 2.7
+* Python > 3.7
 * Python requests module installed (install via :token:`pip install requests`)
 * 7-zip (Windows only, installed in :token:`C:\\Program Files\\7-zip\\7z.exe`
 
