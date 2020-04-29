@@ -1,5 +1,5 @@
-Widget Options 
-===============
+Widget Options
+==============
 
 .. |cog-widget| image:: images/WidgetOptions_snap1.png
 .. |widget-action| image:: images/widget-actions.png
@@ -774,3 +774,95 @@ In case you have a long displaytext for an action, the widget action menu will s
 			:align: center 
 			:scale: 75
 
+
+Item Actions
+------------
+
+.. important:: Item Actions are available in software versions from AIMMS 4.73 onwards as part of Experimental Features. Item Actions is currently available only for the Map widget. Please reach out to AIMMS support on how to enable Experimental Features.
+
+Item Actions are a set of actions/procedures that can be defined via the model and configured for identifiers that are specified for a widget. These item actions are displayed when the user performs a right-click on the data elements in the widget. Item actions are defined per identifier and the right-click item action menu only appears on the data element associated with that identifier.  
+
+The right-click item action menu displays up to 10 actions. In case you configure more than 10, only the top 10 active and/or inactive actions will be displayed.
+
+The item actions can be associated with any procedure in your model. For example: Resetting data, Saving data, etc.
+
+.. image:: images/ItemActions_Example.png
+            :align: center
+
+
+Configuring Item Actions
+++++++++++++++++++++++++
+
+Item Actions can be configured by the application developer via the AIMMS model, similar to how widget actions are configured.
+
+To configure item actions, create a string parameter indexed by the WidgetItemActionSpecification set with the index :token:`webui::indexWidgetItemActionSpec`, `ExtensionOrder <library.html#extensionorder>`_ set with :token:`webui::indexPageExtension` and `WidgetActionSpecification <widget-options.html#configuring-widget-actions>`_ set with the index :token:`webui::indexWidgetActionSpec`, for example :token:`MyItemActions(webui::indexWidgetItemActionSpec,webui::indexPageExtension,webui::indexWidgetActionSpec)` as shown here:
+
+.. image:: images/ItemActions_StringParameter.png
+            :align: center
+
+Right click the string parameter and click on the Data option to open the data page:
+
+.. image:: images/ItemActions_StringParameterData.png
+			:align: center
+
+Select the identifier that you want to define the item actions:
+
+.. image:: images/ItemActions_StringParameterDataIdentifier.png
+			:align: center
+
+Add the details for the item actions. In the illustration below we are adding four item actions to the identifier :token:`SupplyUSAWest(usw)`.
+
+.. image:: images/ItemActions_StringParameterDataIdentifier_Filled.png
+			:align: center
+
+Similarly, you can add item actions to other identifiers as well. As illustrated below, we have added 3 item actions to the identifier :token:`DemandUSAEast(use)`.
+
+.. image:: images/ItemActions_StringParameterDataIdentifier_Filled2.png
+			:align: center
+
+To activate the item actions on a widget, go to the respective widget's settings by clicking on the |cog-widget| in the widget header. Click on the Widget Actions tab. Add the string parameter in the Item Actions field using the identifier selector.
+
+.. image:: images/ItemActions_AddStringParameter.png
+			:align: center 
+			:scale: 75
+
+Once the string parameter is added, right-click on the element and the item action menu will be displayed.
+
+.. image:: images/ItemActions_ItemActionsinWidget.png
+			:align: center
+
+In the illustration above, the two identifiers :token:`SupplyUSAWest(usw)` and :token:`DemandUSAEast(use)` are specified as the Size identifier for their respective node sets. Hence, you can see the respective item actions appear for the nodes. 
+
+.. note::
+    For the right-click item action menu to appear you will need to ensure that the widget contains the identifier for which the item actions were configured in the string parameter.
+
+.. note::
+    In the map widget, for node sets, you can configure the item action to either the identifier that will be specified as the Size of the node set or the set used to define the node set. If item actions have been defined for both the size identifier as well as for the set, the item actions configured for the size identifier will be considered.
+    For arc sets, item actions need to be defined on the identifier specified as the Value for the arc set. 
+
+You could also define different item actions for the same identifier but in two different string parameters and configure each of those string parameters to different widgets.
+
+Interacting with Item Actions
++++++++++++++++++++++++++++++
+
+The item action menu can be opened by right-clicking on the data elements in the widget. When the menu is open and you click anywhere outside the menu or on any other widget, the menu will close.
+
+Please note that when you right-click on a data element to reveal the item action menu, that element will get selected. If any store focus has been defined for the widget, the respective element parameter will also be populated.
+
+To select any of the actions, just click on the respective action. You will not be able to click an inactive action; the cursor will also indicate this.
+
+Please notice the different combinations in the item action menu.
+
+.. image:: images/WidgetAction_ActionStates.png
+			:align: center 
+			:scale: 75
+
+If a procedure is not defined for a certain action, clicking on the action will result in a "No action specified" error.
+
+When Item actions are configured for a widget the default right-click menu for the browser will not be displayed in that widget.
+
+In case you have a long displaytext for an action, the item action menu will stretch to a width of 2 columns and ellipsis the text that does not fit. Hovering over the action will show the complete text in the tooltip.
+
+.. image:: images/ItemActions_LongDisplaytext.png
+			:align: center 
+			:scale: 75
