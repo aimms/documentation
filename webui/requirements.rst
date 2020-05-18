@@ -7,7 +7,7 @@ For general system requirements for running an AIMMS WebUI application under AIM
 .. note:: Please note that, in general, fast processing of JavaScript code (as the one used by the AIMMS WebUI) requires a powerful processor and enough workspace.
    In particular, a more powerful processor is expected to result in better performance. 
    
-.. warning:: Your user's network should allow `websockets <https://en.wikipedia.org/wiki/WebSocket>`. To verify if it does, please go to https://www.websocket.org/echo.html from your user's computer.
+.. warning:: Your user's network should allow `websockets <https://en.wikipedia.org/wiki/WebSocket>`_ . To verify if it does, please go to https://www.websocket.org/echo.html from your user's computer.
 
 This section lists more specific requirements for the various phases passed through by an AIMMS application with a Web-based User Interface (WebUI).
 
