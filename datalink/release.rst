@@ -5,6 +5,15 @@ The first public release of DataLink was version 1.0.0.106, release date January
 
 New Features and Bug Fixes
 --------------------------
+1.1.1.21 [20-05-2020]
+    - Fix regression from 1.1.1.19 and add error message when missing columns
+
+1.1.1.19 [08-04-2020]
+    - Add error message for reading out of range
+
+1.1.1.17 [07-04-2020]
+    - Fix missing row issue for new data map
+
 1.1.1.15 [26-02-2020]
     - Add support for writing floats in exponential format in CSVProvider
 
