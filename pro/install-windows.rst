@@ -19,13 +19,13 @@ Installation and Data Location
 
 As part of the installation of AIMMS PRO, you can select the locations where the executable files will be installed (from now on referred to as *installDir*), as well as the location where AIMMS PRO will store its configuration files and runtime data (from now on referred to as *dataDir*). The default installation location is:
 
-.. code::
+.. code-block:: none
     
     C:/Program Files/AimmsPRO 2.0
     
 whereas the default data location is:
 
-.. code::
+.. code-block:: none
 
     C:/ProgramData/AimmsPRO 2.0
 
