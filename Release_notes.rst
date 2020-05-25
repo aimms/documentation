@@ -15,6 +15,38 @@ We try to release Feature Releases as soon as possible after one or more new fea
 
 
 
+AIMMS 4.73.3 Release
+--------------------------
+
+The AIMMS 4.73.3 Release was released on May 25, 2020 (build 4.73.3.8). Changes made in this release are listed below. A high level overview can be found at the `AIMMS New Features Page <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
+
+Looking for best practices on how to use AIMMS? Check out the `AIMMS Knowledge Center <https://how-to.aimms.com/>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++
+
+-  In just created procedures, sometimes a local parameter retained the value from the previous procedure call. The problem disappeared after closing and reopening the model.
+-  In some cases when WebUI was using data slicing over a literal (fixed) element, an error about this fixed element could be wrongly triggered. This incorrect behavior was introduced in the 4.73.1 release.
+-  We fixed an error in a recent implementation of the model editing functions. It could result in various problems, one of which was that profiler results disappeared unexpectedly.
+-  The profiler data in definitions of sets or parameters was not visible. This bug was only in the early 4.73 versions.
+-  The styles of inactive secondary page actions were broken.
+
+Resolved WebUI Issues
++++++++++++++++++++++++
+
+-  There were some duplicate Gantt chart setting attributes in the miscellaneous tab of its options editor.
+-  Creating data widgets with invalid 'literal' contents (i.e. no AIMMS identifier) could result in a crash. Now, an empty widget will be shown in such cases and you can use the UI to fix the contents of your widget.
+
+Resolved Security Issues
++++++++++++++++++++++++++
+
+-  No security-related changes were made in this AIMMS version.
+
+--------------
+
+
+
+
 AIMMS 4.73.2 Release
 --------------------------
 
