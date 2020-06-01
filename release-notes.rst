@@ -656,7 +656,7 @@ AIMMS 4.69.4 Release (October 7, 2019)
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  When deleting a row in the Table widget which was located around the center of the Table, it could happen that after the deletion the Table would be scrolled to a completely different part of the Table. Now the row(s) around the deleted one will remain in the centre of the Table.
+-  When deleting a row in the Table widget which was located around the center of the Table, it could happen that after the deletion the Table would be scrolled to a completely different part of the Table. Now the row(s) around the deleted one will remain in the center of the Table.
 -  When having a specific Table row in focus and scrolling that row out of view and then clicking somewhere in a column header, would cause this previous focus row to appear on the top of the Table, hence losing your current scrolling position.
 
 
