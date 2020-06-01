@@ -1,3 +1,5 @@
+:orphan:
+
 Open Solver Interface
 =====================
 The AIMMS Open Solver Interface (OSI) allows you to link solvers to AIMMS through a collection of C++ interfaces. So if you do not find the solver of your liking and you want to link your own preferred solver to AIMMS, you can use the AIMMS OSI. It will allow AIMMS and this solver to communicate and solve a mathematical program instance, and it supports callbacks during the solution process into AIMMS.

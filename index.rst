@@ -51,6 +51,7 @@
 .. toctree::
    :hidden:
 
+   platform/index
    aimms_user
    aimms_ref
    aimms_modeling
