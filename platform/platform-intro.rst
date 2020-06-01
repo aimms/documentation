@@ -5,9 +5,9 @@ AIMMS offers a configurable and scalable platform to build and deploy decision s
 
 The AIMMS development environment uniquely combines advanced modeling features and accessible design tools, such as the graphical model explorer, which allow you to build complex applications quickly.
 
-.. img::
+.. image:: images/AIMMS-Developer-graphic1-1.jpg
 
-.. img:: 
+.. image:: images/AIMMS-Pro-graphic1-1.jpg
 
 AIMMS Developer
 ----------------
@@ -140,11 +140,11 @@ A standard AIMMS Developer license and installation includes:
 
 * Rights to the world-class solver :doc:`CPLEX`.
 * Built-in links to open source `COIN-OR <http://www.coin-or.org/>`_ solvers CBC (LP/MIP) and IPOPT (NLP).
-* AIMMS :doc:`Advanced Algorithms` – Outer Approximation, Benders Decomposition, and others.
+* AIMMS :doc:`Advanced Algorithms <advanced-algorithms>` – Outer Approximation, Benders Decomposition, and others.
 
 You can also extend your license to include commercial solver add-ons.
 
-All solvers are connected to AIMMS by using the :doc:`AIMMS Open Solver Interface`, which links solvers through a collection of C++ interfaces.
+All solvers are connected to AIMMS by using the :doc:`AIMMS Open Solver Interface <open-solver-interface>`, which links solvers through a collection of C++ interfaces.
 
 For full listing of solver availability, see the Solvers page.
 
