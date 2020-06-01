@@ -58,4 +58,4 @@
    pro/index
    cloud/index   
    library-repository
-   Release_notes
+   release-notes
