@@ -12,6 +12,38 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.73
 #############
 
+
+AIMMS 4.73.4 Release
+--------------------------
+
+The AIMMS 4.73.4 Release was released on May 28, 2020 (build 4.73.4.11). Changes made in this release are listed below. A high level overview can be found at the `AIMMS New Features Page <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
+
+Looking for best practices on how to use AIMMS? Check out the `AIMMS Knowledge Center <https://how-to.aimms.com/>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In some situations, an identifier with a definition did not have the correct value after loading a case file. This was an error only in previous 4.73 versions.
+-  If a definition contained a call to function A and if in the body of that function A another function B was called, the definition was not always triggered when the parameters used in the function B were modified. This error only happened in earlier 4.73 versions.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The 'webui::FlagsIdentifier' annotation was not always taken correctly into account in widgets with multiple identifiers, some of which having indices that were used during aggregation.
+-  In rare situations, the webui.json could miss a specific line. If so, not all webui pages were available for navigation using the 'webui::OpenPage' procedure.
+-  'Totals on top' were moved to the bottom when a Table column (or row) was sorted. Now, they correctly stick to the top.
+-  Item actions work on touch devices as well now.
+
+Resolved Security Issues
++++++++++++++++++++++++++
+
+-  No security-related changes were made in this AIMMS version.
+
+--------------
+
+
+
+
 AIMMS 4.73.3 Release (May 25, 2020)
 -----------------------------------
 
