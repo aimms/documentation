@@ -51,6 +51,7 @@
 .. toctree::
    :hidden:
 
+   platform/index
    aimms_user
    aimms_ref
    aimms_modeling
@@ -58,3 +59,4 @@
    pro/index
    cloud/index   
    library-repository
+   release-notes
