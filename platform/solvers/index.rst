@@ -1,12 +1,10 @@
-AIMMS Platform Introduction
+Solvers
 ==================================
 
 Get to know the basics about the AIMMS Development & Deployment Platform.
 
 .. toctree::
 
-   platform-intro   
-   technical-specifications
-   solvers/index
+   solvers
    advanced-algorithms
-   
+   open-solver-interface

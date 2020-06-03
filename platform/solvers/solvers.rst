@@ -1,5 +1,5 @@
-Solvers
-=======
+Solvers availability
+====================
 
 AIMMS, as a complete optimization modeling system, comes with all
 functionality to develop and create complete optimization applications.
