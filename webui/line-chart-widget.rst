@@ -47,7 +47,59 @@ Similarly, one may move some data indexes in the Stacked section of the Pivot ta
     :align: center
 
 Again, for every factory f there is a line in the chart with a different color, but the three lines are now drawn on the top of each other.
-	
+
+.. note::
+    Negative values cannot be stacked in the line chart.
+
+In software versions prior to AIMMS 4.74, the values that were outside the domain were plotted with a default value (most probably 0 if not defined in the default attribute of the identifier).
+
+From version 4.74 onwards, these points are not plotted when the values are outside the domain, potentially resulting in a discontinuous line, as illustrated below:
+
+.. image:: images/LineChart-DiscontinuousLine.png
+    :align: center
+
+The following snippet is taken out of the above example. The identifiers DemandWest and DemandEast were sliced over index 'l'.
+
+.. code::
+
+    Set AllLocations {
+		Index: l;
+		Definition: {
+			data 
+			    { Phoenix         , Denver          , Albuquerque     , Sacramento      , 'Salt Lake City', Boise           , Dallas          ,
+			      'Las Vegas'     , Atlanta         , 'Des Moines'    , Detroit         , Houston         , 'Kansas City'   , Lincoln         ,
+			      Louisville      , Memphis         , Milwaukee       , Minneapolis     }
+		}
+	}
+	Set WestLocations {
+		SubsetOf: AllLocations;
+		Index: w;
+		Definition: data { Phoenix, Denver, Albuquerque, Sacramento, 'Salt Lake City', Dallas, 'Las Vegas' };
+	}
+	Set EastLocations {
+		SubsetOf: AllLocations;
+		Index: e;
+		Definition: data { Atlanta, 'Des Moines', Houston, 'Kansas City', Memphis, Milwaukee, Minneapolis };
+	}
+	Parameter DemandAll {
+		IndexDomain: l;
+		Definition: {
+			data 
+			{ Phoenix          : 85,  Denver           : 61,  Albuquerque      : 55,  Sacramento       : 53,  'Salt Lake City' : 23,
+			  Boise            : 70,  Dallas           : 38,  'Las Vegas'      : 97,  Atlanta          : 81,  'Des Moines'     : 31,
+			  Detroit          : 60,  Houston          : 27,  'Kansas City'    : 56,  Lincoln          : 79,  Louisville       : 85,
+			  Memphis          : 71,  Milwaukee        : 28,  Minneapolis      : 92 }
+		}
+	}
+	Parameter DemandWest {
+		IndexDomain: w;
+		Definition: data { Phoenix : 45,  Denver : 16,  Albuquerque : 76,  Sacramento : 100,  'Salt Lake City' : 78,  Dallas : 81,  'Las Vegas' : 84 };
+	}
+	Parameter DemandEast {
+		IndexDomain: e;
+		Definition: data { Atlanta : 40,  'Des Moines' : 36,  Houston : 74,  'Kansas City' : 44,  Memphis : 18,  Milwaukee : 72,  Minneapolis : 97 };
+	}
+
 Change Type
 -------------
 
@@ -66,6 +118,10 @@ Additionally, one may also specify a step size which determines the distance bet
 .. image:: images/LineChart-ViewSettings.png
     :align: center	
 	
+To depict the line chart as an area chart, one can switch the "Show Area" option on. This property can also be controlled via identifiers. 
+
+.. image:: images/LineChart-AreaOn.png
+    :align: center	
 
 Totals
 --------
@@ -120,9 +176,35 @@ It is also possible to select a line by clicking on it, in which case the select
 However, in this case the store focus cannot be applied, because such a selection does not determine a unique pair of values for the element parameters (SelectedFactory, SelectedCenter).
 Again, as a remark: a selected line may be unselected by clicking again on it.
 
+Similar to the dots and the line, the area also has a hover and selected state, as illustrated below:
+
+.. image:: images/LineChart_AreaHovered.png
+    :align: center
+
+.. image:: images/LineChart_AreaSelected.png
+    :align: center
+
 .. note::
 
     In the Line Chart widget the Hover and Select visual functionalities are available. However, when selecting a line, the line itself does not set any store focus elements as this cannot be uniquely determined. Only the nodes selections can set such store focus identifiers.
+
+Widget Extensions
+-----------------
+
+In the Widget Extensions tab, it is possible to add the string parameters configured for the `Widget Actions <widget-options.html#widget-actions>`_ and the `Item Actions <widget-options.html#item-actions>`_ for the widget.
+
+.. image:: images/WidgetActions_LineChart.png
+    :align: center
+
+.. image:: images/ItemActions_LineChart.png
+    :align: center    
+
+Item Actions also are available on the respective area of the identifier.
+
+.. image:: images/ItemActions_LineChartArea.png
+    :align: center  
+
+
 
 Miscellaneous
 --------------
