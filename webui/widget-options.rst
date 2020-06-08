@@ -850,14 +850,15 @@ You could also define different item actions for the same identifier but in two 
 .. note::
     Item Actions can be configured for the `Table <table-widget.html>`_, `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_, `Gantt Chart <gantt-chart-widget.html>`_, `Bubble Chart <bubble-chart-widget.html>`_, `Pie Chart <pie-chart-widget.html>`_, `Tree Map <tree-map-widget.html>`_, `Map <map-widget.html>`_ and `Scalar <scalar-widget.html>`_ widgets.
 
-
-
 Interacting with Item Actions
 +++++++++++++++++++++++++++++
 
 The item action menu can be opened by right-clicking on the data elements in the widget. When the menu is open and you click anywhere outside the menu or on any other widget, the menu will close.
 
-Please note that when you right-click on a data element to reveal the item action menu, that element will get selected. If any store focus has been defined for the widget, the respective element parameter will also be populated.
+.. note::
+    If the <IDENTIFIER-SET> index is pivoted on the Totals partition the item actions menu cannot be displayed since the identifier cannot be uniquely determined.
+
+Please note that when you right-click on a data element to reveal the item action menu, that element will get selected. If any store focus has been defined for the widget, the respective element parameter will also be updated.
 
 To select any of the actions, just click on the respective action. You will not be able to click an inactive action; the cursor will also indicate this.
 
@@ -870,6 +871,8 @@ Please notice the different combinations in the item action menu.
 If a procedure is not defined for a certain action, clicking on the action will result in a "No action specified" error.
 
 When Item actions are configured for a widget the default right-click menu for the browser will not be displayed in that widget.
+
+In the case of the table and scalar widgets, when the cell is in edit mode (the user double-clicks the cell or is entering any data in the cell) the item action menu will not be displayed. 
 
 In case you have a long displaytext for an action, the item action menu will stretch to a width of 2 columns and ellipsis the text that does not fit. Hovering over the action will show the complete text in the tooltip.
 
