@@ -59,6 +59,17 @@ In the Identifier Settings tab of the widget's options editor, one can apply a d
 
 These functionalities work in the same way as for other widgets, e.g.. the same way as for the bar chart widget.
 
+Widget Extensions
+-----------------
+
+In the Widget Extensions tab, it is possible to add the string parameters configured for the `Widget Actions <widget-options.html#widget-actions>`_ and the `Item Actions <widget-options.html#item-actions>`_ for the widget.
+
+.. image:: images/WidgetActions_TreeMapChart.png
+    :align: center
+
+.. image:: images/ItemActions_TreeMapChart.png
+    :align: center   
+
 Hover and Select
 ----------------
 

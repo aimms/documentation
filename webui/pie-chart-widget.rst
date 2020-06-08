@@ -71,6 +71,17 @@ For instance, we can slice our factory index f to the fixed element 'Zurich' in 
 Similarly, one could slice the index f to an element parameter CurrentFactory having the declared range the set Factories (where the value of CurrentFactory may be determined from within the model
 or by a choice made through another widget in the user interface). 
 
+Widget Extensions
+-----------------
+
+In the Widget Extensions tab, it is possible to add the string parameters configured for the `Widget Actions <widget-options.html#widget-actions>`_ and the `Item Actions <widget-options.html#item-actions>`_ for the widget.
+
+.. image:: images/WidgetActions_PieChart.png
+    :align: center
+
+.. image:: images/ItemActions_PieChart.png
+    :align: center    
+
 Hover and Select
 ----------------
 

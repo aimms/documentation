@@ -737,7 +737,7 @@ Add the details for the widget actions you would like to show for the widget. Fo
 .. image:: images/WidgetActions_MyWidgetActionsdata_added.png
 			:align: center
 
-To activate the widget actions on a widget, go to the respective widget's settings by clicking on the |cog-widget| in the widget header. Click on the Widget Actions tab. Add the string parameter in the Widget Actions field using the identifier selector.
+To activate the widget actions on a widget, go to the respective widget's settings by clicking on the |cog-widget| in the widget header. Click on the Widget Extensions tab. Add the string parameter in the Widget Actions field using the identifier selector.
 
 .. image:: images/WidgetAction_StringParameter.png
 			:align: center 
@@ -778,7 +778,8 @@ In case you have a long displaytext for an action, the widget action menu will s
 Item Actions
 ------------
 
-.. important:: Item Actions are available in software versions from AIMMS 4.73 onwards as part of Experimental Features. Item Actions is currently available only for the Map widget. Please reach out to AIMMS support on how to enable Experimental Features.
+.. important:: 
+    Item Actions are available in software versions from AIMMS 4.74 onwards. 
 
 Item Actions are a set of actions/procedures that can be defined via the model and configured for identifiers that are specified for a widget. These item actions are displayed when the user performs a right-click on the data elements in the widget. Item actions are defined per identifier and the right-click item action menu only appears on the data element associated with that identifier.  
 
@@ -820,7 +821,7 @@ Similarly, you can add item actions to other identifiers as well. As illustrated
 .. image:: images/ItemActions_StringParameterDataIdentifier_Filled2.png
 			:align: center
 
-To activate the item actions on a widget, go to the respective widget's settings by clicking on the |cog-widget| in the widget header. Click on the Widget Actions tab. Add the string parameter in the Item Actions field using the identifier selector.
+To activate the item actions on a widget, go to the respective widget's settings by clicking on the |cog-widget| in the widget header. Click on the Widget Extensions tab. Add the string parameter in the Item Actions field using the identifier selector.
 
 .. image:: images/ItemActions_AddStringParameter.png
 			:align: center 
@@ -833,14 +834,23 @@ Once the string parameter is added, right-click on the element and the item acti
 
 In the illustration above, the two identifiers :token:`SupplyUSAWest(usw)` and :token:`DemandUSAEast(use)` are specified as the Size identifier for their respective node sets. Hence, you can see the respective item actions appear for the nodes. 
 
+.. important::
+    In the map widget, for node sets, you can configure the item action to either the identifier that will be specified as the Size of the node set or the set used to define the node set. If item actions have been defined for both the size identifier as well as for the set, the item actions configured for the size identifier will be considered.
+    For arc sets, item actions need to be defined on the identifier specified as the Value for the arc set. 
+
+    To configure Item Actions for the Gantt chart the actions should be added to the identifer that is used as the Duration property in the Gantt chart settings.
+    
+    To configure Item Actions for the Bubble chart the actions should be added to the identifer that is used as the Size property in the Bubble chart settings.
+
+You could also define different item actions for the same identifier but in two different string parameters and configure each of those string parameters to different widgets.
+
 .. note::
     For the right-click item action menu to appear you will need to ensure that the widget contains the identifier for which the item actions were configured in the string parameter.
 
 .. note::
-    In the map widget, for node sets, you can configure the item action to either the identifier that will be specified as the Size of the node set or the set used to define the node set. If item actions have been defined for both the size identifier as well as for the set, the item actions configured for the size identifier will be considered.
-    For arc sets, item actions need to be defined on the identifier specified as the Value for the arc set. 
+    Item Actions can be configured for the `Table <table-widget.html>`_, `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_, `Gantt Chart <gantt-chart-widget.html>`_, `Bubble Chart <bubble-chart-widget.html>`_, `Pie Chart <pie-chart-widget.html>`_, `Tree Map <tree-map-widget.html>`_, `Map <map-widget.html>`_ and `Scalar <scalar-widget.html>`_ widgets.
 
-You could also define different item actions for the same identifier but in two different string parameters and configure each of those string parameters to different widgets.
+
 
 Interacting with Item Actions
 +++++++++++++++++++++++++++++

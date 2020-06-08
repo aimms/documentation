@@ -112,6 +112,17 @@ When a bar has been selected, the user may still hover over another bar and insp
 .. image:: images/BarChart-ViewHover.png
     :align: center
 
+Widget Extensions
+-----------------
+
+In the Widget Extensions tab, it is possible to add the string parameters configured for the `Widget Actions <widget-options.html#widget-actions>`_ and the `Item Actions <widget-options.html#item-actions>`_ for the widget.
+
+.. image:: images/WidgetActions_BarChart.png
+    :align: center
+
+.. image:: images/ItemActions_BarChart.png
+    :align: center    
+
 Miscellaneous
 ----------------
 

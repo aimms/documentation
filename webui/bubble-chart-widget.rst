@@ -53,6 +53,20 @@ The bubble chart has some specific options that you can specify. These are locat
 * Y-axis label: the same, only this time for the Y-axis.
 * Size label: here you can specify a literal string or a model identifier to describe what piece of information is used as the bubble size. It is displayed in the top-right corner of your bubble chart.
 
+Widget Extensions
+-----------------
+
+In the Widget Extensions tab, it is possible to add the string parameters configured for the `Widget Actions <widget-options.html#widget-actions>`_ and the `Item Actions <widget-options.html#item-actions>`_ for the widget.
+
+.. image:: images/WidgetActions_BubbleChart.png
+    :align: center
+
+.. image:: images/ItemActions_BubbleChart.png
+    :align: center    
+
+.. note:: 
+    When configuring the string parameter for the Item Actions, the actions should be added to the identifer that is used as the Size property in the Bubble chart settings.
+
 Additional Remarks
 ------------------
 
