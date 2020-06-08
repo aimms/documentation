@@ -1,10 +1,23 @@
 Solvers
 ==================================
 
-Get to know the basics about the AIMMS Development & Deployment Platform.
+Here you can find detailed information about the solvers availabile with the AIMMS Development & Deployment Platform.
 
 .. toctree::
 
    solvers
    advanced-algorithms
-   open-solver-interface
+   aoa
+   baron
+   cbc
+   conopt
+   cplex
+   cp-optimizer
+   gurobi
+   ipopt
+   knitro
+   minos
+   odh-cplex
+   path
+   snopt
+   xa

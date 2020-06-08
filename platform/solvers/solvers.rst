@@ -18,7 +18,7 @@ the `COIN-OR <http://www.coin-or.org/>`__ solvers CBC (LP/MIP) and IPOPT
 company – they are by the open source community – but can be also used
 by any AIMMS user. This set of solvers, together with the freely
 available `Advanced
-Algorithms </advanced-algorithms>`__
+Algorithms <advanced-algorithms>`__
 set of AIMMS such as AIMMS Outer Approximation, Benders Decomposition
 and more – offers a great start for creating optimization applications.
 Of course, the set of solvers available in a license can be extended by

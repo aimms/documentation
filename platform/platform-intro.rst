@@ -76,7 +76,7 @@ Advanced modeling language features
 * Robust optimization
 * Automatic Benders’ decomposition
 
-For a full description of the AIMMS Mathematical Modeling Language see the :doc:`Language Reference <../aimms_ref>`.
+For a full description of the AIMMS Mathematical Modeling Language see the :doc:`Language Reference <../../aimms_ref>`.
 
 Integrated WebUI builder
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -138,13 +138,13 @@ AIMMS gives you several high-performance solvers to work with various mathematic
 
 A standard AIMMS Developer license and installation includes:
 
-* Rights to the world-class solver :doc:`CPLEX`.
+* Rights to the world-class solver :doc:`CPLEX <solvers/cplex>`.
 * Built-in links to open source `COIN-OR <http://www.coin-or.org/>`_ solvers CBC (LP/MIP) and IPOPT (NLP).
-* AIMMS :doc:`Advanced Algorithms <advanced-algorithms>` – Outer Approximation, Benders Decomposition, and others.
+* AIMMS :doc:`Advanced Algorithms <solvers/advanced-algorithms>` – Outer Approximation, Benders Decomposition, and others.
 
 You can also extend your license to include commercial solver add-ons.
 
-All solvers are connected to AIMMS by using the :doc:`AIMMS Open Solver Interface <open-solver-interface>`, which links solvers through a collection of C++ interfaces.
+All solvers are connected to AIMMS by using the :doc:`AIMMS Open Solver Interface <solvers/open-solver-interface>`, which links solvers through a collection of C++ interfaces.
 
 For full listing of solver availability, see the Solvers page.
 

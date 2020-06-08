@@ -8,5 +8,5 @@ Get to know the basics about the AIMMS Development & Deployment Platform.
    platform-intro   
    technical-specifications
    solvers/index
-   advanced-algorithms
+   math-program/index
    
