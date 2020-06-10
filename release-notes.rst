@@ -13,6 +13,32 @@ AIMMS 4.73
 #############
 
 
+AIMMS 4.73.5 Release
+--------------------------
+
+The AIMMS 4.73.5 Release was released on June 08, 2020 (build 4.73.5.7). Changes made in this release are listed below. A high level overview can be found at the `AIMMS New Features Page <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
+
+Looking for best practices on how to use AIMMS? Check out the `AIMMS Knowledge Center <https://how-to.aimms.com/>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In some cases, execution of a statement locally overriding units could be slow.
+-  When re-compiling the entire project, initial data of sets was reinitialized, while it should have happened only for sets where the initial data attribute was actually edited.
+-  If a multi-dimensional identifier only contained one very small value (smaller than 1e-8), its data was not correctly stored in a case file.
+-  Using a color scheme in the WinUI 2D Chart did not work correctly if the scheme was linked to a subset of AllColors with a definition.
+-  We made some changes to the function axll::FillList: (1) The argument DataRange is no longer optional, (2) the default values in the tooltip were not correct, and (3) the comment referred to the wrong function.
+-  From various similar crash reports that were sent in recently, we did improve a weak spot in the code of version 4.73. Most reported crashes occurred during the saving of a case.
+
+Resolved Security Issues
++++++++++++++++++++++++++
+
+-  No security-related changes were made in this AIMMS version.
+
+--------------
+
+
+
 AIMMS 4.73.4 Release (May 28, 2020)
 -----------------------------------
 
