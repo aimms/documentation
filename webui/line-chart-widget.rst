@@ -51,14 +51,9 @@ Again, for every factory f there is a line in the chart with a different color, 
 .. note::
     Negative values cannot be stacked in the line chart.
 
-In software versions prior to AIMMS 4.74, the values that were outside the domain were plotted with a default value (most probably 0 if not defined in the default attribute of the identifier).
+In software versions 4.74 onwards, the points that have no values (NULL) and are outside the domain are not plotted, potentially resulting in a discontinuous line. In earlier versions, the points were plotted with a default value (most probably 0 if not defined in the default attribute of the identifier).
 
-From version 4.74 onwards, these points are not plotted when the values are outside the domain, potentially resulting in a discontinuous line, as illustrated below:
-
-.. image:: images/LineChart-DiscontinuousLine.png
-    :align: center
-
-The following snippet is taken out of the above example. The identifiers DemandWest and DemandEast were sliced over index 'l'.
+To illustrate the above scenario, the following snippet can be used. There are three sets ``AllLocations``, ``WestLocations`` and ``EastLocations``. ``WestLocations`` and ``EastLocations`` are subsets of ``AllLocations``. There are three identifiers ``DemandAll`` over ``AllLocations``, ``DemandWest`` over ``WestLocations`` and ``DemandEast`` over ``EastLocations``, that are added to the contents of the line chart. The identifiers ``DemandWest`` and ``DemandEast`` are displaced over slice 'l' (sliced over the superset).
 
 .. code::
 
@@ -85,10 +80,10 @@ The following snippet is taken out of the above example. The identifiers DemandW
 		IndexDomain: l;
 		Definition: {
 			data 
-			{ Phoenix          : 85,  Denver           : 61,  Albuquerque      : 55,  Sacramento       : 53,  'Salt Lake City' : 23,
-			  Boise            : 70,  Dallas           : 38,  'Las Vegas'      : 97,  Atlanta          : 81,  'Des Moines'     : 31,
-			  Detroit          : 60,  Houston          : 27,  'Kansas City'    : 56,  Lincoln          : 79,  Louisville       : 85,
-			  Memphis          : 71,  Milwaukee        : 28,  Minneapolis      : 92 }
+			{ Phoenix          : 51,  Denver           : 75,  Albuquerque      : 68,  Sacramento       : 28,  'Salt Lake City' : 47,
+			  Boise            : 35,  Dallas           : 70,  'Las Vegas'      : 29,  Atlanta          : 41,  'Des Moines'     : 29,
+			  Detroit          : 67,  Houston          : 49,  'Kansas City'    : 43,  Lincoln          : 42,  Louisville       : 90,
+			  Memphis          : 92,  Milwaukee        : 87,  Minneapolis      : 90 }
 		}
 	}
 	Parameter DemandWest {
@@ -97,8 +92,12 @@ The following snippet is taken out of the above example. The identifiers DemandW
 	}
 	Parameter DemandEast {
 		IndexDomain: e;
-		Definition: data { Atlanta : 40,  'Des Moines' : 36,  Houston : 74,  'Kansas City' : 44,  Memphis : 18,  Milwaukee : 72,  Minneapolis : 97 };
+		Definition: data { Atlanta : 82,  'Des Moines' : 50,  Houston : 43,  'Kansas City' : 31,  Memphis : 35,  Milwaukee : 68,  Minneapolis : 19 };
 	}
+
+.. image:: images/LineChart-DiscontinuousLine.png
+    :align: center
+
 
 Change Type
 -------------
