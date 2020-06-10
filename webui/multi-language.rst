@@ -16,13 +16,20 @@ Please note that you can translate not only from one language to another, but al
 
 Translation files should be placed anywhere below your project's `resources <folder.html#resources>`_ folder, and must use the following naming-conventions:
 
-* :token:`<anything>.properties`: Default translations, also used as fallbacks when a specific translation is unavailable in another language. These translations should not be duplicated in a separate language-specific file, but may be overridden to provide translations for a particular locale.
+* :token:`<anything>.properties`: Default translations, also used as fallbacks when a specific translation is unavailable in another language. These translations should not be duplicated in a separate language-specific file, but may be overridden to provide translations for a particular locale. If you supply more than one such file, these will be applied in alphabetical order. This means that if you specify the same identifier in more than one of these files, the translation that will eventually be used is the one specified in the file that comes alphabetically *last*.
 * :token:`<anything>_xx.properties`: Translations for a specific language, using an `ISO 639 language-code <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`_, e.g. :token:`xx` becomes :token:`nl` for Dutch.
 * :token:`<anything>_xx-YY.properties`: Translations for a specific language-and-country combination, using an `ISO 639 language-code</a> and an <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166 country-code <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`_, e.g. :token:`xx-YY` becomes :token:`pt-BR` for Brazilian Portuguese.
+
+The WebUI will automatically use the language properties file for the language that is set as the default in your browser.
 
 .. tip::
 
     Please note that you can create as many translation files as you like. This allows you to keep a clear topic/subject per file.
+
+.. important::
+
+    If you provide both a default translation file and a language-specific translation file, please make sure that they use the same *base name*. For example, if you have a default translation file :token:`abbreviations.properties` and you want to specify translations into Spanish for the abbreviations mentioned in this file, you should also provide a file called :token:`abbreviations_es.properties`. If, in addition, you want Dutch translations of them, you should create an additional :token:`abbreviations_nl.properties`.
+
 
 To provide a default translation in English for your WebUI app, create a file :token:`<anything>.properties` with your translation pairs:
 
