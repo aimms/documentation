@@ -801,7 +801,7 @@ To configure item actions, create a string parameter indexed by the WidgetItemAc
 .. image:: images/ItemActions_StringParameter.png
             :align: center
 
-Right click the string parameter and click on the Data option to open the data page:
+Double-click the string parameter and click on either the Definition or Initial Data wizard to open the data page. You can also right-click the string parameter and enter the data on the data page displayed (you do need to save your model data after that):
 
 .. image:: images/ItemActions_StringParameterData.png
 			:align: center
