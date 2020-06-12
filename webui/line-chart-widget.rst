@@ -125,7 +125,7 @@ To depict the line chart as an area chart, one can switch the "Show Area" option
 Totals
 --------
 
-In the Totals tab of the widget's options editor, aggregated values such as sum, mean, count, min, or max computed over one of the data indexes my be added to the chart. 
+In the Totals tab of the widget's options editor, aggregated values such as sum, mean, count, min, or max computed over one of the data indexes may be added to the chart. 
 In our example, suppose we change the pivoting to the situation where the factory index f is in Overlays section, the center index c is in the X-axis section 
 and the <IDENTIFIER-SET> in the Totals section. In this case, if we add the mean over the centers c to our example line chart, then three additional dots representing 
 the aggregated values become visible in the chart: 
@@ -138,7 +138,7 @@ Identifier Settings
 
 In the Identifier Settings tab of the widget's options editor, one can apply a display domain or some slicing to the data identifier(s).
 
-The "Set display domain" section works in the same way as for e.g.. the bar chart.
+The "Set display domain" section works in the same way as for e.g. the bar chart.
 
 In the "Set slicing per index" section it is possible to slice one index to another index of a subset, to an element parameter or to a fixed element in the corresponding set.
 For instance, we can slice our factory index f to the fixed element 'Hamburg' in the Factories set, resulting in the line chart view as shown here: 
