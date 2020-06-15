@@ -1,7 +1,7 @@
 {# Import the theme's layout. #} {% extends "!layout.html" %}
 
 {# If it is the release notes, do not show the local toc, and force titles to show in the sidebar #}
-{% if pagename == "Release_notes" %}{% set theme_titles_only = False %}{% set display_toc = False %}{% endif %}
+{% if pagename == "release-notes" %}{% set theme_titles_only = False %}{% set display_toc = False %}{% endif %}
 
 {% block menu %} <li class="toctree-l1"><a class="reference internal" href="https://documentation.aimms.com/functionreference/index.html">Function Reference</a></li> {{ super() }} {% endblock %}
 
