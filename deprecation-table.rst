@@ -9,9 +9,9 @@ We announce deprecated features so developers can prepare for it and start looki
 the desired behavior without using that feature because it might not be available in future versions. 
 When possible, we add an End of Life to the feature as well; this is the date that the future is no longer available to the users.
 
-* Where possible, we provide alternatives?
+* Where possible, we provide alternatives
 
-* Support on Deprecated features is very limited, in most cases none ?
+* Support on Deprecated features is very limited, in most cases none 
 
 
 .. note:: 
