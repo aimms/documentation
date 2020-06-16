@@ -1,11 +1,11 @@
-AIMMS product life cycle
+AIMMS product lifecycle
 ===========================
 
-Deprecation and End of Life 
+Deprecated and End of LifeÂ 
 ------------------------------
 
-AIMMS considers a feature Deprecated if we plan to remove it; potentially it can be replaced by something different, 
-but not necessarily! We announce deprecated features so developers can prepare for it and start looking for other ways (in- or outside our product) of achieving 
+AIMMS considers a feature Deprecated if we plan to remove it; potentially it can be replaced by something different, but not necessarily! 
+We announce deprecated features so developers can prepare for it and start looking for other ways (in- or outside our product) of achieving 
 the desired behavior without using that feature because it might not be available in future versions. 
 When possible, we add an End of Life to the feature as well; this is the date that the future is no longer available to the users.
 
@@ -19,7 +19,7 @@ When possible, we add an End of Life to the feature as well; this is the date th
   **Example:** The Compound Sets were deprecated in Jan 2018. They have been completed removed as of 4.73 (May 2020). A `How-to has been developed <https://how-to.aimms.com/Articles/109/109-deprecate-compound-sets-overview.html>` that guides the users to an adjustment of the models using other existing concept to keep the model running as it should.
   
 
-Deprecation table
+Deprecated feature table
 -------------------  
 
 +--------------------------------------+-----------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -55,7 +55,7 @@ Deprecation table
 | OpenCalc and Excel old function lib  | Deprecated                  |                    | Current status is no pro-active support; not formally communicated                                                                                                                                     |
 |                                      |                             |                    | ? No OpenCalc support left, new Excel functions are available (no need for Excel SW)                                                                                                                   |
 +--------------------------------------+-----------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Tableau TDE Provider DataLink        | Deprecated                  |                    | Current status is no pro-active support; not formally communicated: Update June’20                                                                                                                     |
+| Tableau TDE Provider DataLink        | Deprecated                  |                    | Current status is no pro-active support; not formally communicated: Update JuneÂ’20                                                                                                                     |
 |                                      |                             |                    | ? Communication with BI tools via databases or CSV/XLS files (or upcoming JSON files).                                                                                                                 |
 +--------------------------------------+-----------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Single Data File                     | Deprecated                  | Q2 2020            | Current status: deprecated for years already; now finally planned for removal                                                                                                                          |
