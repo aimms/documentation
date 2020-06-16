@@ -1,4 +1,4 @@
-AIMMS product lifecycle
+AIMMS Product Lifecycle
 ===========================
 
 Deprecated and End of Life
