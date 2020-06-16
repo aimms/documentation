@@ -4,26 +4,26 @@ AIMMS product lifecycle
 Deprecated and End of Life
 ------------------------------
 
-AIMMS considers a feature Deprecated if we plan to remove it; potentially it can be replaced by something different, but not necessarily! 
+AIMMS considers a feature  **Deprecated** if we plan to remove it; potentially it can be replaced by something different, but not necessarily! 
 We announce deprecated features so developers can prepare for it and start looking for other ways (in- or outside our product) of achieving 
 the desired behavior without using that feature because it might not be available in future versions. 
-When possible, we add an End of Life to the feature as well; this is the date that the future is no longer available to the users.
+When possible, we add an **End of Life** to the feature as well; this is the date that the future is no longer available to the users.
 
 * Where possible, we provide alternatives
-
 * Support on Deprecated features is very limited, in most cases none 
 
 
-.. note:: 
-  
-  **Example:** The Compound Sets were deprecated in Jan 2018. They have been completed removed as of 4.73 (May 2020). A `How-to has been developed <https://how-to.aimms.com/Articles/109/109-deprecate-compound-sets-overview.html>`_ that guides the users to an adjustment of the models using other existing concept to keep the model running as it should.
+**Example:** The Compound Sets were deprecated in Jan 2018. They have been completed removed as of 4.73 (May 2020). We developed 
+a `How-to <https://how-to.aimms.com/Articles/109/109-deprecate-compound-sets-overview.html>`_ that guides AIMMS developers to an 
+adjustment of their models in case they use Compound Sets (by proposing another concept to keep the model running as it should).
   
 
 Deprecated feature table
 -------------------  
+This is a list of (recent) deprecated features and provides an insight into its status, an expected end of life time frame and a suggestion on how to handle because of the feature being deprecated.
 
 +--------------------------------------+-----------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Features                             | Status                      | End of Life        | Comment                                                                                                                                                                                                |
+| **Feature**                          | **Status**                  | **End of Life**    | **Comment**                                                                                                                                                                                                |
 +======================================+=============================+====================+========================================================================================================================================================================================================+
 | Win 32                               | Deprecated                  | Dec 2019           | No longer delivered and supported                                                                                                                                                                      |
 |                                      |                             |                    | → Win64                                                                                                                                                                                                |
