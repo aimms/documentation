@@ -5,6 +5,12 @@ The first public release of DataLink was version 1.0.0.106, release date January
 
 New Features and Bug Fixes
 --------------------------
+1.1.1.24 [17-06-2020]
+    - Mark TDEprovider deprecated
+
+1.1.1.23 [25-05-2020]
+    - Add NoSave to entire library to prevent case loading issues
+
 1.1.1.21 [20-05-2020]
     - Fix regression from 1.1.1.19 and add error message when missing columns
 
