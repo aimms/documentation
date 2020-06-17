@@ -53,46 +53,35 @@ Again, for every factory f there is a line in the chart with a different color, 
 
 In software versions 4.74 onwards, the points that have no values (NULL) and are outside the domain are not plotted, potentially resulting in a discontinuous line. In earlier versions, the points were plotted with a default value (most probably 0 if not defined in the default attribute of the identifier).
 
-To illustrate the above scenario, the following snippet can be used. There are three sets ``AllLocations``, ``WestLocations`` and ``EastLocations``. ``WestLocations`` and ``EastLocations`` are subsets of ``AllLocations``. There are three identifiers ``DemandAll`` over ``AllLocations``, ``DemandWest`` over ``WestLocations`` and ``DemandEast`` over ``EastLocations``, that are added to the contents of the line chart. The identifiers ``DemandWest`` and ``DemandEast`` are displaced over slice 'l' (sliced over the superset).
+To illustrate the above scenario, the following snippet can be used. There are three sets ``Computers``, ``Notebooks`` and ``Desktops``. ``Notebooks`` and ``Desktops`` are subsets of ``Computers``. There are three identifiers ``AllComputersSales`` over ``Computers``, ``NotebookSales`` over ``Notebooks`` and ``DesktopSales`` over ``Desktops``, that are added to the contents of the line chart. The identifiers ``NotebookSales`` and ``DesktopSales`` are displaced over slice 'c' (sliced over the superset).
 
 .. code::
-
-    Set AllLocations {
-		Index: l;
-		Definition: {
-			data 
-			    { Phoenix         , Denver          , Albuquerque     , Sacramento      , 'Salt Lake City', Boise           , Dallas          ,
-			      'Las Vegas'     , Atlanta         , 'Des Moines'    , Detroit         , Houston         , 'Kansas City'   , Lincoln         ,
-			      Louisville      , Memphis         , Milwaukee       , Minneapolis     }
-		}
+	
+	Set Computers {
+		Index: c;
+		Definition: data { 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 };
 	}
-	Set WestLocations {
-		SubsetOf: AllLocations;
-		Index: w;
-		Definition: data { Phoenix, Denver, Albuquerque, Sacramento, 'Salt Lake City', Dallas, 'Las Vegas' };
+	Set Notebooks {
+		SubsetOf: Computers;
+		Index: n;
+		Definition: data { 2015, 2016, 2017, 2018, 2019 };
 	}
-	Set EastLocations {
-		SubsetOf: AllLocations;
-		Index: e;
-		Definition: data { Atlanta, 'Des Moines', Houston, 'Kansas City', Memphis, Milwaukee, Minneapolis };
+	Set Desktops {
+		SubsetOf: Computers;
+		Index: d;
+		Definition: data { 2011, 2012, 2013, 2016, 2017, 2018, 2019 };
 	}
-	Parameter DemandAll {
-		IndexDomain: l;
-		Definition: {
-			data 
-			{ Phoenix          : 51,  Denver           : 75,  Albuquerque      : 68,  Sacramento       : 28,  'Salt Lake City' : 47,
-			  Boise            : 35,  Dallas           : 70,  'Las Vegas'      : 29,  Atlanta          : 41,  'Des Moines'     : 29,
-			  Detroit          : 67,  Houston          : 49,  'Kansas City'    : 43,  Lincoln          : 42,  Louisville       : 90,
-			  Memphis          : 92,  Milwaukee        : 87,  Minneapolis      : 90 }
-		}
+	Parameter AllComputersSales {
+		IndexDomain: c;
+		Definition: data { 2010 : 18,  2011 : 20,  2012 : 20,  2013 : 14,  2014 : 15,  2015 : 19,  2016 : 17,  2017 : 19,  2018 : 18,  2019 : 13,  2020 : 17 };
 	}
-	Parameter DemandWest {
-		IndexDomain: w;
-		Definition: data { Phoenix : 45,  Denver : 16,  Albuquerque : 76,  Sacramento : 100,  'Salt Lake City' : 78,  Dallas : 81,  'Las Vegas' : 84 };
+	Parameter NotebookSales {
+		IndexDomain: n;
+		Definition: data { 2015 : 11,  2016 : 10,  2017 : 11,  2018 : 12,  2019 : 11 };
 	}
-	Parameter DemandEast {
-		IndexDomain: e;
-		Definition: data { Atlanta : 82,  'Des Moines' : 50,  Houston : 43,  'Kansas City' : 31,  Memphis : 35,  Milwaukee : 68,  Minneapolis : 19 };
+	Parameter DesktopSales {
+		IndexDomain: d;
+		Definition: data { 2011 : 6,  2012 : 6,  2013 : 7,  2016 : 6,  2017 : 7,  2018 : 6,  2019 : 6 };
 	}
 
 .. image:: images/LineChart-DiscontinuousLine.png
