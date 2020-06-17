@@ -97,6 +97,17 @@ In the example at hand, one can switch e.g.. from the line chart to the table, r
 .. image:: images/LineChart-ViewChangeType.png
     :align: center
 
+Totals
+--------
+
+In the Totals tab of the widget's options editor, aggregated values such as sum, mean, count, min, or max computed over one of the data indexes may be added to the chart. 
+In our example, suppose we change the pivoting to the situation where the factory index f is in Overlays section, the center index c is in the X-axis section 
+and the <IDENTIFIER-SET> in the Totals section. In this case, if we add the mean over the centers c to our example line chart, then three additional dots representing 
+the aggregated values become visible in the chart: 
+
+.. image:: images/LineChart-ViewMean.png
+    :align: center	
+
 Linechart Settings
 --------------------
 
@@ -109,17 +120,6 @@ Additionally, one may also specify a step size which determines the distance bet
 To depict the line chart as an area chart, one can switch the "Show Area" option on. This property can also be controlled via identifiers. 
 
 .. image:: images/LineChart-AreaOn.png
-    :align: center	
-
-Totals
---------
-
-In the Totals tab of the widget's options editor, aggregated values such as sum, mean, count, min, or max computed over one of the data indexes may be added to the chart. 
-In our example, suppose we change the pivoting to the situation where the factory index f is in Overlays section, the center index c is in the X-axis section 
-and the <IDENTIFIER-SET> in the Totals section. In this case, if we add the mean over the centers c to our example line chart, then three additional dots representing 
-the aggregated values become visible in the chart: 
-
-.. image:: images/LineChart-ViewMean.png
     :align: center	
 	
 Identifier Settings
