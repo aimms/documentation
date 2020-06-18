@@ -6,7 +6,7 @@ When preparing your AIMMS model for use with the WebUI, you have to add the WebU
 Pages and Dialog Support section
 ================================
 
-Pages and Dialog Support has been added to the AimmsWebUI library to be able to configure `Side panels <page-manager.html#sidepanels>`_ , `Dialog pages <page-manager.html#dialog-pages>`_ and some useful procedures in AIMMS. This section can also be used to identify the different page types, their PageId's and Paths. 
+Pages and Dialog Support has been added to the AimmsWebUI library to be able to configure the `List Widget <list-widget.html>`_ , `Workflows <workflow-panels.html>`_ , `Status Bar <status-bar.html>`_ , `Side panels <side-panels.html>`_ , `Dialog pages <dialog-pages.html>`_ , `Page Actions <page-settings.html#page-actions>`_ , `Widget Actions <widget-options.html#widget-actions>`_ , `Item Actions <widget-options.html#item-actions>`_ and some useful procedures in AIMMS. This section can also be used to identify the different page types, their PageId's and Paths. 
 
 .. image:: images/pageanddialogsupportsection.png
 			:align: center
@@ -23,7 +23,7 @@ Public Pages Support Declarations:
 
 Public Page and Widget Specification Declarations:
 
-* ``SidePanelSpecification`` - This set is the specification for the side panel pages. The string parameters used to `configure the side panels <page-manager.html#configuring-side-panels>`_ on pages are indexed on this set. 
+* ``SidePanelSpecification`` - This set is the specification for the side panel pages. The string parameters used to `configure the side panels <side-panels.html#configuring-side-panels>`_ on pages are indexed on this set. 
 * ``WidgetActionSpecification`` - This set is the specification for adding `widget actions <widget-options.html#widget-actions>`_ . The string parameters used to configure the widget actions on certain widgets are indexed on this set.
 * ``PageActionSpecification`` - This set is the specification for adding `page actions <page-settings.html#page-actions>`_. The string parameters used to configure the primary action and secondary actions on certain pages are indexed on this set.
 
@@ -43,22 +43,22 @@ Public Workflow Support Declarations:
 
 .. _workflowspecificationset: 
 
-:token:`WorkflowSpecification` - This set is used to configure the number of `Workflows <application-settings.html#workflow-panel>`_ and their respective titles. The string parameter used to `configure Workflows <application-settings.html#configuring-workflows>`_ are indexed on this set. The elements of this set (defining workflow properties) are the following:
+``WorkflowSpecification`` - This set is used to configure the number of `Workflows <workflow-panels.html>`_ and their respective titles. The string parameter used to `configure Workflows <workflow-panels.html#configuring-workflows>`_ are indexed on this set. The elements of this set (defining workflow properties) are the following:
 
-* :token:`title` - The title for the workflow to be displayed on top of the Workflow Panel
-* :token:`style` - A defined style for the workflow (This property is not in use currently. We have made the provision to incorporate different styles that we expect will be available in the future.)
+* ``title`` - The title for the workflow to be displayed on top of the Workflow Panel
+* ``style`` - A defined style for the workflow (This property is not in use currently. We have made the provision to incorporate different styles that we expect will be available in the future.)
 
 .. _workflowpagespecification:
 
-:token:`WorkflowPageSpecification` - This set is used to `configure the steps for each workflow <application-settings.html#configuring-steps-of-a-workflows>`_. The string parameter used to configure Workflow's steps are indexed on this set. The elements of this set (defining workflow properties) are as follows:
+``WorkflowPageSpecification`` - This set is used to `configure the steps for each workflow <workflow-panels.html#configuring-steps-of-workflows>`_. The string parameter used to configure Workflow's steps are indexed on this set. The elements of this set (defining workflow properties) are as follows:
 
-* :token:`displayText` - The label you want to give to the workflow step
-* :token:`icon` - The icon you want to associate with the step. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
-* :token:`pageId` - The pageId of the Page this step should be associated with. Ideally, every page in a workflow is a step in the Workflow Panel. The pageIds can be referred from the pre-declared :token:`AllRegularPages` set. Using pageIds of Side Panel or Dialog page will result in unwanted behaviour.
-* :token:`tooltip` - The text to be displayed when the user hovers over the step
-* :token:`workflowPageState` - The workflow state of the page, which may be Active (displayed and clickable), Inactive (displayed and not clickable) or Hidden (not visible). If not defined, by default the state is Hidden. 
-* :token:`pageDataState` - The data state of the page, which may be Complete, Incomplete or Error. The specification of this state is optional. If not defined, by default it has an Empty state.
-* :token:`redirectPageId` - The pageId of the page the user should be redirected to when the :token:`workflowPageState` is Inactive or Hidden. When the user tries to navigate to an Inactive or Hidden workflow step they are redirected to this page. The pageId's can be referred from the elements of the pre-declared set :token:`AllRegularPages`.
+* ``displayText`` - The label you want to give to the workflow step
+* ``icon`` - The icon you want to associate with the step. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <css-styling.html#custom-icon-sets>`_ can also be used if required.
+* ``pageId`` - The pageId of the Page this step should be associated with. Ideally, every page in a workflow is a step in the Workflow Panel. The pageIds can be referred from the pre-declared ``AllRegularPages`` set. Using pageIds of Side Panel or Dialog page will result in unwanted behaviour. **This is a required field.**
+* ``tooltip`` - The text to be displayed when the user hovers over the step
+* ``workflowPageState`` - The workflow state of the page, which may be Active (displayed and clickable), Inactive (displayed and not clickable) or Hidden (not visible). If not defined, by default the state is Hidden. 
+* ``pageDataState`` - The data state of the page, which may be Complete, Incomplete or Error. The specification of this state is optional. If not defined, by default it has an Empty state.
+* ``redirectPageId`` - The pageId of the page the user should be redirected to when the ``workflowPageState`` is Inactive or Hidden. When the user tries to navigate to an Inactive or Hidden workflow step they are redirected to this page. The pageId's can be referred from the elements of the pre-declared set ``AllRegularPages``.
 
 .. _extensionorder:
 
@@ -70,7 +70,7 @@ Public Workflow Support Declarations:
 
 Public StatusBar Support Declarations:
 
-:token:`StatusBarSpecification` - This set is the specification used to configure Status Messages on the `Status Bar <application-settings.html#status-bar>`_ that appears on the footer. You will need to create string parameters indexed over this set.
+:token:`StatusBarSpecification` - This set is the specification used to configure Status Messages on the `Status Bar <status-bar.html>`_ that appears on the footer. You will need to create string parameters indexed over this set.
 
 Public List Support Declarations
 
@@ -85,7 +85,7 @@ Public List Support Declarations
 
 :token:`ListGroupItemsSpecification` - This set is used to `configure the list items <list-widget.html#configuring-items-for-lists>`_ in a specific list group. You will need to create a string parameter indexed over this set. The elements of this set (defining list group items) are the following:
 
-* :token:`icon` - The icon you want to display for the respective list item. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
+* :token:`icon` - The icon you want to display for the respective list item. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <css-styling.html#custom-icon-sets>`_ can also be used if required.
 * :token:`color` - The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around 140 color names. This is an optional field. You can also use Hex codes eg: #FF0000 for Red.
 * :token:`text` - The text you want to display for the list item. This is a required field.
 * :token:`tooltip` - Tooltip to be displayed when the user hovers over the respective list item.
