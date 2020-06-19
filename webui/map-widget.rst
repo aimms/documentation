@@ -122,7 +122,7 @@ Sizes of nodes for a node set are relative to their surface area, with the large
 Since Zurich has the largest value it is assigned the largest area on the map. All the other nodes are relatively sized with Zurich as the reference. Hence, Hamburg is three times smaller than Zurich in area.
 
 Maximum Reference Size
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Maximum Reference Size is a scalar parameter used when you want to relatively size the areas of the nodes in a node set based on a user defined value. When defined, the areas of all the nodes will be calculated based on the maximum reference size, rather than the largest value of the Size identifier. For example:
 
@@ -485,11 +485,14 @@ Create a .js file, lets call it GoogleAPI.js, in the resources/js folder. In the
 
 Once this is done, all the map widgets in your application will serve Google maps.
 
+.. image:: images/Map_GoogleAPI.png
+    :align: center
+
 Please note, if the API key does not have the correct permissions, the map will not render the background and you may get an error as illustrated below:
 
 .. image:: images/Map_GoogleAPIError.png
     :align: center
-    :scale: 50
+    :scale: 75
 
 .. Important::
 
