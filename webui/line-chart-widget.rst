@@ -47,7 +47,47 @@ Similarly, one may move some data indexes in the Stacked section of the Pivot ta
     :align: center
 
 Again, for every factory f there is a line in the chart with a different color, but the three lines are now drawn on the top of each other.
+
+.. note::
+    Negative values cannot be stacked in the line chart.
+
+In software versions 4.74 onwards, the points that have no values (NULL) and are outside the domain are not plotted, potentially resulting in a discontinuous line. In earlier versions, the points were plotted with a default value (most probably 0 if not defined in the default attribute of the identifier).
+
+To illustrate the above scenario, the following snippet can be used. There are three sets ``Computers``, ``Notebooks`` and ``Desktops``. ``Notebooks`` and ``Desktops`` are subsets of ``Computers``. There are three identifiers ``AllComputersSales`` over ``Computers``, ``NotebookSales`` over ``Notebooks`` and ``DesktopSales`` over ``Desktops``, that are added to the contents of the line chart. The identifiers ``NotebookSales`` and ``DesktopSales`` are displaced over slice 'c' (sliced over the superset).
+
+.. code::
 	
+	Set Computers {
+		Index: c;
+		Definition: data { 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 };
+	}
+	Set Notebooks {
+		SubsetOf: Computers;
+		Index: n;
+		Definition: data { 2015, 2016, 2017, 2018, 2019 };
+	}
+	Set Desktops {
+		SubsetOf: Computers;
+		Index: d;
+		Definition: data { 2011, 2012, 2013, 2016, 2017, 2018, 2019 };
+	}
+	Parameter AllComputersSales {
+		IndexDomain: c;
+		Definition: data { 2010 : 18,  2011 : 20,  2012 : 20,  2013 : 14,  2014 : 15,  2015 : 19,  2016 : 17,  2017 : 19,  2018 : 18,  2019 : 13,  2020 : 17 };
+	}
+	Parameter NotebookSales {
+		IndexDomain: n;
+		Definition: data { 2015 : 11,  2016 : 10,  2017 : 11,  2018 : 12,  2019 : 11 };
+	}
+	Parameter DesktopSales {
+		IndexDomain: d;
+		Definition: data { 2011 : 6,  2012 : 6,  2013 : 7,  2016 : 6,  2017 : 7,  2018 : 6,  2019 : 6 };
+	}
+
+.. image:: images/LineChart-DiscontinuousLine.png
+    :align: center
+
+
 Change Type
 -------------
 
@@ -56,6 +96,17 @@ In the example at hand, one can switch e.g.. from the line chart to the table, r
 
 .. image:: images/LineChart-ViewChangeType.png
     :align: center
+
+Totals
+--------
+
+In the Totals tab of the widget's options editor, aggregated values such as sum, mean, count, min, or max computed over one of the data indexes may be added to the chart. 
+In our example, suppose we change the pivoting to the situation where the factory index f is in Overlays section, the center index c is in the X-axis section 
+and the <IDENTIFIER-SET> in the Totals section. In this case, if we add the mean over the centers c to our example line chart, then three additional dots representing 
+the aggregated values become visible in the chart: 
+
+.. image:: images/LineChart-ViewMean.png
+    :align: center	
 
 Linechart Settings
 --------------------
@@ -66,16 +117,9 @@ Additionally, one may also specify a step size which determines the distance bet
 .. image:: images/LineChart-ViewSettings.png
     :align: center	
 	
+To depict the line chart as an area chart, one can switch the "Show Area" option on. This property can also be controlled via identifiers. 
 
-Totals
---------
-
-In the Totals tab of the widget's options editor, aggregated values such as sum, mean, count, min, or max computed over one of the data indexes my be added to the chart. 
-In our example, suppose we change the pivoting to the situation where the factory index f is in Overlays section, the center index c is in the X-axis section 
-and the <IDENTIFIER-SET> in the Totals section. In this case, if we add the mean over the centers c to our example line chart, then three additional dots representing 
-the aggregated values become visible in the chart: 
-
-.. image:: images/LineChart-ViewMean.png
+.. image:: images/LineChart-AreaOn.png
     :align: center	
 	
 Identifier Settings
@@ -83,7 +127,7 @@ Identifier Settings
 
 In the Identifier Settings tab of the widget's options editor, one can apply a display domain or some slicing to the data identifier(s).
 
-The "Set display domain" section works in the same way as for e.g.. the bar chart.
+The "Set display domain" section works in the same way as for e.g. the bar chart.
 
 In the "Set slicing per index" section it is possible to slice one index to another index of a subset, to an element parameter or to a fixed element in the corresponding set.
 For instance, we can slice our factory index f to the fixed element 'Hamburg' in the Factories set, resulting in the line chart view as shown here: 
@@ -120,9 +164,35 @@ It is also possible to select a line by clicking on it, in which case the select
 However, in this case the store focus cannot be applied, because such a selection does not determine a unique pair of values for the element parameters (SelectedFactory, SelectedCenter).
 Again, as a remark: a selected line may be unselected by clicking again on it.
 
+Similar to the dots and the line, the area also has a hover and selected state, as illustrated below:
+
+.. image:: images/LineChart_AreaHovered.png
+    :align: center
+
+.. image:: images/LineChart_AreaSelected.png
+    :align: center
+
 .. note::
 
     In the Line Chart widget the Hover and Select visual functionalities are available. However, when selecting a line, the line itself does not set any store focus elements as this cannot be uniquely determined. Only the nodes selections can set such store focus identifiers.
+
+Widget Extensions
+-----------------
+
+In the Widget Extensions tab, it is possible to add the string parameters configured for the `Widget Actions <widget-options.html#widget-actions>`_ and the `Item Actions <widget-options.html#item-actions>`_ for the widget.
+
+.. image:: images/WidgetActions_LineChart.png
+    :align: center
+
+.. image:: images/ItemActions_LineChart.png
+    :align: center    
+
+Item Actions also are available on the respective area of the identifier.
+
+.. image:: images/ItemActions_LineChartArea.png
+    :align: center  
+
+
 
 Miscellaneous
 --------------
