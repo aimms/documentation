@@ -27,6 +27,11 @@ In this particular case, the Y-coordinate doesn't mean anything. In such cases, 
 .. image:: images/planetchart.jpg
     :align: center
 
+Maximum Reference Size
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Maximum Reference Size is a scalar parameter used when you want to relatively size the areas of the bubbles based on a user defined value. When defined, the areas of all the bubbles will be calculated based on the maximum reference size, rather than the largest value of the Size identifier. 
+
 Overriding tooltips
 --------------------
 
