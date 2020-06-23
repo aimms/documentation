@@ -1,7 +1,7 @@
 List Widget
 ===========
 
-.. important:: The new List Widget is available in software versions from AIMMS 4.72 onwards as part of Experimental Features. Please reach out to User Support on how to enable Experimental Features.
+.. important:: The List Widget is available in software versions from AIMMS 4.74 onwards.
 
 The List Widget allows you to show a generated list of (grouped) items and connect those, if required, with actions. These items can e.g. represent a set of tasks, or a custom legend. Each group of items can have a title that is shown as a header. The items in the list can be interactive, meaning that some procedures can be configured to be executed upon clicking the items. As shown below in the examples and specification, each item has various properties to give the end user guidance such as a text description and an icon with color.
 
