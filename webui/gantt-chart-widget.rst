@@ -236,6 +236,20 @@ Please note that a selected task may be deselected by clicking again on it. More
 	
 .. note::
     When a selected task is deselected, the values of the element parameters which used to store the values for the selected task will not be emptied, but will keep storing the those values. This behavior is intended so by design.
+
+Widget Extensions
+-----------------
+
+In the Widget Extensions tab, it is possible to add the string parameters configured for the `Widget Actions <widget-options.html#widget-actions>`_ and the `Item Actions <widget-options.html#item-actions>`_ for the widget.
+
+.. image:: images/WidgetActions_GanttChart.png
+    :align: center
+
+.. image:: images/ItemActions_GanttChart.png
+    :align: center    
+
+.. note:: 
+    When configuring the string parameter for the Item Actions, the actions should be added to the identifer that is used as the Duration property in the Gantt chart settings in the Add Gantt Layer section.
 	
 Adding, deleting and modifying tasks
 ------------------------------------

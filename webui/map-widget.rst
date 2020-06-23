@@ -42,7 +42,7 @@ In the settings options editor one can find the following sections:
 
 *	|nodeset| Node Sets: Multiple node sets can be added here.
 *	|arcset| Arc Sets: Multiple arc sets can be added here.
-*	|widgetactionicon| Widget Actions: `Widget actions <widget-options.html#widget-actions>`_ and `Item actions <widget-options.html#item-actions>`_ can be configured here.
+*	|widgetactionicon| Widget Extensions: `Widget actions <widget-options.html#widget-actions>`_ and `Item actions <widget-options.html#item-actions>`_ can be configured here.
 *	|heatmap| Heatmap: A heatmap can be added here. 
 *	|miscicon| Miscellaneous: Title, Zoom, Center Latitude, Center Longitude and Visibility can be controlled here.
 *	|advicon| Advanced: Advanced options for this widget are available here.
