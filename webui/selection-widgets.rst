@@ -75,4 +75,4 @@ Warnings and trouble shooting
     
 .. note::
 
-    In the last 4.70.2 release of AIMMS, we increased the timeout from 15s to 25s. https://www.aimms.com/english/developers/downloads/download-aimms/release-notes
+    In the `4.70.2 release of AIMMS <https://documentation.aimms.com/release-notes.html#aimms-4-70-2-release-december-19-2019>`_, we increased the timeout from 15s to 25s. https://www.aimms.com/english/developers/downloads/download-aimms/release-notes
