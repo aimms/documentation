@@ -2,6 +2,10 @@ Table Widget
 ============
 
 .. |sort| image:: images/sort.png
+.. |filtered-icon| image:: images/filtered_icon.png
+.. |table-filtered| image:: images/headerfiltered_icon.png
+.. |delete-filter-icon| image:: images/filterdelete_icon.png
+.. |disable-rule| image:: images/enablerule_icon.png
 
 The Table widget allows you to visualize and/or edit the data of one or more AIMMS identifiers represented in a tabular format:
 
@@ -120,3 +124,168 @@ Authorization Schema reminder:
 | full access              | 7     | Data will be displayed in the WebUI, and are displayed as editable if no other restrictions prohibit editing the data (e.g. defined identifiers). Procedures with this permission can be executed from within the WebUI.          |
 +--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+Data Filtering on the Table
+---------------------------
+
+.. important:: Filtering is available in software versions from AIMMS 4.75 onwards as part of Experimental Features. Filtering is currently available only for the Table widget. Please reach out to AIMMS support on how to enable Experimental Features.
+
+When working with tables you could be looking at a lot of data. It can be difficult to find information quickly in such cases. Filters can be used to narrow down the data in your table, allowing you to view only the information you need.
+
+Filters are useful when you want to focus only on specific information in a large dataset in a table. Filtering doesn't remove or modify data, it just changes which records appear on your widget. Filtering lets you temporarily hide unwanted data.
+
+.. note::
+
+  Filters are readly available for the table and there is no need to create a specification or configuration in the model. This is an end-user tool.
+
+To add filter rules
+^^^^^^^^^^^^^^^^^^^
+
+#. In order for filtering to work correctly, your table should include at least one row and column header, which is used to identify the name of each column and row. In the example, the table columns and rows can be identified by the headers Centres and Factories respectively.
+
+    .. image:: images/TableFilters_Example.png
+        :align: center
+
+#. A drop-down arrow will appear in the header cell for each column/row. Click the drop-down arrow for the column/row you want to filter and click on the "Add Filters Rule" option. In our example, we will filter the column "Copenhagen".
+
+    .. image:: images/TableFilters_AddFilter.png
+        :align: center
+
+#. The Filter dialog will appear, where you can select the desired operator and enter the value. We will filter for values greater than 9.
+
+    .. image:: images/TableFilters_SelectOperator.png
+        :align: center
+    
+    .. image:: images/TableFilters_AddRule.png
+        :align: center
+
+#. Click on "Apply" or "Apply and Close".
+
+    .. image:: images/TableFilters_ApplyRule.png
+        :align: center
+
+    The Apply button will apply the rule and the dialog will stay open. The data will be filtered and visible on the table, as illustrated above.  
+    
+    The Apply and Close button will apply the rule and close the dialog as well.
+
+#. The data will be filtered, temporarily hiding any content that doesn't match the criteria. In our example, only 2 values greater than 9 are visible.
+
+    .. image:: images/TableFilters_ApplyRule.png
+        :align: center
+
+#. The column will have an indication |filtered-icon| that a filter has been applied. The header cell will also be highlighted with a different color.
+
+    .. image:: images/TableFilters_Filtered.png
+        :align: center
+
+    The table header also show an indication |table-filtered| that a filter has been applied to the table.
+
+#. To apply multiple rules follow the instructions again. The below illustration shows another filter applied to the row header cell "London" for values lesser than 10.
+
+    .. image:: images/TableFilters_TwoFilters.png
+        :align: center
+
+    You can also add multiple rules for the same column or row. When two or more rules are added to the same column or row, the data for that respective column or row will display data that meets all rules combined (logical AND condition).
+
+New rules are added to the bottom of the list of rules in the dialog. You can reorder these rules by dragging and dropping the rules in the desired order. 
+
+You can edit values and use the table normally after the data is filtered. If you change a value for a fitlered column or row, the data might change based on the filter rules set.
+
+To edit filter rules
+^^^^^^^^^^^^^^^^^^^^
+
+#. Click on the filter icon on the table header |table-filtered| to open the filter dialog. You can also choose to open the dialog by clicking on the drop-down and the clicking on the "Add Filters Rule" option.
+
+    .. image:: images/TableFilters_EditFilter.png
+        :align: center
+
+#. Change the desired rule and click Apply or Apply and Close. In our example, we will change the value for the first rule from 9 to 10.
+
+    .. image:: images/TableFilters_EditFirstFilter.png
+        :align: center
+
+    .. image:: images/TableFilters_EditFirstFilterResult.png
+        :align: center
+
+    You can change multiple rules consecutively and then click either action button. 
+
+To clear filter rules
+^^^^^^^^^^^^^^^^^^^^^
+
+#. Click on the filter icon on the table header |table-filtered| to open the filter dialog. You can also choose to open the dialog by clicking on the drop-down and the clicking on the "Add Filters Rule" option.
+
+    .. image:: images/TableFilters_EditFilter.png
+        :align: center
+
+#. Click on the delete icon |delete-filter-icon| for the respective rule and either Apply or Apply and Close the dialog. In our example, we will delete the rule applied to the column header cell "Copenhagen".
+
+      .. image:: images/TableFilters_DeletedFilter.png
+        :align: center
+
+#. If you do not want to delete the rule and just want to disable it, click on the enable/diable rule switch |disable-rule|, and click either action button. 
+
+    .. image:: images/TableFilters_DisabledFilter.png
+        :align: center
+
+    When a rule is diabled it will remain in the filter dialog but will not be applied. The diable rule option is useful when the applied filters result is an empty table. You can disable certain rules and check the results.
+
+#. In either case, deleting or disabling a rule, the data will be filtered only on enabled rules. In our example, the rule on the row header cell "London" is applicable. The indication for the deleted or disabled rule will also be removed.
+
+    .. image:: images/TableFilters_DisabledFilterResult.png
+        :align: center
+
+#. To clear all filter rules, click "Clear All Filters". This will clear all enabled and diabled rules and close the dialog, resulting in the original data on the table. 
+
+
+Operators
+^^^^^^^^^
+
+The operators provided are specific to the numeric and string data. The below tables explains each of the operators.
+
++------------------------------+-------------------------------------------------------------------------------------------+
+| Numeric Operators            | Result                                                                                    |
++==============================+===========================================================================================+
+| is equal to                  | All data that is equal to the entered value is displayed.                                 |
++------------------------------+-------------------------------------------------------------------------------------------+
+| is not equal to              | All data except the entered value is displayed.                                           |
++------------------------------+-------------------------------------------------------------------------------------------+
+| is less than                 | All data that is lesser than the entered value is displayed                               |
++------------------------------+-------------------------------------------------------------------------------------------+
+| is less than or equal to     | All data that is lesser than and equal to the entered value is displayed                  |
++------------------------------+-------------------------------------------------------------------------------------------+
+| is greater than              | All data that is greater than the entered value is displayed                              |
++------------------------------+-------------------------------------------------------------------------------------------+
+| is greater than or equal to  | All data that is greater than and equal to the entered value is displayed                 |
++------------------------------+-------------------------------------------------------------------------------------------+
+| is in between                | All data that is in between the range of and equal to the two entered values are displayed|
++------------------------------+-------------------------------------------------------------------------------------------+
+| is not in between            | All data that is in outside the range of the two entered values are displayed             |
++------------------------------+-------------------------------------------------------------------------------------------+
+| show top                     | Displays the highest N values in descending order. N is the value entered.                |
++------------------------------+-------------------------------------------------------------------------------------------+
+| show bottom                  | Displays the least N values in ascending order. N is the value entered.                   |
++------------------------------+-------------------------------------------------------------------------------------------+
+
+When adding rules to numeric operators, characters cannot be entered. The field accepts only numeric values.
+
++------------------------------+-------------------------------------------------------------------------------------------+
+| String Operators             | Result                                                                                    |
++==============================+===========================================================================================+
+| contains                     | All data that contains the entered characters are displayed                               |
++------------------------------+-------------------------------------------------------------------------------------------+
+| does not contain             | All data except the strings that do not the entered characters are displayed              |
++------------------------------+-------------------------------------------------------------------------------------------+
+| is                           | All data that is an exact match to the entered characters are displayed                   |
++------------------------------+-------------------------------------------------------------------------------------------+
+| is not                       |All data except the strings that are an exact match to the entered characters are displayed|
++------------------------------+-------------------------------------------------------------------------------------------+
+| starts with                  | All data that start with the entered characters are displayed                             |
++------------------------------+-------------------------------------------------------------------------------------------+
+| ends with                    | All data that end with the entered characters are displayed                               |
++------------------------------+-------------------------------------------------------------------------------------------+
+
+Best Practices
+^^^^^^^^^^^^^^
+
+#. When using numeric operators for filtering data that are in decimals points, we adivse the use of the range operator i.e. "in between" or "not in between". Since the data that is displayed in the table and the stored data vary in the number of decimals. Using the "is equal" operator will look for an exact match in the stored data.
+
+#. To apply a filter rule on data that are dates, we advise the use of the string operators. 
