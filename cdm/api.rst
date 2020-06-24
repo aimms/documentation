@@ -117,6 +117,14 @@ Branch and Revision Functions
    :param db: specifies the name of the application database in which to delete a branch
    :param branchName: specifies the name of the branch to delete
 
+.. js:function::  cdm::DeleteDependentBranches(db,branchName,endRevision)
+
+   Delete all branches, derived branches, and all data on these branches starting on branch :token:`branchName` up until revision :token:`endRevision`. The function will fail if you do not have the permission to delete these branches, or if you try to delete the protected branches :token:`system` or :token:`master`. Note that this function will not delete branch :token:`branchName` itself, only the branches sprouting from it.
+ 
+   :param db: specifies the name of the application database in which to delete dependent branches
+   :param branchName: specifies the name for which to delete all dependent branches
+   :param endRevision: specifies the highest possible end revision before which all branches and child branches on the branch should be removed.
+
 .. js:function::  cdm::SetBranchStatus(db,branchName,active)
 
    Set the branch status to either active or inactive, which will effect the result of :js:func:`cdm::EnumerateBranches`. The function will fail if the branch does not exist, or if the user is not authorized to change the branch status.
@@ -205,20 +213,17 @@ Category Functions
 Commit and Pull Functions
 =========================
 
-.. js:function::  cdm::CheckoutSnapshot(category,branch,revid,labelsOnly,skipInactive,cacheUpdate)
+.. js:function::  cdm::CheckoutSnapshot(category,branch,revid,labelsOnly,skipInactive)
    
    Checkout a data snapshot for all identifiers the specified category from the application database, for a given branch and revision. The snapshot can be specified to only retrieve the labels for root sets, or to also contain inactive data, i.e. identifier values registered in the application database for tuples containing root set elements that are not actually contained in the root set themselves in the snapshot. As a result of the call both the actual identifiers of the category will be updated, as well as the shadow identifiers holding the latest committed values and the revision numbers at which these values where committed. Also the branch and revision information for the category will be set to checkout revision. The function will fail if the user has no read access for the category or branch.
    
    When checking out data with the argument :token:`skipInactive` set (default), the CDM service can employ an alternative domain filtering strategy on a per-category basis. This alternative strategy is slower when retrieving the data for identifiers with high cardinality and no substantial filtering due to inactive elements in one or more domain sets, but may speed up data retrieval considerably when there is substantial filtering due to inactive elements in domain sets. You can specify that you want to use the alternative domain filtering strategy for a particular category, by setting the runtime parameter :token:`alternativeFilterStrategy-\<category\>` to 1 through the function :js:func:`cdm::SetParam`. By default, the alternative strategy is not used for any category.
    
-   Through the argument :token:`cacheUpdate` you can indicate whether or not you want the checkout snapshot to be cached in the database. By specifying -1 (the default), the checkout snapshot will not be cached. By specifying a value >= 0, you indicate the interval in seconds since creation after which you want to snapshot to be updated with the latest data on the given category and branch. A value of 0 indicates that the snapshot will be created, but never updated. You can use this for instance to create a cached snapshot that can be used for all branches branching off a given revision higher than the cached snapshot revision.
-
    :param category: specifies the category for which to retrieve the data snapshot
    :param branch: specifies the branch from which to retrieve the data snapshot for the category
    :param revid: specifies the (optional) specific revision on the branch from which to retrieve the snapshot, if not specified the head of the specified branch will be taken
    :param labelsOnly: specifies an optional argument whether or not to only retrieve root set elements, defaults to 0
    :param skipInactive: specifies an optional argument whether or not to skip inactive data in the snapshot, defaults to 1 
-   :param cacheUpdate: specifies an optional argument indicating which cache update interval to employ (in seconds), defaults to -1 (i.e. no caching) 
 
 .. js:function::  cdm::RevertToSnapshot(category,branch,revid,skipInactive)
    
@@ -343,16 +348,16 @@ Commit and Pull Functions
 Snapshot Functions
 ==================
    
-.. js:function::  cdm::ReplaceBranchRangeWithSnapshot(db,branchName,revision,snapshotBranch)
+.. js:function::  cdm::CreateSnapshot(category,branch,revid,cacheUpdate)
+   
+   Create a cached data snapshot in the database for all identifiers the specified category from the application database, for a given branch and revision. Through the argument :token:`cacheUpdate`, you indicate how often the cached snapshot needs to be updated in an automated fashion. By specifying a value >= 0, you indicate the interval in seconds since creation after which you want to snapshot to be updated with the latest data on the given category and branch. A value of 0 indicates that the snapshot will be created, but never updated. You can use the latter option for instance to create a cached snapshot that can be used for all branches branching off a given revision higher than the cached snapshot revision.
 
-   Replace the given branch, from its root up and until the given revision by the snapshots of all categories stored on :token:`snapshotBranch`. All sub-branches of the given branch, started prior to the given revision will be deleted in the process, unless such branches are started at the root of the branch. The snapshot branch should branch directly off revision 2 of the :token:`master` branch. 
-   This function is intended to be used only by the higher-level procedure :js:func:`cdm::RetireBranchData`. Using this function directly, may result in grave data loss.
-   The function will fail if the branch does not exists, if you do not have the permission to read, delete, or write to the branch, if the snapshot branch does not branch off revision 2, or if you try to apply it to the protected :token:`system` branch.
- 
-   :param db: specifies the name of the application database in which to delete a branch
-   :param branchName: specifies the name of the branch to delete
-   :param revision: specifies the revision on the given branch, all commits up and until should be replaced by the snapshots on ``snapshotBranch``
-   :param snapshotBranch: specifies the branch containing the snapshot to replace the branch range with
+   The cached snapshot created through this function, will never contain inactive data. If the data in the category depends on domain sets in other categories, the current branches and revisions of such categories  will be passed along to determine the actual content of the snapshot.
+     
+   :param category: specifies the category for which to create the cached snapshot
+   :param branch: specifies the branch from which to created the cached snapshot for the category
+   :param revid: specifies the (optional) specific revision on the branch from which to create the cached snapshot, if not specified the head of the specified branch will be taken
+   :param cacheUpdate: specifies cache update interval to employ (in seconds), defaults to 86400 seconds (once per day)
 
 .. js:function::  cdm::GetSnapshotCache(db)
 
@@ -367,6 +372,26 @@ Snapshot Functions
    :param db: specifies the name of the application database in which to delete the given snapshot
    :param snapshotId: specifies the id of the snapshot to be deleted.
   
+Combine Category Revisions Functions
+====================================
+   
+.. js:function::  cdm::CombineCategoryRevisions(category,branch,endRevision,removeDefaults)
+
+   Combine all most recent values of all revisions for the identifiers in the given :token:`category` on the given :token:`branch` proper (i.e. not on parent branches) into a single end revision, being the highest revision for the given branch lower than :token:`endRevision`. When :token:`removeDefaults` has the value 1, then all default values at the end revision of the identifier will be subsequently removed from the database. You should only remove defaults if there is no data for the given category in any of the parent branches of :token:`branch`, or removed values still present on a parent branch may re-appear if you checkout the branch.
+   
+   :param category: specifies the category for which to combine category revisions
+   :param branch: specifies the branch from which to combine category revisions
+   :param endRevision: specifies the highest possible end revision on the branch at which to combine category revision
+   :param removeDefaults: (optional) argument indicating whether default values should be removed for all identifiers at the computed end revision.
+
+.. js:function::  cdm::FinalizeCombineCategoryRevisions(db,branch,endRevision)
+
+   Finalize combining the most recent values of all revisions for the identifiers in all categories on the given :token:`branch` proper (i.e. not on parent branches) into a single end revision, being the highest revision for the given branch lower than :token:`endRevision`. This function will remove all data on intermediate commits on the given branch, remove revisions from the revision table and update the cardinalities of all changesets at the computed end revision. For this function to be called successfully, there should be no branches left sprouting of the given branch prior to the computed end revision. You can delete such dependent branches through the function :js:func:`cdm::DeleteDependentBranches`. 
+   
+   :param db: specifies the database for which to finalize combining category revisions
+   :param branch: specifies the branch from which to finalize combining category revisions
+   :param endRevision: specifies the highest possible end revision on the branch at which tofinalize combining category revisions
+   
 Embedded Server Functions
 =========================
 

@@ -7,6 +7,14 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+
+1.18.0.9 [24-06-2020]
+    - Changesets are now compressed during transport to reduce transmission time and in database cache to reduce stored snapshot size.
+    - Introduced separate function :js:func:`cdm::CreateSnapshot` to create a cached snapshot asynchronously and completely server-side.
+    - Removed the optional :token:`cacheUpdate` argument from :js:func:`cdm::CheckoutSnapshot` function.
+    - The procedure :js:func:`cdm::RetireBranchData` has been implemented in a totally different manner because a fix to the previous implementation fundamentally prevented it from working for SQLServer-backed CDM instances.
+    - Stopped supporting VC120-based AIMMS versions.
+
 1.17.1.13 [10-03-2020]
     - In :token:`cdm::DataChangeProcedure` pass on exception only on last retry.
     
