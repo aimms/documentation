@@ -113,9 +113,14 @@ A new custom layout may be added by using the corresonding "+" button in the Cus
 .. image:: images/GridPage_NewCustomLayout_1.png
     :align: center
 
-A custom layout may be edited / modified by using the Edit option in its upper right corner:
+A custom layout may be edited (ie, modified) by using the Edit option in its upper right corner:
 
 .. image:: images/GridPage_CustomLayouts_Edit_1.png
+    :align: center
+
+This will open the layout Editor where the layout name and format may be adjusted and then saved:
+
+.. image:: images/GridPage_CustomLayouts_Editor_1.png
     :align: center
 
 
