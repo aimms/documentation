@@ -123,6 +123,24 @@ This will open the layout Editor where the layout name and format may be adjuste
 .. image:: images/GridPage_CustomLayouts_Editor_1.png
     :align: center
 
+For example, we can save under the name "Custom Layout B2" the layout which has been modified as follows:
+
+.. image:: images/GridPage_CustomLayoutB2_1.png
+    :align: center
+	
+Note that in this case the grid has 8 columns and 3 rows (instead of 4 columns and 2 rows as it used to have initially). Also a new (sixth) area "Aside E" has been added to the layout:
+
+.. image:: images/GridPage_CustomLayoutB2_2.png
+    :align: center
+
+And this new area "Aside E" is used to defined the grid template areas in the layout format:
+
+.. image:: images/GridPage_CustomLayoutB2_3.png
+    :align: center
+
+	
+
+
 
 
 
