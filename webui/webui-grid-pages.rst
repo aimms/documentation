@@ -138,8 +138,12 @@ And this new area "Aside E" is used when defining the grid template areas in the
 .. image:: images/GridPage_CustomLayoutB2_3.png
     :align: center
 
-	
+When we apply the custom layout as defined above to our page the resulting visualization is as follows:
 
+.. image:: images/GridPage_CustomLayoutB2_FullPage.png
+    :align: center
+
+This resulting page looks nicer than the one achieved only based on the Standard Layout B2 discussed above. In particular, we have gain more space for the map widget such that the network is better visible. Also, this page preserves the clear division between the input, optimization, and output data in a similar way as discussed in the "Getting Started" section of this manual. 
 
 
 
