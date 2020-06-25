@@ -89,6 +89,13 @@ The layout selection and the assignments of widgets to areas as shown above resu
 
 Note that the area "Aside B" is here in the lower right part of the page and contains the two widgets for Transport and Total Costs values, which are distributed columnwise in equal columns.
 
+When the user switches for example to Standard Layout C1, then the widgets stay assigned to areas with the same name, if these areas exist in the newly selected layout. If not, then the corresponding widgets appear in the "Unassigned widgets" section and may be moved by drag-and-drop to one of the currently available areas, if required:
+
+.. image:: images/GridPage_StandardLayoutC1_FullPage_1.png
+    :align: center
+
+
+
 	
 
 
