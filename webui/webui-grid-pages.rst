@@ -63,11 +63,14 @@ The user may choose to switch to another layout from the standard list. Currentl
 .. image:: images/GridPage_PageTab_StandardLayouts.png
     :align: center
 	
-For example, if we choose the Standard Layout B2 for a newly added grid page Grid_Standard_Layout in our TransNet application and add widgets for input and output data as explained in the "Getting Started" section, then we may assign widgets to the five areas Main, Aside A, Aside B, Aside C, and Aside D as whown in the following pictures:
+For example, if we choose the Standard Layout B2 for a newly added grid page Grid_Standard_Layout in our TransNet application and add widgets for input and output data as explained in the "Getting Started" section, then we may assign widgets to the five areas Main, Aside A, Aside B, Aside C, and Aside D as shown in the following pictures:
 
-.. image:: images/GridPage_PageTab_StandardLayouts.png
+.. image:: images/GridPage_PageTab_Full_1.png
     :align: center
 	
+Initially, unassigned widgets may be moved from the "Unassigned widgtes" section to one of the defined areas by using drag-and-drop. Assigned widgets may also be moved from one area to another area also by using drag-and-drop.
+
+The icons before the name of each area contain either a horizontal arrow from right to left, or a vertical arrow from top to bottom. These arrows indicate how the  
 
 	
 
