@@ -135,12 +135,12 @@ Filters are useful when you want to focus only on specific information in a larg
 
 .. note::
 
-  Filters are readly available for the table and there is no need to create a specification or configuration in the model. This is an end-user tool.
+  Filters are readily available for the table and there is no need to create a specification or configuration in the model. This is an end-user tool.
 
 To add filter rules
 ^^^^^^^^^^^^^^^^^^^
 
-#. In order for filtering to work correctly, your table should include at least one row and column header, which is used to identify the name of each column and row. In the example, the table columns and rows can be identified by the headers Centres and Factories respectively.
+#. In order for filtering to work correctly, your table should include at least one row and column header, which is used to identify the name of each column and row. In the example, the table columns and rows can be identified by the headers Centers and Factories respectively.
 
     .. image:: images/TableFilters_Example.png
         :align: center
@@ -163,7 +163,7 @@ To add filter rules
     .. image:: images/TableFilters_ApplyRule.png
         :align: center
 
-    The Apply button will apply the rule and the dialog will stay open. The data will be filtered and visible on the table, as illustrated above.  
+    The Apply button will apply the rule and the dialog will stay open, allowing you to e.g. add another rule. The data will be filtered and visible on the table, as illustrated above.  
     
     The Apply and Close button will apply the rule and close the dialog as well.
 
@@ -188,7 +188,7 @@ To add filter rules
 
 New rules are added to the bottom of the list of rules in the dialog. You can reorder these rules by dragging and dropping the rules in the desired order. 
 
-You can edit values and use the table normally after the data is filtered. If you change a value for a fitlered column or row, the data might change based on the filter rules set.
+You can edit values and use the table normally after the data is filtered. If you change a value for a filtered column or row, the data might change based on the filter rules set.
 
 To edit filter rules
 ^^^^^^^^^^^^^^^^^^^^
@@ -221,25 +221,25 @@ To clear filter rules
       .. image:: images/TableFilters_DeletedFilter.png
         :align: center
 
-#. If you do not want to delete the rule and just want to disable it, click on the enable/diable rule switch |disable-rule|, and click either action button. 
+#. If you do not want to delete the rule and just want to disable it, click on the enable/disable rule switch |disable-rule|, and click either action button. 
 
     .. image:: images/TableFilters_DisabledFilter.png
         :align: center
 
-    When a rule is diabled it will remain in the filter dialog but will not be applied. The diable rule option is useful when the applied filters result is an empty table. You can disable certain rules and check the results.
+    When a rule is disabled it will remain in the filter dialog but will not be applied. The disable rule option is useful when the applied filters result is an empty table. You can disable certain rules and check the results.
 
 #. In either case, deleting or disabling a rule, the data will be filtered only on enabled rules. In our example, the rule on the row header cell "London" is applicable. The indication for the deleted or disabled rule will also be removed.
 
     .. image:: images/TableFilters_DisabledFilterResult.png
         :align: center
 
-#. To clear all filter rules, click "Clear All Filters". This will clear all enabled and diabled rules and close the dialog, resulting in the original data on the table. 
+#. To clear all filter rules, click "Clear All Filters". This will clear all enabled and disabled rules and close the dialog, resulting in the original data on the table. 
 
 
 Operators
 ^^^^^^^^^
 
-The operators provided are specific to the numeric and string data. The below tables explains each of the operators.
+The operators provided are specific to numeric and string/element valued data. The below tables explains each of the operators.
 
 +------------------------------+-------------------------------------------------------------------------------------------+
 | Numeric Operators            | Result                                                                                    |
@@ -250,29 +250,29 @@ The operators provided are specific to the numeric and string data. The below ta
 +------------------------------+-------------------------------------------------------------------------------------------+
 | is less than                 | All data that is lesser than the entered value is displayed                               |
 +------------------------------+-------------------------------------------------------------------------------------------+
-| is less than or equal to     | All data that is lesser than and equal to the entered value is displayed                  |
+| is less than or equal to     | All data that is lesser than or equal to the entered value is displayed                   |
 +------------------------------+-------------------------------------------------------------------------------------------+
 | is greater than              | All data that is greater than the entered value is displayed                              |
 +------------------------------+-------------------------------------------------------------------------------------------+
-| is greater than or equal to  | All data that is greater than and equal to the entered value is displayed                 |
+| is greater than or equal to  | All data that is greater than or equal to the entered value is displayed                  |
 +------------------------------+-------------------------------------------------------------------------------------------+
 | is in between                | All data that is in between the range of and equal to the two entered values are displayed|
 +------------------------------+-------------------------------------------------------------------------------------------+
-| is not in between            | All data that is in outside the range of the two entered values are displayed             |
+| is not in between            | All data that is outside the range of the two entered values are displayed                |
 +------------------------------+-------------------------------------------------------------------------------------------+
 | show top                     | Displays the highest N values in descending order. N is the value entered.                |
 +------------------------------+-------------------------------------------------------------------------------------------+
-| show bottom                  | Displays the least N values in ascending order. N is the value entered.                   |
+| show bottom                  | Displays the lowest N values in ascending order. N is the value entered.                  |
 +------------------------------+-------------------------------------------------------------------------------------------+
 
 When adding rules to numeric operators, characters cannot be entered. The field accepts only numeric values.
 
 +------------------------------+-------------------------------------------------------------------------------------------+
-| String Operators             | Result                                                                                    |
+| String/Elt Operators         | Result                                                                                    |
 +==============================+===========================================================================================+
 | contains                     | All data that contains the entered characters are displayed                               |
 +------------------------------+-------------------------------------------------------------------------------------------+
-| does not contain             | All data except the strings that do not the entered characters are displayed              |
+| does not contain             | All data except the strings that contain the entered characters are displayed             |
 +------------------------------+-------------------------------------------------------------------------------------------+
 | is                           | All data that is an exact match to the entered characters are displayed                   |
 +------------------------------+-------------------------------------------------------------------------------------------+
@@ -286,6 +286,6 @@ When adding rules to numeric operators, characters cannot be entered. The field 
 Best Practices
 ^^^^^^^^^^^^^^
 
-#. When using numeric operators for filtering data that are in decimals points, we adivse the use of the range operator i.e. "in between" or "not in between". Since the data that is displayed in the table and the stored data vary in the number of decimals. Using the "is equal" operator will look for an exact match in the stored data.
+#. When using numeric operators for filtering data that are in decimals points, we advise the use of the range operator, i.e. "in between" or "not in between" since the data that is displayed in the table and the actual stored data may vary in the number of decimals. Using the "is equal" operator will look for an exact match in the stored data.
 
 #. To apply a filter rule on data that are dates, we advise the use of the string operators. 
