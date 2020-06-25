@@ -34,9 +34,14 @@ This section describes various tasks related to WebUI grid pages.
 
 	Grid pages are available from AIMMS software version 4.75.
 
-Grid pages introduce a novel concept of visualization based on page layouts. When a layout is applied to a grid page, the page is divided in a number of rectangular areas which will always preserve their relative size and position on the page, even when the entire browser window is being resized. In order to become visible, each widget on a grid page must be assigned to one of the areas defined by the page layout.
+Grid pages introduce a novel concept of visualization based on page layouts. When a layout is applied to a grid page, the page is divided in a number of rectangular areas which will always preserve their relative size and position on the page, even when the entire browser window is being resized. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout.
 
-This way of organizing a page and the widgets on the page is supported by appropriate fuctionalities in the Page Manager. When opening the Page Manager two tabs are now available: the App tab and the Page tab. The App tab shows a list of all the pages in the application:
+This way of organizing a page and the widgets on the page is supported by appropriate fuctionalities in the extended Page Manager.
+
+Page Manager with Grid Pages
+----------------------------
+
+When opening the Page Manager two tabs are now available: the App tab and the Page tab. The App tab shows the list of all the pages in the application:
 
 .. image:: images/GridPage_PageManager_AppTab.png
     :align: center
@@ -70,7 +75,12 @@ For example, if we choose the Standard Layout B2 for a newly added grid page Gri
 	
 Initially, unassigned widgets may be moved from the "Unassigned widgtes" section to one of the defined areas by using drag-and-drop. Assigned widgets may also be moved from one area to another area also by using drag-and-drop.
 
-The icons before the name of each area contain either a horizontal arrow from right to left, or a vertical arrow from top to bottom. These arrows indicate how the  
+The icons before the name of each area contain either a horizontal arrow from right to left, or a vertical arrow from top to bottom. These arrows indicate how the widgets are distributed within each area, either columnwise in equal columns or rowwise in equal rows, as also indicated by the corresponding tooltip:
+
+.. image:: images/GridPage_Area_Name_Tooltip.png
+    :align: center
+
+Please note as well the "+" sign at the bottom of the Page tab of the Page Manager. This allows the user to add a new widget to the selected page directly from within this Page tab, without opening the Widget Manager in order to access the same functionality.  
 
 	
 
