@@ -60,6 +60,16 @@ As shown in the last picture above, a particular case of a standard layout is th
 
 The user may choose to switch to another layout from the standard list. Currently this list offers Standard Layout A1, A2, A3, A4, Standard Layout B1, B2, Standard Layout C1, C2, and Standard Layout D1, D2. 
 
+.. image:: images/GridPage_PageTab_StandardLayouts.png
+    :align: center
+	
+For example, if we choose the Standard Layout B2 for a newly added grid page Grid_Standard_Layout in our TransNet application and add widgets for input and output data as explained in the "Getting Started" section, then we may assign widgets to the five areas Main, Aside A, Aside B, Aside C, and Aside D as whown in the following pictures:
+
+.. image:: images/GridPage_PageTab_StandardLayouts.png
+    :align: center
+	
+
+	
 
 
   
