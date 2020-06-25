@@ -82,6 +82,13 @@ The icons before the name of each area contain either a horizontal arrow from ri
 
 Please note as well the "+" sign at the bottom of the Page tab of the Page Manager. This allows the user to add a new widget to the selected page directly from within this Page tab, without opening the Widget Manager in order to access the same functionality.  
 
+The layout selection and the assignments of widgets to areas as shown above results in the following page visualization:
+
+.. image:: images/GridPage_StandardLayout_FullPage_1.png
+    :align: center
+
+Note that the area "Aside B" is here in the lower right part of the page and contains the two widgets for Transport and Total Costs values, which are distributed columnwise in equal columns.
+
 	
 
 
