@@ -133,7 +133,7 @@ Note that in this case the grid has 8 columns and 3 rows (instead of 4 columns a
 .. image:: images/GridPage_CustomLayoutB2_2.png
     :align: center
 
-And this new area "Aside E" is used to defined the grid template areas in the layout format:
+And this new area "Aside E" is used when defining the grid template areas in the layout format:
 
 .. image:: images/GridPage_CustomLayoutB2_3.png
     :align: center
