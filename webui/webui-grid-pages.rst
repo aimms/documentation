@@ -46,7 +46,7 @@ When opening the Page Manager two tabs are now available: the App tab and the Pa
 .. image:: images/GridPage_PageManager_AppTab.png
     :align: center
 
-The actions for adding, renaming, moving, changing the visibility, and deleting a grid page in the Page Manager are the same as for a classic page. In particular, adding a new grid page can be done by selecting the grid icon in the page create options:
+The actions for adding, renaming, moving, changing the visibility, and deleting a grid page in the Page Manager are the same as for a classic page. In particular, adding a new grid page can be done by selecting the grid icon in the page (create) options:
 
 .. image:: images/GridPage_PageManager_AppTab_InsertGrid.png
     :align: center
@@ -73,14 +73,17 @@ For example, if we choose the Standard Layout B2 for a newly added grid page Gri
 .. image:: images/GridPage_PageTab_Full_1.png
     :align: center
 	
-Initially, unassigned widgets may be moved from the "Unassigned widgtes" section to one of the defined areas by using drag-and-drop. Assigned widgets may also be moved from one area to another area also by using drag-and-drop.
+Initially, unassigned widgets may be moved from the "Unassigned widgtes" section to one of the defined areas by using drag-and-drop. Assigned widgets may also be moved from one area to another area also by using drag-and-drop:
+
+.. image:: images/GridPage_Drag-and-Drop_1.png
+    :align: center
 
 The icons before the name of each area contain either a horizontal arrow from right to left, or a vertical arrow from top to bottom. These arrows indicate how the widgets are distributed within each area, either columnwise in equal columns or rowwise in equal rows, as also indicated by the corresponding tooltip:
 
 .. image:: images/GridPage_Area_Name_Tooltip.png
     :align: center
 
-Please note as well the "+" sign at the bottom of the Page tab of the Page Manager. This allows the user to add a new widget to the selected page directly from within this Page tab, without opening the Widget Manager in order to access the same functionality.  
+Please note as well the "+" sign at the bottom of the Page tab of the Page Manager. This allows the user to add a new widget to the selected page directly from within this Page tab, without the need to open the Widget Manager in order to access the same functionality.  
 
 The layout selection and the assignments of widgets to areas as shown above results in the following page visualization:
 
@@ -100,8 +103,17 @@ When the user switches for example to Standard Layout C1, then the widgets stay 
 In this example, the Demand widget (which used to be assigned to area "Aside D" in the Standard Layout B2) has been moved to "Unassigned widgets" section (because the area "Aside D" is not defined in the Standard Layout C1).
 Also, the disbtribution of widgets in area "Aside B" is now rowwise in the current Standard Layout C1 (while before it used to be columnwise in the Standard Layout B2).
 
+As apparent from this example, the standard layouts provide some basic options to start with. However, specific requirements for a page may require the usage of a Custom page layout.
 
-	
+Custom Layouts
+--------------
+
+A new custom layout may be added by using the corresonding "+" button in the Custom section of the Page (layout) tab or by cloning one of the standard layouts (which is to be modified afterwards):
+
+.. image:: images/GridPage_StandardLayoutC1_FullPage_1.png
+    :align: center
+
+
 
 
   
