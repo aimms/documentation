@@ -8,6 +8,79 @@ AIMMS Release Notes
 
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
 
+
+#############
+AIMMS 4.74
+#############
+
+
+AIMMS 4.74.1 Release (June 25, 2020 - build 4.74.1.0)
+-----------------------------------------------------
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+-  **IMPORTANT:** When the .ams file is written to disk, AIMMS itself now uses tabs instead of 4 spaces. This reduces the size of the .ams file up to 30%. Because AIMMS versions before 4.73 do not expect tabs as indentation, models saved in AIMMS 4.74 may introduce unexpected issues when opening them in versions older than 4.73. You can prevent this by first opening and saving the model in 4.73. After that, the model will be compatible with older versions again. When the .ams file is managed by a versioning system (such as git), .ams files will have changes on all lines.
+-  The CPLEX, Gurobi and ODH-CPLEX options related to heuristics have been placed in the new MIP Heuristic category.
+-  The math program suffix BestBound and the GMP functions for retrieving the best bound can now also be used to obtain the best bound for a continuous problem (NLP, QP or QCP) solved with BARON and for non-convex quadratic problems solved with CPLEX or Gurobi.
+-  The solver ODH-CPLEX 5.0 is now available. ODH-CPLEX 5.0 uses CPLEX 12.10 underneath. Whereas, ODH-CPLEX 4.0 uses CPLEX 12.8. Therefore, the new options for ODH-CPLEX 5.0 stem from the CPLEX part. For some MIP cases, the results obtained by ODH-CPLEX 4.0 are not deterministic. This behavior is fixed in the ODH-CPLEX 5.0.
+-  A scaling tool has been added to the Math Program Inspector. It can be used to scale linear optimization models by selecting the Scale Model action. The tool will determine scaling factors for all (symbolic) variables and constraints which can be viewed in the Scaling Factors tab. By selecting the Resolve action in the Math Program Inspector you can resolve the model which will then automatically use the new scaling factors.
+-  The logical iterative operators Atleast, Atmost, Exactly are now handled by the new compiler and execution engine. AIMMS took the opportunity to make their behavior more consistent: their second argument now has a restriction to be a non-negative integer (there were no restrictions before). An error will be issued if this is not the case. Furthermore, when the Atleast and Exactly operators have an empty domain as their first argument and zero as their second, the return value is 1 (this was not the case before, which was incorrect).
+-  When requesting help on a function in the model editor using the right mouse menu command Help-On, you are now re-directed to a help topic in the online Function Reference.
+-  When writing data to a database via the ODBC Driver, parameters can be used for each row, but for some vendors and ODBC drivers this can be slow. Therefore, AIMMS offers an alternative flat-string technique for a few vendors. This alternative was already available (and the default) for MySQL databases and is now also implemented for MS SQLServer and PostgreSQL. There is a new option `Database insert as flatstring` (under AIMMS\Database interface) with which one can control whether this technique is used for the mentioned vendors. Based on performance experiments, the default for MySQL and PostgreSQL is to use this flat-string technique, and for MS SQL Server not to use it.
+-  The default value of the option 'Database String Valued Foreign Keys' has changed from 'Check' to 'Ignore'. See also the help documentation on this option. The default is changed because checking the foreign key information can be very expensive (depending on database vendor) whilst for most models this is not relevant. **IMPORTANT:** When your model writes to a database table which has string valued foreign key columns to another table, you may need to consider the best value for this option. When the value is 'Ignore' (now the default) and an empty string would be written to such a column, a runtime error will be reported.
+-  From now on, in new models only, Aimms interprets reference dates as UTC times by default i.s.o. local-no-DST times.
+
+	What is affected:
+	Functions that use default-timezone reference dates. (StringToMoment and MomentToString)
+	The begin and end date of calendars that have granularity smaller than a day.
+	The storage in cases of such calendars and element parameters pointing into them.
+
+	Why this change:
+	Until now, the meaning of times changed when the model was opened in another timezone. 2 o'clock in the US was still shown as 2 o'clock in China. When building a multi timezone/multi user application in Aimms, this is probably not what you want. This may already occur when running Aimms in the cloud, as the server may be in a different timezone, and thus lead to unexpected results even if the model is to be used for only one location.
+	Though the convertReferenceDate function can be used to work around this problem within the model, times in cases were also stored in local time. Any attempt to load a case created in another timezone would lead to incorrect data when trying to work with nonlocal timezones.  
+
+	Notes:
+	
+	-  This change is only applied to new models: Since the meaning of strings signifying reference dates is changed, automatic conversion of old models is not possible 
+	-  In timeslot formats, always using a timezone explicitly is advisable. Even if display in every user's local time is intended, DST should be taken into account, and thus 'localDST' should be used. Timeslot formats that do not specify a timezone are still using 'local' time. 
+	-  When using an hourly calendar, specifying minutes in the timeslot formats is advisable. It is uncertain if at some point the calendar will be shifted off the full hour, esp. when timeszones get to be used in timeslot formats.
+
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  There was a situation in which renaming an identifier 's' in the main model also changed the unit [s] in the WebUI library.
+-  If the CPLEX option 'print presolve status' was switched on, any action in the Math Program Inspector that triggered a solve (e.g., Resolve) would result in a crash. This bug was introduced in AIMMS version 4.71.1.
+-  The warning "The maximum of 20 warnings reached, further warnings suppressed. See also option maximal_number_of_warnings_reported" was not shown in the error window of AIMMS.
+-  The properties ElementsAreNumerical and ElementsAreLabels did not always have the intended effect when the logical value of a corresponding element was checked as part of an OR/AND/XOR expression.
+-  Clicking a checkbox in the WinUI Pivot Table while having the WebUI open could lead to a crash.
+
+ 
+WebUI Improvements
++++++++++++++++++++++++++
+-  Item Actions are now available for the Table, Scalar, Gantt, Bar, Line, Bubble, Pie, and Treemap charts as well.
+-  The list widget is now an official feature and is removed from the experimental features.
+-  Previously, whenever a column on which you sorted, contained an element parameter over a calendar, the string representation of the date was used to sort upon, alphabetically, leading to an unexpected ordering. Now, such a column is sorted according the order of the dates in the underlying calendar.
+-  The formula for calculating the bubble size is updated and improved. Sizes are calculated based on the area, same as the map. Also, Added maximum reference size to size the bubbles based on a fixed value.
+
+
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+-  The Pivot Tab in the options of the Bubble chart widget was broken.
+-  Console errors were displayed while opening the option editor for Table widget contents and adding/removing identifiers from the Bubble chart widget.
+-  The WebUI will now actually make use of your browser's configuration for preferred languages and thus also of any provided translations for that language, when available. See https://documentation.aimms.com/webui/multi-language.html#multi-language-support for details.
+
+
+--------------
+
+
+
+
+
+
+
 #############
 AIMMS 4.73
 #############
