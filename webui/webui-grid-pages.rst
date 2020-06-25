@@ -110,7 +110,12 @@ Custom Layouts
 
 A new custom layout may be added by using the corresonding "+" button in the Custom section of the Page (layout) tab or by cloning one of the standard layouts (which is to be modified afterwards):
 
-.. image:: images/GridPage_StandardLayoutC1_FullPage_1.png
+.. image:: images/GridPage_NewCustomLayout_1.png
+    :align: center
+
+A custom layout may be edited / modified by using the Edit option in its upper right corner:
+
+.. image:: images/GridPage_CustomLayouts_Edit_1.png
     :align: center
 
 
