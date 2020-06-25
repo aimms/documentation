@@ -32,7 +32,7 @@ This section describes various tasks related to WebUI grid pages.
 
 .. important::
 
-	Grid pages are available from AIMMS software version 4.75.
+	Grid pages are available startting from AIMMS software version 4.75.
 
 Grid pages introduce a novel concept of visualization based on page layouts. When a layout is applied to a grid page, the page is divided in a number of rectangular areas which will always preserve their relative size and position on the page, even when the entire browser window is being resized. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout.
 
@@ -58,12 +58,12 @@ Once a page has been selected in the App tab of the Page Manager, the Page tab s
 	
 The upper part of the Page tab allows the user to select a certain layout for the page, either as one of the Standard layouts or as a Custom layout. First we are going to discuss options for applying Standard layouts. Afterwards, we will also discuss relevant topics for using Custom layouts. 
 
-Standard layouts
+Standard Layouts
 ----------------
 
-As shown in the last picture above, a particular case of a standard layout is the "Layout: classic". When this layout is applied to a grid page, then there are actually no specific areas defined and the widgets are placed on the page in the same way as done for a classic page.
+As shown in the last picture above, a particular case of a standard layout is the "Layout: classic". When this layout is applied to a grid page, then there are actually no specific areas defined and the widgets are placed on the page in the same way as done for a classic page. Resizing the entire browser window will result in the same resposive design as the one applied to the classic pages.
 
-The user may choose to switch to another layout from the standard list. Currently this list offers Standard Layout A1, A2, A3, A4, Standard Layout B1, B2, Standard Layout C1, C2, and Standard Layout D1, D2. 
+The user may choose to switch to another layout from the standard list. Currently this list offers Standard Layout A1, A2, A3, A4, Standard Layout B1, B2, Standard Layout C1, C2, and Standard Layout D1, D2 (please use the left arrow < and the right > in order to scroll horizontally through the list):   
 
 .. image:: images/GridPage_PageTab_StandardLayouts.png
     :align: center
@@ -89,11 +89,16 @@ The layout selection and the assignments of widgets to areas as shown above resu
 
 Note that the area "Aside B" is here in the lower right part of the page and contains the two widgets for Transport and Total Costs values, which are distributed columnwise in equal columns.
 
+Switching between Layouts
+-------------------------
+
 When the user switches for example to Standard Layout C1, then the widgets stay assigned to areas with the same name, if these areas exist in the newly selected layout. If not, then the corresponding widgets appear in the "Unassigned widgets" section and may be moved by drag-and-drop to one of the currently available areas, if required:
 
 .. image:: images/GridPage_StandardLayoutC1_FullPage_1.png
     :align: center
 
+In this example, the Demand widget (which used to be assigned to area "Aside D" in the Standard Layout B2) has been moved to "Unassigned widgets" section (because the area "Aside D" is not defined in the Standard Layout C1).
+Also, the disbtribution of widgets in area "Aside B" is now rowwise in the current Standard Layout C1 (while before it used to be columnwise in the Standard Layout B2).
 
 
 	
