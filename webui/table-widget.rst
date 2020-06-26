@@ -129,13 +129,13 @@ Data Filtering on the Table
 
 .. important:: Filtering is available in software versions from AIMMS 4.75 onwards as part of Experimental Features. Filtering is currently available only for the Table widget. Please reach out to AIMMS support on how to enable Experimental Features.
 
-When working with tables you could be looking at a lot of data. It can be difficult to find information quickly in such cases. Filters can be used to narrow down the data in your table, allowing you to view only the information you need.
-
-Filters are useful when you want to focus only on specific information in a large dataset in a table. Filtering doesn't remove or modify data, it just changes which records appear on your widget. Filtering lets you temporarily hide unwanted data.
-
 .. note::
 
   Filters are readily available for the table and there is no need to create a specification or configuration in the model. This is an end-user tool.
+
+When working with tables you could be looking at a lot of data. It can be difficult to find information quickly in such cases. Filters can be used to narrow down the data in your table, allowing you to view only the information you need.
+
+Filters are useful when you want to focus only on specific information in a large dataset in a table. Filtering doesn't remove or modify data, it just changes which records appear on your widget. Filtering lets you temporarily hide unwanted data.
 
 To add filter rules
 ^^^^^^^^^^^^^^^^^^^
@@ -188,7 +188,23 @@ To add filter rules
 
 New rules are added to the bottom of the list of rules in the dialog. You can reorder these rules by dragging and dropping the rules in the desired order. 
 
-You can edit values and use the table normally after the data is filtered. If you change a value for a filtered column or row, the data might change based on the filter rules set.
+The below illustration shows the effect of reordering rules. We applied two rules, the first rule to the row "Zurich" and the second to the row "Hamburg".
+
+    .. image:: images/TableFilters_FilterOrder1.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterOrder1_Result.png
+        :align: center
+
+The data shows five columns that meet the applied rules. When we reorder the second rule to the top it results in different data resulting in only four columns.
+
+    .. image:: images/TableFilters_FilterOrder2.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterOrder2_Result.png
+        :align: center
+
+You can edit values and use the table normally after the data is filtered. If you change a value for a fitlered column or row, the data might change based on the filter rules set.
 
 To edit filter rules
 ^^^^^^^^^^^^^^^^^^^^
