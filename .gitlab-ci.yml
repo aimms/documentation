@@ -10,3 +10,5 @@ build_and_install:
     - ./run.sh
   tags:
     - ubuntu
+  only:
+    - master
