@@ -34,7 +34,7 @@ This section describes various tasks related to WebUI grid pages.
 
 	Grid pages are available startting from AIMMS software version 4.75.
 
-Grid pages introduce a novel concept of visualization based on page layouts. When a layout is applied to a grid page, the page is divided in a number of rectangular areas which will always preserve their relative size and position on the page, even when the entire browser window is being resized. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout.
+Grid pages introduce a novel concept of visualization based on page layouts. When a layout is applied to a grid page, the page is divided into a number of rectangular areas which will always preserve their relative size and position on the page, even when the entire browser window is being resized. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout.
 
 This way of organizing a page and the widgets on the page is supported by appropriate fuctionalities in the extended Page Manager.
 
@@ -61,7 +61,7 @@ The upper part of the Page tab allows the user to select a certain layout for th
 Standard Layouts
 ----------------
 
-As shown in the last picture above, a particular case of a standard layout is the "Layout: classic". When this layout is applied to a grid page, then there are actually no specific areas defined and the widgets are placed on the page in the same way as done for a classic page. Resizing the entire browser window will result in the same resposive design as the one applied to the classic pages.
+As shown in the last picture above, a particular case of a standard layout is the "Layout: classic". When this layout is applied to a grid page, then there are actually no specific areas defined and the widgets are placed on the page in the same way as done for a classic page. Resizing the entire browser window will result in the same responsive design as the one applied to the classic pages.
 
 The user may choose to switch to another layout from the standard list. Currently this list offers Standard Layout A1, A2, A3, A4, Standard Layout B1, B2, Standard Layout C1, C2, and Standard Layout D1, D2 (please use the left arrow < and the right > in order to scroll horizontally through the list):   
 
@@ -73,17 +73,17 @@ For example, if we choose the Standard Layout B2 for a newly added grid page Gri
 .. image:: images/GridPage_PageTab_Full_1.png
     :align: center
 	
-Initially, unassigned widgets may be moved from the "Unassigned widgtes" section to one of the defined areas by using drag-and-drop. Assigned widgets may also be moved from one area to another area also by using drag-and-drop:
+Initially, unassigned widgets may be moved from the "Unassigned widgets" section to one of the defined areas by using drag-and-drop. Assigned widgets may also be moved from one area to another by using drag-and-drop:
 
 .. image:: images/GridPage_Drag-and-Drop_1.png
     :align: center
 
-The icons before the name of each area contain either a horizontal arrow from right to left, or a vertical arrow from top to bottom. These arrows indicate how the widgets are distributed within each area, either columnwise in equal columns or rowwise in equal rows, as also indicated by the corresponding tooltip:
+The icon before the name of an area contains either a horizontal arrow from left to right, or a vertical arrow from top to bottom. These arrows indicate how the widgets are distributed within each area, either columnwise in equal columns or rowwise in equal rows, which is also indicated by the corresponding tooltip:
 
 .. image:: images/GridPage_Area_Name_Tooltip.png
     :align: center
 
-Please note as well the "+" sign at the bottom of the Page tab of the Page Manager. This allows the user to add a new widget to the selected page directly from within this Page tab, without the need to open the Widget Manager in order to access the same functionality.  
+Please also note the "+" sign at the bottom of the Page tab of the Page Manager. This allows the user to add a new widget to the selected page directly from within this Page tab, without the need to open the Widget Manager in order to access the same functionality.  
 
 The layout selection and the assignments of widgets to areas as shown above results in the following page visualization:
 
@@ -95,25 +95,25 @@ Note that the area "Aside B" is here in the lower right part of the page and con
 Switching between Layouts
 -------------------------
 
-When the user switches for example to Standard Layout C1, then the widgets stay assigned to areas with the same name, if these areas exist in the newly selected layout. If not, then the corresponding widgets appear in the "Unassigned widgets" section and may be moved by drag-and-drop to one of the currently available areas, if required:
+When the user switches to, for example, Standard Layout C1, then the widgets stay assigned to areas with the same name, if these areas exist in the newly selected layout. If not, then the corresponding widgets appear in the "Unassigned widgets" section and may be moved by drag-and-drop to one of the currently available areas, if required:
 
 .. image:: images/GridPage_StandardLayoutC1_FullPage_1.png
     :align: center
 
 In this example, the Demand widget (which used to be assigned to area "Aside D" in the Standard Layout B2) has been moved to "Unassigned widgets" section (because the area "Aside D" is not defined in the Standard Layout C1).
-Also, the disbtribution of widgets in area "Aside B" is now rowwise in the current Standard Layout C1 (while before it used to be columnwise in the Standard Layout B2).
+Also, the distribution of widgets in area "Aside B" is now rowwise in the current Standard Layout C1 (whereas it used to be columnwise in the Standard Layout B2).
 
 As apparent from this example, the standard layouts provide some basic options to start with. However, specific requirements for a page may require the usage of a Custom page layout.
 
 Custom Layouts
 --------------
 
-A new custom layout may be added by using the corresonding "+" button in the Custom section of the Page (layout) tab or by cloning one of the standard layouts (which is to be modified afterwards):
+A new custom layout may be added by using the corresponding "+" button in the Custom section of the Page (layout) tab or by cloning one of the standard layouts (which is to be modified afterwards):
 
 .. image:: images/GridPage_NewCustomLayout_1.png
     :align: center
 
-A custom layout may be edited (ie, modified) by using the Edit option in its upper right corner:
+A custom layout may be edited (i.e. modified) by using the Edit option in its upper right corner:
 
 .. image:: images/GridPage_CustomLayouts_Edit_1.png
     :align: center
@@ -123,7 +123,7 @@ This will open the layout Editor where the layout name and format may be adjuste
 .. image:: images/GridPage_CustomLayouts_Editor_1.png
     :align: center
 
-For example, we can save under the name "Custom Layout B2" the layout which has been modified as follows:
+For example, we can save the modified layout under the name "Custom Layout B2" as follows:
 
 .. image:: images/GridPage_CustomLayoutB2_1.png
     :align: center
@@ -133,17 +133,17 @@ Note that in this case the grid has 8 columns and 3 rows (instead of 4 columns a
 .. image:: images/GridPage_CustomLayoutB2_2.png
     :align: center
 
-And this new area "Aside E" is used when defining the grid template areas in the layout format:
+This new area "Aside E" is used when defining the grid template areas in the layout format:
 
 .. image:: images/GridPage_CustomLayoutB2_3.png
     :align: center
 
-When we apply the custom layout as defined above to our page the resulting visualization is as follows:
+When we apply the custom layout as defined above to our page, the resulting visualization is as follows:
 
 .. image:: images/GridPage_CustomLayoutB2_FullPage.png
     :align: center
 
-This resulting page looks nicer than the one achieved only based on the Standard Layout B2 discussed above. In particular, we have gain more space for the map widget such that the network is better visible. Also, this page preserves the clear division between the input, optimization, and output data in a similar way as discussed in the "Getting Started" section of this manual. 
+This resulting page looks better than the one achieved only based on the Standard Layout B2 discussed above. In particular, we have gained more space for the map widget such that the network is better visible. Also, this page preserves the clear division between the input, optimization, and output data in a similar way as discussed in the "Getting Started" section of this manual. 
 
 
 
