@@ -14,6 +14,27 @@ AIMMS 4.74
 #############
 
 
+AIMMS 4.74.2 Release (July 1, 2020 - build 4.74.2.8)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In specific cases publishing an AIMMS model on PRO yielded a 'unable to publish model' error.
+-  For some datatypes, Unicode characters were not sent correctly to the database.
+-  When a Halt statement was executed, in a next definition evaluation that uses a procedure, only the first statement in that defining procedure was executed.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  A warning will be shown if a valid page contains an invalid redirectPageId and some error messages related to workflow have been improved.
+-  When a bubble was highlighted in a Bubble Chart widget and then an X bubble-point was selected, the previously selected bubble was no longer highlighted.
+
+
+--------------
+
+
+
 AIMMS 4.74.1 Release (June 23, 2020 - build 4.74.1.0)
 -----------------------------------------------------
 
