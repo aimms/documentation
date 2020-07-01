@@ -8,12 +8,17 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
+1.18.0.11 [01-07-2020]
+    - Fixed missing symbol in libcdm.so on Linux
+
 1.18.0.9 [24-06-2020]
     - Changesets are now compressed during transport to reduce transmission time and in database cache to reduce stored snapshot size.
     - Introduced separate function :js:func:`cdm::CreateSnapshot` to create a cached snapshot asynchronously and completely server-side.
     - Removed the optional :token:`cacheUpdate` argument from :js:func:`cdm::CheckoutSnapshot` function.
     - The procedure :js:func:`cdm::RetireBranchData` has been implemented in a totally different manner because a fix to the previous implementation fundamentally prevented it from working for SQLServer-backed CDM instances.
     - Stopped supporting VC120-based AIMMS versions.
+
+NB. Because the wire and storage format for snapshots changed, all cached snapshots stored in the CDM database will be deleted. Also, the function prototypes for creating snapshots and retiring branch data are changed. If you used these functionalities before, you should update your model.
 
 1.17.1.13 [10-03-2020]
     - In :token:`cdm::DataChangeProcedure` pass on exception only on last retry.
