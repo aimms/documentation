@@ -51,7 +51,7 @@ Checking folders or files exists in the PRO Storage
     
 * :token:`pro::storage::ExistsObject(path, objectExists)` -  checks whether a file exists in the PRO Storage, where :token:`path` is input string parameter and :token:`objectExists` is output parameter, which determines the status whether object(File) exists(1) or not(0).
 
-You must not include the prefixe "PRO:" in the input path for these functions. The prefix is needed only when using ``CaseFileSave`` or ``CaseFileLoad``. You can use ``pro::NormalizeStoragePath`` to remove the prefix from a path. In the below example, `pObjectExists1` will return 0 but `pObjectExists2` will return 1 as we normalized the string before searching for the object::
+You must not include the prefixe "PRO:" in the input path for these functions. The prefix is needed only when using :any:`CaseFileSave` or :any:`CaseFileLoad`. You can use ``pro::NormalizeStoragePath`` to remove the prefix from a path. In the below example, `pObjectExists1` will return 0 but `pObjectExists2` will return 1 as we normalized the string before searching for the object::
 
     !save a case file CentralFile.data in the user's central storage
     spCasename := FormatString("PRO:/UserData/%s/%s/Cases/%s/CentralFile.data", spEnvironment, spUserN, spModel); 

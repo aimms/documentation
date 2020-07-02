@@ -64,7 +64,7 @@ To prevent a server session from running indefinitely, the :token:`pro::Delegate
 Timed-out Sessions
 ++++++++++++++++++
 
-If a session is terminated because the maximum execution time has been reached, the PRO server will call the fixed callback :token:`pro::session::ServerErrorCallback`. If you want to have your own callback function called as well in such cases, you can set this additional callback function via the element parameter :token:`pro::session::ServerErrorCallbackHook` into ``AllProcedures``. When this time-out is reached, solver sessions will be killed with 'error' status and case will not be saved in this situation.
+If a session is terminated because the maximum execution time has been reached, the PRO server will call the fixed callback :token:`pro::session::ServerErrorCallback`. If you want to have your own callback function called as well in such cases, you can set this additional callback function via the element parameter :token:`pro::session::ServerErrorCallbackHook` into :any:`AllProcedures`. When this time-out is reached, solver sessions will be killed with 'error' status and case will not be saved in this situation.
 
 Asynchronous...
 +++++++++++++++

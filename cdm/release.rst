@@ -50,7 +50,7 @@ NB. This fix required a change in the format of the changesets sent over the wir
 1.16.0.8 [05-02-2020]
     - Labels added prior to a snapshot revision, but then removed from the set in the snapshot revision, could lead to client-side data loss when such a label was re-added as part of a revision range passed to the client during a checkout based on a cached snapshot.
 1.16.0.7 [30-01-2020]
-    - Having predeclared identifiers in :token:`cdm::AllCDMIdentifiers` would make the call to :token:`AttributeToString` fail PRO solver sessions.
+    - Having predeclared identifiers in :token:`cdm::AllCDMIdentifiers` would make the call to :any:`AttributeToString` fail PRO solver sessions.
     - Add :token:`cdm::IdentifierOrderOverride` to CDM library to allow manually setting identifier order for category identifiers set via :token:`cdm::IdentifierCategoryOverride`.
     
 1.16.0.5 [29-01-2020]
