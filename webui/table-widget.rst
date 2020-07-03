@@ -283,6 +283,9 @@ The operators provided are specific to numeric and string/element valued data. T
 
 When adding rules to numeric operators, characters cannot be entered. The field accepts only numeric values.
 
+.. note ::
+    When ``show top`` or ``show bottom`` operators are used on a column/row, since the data is already sorted, sorting on other columns/rows will not be available. 
+
 +------------------------------+-------------------------------------------------------------------------------------------+
 | String/Elt Operators         | Result                                                                                    |
 +==============================+===========================================================================================+
