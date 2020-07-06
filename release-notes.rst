@@ -22,11 +22,6 @@ Resolved AIMMS Issues
 -  Renaming an identifier while a library has an index or element parameter with that same name, could accidentally rename the identifier in the library as well.
 -  We added an error message for an unsupported combination of a defining procedure and a domain condition expression.
 
-Resolved WebUI Issues
-+++++++++++++++++++++++++
-
--  Warnings raised from within the model are now correctly communicated to the end user if the 'communicate_warnings_to_end_users' option has been set.
-
 --------------
 
 
