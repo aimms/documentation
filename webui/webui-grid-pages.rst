@@ -32,13 +32,22 @@ This section describes various tasks related to WebUI grid pages.
 
 .. important::
 
-	Grid pages are available starting from AIMMS software version 4.75.
+	Grid WebUI pages are available starting from the AIMMS software version 4.75 on.
 
-Grid pages introduce in AIMMS WebUI the CSS Grid concept of visualization based on page layouts, which is a widely used standard in webdesign. This concept features several advantages such as better responsiveness, fluid layouts, and the possibility for full page widgets. What is taken out compared to the classic pages is the repositioning of all widgets when the browser window is resized. The intention is to stimulate moving an entire application to this grid page format, which may be achieved gradually, by converting one page at a time (the idea is that the classic page style will be deprecated in time).
+Grid pages introduce in AIMMS WebUI the CSS Grid concept of visualization based on page layouts, which is currently a widely used standard in webdesign. For more information on CSS Grid in general please see websites such as:
 
-When a page layout is applied to a grid page, the page is divided into a number of rectangular areas and each area is to host a group of widgets. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout. Currently, all the standard layouts use so-called fractions for resizing. This way, the layout areas always preserve their relative size and position on the page, even when the entire browser window is being resized. However, Grid supports more options for (re)sizing like pixels, percentages or em’s, and also supports combinations of those. These options can already be used in custom layouts, see further below. 
+    * `MDN Web Docs <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout>`_
+    * `w3schools.com <https://www.w3schools.com/css/css_grid.asp>`_
+    * `css-tricks.com <https://css-tricks.com/snippets/css/complete-guide-grid/>`_
+    * `learncssgrid.com <https://learncssgrid.com/>`_
+    * `gridbyexample.com <https://gridbyexample.com/>`_
+	
+	
+The CSS Grid concept features several advantages such as better responsiveness, fluid layouts, and the possibility for full page widgets. What is taken out compared to the classic WebUI pages is the repositioning of all widgets when the browser window is resized. The intention is to support moving an entire WebUI application to this grid page format, such that this may be achieved gradually, by converting one page at a time (the idea is that the classic WebUI page style will become obsolete and will be deprecated in time).
 
-The organization of a page and the widgets on the page by using layouts is supported by appropriate functionalities in the Page Manager.
+When a page layout is applied to a grid page, the page is divided into a number of rectangular areas and each area is to host a group of widgets. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout. Currently, all the standard layouts use so-called fractions for resizing. This way, the layout areas always preserve their relative size and position on the page, even when the entire browser window is being resized. However, Grid supports more options for (re)sizing like pixels, percentages or em’s, and also supports combinations of those. These options can already be used in custom layouts, please see further below in this section for more details. 
+
+The organization of a page and the widgets on the page by using page layouts is currentlt supported by dedicated functionalities in the WebUI Page Manager.
 
 Page Manager with Grid Pages
 ----------------------------
@@ -127,7 +136,7 @@ This will open the layout Editor where the layout name and format may be adjuste
 .. image:: images/GridPage_CustomLayouts_Editor_1.png
     :align: center
 
-For example, we can modify the layout and save the modified layout under the name "Custom Layout B2" as follows:
+In particular, the editor contents above describes a layout with 4 columns and 2 rows. We can modify this layout and save the modified layout under the name "Custom Layout B2", for example, as follows:
 
 .. image:: images/GridPage_CustomLayoutB2_1.png
     :align: center
@@ -137,7 +146,7 @@ Note that in this case the grid has 8 columns and 3 rows (instead of 4 columns a
 .. image:: images/GridPage_CustomLayoutB2_2.png
     :align: center
 
-Clearly, this new area "Aside E" is used when defining the grid template areas in the modified layout format:
+Clearly, this new area "Aside E" is used when defining the adjusted grid template areas in the modified layout format:
 
 .. image:: images/GridPage_CustomLayoutB2_3.png
     :align: center
@@ -151,6 +160,28 @@ This resulting page looks better than the one achieved only based on the Standar
 
 Creating Grid Definitions
 -------------------------
+
+This section provides more details about creating (custom) grid layouts using the layout editor exemplified above.
+
+A layout is a technical description of a specific component (Grid), its properties and the items (sub-components) which live within that component. We currently (only) support Grid as the main component and WidgetArea as the sub-components.
+
+The properties of the Grid component are closely related to how CSS Grid works (see websites links in the beginning of this section). In AIMMS WebUI we currentlty support grid-template-rows, grid-template-columns and grid-template-areas. By combining these you get virtually all of the power of CSS grids, using your choice of fractions, fixed pixel sizes or percentages. The gridTemplateAreas then serves to tell how your areas are supposed to overlap with the positions you made available as rows and columns.
+
+Please note that the format you see in the layout editor will serve to create real CSS. This is also the reason why the gridTemplateAreas need to contain the quotes in their escaped version. The output of that needs to be a set of row definitions, grouped between quotes, while the property itself is also a string in quotes (the outer ones).
+
+The names you give to your areas should re-appear as WidgetAreas components below the items of the Grid. The "gridArea" properties of it should be the same as of one of the defined areas in "gridTemplateAreas" of the Grid. Failure to do so will lead to unexpected results.
+
+Only the areas that you define as sub-components will end up in the Page Configurator tab of the Page Manager, ready to be used to place your widgets in, so please keep these two in sync when you change the (CSS) names or the number of areas of your custom layout.
+
+WidgetArea components support a number of properties:
+
+-	gridArea: the CSS name you also used in the definition of gridTemplateAreas for the parent Grid component,
+-	name: the display name you will see in the Page Configurator (which can contain whitespace and 'odd' characters, unlike the gridArea names; see the CSS grid specification),
+-	gridAutoFlow: either "row" or "column". It defaults to "column", if not specified. When multiple widgets are placed in this area, this property determines whether the widget either shares space vertically (=row, so stacked widgets) or horizontally (=column, so distribute width).Note that when widgets are stacked, certain widgets will never increase their height beyond their inherent size. For example: buttons, up/download widgets, scalar widgets.
+-	runIntoGridGap: true or false. It defaults to false. This property will make an area 'expand' into its gridgap/margins in all directions, so probably best used in combination with one single area. The adjacent areas which are also running into their grid gap will simply overlap.
+-	separateFixedHeightWidgets: true or false. It defaults to false. This property triggers different sizing and ordering behavior for the fixed-side widget mentioned above. Those widgets will be grouped together and placed at either the far right (column based flow) or bottom (row based flow) of all widgets. This is slightly different from just grouping your widgets yourself, especially for the column-based flow where you can have a group of vertically stacked buttons on the far right without having to create a new area for that.
+
+We also support most other css-grid-spec properties for either Grid or WidgetAreas, like grid-gap, dir, z-index and several alignment properties, but do note that our own styling will either heavily influence or overrule these. Therefore, please onsider their usage as experimental.
 
 
 
