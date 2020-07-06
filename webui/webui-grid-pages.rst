@@ -34,7 +34,7 @@ This section describes various tasks related to WebUI grid pages.
 
 	Grid pages are available starting from AIMMS software version 4.75.
 
-Grid pages introduce in AIMMS WebUI the concept of visualization based on page layouts, which is a widely used standard in webdesign. This concept features several advantages such as better responsiveness, fluid layouts, and the possibility for full page widgets. What is taken out compared to the classic pages is the repositioning of all widgets when the browser window is resized. The intention is to stimulate moving an entire application to this grid page format, which may be achieved gradually, by converting one page at a time (the idea is that the classic page style will be deprecated in time).
+Grid pages introduce in AIMMS WebUI the CSS Grid concept of visualization based on page layouts, which is a widely used standard in webdesign. This concept features several advantages such as better responsiveness, fluid layouts, and the possibility for full page widgets. What is taken out compared to the classic pages is the repositioning of all widgets when the browser window is resized. The intention is to stimulate moving an entire application to this grid page format, which may be achieved gradually, by converting one page at a time (the idea is that the classic page style will be deprecated in time).
 
 When a page layout is applied to a grid page, the page is divided into a number of rectangular areas and each area is to host a group of widgets. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout. Currently, all the standard layouts use so-called fractions for resizing. This way, the layout areas always preserve their relative size and position on the page, even when the entire browser window is being resized. However, Grid supports more options for (re)sizing like pixels, percentages or em’s, and also supports combinations of those. These options can already be used in custom layouts, see further below. 
 
@@ -149,6 +149,8 @@ When we apply the resulting custom layout as defined above to our page, the resu
 
 This resulting page looks better than the one achieved only based on the Standard Layout B2 discussed above. In particular, we have gained more space for the map widget such that the network is better visible now. Also, this page preserves the clear division between the input, optimization, and output data in a similar way as discussed in the "Getting Started" section of this manual. 
 
+Creating Grid Definitions
+-------------------------
 
 
 
