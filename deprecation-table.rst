@@ -24,17 +24,17 @@ This is a list of (recent) deprecated features and provides an insight into its 
 
 
 .. csv-table:: 
-   :header: "Feature", "Status", "End of Life", Comment,Resolve
+   :header: "Category", "Feature", "Status", "End of Life", Comment,Resolve
 
-    Win 32                    , Deprecated , Dec 2019        , No longer delivered and supported                                              , Win64 versions                                                                                        
-    Dongle                    , Deprecated , Dec 2019        , No longer delivered and supported                                              , Nodelock                                                                
-    Internet Explorer 11      , Deprecated , Jan 2020        , No longer supported                                                            , Chrome or Edge (latest or latest-1)                                                                  
-    WinUI                     , Deprecated , not before 2023 , Currently only High Prio and fixable issues Resolve → WebUI                    , WebUI                                                                                                 
-    SDK                       , Deprecated , not before 2023 , Currently only High Prio and fixable issues                                    , "Deploy via AIMMS PRO API, or AIMMS EO (dockerized)"                                                   
-    WebUI Wizard              , Deprecated , mid 2020   (to be planned)  ,  Will be removed - start w/ message (4.73)                   , Workflow Panel                      
-    Group Widget              , Deprecated ,                 , Start with inability to add and remove suggestion in widget creation dialog    , New Page Layout V2 will make this obsolete                                                           
-    Compound Sets             , Deprecated , May 2020        , No longer functioning (error produced per 4.73)                                , "Restructure model. For details, see `How-to <https://how-to.aimms.com/Articles/109/109-deprecate-compound-sets-overview.html>`_"
-    Excel Add-on              , Deprecated ,                 , Current status is no pro-active support                                        , No alternative as such                                                                                
-    Tableau TDE Provider(part of DataLink) , Deprecated,                 , Current status is no pro-active support                     , Communication with BI tools via databases or CSV/XLS files (or upcoming JSON files).                  
-    Single Data File          , Deprecated , Q2 2020         , Current status: deprecated for years already; now finally planned for removal  , "Use new File & Folders (if needed, there is a conversion tool in IDE)"                 
-    AIMMS PRO Cluster feature , Deprecated ,                 , Current status no pro-active support                                           , "Various options such as scale vertically (larger machine), or use AIMMS Cloud. For details see How-to"
+    System Requirements, Win 32                    , Deprecated , Dec 2019        , No longer delivered and supported                                              , Win64 versions                                                                                        
+    System Requirements, Internet Explorer 11      , Deprecated , Jan 2020        , No longer supported                                                            , Chrome or Edge (latest or latest-1)                                                                  
+    Licensing, Dongle                    , Deprecated , Dec 2019        , No longer delivered and supported                                              , Nodelock                                                                
+    GUI, WinUI                     , Deprecated , not before 2023 , Currently only High Prio and fixable issues Resolve                            , WebUI                                                                                                 
+    GUI-WebUI, Wizard              , Deprecated , mid 2020   (to be planned)  ,  Will be removed - started with message and inability to add (4.73), Workflow Panel with fine grained control via model                     
+    GUI-WebUI, Group Widget              , Deprecated ,                 , Start with inability to add and remove suggestion in widget creation dialog    , New Page Layout V2 will make this obsolete                                                           
+    Modeling, Compound Sets             , Deprecated , May 2020        , No longer functioning (error produced per 4.73)                                , Restructure model. For details see `How-to <https://how-to.aimms.com/Articles/109/109-deprecate-compound-sets-overview.html>`_
+    Data, Single Data File          , Deprecated , Q2 2020         , Current status: deprecated for years already; now finally planned for removal  , Use new File & Folders (there is a conversion tool in IDE)                 
+    Connectivity, SDK                       , Deprecated , not before 2023 , Currently only high priority and fixable issues                                    , Deploy via AIMMS PRO API (contact us)                                                   
+    Connectivity, Excel Add-on              , Deprecated ,                 , Current status is no pro-active support                                        , No alternative as such                                                                                
+    Connectivity, Tableau TDE Provider(part of DataLink) , Deprecated,                 , Current status is no pro-active support                     , Communication with BI tools via databases or CSV/XLS files (or upcoming JSON files)                  
+    PRO, AIMMS PRO Cluster feature , Deprecated ,                 , Current status no pro-active support                                           , Various options such as scale vertically (larger machine) or use AIMMS Cloud. For details see How-to (not yet available)
