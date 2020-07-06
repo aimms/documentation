@@ -36,9 +36,9 @@ This section describes various tasks related to WebUI grid pages.
 
 Grid pages introduce in AIMMS WebUI the concept of visualization based on page layouts, which is a widely used standard in webdesign. This concept features several advantages such as better responsiveness, fluid layouts, and the possibility for full page widgets. What is taken out compared to the classic pages is the repositioning of all widgets when the browser window is resized. The intention is to stimulate moving an entire application to this grid page format, which may be achieved gradually, by converting one page at a time (the idea is that the classic page style will be deprecated in time).
 
-When a page layout is applied to a grid page, the page is divided into a number of rectangular areas and each area will host a group of widgets. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout. Currently, all the standard layouts use so-called fractions for resizing. This way, the layout areas always preserve their relative size and position on the page, even when the entire browser window is being resized. However, Grid supports more ways like pixels, percentages or em’s for (re)sizing, and also supports combinations of those. These can already be used in custom layouts, see further below. 
+When a page layout is applied to a grid page, the page is divided into a number of rectangular areas and each area is to host a group of widgets. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout. Currently, all the standard layouts use so-called fractions for resizing. This way, the layout areas always preserve their relative size and position on the page, even when the entire browser window is being resized. However, Grid supports more options for (re)sizing like pixels, percentages or em’s, and also supports combinations of those. These options can already be used in custom layouts, see further below. 
 
-The organization a page and the widgets on the page by using layouts is supported by appropriate functionalities in the Page Manager.
+The organization of a page and the widgets on the page by using layouts is supported by appropriate functionalities in the Page Manager.
 
 Page Manager with Grid Pages
 ----------------------------
@@ -97,7 +97,7 @@ Note that the area "Aside B" is here in the lower right part of the page and con
 Switching between Layouts
 -------------------------
 
-When the user switches to, for example, Standard Layout C1, then the widgets stay assigned to areas with the same name, if these areas exist in the newly selected layout. If not, then the corresponding widgets appear in the "Unassigned widgets" section and may be moved by drag-and-drop to one of the currently available areas, if required:
+When the user switches to another layout , for example to Standard Layout C1, then the widgets stay assigned to areas with the same name, if these areas exist in the newly selected layout. If not, then the corresponding widgets appear in the "Unassigned widgets" section and may be moved by drag-and-drop to one of the currently available areas, if required:
 
 .. image:: images/GridPage_StandardLayoutC1_FullPage_1.png
     :align: center
@@ -105,7 +105,9 @@ When the user switches to, for example, Standard Layout C1, then the widgets sta
 In this example, the Demand widget (which used to be assigned to area "Aside D" in the Standard Layout B2) has been moved to "Unassigned widgets" section (because the area "Aside D" is not defined in the Standard Layout C1).
 Also, the distribution of widgets in area "Aside B" is now rowwise in the current Standard Layout C1 (whereas it used to be columnwise in the Standard Layout B2).
 
-As apparent from this example, the standard layouts provide some basic options to start with. However, specific requirements for a page may require the usage of a Custom page layout.
+In general, widgets will always remember which named area they were assigned to, also upon switching layouts. Only when you explicitly move a widget to another area, will they store their new assignment. In other words, one can switch layouts without breaking the assignments of the widgets, as long as one does not re-arrange them.
+
+As apparent from this example, the standard layouts provide some convenient basic options to start with. However, specific requirements for a page may require the usage of a Custom page layout.
 
 Custom Layouts
 --------------
@@ -125,7 +127,7 @@ This will open the layout Editor where the layout name and format may be adjuste
 .. image:: images/GridPage_CustomLayouts_Editor_1.png
     :align: center
 
-For example, we can save the modified layout under the name "Custom Layout B2" as follows:
+For example, we can modify the layout and save the modified layout under the name "Custom Layout B2" as follows:
 
 .. image:: images/GridPage_CustomLayoutB2_1.png
     :align: center
@@ -135,17 +137,17 @@ Note that in this case the grid has 8 columns and 3 rows (instead of 4 columns a
 .. image:: images/GridPage_CustomLayoutB2_2.png
     :align: center
 
-This new area "Aside E" is used when defining the grid template areas in the layout format:
+Clearly, this new area "Aside E" is used when defining the grid template areas in the modified layout format:
 
 .. image:: images/GridPage_CustomLayoutB2_3.png
     :align: center
 
-When we apply the custom layout as defined above to our page, the resulting visualization is as follows:
+When we apply the resulting custom layout as defined above to our page, the resulting visualization is as follows:
 
 .. image:: images/GridPage_CustomLayoutB2_FullPage.png
     :align: center
 
-This resulting page looks better than the one achieved only based on the Standard Layout B2 discussed above. In particular, we have gained more space for the map widget such that the network is better visible. Also, this page preserves the clear division between the input, optimization, and output data in a similar way as discussed in the "Getting Started" section of this manual. 
+This resulting page looks better than the one achieved only based on the Standard Layout B2 discussed above. In particular, we have gained more space for the map widget such that the network is better visible now. Also, this page preserves the clear division between the input, optimization, and output data in a similar way as discussed in the "Getting Started" section of this manual. 
 
 
 
