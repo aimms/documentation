@@ -32,11 +32,13 @@ This section describes various tasks related to WebUI grid pages.
 
 .. important::
 
-	Grid pages are available startting from AIMMS software version 4.75.
+	Grid pages are available starting from AIMMS software version 4.75.
 
-Grid pages introduce a novel concept of visualization based on page layouts. When a layout is applied to a grid page, the page is divided into a number of rectangular areas which will always preserve their relative size and position on the page, even when the entire browser window is being resized. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout.
+Grid pages introduce in AIMMS WebUI the concept of visualization based on page layouts, which is a widely used standard in webdesign. This concept features several advantages such as better responsiveness, fluid layouts, and the possibility for full page widgets. What is taken out compared to the classic pages is the repositioning of all widgets when the browser window is resized. The intention is to stimulate moving an entire application to this grid page format, which may be achieved gradually, by converting one page at a time (the idea is that the classic page style will be deprecated in time).
 
-This way of organizing a page and the widgets on the page is supported by appropriate fuctionalities in the extended Page Manager.
+When a page layout is applied to a grid page, the page is divided into a number of rectangular areas and each area will host a group of widgets. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout. Currently, all the standard layouts use so-called fractions for resizing. This way, the layout areas always preserve their relative size and position on the page, even when the entire browser window is being resized. However, Grid supports more ways like pixels, percentages or em’s for (re)sizing, and also supports combinations of those. These can already be used in custom layouts, see further below. 
+
+The organization a page and the widgets on the page by using layouts is supported by appropriate functionalities in the Page Manager.
 
 Page Manager with Grid Pages
 ----------------------------
@@ -61,7 +63,7 @@ The upper part of the Page tab allows the user to select a certain layout for th
 Standard Layouts
 ----------------
 
-As shown in the last picture above, a particular case of a standard layout is the "Layout: classic". When this layout is applied to a grid page, then there are actually no specific areas defined and the widgets are placed on the page in the same way as done for a classic page. Resizing the entire browser window will result in the same responsive design as the one applied to the classic pages.
+As shown in the last picture above, a particular case of a standard layout is the "Layout: classic". When this layout is applied to a grid page, then there are actually no specific areas defined and the widgets are placed on the page in the same way as done for a classic page. Resizing the entire browser window will result in the same repositioning of the widgets as the one applied to the classic pages.
 
 The user may choose to switch to another layout from the standard list. Currently this list offers Standard Layout A1, A2, A3, A4, Standard Layout B1, B2, Standard Layout C1, C2, and Standard Layout D1, D2 (please use the left arrow < and the right > in order to scroll horizontally through the list):   
 
