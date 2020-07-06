@@ -13,6 +13,24 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.74
 #############
 
+AIMMS 4.74.3 Release (July 6, 2020 - build 4.74.3.2)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Renaming an identifier while a library has an index or element parameter with that same name, could accidentally rename the identifier in the library as well.
+-  We added an error message for an unsupported combination of a defining procedure and a domain condition expression.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Warnings raised from within the model are now correctly communicated to the end user if the 'communicate_warnings_to_end_users' option has been set.
+
+--------------
+
+
+
 
 AIMMS 4.74.2 Release (July 1, 2020 - build 4.74.2.8)
 ------------------------------------------------------------------------------------------
