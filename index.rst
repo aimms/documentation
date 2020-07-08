@@ -60,3 +60,4 @@
    cloud/index   
    library-repository
    release-notes
+   deprecation-table
