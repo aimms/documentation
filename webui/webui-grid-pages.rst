@@ -181,7 +181,7 @@ WidgetArea components support a number of properties:
 -	runIntoGridGap: true or false. It defaults to false. This property will make an area 'expand' into its gridgap/margins in all directions, so probably best used in combination with one single area. The adjacent areas which are also running into their grid gap will simply overlap.
 -	separateFixedHeightWidgets: true or false. It defaults to false. This property triggers different sizing and ordering behavior for the fixed-side widget mentioned above. Those widgets will be grouped together and placed at either the far right (column based flow) or bottom (row based flow) of all widgets. This is slightly different from just grouping your widgets yourself, especially for the column-based flow where you can have a group of vertically stacked buttons on the far right without having to create a new area for that.
 
-We also support most other css-grid-spec properties for either Grid or WidgetAreas, like grid-gap, dir, z-index and several alignment properties, but do note that our own styling will either heavily influence or overrule these. Therefore, please onsider their usage as experimental.
+We also support most other css-grid-spec properties for either Grid or WidgetAreas, like grid-gap, dir, z-index and several alignment properties, but do note that our own styling will either heavily influence or overrule these. Therefore, please consider their usage as experimental.
 
 
 
