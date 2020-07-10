@@ -1,10 +1,10 @@
 Data Exchange Mappings
-======================
+**********************
 
 Each Data Exchange mapping is an XML file describing the structure of the JSON, XML or CSV format being mapped. Below you find the elements specific for each of the mapping types. The attributes that you can specify for each element are shared 
 
 JSON Mapping elements
-*********************
+======================
 
 The following are the elements allowed in a JSON mapping
 
@@ -14,7 +14,7 @@ The following are the elements allowed in a JSON mapping
 * the :token:`ValueMapping` element, a mapping element used to map a integer, double or string value in a JSON file
 
 XML Mapping elements
-*********************
+======================
 
 The following are the elements allowed in a XML mapping
 
@@ -24,7 +24,7 @@ The following are the elements allowed in a XML mapping
 * the :token:`AttributeMapping` element, a mapping element used to map the value of an attribute of an XML element
 
 CSV Mapping elements
-*********************
+======================
 
 The following are the elements allowed in a CSV mapping
 
@@ -33,7 +33,7 @@ The following are the elements allowed in a CSV mapping
 * the :token:`ColumnMapping` element, a mapping element used to map the value of column in a CSV table
 
 Mapping attributes
-******************
+======================
 
 The attributes of the elements in a Data Exchange mapping are shared among the different types of mappings, although not all attributes are supported by every type of mapping element.
 
@@ -102,7 +102,8 @@ Through the :token:`embedded-mapping` attribute, you can indicate that a value-h
 The :token:`base64-encoded` attribute indicates whether embedded mapped string is or should be base64 encoded.
 
 How does the mapping work for reading and writing?
-**************************************************
+==================================================
+
 
 In this section we will explain how the Data Exchange library uses the mapping to read or write a given format.
 

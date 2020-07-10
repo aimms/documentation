@@ -18,8 +18,8 @@ Please note that when using these libraries on AIMMS PRO, it needs access to the
    :maxdepth: 1
    
    cdm/index
-   datalink/index
    dataexchange/index
+   datalink/index
    emailclient/index
    httpclient/index
    rlink/index

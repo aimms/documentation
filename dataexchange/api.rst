@@ -1,5 +1,5 @@
 The Data Exchange API
-=====================
+*********************
 
 .. js:function::  dex::AddMapping(mappingName,mappingFile)
 
