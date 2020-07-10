@@ -11,43 +11,6 @@ Typically a tree-based data format can consists of several types of nodes:
 * repetitive nodes, which can hold multiple (named or unnamed) child nodes of the same type and structure, and
 * value-holding leaf nodes, which hold the actual labels of bound indices or values of multi-dimensional identifiers.
 
-Example: CSV mapping
-====================
-
-Look at the following mapping for a CSV format:
-
-.. code-block:: xml
-
-    <AimmsCSVMapping>
-        <TableMapping>
-            <ColumnMapping name="set1" binds-to="i"/>
-            <ColumnMapping name="set2" binds-to="j"/>
-            <ColumnMapping name="d1" maps-to="d1(i,j)"/>
-            <ColumnMapping name="d2" maps-to="d2(i,j)"/>
-            <ColumnMapping name="de" maps-to="de(i,j)"/>
-            <ColumnMapping name="ds" maps-to="ds(i,j)"/>
-            <ColumnMapping name="di" maps-to="di(i,j)"/>
-        </TableMapping>
-    </AimmsCSVMapping>
-
-It describes a repetitive table node, i.e. a repetitive structure consisting of multiple rows, each consisting of multiple named column leaf-nodes either being bound to the indices :token:`i` and :token:`j`, or to multi-dimensional identifiers over these two indices. 
-A CSV file associated with this mapping could look like:
-
-.. code-block
-    
-    set1,set2,d1,d2,de,ds,di
-    arr-1,a-2,0.0,0.0,,,51
-    arr-1,a-4,0.0,0.0,8,,90
-    arr-1,a-5,0.0,0.0,,,87
-    arr-1,a-7,0.0,0.0,,,90
-    arr-1,a-10,0.0,0.0,9,,66
-    arr-2,a-1,0.5,1.07,,,0
-    arr-2,a-2,0.963846,0.0,,,0
-    arr-2,a-3,0.248,1.579363,5,,13
-    arr-2,a-4,0.25,0.0,,"string ,""5",73
-    arr-2,a-5,0.112488,0.0,,"string ,""2",86
-    ...
-    
 Example: JSON mapping
 =====================
 
@@ -136,5 +99,42 @@ It describes an XML file with an object with four children, one of which is anot
     </RootObject>
 
 These example make clear each mapping closely follows the structure of the JSON, XML or CSV file being described. Thus, if you know the format of the file to map, creating a corresponding mapping file for the Data Exchange library is a rather straightforward task.
+
+Example: CSV mapping
+====================
+
+Look at the following mapping for a CSV format:
+
+.. code-block:: xml
+
+    <AimmsCSVMapping>
+        <TableMapping>
+            <ColumnMapping name="set1" binds-to="i"/>
+            <ColumnMapping name="set2" binds-to="j"/>
+            <ColumnMapping name="d1" maps-to="d1(i,j)"/>
+            <ColumnMapping name="d2" maps-to="d2(i,j)"/>
+            <ColumnMapping name="de" maps-to="de(i,j)"/>
+            <ColumnMapping name="ds" maps-to="ds(i,j)"/>
+            <ColumnMapping name="di" maps-to="di(i,j)"/>
+        </TableMapping>
+    </AimmsCSVMapping>
+
+It describes a repetitive table node, i.e. a repetitive structure consisting of multiple rows, each consisting of multiple named column leaf-nodes either being bound to the indices :token:`i` and :token:`j`, or to multi-dimensional identifiers over these two indices. A CSV file associated with this mapping could look like:
+
+.. code-block
+    
+    set1,set2,d1,d2,de,ds,di
+    arr-1,a-2,0.0,0.0,,,51
+    arr-1,a-4,0.0,0.0,8,,90
+    arr-1,a-5,0.0,0.0,,,87
+    arr-1,a-7,0.0,0.0,,,90
+    arr-1,a-10,0.0,0.0,9,,66
+    arr-2,a-1,0.5,1.07,,,0
+    arr-2,a-2,0.963846,0.0,,,0
+    arr-2,a-3,0.248,1.579363,5,,13
+    arr-2,a-4,0.25,0.0,,"string ,""5",73
+    arr-2,a-5,0.112488,0.0,,"string ,""2",86
+    ...
+    
 
 In the remaining sections we will describe all allowed elements and attributes of the mappings for JSON, XML and CSV formats, as well as the API exposed by the Data Exchange library.
