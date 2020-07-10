@@ -19,6 +19,7 @@ Please note that when using these libraries on AIMMS PRO, it needs access to the
    
    cdm/index
    datalink/index
+   dataexchange/index
    emailclient/index
    httpclient/index
    rlink/index
