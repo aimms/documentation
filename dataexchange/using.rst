@@ -121,7 +121,7 @@ Look at the following mapping for a CSV format:
 
 It describes a repetitive table node, i.e. a repetitive structure consisting of multiple rows, each consisting of multiple named column leaf-nodes either being bound to the indices :token:`i` and :token:`j`, or to multi-dimensional identifiers over these two indices. A CSV file associated with this mapping could look like:
 
-.. code-block
+.. code-block:: 
     
     set1,set2,d1,d2,de,ds,di
     arr-1,a-2,0.0,0.0,,,51
@@ -134,7 +134,5 @@ It describes a repetitive table node, i.e. a repetitive structure consisting of 
     arr-2,a-3,0.248,1.579363,5,,13
     arr-2,a-4,0.25,0.0,,"string ,""5",73
     arr-2,a-5,0.112488,0.0,,"string ,""2",86
-    ...
-    
 
 In the remaining sections we will describe all allowed elements and attributes of the mappings for JSON, XML and CSV formats, as well as the API exposed by the Data Exchange library.
