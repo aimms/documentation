@@ -135,4 +135,8 @@ It describes a repetitive table node, i.e. a repetitive structure consisting of 
     arr-2,a-4,0.25,0.0,,"string ,""5",73
     arr-2,a-5,0.112488,0.0,,"string ,""2",86
 
-In the remaining sections we will describe all allowed elements and attributes of the mappings for JSON, XML and CSV formats, as well as the API exposed by the Data Exchange library.
+Data Exchange test project
+==========================
+
+Next the basic examples above, you can also download our internal :download:`unit test project<downloads/DataExchangeTest.zip>` for the Data Exchange library, which will provide with a more detailed hands-on experience of all available capabilities in the Data Exchange library. It also contains mappings and corresponding collections of AIMMS identifiers for reading and writing the JSON formats for geocoding and distance service from Google and GraphHopper.
+
