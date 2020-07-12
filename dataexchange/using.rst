@@ -138,5 +138,5 @@ It describes a repetitive table node, i.e. a repetitive structure consisting of 
 Data Exchange test project
 ==========================
 
-Next the basic examples above, you can also download our internal :download:`unit test project<downloads/DataExchangeTest.zip>` for the Data Exchange library, which will provide with a more detailed hands-on experience of all available capabilities in the Data Exchange library. It also contains mappings and corresponding collections of AIMMS identifiers for reading and writing the JSON formats for geocoding and distance service from Google and GraphHopper.
+Next the basic examples above, you can also download our internal :download:`unit test project<downloads/DataExchangeTest.zip>` for the Data Exchange library, which will provide you with a more detailed hands-on experience of all available capabilities in the Data Exchange library. It also contains mappings and corresponding collections of AIMMS identifiers for reading and writing the JSON formats for geocoding and distance service from Google and GraphHopper.
 
