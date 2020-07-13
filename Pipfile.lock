@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2f9ecbb999d4eca51019dc9f779d583c6c8f99378a3207664b9f4d43a0a1868b"
+            "sha256": "e4175b3a280d6e091130f8a142746d52e41fdab7db86a5a08cc7068fac790dfd"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -196,10 +196,10 @@
         },
         "sphinx-aimms-theme": {
             "hashes": [
-                "sha256:b0a1eb8f6f1738c2d02c255f1295daf9b1c49b21cc991e229985c5d535f58b82"
+                "sha256:6b26de9b2a7c2f424042083a61008394826b6a84b09e56d13a6d21177e443d9e"
             ],
             "index": "pypi",
-            "version": "==0.1.16"
+            "version": "==0.1.17"
         },
         "sphinx-last-updated-by-git": {
             "hashes": [
