@@ -33,7 +33,8 @@ verify_ssl = true
 sphinx = "==2.4.4"
 sphinx-sitemap = "==2.1.0"
 sphinx-rtd-theme = "==0.4.3"
-sphinx-aimms-theme = "==0.1.15"
+sphinx-aimms-theme = "==0.1.17"
+sphinx-last-updated-by-git = "==0.2.1"
 shell = "==1.0.1"
 
 [requires]
