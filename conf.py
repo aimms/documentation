@@ -47,6 +47,7 @@ if os.name != 'nt':
 
 #Import spelling extension
     extensions.append('sphinx_sitemap')
+    extensions.append('sphinx_last_updated_by_git')
         
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -139,11 +140,7 @@ html_theme_options = {
     'algolia_indexname': 'aimms',
 }
 
-rst_epilog = """
-.. |date| date:: %B, %Y
-
-Last Updated: |date|
-"""
+# rst_epilog = ``` ``` 
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
