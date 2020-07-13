@@ -1,5 +1,7 @@
-Feature mapping for widgets
-===========================
+Feature Mapping for WebUI 
+=========================
+
+This section outlines the various components available in the WebUI and the features available.
 
 The below table maps the features available for data widgets.
 
@@ -72,3 +74,16 @@ The below table maps the features available for the UI components.
 
 The below table maps the features available for the different type of pages.
 
++-------------------+--------------+-----------------+--------------------+
+| Features          | Regular Page | Side Panel Page | Dialog Page        |
++===================+==============+=================+====================+
+| Page Actions      | X            |                 |                    |
++-------------------+--------------+-----------------+--------------------+
+| Layout            | Classic/Grid | Fixed Width     | Small/Medium/Large |
++-------------------+--------------+-----------------+--------------------+
+| Action Upon Load  | X            |                 |                    |
++-------------------+--------------+-----------------+--------------------+
+| Action Upon Leave | X            |                 | X                  |
++-------------------+--------------+-----------------+--------------------+
+| Max Columns       | X            | 2 Column Fixed  | Small/Medium/Large |
++-------------------+--------------+-----------------+--------------------+
