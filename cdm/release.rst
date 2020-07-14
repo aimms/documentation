@@ -8,6 +8,9 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
+1.18.0.13 [14-07-2020]
+    - Unitialized local variable could cause crash on Linux.
+    
 1.18.0.11 [01-07-2020]
     - Fixed missing symbol in libcdm.so on Linux
 
