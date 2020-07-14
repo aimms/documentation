@@ -307,4 +307,10 @@ Best Practices
 
 #. When using numeric operators for filtering data that are in decimals points, we advise the use of the range operator, i.e. "in between" or "not in between" since the data that is displayed in the table and the actual stored data may vary in the number of decimals. Using the "is equal" operator will look for an exact match in the stored data.
 
-#. To apply a filter rule on data that are dates, we advise the use of the string operators. 
+#. When using the range operator, i.e. "in between" or "not in between", for decimal values, you might want to input values that have a small variance.  
+
+#. To apply a filter rule on data that are dates, we advise the use of the string operators. The dates are stored in string format in AIMMS.
+
+#. If filter rules are applied and the data in the table changes based on other interactions, please be aware that the filters will still be applied. 
+
+#. When filters are applied and if you change the pivot of the table, the filters will be cleared. 
