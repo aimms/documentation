@@ -8,6 +8,9 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
+1.18.0.14 [16-07-2020]
+    - Changing 0.0 to zero would not be detected by CDM because of the semantics of numerical :token:`<>` operator in AIMMS.
+
 1.18.0.13 [14-07-2020]
     - Unitialized local variable could cause crash on Linux.
     
