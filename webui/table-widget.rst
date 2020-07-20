@@ -158,6 +158,11 @@ To add filter rules
     .. image:: images/TableFilters_AddRule.png
         :align: center
 
+    You can also find an operator by typing it in the dropdown field. For example, to see operators that have “greater” just type the word in the field.
+
+    .. image:: images/TableFilters_SearchRule.png
+        :align: center
+
 #. Click on "Apply" or "Apply and Close".
 
     .. image:: images/TableFilters_ApplyRule.png
