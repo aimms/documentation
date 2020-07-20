@@ -318,4 +318,4 @@ Best Practices
 
 #. If filter rules are applied and the data in the table changes based on other interactions, please be aware that the filters will still be applied. 
 
-#. When filters are applied and if you change the pivot of the table, the filters will be cleared. 
+#. When filters are applied and if you add/remove content, change the widget type, change the slicing information or change the pivot the applied filters will be cleared. This will be possible only if you have access to the widget settings.  
