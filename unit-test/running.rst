@@ -16,9 +16,7 @@ Invoking
 
 will run all available test suites in a given AIMMS project.
 
-.. note::
-
-  During development of new unit tests, triggering ``aimmsunit::DetermineTestSuites`` makes it easier to write and debug the tests.
+During development of new unit tests, triggering ``aimmsunit::DetermineTestSuites`` will detect all new tests added to the project. You can test all new tests through the sequence 
 
   .. code::
 

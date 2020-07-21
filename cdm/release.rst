@@ -9,7 +9,7 @@ New Features and Bug Fixes
 --------------------------
 
 1.18.0.21 [21-07-2020]
-    - Addresses performance degradation in computing differences between current and committed data.
+    - Addresses a performance degradation in computing differences between current and committed data.
     - Function :js:func:`cdm::DeleteDependentBranches` could delete branches originating after the given end revision.
     - :js:func:`cdm::PullChanges` could fail to use cached commits when called from a commit notification if two categories were committed intermittently, leading to increased pull times in the presence of multiple clients auto-pulling the changes.
     
