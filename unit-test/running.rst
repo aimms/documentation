@@ -1,14 +1,9 @@
 Running test suites
 *******************
 
-The function :token:`aimmsunit::TestRunner` will run all, or a selected set of, test suites. Which test suites to run can be arranged through the environment variables/command-line arguments
+The function :token:`aimmsunit::RunSelectedTestSuites` will run all, or a selected set of, test suites, determined by the set :token:`aimmsunit::TestSuitesToRun`. This set will be initialized to all available test suites at the start up of the project. If you add test suites, you can call :token:`aimmsunit::DetermineTestSuites` to determine the current collection of tests and test suites.
 
-* :token:`aimmsunit::RunAllTests`
-* :token:`aimmsunit::RunTestSuites`
-
-If you set :token:`aimmsunit::RunAllTests` to the value "1", all tests suites will be run. The function :token:`aimmsunit::TestRunner` will return 1 if all tests succeeded, or 0 otherwise. In addition, the AIMMS Unit Test framework will also indicate the success or failure through the existence of the files :token:`log/AimmsUnit.succeeded` / :token:`log/AimmsUnit.failed` after the tests have been run. The latter provides an easy way to check the test outcome when the tests are run `in an automated fashion <automated.html>`_ from the command line.
-
-Through the environment variable/command-line argument :token:`aimmsunit::RunTestSuites` you can specify a comma-separated list of test suites you want to run. 
+The function :token:`aimmsunit::RunSelectedTestSuites` will return 1 if all tests succeeded, or 0 otherwise. In addition, the AIMMS Unit Test framework will also indicate the success or failure through the existence of the files :token:`log/AimmsUnit.succeeded` / :token:`log/AimmsUnit.failed` after the tests have been run. The latter provides an easy way to check the test outcome when the tests are run `in an automated fashion <automated.html>`_ from the command line.
 
 Example
 =======
@@ -17,8 +12,7 @@ Invoking
 
 .. code::
 
-    EnvironmentSetString("aimmsunit::RunAllTests","1");
-    aimmsunit::TestRunner;
+    aimmsunit::RunSelectedTestSuites;
 
 will run all available test suites in a given AIMMS project.
 
@@ -28,9 +22,8 @@ will run all available test suites in a given AIMMS project.
 
   .. code::
 
-      aimmsunit::DetermineTestSuites;
-      EnvironmentSetString("aimmsunit::RunAllTests","1");
-      aimmsunit::TestRunner;
+    aimmsunit::DetermineTestSuites;
+    aimmsunit::RunSelectedTestSuites;
 
 
 Detailed inspection of results
@@ -60,6 +53,8 @@ The XML file :token:`log/AimmsUnit.xml` contains a detailed listing of the resul
     </testsuites>
 
 indicates that the test suite :token:`TestAimmsUnitTest` of the AIMMS Unit Test framework itself was run, with one failure for the test :token:`TestNumericalTolerances`. The test was run in 0.739 seconds, with the majority of the time being spent in the test :token:`TestComparingBigDatasets`. 
+
+If a test fails, the AIMMS Unit Test framework, will display as much detail about the failure as possible, e.g. the list of warnings created the AIMMS Unit Test framework itself, but also the AIMMS errors that occurred while running a particular test. This may help you to determine the cause of the failure.
 
 Selecting the base name of the result file
 ------------------------------------------
