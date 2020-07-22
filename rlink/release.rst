@@ -5,6 +5,9 @@ The first public release of RLink was version 1.0.0.1, release date March 14, 20
 
 New Features and Bug Fixes
 --------------------------
+1.1.0.7 [22-07-2020]
+    - Support for R up to version 3.6.3
+
 1.1.0.6 [09-01-2020]
     - Make sure RLink parameters are not saved in case files
 
