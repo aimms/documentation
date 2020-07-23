@@ -50,7 +50,7 @@ The available mapping attributes are:
 * iterative-reset   
 * maps-to           
 * write-filter      
-* dense-write       
+* force-dense       
 * embedded-mapping  
 * base64-encoded    
 
@@ -90,9 +90,9 @@ You can assign the :token:`maps-to`  attribute to any value-holding mapping elem
 
 The :token:`write-filter` attribute can be specified at any node in the mapping tree, and should be a reference to an identifier in the model including the bound indices at this location as for the :token:`maps-to` attribute. For any tuple of bound indices for which the :token:`write-filter` attribute does not hold a non-default value, the corresponding part of the generate JSON, XML or CSV file will be skipped. 
 
-The :token:`dense-write` attribute should contain a reference to an identifier plus bound indices as for the :token:`maps-to` attribute. You can use it to force an empty node to be generated in the XML or JSON file even if there is no data to fill the node. This may be important when the bound indices are generated thru the :token:`iterative-binds-to` attribute, and not explicitly represented thru a regular :token:`binds-to` attribute. In such cases, not writing nodes that hold no non-default data, may lead to inconsistent numbering of generated elements when reading the generated JSON or XML files back in. When reading a JSON, XML or CSV file, the library will assign a value of 1 to any tuple encountered, such that the same file will be generated when writing back the file using the same mapping based on the data just read in.
+The :token:`force-dense` attribute should contain a reference to an identifier plus bound indices as for the :token:`maps-to` attribute. You can use it to force an empty node to be generated in the XML or JSON file even if there is no data to fill the node. This may be important when the bound indices are generated thru the :token:`iterative-binds-to` attribute, and not explicitly represented thru a regular :token:`binds-to` attribute. In such cases, not writing nodes that hold no non-default data, may lead to inconsistent numbering of generated elements when reading the generated JSON or XML files back in. When reading a JSON, XML or CSV file, the library will assign a value of 1 to any tuple encountered, such that the same file will be generated when writing back the file using the same mapping based on the data just read in.
 
-Note that none of the :token:`maps-to`, :token:`write-filter` and :token:`dense-write` attributes may contain an identifier *slice*, but must be bound to indices in the mapping for *all* dimensions of the given identifier.
+Note that none of the :token:`maps-to`, :token:`write-filter` and :token:`force-dense` attributes may contain an identifier *slice*, but must be bound to indices in the mapping for *all* dimensions of the given identifier.
 
 The embedded-mapping attribute
 ------------------------------
@@ -117,8 +117,8 @@ If reading a particular node in the data file, it will first try to bind any ind
 During write
 ------------
 
-When generating a JSON, XML or CSV file for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes thru either the :token:`maps-to`, :token:`write-filter` or :token:`dense-write` attributes, and will try to find the lowest subtuple associated with all these identifiers, for all indices bound at this level while fixing the indices already found at a previous level. If such a subtuple can found, bind the new indices at this level, write any mappped value-holding nodes at this level, and iterate over any structural or iterative nodes recursively. If such a node does not exist, there is nothing to generate for this node, and the Data Exchange library will track back to the previous node, and try to progress there. 
+When generating a JSON, XML or CSV file for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes thru either the :token:`maps-to`, :token:`write-filter` or :token:`force-dense` attributes, and will try to find the lowest subtuple associated with all these identifiers, for all indices bound at this level while fixing the indices already found at a previous level. If such a subtuple can found, bind the new indices at this level, write any mappped value-holding nodes at this level, and iterate over any structural or iterative nodes recursively. If such a node does not exist, there is nothing to generate for this node, and the Data Exchange library will track back to the previous node, and try to progress there. 
 
 The message here is that an JSON, XML or CSV tree is generated solely on the basis of multi-dimensional identifiers in the mapping, *never* on the basis of any of the :token:`binds-to` attributes. Such nodes will be generated based on bound indices by iterating over multi-dimensional data.
 
-Thus, for instance, to generate a JSON array containing only all element names of a set in your model, you must combine a :token:`binds-to` attribute, together with a :token:`dense-write` attribute consisting an identifier over the index you want to generate the elements for, holding a value of 1 for every element you want to be contained in the array.
+Thus, for instance, to generate a JSON array containing only all element names of a set in your model, you must combine a :token:`binds-to` attribute, together with a :token:`force-dense` attribute consisting an identifier over the index you want to generate the elements for, holding a value of 1 for every element you want to be contained in the array.
