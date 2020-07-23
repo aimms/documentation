@@ -20,6 +20,7 @@ Resolved WebUI Issues
 -  Warnings raised from within the model are now correctly communicated to the end user if the `communicate_warnings_to_end_users` option has been set.
 -  Handling of name changes for widget properties that incorrectly contained an index specification has been improved.
 -  Improved handling of the redrawing of (changed) arcs and nodes results in better Map performance.
+-  For line charts that contain multiple lines, annotations are now correctly applied to all involved lines and their elements.
 
 --------------
 
