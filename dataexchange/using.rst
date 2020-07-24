@@ -1,7 +1,7 @@
 Using the Data Exchange library
 *******************************
 
-The AIMMS Data Exchange library allows you to map multi-dimensional AIMMS data onto tree-based data formats such as JSON, XML or even CSV. It does so by letting you describe the repetitive structure of a given JSON, XML or CSV format in a mapping file that you can subsequently use to read data of a given format into multi-dimensional identifiers in your model, or write multi-dimensional data in your model to a given format.
+The AIMMS Data Exchange library allows mapping multi-dimensional AIMMS data onto tree-based data formats such as JSON, XML or even CSV (as a trivial tree-based format). It does so by letting you describe the repetitive structure of a given JSON, XML or CSV format in a mapping file that you can subsequently use to read data of a given format into multi-dimensional identifiers in your model, or write multi-dimensional data in your model to a given format. 
  
 In the mapping file you specify how repetitive structure in the tree-based data binds to indices in your model, and how actual values in the data map to multi-dimensional identifiers over such bound indices.
 
@@ -10,6 +10,9 @@ Typically a tree-based data format can consists of several types of nodes:
 * structural nodes, which can hold multiple structurally different named childnodes,
 * repetitive nodes, which can hold multiple (named or unnamed) child nodes of the same type and structure, and
 * value-holding leaf nodes, which hold the actual labels of bound indices or values of multi-dimensional identifiers.
+
+The following simple examples demonstrate some basic uses of the Data Exchange library for JSON, XML and CSV formats. Next to these example, you can also download our internal :download:`unit test project<downloads/DataExchangeTest.zip>` for the Data Exchange library, which will provide you with more example mappings demonstrating all available capabilities in the Data Exchange library. It also contains the mappings and corresponding collections of AIMMS identifiers for reading and writing the JSON formats for geocoding and distance service from Google and GraphHopper.
+
 
 Example: JSON mapping
 =====================
@@ -135,8 +138,4 @@ It describes a repetitive table node, i.e. a repetitive structure consisting of 
     arr-2,a-4,0.25,0.0,,"string ,""5",73
     arr-2,a-5,0.112488,0.0,,"string ,""2",86
 
-Data Exchange test project
-==========================
-
-Next the basic examples above, you can also download our internal :download:`unit test project<downloads/DataExchangeTest.zip>` for the Data Exchange library, which will provide you with a more detailed hands-on experience of all available capabilities in the Data Exchange library. It also contains mappings and corresponding collections of AIMMS identifiers for reading and writing the JSON formats for geocoding and distance service from Google and GraphHopper.
 

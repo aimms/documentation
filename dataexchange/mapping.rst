@@ -70,7 +70,7 @@ The :token:`name-binds-to` attribute provides a way of binding the name of an el
 
 The :token:`name-regex` attribute should be used in conjuction with a :token:`name-binds-to` attribute, to specify a regular expression to restrict the element to which the :token:`name-binds-to` attribute should be applied. 
 
-Withe the :token:`name-regex-prefix` attribute you can specify a prefix that is used in the JSON, XML or CSV file, but which should not be included in the element names in the model.
+With the :token:`name-regex-prefix` attribute you can specify a prefix that is used in the JSON, XML or CSV file, but which should not be included in the element names in the model. Note that the value of the :token:`name-regex-prefix` attribute is automatically prepended to the regular expression specified in the :token:`name-regex` attribute, and subsequently removed from the match if a match has been found.
 
 The iterative-binds-to attribute
 --------------------------------
@@ -79,7 +79,7 @@ The :token:`iterative-binds-to` attribute can be used if the given JSON or XML f
 
 The :token:`iterative-prefix` attribute can be used alongside the :token:`iterative-binds-to` attribute. All elements created in the model will be prefixed with the prefix specified here. If you don't specify a prefix, the element names will be just increasing integer values.
 
-The :token:`iterative-existing` attribute causes the :token:`iterative-binds-to` attribute to not generate new elements, but instead to use existing elements of the set bound to the index specified in the :token:`iterative-binds-to` attribute, starting at the element with ordinal 1.
+Assigning a value of 1 to the the :token:`iterative-existing` attribute causes the :token:`iterative-binds-to` attribute to not generate new elements, but instead to use existing elements of the set bound to the index specified in the :token:`iterative-binds-to` attribute, starting at the element with ordinal 1.
 
 The :token:`iterative-reset` attribute can be specified at the parent element of a mapping element which holds a :token:`iterative-binds-to` attribute. It will cause the integer counter of all direct child mappings to be reset to 1.
 
@@ -90,16 +90,18 @@ You can assign the :token:`maps-to`  attribute to any value-holding mapping elem
 
 The :token:`write-filter` attribute can be specified at any node in the mapping tree, and should be a reference to an identifier in the model including the bound indices at this location as for the :token:`maps-to` attribute. For any tuple of bound indices for which the :token:`write-filter` attribute does not hold a non-default value, the corresponding part of the generate JSON, XML or CSV file will be skipped. 
 
-The :token:`force-dense` attribute should contain a reference to an identifier plus bound indices as for the :token:`maps-to` attribute. You can use it to force an empty node to be generated in the XML or JSON file even if there is no data to fill the node. This may be important when the bound indices are generated thru the :token:`iterative-binds-to` attribute, and not explicitly represented thru a regular :token:`binds-to` attribute. In such cases, not writing nodes that hold no non-default data, may lead to inconsistent numbering of generated elements when reading the generated JSON or XML files back in. When reading a JSON, XML or CSV file, the library will assign a value of 1 to any tuple encountered, such that the same file will be generated when writing back the file using the same mapping based on the data just read in.
+The :token:`force-dense` attribute should also contain a reference to an identifier plus bound indices as for the :token:`maps-to` attribute. Thru this attribute you can force a specific density pattern by specifying a domain for which nodes *should* be generated, regardless of whether non-default data is present to fill such nodes, e.g. because the identifier specified in the :token:`maps-to` attribute of the node itself, or any of its sub-nodes, holds no non-default data. Note that a density pattern enforced thru the :token:`force-dense` attribute is still subject to a write filter specified in a :token:`write-filter` attribute.
 
-Note that none of the :token:`maps-to`, :token:`write-filter` and :token:`force-dense` attributes may contain an identifier *slice*, but must be bound to indices in the mapping for *all* dimensions of the given identifier.
+Enforcing a density pattern may be important when the bound indices are generated thru the :token:`iterative-binds-to` attribute, and not explicitly represented thru data-holding node bound to a regular :token:`binds-to` attribute. In such cases, not writing nodes that hold no non-default data, may lead to inconsistent numbering of generated elements when reading the generated JSON or XML files back in. *When reading a JSON, XML or CSV file, the library will assign a value of 1 for the identifier specified in the* :token:`force-dense` *attribute to any tuple encountered, such that the same file will be generated when writing back the file using the same mapping based on the data just read in.* 
+
+Note that none of the :token:`maps-to`, :token:`write-filter` and :token:`force-dense` attributes may contain an identifier *slice*, but must be bound to indices in the mapping for *all* dimensions of the given identifier. *Thus, for instance, specifying a value of 1 to the* :token:`force-dense` *attribute to enforce full density is not allowed.* Instead you should create a full-dimensional parameter holding 1 for every tuple in its domain and assign that to the  :token:`force-dense` attribute.
 
 The embedded-mapping attribute
 ------------------------------
 
 Through the :token:`embedded-mapping` attribute, you can indicate that a value-holding element in the given JSON or XML file should hold a string that can be read or written using the mapping specified in this attribute. Note that the mapping element to which this attribute is attached may not have bound indices. 
 
-The :token:`base64-encoded` attribute indicates whether embedded mapped string is or should be base64 encoded.
+Assigning a value of 1 to the :token:`base64-encoded` attribute indicates whether embedded mapped string is or should be base64 encoded.
 
 How does the mapping work for reading and writing?
 ==================================================
@@ -112,7 +114,12 @@ During read
 
 When reading a JSON, XML or CSV file using a specified mapping, the Data Exchange library will iterate over the entire tree. 
 
-If reading a particular node in the data file, it will first try to bind any indices specified at direct child nodes thru the :token:`binds-to` attribute and maintain a stack bound indices. Subsequently it will examine all other child nodes. If such a node is a structural or iterative node, it will recursively try to read the data associated with the child node. If the examined node is a value-holding node mapped to an multi-dimensional identifier, the value will be assigned to that identifier. Finally, if the node itself is a value-holding node mapped onto an identifier, it will also assign this value.
+If reading a particular node in the data file, it will first try to bind any indices specified 
+
+* at the node itself thru the :token:`name-binds-to` or :token:`iterative-binds-to` attributes, or 
+* at direct child nodes thru the :token:`binds-to` attribute, 
+
+and maintain a stack bound indices. Subsequently it will examine all other child nodes. If such a node is a structural or iterative node, it will recursively try to read the data associated with the child node. If the examined node is a value-holding node mapped to an multi-dimensional identifier, the value will be assigned to that identifier. Finally, if the node itself is a value-holding node mapped onto an identifier, it will also assign this value.
 
 During write
 ------------

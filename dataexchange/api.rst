@@ -1,6 +1,8 @@
 The Data Exchange API
 *********************
 
+The following functions you can use within your model, are exposed by the Data Exchange library.
+
 .. js:function::  dex::AddMapping(mappingName,mappingFile)
 
     Parses :token:`mappingFile` to create a mapping called :token:`mappingName`.
