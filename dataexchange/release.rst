@@ -5,6 +5,11 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+1.0.0.24 [27-07-2020]
+    - Name attributes used at mapping locations where no name is needed for a child elemen are now warned against when reading a mapping
+    - Name-regex attributes used at mapping locations where no name is needed for a child element now result in an error
+    - Boolean values in a JSON file are now correctly mapped onto integer, double and string parameters. During a write the value will be output according to the AIMMS storage type.
+
 1.0.0.22 [23-07-2020]
     - Changed name of :token:`dense-write` attribute to :token:`force-dense` to indicate that attribute is not only used during write.
 
