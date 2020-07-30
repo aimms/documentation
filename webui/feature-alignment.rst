@@ -1,9 +1,9 @@
 Feature Mapping for WebUI 
 =========================
 
-This section outlines the various components available in the WebUI and the features available.
+This section outlines the various elements in the WebUI and what features each of them support.
 
-The below table maps the features available for data widgets.
+The table below maps the features available for data widgets.
 
 .. csv-table:: 
    :header: "Features", "`Bar Chart <bar-chart-widget.html>`_", "`Bubble Chart <bubble-chart-widget.html>`_", "`Gantt Chart <gantt-chart-widget.html>`_", "`Line Chart <line-chart-widget.html>`_","`Pie Chart <pie-chart-widget.html>`_",`Table <table-widget.html>`_,`Scalar <scalar-widget.html>`_,"`Map - Nodes <map-widget.html#adding-node-sets>`_","`Map - Arcs <map-widget.html#adding-arc-sets>`_"
@@ -23,7 +23,7 @@ The below table maps the features available for data widgets.
     `Inline text <widget-options.html#additional-identifier-properties>`_,,,X,,,,,,
     Labels,,,,,,,,,X
 
-The below table maps the features available for supporting widgets.
+The table below maps the features available for supporting widgets.
 
 .. csv-table:: 
    :header: "Features", "`List <list-widget.html>`_", "`Multiselect <selection-widgets.html>`_", "`Selection <selection-widgets.html>`_", "`Legend <selection-widgets.html>`_","`Button <button-widget.html>`_",`Upload <upload-widget.html>`_,`Download <download-widget.html>`_,"`Slider <slider-widget.html>`_"
@@ -34,7 +34,7 @@ The below table maps the features available for supporting widgets.
     Tooltips,X,,,,,,,
     `Widget Actions <widget-options.html#widget-actions>`_,X,X,,X,,,,X
 
-The below table maps the features available for the UI components.
+The table below maps the features available for the UI components.
 
 .. csv-table:: 
     :header: "Features","`Workflow Panel <workflow-panels.html>`_","`Status Bar <status-bar.html>`_","`Page Actions <page-settings.html#page-actions>`_"
@@ -44,7 +44,7 @@ The below table maps the features available for the UI components.
     Tooltips,X,X,X
     `Icons <../_static/aimms-icons/icons-reference.html>`_,X,X,X 
 
-The below table maps the features available for the different type of pages.
+The table below maps the features available for the different type of pages.
 
 .. csv-table:: 
     :header: "Features","`Regular Page <webui-pages.html>`_","`Side Panel Page <side-panels.html>`_","`Dialog Page <dialog-pages.html>`_"
