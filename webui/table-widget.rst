@@ -84,10 +84,10 @@ In case you want to change a cell to become editable again, you have to assign t
 
     MyTableData_flags(i, 'some_value_for_j') := "";
 
-By using the ``CurrentInputs`` set (in runtime)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+By using the :any:`CurrentInputs` set (in runtime)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Another way to influence the modifiability of cells, is to use the :token:`CurrentInputs` set of AIMMS. This set is a predeclared subset of :token:`AllIdentifiers`. The identifiers referenced in it are modifiable sets and parameters in both the WinUI and the WebUI. Consider a parameter :token:`P`. Without further specification, this parameter is a parameter that can be modified both in the WinUI and in the WebUI. By removing this element :token:`'P'` from :token:`CurrentInputs`, the parameter :token:`P` will no longer be modifiable in either the WinUI or the WebUI.
+Another way to influence the modifiability of cells, is to use the :any:`CurrentInputs` set of AIMMS. This set is a predeclared subset of :any:`AllIdentifiers`. The identifiers referenced in it are modifiable sets and parameters in both the WinUI and the WebUI. Consider a parameter :token:`P`. Without further specification, this parameter is a parameter that can be modified both in the WinUI and in the WebUI. By removing this element :token:`'P'` from :any:`CurrentInputs`, the parameter :token:`P` will no longer be modifiable in either the WinUI or the WebUI.
 
 .. code::
 

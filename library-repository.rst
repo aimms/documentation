@@ -12,12 +12,13 @@ To add a library from the Library Repository to your model, open the **Library M
 
 If you select a library here, it will downloaded from the library repository, cached on your local machine and added as reference to your AIMMS application. It will not add the library source itself to your model, however. Whenever your app is started, AIMMS will check whether the library is already cached on your computer, and will download it from the AIMMS Library Repository if needed.
 
-Please note that when using these libraries on AIMMS PRO, it needs access to the AIMMS library repository (URL:  https://library-repository.aimms.com/aimmslibs.all , port number: 443). You may check/adjust firewall settings on the AIMMS PRO server in the case when AIMMS PRO is not able to access the AIMMS Library Repository. 
+Please note that when using these libraries on AIMMS PRO, it needs access to the AIMMS library repository (URL:  https://library-repository.aimms.com/aimmslibs.all , port number: 443). You may check/adjust firewall settings on the AIMMS PRO server in the case when AIMMS PRO is not able to access the AIMMS Library Repository. For an AIMMS PRO without access to our repository, the libraries must be included in the .aimmspack file. You can just select "Library Repository (local copy)" when doing the "Select Files for Export".
 
 .. toctree::
    :maxdepth: 1
    
    cdm/index
+   dataexchange/index
    datalink/index
    emailclient/index
    httpclient/index

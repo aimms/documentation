@@ -35,12 +35,34 @@ The following output of running the test suites is returned during the second st
 
 .. code-block:: none
 
-    AimmsCmd.exe (build 4.45.3.0)
-    Copyright 1993 - 2014 AIMMS B.V.
-    Running project: c:\u\Gitlab-Runner\builds\e03d9f06\0\Libraries\aimms-unit-test\AIMMSUnitTest-edit\test-AIMMSUnitTest-edit.aimms
-    1:> Return value = 0
-    2:> Ok
-    Closing project
-    +++++ Unit tests of project test-AIMMSUnitTest-edit.aimms succeeded
+     ++++++++++++++++++++++++++++++++++++++++++++++++++++
+     +++++ Unit tests of project test-AIMMSUnitTest-edit.aimms succeeded:
+     ++++++++++++++++++++++++++++++++++++++++++++++++++++
+     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+     <testsuites>
+       <testsuite id="1" name="TestAimmsUnitTest" timestamp="2020-07-11T14:33:48" tests="21" time="4.909">
+         <testcase name="001-TestActiveTestSuite" time="0.001"/>
+         <testcase name="002-TestKVValues" time="0.055"/>
+         <testcase name="003-TestSimpleNumericalEquality" time="0.002"/>
+         <testcase name="004-TestNumericalTolerances" time="0.001"/>
+         <testcase name="005-TestStructuralDifferences" time="0.003"/>
+         <testcase name="006-TestComparingBigDatasets" time="1.165"/>
+         <testcase name="007-TestSpecialNumberComparison" time="0.002"/>
+         <testcase name="008-TestEqualityWithInactiveData" time="0.001"/>
+         <testcase name="009-TestEqualityWithOrderedSet" time="0.001"/>
+         <testcase name="010-TestElementParameterComparison" time="0.001"/>
+         <testcase name="011-TestStringParameterComparison" time="0.058"/>
+         <testcase name="012-TestSimpleThrow" expected-exceptions="1" time="0.001"/>
+         <testcase name="013-TestRaise" expected-exceptions="1" time="0.001"/>
+         <testcase name="014-TestNonPresentExternalProcedure" expected-exceptions="1" time="0.001"/>
+         <testcase name="015-TestCreateClonedDataSet" time="0.002"/>
+         <testcase name="016-TestFillClonedDataSet" time="1.264"/>
+         <testcase name="017-TestCompareClonedDataSet" time="0.001"/>
+         <testcase name="018-TestRestoreFromClonedDataSet" time="1.228"/>
+         <testcase name="019-TestDeleteClonedDataSet" time="0.006"/>
+         <testcase name="020-TestGetRandomSeed" time="0.001"/>
+         <testcase name="021-TestStopWatch" time="1.114"/>
+       </testsuite>
+     </testsuites>
 
 If any of the tests fail, the python script will list the contents of the file :token:`log/AimmsUnit.xml` to show the individual results of all tests.

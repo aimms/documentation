@@ -116,3 +116,53 @@ A very common test you might want to use, is to compare the contents of two mult
         p1(i) := 0;
         p2(i) := 1e-15;
         aimmsunit::AssertTrue("p1 should be equal to p2 within absolute tolerance", aimmsunit::CompareEqual(p1,p2));
+
+Creating cloned data sets
+=========================
+
+In order to be able to easily compare multiple identifiers affected by a single test, the AIMMS Unit Test framework supports *cloned datasets*, i.e., a clone of a collection of multi-dimensional parameters created in a runtime library. Once created, you can store the current values of the collection of parameters into the cloned dataset, and later when you have performed some test that have modified the values of the parameters, you can compare the parameter data with the values stored into the cloned dataset, to verify that the test succeeded.
+
+Available cloned data set functions
+-----------------------------------
+
+.. js:function:: aimmsunit::CreateClonedDataSet(idSet, cloneName)
+   
+   Create a cloned data set named :token:`cloneName` containing all parameters in the identifier set :token:`idSet` (which should be a subset of :token:`AllIdentifiers`). The function will create a module with the name :token:`cloneName` within the runtime library :token:`AimmsUnitTestRuntime` that will contain a clone of all parameters contained in the set :token:`idSet`. 
+
+   :param idSet: the set of identifiers to clone
+   :param cloneName: the name of the cloned data set to create
+
+.. js:function:: aimmsunit::DeleteClonedDataSet(cloneName)
+   
+   Delete the cloned data set named :token:`cloneName`. This function will remove the module created through the function :js:func:`aimmsunit::CreateClonedDataSet`.
+
+   :param cloneName: the name of the cloned data set to delete
+
+.. js:function:: aimmsunit::FillClonedDataSet(idSet, cloneName)
+   
+   Fill the cloned parameters in cloned data set :token:`cloneName` with the actual values of parameters contained in :token:`idSet`.
+
+   :param idSet: the set of identifiers to copy the data from
+   :param cloneName: the name of the cloned data set to copy.
+
+.. js:function:: aimmsunit::RestoreClonedDataSet(idSet, cloneName)
+   
+   Restore the actual values of the parameters contained in :token:`idSet` from the cloned parameters in cloned data set :token:`cloneName`.
+
+   :param idSet: the set of identifiers to restore the data from
+   :param cloneName: the name of the cloned data set to restore from.
+
+.. js:function:: aimmsunit::EmptyClonedDataSet(idSet, cloneName)
+   
+   Empty the cloned parameters in cloned data set :token:`cloneName` for each of the parameters contained in :token:`idSet`.
+
+   :param idSet: the set of identifiers to empty the cloned data for
+   :param cloneName: the name of the cloned data set to empty.
+
+.. js:function:: aimmsunit::CompareClonedDataSet(idSet, cloneName, eps)
+   
+   Compare the values of cloned parameters in cloned data set :token:`cloneName` with each of the parameters contained in :token:`idSet`. The function will return 1 if there are no structural differences, and if all numerical differences are smaller than :token:`eps`.
+
+   :param idSet: the set of identifiers to compare the cloned data with
+   :param cloneName: the name of the cloned data set to compare
+   :param eps: the relative and absolute tolerance to use for numerical comparison

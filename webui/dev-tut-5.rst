@@ -1,7 +1,7 @@
 Changing data in AIMMS
 ======================
 
-n this tutorial you will extend the table widget that has been built in `the previous tutorial <dev-tut-4.html>`_ with
+In this tutorial you will extend the table widget that has been built in `the previous tutorial <dev-tut-4.html>`_ with
 *edit support*. This will allow the end user to change model data by changing values in the
 widget.
 

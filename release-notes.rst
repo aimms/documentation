@@ -1,4 +1,3 @@
-
 AIMMS Release Notes
 =====================
 
@@ -8,15 +7,137 @@ AIMMS Release Notes
 
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
 
+
+#############
+AIMMS 4.74
+#############
+
+AIMMS 4.74.4 Release (July 21, 2020 - build 4.74.4.5)
+------------------------------------------------------------------------------------------
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+-  Warnings raised from within the model are now correctly communicated to the end user if the `communicate_warnings_to_end_users` option has been set.
+-  Handling of name changes for widget properties that incorrectly contained an index specification has been improved.
+-  Improved handling of the redrawing of (changed) arcs and nodes results in better Map performance.
+-  For line charts that contain multiple lines, annotations are now correctly applied to all involved lines and their elements.
+
+--------------
+
+
+
+
+AIMMS 4.74.3 Release (July 6, 2020 - build 4.74.3.2)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Renaming an identifier while a library has an index or element parameter with that same name, could accidentally rename the identifier in the library as well.
+-  We added an error message for an unsupported combination of a defining procedure and a domain condition expression.
+
+--------------
+
+
+
+
+AIMMS 4.74.2 Release (July 1, 2020 - build 4.74.2.8)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In specific cases publishing an AIMMS model on PRO yielded a 'unable to publish model' error.
+-  For some datatypes, Unicode characters were not sent correctly to the database.
+-  When a Halt statement was executed, in a next definition evaluation that uses a procedure, only the first statement in that defining procedure was executed.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  A warning will be shown if a valid page contains an invalid redirectPageId and some error messages related to workflow have been improved.
+-  When a bubble was highlighted in a Bubble Chart widget and then an X bubble-point was selected, the previously selected bubble was no longer highlighted.
+
+
+--------------
+
+
+
+AIMMS 4.74.1 Release (June 23, 2020 - build 4.74.1.0)
+-----------------------------------------------------
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+-  **IMPORTANT:** When the .ams file is written to disk, AIMMS itself now uses tabs instead of 4 spaces. This reduces the size of the .ams file up to 30%. Because AIMMS versions before 4.73 do not expect tabs as indentation, models saved in AIMMS 4.74 may introduce unexpected issues when opening them in versions older than 4.73. You can prevent this by first opening and saving the model in 4.73. After that, the model will be compatible with older versions again. When the .ams file is managed by a versioning system (such as git), .ams files will have changes on all lines.
+-  The CPLEX, Gurobi and ODH-CPLEX options related to heuristics have been placed in the new MIP Heuristic category.
+-  The math program suffix BestBound and the GMP functions for retrieving the best bound can now also be used to obtain the best bound for a continuous problem (NLP, QP or QCP) solved with BARON and for non-convex quadratic problems solved with CPLEX or Gurobi.
+-  The solver ODH-CPLEX 5.0 is now available. ODH-CPLEX 5.0 uses CPLEX 12.10 underneath. Whereas, ODH-CPLEX 4.0 uses CPLEX 12.8. Therefore, the new options for ODH-CPLEX 5.0 stem from the CPLEX part. For some MIP cases, the results obtained by ODH-CPLEX 4.0 are not deterministic. This behavior is fixed in the ODH-CPLEX 5.0.
+-  A scaling tool has been added to the Math Program Inspector. It can be used to scale linear optimization models by selecting the Scale Model action. The tool will determine scaling factors for all (symbolic) variables and constraints which can be viewed in the Scaling Factors tab. By selecting the Resolve action in the Math Program Inspector you can resolve the model which will then automatically use the new scaling factors.
+-  The logical iterative operators Atleast, Atmost, Exactly are now handled by the new compiler and execution engine. AIMMS took the opportunity to make their behavior more consistent: their second argument now has a restriction to be a non-negative integer (there were no restrictions before). An error will be issued if this is not the case. Furthermore, when the Atleast and Exactly operators have an empty domain as their first argument and zero as their second, the return value is 1 (this was not the case before, which was incorrect).
+-  When requesting help on a function in the model editor using the right mouse menu command Help-On, you are now re-directed to a help topic in the online Function Reference.
+-  When writing data to a database via the ODBC Driver, parameters can be used for each row, but for some vendors and ODBC drivers this can be slow. Therefore, AIMMS offers an alternative flat-string technique for a few vendors. This alternative was already available (and the default) for MySQL databases and is now also implemented for MS SQLServer and PostgreSQL. There is a new option `Database insert as flatstring` (under AIMMS\Database interface) with which one can control whether this technique is used for the mentioned vendors. Based on performance experiments, the default for MySQL and PostgreSQL is to use this flat-string technique, and for MS SQL Server not to use it.
+-  The default value of the option 'Database String Valued Foreign Keys' has changed from 'Check' to 'Ignore'. See also the help documentation on this option. The default is changed because checking the foreign key information can be very expensive (depending on database vendor) whilst for most models this is not relevant. **IMPORTANT:** When your model writes to a database table which has string valued foreign key columns to another table, you may need to consider the best value for this option. When the value is 'Ignore' (now the default) and an empty string would be written to such a column, a runtime error will be reported.
+-  From now on, in new models only, Aimms interprets reference dates as UTC times by default i.s.o. local-no-DST times.
+
+	What is affected:
+	Functions that use default-timezone reference dates. (StringToMoment and MomentToString)
+	The begin and end date of calendars that have granularity smaller than a day.
+	The storage in cases of such calendars and element parameters pointing into them.
+
+	Why this change:
+	Until now, the meaning of times changed when the model was opened in another timezone. 2 o'clock in the US was still shown as 2 o'clock in China. When building a multi timezone/multi user application in Aimms, this is probably not what you want. This may already occur when running Aimms in the cloud, as the server may be in a different timezone, and thus lead to unexpected results even if the model is to be used for only one location.
+	Though the convertReferenceDate function can be used to work around this problem within the model, times in cases were also stored in local time. Any attempt to load a case created in another timezone would lead to incorrect data when trying to work with nonlocal timezones.  
+
+	Notes:
+	
+	-  This change is only applied to new models: Since the meaning of strings signifying reference dates is changed, automatic conversion of old models is not possible 
+	-  In timeslot formats, always using a timezone explicitly is advisable. Even if display in every user's local time is intended, DST should be taken into account, and thus 'localDST' should be used. Timeslot formats that do not specify a timezone are still using 'local' time. 
+	-  When using an hourly calendar, specifying minutes in the timeslot formats is advisable. It is uncertain if at some point the calendar will be shifted off the full hour, esp. when timeszones get to be used in timeslot formats.
+
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  There was a situation in which renaming an identifier 's' in the main model also changed the unit [s] in the WebUI library.
+-  If the CPLEX option 'print presolve status' was switched on, any action in the Math Program Inspector that triggered a solve (e.g., Resolve) would result in a crash. This bug was introduced in AIMMS version 4.71.1.
+-  The warning "The maximum of 20 warnings reached, further warnings suppressed. See also option maximal_number_of_warnings_reported" was not shown in the error window of AIMMS.
+-  The properties ElementsAreNumerical and ElementsAreLabels did not always have the intended effect when the logical value of a corresponding element was checked as part of an OR/AND/XOR expression.
+-  Clicking a checkbox in the WinUI Pivot Table while having the WebUI open could lead to a crash.
+
+ 
+WebUI Improvements
++++++++++++++++++++++++++
+-  Item Actions are now available for the Table, Scalar, Gantt, Bar, Line, Bubble, Pie, and Treemap charts as well.
+-  The list widget is now an official feature and is removed from the experimental features.
+-  Previously, whenever a column on which you sorted, contained an element parameter over a calendar, the string representation of the date was used to sort upon, alphabetically, leading to an unexpected ordering. Now, such a column is sorted according the order of the dates in the underlying calendar.
+-  The formula for calculating the bubble size is updated and improved. Sizes are calculated based on the area, same as the map. Also, Added maximum reference size to size the bubbles based on a fixed value.
+
+
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+-  The Pivot Tab in the options of the Bubble chart widget was broken.
+-  Console errors were displayed while opening the option editor for Table widget contents and adding/removing identifiers from the Bubble chart widget.
+-  The WebUI will now actually make use of your browser's configuration for preferred languages and thus also of any provided translations for that language, when available. See https://documentation.aimms.com/webui/multi-language.html#multi-language-support for details.
+
+
+--------------
+
+
+
+
+
+
+
 #############
 AIMMS 4.73
 #############
 
 
-AIMMS 4.73.5 Release
---------------------------
+AIMMS 4.73.5 Release (June 08, 2020 (build 4.73.5.7)
+-----------------------------------------------------------------
 
-The AIMMS 4.73.5 Release was released on June 08, 2020 (build 4.73.5.7). Changes made in this release are listed below. A high level overview can be found at the `AIMMS New Features Page <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
+ Changes made in this release are listed below. A high level overview can be found at the `AIMMS New Features Page <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
 
 Looking for best practices on how to use AIMMS? Check out the `AIMMS Knowledge Center <https://how-to.aimms.com/>`__.
 
@@ -2325,10 +2446,10 @@ Resolved WebUI Issues
 AIMMS 4.53
 #############
 
-AIMMS 4.53.5 Release
-----------------------------------
+AIMMS 4.53.5 Release (June 1, 2018 Build 4.53.5.8)
+--------------------------------------------------
 
- June 1, 2018 Build 4.53.5.8). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2354,10 +2475,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.53.4 Release
-----------------------------------
+AIMMS 4.53.4 Release (May 24, 2018 Build 4.53.4.1)
+---------------------------------------------------
 
- May 24, 2018 Build 4.53.4.1). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2377,10 +2498,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.53.3 Release
-----------------------------------
+AIMMS 4.53.3 Release (May 18, 2018 Build 4.53.3.1)
+---------------------------------------------------
 
- May 18, 2018 Build 4.53.3.1). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2406,10 +2527,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.53.2 Release
-----------------------------------
+AIMMS 4.53.2 Release (May 8, 2018 Build 4.53.2.1)
+---------------------------------------------------------------------------------------------------------
 
- May 8, 2018 Build 4.53.2.1). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2438,10 +2559,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.53.1 Release
-----------------------------------
+AIMMS 4.53.1 Release (April 24, 2018 Build 4.53.1.8)
+---------------------------------------------------------------------------------------------------------
 
- April 24, 2018 Build 4.53.1.8). 
+ 
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -2461,10 +2582,10 @@ Resolved WebUI Issues
 AIMMS 4.52
 #############
 
-AIMMS 4.52.5 Release
-----------------------------------
+AIMMS 4.52.5 Release (April 18, 2018 Build 4.52.5.1272)
+---------------------------------------------------------------------------------------------------------
 
- April 18, 2018 Build 4.52.5.1272). 
+ 
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -2487,10 +2608,10 @@ On April 18, 2018 we released the AIMMS CDM library. CDM implements version cont
 
 
 
-AIMMS 4.52.4 Release
-----------------------------------
+AIMMS 4.52.4 Release (The AIMMS 4.52.4 Release was also released on April 13, 2018 Build 4.52.4.1271)
+---------------------------------------------------------------------------------------------------------
 
-The AIMMS 4.52.4 Release was also released on April 13, 2018 Build 4.52.4.1271). 
+ 
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -2503,10 +2624,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.52.3 Release
-----------------------------------
+AIMMS 4.52.3 Release (April 13, 2018 Build 4.52.3.1270)
+---------------------------------------------------------------------------------------------------------
 
- April 13, 2018 Build 4.52.3.1270). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2525,10 +2646,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.52.2 Release
-----------------------------------
+AIMMS 4.52.2 Release (April 6, 2018 Build 4.52.2.1268)
+---------------------------------------------------------------------------------------------------------
 
- April 6, 2018 Build 4.52.2.1268). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2549,10 +2670,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.52.1 Release
-----------------------------------
+AIMMS 4.52.1 Release (March 27, 2018 Build 4.52.1.1265)
+---------------------------------------------------------------------------------------------------------
 
- March 27, 2018 Build 4.52.1.1265). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2580,10 +2701,10 @@ Resolved WebUI Issues
 AIMMS 4.51
 #############
 
-AIMMS 4.51.1 Release
-----------------------------------
+AIMMS 4.51.1 Release (March 16, 2018 Build 4.51.1.1258)
+---------------------------------------------------------------------------------------------------------
 
- March 16, 2018 Build 4.51.1.1258). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -2631,10 +2752,10 @@ Today, March 14, 2018, we released the new R-link for AIMMS. This feature allows
 AIMMS 4.50
 #############
 
-AIMMS 4.50.5 Release
-----------------------------------
+AIMMS 4.50.5 Release (March 8, 2018 Build 4.50.5.1250)
+---------------------------------------------------------------------------------------------------------
 
- March 8, 2018 Build 4.50.5.1250). 
+ 
 
 **Please note that for technical reasons we skipped version AIMMS 4.50.4.**
 
@@ -2659,10 +2780,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.50.3 Release
-----------------------------------
+AIMMS 4.50.3 Release (February 28, 2018 Build 4.50.3.1241)
+---------------------------------------------------------------------------------------------------------
 
- February 28, 2018 Build 4.50.3.1241). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2684,10 +2805,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.50.2 Release
-----------------------------------
+AIMMS 4.50.2 Release (February 26, 2018 Build 4.50.2.1238)
+---------------------------------------------------------------------------------------------------------
 
- February 26, 2018 Build 4.50.2.1238). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2708,10 +2829,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.50.1 Release
-----------------------------------
+AIMMS 4.50.1 Release (February 16, 2018 Build 4.50.1.1234)
+---------------------------------------------------------------------------------------------------------
 
- February 16, 2018 Build 4.50.1.1234). 
+ 
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -2750,10 +2871,10 @@ Resolved WebUI Issues
 AIMMS 4.49
 #############
 
-AIMMS 4.49.2 Release
-----------------------------------
+AIMMS 4.49.2 Release (February 1, 2018 Build 4.49.2.1226)
+---------------------------------------------------------------------------------------------------------
 
- February 1, 2018 Build 4.49.2.1226). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2774,10 +2895,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.49.1 Release
-----------------------------------
+AIMMS 4.49.1 Release (January 30, 2018 Build 4.49.1.1219)
+---------------------------------------------------------------------------------------------------------
 
- January 30, 2018 Build 4.49.1.1219). 
+ 
 
 **Where is AIMMS 4.48?**  you may wonder... Due to technical reasons, we skipped this number. Furthermore, this AIMMS 4.49 release is actually not a Feature Release, but provides a number of bugfixes.
 
@@ -2806,10 +2927,10 @@ Resolved WebUI Issues
 AIMMS 4.47
 #############
 
-AIMMS 4.47.1 Release
-----------------------------------
+AIMMS 4.47.1 Release (January 22, 2018 Build 4.47.1.1213)
+---------------------------------------------------------------------------------------------------------
 
- January 22, 2018 Build 4.47.1.1213). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -2843,10 +2964,10 @@ Resolved WebUI Issues
 AIMMS 4.46
 #############
 
-AIMMS 4.46.4 Release
-----------------------------------
+AIMMS 4.46.4 Release (January 11, 2018 Build 4.46.4.1201)
+---------------------------------------------------------------------------------------------------------
 
- January 11, 2018 Build 4.46.4.1201). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -2869,10 +2990,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.46.3 Release
-----------------------------------
+AIMMS 4.46.3 Release (January 8, 2018 Build 4.46.3.1197)
+---------------------------------------------------------------------------------------------------------
 
- January 8, 2018 Build 4.46.3.1197). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2887,10 +3008,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.46.2 Release
-----------------------------------
+AIMMS 4.46.2 Release (January 3, 2018 Build 4.46.2.1189)
+---------------------------------------------------------------------------------------------------------
 
- January 3, 2018 Build 4.46.2.1189). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2910,10 +3031,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.46.1 Release
-----------------------------------
+AIMMS 4.46.1 Release (December 20, 2017 Build 4.46.1.1184)
+---------------------------------------------------------------------------------------------------------
 
- December 20, 2017 Build 4.46.1.1184). 
+ 
 
 **IMPORTANT:**  This AIMMS version handles more definitions with the new compiler (and, as a result, with the parallel engine). This means that some definitions are evaluated more strictly than in older AIMMS versions. For example, the '|' operator is evaluated more strictly than before and this could lead to different results! For example, the expression 1 + 2 | 4 - 4 was always (incorrectly) interpreted as 1 + (2 | 4) - 4 instead of (1 + 2) | (4 - 4), clearly leading to a different result. In order to safeguard you, this AIMMS version has a number of new warnings built in, which will point you to lines in your model where such situations can happen. Please do not ignore these warnings, but try to address them. In the Language Reference, in table 6.13, you can find the operator precedences in AIMMS, which you can use as a guideline here.
 
@@ -2955,10 +3076,10 @@ Resolved WebUI Issues
 AIMMS 4.45
 #############
 
-AIMMS 4.45.5 Release
-----------------------------------
+AIMMS 4.45.5 Release (December 11, 2017 Build 4.45.5.1175)
+---------------------------------------------------------------------------------------------------------
 
- December 11, 2017 Build 4.45.5.1175). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -2988,10 +3109,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.45.4 Release
-----------------------------------
+AIMMS 4.45.4 Release (December 1, 2017 Build 4.45.4.1163)
+---------------------------------------------------------------------------------------------------------
 
- December 1, 2017 Build 4.45.4.1163). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3009,10 +3130,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.45.3 Release
-----------------------------------
+AIMMS 4.45.3 Release (November 29, 2017 Build 4.45.3.1161)
+---------------------------------------------------------------------------------------------------------
 
- November 29, 2017 Build 4.45.3.1161). 
+ 
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -3028,10 +3149,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.45.2 Release
-----------------------------------
+AIMMS 4.45.2 Release (November 27, 2017 Build 4.45.2.1158)
+---------------------------------------------------------------------------------------------------------
 
- November 27, 2017 Build 4.45.2.1158). 
+ 
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -3050,10 +3171,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.45.1 Release
-----------------------------------
+AIMMS 4.45.1 Release (November 22, 2017 Build 4.45.1.1156)
+---------------------------------------------------------------------------------------------------------
 
- November 22, 2017 Build 4.45.1.1156). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -3099,10 +3220,10 @@ Resolved WebUI Issues
 AIMMS 4.44
 #############
 
-AIMMS 4.44.4 Release
-----------------------------------
+AIMMS 4.44.4 Release (November 3, 2017 Build 4.44.4.1142)
+---------------------------------------------------------------------------------------------------------
 
- November 3, 2017 Build 4.44.4.1142). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3121,10 +3242,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.44.3 Release
-----------------------------------
+AIMMS 4.44.3 Release (October 31, 2017 Build 4.44.3.1139)
+---------------------------------------------------------------------------------------------------------
 
- October 31, 2017 Build 4.44.3.1139). 
+ 
 
 **AIMMS Improvement**
 
@@ -3147,10 +3268,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.44.2 Release
-----------------------------------
+AIMMS 4.44.2 Release (October 30, 2017 Build 4.44.2.1134)
+---------------------------------------------------------------------------------------------------------
 
- October 30, 2017 Build 4.44.2.1134). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3169,10 +3290,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.44.1 Release
-----------------------------------
+AIMMS 4.44.1 Release (October 25, 2017 Build 4.44.1.1129)
+---------------------------------------------------------------------------------------------------------
 
- October 25, 2017 Build 4.44.1.1129). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3200,10 +3321,10 @@ Resolved WebUI Issues
 AIMMS 4.43
 #############
 
-AIMMS 4.43.2 Release
-----------------------------------
+AIMMS 4.43.2 Release (October 18, 2017 Build 4.43.2.1123)
+---------------------------------------------------------------------------------------------------------
 
- October 18, 2017 Build 4.43.2.1123). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3234,10 +3355,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.43.1 Release
-----------------------------------
+AIMMS 4.43.1 Release (October 11, 2017 Build 4.43.1.1113)
+---------------------------------------------------------------------------------------------------------
 
- October 11, 2017 Build 4.43.1.1113). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -3264,10 +3385,10 @@ WebUI Improvements
 AIMMS 4.42
 #############
 
-AIMMS 4.42.2 Release
-----------------------------------
+AIMMS 4.42.2 Release (October 4, 2017 Build 4.42.2.1106)
+---------------------------------------------------------------------------------------------------------
 
- October 4, 2017 Build 4.42.2.1106). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3284,10 +3405,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.42.1 Release
-----------------------------------
+AIMMS 4.42.1 Release (September 27, 2017 Build 4.42.1.1096)
+---------------------------------------------------------------------------------------------------------
 
- September 27, 2017 Build 4.42.1.1096).
+
 
 **Please note:**  You may have noticed that the version number of this release has skipped 4.41. This is because of internal changes that we made to our  Build system. This 4.42 version should be considered as a bugfix release, not as a release containing new features. From here on, the numbering will follow the regular schedule again.
 
@@ -3321,10 +3442,10 @@ Resolved WebUI Issues
 AIMMS 4.40
 #############
 
-AIMMS 4.40.2 Release
-----------------------------------
+AIMMS 4.40.2 Release (September 13, 2017 Build 4.40.2.1080)
+---------------------------------------------------------------------------------------------------------
 
- September 13, 2017 Build 4.40.2.1080). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -3344,10 +3465,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.40.1 Release
-----------------------------------
+AIMMS 4.40.1 Release (September 8, 2017 Build 4.40.1.1075)
+---------------------------------------------------------------------------------------------------------
 
- September 8, 2017 Build 4.40.1.1075). 
+ 
 
 **Important 1:**  From this AIMMS version onwards, a new structure of the underlying WebUI files and folders is used. This means that upon startup the WebUI of your existing applications, you'll get a warning message telling you so. You are strongly advised to first make a backup of your project before performing the conversion. Furthermore, if your project contains many pages, the conversion may take several minutes.
 
@@ -3382,10 +3503,10 @@ Resolved WebUI Issues
 AIMMS 4.39
 #############
 
-AIMMS 4.39.2 Release
-----------------------------------
+AIMMS 4.39.2 Release (August 29, 2017 Build 4.39.2.1069)
+---------------------------------------------------------------------------------------------------------
 
- August 29, 2017 Build 4.39.2.1069). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3401,10 +3522,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.39.1 Release
-----------------------------------
+AIMMS 4.39.1 Release (August 23, 2017 Build 4.39.1.1063)
+---------------------------------------------------------------------------------------------------------
 
- August 23, 2017 Build 4.39.1.1063). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -3438,10 +3559,10 @@ Resolved AIMMS Issues
 AIMMS 4.38
 #############
 
-AIMMS 4.38.3 Release
-----------------------------------
+AIMMS 4.38.3 Release (August 3, 2017 Build 4.38.3.1048)
+---------------------------------------------------------------------------------------------------------
 
- August 3, 2017 Build 4.38.3.1048). 
+ 
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -3462,10 +3583,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.38.2 Release
-----------------------------------
+AIMMS 4.38.2 Release (July 21, 2017 Build 4.38.2.1041)
+---------------------------------------------------------------------------------------------------------
 
- July 21, 2017 Build 4.38.2.1041). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -3492,10 +3613,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.38.1 Release
-----------------------------------
+AIMMS 4.38.1 Release (July 19, 2017 Build 4.38.1.1035)
+---------------------------------------------------------------------------------------------------------
 
- July 19, 2017 Build 4.38.1.1035). 
+ 
 
 **New WebUI feature**
 
@@ -3525,10 +3646,10 @@ AIMMS 4.38.1 Release
 AIMMS 4.37
 #############
 
-AIMMS 4.37.4 Release
-----------------------------------
+AIMMS 4.37.4 Release (July 12, 2017 Build 4.37.4.1024)
+---------------------------------------------------------------------------------------------------------
 
- July 12, 2017 Build 4.37.4.1024). 
+ 
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -3549,10 +3670,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.37.3 Release
-----------------------------------
+AIMMS 4.37.3 Release (June 30, 2017 Build 4.37.3.1016)
+---------------------------------------------------------------------------------------------------------
 
- June 30, 2017 Build 4.37.3.1016). 
+ 
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -3574,10 +3695,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.37.2 Release
-----------------------------------
+AIMMS 4.37.2 Release (June 23, 2017 Build 4.37.2.1007)
+---------------------------------------------------------------------------------------------------------
 
- June 23, 2017 Build 4.37.2.1007). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -3595,10 +3716,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.37.1 Release
-----------------------------------
+AIMMS 4.37.1 Release (June 22, 2017 Build 4.37.1.1001)
+---------------------------------------------------------------------------------------------------------
 
- June 22, 2017 Build 4.37.1.1001). 
+ 
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -3625,10 +3746,10 @@ Resolved AIMMS Issues
 AIMMS 4.36
 #############
 
-AIMMS 4.36.1 Release
-----------------------------------
+AIMMS 4.36.1 Release (June 12, 2017 Build 4.36.1.983)
+---------------------------------------------------------------------------------------------------------
 
- June 12, 2017 Build 4.36.1.983). 
+ 
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -3661,10 +3782,10 @@ These values allow you to make a difference in how warnings are handled based on
 AIMMS 4.35
 #############
 
-AIMMS 4.35.1 Release
-----------------------------------
+AIMMS 4.35.1 Release (June 7, 2017 Build 4.35.1.977)
+---------------------------------------------------------------------------------------------------------
 
- June 7, 2017 Build 4.35.1.977). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -3695,10 +3816,10 @@ Resolved AIMMS Issues
 AIMMS 4.34
 #############
 
-AIMMS 4.34.9 Release
-----------------------------------
+AIMMS 4.34.9 Release (May 23, 2017 Build 4.34.9.963)
+---------------------------------------------------------------------------------------------------------
 
- May 23, 2017 Build 4.34.9.963). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3712,10 +3833,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.34.8 Release
-----------------------------------
+AIMMS 4.34.8 Release (May 19, 2017 Build 4.34.8.960)
+---------------------------------------------------------------------------------------------------------
 
- May 19, 2017 Build 4.34.8.960). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3728,10 +3849,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.34.7 Release
-----------------------------------
+AIMMS 4.34.7 Release (May 16, 2017 Build 4.34.7.955)
+---------------------------------------------------------------------------------------------------------
 
- May 16, 2017 Build 4.34.7.955). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -3751,10 +3872,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.34.6 Release
-----------------------------------
+AIMMS 4.34.6 Release (May 11, 2017 Build 4.34.6.948)
+---------------------------------------------------------------------------------------------------------
 
- May 11, 2017 Build 4.34.6.948). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3775,10 +3896,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.34.5 Release
-----------------------------------
+AIMMS 4.34.5 Release (May 3, 2017 Build 4.34.5.938)
+---------------------------------------------------------------------------------------------------------
 
- May 3, 2017 Build 4.34.5.938). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3791,10 +3912,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.34.4 Release
-----------------------------------
+AIMMS 4.34.4 Release (May 2, 2017 Build 4.34.4.933)
+---------------------------------------------------------------------------------------------------------
 
- May 2, 2017 Build 4.34.4.933). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3808,10 +3929,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.34.3 Release
-----------------------------------
+AIMMS 4.34.3 Release (April 24, 2017 Build 4.34.3.927)
+---------------------------------------------------------------------------------------------------------
 
- April 24, 2017 Build 4.34.3.927). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3824,10 +3945,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.34.2 Release
-----------------------------------
+AIMMS 4.34.2 Release (April 19, 2017 Build 4.34.2.922)
+---------------------------------------------------------------------------------------------------------
 
- April 19, 2017 Build 4.34.2.922). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3846,10 +3967,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.34.1 Release
-----------------------------------
+AIMMS 4.34.1 Release (April 7, 2017 Build 4.34.1.910)
+---------------------------------------------------------------------------------------------------------
 
- April 7, 2017 Build 4.34.1.910). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3874,10 +3995,10 @@ Resolved WebUI Issues
 AIMMS 4.33
 #############
 
-AIMMS 4.33.3 Release
-----------------------------------
+AIMMS 4.33.3 Release (March 29, 2017 Build 4.33.3.898)
+---------------------------------------------------------------------------------------------------------
 
- March 29, 2017 Build 4.33.3.898). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3895,10 +4016,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.33.2 Release
-----------------------------------
+AIMMS 4.33.2 Release (March 23, 2017 Build 4.33.2.893)
+---------------------------------------------------------------------------------------------------------
 
- March 23, 2017 Build 4.33.2.893). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3918,10 +4039,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.33.1 Release
-----------------------------------
+AIMMS 4.33.1 Release (March 22, 2017 Build 4.33.1.887)
+---------------------------------------------------------------------------------------------------------
 
- March 22, 2017 Build 4.33.1.887). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3947,10 +4068,10 @@ Resolved WebUI Issues
 AIMMS 4.32
 #############
 
-AIMMS 4.32.6 Release
-----------------------------------
+AIMMS 4.32.6 Release (March 20, 2017 Build 4.32.6.884)
+---------------------------------------------------------------------------------------------------------
 
- March 20, 2017 Build 4.32.6.884). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3970,10 +4091,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.32.5 Release
-----------------------------------
+AIMMS 4.32.5 Release (March 10, 2017 Build 4.32.5.881)
+---------------------------------------------------------------------------------------------------------
 
- March 10, 2017 Build 4.32.5.881). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3986,10 +4107,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.32.4 Release
-----------------------------------
+AIMMS 4.32.4 Release (March 10, 2017 Build 4.32.4.880)
+---------------------------------------------------------------------------------------------------------
 
- March 10, 2017 Build 4.32.4.880). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4012,10 +4133,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.32.3 Release
-----------------------------------
+AIMMS 4.32.3 Release (March 6, 2017 Build 4.32.3.872)
+---------------------------------------------------------------------------------------------------------
 
- March 6, 2017 Build 4.32.3.872). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4028,10 +4149,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.32.2 Release
-----------------------------------
+AIMMS 4.32.2 Release (March 3, 2017 Build 4.32.2.870)
+---------------------------------------------------------------------------------------------------------
 
- March 3, 2017 Build 4.32.2.870). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4053,10 +4174,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.32.1 Release
-----------------------------------
+AIMMS 4.32.1 Release (February 27, 2017 Build 4.32.1.862)
+---------------------------------------------------------------------------------------------------------
 
- February 27, 2017 Build 4.32.1.862). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -4093,10 +4214,10 @@ Resolved WebUI Issues
 AIMMS 4.31
 #############
 
-AIMMS 4.31.4 Release
-----------------------------------
+AIMMS 4.31.4 Release (February 22, 2017 Build 4.31.4.856)
+---------------------------------------------------------------------------------------------------------
 
- February 22, 2017 Build 4.31.4.856). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4116,10 +4237,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.31.3 Release
-----------------------------------
+AIMMS 4.31.3 Release (February 10, 2017 Build 4.31.3.841)
+---------------------------------------------------------------------------------------------------------
 
- February 10, 2017 Build 4.31.3.841). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -4144,10 +4265,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.31.1.831 Release
-----------------------------------
+AIMMS 4.31.1.831 Release (The AIMMS 4.31.1.831 Release was released on February 3, 2017 Build 4.31.1.831)
+---------------------------------------------------------------------------------------------------------
 
-The AIMMS 4.31.1.831 Release was released on February 3, 2017 Build 4.31.1.831). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -4169,10 +4290,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.31.1.825 Release
-----------------------------------
+AIMMS 4.31.1.825 Release (The AIMMS 4.31.1.825 Release was released on January 25, 2017 Build 4.31.1.825)
+---------------------------------------------------------------------------------------------------------
 
-The AIMMS 4.31.1.825 Release was released on January 25, 2017 Build 4.31.1.825). 
+ 
 
 **PLEASE NOTE:** From this version onwards, it is not possible anymore to open encrypted projects or .aimmspack files using a developer license of AIMMS. The reason is that encrypted projects or .aimmspack files are aimed at model deployment, while development licenses are not for that purpose. Those projects/files can still be opened using deployment licenses.
 
@@ -4225,10 +4346,10 @@ Resolved AIMMS Issues
 AIMMS 4.30
 #############
 
-AIMMS 4.30.5 Release
-----------------------------------
+AIMMS 4.30.5 Release (January 13, 2017 Build 4.30.5.814)
+---------------------------------------------------------------------------------------------------------
 
- January 13, 2017 Build 4.30.5.814). 
+ 
 
 **IMPORTANT: If you are going to use this AIMMS version with PRO on a Linux server, you will need to make sure that you are using PRO version 2.13 or higher.**
 
@@ -4250,10 +4371,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.30.4 Release
-----------------------------------
+AIMMS 4.30.4 Release (December 22, 2016 Build 4.30.4.807)
+---------------------------------------------------------------------------------------------------------
 
- December 22, 2016 Build 4.30.4.807). 
+ 
 
 **IMPORTANT: If you are going to use this AIMMS version with PRO on a Linux server, you will need to make sure that you are using PRO version 2.13 or higher.**
 
@@ -4275,10 +4396,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.30.3 Release
-----------------------------------
+AIMMS 4.30.3 Release (December 15, 2016 Build 4.30.3.803)
+---------------------------------------------------------------------------------------------------------
 
- December 15, 2016 Build 4.30.3.803). 
+ 
 
 **IMPORTANT: If you are going to use this AIMMS version with PRO on a Linux server, you will need to make sure that you are using PRO version 2.13 or higher.**
 
@@ -4300,10 +4421,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.30.2 Release
-----------------------------------
+AIMMS 4.30.2 Release (December 14, 2016 Build 4.30.2.801)
+---------------------------------------------------------------------------------------------------------
 
- December 14, 2016 Build 4.30.2.801). 
+ 
 
 **IMPORTANT: If you are going to use this AIMMS version with PRO on a Linux server, you will need to make sure that you are using PRO version 2.13 or higher.**
 
@@ -4319,10 +4440,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.30.1 Release
-----------------------------------
+AIMMS 4.30.1 Release (December 9, 2016 Build 4.30.1.798)
+---------------------------------------------------------------------------------------------------------
 
- December 9, 2016 Build 4.30.1.798). 
+ 
 
 **IMPORTANT: If you are going to use this AIMMS version with PRO on a Linux server, you will need to make sure that you are using PRO version 2.13 or higher.**
 
@@ -4350,10 +4471,10 @@ Resolved AIMMS Issues
 AIMMS 4.29
 #############
 
-AIMMS 4.29.2 Release
-----------------------------------
+AIMMS 4.29.2 Release (December 2, 2016 Build 4.29.2.790)
+---------------------------------------------------------------------------------------------------------
 
- December 2, 2016 Build 4.29.2.790).
+
 
 **IMPORTANT: If you are going to use this AIMMS version with PRO on a Linux server, you will need to make sure that you are using PRO version 2.13 or higher.**
 
@@ -4373,10 +4494,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.29.1 Release
-----------------------------------
+AIMMS 4.29.1 Release (November 30, 2016 Build 4.29.1.787)
+---------------------------------------------------------------------------------------------------------
 
- November 30, 2016 Build 4.29.1.787). 
+ 
 
 **IMPORTANT: If you are going to use this AIMMS version with PRO on a Linux server, you will need to make sure that you are using PRO version 2.13 or higher.**
 
@@ -4405,10 +4526,10 @@ Resolved AIMMS Issues
 AIMMS 4.28
 #############
 
-AIMMS 4.28.3 Release
-----------------------------------
+AIMMS 4.28.3 Release (November 22, 2016 Build 4.28.3.778)
+---------------------------------------------------------------------------------------------------------
 
- November 22, 2016 Build 4.28.3.778).
+
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -4421,10 +4542,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.28.2 Release
-----------------------------------
+AIMMS 4.28.2 Release (November 16, 2016 Build 4.28.2.772)
+---------------------------------------------------------------------------------------------------------
 
- November 16, 2016 Build 4.28.2.772).
+
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -4441,10 +4562,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.28.1 Release
-----------------------------------
+AIMMS 4.28.1 Release (November 11, 2016 Build 4.28.1.770)
+---------------------------------------------------------------------------------------------------------
 
- November 11, 2016 Build 4.28.1.770). 
+ 
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -4488,10 +4609,10 @@ Resolved AIMMS Issues
 AIMMS 4.27
 #############
 
-AIMMS 4.27.5 Release
-----------------------------------
+AIMMS 4.27.5 Release (November 1, 2016 Build 4.27.5.756)
+---------------------------------------------------------------------------------------------------------
 
- November 1, 2016 Build 4.27.5.756).
+
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4508,10 +4629,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.27.4 Release
-----------------------------------
+AIMMS 4.27.4 Release (October 27, 2016 Build 4.27.4.749)
+---------------------------------------------------------------------------------------------------------
 
- October 27, 2016 Build 4.27.4.749).
+
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4524,10 +4645,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.27.3 Release
-----------------------------------
+AIMMS 4.27.3 Release (October 24, 2016 Build 4.27.3.744)
+---------------------------------------------------------------------------------------------------------
 
- October 24, 2016 Build 4.27.3.744).
+
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -4549,10 +4670,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.27.2 Release
-----------------------------------
+AIMMS 4.27.2 Release (October 19, 2016 Build 4.27.2.734)
+---------------------------------------------------------------------------------------------------------
 
- October 19, 2016 Build 4.27.2.734).
+
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -4569,10 +4690,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.27.1 Release
-----------------------------------
+AIMMS 4.27.1 Release (October 14, 2016 Build 4.27.1.726)
+---------------------------------------------------------------------------------------------------------
 
- October 14, 2016 Build 4.27.1.726). 
+ 
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -4592,10 +4713,10 @@ Resolved AIMMS Issues
 AIMMS 4.26
 #############
 
-AIMMS 4.26.1 Release
-----------------------------------
+AIMMS 4.26.1 Release (October 7, 2016 Build 4.26.1.716)
+---------------------------------------------------------------------------------------------------------
 
- October 7, 2016 Build 4.26.1.716). 
+ 
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -4623,10 +4744,10 @@ Resolved AIMMS Issues
 AIMMS 4.25
 #############
 
-AIMMS 4.25.1 Release
-----------------------------------
+AIMMS 4.25.1 Release (September 30, 2016 Build 4.25.1.703)
+---------------------------------------------------------------------------------------------------------
 
- September 30, 2016 Build 4.25.1.703). 
+ 
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -4653,10 +4774,10 @@ Resolved AIMMS Issues
 AIMMS 4.24
 #############
 
-AIMMS 4.24.3 Release
-----------------------------------
+AIMMS 4.24.3 Release (September 14, 2016 Build 4.24.3.675)
+---------------------------------------------------------------------------------------------------------
 
- September 14, 2016 Build 4.24.3.675).
+
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -4674,10 +4795,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.24.2 Release
-----------------------------------
+AIMMS 4.24.2 Release (September 1, 2016 Build 4.24.2.659)
+---------------------------------------------------------------------------------------------------------
 
- September 1, 2016 Build 4.24.2.659). 
+ 
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -4696,10 +4817,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.24.1 Release
-----------------------------------
+AIMMS 4.24.1 Release (August 19, 2016 Build 4.24.1.641)
+---------------------------------------------------------------------------------------------------------
 
- August 19, 2016 Build 4.24.1.641). 
+ 
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -4721,10 +4842,10 @@ Resolved AIMMS Issues
 AIMMS 4.23
 #############
 
-AIMMS 4.23.2 Release
-----------------------------------
+AIMMS 4.23.2 Release (August 11, 2016 Build 4.23.2.630)
+---------------------------------------------------------------------------------------------------------
 
- August 11, 2016 Build 4.23.2.630). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4738,10 +4859,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.23.1 Release
-----------------------------------
+AIMMS 4.23.1 Release (August 5, 2016 Build 4.23.1.618)
+---------------------------------------------------------------------------------------------------------
 
- August 5, 2016 Build 4.23.1.618).
+
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -4761,10 +4882,10 @@ Resolved WebUI Issues
 AIMMS 4.22
 #############
 
-AIMMS 4.22.1 Release
-----------------------------------
+AIMMS 4.22.1 Release (July 28, 2016 Build 4.22.1.602)
+---------------------------------------------------------------------------------------------------------
 
- July 28, 2016 Build 4.22.1.602). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4792,10 +4913,10 @@ WebUI Improvements
 AIMMS 4.21
 #############
 
-AIMMS 4.21.5 Release
-----------------------------------
+AIMMS 4.21.5 Release (July 14, 2016 Build 4.21.5.583)
+---------------------------------------------------------------------------------------------------------
 
- July 14, 2016 Build 4.21.5.583). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -4819,10 +4940,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.21.4 Release
-----------------------------------
+AIMMS 4.21.4 Release (July 11, 2016 Build 4.21.4.576)
+---------------------------------------------------------------------------------------------------------
 
- July 11, 2016 Build 4.21.4.576). 
+ 
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -4836,10 +4957,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.21.3 Release
-----------------------------------
+AIMMS 4.21.3 Release (July 8, 2016 Build 4.21.3.570)
+---------------------------------------------------------------------------------------------------------
 
- July 8, 2016 Build 4.21.3.570). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4861,10 +4982,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.21.2 Release
-----------------------------------
+AIMMS 4.21.2 Release (July 6, 2016 Build 4.21.2.564)
+---------------------------------------------------------------------------------------------------------
 
- July 6, 2016 Build 4.21.2.564). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4890,10 +5011,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.21.1 Release
-----------------------------------
+AIMMS 4.21.1 Release (June 22, 2016 Build 4.21.1.547)
+---------------------------------------------------------------------------------------------------------
 
- June 22, 2016 Build 4.21.1.547). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -4923,10 +5044,10 @@ Resolved AIMMS Issues
 AIMMS 4.20
 #############
 
-AIMMS 4.20.7 Release
-----------------------------------
+AIMMS 4.20.7 Release (June 17, 2016 Build 4.20.7.539)
+---------------------------------------------------------------------------------------------------------
 
- June 17, 2016 Build 4.20.7.539). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4948,10 +5069,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.20.6 Release
-----------------------------------
+AIMMS 4.20.6 Release (June 8, 2016 Build 4.20.6.525)
+---------------------------------------------------------------------------------------------------------
 
- June 8, 2016 Build 4.20.6.525). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4984,10 +5105,10 @@ Should you open your AIMMS 4.20.6 model in an older version of AIMMS, you may fi
 
 
 
-AIMMS 4.20.5 Release
-----------------------------------
+AIMMS 4.20.5 Release (June 7, 2016 Build 4.20.5.515)
+---------------------------------------------------------------------------------------------------------
 
- June 7, 2016 Build 4.20.5.515). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -5007,10 +5128,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.20.4 Release
-----------------------------------
+AIMMS 4.20.4 Release (June 1, 2016 Build 4.20.4.504)
+---------------------------------------------------------------------------------------------------------
 
- June 1, 2016 Build 4.20.4.504). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -5029,10 +5150,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.20.3 Release
-----------------------------------
+AIMMS 4.20.3 Release (May 27, 2016 Build 4.20.3.497)
+---------------------------------------------------------------------------------------------------------
 
- May 27, 2016 Build 4.20.3.497). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -5052,10 +5173,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.20.2 Release
-----------------------------------
+AIMMS 4.20.2 Release (May 23, 2016 Build 4.20.2.490)
+---------------------------------------------------------------------------------------------------------
 
- May 23, 2016 Build 4.20.2.490). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -5075,10 +5196,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.20.1 Release
-----------------------------------
+AIMMS 4.20.1 Release (May 19, 2016 Build 4.20.1.483)
+---------------------------------------------------------------------------------------------------------
 
- May 19, 2016 Build 4.20.1.483). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -5124,19 +5245,19 @@ Resolved WebUI Issues
 AIMMS 4.19
 #############
 
-AIMMS 4.19.4 Release
-----------------------------------
+AIMMS 4.19.4 Release (April 28, 2016 Build 4.19.4.452)
+---------------------------------------------------------------------------------------------------------
 
- April 28, 2016 Build 4.19.4.452). 
+ 
 
 **Resolved AIMMS Issue**
 
 -  Using a reverse link in a Pivot Table object could sometimes lead to a crash of AIMMS.
 
-AIMMS 4.19.3 Release
-----------------------------------
+AIMMS 4.19.3 Release (April 25, 2016 Build 4.19.3.447)
+---------------------------------------------------------------------------------------------------------
 
- April 25, 2016 Build 4.19.3.447). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -5147,10 +5268,10 @@ Resolved AIMMS Issues
 -  Deleting a stochastic constraint in the model editor could lead to an internal error.
 -  In rare situations, the AIMMS Presolver could crash when printing an infeasibility analysis.
 
-AIMMS 4.19.2 Release
-----------------------------------
+AIMMS 4.19.2 Release (April 11, 2016 Build 4.19.2.428)
+---------------------------------------------------------------------------------------------------------
 
- April 11, 2016 Build 4.19.2.428). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -5183,10 +5304,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.19.1 Release
-----------------------------------
+AIMMS 4.19.1 Release (March 30, 2016 Build 4.19.1.410)
+---------------------------------------------------------------------------------------------------------
 
- March 30, 2016 Build 4.19.1.410). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -5216,10 +5337,10 @@ Resolved WebUI Issues
 AIMMS 4.18
 #############
 
-AIMMS 4.18.2 Release
-----------------------------------
+AIMMS 4.18.2 Release (March 21, 2016 Build 4.18.2.398)
+---------------------------------------------------------------------------------------------------------
 
- March 21, 2016 Build 4.18.2.398). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -5238,10 +5359,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.18.1 Release
-----------------------------------
+AIMMS 4.18.1 Release (March 15, 2016 Build 4.18.1.393)
+---------------------------------------------------------------------------------------------------------
 
- March 15, 2016 Build 4.18.1.393). 
+ 
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -5264,10 +5385,10 @@ WebUI Improvements
 AIMMS 4.17
 #############
 
-AIMMS 4.17.1 Release
-----------------------------------
+AIMMS 4.17.1 Release (March 3, 2016 Build 4.17.1.374)
+---------------------------------------------------------------------------------------------------------
 
- March 3, 2016 Build 4.17.1.374). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -5304,10 +5425,10 @@ WebUI Improvements
 AIMMS 4.16
 #############
 
-AIMMS 4.16.2 Release
-----------------------------------
+AIMMS 4.16.2 Release (February 25, 2016 Build 4.16.2.358)
+---------------------------------------------------------------------------------------------------------
 
- February 25, 2016 Build 4.16.2.358). 
+ 
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -5326,10 +5447,10 @@ Resolved AIMMS Issues
 
 
 
-AIMMS 4.16.1 Release
-----------------------------------
+AIMMS 4.16.1 Release (February 17, 2016 Build 4.16.1.345)
+---------------------------------------------------------------------------------------------------------
 
- February 17, 2016 Build 4.16.1.345). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -5363,10 +5484,10 @@ Resolved WebUI Issues
 AIMMS 4.15
 #############
 
-AIMMS 4.15.1.337 Release
-----------------------------------
+AIMMS 4.15.1.337 Release (The AIMMS 4.15.1.337 Release was released on February 9, 2016 Build 4.15.1.337)
+---------------------------------------------------------------------------------------------------------
 
-The AIMMS 4.15.1.337 Release was released on February 9, 2016 Build 4.15.1.337). 
+ 
 
 **Resolved AIMMS Issue**
 
@@ -5383,10 +5504,10 @@ The AIMMS 4.15.1.337 Release was released on February 9, 2016 Build 4.15.1.337).
 
 
 
-AIMMS 4.15.1.321 Release
-----------------------------------
+AIMMS 4.15.1.321 Release (The AIMMS 4.15.1.321 Release was released on February 4, 2016 Build 4.15.1.321)
+---------------------------------------------------------------------------------------------------------
 
-The AIMMS 4.15.1.321 Release was released on February 4, 2016 Build 4.15.1.321). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -5450,10 +5571,10 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.14.1 Release
-----------------------------------
+AIMMS 4.14.1 Release (January 25, 2016 Build 4.14.1.302)
+---------------------------------------------------------------------------------------------------------
 
- January 25, 2016 Build 4.14.1.302). 
+ 
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -5503,10 +5624,10 @@ Resolved WebUI Issues
 AIMMS 4.13
 #############
 
-AIMMS 4.13.4 Release
-----------------------------------
+AIMMS 4.13.4 Release (January 11, 2015 Build 4.13.4.280)
+---------------------------------------------------------------------------------------------------------
 
- January 11, 2015 Build 4.13.4.280). 
+ 
 
 Resolved issues
 +++++++++++++++++++
@@ -5521,10 +5642,10 @@ Resolved issues
 
 
 
-AIMMS 4.13.3 Release
-----------------------------------
+AIMMS 4.13.3 Release (December 23, 2015 Build 4.13.3.254)
+---------------------------------------------------------------------------------------------------------
 
- December 23, 2015 Build 4.13.3.254). 
+ 
 
 Improvements
 +++++++++++++++++++
@@ -5548,10 +5669,10 @@ Resolved issues
 
 
 
-AIMMS 4.13.2 Release
-----------------------------------
+AIMMS 4.13.2 Release (December 9, 2015 Build 4.13.2.233)
+---------------------------------------------------------------------------------------------------------
 
- December 9, 2015 Build 4.13.2.233). 
+ 
 
 Improvements
 +++++++++++++++++++
@@ -5577,10 +5698,10 @@ Resolved issues
 
 
 
-AIMMS 4.13.1 Release
-----------------------------------
+AIMMS 4.13.1 Release (November 27, 2015 Build 4.13.1.204)
+---------------------------------------------------------------------------------------------------------
 
- November 27, 2015 Build 4.13.1.204). 
+ 
 
 Improvements
 +++++++++++++++++++
@@ -5609,10 +5730,10 @@ Resolved issues
 AIMMS 4.12
 #############
 
-AIMMS 4.12.1.194 Release
-----------------------------------
+AIMMS 4.12.1.194 Release (November 23, 2015 Build 4.12.1.194)
+-----------------------------------------------------------------------------------------------------------
 
-The AIMMS 4.12.1.194 Release was released on November 23, 2015 Build 4.12.1.194). 
+ 
 
 Resolved issues
 +++++++++++++++++++
@@ -5627,10 +5748,10 @@ Resolved issues
 
 
 
-AIMMS 4.12.1 Release
-----------------------------------
+AIMMS 4.12.1 Release (November 17, 2015 Build 4.12.1.186)
+---------------------------------------------------------------------------------------------------------
 
- November 17, 2015 Build 4.12.1.186). 
+ 
 
 Resolved issues
 +++++++++++++++++++
@@ -5648,10 +5769,10 @@ Resolved issues
 AIMMS 4.11
 #############
 
-AIMMS 4.11.1 Release
-----------------------------------
+AIMMS 4.11.1 Release (November 3, 2015 Build 4.11.1.166)
+---------------------------------------------------------------------------------------------------------
 
- November 3, 2015 Build 4.11.1.166). 
+ 
 
 Resolved issues
 +++++++++++++++++++
@@ -5670,10 +5791,10 @@ Resolved issues
 AIMMS 4.10
 #############
 
-AIMMS 4.10.2 Release
-----------------------------------
+AIMMS 4.10.2 Release (October 14, 2015 Build 4.10.2.130)
+---------------------------------------------------------------------------------------------------------
 
- October 14, 2015 Build 4.10.2.130). 
+ 
 
 **End of .aim/.amb (AIMMS 3 Project Files) Support** 
 From AIMMS 4.10 onwards, we have stopped the support for .aim/.amb files in our AIMMS versions. In practice, this means that if you have projects that contain files in either of these formats (typically projects that started its development in AIMMS 3 or older), you will need an AIMMS 4 version that is released before AIMMS 4.10 (i.e. 4.0   4.9) to convert the project for you into .ams files. After that, you can continue working with your project in AIMMS 4.10 and higher. If you have any questions or concerns about this upgrade, please do not hesitate to contact us via `support@aimms.com <mailto:support@aimms.com>`__.
@@ -5703,10 +5824,10 @@ Resolved issues
 
 
 
-AIMMS 4.10.1 Release
-----------------------------------
+AIMMS 4.10.1 Release (October 2, 2015 Build 4.10.1.102)
+---------------------------------------------------------------------------------------------------------
 
- October 2, 2015 Build 4.10.1.102). 
+ 
 
 Improvements
 +++++++++++++++++++
@@ -5732,10 +5853,10 @@ Resolved issues
 AIMMS 4.9
 #############
 
-AIMMS 4.9.4 Release
-----------------------------------
+AIMMS 4.9.4 Release (September 16, 2015 Build 4.9.4.68)
+---------------------------------------------------------------------------------------------------------
 
- September 16, 2015 Build 4.9.4.68). 
+ 
 
 Resolved issues
 +++++++++++++++++++
@@ -5751,10 +5872,10 @@ Resolved issues
 
 
 
-AIMMS 4.9.3 Release
-----------------------------------
+AIMMS 4.9.3 Release (September 9, 2015 Build 4.9.3.54)
+---------------------------------------------------------------------------------------------------------
 
- September 9, 2015 Build 4.9.3.54). 
+ 
 
 Resolved issues
 +++++++++++++++++++
@@ -5776,10 +5897,10 @@ Resolved issues
 
 
 
-AIMMS 4.9.2 Release
-----------------------------------
+AIMMS 4.9.2 Release (September 2, 2015 Build 4.9.2.31)
+---------------------------------------------------------------------------------------------------------
 
- September 2, 2015 Build 4.9.2.31). 
+ 
 
 Improvements
 +++++++++++++++++++
@@ -5804,10 +5925,10 @@ Resolved issues
 
 
 
-AIMMS 4.9.1 Release
-----------------------------------
+AIMMS 4.9.1 Release (August 21, 2015 Build 4.9.1.9)
+---------------------------------------------------------------------------------------------------------
 
- August 21, 2015 Build 4.9.1.9). 
+ 
 
 Improvements
 +++++++++++++++++++
@@ -5834,10 +5955,10 @@ Resolved issues
 AIMMS 4.8
 #############
 
-AIMMS 4.8.3 Release
-----------------------------------
+AIMMS 4.8.3 Release (August 11, 2015 Build 4.8.3.322)
+---------------------------------------------------------------------------------------------------------
 
- August 11, 2015 Build 4.8.3.322). A high level overview can be found at the `AIMMS New Features Page <http://main.aimms.com/downloads/aimms/new-features/>`__.
+ A high level overview can be found at the `AIMMS New Features Page <http://main.aimms.com/downloads/aimms/new-features/>`__.
 
 Improvements
 +++++++++++++++++++
@@ -5857,10 +5978,10 @@ Resolved issues
 
 
 
-AIMMS 4.8.2 Release
-----------------------------------
+AIMMS 4.8.2 Release (July 23, 2015 Build 4.8.2.313)
+---------------------------------------------------------------------------------------------------------
 
- July 23, 2015 Build 4.8.2.313). 
+ 
 
 Resolved issues
 +++++++++++++++++++
@@ -5877,10 +5998,10 @@ Resolved issues
 
 
 
-AIMMS 4.8.1 Release
-----------------------------------
+AIMMS 4.8.1 Release (July 9, 2015 Build 4.8.1.299)
+---------------------------------------------------------------------------------------------------------
 
- July 9, 2015 Build 4.8.1.299). 
+ 
 
 Improvements
 +++++++++++++++++++
@@ -5909,10 +6030,10 @@ Resolved issues
 AIMMS 4.7
 #############
 
-AIMMS 4.7.3 Release
-----------------------------------
+AIMMS 4.7.3 Release (June 24, 2015 Build 4.7.3.284)
+---------------------------------------------------------------------------------------------------------
 
- June 24, 2015 Build 4.7.3.284).  By the way: if you are missing 4.7.1 and 4.7.2, then you are right:). Due to some internal technical reasons, we start the 4.7 series with 4.7.3.
+  By the way: if you are missing 4.7.1 and 4.7.2, then you are right:). Due to some internal technical reasons, we start the 4.7 series with 4.7.3.
 
 Improvements
 +++++++++++++++++++
@@ -5938,10 +6059,10 @@ Resolved issues
 AIMMS 4.6
 #############
 
-AIMMS 4.6.4 Release
-----------------------------------
+AIMMS 4.6.4 Release (June 9, 2015 Build 4.6.4.277)
+---------------------------------------------------------------------------------------------------------
 
- June 9, 2015 Build 4.6.4.277). 
+ 
 
 Resolved issues
 +++++++++++++++++++
@@ -5957,10 +6078,10 @@ Resolved issues
 
 
 
-AIMMS 4.6.3 Release
-----------------------------------
+AIMMS 4.6.3 Release (May 22, 2015 Build 4.6.3.270)
+---------------------------------------------------------------------------------------------------------
 
- May 22, 2015 Build 4.6.3.270). 
+ 
 
 Improvements
 +++++++++++++++++++
@@ -5981,10 +6102,10 @@ Resolved issues
 
 
 
-AIMMS 4.6.2 Release
-----------------------------------
+AIMMS 4.6.2 Release (May 13, 2015 Build 4.6.2.265)
+---------------------------------------------------------------------------------------------------------
 
- May 13, 2015 Build 4.6.2.265). 
+ 
 
 Resolved issues
 +++++++++++++++++++
@@ -5999,10 +6120,10 @@ Resolved issues
 
 
 
-AIMMS 4.6.1 Release
-----------------------------------
+AIMMS 4.6.1 Release (May 1, 2015 Build 4.6.1.259)
+---------------------------------------------------------------------------------------------------------
 
- May 1, 2015 Build 4.6.1.259). 
+ 
 
 Improvements
 +++++++++++++++++++
@@ -6042,10 +6163,10 @@ Resolved issues
 AIMMS 4.5
 #############
 
-AIMMS 4.5.3 Release
-----------------------------------
+AIMMS 4.5.3 Release (April 24, 2015 Build 4.5.3.253)
+---------------------------------------------------------------------------------------------------------
 
- April 24, 2015 Build 4.5.3.253). 
+ 
 
 Resolved issues
 +++++++++++++++++++
@@ -6071,10 +6192,10 @@ Resolved issues
 
 
 
-AIMMS 4.5.2 Release
-----------------------------------
+AIMMS 4.5.2 Release (April 16, 2015 Build 4.5.2.250)
+---------------------------------------------------------------------------------------------------------
 
- April 16, 2015 Build 4.5.2.250).
+
 
 Resolved issues
 +++++++++++++++++++
@@ -6096,10 +6217,10 @@ Resolved issues
 
 
 
-AIMMS 4.5.1 Release
-----------------------------------
+AIMMS 4.5.1 Release (April 1, 2015 Build 4.5.1.229)
+---------------------------------------------------------------------------------------------------------
 
- April 1, 2015 Build 4.5.1.229).
+
 
 **Improvements**
 
@@ -6114,10 +6235,10 @@ AIMMS 4.5.1 Release
 AIMMS 4.4
 #############
 
-AIMMS 4.4.2 Release
-----------------------------------
+AIMMS 4.4.2 Release (March 25, 2015 Build 4.4.2.4)
+---------------------------------------------------------------------------------------------------------
 
- March 25, 2015 Build 4.4.2.4).
+
 
 WebUI Backward Compatibility Issue
 +++++++++++++++++++++++++++++++++++++++
@@ -6179,10 +6300,10 @@ Resolved issues
 AIMMS 4.3
 #############
 
-AIMMS 4.3.2 Release
-----------------------------------
+AIMMS 4.3.2 Release (The **AIMMS 4.3.2 Release** was released on January 21, 2015 Build 4.3.2.3)
+---------------------------------------------------------------------------------------------------------
 
-The **AIMMS 4.3.2 Release** was released on January 21, 2015 Build 4.3.2.3).
+
 
 Improvements
 +++++++++++++++++++
@@ -6203,10 +6324,10 @@ Resolved issues
 
 
 
-AIMMS 4.3.1 Release
-----------------------------------
+AIMMS 4.3.1 Release (The **AIMMS 4.3.1 Release** was released on January 14, 2015 Build 4.3.1.2)
+---------------------------------------------------------------------------------------------------------
 
-The **AIMMS 4.3.1 Release** was released on January 14, 2015 Build 4.3.1.2).
+
 
 Improvements
 +++++++++++++++++++
@@ -6247,10 +6368,10 @@ A high level overview can be found at the `AIMMS New Features Page <https://www.
 AIMMS 4.2
 #############
 
-AIMMS 4.2.1 Release
-----------------------------------
+AIMMS 4.2.1 Release (The **AIMMS 4.2.1.18 Release** was released on December 17, 2014 Build 4.2.1.18)
+---------------------------------------------------------------------------------------------------------
 
-The **AIMMS 4.2.1.18 Release** was released on December 17, 2014 Build 4.2.1.18).
+
 
 Resolved issues
 +++++++++++++++++++
@@ -6296,10 +6417,10 @@ A high level overview can be found at the `AIMMS 4.2 New Features Page <https://
 AIMMS 4.1
 #############
 
-AIMMS 4.1.2 Release
-----------------------------------
+AIMMS 4.1.2 Release (The **AIMMS 4.1.2 Release** was released on November 17, 2014 Build 4.1.2.9)
+---------------------------------------------------------------------------------------------------------
 
-The **AIMMS 4.1.2 Release** was released on November 17, 2014 Build 4.1.2.9).
+
 
 Improvements
 +++++++++++++++++++
@@ -6330,10 +6451,10 @@ Resolved issues
 
 
 
-AIMMS 4.1.1 Release
-----------------------------------
+AIMMS 4.1.1 Release (The **AIMMS 4.1.1 Release** was released on October 16, 2014 Build 4.1.1.4)
+---------------------------------------------------------------------------------------------------------
 
-The **AIMMS 4.1.1 Release** was released on October 16, 2014 Build 4.1.1.4).
+
 
 Improvements
 +++++++++++++++++++
@@ -6360,10 +6481,10 @@ Resolved issues
 
 
 
-AIMMS 4.1.0 Release
-----------------------------------
+AIMMS 4.1.0 Release (The **AIMMS 4.1.0 Release** was released on September 26, 2014 Build 4.1.0.26)
+---------------------------------------------------------------------------------------------------------
 
-The **AIMMS 4.1.0 Release** was released on September 26, 2014 Build 4.1.0.26).
+
 
 Improvements
 +++++++++++++++++++

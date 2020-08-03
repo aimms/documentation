@@ -34,4 +34,5 @@ The description of the tools for WebUI app development and related topics can be
    widget-options
    data-manager
    application-settings
+   feature-alignment
 

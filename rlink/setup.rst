@@ -15,7 +15,7 @@ RLink requires the following to be installed on the system:
 
 .. note::
 
-    The latest R version that is compatible with RLink is 3.5.2
+    The latest R version that is compatible with RLink is 3.6.3
 
 The R package called aimms (lower case) contains the functions SetData and GetData. In R they are in the namespace aimms because of the package name. In this way we can do :token:`aimms::SetData` and :token:`aimms::GetData` in R, so the name makes sense. Still it may be confusing with AIMMS the program or AIMMS the language. To avoid confusion, *throughout this manual we will use aimms (lower case) to refer to the R package and R namespace*.
 

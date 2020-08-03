@@ -95,7 +95,7 @@ Reading
     The first row is considered to be the header. Then the file is read line by line, where each line is split into separate values using the separator. This means that strings do not have to be between quotes. If however the value contains the separator character then the values must be enclosed between quotes.
 
 Writing
-    All values are converted to strings and written line by line with the separator character between them. The result can be controlled using the :token:`Width` and :token:`Precision` column attributes (see :ref:`LinkAddClassicDataMap` or :ref:`LinkNewDataMap` about how to specify column attributes). The width is the number of characters of the value (so it forms the column width). The precision attribute is different for strings and numerical value:
+    All values are converted to strings and written line by line with the separator character between them. The result can be controlled using the :token:`Width` and :any:`Precision` column attributes (see :ref:`LinkAddClassicDataMap` or :ref:`LinkNewDataMap` about how to specify column attributes). The width is the number of characters of the value (so it forms the column width). The precision attribute is different for strings and numerical value:
 
     Strings:
         The precision defines the max number of characters. If the actual value has more characters it gets truncated.
@@ -104,13 +104,13 @@ Writing
         Column attribute :token:`Format` can be used to select the output format: 
 
         Float (default) :
-            The values is written as 123.4567 and column attribute :token:`Precision` defines the number of decimals.
+            The values is written as 123.4567 and column attribute :any:`Precision` defines the number of decimals.
 
         Exponential :
-            The values is written as 1.2345e+67 and column attribute :token:`Precision` defines the number of decimals.
+            The values is written as 1.2345e+67 and column attribute :any:`Precision` defines the number of decimals.
 
         Automatic:
-            Choose automatically Float or Exponential, whichever is shortest.  Column attribute :token:`Precision` defines the number of significant digits.
+            Choose automatically Float or Exponential, whichever is shortest.  Column attribute :any:`Precision` defines the number of significant digits.
 
 
 Limitations

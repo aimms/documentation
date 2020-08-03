@@ -66,7 +66,7 @@ On the AIMMS model side, you have:
 
     .. important:: 
 
-        Please note that the third argument FormFields of the internal procedure "webui::SetupForm" must be an explicit identifier denoting a set which is a subset of :token:`AllIdentifiers`.
+        Please note that the third argument FormFields of the internal procedure "webui::SetupForm" must be an explicit identifier denoting a set which is a subset of :any:`AllIdentifiers`.
 
 On the WebUI side, you have:
 

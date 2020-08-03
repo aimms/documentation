@@ -7,6 +7,30 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+
+1.18.0.21 [21-07-2020]
+    - Addresses a performance degradation in computing differences between current and committed data.
+    - Function :js:func:`cdm::DeleteDependentBranches` could delete branches originating after the given end revision.
+    - :js:func:`cdm::PullChanges` could fail to use cached commits when called from a commit notification if two categories were committed intermittently, leading to increased pull times in the presence of multiple clients auto-pulling the changes.
+    
+1.18.0.14 [16-07-2020]
+    - Changing 0.0 to zero would not be detected by CDM because of the semantics of numerical :token:`<>` operator in AIMMS.
+
+1.18.0.13 [14-07-2020]
+    - Unitialized local variable could cause crash on Linux.
+    
+1.18.0.11 [01-07-2020]
+    - Fixed missing symbol in libcdm.so on Linux
+
+1.18.0.9 [24-06-2020]
+    - Changesets are now compressed during transport to reduce transmission time and in database cache to reduce stored snapshot size.
+    - Introduced separate function :js:func:`cdm::CreateSnapshot` to create a cached snapshot asynchronously and completely server-side.
+    - Removed the optional :token:`cacheUpdate` argument from :js:func:`cdm::CheckoutSnapshot` function.
+    - The procedure :js:func:`cdm::RetireBranchData` has been implemented in a totally different manner because a fix to the previous implementation fundamentally prevented it from working for SQLServer-backed CDM instances.
+    - Stopped supporting VC120-based AIMMS versions.
+
+NB. Because the wire and storage format for snapshots changed, all cached snapshots stored in the CDM database will be deleted. Also, the function prototypes for creating snapshots and retiring branch data are changed. If you used these functionalities before, you should update your model.
+
 1.17.1.13 [10-03-2020]
     - In :token:`cdm::DataChangeProcedure` pass on exception only on last retry.
     
@@ -37,7 +61,7 @@ NB. This fix required a change in the format of the changesets sent over the wir
 1.16.0.8 [05-02-2020]
     - Labels added prior to a snapshot revision, but then removed from the set in the snapshot revision, could lead to client-side data loss when such a label was re-added as part of a revision range passed to the client during a checkout based on a cached snapshot.
 1.16.0.7 [30-01-2020]
-    - Having predeclared identifiers in :token:`cdm::AllCDMIdentifiers` would make the call to :token:`AttributeToString` fail PRO solver sessions.
+    - Having predeclared identifiers in :token:`cdm::AllCDMIdentifiers` would make the call to :any:`AttributeToString` fail PRO solver sessions.
     - Add :token:`cdm::IdentifierOrderOverride` to CDM library to allow manually setting identifier order for category identifiers set via :token:`cdm::IdentifierCategoryOverride`.
     
 1.16.0.5 [29-01-2020]

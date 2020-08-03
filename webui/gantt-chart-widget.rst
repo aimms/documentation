@@ -286,7 +286,7 @@ This makes it easier for the user to either line up jobs from different tasks/re
 Making some or all tasks read-only in the Gantt Chart
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. All tasks read-only: remove the identifier from ``CurrentInputs`` built-in AIMMS Set
+1. All tasks read-only: remove the identifier from :any:`CurrentInputs` built-in AIMMS Set
 
 .. code::
 
