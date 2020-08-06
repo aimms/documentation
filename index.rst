@@ -52,6 +52,7 @@
    :hidden:
 
    platform/index
+   Function Reference <https://documentation.aimms.com/functionreference/index.html>
    aimms_user
    aimms_ref
    aimms_modeling
