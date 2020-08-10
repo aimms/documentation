@@ -13,6 +13,27 @@ AIMMS 4.74
 #############
 
 
+AIMMS 4.74.6 Release (August 10, 2020 - build 4.74.6.3)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When the connection with the database was broken during the execution of a read statement, a misleading error message "Function Sequence Error" could be reported.
+-  In recent AIMMS versions, variables with a domain condition that uses a sub expression like (i IN {'a','b'}) were not always generated correctly.
+-  In recent AIMMS versions, the construct (i IN { 1..5 }) did not always work when used inside the body of a function.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The search functionality in the widgets has been updated to search based on 'Element Text Identifier' values if configured.
+-  Map nodes were not getting deleted from the map widget after emptying the node-set data.
+
+
+--------------
+
+
+
 AIMMS 4.74.5 Release (August 4, 2020 - build 4.74.5.2)
 ------------------------------------------------------------------------------------------
 
