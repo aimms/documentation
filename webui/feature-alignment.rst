@@ -53,7 +53,7 @@ The table below maps the features available for the different type of pages.
     :header: "Features","`Regular Page <webui-pages.html>`_","`Side Panel Page <side-panels.html>`_","`Dialog Page <dialog-pages.html>`_"
 
     `Page Actions <page-settings.html#page-actions>`_,|tickmark|,,
-    Layout,Classic/Grid,Fixed Width,Small/Medium/Large
+    Layout,Classic,Fixed Width,Small/Medium/Large
     `Action Upon Load <page-settings.html>`_,|tickmark|,,
     `Action Upon Leave <page-settings.html>`_,|tickmark|,,|tickmark|
     Max Columns,|tickmark|,2 Column Fixed,Small/Medium/Large
