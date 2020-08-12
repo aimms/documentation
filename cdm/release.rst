@@ -8,6 +8,10 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
+1.18.0.25 [12-08-2020]
+    - Re-committing unmapped labels when a client category was not up-to-date, could cause a crash in the CDM server.
+    - Addded new function to fill :token:`cdm::Categories` without actually having to call :js:func:`cdm::CreateRuntimeLibrary`.
+    
 1.18.0.23 [05-08-2020]
     - The function :js:func:`cdm::CreateBranch` will now automatically update the set :token:`cdm::Branches` with the new branch information.
     
