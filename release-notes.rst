@@ -13,6 +13,28 @@ AIMMS 4.74
 #############
 
 
+AIMMS 4.74.7 Release (August 14, 2020 - build 4.74.7.8)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When the value of a datasource was very long, AIMMS disappeared after some of the wizards of the database table.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The WebUI did not use annotations that were specified on the parent nodes of a symbol in the model tree.
+
+Resolved Security Issues
++++++++++++++++++++++++++
+
+-  No security-related changes were made in this AIMMS version.
+
+--------------
+
+
+
 AIMMS 4.74.6 Release (August 10, 2020 - build 4.74.6.3)
 ------------------------------------------------------------------------------------------
 
