@@ -1,0 +1,26 @@
+Different types of Custom Layout
+================================
+
+Creating `custom layouts <webui-grid-pages.rst>`_ is explained in the WebUI Grid Pages section. This topic will illustrate "How To" use pixels (px) or  percentages (%) to set fixed width or height to columns or rows in your layouts.
+
+This is useful when you either require a vertical scroll or in some cases a horizontal scroll, or if you do not want to use the full height or width of your viewport.
+
+To control the height of your application either to a fixed height or to introduce a vertical browser scroll you need to customize the values in `gridTemplateRows` i.e for the rows. 
+
+To control the width of your application either to a fixed width or to introduce a horizontal browser scroll you need to customize the values in `gridTemplateColumns` i.e for the columns. 
+
+Using pixels (px)
+-----------------
+
+To illustrate introducing vertical scroll you can use the below snippet.
+
+.. code::
+
+    "props": {
+		"gridTemplateColumns": "2fr 1fr 1fr",
+		"gridTemplateRows": "100px 300px 300px",
+		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
+	},
+
+Using percentages (%)
+---------------------
