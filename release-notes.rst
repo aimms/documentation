@@ -31,6 +31,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
+-  It was not possible anymore to add widgets to a page containing a Group Widget.
 -  The WebUI did not use annotations that were specified on the parent nodes of a symbol in the model tree.
 
 Resolved Security Issues
