@@ -16,10 +16,17 @@ AIMMS 4.74
 AIMMS 4.74.7 Release (August 14, 2020 - build 4.74.7.8)
 ------------------------------------------------------------------------------------------
 
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  We added ODBC support for the IMPALA database and drivers.
+
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  When the value of a datasource was very long, AIMMS disappeared after some of the wizards of the database table.
+-  When the value of the attribute `datasource` of the databasetable was very long, AIMMS crashed without a message after usage of some of the wizards of the database table.
+-  When an ODBC driver throws an exception when retrieving structural information about the database (table), AIMMS could crash instead of reporting the issue as an error.
+
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
