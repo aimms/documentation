@@ -4,7 +4,7 @@ Custom Layouts
 Different types of Custom Layout
 --------------------------------
 
-Creating `custom layouts <webui-grid-pages.rst>`_ is explained in the WebUI Grid Pages section. This topic will illustrate "How To" use pixels (px) or percentages (%) to set fixed width or height to columns or rows in your layouts.
+Creating `custom layouts <webui-grid-pages.rst>`_ is explained in the WebUI Grid Pages section. This topic will illustrate "How To" use pixels (px) or percentages (%) to set a fixed width or height to columns or rows in your layouts.
 
 This is useful when you either require a vertical scroll or in some cases a horizontal scroll, or if you do not want to use the full height or width of your viewport.
 
@@ -21,13 +21,13 @@ In order to use pixels, you might want to first determine the height (in pixels)
     :align: center
     :scale: 75
 
-When you have the Workflow Panel and the Side Panels, your viewport size is slightly smaller as illustrated in the image below:
+When you use the Workflow Panel and the Side Panels, your viewport size is slightly smaller as illustrated in the image below:
 
 .. image:: images/viewportWorkflowSidePanel.png
     :align: center
     :scale: 75
 
-Once you know the height of the viewport, if you want to fix the height of your application to half of your viewport's size, for example, just divide the values such that sum of the values defining the height of the rows is half of the height of the viewport.
+Once you know the height of the viewport, if you want to fix the height of your application to half of your viewport's size, for example, just divide the values such that the sum of the values defining the height of the rows is half of the height of the viewport.
 
 To illustrate the above example, let's consider that the height of the browser viewport is 1000px.
 
@@ -39,7 +39,7 @@ To illustrate the above example, let's consider that the height of the browser v
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-As long as the sum of the values used to divide the rows does not exceed the browser viewport no scroll will appear. To introduce a vertical scroll the sum needs to exceed the browser viewport height.
+As long as the sum of the values used to divide the rows does not exceed the browser viewport, no scroll will appear. To introduce a vertical scroll the sum needs to exceed the browser viewport height.
 
 If you want to introduce a vertical scroll you can use the below snippet.
 
@@ -119,15 +119,15 @@ If you want to introduce a horizontal scroll you can use the below snippet.
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-Although there is one fundamental difference between using pixels and percentages. Pixels are fixed width/height regardless of the browser viewport size, whereas percentages adjust according to the browser viewport size since it adapts to the percentage of the size of the browser viewport.
+However, there is one fundamental difference between using pixels and percentages: pixels are fixed width/height regardless of the browser viewport size, whereas percentages adjust according to the browser viewport size since it adapts to the percentage of the size of the browser viewport.
 
 
 Using combinations of fr, px, and %
 -----------------------------------
 
-You can also use a combination of fractions and pixels and percentages. This is typically useful when you might want to fix the size of a particular row or column but not restrict rest of the layout.
+You can also use a combination of fractions and pixels and percentages. This is typically useful when you might want to fix the size of a particular row or column but not restrict the rest of the layout.
 
-The below snippet illustrates the use of fractions (fr) and pixels (px), where the first and second columns have a fixed width of 200px each, and the first row has a fixed height of 300px. This will result in the `Title` and `Extra` areas having a fixed height of 100px and the `Map` area with a width of 400px. 
+The snippet below illustrates the use of fractions (fr) and pixels (px), where the first and second columns have a fixed width of 200px each, and the first row has a fixed height of 100px. This will result in the `Title` and `Extra` areas having a fixed height of 100px and the `Map` area with a width of 400px. 
 
 .. code::
 
