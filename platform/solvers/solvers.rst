@@ -5,43 +5,37 @@ AIMMS, as a complete optimization modeling system, comes with all
 functionality to develop and create complete optimization applications.
 This means that a large set of mathematical model types (Linear, Mixed
 Integer, Nonlinear, Mixed Integer Nonlinear, etc.) can be formulated
-within AIMMS. AIMMS uses solvers to optimize mathematical models.
+within AIMMS. AIMMS uses solvers to optimize mathematical models.
 Depending on the solvers available with your license, you are able to
 solve the models at a requested performance (high and medium performance
 solvers do exist for most model types).
 
-The standard license of AIMMS includes the world-class solver
+The standard license of AIMMS includes the world-class solver
 CPLEX.
 The installation package of AIMMS also has
-the `COIN-OR <http://www.coin-or.org/>`__ solvers CBC (LP/MIP) and IPOPT
+the `COIN-OR <http://www.coin-or.org/>`__ solvers CBC (LP/MIP) and IPOPT
 (NLP) included; these two solvers are not owned or serviced by the AIMMS
-company – they are by the open source community – but can be also used
+company – they are by the open source community – but can be also used
 by any AIMMS user. This set of solvers, together with the freely
-available `Advanced
-Algorithms <advanced-algorithms>`__
+available :ref:`advanced-algorithms`.
 set of AIMMS such as AIMMS Outer Approximation, Benders Decomposition
 and more – offers a great start for creating optimization applications.
 Of course, the set of solvers available in a license can be extended by
 other `commercial solver
 add-ons <https://www.aimms.com/support/licensing>`__.
 
-All solvers are connected to AIMMS by using the :doc:`AIMMS Open Solver
+All solvers are connected to AIMMS by using the :doc:`AIMMS Open Solver
 Interface <open-solver-interface>`,
 which link solvers through a collection of C++ interfaces.
 
 Contents
 --------
 
--  `Available Solvers in
-   AIMMS <available-solvers>`_
--  `Robust Optimization
-   Add-on <robust-optimization-add-on>`_
--  `Supported Math Program
-   Types <supported-math-program-types>`_
--  `Math Program Types
-   Explanation <math-program-types-explanation>`_
--  `LP and MIP Solver
-   Features <lp-and-mip-solver-features>`_
+-  :ref:`available-solvers`
+-  :ref:`robust-optimization-add-on`
+-  :ref:`supported-math-program-types`
+-  :ref:`math-program-types-explanation`
+-  :ref:`lp-and-mip-solver-features`
 
 .. _available-solvers:
 
@@ -82,13 +76,13 @@ Available Solvers in AIMMS
 |                 | programming solver from Gurobi   |
 |                 | Optimization                     |
 +-----------------+----------------------------------+
-| IPOPT           | Open source Interior Point       |
+| IPOPT           | Open source Interior Point       |
 |                 | optimizer for large-scale        |
 |                 | nonlinear optimization at        |
 |                 | COIN-OR                          |
 +-----------------+----------------------------------+
 | KNITRO          | Large-scale nonlinear            |
-|                 | programming solver from Artelys  |
+|                 | programming solver from Artelys  |
 |                 |                                  |
 +-----------------+----------------------------------+
 | MINOS           | Nonlinear programming solver     |
@@ -119,7 +113,7 @@ AIMMS RO considers data uncertainties against whose realizations the
 solution is required to remain feasible. This uncertainty may occur in
 any part of the model data. Partial feasibility can be included by
 adding probabilities to constraints (e.g. the chance that demand is met
-is at least 95%).  
+is at least 95%). 
 
 You can add this add-on upon purchase of your AIMMS licenses, or add it
 later; please be advised that the RO Add-on recommends an AIMMS license
@@ -137,7 +131,7 @@ If you would like to extend the power of AIMMS (beyond the open source
 COIN-OR solvers and AOA algorithm) with commercial solvers, we offer you
 the possibility to add commercial solvers to AIMMS. If you already have
 a license for one of the available additional solvers (in the form of a
-callable library), you can also request a *Solver Link* and use your
+callable library), you can also request a *Solver Link* and use your
 existing solver license with AIMMS.
 
 +--------+-----+-----+-----+------+-----+-------+-----+-------+-----+------+-----+-----+
@@ -174,7 +168,7 @@ existing solver license with AIMMS.
 | PATH              |     |     |     |      |     |       |     |       | ✔   |      |     |     |
 +-------------------+-----+-----+-----+------+-----+-------+-----+-------+-----+------+-----+-----+
 
-\* Includes the use of parallel threads without any extra charge
+\* Includes the use of parallel threads without any extra charge
 
 
 .. _math-program-types-explanation:
