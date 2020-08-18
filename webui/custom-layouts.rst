@@ -6,11 +6,11 @@ Different types of Custom Layout
 
 Creating `custom layouts <webui-grid-pages.rst>`_ is explained in the WebUI Grid Pages section. This topic will illustrate "How To" use pixels (px) or percentages (%) to set a fixed width or height to columns or rows in your layouts.
 
-This is useful when you either require a vertical scroll or in some cases a horizontal scroll, or if you do not want to use the full height or width of your viewport.
+This is useful when you either require a vertical scrollbar or in some cases a horizontal scrollbar, or if you do not want to use the full height or width of your viewport.
 
-To control the height of your application either to a fixed height or to introduce a vertical browser scroll you need to customize the values in `gridTemplateRows` i.e. for the rows. 
+To control the height of your application either to a fixed height or to introduce a vertical scrollbar you need to customize the values in `gridTemplateRows` i.e. for the rows. 
 
-To control the width of your application either to a fixed width or to introduce a horizontal browser scroll you need to customize the values in `gridTemplateColumns` i.e. for the columns. 
+To control the width of your application either to a fixed width or to introduce a horizontal scrollbar you need to customize the values in `gridTemplateColumns` i.e. for the columns. 
 
 Using pixels (px)
 -----------------
@@ -39,9 +39,9 @@ To illustrate the above example, let's consider that the height of the browser v
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-As long as the sum of the values used to divide the rows does not exceed the browser viewport, no scroll will appear. To introduce a vertical scroll the sum needs to exceed the browser viewport height.
+As long as the sum of the values used to divide the rows does not exceed the browser viewport, no scrollbar will appear. To introduce a vertical scrollbar the sum needs to exceed the browser viewport height.
 
-If you want to introduce a vertical scroll you can use the below snippet.
+If you want to introduce a vertical scrollbar you can use the below snippet.
 
 .. code::
 
@@ -63,7 +63,7 @@ Let's consider the width of the browser viewport is 1000px.
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-If you want to introduce a horizontal scroll you can use the below snippet, where the sum exceeds the browser viewport width. 
+If you want to introduce a horizontal scrollbar you can use the below snippet, where the sum exceeds the browser viewport width. 
 
 .. code::
 
@@ -77,9 +77,9 @@ If you want to introduce a horizontal scroll you can use the below snippet, wher
 Using percentages (%)
 ---------------------
 
-Similar to the concept of the pixels to avoid scroll the sum of the values should not exceed 100%, and if you want a scroll then the sum must exceed 100%.
+Similar to the concept of the pixels to avoid scrollbar the sum of the values should not exceed 100%, and if you want a scrollbar then the sum must exceed 100%.
 
-To illustrate an example where you want to avoid scroll or want the application to be half the size of the browser viewport, you can use the below snippet.
+To illustrate an example where you want to avoid scrollbar or want the application to be half the size of the browser viewport, you can use the below snippet.
 
 .. code::
 
@@ -89,7 +89,7 @@ To illustrate an example where you want to avoid scroll or want the application 
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-If you want to introduce a vertical scroll you can use the below snippet.
+If you want to introduce a vertical scrollbar you can use the below snippet.
 
 .. code::
 
@@ -99,7 +99,7 @@ If you want to introduce a vertical scroll you can use the below snippet.
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-Similarly, if you want to control the width of the application, to avoid a horizontal scroll or use only half the width of the viewport you can use the below snippet.
+Similarly, if you want to control the width of the application, to avoid a horizontal scrollbar or use only half the width of the viewport you can use the below snippet.
 
 .. code::
 
@@ -109,7 +109,7 @@ Similarly, if you want to control the width of the application, to avoid a horiz
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-If you want to introduce a horizontal scroll you can use the below snippet. 
+If you want to introduce a horizontal scrollbar you can use the below snippet. 
 
 .. code::
 
