@@ -61,4 +61,5 @@
    cloud/index   
    library-repository
    release-notes
+   pro-release-notes
    deprecation-table
