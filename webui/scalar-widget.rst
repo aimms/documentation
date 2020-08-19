@@ -40,3 +40,17 @@ Here are some examples of the scalar widget that show you some typical usage.
     
 .. image:: images/scalar-multiline.png
     :align: center
+
+
+Date and Time picker for Element parameters
+-------------------------------------------
+
+.. Important:: 
+    The Date and Time picker is available in software versions from AIMMS 4.75 onwards as part of Experimental Features. Please reach out to User Support on how to enable Experimental Features.
+
+A Data and Time picker icon is displayed when an element parameter that is ranged over a Calendar is configured in the Contents.
+
+.. image:: images/DateTime_ScalarElement.png
+    :align: center
+
+For more information on how to configure and user the date and time picker, please refer to `Date and Time picker for Calendar elements <table-widget.html#date-and-time-picker-for-calendar-elements>`_.
