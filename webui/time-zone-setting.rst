@@ -15,7 +15,7 @@ To activate the Time Zone Panel, toggle the switch for the "Time Zone Setting" o
 .. image:: images/TimeZone_TimeZonePanelOn.png
     :align: center
 
-To create a multi-timezone application, the Timezone Support section has been added to the AIMMS WebUI Library. The next few sections describe the some of the sets, identifiers, and procedures you would need to know which could help to build your multi-timezone application.
+To create a multi-timezone application, the Timezone Support section has been added to the AIMMS WebUI Library. The next few sections describe some of the sets, identifiers, and procedures which you need to know and which will help you when building your multi-timezone application.
 
 webui::DisplayTimeZones Set
 +++++++++++++++++++++++++++
