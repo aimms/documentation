@@ -20,12 +20,16 @@ To create a multi-timezone application, the Timezone Support section has been ad
 webui::DisplayTimeZones Set
 +++++++++++++++++++++++++++
 
-The dropdown in the time zone panel gets the values from the ``webui::DisplayTimeZones`` set. This set contains all the time zones available in AIMMS that are displayed with the UTC offset and region. This makes it easy for the user to identify and select the desired time zone. The user can also search for a time zone by typing the city name.
+The dropdown in the time zone panel gets the values from the ``webui::DisplayTimeZones`` set. This set contains all the time zones available in AIMMS that are displayed with the UTC offset and region. This makes it easy for the user to identify and select the desired time zone. The user can also search for a time zone by typing the city name:
 
 .. image:: images/TimeZone_SearchTimeZone.png
     :align: center
 
-The ``webui::DisplayTimeZones`` set can also be initialized to hold specific time zones from the ``webui::AllTimeZones`` set. For example, when the ``webui::DisplayTimeZones`` set is initialized with three time zones, for example ``W. Europe Standard Time, Central Pacific Standard Time, AUS  Eastern Standard Time``, users will see only those three options in the list.
+The ``webui::DisplayTimeZones`` set can also be initialized to hold specific time zones from the ``webui::AllTimeZones`` set. For example, when the ``webui::DisplayTimeZones`` set is initialized with three time zones, such as the following:
+
+``W. Europe Standard Time, Central Pacific Standard Time, AUS  Eastern Standard Time``, 
+
+then the users will see only those three options in the list:
 
 .. image:: images/TimeZone_ThreeTimeZones.png
     :align: center
