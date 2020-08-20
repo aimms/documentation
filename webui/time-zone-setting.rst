@@ -56,7 +56,7 @@ When ``webui::WebApplicationTimeZone`` is used in the display formats, the date 
 webui::IgnoreDST
 ++++++++++++++++
 
-``webui::IgnoreDST`` is a binary parameter used to decide if daylight savings time should be considered or not. By default ``webui::IgnoreDST`` is set to 0, which infers that the application will consider daylight saving time. If the value is set to 1, the application will not consider daylight saving time. 
+``webui::IgnoreDST`` is a binary parameter used to decide whether daylight savings time should be considered or not. By default ``webui::IgnoreDST`` is set to 0, which infers that the application will consider daylight saving time. If the value is set to 1, the application will not consider daylight saving time. 
 
 If you want to display "DST" at the end of the date and/or time based on daylight saving time and value of ``webui::IgnoreDST``, create a string parameter that decides the format based on ``webui::IgnoreDST`` and assign it to the Timeslot format, as illustrated below:
 
