@@ -77,7 +77,7 @@ webui::ApplicationHourlyTimeSlotFormat and webui::ApplicationMinuteTimeSlotForma
 
 ``webui::ApplicationHourlyTimeSlotFormat`` and ``webui::ApplicationMinuteTimeSlotFormat`` are string parameters already defined in the AIMMS WebUI library that can be used in the Timeslot format for calendar. These can be used as references to create custom formats as well.
 
-``webui::ApplicationHourlyTimeSlotFormat`` is defined as, and the format is displayed up to the hour. 
+``webui::ApplicationHourlyTimeSlotFormat`` is defined as follows (and the resulting format is displayed up to the hour): 
 
 .. code:: 
 
@@ -87,7 +87,7 @@ webui::ApplicationHourlyTimeSlotFormat and webui::ApplicationMinuteTimeSlotForma
         "%c%y-%m-%d %H %TZ(webui::WebApplicationTimeZone)|\"\"|\" DST\"|"
     endif;
 
-``webui::ApplicationMinuteTimeSlotFormat`` is define as, and the format is displayed up to the minute. 
+``webui::ApplicationMinuteTimeSlotFormat`` is define as follows (and the resulting format is displayed up to the minute): 
 
 .. code:: 
 
