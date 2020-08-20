@@ -1,6 +1,41 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.35
+########
+
+AIMMS PRO 2.35.5 Release
+------------------------
+
+On July 9, 2020, we released AIMMS PRO 2.35.5 (2.35.5.5). 
+
+
+**Resolved Issues**
+
+-  There was an issue with the closing of WebSocket SSL connections that occurs under rare circumstances, resulting in a non-responsive status.
+-  There was an issue with executing a terminate request for a queued session that occurs under rare circumstances, resulting in that queued session to be started before that terminate request was processed and continue to hang for an hour while holding a license, thereby potentially not allowing other sessions to be started.
+
+
+--------------
+
+AIMMS PRO 2.35.1 Release
+------------------------
+
+On May 15, 2020, we released AIMMS PRO 2.35.1 (2.35.1.3). 
+
+
+
+**Improvements**
+
+-  **Cloud:** We made improvements in gathering statistics about the cloud resource availability and usage.
+
+
+**Resolved Issues**
+
+-  We fixed an issue in the PRO API for Java and .NET where it would fail to run remote procedure calls with non-scalar arguments. IMPORTANT: you need to download the PRO API again from the PRO server and rebuild your programs against that latest version of the API. Just running the new server will NOT result in this issue being fixed.
+-  Sessions would always get the default priority when the matching rule specified to use a lower priority (higher number).
+
+
 PRO 2.34
 ########
 
@@ -16,7 +51,6 @@ On April 16, 2020, we released AIMMS PRO 2.34.3(2.34.3.1).
    cause the server to crash due to out-of-memory.
 -  There was an issue with improper encoded cookies, causing penetration
    tests to give false positives.
-
 
 
 --------------
@@ -50,7 +84,9 @@ On February 7, 2020, we released AIMMS PRO 2.34.2(2.34.2.1).
    handled(i.e. could fail to start) by AIMMS PRO Backend when your
    AIMMS PRO Cloud Platform is updated with new version.
 
---------------
+
+PRO 2.33
+########
 
 AIMMS PRO 2.33.3 Release
 ------------------------
