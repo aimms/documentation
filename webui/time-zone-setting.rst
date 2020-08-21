@@ -117,7 +117,7 @@ In the WebUI, the values for the calendar will be displayed in the corresponding
 Best Practices and Working Example 
 ++++++++++++++++++++++++++++++++++
 
-When designing a multi-timezone application we recommend following some best practices that would make it easier and consistent. Below are some of the best practices:
+When designing a multi-timezone application we recommend following some best practices which can make it consistent and easier to use. Below are some best practices we would advise:
 
 #. Create conventions in your model that cater to different aspects; Model, WebUI and Database:
 
@@ -131,19 +131,21 @@ When designing a multi-timezone application we recommend following some best pra
 
 #. Try to use UTC as the base timezone for your application and initialize ``webui::ModelTimeZone:='UTC'`` as well.
 
-#. Set the ``Use UTC for case and start end date`` option in the Project options as "On"
+#. Set the ``Use UTC for case and start end date`` option in the Project options to "On", see here:
    
     .. image:: images/TimeZone_ProjectOptionsUTC.png
         :align: center
         :scale: 75
 
-#. When defining the attributes for the calendar use a 15-minute granularity or a minute granularity since you will have time zones that be +15, +30 or +45 minutes as their offsets. For example, ``Indian standard Time`` has the offset as UTC+5:30.
+#. When defining the attributes for the calendar, please use a 15-minute granularity or a minute granularity since you will have time zones which will be +15, +30 or +45 minutes away from their offsets. For example, ``Indian standard Time`` has the offset UTC+5:30.
 
-#. In the database when representing a field as a date, assign the datatype as datetime.
+#. In the database, when representing a field as a date, please assign the datatype as datetime.
 
-#. Use the DST format in the timeformat for the conventions to indicate daylight saving time in the WebUI. For example, ``"%c%y-%m-%d %H:%M %TZ(webui::WebApplicationTimeZone)|\"\"|\" DST\"|"``
+#. Use the DST format in the timeformat for the conventions in order to indicate daylight saving time in the WebUI. For example: 
 
-#. When using a Gantt chart, the string parameters specified for the reference time and the start and end time of the viewport needs to be converted to the ``webui::WebApplicationTimeZone`` with the ``ConvertReferenceDate`` function.
+``"%c%y-%m-%d %H:%M %TZ(webui::WebApplicationTimeZone)|\"\"|\" DST\"|"``
+
+#. When using a Gantt chart, the string parameters specified for the reference time and the start and end time of the viewport need to be converted to the ``webui::WebApplicationTimeZone`` by using the ``ConvertReferenceDate`` function.
 
 
-Please refer to this section "Multi-Timezone application with best practices" [Link to Chris's topic] for detailed explanation on how to implement the best practices and a working example. 
+Please refer to this section "Multi-Timezone application with best practices" [Link to the "How To" topic] for detailed explanation on how to implement the best practices and a working example. 
