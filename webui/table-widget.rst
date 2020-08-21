@@ -146,11 +146,11 @@ When the user selects a certain date, the picker automatically switches to the t
 .. Image:: images/DateTime_ToggleDMY.png
     :align: center
 
-As mentioned above, the date picker allows selection of dates only in the range of the defined calendar. Although, we cannot restrict the time ranges, if a time is selected that might fall outside the range set in the calendar, an error "Selected Date/Time is outside of allowed range" will be displayed.
+As mentioned above, the date picker allows selection of dates only in the range of the defined calendar. Although the actual time ranges are not confined when the time selection is made by the user, if a time is selected that might fall outside the range set in the calendar, an error "Selected Date/Time is outside of allowed range" will be displayed.
 
 For example, if the calendar range is set from ``2019-10-07 06:00`` to ``2019-10-07 20:00``, and the user selects ``2019-10-07 21:00``, the error message "Selected Date/Time is outside of allowed range" will be displayed and the date will be set either to the previous value or left blank.
 
-There are different combinations of the date and time picker which is controlled by the Unit property defined in the calendar.
+There are different combinations of the date and time picker which are controlled by the Unit property defined in the calendar.
 
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | Calendar Unit          | Date and Time picker option                                                                                                 |
