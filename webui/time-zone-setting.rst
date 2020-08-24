@@ -147,5 +147,6 @@ When designing a multi-timezone application we recommend following some best pra
 
 #. When using a Gantt chart, the string parameters specified for the reference time and the start and end time of the viewport need to be converted to the ``webui::WebApplicationTimeZone`` by using the ``ConvertReferenceDate`` function.
 
+#. When using a Gantt chart, please use `custom tooltips <widget-options.html#adding-tooltips>`_ that follow the WebUI convention to display time in the selected Application Time Zone. 
 
 Please refer to this section `Multi-Timezone application with best practices <https://how-to.aimms.com/Articles/362/362-multi-timezone.html>`_ for detailed explanation on how to implement the best practices and a working example. 
