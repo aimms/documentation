@@ -143,7 +143,7 @@ When designing a multi-timezone application we recommend following some best pra
 
 #. Use the DST format in the timeformat for the conventions in order to indicate daylight saving time in the WebUI. For example: 
 
-``"%c%y-%m-%d %H:%M %TZ(webui::WebApplicationTimeZone)|\"\"|\" DST\"|"``
+        ``"%c%y-%m-%d %H:%M %TZ(webui::WebApplicationTimeZone)|\"\"|\" DST\"|"``
 
 #. When using a Gantt chart, the string parameters specified for the reference time and the start and end time of the viewport need to be converted to the ``webui::WebApplicationTimeZone`` by using the ``ConvertReferenceDate`` function.
 
