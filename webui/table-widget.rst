@@ -158,7 +158,7 @@ To add filter rules
     .. image:: images/TableFilters_AddRule.png
         :align: center
 
-    You can also find an operator by typing it in the dropdown field. For example, to see operators that have “greater” just type the word in the field.
+    You can also find an operator by typing it in the dropdown field. For example, to see operators that have “greater” just type the word or the mathematical symbol in the field.
 
     .. image:: images/TableFilters_SearchRule.png
         :align: center
@@ -211,6 +211,38 @@ The data shows five columns that meet the applied rules. When we reorder the sec
 
 You can edit values and use the table normally after the data is filtered. If you change a value for a fitlered column or row, the data might change based on the filter rules set.
 
+To add filter rules to columns/row headers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Similarly, you can also add filters to the column or row headers. For headers, only four :ref:`string operators <string-operators>` are available; "is", "is not", "contains", and "does not contain".
+
+The "is" and "is not" operators allows you to select one or more elements from the dorpdown list. In our example, we will filter the row header "Centers". Here we select 2 elements, Copenhagen and Frankfurt. 
+
+    .. image:: images/TableFilters_FilterHeaderAdd.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterHeaderDialog.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterHeaderSelect1.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterHeaderSelect2.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterHeader_Result.png
+        :align: center
+
+The same visual indications are seen when the filters are applied as explained in the above steps.
+
+You can also remove selected elements by either clicking on the "x" on each individual element, or remove the complete selection by clicking the "X" in the selction box, as illustrated below.
+
+    .. image:: images/TableFilters_FilterHeaderRemove1.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterHeaderRemoveAll.png
+        :align: center
+
 To edit filter rules
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -262,34 +294,36 @@ Operators
 
 The operators provided are specific to numeric and string/element valued data. The below tables explains each of the operators.
 
-+------------------------------+-------------------------------------------------------------------------------------------+
-| Numeric Operators            | Result                                                                                    |
-+==============================+===========================================================================================+
-| is equal to                  | All data that is equal to the entered value is displayed.                                 |
-+------------------------------+-------------------------------------------------------------------------------------------+
-| is not equal to              | All data except the entered value is displayed.                                           |
-+------------------------------+-------------------------------------------------------------------------------------------+
-| is less than                 | All data that is lesser than the entered value is displayed                               |
-+------------------------------+-------------------------------------------------------------------------------------------+
-| is less than or equal to     | All data that is lesser than or equal to the entered value is displayed                   |
-+------------------------------+-------------------------------------------------------------------------------------------+
-| is greater than              | All data that is greater than the entered value is displayed                              |
-+------------------------------+-------------------------------------------------------------------------------------------+
-| is greater than or equal to  | All data that is greater than or equal to the entered value is displayed                  |
-+------------------------------+-------------------------------------------------------------------------------------------+
-| is in between                | All data that is in between the range of and equal to the two entered values are displayed|
-+------------------------------+-------------------------------------------------------------------------------------------+
-| is not in between            | All data that is outside the range of the two entered values are displayed                |
-+------------------------------+-------------------------------------------------------------------------------------------+
-| show top                     | Displays the highest N values in descending order. N is the value entered.                |
-+------------------------------+-------------------------------------------------------------------------------------------+
-| show bottom                  | Displays the lowest N values in ascending order. N is the value entered.                  |
-+------------------------------+-------------------------------------------------------------------------------------------+
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| Numeric Operators                 | Result                                                                                    |
++===================================+===========================================================================================+
+| is equal to (=)                   | All data that is equal to the entered value is displayed.                                 |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is not equal to (!=)              | All data except the entered value is displayed.                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is less than (<)                  | All data that is lesser than the entered value is displayed                               |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is less than or equal to (<=)     | All data that is lesser than or equal to the entered value is displayed                   |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is greater than (>)               | All data that is greater than the entered value is displayed                              |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is greater than or equal to (>=)  | All data that is greater than or equal to the entered value is displayed                  |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is in between                     | All data that is in between the range of and equal to the two entered values are displayed|
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is not in between                 | All data that is outside the range of the two entered values are displayed                |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| show top                          | Displays the highest N values in descending order. N is the value entered.                |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| show bottom                       | Displays the lowest N values in ascending order. N is the value entered.                  |
++-----------------------------------+-------------------------------------------------------------------------------------------+
 
 When adding rules to numeric operators, characters cannot be entered. The field accepts only numeric values.
 
 .. note ::
     When ``show top`` or ``show bottom`` operators are used on a column/row, since the data is already sorted, sorting on other columns/rows will not be available. 
+
+.. _string-operators:
 
 +------------------------------+-------------------------------------------------------------------------------------------+
 | String/Elt Operators         | Result                                                                                    |
