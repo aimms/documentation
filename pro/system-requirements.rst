@@ -46,6 +46,8 @@ Client requirements differs a bit depending on the use (to develop or as a end u
 Network Requirements
 --------------------
 
+As a general rule of thumb we recommend for a network bandwidth of at least 4 Mbit/s per user.
+
 As far as network requirements are concerned, specifying an exact number for client apps is very application-specific. While for AIMMS apps with a WebUI the bandwidth requirements are mostly determined by the amount of data actually displayed on a page, and the rate at which this data needs to be updated, for AIMMS apps deploying a Windows desktop client bandwidth usage are of a much more spiky nature. The main bandwidth consumption in this case comes from streaming the runtime and app (if not already cached on the user's desktop), and case files containing the application inputs and results being communicated with the server. Depending the size of typical case files for a specific app, the maximum bandwidth requirements are mainly determined by the download times of case files, such that these still lead to an acceptable user experience.  
 
 Please note that most AIMMS apps are intended to serve as *decision support* applications. Typical for such applications is the ability for the end-user to ''play'' with all available data in the application in order to understand and gain confidence in the presented solution, and observe the sensitivities of the model output with respect to changes in the input data. For this reason, AIMMS apps hold all available data in memory, which may lead to spikes in network traffic not seen in typical transaction systems.
