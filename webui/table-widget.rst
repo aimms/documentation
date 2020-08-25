@@ -216,7 +216,7 @@ To add filter rules to columns/row headers
 
 Similarly, you can also add filters to the column or row headers. For headers, only four :ref:`string operators <string-operators>` are available; "is", "is not", "contains", and "does not contain".
 
-The "is" and "is not" operators allows you to select one or more elements from the dorpdown list. In our example, we will filter the row header "Centers". Here we select 2 elements, Copenhagen and Frankfurt. 
+The "is" and "is not" operators allow you to select one or more elements from the dropdown list. In our example, we will filter the row header "Centers". Here we select 2 elements: Copenhagen and Frankfurt. 
 
     .. image:: images/TableFilters_FilterHeaderAdd.png
         :align: center
@@ -235,7 +235,7 @@ The "is" and "is not" operators allows you to select one or more elements from t
 
 The same visual indications are seen when the filters are applied as explained in the above steps.
 
-You can also remove selected elements by either clicking on the "x" on each individual element, or remove the complete selection by clicking the "X" in the selction box, as illustrated below.
+You can also remove selected elements by either clicking on the "x" on each individual element, or remove the complete selection by clicking the "X" in the selection box, as illustrated below.
 
     .. image:: images/TableFilters_FilterHeaderRemove1.png
         :align: center
