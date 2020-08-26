@@ -13,6 +13,26 @@ AIMMS 4.74
 #############
 
 
+AIMMS 4.74.8 Release (August 26, 2020 - build 4.74.8.15)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Since AIMMS 4.73, the time zone mapping could be incorrect: when the Windows local timezone name did not match the English one since then used by AIMMS, only time zones with DST were checked for a match, leading to a possibly incorrect mapping and warnings.
+-  The solve of an LP model inside the Math Program Inspector could hang (during the crossover step) if the barrier algorithm was used.
+
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  On slower internet connections, WebUI apps were not always able to start properly. This was due to an internal timeout of 15 seconds. Therefore we introduced a new WebUI option called 'webui.webuiserver.max-session-idle-seconds', which now defaults to 5 minutes. You can specify this setting in the file 'MainProject\WebUI\settings\webui-options.conf'.
+
+
+--------------
+
+
+
 AIMMS 4.74.7 Release (August 14, 2020 - build 4.74.7.8)
 ------------------------------------------------------------------------------------------
 
