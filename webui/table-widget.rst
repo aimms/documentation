@@ -353,3 +353,11 @@ Best Practices
 #. If filter rules are applied and the data in the table changes based on other interactions, please be aware that the filters will still be applied. 
 
 #. When filters are applied and if you add/remove content, change the widget type, change the slicing information or change the pivot the applied filters will be cleared. This will be possible only if you have access to the widget settings.  
+
+
+.. Important::
+    When using aggregators like mean and count, please be aware the WebUI may display different results depending on whether filters are applied or not. When no filters are applied, these aggregators are computed by the AIMMS engine which does not take into account whether columns/rows are visible in the WebUI. In such a case the results may be different than what an end-user might expect because they may assume that the aggregators may be computed using the visible columns/rows only.
+
+    When filters are applied, the aggregators are computed using only the columns/rows that are displayed using the current set of filters, which may lead to a different set of results even when the filters do not change the content of the filtered/non-filtered table.
+    
+    To prevent any confusion with your end-users when using aggregators like mean and count, you are therefore advised to use a display domain that will make sure that any columns/rows included in the aggregator computations will also be visible on the screen.
