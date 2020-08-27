@@ -29,7 +29,7 @@ When you use the Workflow Panel and the Side Panels, your viewport size is sligh
 
 Once you know the height of the viewport, if you want to fix the height of your application to half of your viewport's size, for example, just divide the values such that the sum of the values defining the height of the rows is half of the height of the viewport.
 
-To illustrate the above example, let's consider that the height of the browser viewport is 1000px.
+To illustrate the above example, let's consider that the height of the browser viewport is 1000px. In this case, the specification of the `gridTemplateRows` could be, for instance, as follows: 
 
 .. code::
 
@@ -41,7 +41,7 @@ To illustrate the above example, let's consider that the height of the browser v
 
 As long as the sum of the values used to divide the rows does not exceed the browser viewport, no scrollbar will appear. To introduce a vertical scrollbar the sum needs to exceed the browser viewport height.
 
-If you want to introduce a vertical scrollbar you can use the below snippet.
+So, assuming again that the viewport height is 1000px, if you want to introduce a vertical scrollbar you can use a code snippet such as the following:
 
 .. code::
 
@@ -51,9 +51,9 @@ If you want to introduce a vertical scrollbar you can use the below snippet.
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-Similarly, for fixing the width such that the layout is half of the browser viewport, just divide the values such that the sum of the values used to divide the columns is half of the viewport's width.  
+Now let's consider the situation where the width of the browser viewport is 1000px.
 
-Let's consider the width of the browser viewport is 1000px.
+Similarly as above, for fixing the width such that the layout is half of the browser viewport, just divide the values such that the sum of the values used to divide the columns is half of the viewport's width:  
 
 .. code::
 
@@ -63,7 +63,7 @@ Let's consider the width of the browser viewport is 1000px.
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-If you want to introduce a horizontal scrollbar you can use the below snippet, where the sum exceeds the browser viewport width. 
+If you want to introduce a horizontal scrollbar you can use a code snippet like the one below, where the sum exceeds the browser viewport width:
 
 .. code::
 
