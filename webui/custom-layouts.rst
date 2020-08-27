@@ -77,9 +77,9 @@ If you want to introduce a horizontal scrollbar you can use a code snippet like 
 Using percentages (%)
 ---------------------
 
-Similar to the concept of the pixels to avoid scrollbar the sum of the values should not exceed 100%, and if you want a scrollbar then the sum must exceed 100%.
+Similar to the case of pixels, in order to avoid a scrollbar when using percentages the sum of the values should not exceed 100%, and if you want a scrollbar then the sum must exceed 100%.
 
-To illustrate an example where you want to avoid scrollbar or want the application to be half the size of the browser viewport, you can use the below snippet.
+To illustrate an example where you want to avoid scrollbar or want the application to be half the size of the browser viewport, you can use a snippet such as below:
 
 .. code::
 
@@ -89,7 +89,7 @@ To illustrate an example where you want to avoid scrollbar or want the applicati
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-If you want to introduce a vertical scrollbar you can use the below snippet.
+If you want to introduce a vertical scrollbar you can use, for instance, this snippet below:
 
 .. code::
 
@@ -109,7 +109,7 @@ Similarly, if you want to control the width of the application, to avoid a horiz
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-If you want to introduce a horizontal scrollbar you can use the below snippet. 
+If you want to introduce a horizontal scrollbar you can use a snippet such as the following: 
 
 .. code::
 
