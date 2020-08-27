@@ -163,13 +163,20 @@ Creating Grid Definitions
 
 This section provides more details about creating (custom) grid layouts using the layout editor exemplified above.
 
+.. warning::
+
+	The special layout editor will only save valid layout definitions. The description of a (custom) grid layout created using the layout editor will be saved in the ``webui.json`` file mentioned in the `WebUI Folder <webui-folder.html>`_ section. Please DO NOT change this layout description in the ``webui.json`` directly. In particular, do not change any layout property names manually in the ``webui.json`` file. Failure to comply with this rule may lead to unexpected results.
+
+
 A layout is a technical description of a specific component (Grid), its properties and the items (sub-components) which live within that component. We currently (only) support Grid as the main component and WidgetArea as the sub-components.
 
 The properties of the Grid component are closely related to how CSS Grid works (see websites links in the beginning of this section). In AIMMS WebUI we currentlty support grid-template-rows, grid-template-columns and grid-template-areas. By combining these you get virtually all of the power of CSS grids, using your choice of fractions, fixed pixel sizes or percentages. The gridTemplateAreas then serves to tell how your areas are supposed to overlap with the positions you made available as rows and columns.
 
 Please note that the format you see in the layout editor will serve to create real CSS. This is also the reason why the gridTemplateAreas need to contain the quotes in their escaped version. The output of that needs to be a set of row definitions, grouped between quotes, while the property itself is also a string in quotes (the outer ones).
 
-The names you give to your areas should re-appear as WidgetAreas components below the items of the Grid. The "gridArea" properties of it should be the same as of one of the defined areas in "gridTemplateAreas" of the Grid. Failure to do so will lead to unexpected results.
+.. warning::
+
+	The names you give to your areas should re-appear as WidgetAreas components below the items of the Grid. The "gridArea" properties of it should be the same as of one of the defined areas in "gridTemplateAreas" of the Grid. Failure to do so may lead to unexpected results.
 
 Only the areas that you define as sub-components will end up in the Page Configurator tab of the Page Manager, ready to be used to place your widgets in, so please keep these two in sync when you change the (CSS) names or the number of areas of your custom layout.
 
