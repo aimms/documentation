@@ -199,7 +199,7 @@ It is important to understand some of the syntax and semantics of the JSON used 
 Troubleshooting
 ---------------
 
-If you are not able to get your desired output you might want to check a few things. 
+If you are not able to get your desired output you might want to check a few aspects for troubleshooting: 
 
 * Check if you have defined all the areas that you used in "gridTemplateAreas".
 * Check if your division matches the rows and columns and if the grouping is correct.
