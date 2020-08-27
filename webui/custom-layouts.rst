@@ -147,7 +147,7 @@ Syntax and Semantics
 
 It is important to understand some of the syntax and semantics of the JSON used to create custom layouts.
 
-#. Please ensure the structure is intact. It should follow structure:
+#. Please ensure the structure is intact. It should follow the structure below:
 
 		.. code::
 				
@@ -174,9 +174,9 @@ It is important to understand some of the syntax and semantics of the JSON used 
 
 		* NUMBER OF COLUMNS AND PROPORTIONS: "1fr 1fr" : Two columns with equal proportions.
 		* NUMBER OF ROWS AND PROPORTIONS: "1fr 1fr" : Two rows with equal proportions.
-		* AREA-NAMES WITH DIVISIONS/LAYOUT: " \"Area-A Area-A\" \"Area-B Area-C\" " : The first row and both columns are assigned to the same area i.e. "Area-A". The second row has two areas one for each column i.e. "Area-B" and "Area-C".
-		* DISPLAY OF AREA-NAME IN THE LAYOUT: Area-A, Area-B and Area-C : These properties are case sensitive. So what the same case sensitive names used in AREA-NAMES WITH DIVISIONS/LAYOUT should be used here as well. Also, each area needs to be defined separately.
-		* ORIENTATION OF WIDGETS: "row" or "column" : use row if you want the widgets to appear one on top of the other and column if you want widgets to appear side by side. This property is case sensitive as well.
+		* AREA-NAMES WITH DIVISIONS/LAYOUT: " \"Area-A Area-A\" \"Area-B Area-C\" " : The first row and both columns are assigned to the same area i.e. "Area-A". The second row has two areas one for each column i.e. "Area-B", and "Area-C".
+		* DISPLAY OF AREA-NAME IN THE LAYOUT: Area-A, Area-B and Area-C : This property is case sensitive. Use the exact names used in AREA-NAMES WITH DIVISIONS/LAYOUT here as well. Also, each area needs to be defined separately.
+		* ORIENTATION OF WIDGETS: "row" or "column" : Use row if you want the widgets to appear one on top of the other and column if you want widgets to appear side by side. This property is case sensitive as well.
 
 #. In the ``props`` section, only change the values for ``gridTemplateColumns``, ``gridTemplateRows``, and ``gridTemplateAreas``, as explained above.
 
@@ -202,7 +202,7 @@ Troubleshooting
 If you are not able to get your desired output you might want to check a few things. 
 
 * Check if you have defined all the areas that you used in "gridTemplateAreas".
-* Check if your division matches the rows and columns, and if the grouping is correct.
-* Check if the values in "gridArea" used to define the each area has the correct case sensitive names.
+* Check if your division matches the rows and columns and if the grouping is correct.
+* Check if the values in "gridArea" used to define each area has the correct case sensitive names.
 * Check if there are no spaces in "gridTemplateColumns": "1fr", and "gridTemplateRows": "1fr 1fr", between the numeric and measure of proportion.
-* Check for errors in the JSON using a JSON Parser. You can use on of the links here. `Link 1 <http://json.parser.online.fr/>`_ or `Link 2 <https://jsonparseronline.com/>`_.
+* Check for errors in the JSON using a JSON Parser. You can use one of the links here. `Link 1 <http://json.parser.online.fr/>`_ or `Link 2 <https://jsonparseronline.com/>`_.
