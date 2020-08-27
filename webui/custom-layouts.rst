@@ -139,7 +139,7 @@ The snippet below illustrates the use of fractions (fr) and pixels (px), where t
 
 
 .. note::
-	Fractions (fr) and percentages (%) are ideally the same since they are a measure of proportion.
+	Fractions (fr) and percentages (%) are essentially the same since they are a measure of proportion.
 
 
 Syntax and Semantics
@@ -176,7 +176,7 @@ It is important to understand some of the syntax and semantics of the JSON used 
 		* NUMBER OF ROWS AND PROPORTIONS: "1fr 1fr" : Two rows with equal proportions.
 		* AREA-NAMES WITH DIVISIONS/LAYOUT: " \"Area-A Area-A\" \"Area-B Area-C\" " : The first row and both columns are assigned to the same area i.e. "Area-A". The second row has two areas one for each column i.e. "Area-B", and "Area-C".
 		* DISPLAY OF AREA-NAME IN THE LAYOUT: Area-A, Area-B and Area-C : This property is case sensitive. Use the exact names used in AREA-NAMES WITH DIVISIONS/LAYOUT here as well. Also, each area needs to be defined separately.
-		* ORIENTATION OF WIDGETS: "row" or "column" : Use row if you want the widgets to appear one on top of the other and column if you want widgets to appear side by side. This property is case sensitive as well.
+		* ORIENTATION OF WIDGETS: "row" or "column" : Use "row" if you want the widgets to appear one on top of the other and use "column" if you want widgets to appear side by side. This property is case sensitive as well.
 
 #. In the ``props`` section, only change the values for ``gridTemplateColumns``, ``gridTemplateRows``, and ``gridTemplateAreas``, as explained above.
 
