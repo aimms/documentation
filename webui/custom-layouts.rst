@@ -4,7 +4,7 @@ Custom Layouts
 Different types of Custom Layout
 --------------------------------
 
-Creating `custom layouts <webui-grid-pages.rst>`_ is explained in the WebUI Grid Pages section. This topic will illustrate "How To" use pixels (px) or percentages (%) to set a fixed width or height to columns or rows in your layouts.
+The general framework for creating `custom layouts <webui-grid-pages.rst>`_ is explained in the WebUI Grid Pages section. The current section illustrates more specifically how to use pixels (px) or percentages (%) to set a fixed width or height to columns or rows in your layouts.
 
 This is useful when you either require a vertical scrollbar or in some cases a horizontal scrollbar, or if you do not want to use the full height or width of your viewport.
 
