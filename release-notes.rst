@@ -12,6 +12,51 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.74
 #############
 
+
+AIMMS 4.74.6 Release (August 10, 2020 - build 4.74.6.3)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When the connection with the database was broken during the execution of a read statement, a misleading error message "Function Sequence Error" could be reported.
+-  In recent AIMMS versions, variables with a domain condition that uses a sub expression like (i IN {'a','b'}) were not always generated correctly.
+-  In recent AIMMS versions, the construct (i IN { 1..5 }) did not always work when used inside the body of a function.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The search functionality in the widgets has been updated to search based on 'Element Text Identifier' values if configured.
+-  Map nodes were not getting deleted from the map widget after emptying the node-set data.
+
+
+--------------
+
+
+
+AIMMS 4.74.5 Release (August 4, 2020 - build 4.74.5.2)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  There was a problem that sometimes occurred when modifying values on a WebUI page that also contained references to a calendar set. The bug resulted in a crash of AIMMS.
+-  Models with a complex definition structure could suffer from long or even infinite compilation duration since 4.73.
+-  We addressed various issues in the new definition evaluation handling that was introduced in 4.73.
+-  There was a performance issue in the generation of a mathematical program.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Upon editing a Table cell, the "reload" icon could appear, after which the cell would stay on busy mode endlessly.
+-  Side panels content did not align well on a workflow page.
+
+
+--------------
+
+
+
+
 AIMMS 4.74.4 Release (July 21, 2020 - build 4.74.4.5)
 ------------------------------------------------------------------------------------------
 

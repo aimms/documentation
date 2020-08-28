@@ -8,6 +8,9 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
+1.18.0.23 [05-08-2020]
+    - The function :js:func:`cdm::CreateBranch` will now automatically update the set :token:`cdm::Branches` with the new branch information.
+    
 1.18.0.21 [21-07-2020]
     - Addresses a performance degradation in computing differences between current and committed data.
     - Function :js:func:`cdm::DeleteDependentBranches` could delete branches originating after the given end revision.
