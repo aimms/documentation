@@ -7,9 +7,13 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.19.0.1 [31-08-2020]
+    - Accessing multiple CDM application databases within a single database server would lead to a separate collection of database connections being used for every application database.
+All access to CDM application databases within a single database server will now use a shared connection pool, and connections in the pool will be automatically garbage collected after 15 minutes of inactivity.
+
 1.18.0.29 [27-08-2020]
     - Some definitions of sets in the CDM library gave syntax and semantic errors in the cloud, preventing CMD apps from being published.
-    - The thread for automatically updating snapshots could crash CDM service when database connection was misconfigured.
+    - The thread for automatically updating snapshots could crash the CDM service when a database connection was misconfigured.
     - The function :token:`cdm::DetermineCategoryOrder` did not fully compute all category dependencies. Because this makes the check for cross-dependencies stricter, in rare cases this might lead to a re-ordering of cross-dependent categories and a potential change in the loading order of data if a model actually has dependency problems with its CDM categories.
     
 1.18.0.26 [17-08-2020]
