@@ -126,8 +126,10 @@ After the CDM support in your model has been set up, :token:`cdm::ConnectToAppli
   * :token:`cdm::DatabaseHost`
   * :token:`cdm::DatabaseUser`
   * :token:`cdm::DatabasePassword`
+  
+  Typically, these would point to the hostname and credentials of the MySQL application database that you can order with the AIMMS Cloud Platform.
 
-Typically, these would point to the hostname and credentials of the MySQL application database that you can order with the AIMMS Cloud Platform.
+  .. warning:: Please make sure the that database password you use for on-demand CDM services only consists of alphanumeric characters. Because of the way these passwords are currently injected into the docker container running the on-demand service, using non-alpanumeric may cause the connection to the backing database to fail unexpectedly. 
 
 * If the application is deployed from an on-premise PRO server and :token:`cdm::TunnelContext` is set, the CDM library will set up a PRO tunnel to the given tunnel context name. Such PRO tunnels can be configured by the PRO administrator in the PRO portal, and allow the client application to connect to an endpoint behind a firewall through the tunnel. In this case, the configured endpoint would be the service URI of a PRO service running behind the data center firewall.
 
