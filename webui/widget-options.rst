@@ -2,7 +2,9 @@ Widget Options
 ==============
 
 .. |cog-widget| image:: images/WidgetOptions_snap1.png
-.. |widget-action| image:: images/widget-actions.png
+.. |widget-action-old| image:: images/widget-actions.png
+.. |widget-action| image:: images/widget-actions-new.png
+.. |widget-action-nohover| image:: images/widget-actions-new-nohover.png
 
 The ‘cog wheel’ button |cog-widget| (in the upper right corner of a widget) will open a pop-up window that allows you to change the options for the widget. 
 
@@ -702,6 +704,10 @@ The widget actions can be associated with any procedure in your model. For examp
 .. image:: images/WidgetAction_Example.png
             :align: center
 
+.. note::
+
+    The Widget Actions icon in versions before AIMMS 4.75 used to be |widget-action-old|
+
 Configuring Widget Actions
 ++++++++++++++++++++++++++
 
@@ -743,7 +749,7 @@ To activate the widget actions on a widget, go to the respective widget's settin
 			:align: center 
 			:scale: 75
 
-You will notice the |widget-action| icon on the widget and when you click it you will see the configured widget actions.
+You will notice the |widget-action-nohover| icon on the widget and when you hover over the icon it highlights |widget-action| and when you click it you will see the configured widget actions.
 
 .. image:: images/WidgetActions_IcononWidget.png
 			:align: center 
