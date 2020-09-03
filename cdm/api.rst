@@ -353,12 +353,17 @@ Snapshot Functions
    Create a cached data snapshot in the database for all identifiers the specified category from the application database, for a given branch and revision. Through the argument :token:`cacheUpdate`, you indicate how often the cached snapshot needs to be updated in an automated fashion. By specifying a value >= 0, you indicate the interval in seconds since creation after which you want to snapshot to be updated with the latest data on the given category and branch. A value of 0 indicates that the snapshot will be created, but never updated. You can use the latter option for instance to create a cached snapshot that can be used for all branches branching off a given revision higher than the cached snapshot revision.
 
    The cached snapshot created through this function, will never contain inactive data. If the data in the category depends on domain sets in other categories, the current branches and revisions of such categories  will be passed along to determine the actual content of the snapshot.
-     
+   
    :param category: specifies the category for which to create the cached snapshot
    :param branch: specifies the branch from which to created the cached snapshot for the category
    :param revid: specifies the (optional) specific revision on the branch from which to create the cached snapshot, if not specified the head of the specified branch will be taken
    :param cacheUpdate: specifies cache update interval to employ (in seconds), defaults to 86400 seconds (once per day)
 
+   .. warning:: 
+        If you are creating snapshots for branches *that are not currently checked out*, you must make sure that the current branches for all categories are set to the branches to which such categories would be set when you actually would check out :token:`category` in branch :token:`branch`. Failure to do so, may lead to a situation where the cached data snapshot will contain data for cross-category domain elements that are present *in the currently checked out branch* for the category containing the corresponding domain set, but not in the branch which will be actually checked out when a check out of category :token:`category` will actually use the cached data snapshot. In such a case, CDM will not be able to map the cached cross-category domain elements to actual elements present in the domain set at the time of checkout, and return with an error. 
+   
+        For such situations, prior to calling :js:func:`cdm::CreateSnapshot`, you can temporarily set the current branch for any category *without changing the data of that category* using the function :js:func:`cdm::SetRevision`, where you can retrieve the latest revision of such a branch from the identifier :token:`cdm::BranchHead` after calling :js:func:`cdm::EnumerateBranches`. After calling :js:func:`cdm::CreateSnapshot` you should reset the branches of all categories back to the branches and revisions of the actual branches that are currently checked out.
+     
 .. js:function::  cdm::GetSnapshotCache(db)
 
    Retrieve the collection of checkout snapshots stored in the current database. The snapshot information retrieved is stored in the section :token:`Library State/Snapshot Information` of the CDM library. The function returns 1 is successful, or 0 otherwise.
