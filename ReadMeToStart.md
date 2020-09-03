@@ -27,6 +27,7 @@ After installing all the above requirements, please go to the location of your p
 * The red text are warnings (any error would actually break the building process, as in AIMMS): **Those warnings should be avoided**. Most of the time, this is due to a misuse of sphinx. You may correct them yourself, because your are awesome. Or let them be because your don't understand them. In any case, through your development please mind that **you should avoid to create any new warnings** (ask around if you don't understand)
  * To avoid warning "My document is not included in any toctree": use ``:orphan:`` at the beginning of your rst file
  * Be aware to make title underline longer than the title itself (warning would look like the above cmd prompt image)
+* **warning** files are case sensitive on linux, and not on windows. Thus, your build may break on gitlab, and not locally on your computer. 
 
 > **Note 1:** In essence, GitLab is following exactly the same steps when building the documentation on documentation.aimms.com, but **automatically triggered by any push to the master branch.**
 
