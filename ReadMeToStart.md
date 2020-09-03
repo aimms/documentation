@@ -1,6 +1,3 @@
-Build locally
-=================
-
 Clone the repo on your computer
 ------------------------------------
 
