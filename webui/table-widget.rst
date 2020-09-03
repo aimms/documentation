@@ -127,8 +127,6 @@ Authorization Schema reminder:
 Data Filtering on the Table
 ---------------------------
 
-.. important:: Filtering is available in software versions from AIMMS 4.75 onwards as part of Experimental Features. Filtering is currently available only for the Table widget. Please reach out to AIMMS support on how to enable Experimental Features.
-
 .. note::
 
   Filters are readily available for the table and there is no need to create a specification or configuration in the model. This is an end-user tool.
