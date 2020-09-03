@@ -14,12 +14,11 @@ You may notice that the documentation in itself (the text) is located in the fol
 Build Locally the HTML documentation
 --------------------------------------
 
-* Requirements:
+**Requirements:**
  - [Python 3.X](https://www.python.org/downloads/)
  - [Sphinx package](http://www.sphinx-doc.org/en/master/) (run `python3 -m pip install sphinx`)
- - [Read-The-Docs](https://docs.readthedocs.io/en/latest/) (rtd) theme (run `python3 -m pip install sphinx-rtd-theme`)
- - [Cloud rtd theme](http://cloud-sptheme.readthedocs.io/en/latest/cloud_theme.html) (run `python3 -m pip install cloud_sptheme`)
- - [AIMMS Lexer] (run `python3 -m pip install aimms-pygments-style`) 
+ - [Sphinx AIMMS theme](https://gitlab.com/ArthurdHerbemont/sphinx-aimms-theme) (run `python3 -m pip install sphinx-aimms-theme`)
+ - (optional for PDF output) [AIMMS code blocks for PDF](https://gitlab.com/ArthurdHerbemont/aimms-pygments-style) (run `python3 -m pip install aimms-pygments-style`) 
 
 After installing all the above requirements, please go to the location of your previously cloned documentation folder:
  * Open a console prompt from this location, using ``ATL+D`` and typing ``cmd`` in the URL of your file explorer (awesome)
