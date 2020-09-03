@@ -59,5 +59,5 @@ The following example shows the implementation of the :js:func:`web::downloadFil
 Limitations
 -----------
 
-The library does not support compression (see also :js:func:`web::SetHeaders`).
+The library does not support compression (see also :js:func:`web::request_setHeaders`).
 
