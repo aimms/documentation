@@ -3,6 +3,8 @@ Time Zone Settings
 
 .. important:: Time Zone settings is available in software versions from AIMMS 4.75 onwards as part of Experimental Features. Please reach out to User Support on how to enable Experimental Features.
 
+This section outlines the `Best Practices to follow for creating multi-timezone applications <#best-practices-and-working-example>`_ and also explains few of the relevant and important WebUI Library sets and functions. For a detailed explanation and a working example please refer to our `Multi-Timezone application with best practices <https://how-to.aimms.com/Articles/362/362-multi-timezone.html>`_ article.
+
 Applications are accessed across the globe. Users in different time zones find it difficult to convert times when the application is set in a different time zone. AIMMS has the flexibility to configure multi-user time zone applications. Time Zone Settings allows users to change the application time zone to their desired time zone. The data, configured to listen to the application time, changes as per the set time zone. This makes it very easy for users to read time across different time zones, and also set data using different time zones, not worrying about the conversion.
 
 Users can change the application time zone in the Time Zone Panel, that is displayed when the globe icon on the right bottom corner is clicked.
@@ -149,4 +151,6 @@ When designing a multi-timezone application we recommend following some best pra
 
 #. When using a Gantt chart, please use `custom tooltips <widget-options.html#adding-tooltips>`_ that follow the WebUI convention to display time in the selected Application Time Zone. 
 
-Please refer to this section `Multi-Timezone application with best practices <https://how-to.aimms.com/Articles/362/362-multi-timezone.html>`_ for detailed explanation on how to implement the best practices and a working example. 
+.. note::
+
+    Please refer to this section `Multi-Timezone application with best practices <https://how-to.aimms.com/Articles/362/362-multi-timezone.html>`_ for detailed explanation on how to implement the best practices and a working example. 
