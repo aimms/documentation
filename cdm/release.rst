@@ -11,8 +11,7 @@ New Features and Bug Fixes
     - Server-side lock was being held for too long, causing a dead-lock when multiple :js:func:`cdm::CreateSnapshot` requests were fired at the same time.
 
 1.19.0.1 [31-08-2020]
-    - Accessing multiple CDM application databases within a single database server would lead to a separate collection of database connections being used for every application database.
-All access to CDM application databases within a single database server will now use a shared connection pool, and connections in the pool will be automatically garbage collected after 15 minutes of inactivity.
+    - Accessing multiple CDM application databases within a single database server would lead to a separate collection of database connections being used for every application database. All access to CDM application databases within a single database server will now use a shared connection pool, and connections in the pool will be automatically garbage collected after 15 minutes of inactivity.
 
 1.18.0.29 [27-08-2020]
     - Some definitions of sets in the CDM library gave syntax and semantic errors in the cloud, preventing CMD apps from being published.

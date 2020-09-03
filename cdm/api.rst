@@ -352,7 +352,7 @@ Snapshot Functions
    
    Create a cached data snapshot in the database for all identifiers the specified category from the application database, for a given branch and revision. Through the argument :token:`cacheUpdate`, you indicate how often the cached snapshot needs to be updated in an automated fashion. By specifying a value >= 0, you indicate the interval in seconds since creation after which you want to snapshot to be updated with the latest data on the given category and branch. A value of 0 indicates that the snapshot will be created, but never updated. You can use the latter option for instance to create a cached snapshot that can be used for all branches branching off a given revision higher than the cached snapshot revision.
 
-   The cached snapshot created through this function, will never contain inactive data. If the data in the category depends on domain sets in other categories, the current branches and revisions of such categories  will be passed along to determine the actual content of the snapshot.
+   The cached snapshot created through this function, will never contain inactive data. If the data in the category depends on domain sets in other categories, the *currently checked out* branches and revisions of such categories  will be passed along to determine the actual content of the snapshot.
    
    :param category: specifies the category for which to create the cached snapshot
    :param branch: specifies the branch from which to created the cached snapshot for the category
