@@ -15,7 +15,7 @@ Build Locally the HTML documentation
  - [Python 3.X](https://www.python.org/downloads/)
  - [Sphinx package](http://www.sphinx-doc.org/en/master/) (run `python3 -m pip install sphinx`)
  - [Sphinx AIMMS theme](https://gitlab.com/ArthurdHerbemont/sphinx-aimms-theme) (run `python3 -m pip install sphinx-aimms-theme`)
- - (optional for PDF output) [AIMMS code blocks for PDF](https://gitlab.com/ArthurdHerbemont/aimms-pygments-style) (run `python3 -m pip install aimms-pygments-style`) 
+ - [AIMMS code blocks for PDF](https://gitlab.com/ArthurdHerbemont/aimms-pygments-style) (run `python3 -m pip install aimms-pygments-style`) 
 
 After installing all the above requirements, please go to the location of your previously cloned documentation folder:
  * Open a console prompt from this location, using ``ATL+D`` and typing ``cmd`` in the URL of your file explorer (awesome)
@@ -25,9 +25,8 @@ After installing all the above requirements, please go to the location of your p
 **Analysis:**
 * As you may see at the bottom of the wonderfully colored prompt, **your html pages are in `_build\html` folder**, located in the current working directory (the same as always). You may check the build by opening any of those.
 * The red text are warnings (any error would actually break the building process, as in AIMMS): **Those warnings should be avoided**. Most of the time, this is due to a misuse of sphinx. You may correct them yourself, because your are awesome. Or let them be because your don't understand them. In any case, through your development please mind that **you should avoid to create any new warnings** (ask around if you don't understand)
- * To avoid warning "My document is not included in any toctree": use ``:orphan:`` at the beginning of your rst file
  * Be aware to make title underline longer than the title itself (warning would look like the above cmd prompt image)
-* **warning** files are case sensitive on linux, and not on windows. Thus, your build may break on gitlab, and not locally on your computer. 
+* **warning** file names are case sensitive on linux, and not on windows. Thus, your build may break on gitlab, and not locally on your computer. 
 
 > **Note 1:** In essence, GitLab is following exactly the same steps when building the documentation on documentation.aimms.com, but **automatically triggered by any push to the master branch.**
 
