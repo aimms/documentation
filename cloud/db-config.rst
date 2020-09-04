@@ -165,6 +165,7 @@ For example, if your app database is called ``example.db.cloud.aimms.com`` then 
 
 .. image:: images/dbtunnelconfig.png
     :align: center
+
 	
 .. image:: images/dbtunnelapp_new.png
     :align: center
