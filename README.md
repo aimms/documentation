@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 Clone the repo on your computer
 ------------------------------------
 
@@ -28,7 +30,9 @@ After installing all the above requirements, please go to the location of your p
  * Be aware to make title underline longer than the title itself (warning would look like the above cmd prompt image)
 * **warning** file names are case sensitive on linux, and not on windows. Thus, your build may break on gitlab, and not locally on your computer. 
 
-> **Note 1:** In essence, GitLab is following exactly the same steps when building the documentation on documentation.aimms.com, but **automatically triggered by any push to the master branch.**
+> **Note 1:** GitLab is following exactly the same process when building the documentation in the pipeline. This is documented in the .gitlab-ci.yml file.
+
+> **Note 2:** When pushing to the **master branch only**, the repo is built and **pushed (merged) to documentation.aimms.com**.
 
 Prereq's to build a PDF version (optional) 
 -------------------------------------------
