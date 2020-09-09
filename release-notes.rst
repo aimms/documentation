@@ -17,7 +17,7 @@ AIMMS 4.75.1 Release (September 9, 2020 - build 4.75.1.0)
 
 AIMMS Improvements
 +++++++++++++++++++++++++
--  Several multi procedures have been added to the GMP::Column and GMP::Row namespaces. These procedures can be used to efficiently modify a group of columns or rows, belonging to one variable or constraint respectively.
+-  Several multi procedures have been added to the `GMP::Column <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_column-procedures-and-functions/index.html>`_ and `GMP::Row <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_row-procedures-and-functions/index.html>`_ namespaces. These procedures can be used to efficiently modify a group of columns or rows, belonging to one variable or constraint respectively.
 -  Knitro 12.2 has been successfully linked to AIMMS. 
 -  The list of recent projects to choose from on the start page or in the File menu now shows the title of the project next to the .aimms file name.
 
@@ -25,12 +25,12 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  The procedures in the GMP::Linearization namespace now also accept a row number for the `row` argument.
+-  The procedures in the `GMP::Linearization <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_linearization-procedures-and-functions/index.html>`_ namespace now also accept a row number for the `row` argument.
 -  Gurobi 9.0 has been upgraded to version 9.0.3.
 -  AIMMS now accepts nonlinear constraints in a stochastic model, but only if they are actually generated as linear constraints (e.g., because some variables are fixed).
--  When renaming an identifier that is also used in a library, the library now becomes 'dirty' such that during a subsequent save the library files will contain a reference to the new name. In previous AIMMS versions, the library files remained unchanged and were relying on the name change mechanism via the .nch file.
+-  When renaming an identifier that is also used in a library, the library now becomes 'dirty' such that during a subsequent save the library files will contain a reference to the new name. In previous AIMMS versions, the library files remained unchanged and were relying on the name change mechanism via the ``.nch`` file.
 -  In this version, we re-implemented the parsing of the commands for AIMMSCommand. No features were added.
--  The set AllTimeZones in AIMMS was not initialized on PRO.
+-  The set :any:`AllTimeZones` in AIMMS was not initialized on PRO.
 -  If sets were emptied when already empty or were assigned the exact same content as before, the sets were marked as changed and thus could trigger an evaluation of definition that were depending on it.
 
 
