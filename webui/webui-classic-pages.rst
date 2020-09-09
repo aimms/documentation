@@ -1,5 +1,5 @@
-WebUI Pages 
-===========
+WebUI Classic Pages 
+===================
 
 .. |page-manager| image:: images/PageManager_snap1.png
 
@@ -27,7 +27,7 @@ WebUI Pages
 
 .. |dialog|  image:: images/dialogicon.png 
 
-This section describes various tasks related to (regular) WebUI pages.
+This section describes various tasks related to WebUI classic pages.
 
 Adding a Page
 -------------
