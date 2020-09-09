@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.19.0.3 [09-09-2020]
+    - Calls to :js:func:`cdm::GetValuesLog1 could produce no values if some domain elements in the log values domain or range were not present in the current contents of the corresponding domain sets. Such tuples are now skipped, and the number of skipped values is reported in the log file.
+    
 1.19.0.2 [03-09-2020]
     - Server-side lock was being held for too long, causing a dead-lock when multiple :js:func:`cdm::CreateSnapshot` requests were fired at the same time.
 
