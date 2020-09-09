@@ -5,7 +5,54 @@ AIMMS Release Notes
 
    We release hotfixes for severe bugs as soon as possible after internal testing. For less severe bugs, we may combine several fixes into a single release.
 
-This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
+This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
+
+#############
+AIMMS 4.75
+#############
+
+AIMMS 4.75.1 Release (September 9, 2020 - build 4.75.1.0)
+------------------------------------------------------------------------------------------
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+-  Several multi procedures have been added to the GMP::Column and GMP::Row namespaces. These procedures can be used to efficiently modify a group of columns or rows, belonging to one variable or constraint respectively.
+-  Knitro 12.2 has been successfully linked to AIMMS. 
+-  The list of recent projects to choose from on the start page or in the File menu now shows the title of the project next to the .aimms file name.
+
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The procedures in the GMP::Linearization namespace now also accept a row number for the `row` argument.
+-  Gurobi 9.0 has been upgraded to version 9.0.3.
+-  AIMMS now accepts nonlinear constraints in a stochastic model, but only if they are actually generated as linear constraints (e.g., because some variables are fixed).
+-  When renaming an identifier that is also used in a library, the library now becomes 'dirty' such that during a subsequent save the library files will contain a reference to the new name. In previous AIMMS versions, the library files remained unchanged and were relying on the name change mechanism via the .nch file.
+-  In this version, we re-implemented the parsing of the commands for AIMMSCommand. No features were added.
+-  The set AllTimeZones in AIMMS was not initialized on PRO.
+-  If sets were emptied when already empty or were assigned the exact same content as before, the sets were marked as changed and thus could trigger an evaluation of definition that were depending on it.
+
+
+WebUI Improvements
++++++++++++++++++++++++++
+-  In this release, we present a whole new mechanism for creating the layout of your WebUI pages: Grid Layouts. It offers far more control on where widgets will be located on your pages. Currently, this is offered as an experimental feature. We are eager to hear your feedback. For details, please see the `documentation <https://manual.aimms.com/webui/webui-grid-pages.html>`__.
+-  We have added filtering for Table columns, rows and headers. This feature allows you to easily show just the data that your end-users are interested in. For details, see the `documentation <https://manual.aimms.com/webui/table-widget.html#data-filtering-on-the-table>`__.
+-  It is now possible to select dates and/or times by using a dedicated date/time picker whenever a Table or a Scalar widget displays date/time-related values.
+-  We changed the Widget Actions icon to better suit the new UX.
+
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+-  Now table column widths will be rounded to two decimals when resized. This prevents problems when storing the model in a version control system, as this will lead to far less 'changed' lines.
+
+
+
+--------------
+
+
+
+
 
 
 #############
@@ -232,7 +279,7 @@ AIMMS 4.73
 AIMMS 4.73.5 Release (June 08, 2020 (build 4.73.5.7)
 -----------------------------------------------------------------
 
- Changes made in this release are listed below. A high level overview can be found at the `AIMMS New Features Page <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
+ Changes made in this release are listed below. A high level overview can be found at the `AIMMS New Features Page <https://www.aimms.com/support/new-features/>`__.
 
 Looking for best practices on how to use AIMMS? Check out the `AIMMS Knowledge Center <https://how-to.aimms.com/>`__.
 
@@ -1180,7 +1227,7 @@ WebUI Improvements
 -  AIMMS has been extended with a procedure 'webui::SetProgressMessage' which allows you to replace the text of the 'busy' message in the WebUI with something more suitable to your specific situation. You can update/change this message multiple times during execution. For details, see `the documentation <https://manual.aimms.com/webui/library.html#setprogressmessage>`__.
 -  We added Page Actions to the WebUI, which help your users to get quick access to actions that are needed often, while at the same time reducing unnecessary clutter on their WebUI pages. For details, see `the documentation <https://manual.aimms.com/webui/page-settings.html#page-actions>`__.
 -  WebUI now offers, similar to the Page Open Procedure, a Page Leave procedure, which is called upon leaving the page for which it is specified. For details, see `the documentation <https://manual.aimms.com/webui/page-settings.html#procedure-for-restricting-page-navigation>`__.
--  We are currently working on our Workflow support feature in the WebUI. For more details and information on how to get access to this experimental feature, see the `AIMMS New Features Page <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
+-  We are currently working on our Workflow support feature in the WebUI. For more details and information on how to get access to this experimental feature, see the `AIMMS New Features Page <https://www.aimms.com/support/new-features/>`__.
 -  When selecting a widget in the widget manager that is not in view on the current page, the page is now scrolled such that the widget will be in view, in order to be highlighted properly.
 
 Resolved AIMMS Issues
@@ -1378,7 +1425,7 @@ AIMMS Improvements
 WebUI Improvements
 ++++++++++++++++++++
 
--  We made a fundamental change in the storage of WebUI pages and widgets. For details, see the `New Features page <https://www.aimms.com/english/developers/downloads/product-information/new-features/#SingleJSON>`__. **IMPORTANT:** if you plan to publish your existing AIMMS app(s) using AIMMS 4.67, you first need to re-export your model using AIMMS 4.67. This step creates the expected webui.json file. If you omit this step, you will get an error message upon publishing.
+-  We made a fundamental change in the storage of WebUI pages and widgets. For details, see the `New Features page <https://www.aimms.com/support/new-features/#SingleJSON>`__. **IMPORTANT:** if you plan to publish your existing AIMMS app(s) using AIMMS 4.67, you first need to re-export your model using AIMMS 4.67. This step creates the expected webui.json file. If you omit this step, you will get an error message upon publishing.
 -  Minimum and Maximum Resource Height have been introduced for the Gantt Chart. The Minimum Resource Height option adjusts the resource height such that when the height of all resources exceeds the height of the Gantt Chart widget, a vertical scroll bar appears on the right and the user can scroll down in order to see the resources below. When a batch is dragged down, the chart automatically scrolls to reveal the resources below. The Maximum Resource Height option will condense the resources to the set value such that the batches are not spread to fit the size of the Gantt Chart.
 -  As of this release, Gantt Chart jobs can now also be resized from the left side in case the duration of the job is editable (i.e. changing the start time while keeping the end time the same). A special cursor will appear if you hover on the sides of the job to signal that you can adjust its duration.
 -  There is a new option that allows developers to automatically open the WebUI upon project startup. It can be found in the AIMMS Options dialog in the category Project - Startup & Authorization, and is called Open_WebUI_on_startup.
@@ -2085,7 +2132,7 @@ Resolved WebUI Issues
 
 **AIMMS Email Client Library**
 
-On October 4, 2018 we released the AIMMS Email Client Library. This library offers you the possibility to send emails directly from your AIMMS application. This way, you can for example send the results of your optimization model to other users in your organization. More information can be found on the `AIMMS New Features Page <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
+On October 4, 2018 we released the AIMMS Email Client Library. This library offers you the possibility to send emails directly from your AIMMS application. This way, you can for example send the results of your optimization model to other users in your organization. More information can be found on the `AIMMS New Features Page <https://www.aimms.com/support/new-features/>`__.
 
 
 
@@ -2695,7 +2742,7 @@ Resolved WebUI Issues
 
 **AIMMS CDM (Collaborative Data Management)**
 
-On April 18, 2018 we released the AIMMS CDM library. CDM implements version control on AIMMS model data, very similar to the functionality offered by modern version control systems such as git. It offers a version control repository for AIMMS data within a regular relational database, with all data being stored in a tree of branches (or revision sequences). This allows you to effectively collaborate with other users and review each other's changes. An overview can be found at the `AIMMS New Features Page <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
+On April 18, 2018 we released the AIMMS CDM library. CDM implements version control on AIMMS model data, very similar to the functionality offered by modern version control systems such as git. It offers a version control repository for AIMMS data within a regular relational database, with all data being stored in a tree of branches (or revision sequences). This allows you to effectively collaborate with other users and review each other's changes. An overview can be found at the `AIMMS New Features Page <https://www.aimms.com/support/new-features/>`__.
 
 
 
@@ -6453,7 +6500,7 @@ Resolved issues
 -  A data page for a symbol in a module or library was not restored correctly. AIMMS did not find the saved version of the data page.
 -  AIMMS could crash when retrieving the solution of a math program with indicator constraints.
 
-A high level overview can be found at the `AIMMS New Features Page <https://www.aimms.com/english/developers/downloads/product-information/new-features/>`__.
+A high level overview can be found at the `AIMMS New Features Page <https://www.aimms.com/support/new-features/>`__.
 
 
 
@@ -6502,7 +6549,7 @@ Resolved issues
 -  Editing the name of an identifier that was present on a page could lead to the page being marked with an exclamation mark and, as a result, to showing the browse/skip/cancel dialog for that identifier when opening that particular page.
 -  The performance of the function GMP::Instance::GenerateStochasticProgram has been improved.
 
-A high level overview can be found at the `AIMMS 4.2 New Features Page <https://www.aimms.com/english/developers/downloads/product-information/new-features/aimms-42-new-features/>`__.
+A high level overview can be found at the `AIMMS 4.2 New Features Page <https://www.aimms.com/support/new-features/aimms-42-new-features/>`__.
 
 
 
@@ -6611,7 +6658,7 @@ Resolved issues
 -  We recommend not to use the Linux ODBC driver for SQL Server. It doesn't work well in combination with AIMMS, because some functions that AIMMS requires are not supported by this particular driver.
 -  In encrypted creating enduser .aimmspack files, the convention attribute was inadvertently not accepted by the compiler.
 
-A high level overview can be found at the `AIMMS 4.1 New Features Page <https://www.aimms.com/english/developers/downloads/product-information/new-features/aimms-41-new-features/>`__.
+A high level overview can be found at the `AIMMS 4.1 New Features Page <https://www.aimms.com/support/new-features/aimms-41-new-features/>`__.
 
 
 
