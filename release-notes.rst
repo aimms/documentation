@@ -38,7 +38,8 @@ WebUI Improvements
 +++++++++++++++++++++++++
 -  In this release, we present a whole new mechanism for creating the layout of your WebUI pages: Grid Layouts. It offers far more control on where widgets will be located on your pages. Currently, this is offered as an experimental feature. We are eager to hear your feedback. For details, please see the `documentation <https://manual.aimms.com/webui/webui-grid-pages.html>`__.
 -  We have added filtering for Table columns, rows and headers. This feature allows you to easily show just the data that your end-users are interested in. For details, see the `documentation <https://manual.aimms.com/webui/table-widget.html#data-filtering-on-the-table>`__.
--  It is now possible to select dates and/or times by using a dedicated date/time picker whenever a Table or a Scalar widget displays date/time-related values.
+-  It is now possible (as an experimental feature) to select dates and/or times by using a dedicated date/time picker whenever a Table or a Scalar widget displays date/time-related values. For details, see the documentation for `Scalars <https://manual.aimms.com/webui/scalar-widget.html#date-and-time-picker-for-element-parameters>`__ and `Tables <https://manual.aimms.com/webui/table-widget.html#date-and-time-picker-for-calendar-elements>`__.
+-  As another experimental feature, the AIMMS WebUI now offers support for working with the same WebUI App from different time zones. For details, see the `documentation <https://manual.aimms.com/webui/time-zone-setting.html>`__.
 -  We changed the Widget Actions icon to better suit the new UX.
 
 
