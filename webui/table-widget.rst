@@ -2,6 +2,10 @@ Table Widget
 ============
 
 .. |sort| image:: images/sort.png
+.. |filtered-icon| image:: images/filtered_icon.png
+.. |table-filtered| image:: images/headerfiltered_icon.png
+.. |delete-filter-icon| image:: images/filterdelete_icon.png
+.. |disable-rule| image:: images/enablerule_icon.png
 
 The Table widget allows you to visualize and/or edit the data of one or more AIMMS identifiers represented in a tabular format:
 
@@ -120,3 +124,238 @@ Authorization Schema reminder:
 | full access              | 7     | Data will be displayed in the WebUI, and are displayed as editable if no other restrictions prohibit editing the data (e.g. defined identifiers). Procedures with this permission can be executed from within the WebUI.          |
 +--------------------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+Data Filtering on the Table
+---------------------------
+
+.. note::
+
+  Filters are readily available for the table and there is no need to create a specification or configuration in the model. This is an end-user tool.
+
+When working with tables you could be looking at a lot of data. It can be difficult to find information quickly in such cases. Filters can be used to narrow down the data in your table, allowing you to view only the information you need.
+
+Filters are useful when you want to focus only on specific information in a large dataset in a table. Filtering doesn't remove or modify data, it just changes which records appear on your widget. Filtering lets you temporarily hide unwanted data.
+
+To add filter rules
+^^^^^^^^^^^^^^^^^^^
+
+#. In order for filtering to work correctly, your table should include at least one row and column header, which is used to identify the name of each column and row. In the example, the table columns and rows can be identified by the headers Centers and Factories respectively.
+
+    .. image:: images/TableFilters_Example.png
+        :align: center
+
+#. A drop-down arrow will appear in the header cell for each column/row. Click the drop-down arrow for the column/row you want to filter and click on the "Add Filters Rule" option. In our example, we will filter the column "Copenhagen".
+
+    .. image:: images/TableFilters_AddFilter.png
+        :align: center
+
+#. The Filter dialog will appear, where you can select the desired operator and enter the value. We will filter for values greater than 9.
+
+    .. image:: images/TableFilters_SelectOperator.png
+        :align: center
+    
+    .. image:: images/TableFilters_AddRule.png
+        :align: center
+
+    You can also find an operator by typing it in the dropdown field. For example, to see operators that have “greater” just type the word or the mathematical symbol in the field.
+
+    .. image:: images/TableFilters_SearchRule.png
+        :align: center
+
+#. Click on "Apply" or "Apply and Close".
+
+    .. image:: images/TableFilters_ApplyRule.png
+        :align: center
+
+    The Apply button will apply the rule and the dialog will stay open, allowing you to e.g. add another rule. The data will be filtered and visible on the table, as illustrated above.  
+    
+    The Apply and Close button will apply the rule and close the dialog as well.
+
+#. The data will be filtered, temporarily hiding any content that doesn't match the criteria. In our example, only 2 values greater than 9 are visible.
+
+    .. image:: images/TableFilters_ApplyRule.png
+        :align: center
+
+#. The column will have an indication |filtered-icon| that a filter has been applied. The header cell will also be highlighted with a different color.
+
+    .. image:: images/TableFilters_Filtered.png
+        :align: center
+
+    The table header also show an indication |table-filtered| that a filter has been applied to the table.
+
+#. To apply multiple rules follow the instructions again. The below illustration shows another filter applied to the row header cell "London" for values lesser than 10.
+
+    .. image:: images/TableFilters_TwoFilters.png
+        :align: center
+
+    You can also add multiple rules for the same column or row. When two or more rules are added to the same column or row, the data for that respective column or row will display data that meets all rules combined (logical AND condition).
+
+New rules are added to the bottom of the list of rules in the dialog. You can reorder these rules by dragging and dropping the rules in the desired order. 
+
+The below illustration shows the effect of reordering rules. We applied two rules, the first rule to the row "Zurich" and the second to the row "Hamburg".
+
+    .. image:: images/TableFilters_FilterOrder1.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterOrder1_Result.png
+        :align: center
+
+The data shows five columns that meet the applied rules. When we reorder the second rule to the top it results in different data resulting in only four columns.
+
+    .. image:: images/TableFilters_FilterOrder2.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterOrder2_Result.png
+        :align: center
+
+You can edit values and use the table normally after the data is filtered. If you change a value for a fitlered column or row, the data might change based on the filter rules set.
+
+To add filter rules to columns/row headers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Similarly, you can also add filters to the column or row headers. For headers, only four :ref:`string operators <string-operators>` are available; "is", "is not", "contains", and "does not contain".
+
+The "is" and "is not" operators allow you to select one or more elements from the dropdown list. In our example, we will filter the row header "Centers". Here we select 2 elements: Copenhagen and Frankfurt. 
+
+    .. image:: images/TableFilters_FilterHeaderAdd.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterHeaderDialog.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterHeaderSelect1.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterHeaderSelect2.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterHeader_Result.png
+        :align: center
+
+The same visual indications are seen when the filters are applied as explained in the above steps.
+
+You can also remove selected elements by either clicking on the "x" on each individual element, or remove the complete selection by clicking the "X" in the selection box, as illustrated below.
+
+    .. image:: images/TableFilters_FilterHeaderRemove1.png
+        :align: center
+
+    .. image:: images/TableFilters_FilterHeaderRemoveAll.png
+        :align: center
+
+To edit filter rules
+^^^^^^^^^^^^^^^^^^^^
+
+#. Click on the filter icon on the table header |table-filtered| to open the filter dialog. You can also choose to open the dialog by clicking on the drop-down and the clicking on the "Add Filters Rule" option.
+
+    .. image:: images/TableFilters_EditFilter.png
+        :align: center
+
+#. Change the desired rule and click Apply or Apply and Close. In our example, we will change the value for the first rule from 9 to 10.
+
+    .. image:: images/TableFilters_EditFirstFilter.png
+        :align: center
+
+    .. image:: images/TableFilters_EditFirstFilterResult.png
+        :align: center
+
+    You can change multiple rules consecutively and then click either action button. 
+
+To clear filter rules
+^^^^^^^^^^^^^^^^^^^^^
+
+#. Click on the filter icon on the table header |table-filtered| to open the filter dialog. You can also choose to open the dialog by clicking on the drop-down and the clicking on the "Add Filters Rule" option.
+
+    .. image:: images/TableFilters_EditFilter.png
+        :align: center
+
+#. Click on the delete icon |delete-filter-icon| for the respective rule and either Apply or Apply and Close the dialog. In our example, we will delete the rule applied to the column header cell "Copenhagen".
+
+      .. image:: images/TableFilters_DeletedFilter.png
+        :align: center
+
+#. If you do not want to delete the rule and just want to disable it, click on the enable/disable rule switch |disable-rule|, and click either action button. 
+
+    .. image:: images/TableFilters_DisabledFilter.png
+        :align: center
+
+    When a rule is disabled it will remain in the filter dialog but will not be applied. The disable rule option is useful when the applied filters result is an empty table. You can disable certain rules and check the results.
+
+#. In either case, deleting or disabling a rule, the data will be filtered only on enabled rules. In our example, the rule on the row header cell "London" is applicable. The indication for the deleted or disabled rule will also be removed.
+
+    .. image:: images/TableFilters_DisabledFilterResult.png
+        :align: center
+
+#. To clear all filter rules, click "Clear All Filters". This will clear all enabled and disabled rules and close the dialog, resulting in the original data on the table. 
+
+
+Operators
+^^^^^^^^^
+
+The operators provided are specific to numeric and string/element valued data. The below tables explains each of the operators.
+
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| Numeric Operators                 | Result                                                                                    |
++===================================+===========================================================================================+
+| is equal to (=)                   | All data that is equal to the entered value is displayed.                                 |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is not equal to (!=)              | All data except the entered value is displayed.                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is less than (<)                  | All data that is lesser than the entered value is displayed                               |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is less than or equal to (<=)     | All data that is lesser than or equal to the entered value is displayed                   |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is greater than (>)               | All data that is greater than the entered value is displayed                              |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is greater than or equal to (>=)  | All data that is greater than or equal to the entered value is displayed                  |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is in between                     | All data that is in between the range of and equal to the two entered values are displayed|
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| is not in between                 | All data that is outside the range of the two entered values are displayed                |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| show top                          | Displays the highest N values in descending order. N is the value entered.                |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| show bottom                       | Displays the lowest N values in ascending order. N is the value entered.                  |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+
+When adding rules to numeric operators, characters cannot be entered. The field accepts only numeric values.
+
+.. note ::
+    When ``show top`` or ``show bottom`` operators are used on a column/row, since the data is already sorted, sorting on other columns/rows will not be available. 
+
+.. _string-operators:
+
++------------------------------+-------------------------------------------------------------------------------------------+
+| String/Elt Operators         | Result                                                                                    |
++==============================+===========================================================================================+
+| contains                     | All data that contains the entered characters are displayed                               |
++------------------------------+-------------------------------------------------------------------------------------------+
+| does not contain             | All data except the strings that contain the entered characters are displayed             |
++------------------------------+-------------------------------------------------------------------------------------------+
+| is                           | All data that is an exact match to the entered characters are displayed                   |
++------------------------------+-------------------------------------------------------------------------------------------+
+| is not                       |All data except the strings that are an exact match to the entered characters are displayed|
++------------------------------+-------------------------------------------------------------------------------------------+
+| starts with                  | All data that start with the entered characters are displayed                             |
++------------------------------+-------------------------------------------------------------------------------------------+
+| ends with                    | All data that end with the entered characters are displayed                               |
++------------------------------+-------------------------------------------------------------------------------------------+
+
+Best Practices
+^^^^^^^^^^^^^^
+
+#. When using numeric operators for filtering data that are in decimals points, we advise the use of the range operator, i.e. "in between" or "not in between" since the data that is displayed in the table and the actual stored data may vary in the number of decimals. Using the "is equal" operator will look for an exact match in the stored data.
+
+#. When using the range operator, i.e. "in between" or "not in between", for decimal values, you might want to input values that have a small variance.  
+
+#. To apply a filter rule on data that are dates, we advise the use of the string operators. The dates are stored in string format in AIMMS.
+
+#. If filter rules are applied and the data in the table changes based on other interactions, please be aware that the filters will still be applied. 
+
+#. When filters are applied and if you add/remove content, change the widget type, change the slicing information or change the pivot the applied filters will be cleared. This will be possible only if you have access to the widget settings.  
+
+
+.. Important::
+    When using aggregators like mean and count, please be aware the WebUI may display different results depending on whether filters are applied or not. When no filters are applied, these aggregators are computed by the AIMMS engine which does not take into account whether columns/rows are visible in the WebUI. In such a case the results may be different than what an end-user might expect because they may assume that the aggregators may be computed using the visible columns/rows only.
+
+    When filters are applied, the aggregators are computed using only the columns/rows that are displayed using the current set of filters, which may lead to a different set of results even when the filters do not change the content of the filtered/non-filtered table.
+    
+    To prevent any confusion with your end-users when using aggregators like mean and count, you are therefore advised to use a display domain that will make sure that any columns/rows included in the aggregator computations will also be visible on the screen.
