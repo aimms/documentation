@@ -359,3 +359,51 @@ Best Practices
     When filters are applied, the aggregators are computed using only the columns/rows that are displayed using the current set of filters, which may lead to a different set of results even when the filters do not change the content of the filtered/non-filtered table.
     
     To prevent any confusion with your end-users when using aggregators like mean and count, you are therefore advised to use a display domain that will make sure that any columns/rows included in the aggregator computations will also be visible on the screen.
+
+Date and Time picker for Calendar elements
+------------------------------------------
+
+.. Important:: 
+    The Date and Time picker is available in software versions from AIMMS 4.75 onwards as part of Experimental Features. Please reach out to User Support on how to enable Experimental Features.
+
+A Date and Time picker is displayed to select a date and time when a `Calendar <https://how-to.aimms.com/Articles/189/189-using-calendars-in-aimms.html>`_ is referenced in a table. A calendar icon appears in the cell, on hover, that represent `Calendar <https://how-to.aimms.com/Articles/189/189-using-calendars-in-aimms.html>`_ elements and the picker is displayed by either clicking the calendar icon or double clicking on the cell.
+
+.. Image:: images/DateTime_CalendarDefault.png
+    :align: center
+
+.. Image:: images/DateTime_CalendarIcon.png
+    :align: center
+
+The Date and Time picker makes it easy to differentiate between dates and to maintain a reference. The current date is displayed with a bold blue colour so the users can identify the current date easily. The selected date is highlighted with a blue background. Based on the calendar range, the date picker allows the user to select dates only from the range. Inactive dates are greyed out and cannot be selected. The date and time picker also has the option to select the current date and time by clicking on the "Today" button. The user can also clear the date by clicking the "Clear Date" button. The week numbers are also displayed for users who reference weeks by the week number.
+
+.. Image:: images/DateTime_CalendarRanges.png
+    :align: center
+
+When the user selects a certain date, the picker automatically switches to the time picker. The user can also toggle between dates, months and years by clicking on the blue bar of the picker. The users can also change months or years by clicking on the arrows when on the respective selections.
+
+.. Image:: images/DateTime_ToggleDMY.png
+    :align: center
+
+As mentioned above, the date picker allows selection of dates only in the range of the defined calendar. Although the actual time ranges are not confined when the time selection is made by the user, if a time is selected that might fall outside the range set in the calendar, an error "Selected Date/Time is outside of allowed range" will be displayed.
+
+For example, if the calendar range is set from ``2019-10-07 06:00`` to ``2019-10-07 20:00``, and the user selects ``2019-10-07 21:00``, the error message "Selected Date/Time is outside of allowed range" will be displayed and the date will be set either to the previous value or left blank.
+
+There are different combinations of the date and time picker which are controlled by the Unit property defined in the calendar.
+
++------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Calendar Unit          | Date and Time picker option                                                                                                 |
++========================+=============================================================================================================================+
+| Century, Year          | The user is given the option to only select the year.                                                                       |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Month                  | The user can select a year and the corresponding month.                                                                     |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Day                    | The user can select a year, the corresponding month and date.                                                               |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Hour                   | After selecting the date, the time picker is displayed where the user can select the hour.                                  |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Minutes                | The user can select up-to the minute.                                                                                       |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Second, Tick           | The user still gets the option to select up-to the minute. Selecting seconds and ticks is not possible at the moment.       |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+
+When the Unit is set to Century, Year, Month or Day, the time picker is not displayed.

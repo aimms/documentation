@@ -30,3 +30,4 @@ Details on these topics can be accessed using the following scheme:
    app-misc-settings
    workflow-panels
    status-bar
+   time-zone-setting
