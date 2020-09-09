@@ -53,6 +53,7 @@ Details on creating and managing various pages can be accessed using the followi
 
 .. toctree::
 
-   webui-pages
+   webui-classic-pages
+   webui-grid-pages
    side-panels
    dialog-pages
