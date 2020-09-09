@@ -223,7 +223,7 @@ AIMMS Improvements
 -  From now on, in new models only, Aimms interprets reference dates as UTC times by default i.s.o. local-no-DST times.
 
 	What is affected:
-	Functions that use default-timezone reference dates. (StringToMoment and MomentToString)
+	Functions that use default-timezone reference dates. (:any:`StringToMoment` and :any:`MomentToString`)
 	The begin and end date of calendars that have granularity smaller than a day.
 	The storage in cases of such calendars and element parameters pointing into them.
 
@@ -1031,7 +1031,7 @@ AIMMS Improvements
 ++++++++++++++++++++
 
 Multi-objective optimization problems can now also be solved with Gurobi 8.0 and higher.
-The *incumbent* callback procedure has been renamed to *candidate*, and the *new incumbent* callback procedure has been renamed to *incumbent*. Note that the functionality of the *incumbent* callback procedure has changed as it now can no longer be used to reject candidate incumbent solutions (use the new *candidate* callback for that). The math program suffix *.CallbackNewIncumbent* has been renamed to *.CallbackIncumbent*. The procedure GMP::Instance::SetCallbackIncumbent has been renamed to GMP::Instance::SetCallbackCandidate, and the procedure GMP::Instance::SetCallbackNewIncumbent has been renamed to GMP::Instance::SetCallbackIncumbent. (The math program suffix *.CallbackNewIncumbent* and the procedure GMP::Instance::SetCallbackNewIncumbent are now hidden.)
+The *incumbent* callback procedure has been renamed to *candidate*, and the *new incumbent* callback procedure has been renamed to *incumbent*. Note that the functionality of the *incumbent* callback procedure has changed as it now can no longer be used to reject candidate incumbent solutions (use the new *candidate* callback for that). The math program suffix *.CallbackNewIncumbent* has been renamed to *.CallbackIncumbent*. The procedure :any:`GMP::Instance::SetCallbackIncumbent` has been renamed to :any:`GMP::Instance::SetCallbackCandidate`, and the procedure ``GMP::Instance::SetCallbackNewIncumbent`` has been renamed to :any:`GMP::Instance::SetCallbackIncumbent`. (The math program suffix *.CallbackNewIncumbent* and the procedure ``GMP::Instance::SetCallbackNewIncumbent`` are now hidden.)
 In rare cases, CPLEX 12.9 could incorrectly return a zero-solution inside an incumbent callback procedure (previously known as new incumbent; see the previous note) if the CPLEX option `Use generic callbacks` was at its default setting.
 During the execution of certain statements, AIMMS now responds quicker on an attempt to interrupt the execution via the AIMMS interrupt tool.
 AIMMS is gradually replacing its compiler by a new version. In the old compiler, the precedence of the $-operator was not always consistent and in many cases different from what the language reference says. In the new compiler the precedence of the dollar operator is always as stated in the language reference, taking precedence over all other binary operators. This can cause a different interpretation of your expressionm, and therefor a warning is now reported when the new compiler encounters an expression in which this may be an issue: The precedence of the $ operator has in some situations changed in the new compiler. Use parentheses to make your intention clear. In some cases, the changed interpretation can lead to compile errors, which may be puzzling. In other situations, the result may be different. To correct these warnings there are multiple solutions:
@@ -1550,7 +1550,7 @@ AIMMS Improvements
 ++++++++++++++++++++
 
 -  CPLEX 12.9 has been added. CPLEX 12.9 comes with performance improvements and with support for multi-objective optimization. CPLEX 12.9 is only available for 64-bit Windows (VS2017) and Linux.
--  AIMMS now supports multi-objective optimization which deals with mathematical optimization problems involving more than one objective function that have to be optimized simultaneously. Solving multi-objective optimization problems requires the usage of GMP functionality, in particular the new procedure GMP::Column::SetAsMultiObjective. Multi-objective optimization problems can be solved with CPLEX 12.9.
+-  AIMMS now supports multi-objective optimization which deals with mathematical optimization problems involving more than one objective function that have to be optimized simultaneously. Solving multi-objective optimization problems requires the usage of GMP functionality, in particular the new procedure :any:`GMP::Column::SetAsMultiObjective`. Multi-objective optimization problems can be solved with CPLEX 12.9.
 -  (See also the release note about the iterative operators mentioned for the 4.64.1 release). This version of AIMMS handles some of the First and Last expressions with the new compiler. These expressions can be interpreted as iterative operators (see the Language Reference, section 5.2.2) or intrinsic functions (see the Function Reference, chapter 2). The new compiler is more strict in the usage of '$' versus '|': Only '|' can be used to define a domain. If you have used the iterative operators 'First' or 'Last' in combination with a '$' to indicate a domain, this can now lead to a confusing compilation error, because the compiler does not recognize it as an iterative operator anymore. For example: First( t $ t in Set_T) will now result in the compilation error: The scope of index "t" has not been specified. You can easily resolve this compilation error by changing the '$' into a '|': First( t | t in Set_T) The compiler will recognize this as the intended iterative operator and no compilation error will be issued as a result.
 -  The functions axll::FillList and axll::FillTable now have a new optional argument: clearExistingContent. If set to 0, the function will not clear the existing content of a cell if there is no data for it in the AIMMS identifier. This argument is ignored if the optional argument WriteZeros is set to 1.
 
@@ -2499,7 +2499,7 @@ AIMMS 4.55.1 Release (June 22, 2018)
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  The function GMP::Instance::Delete did not release memory allocated by the solver CP Optimizer.
+-  The function :any:`GMP::Instance::Delete` did not release memory allocated by the solver CP Optimizer.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -2853,8 +2853,8 @@ AIMMS Improvements
 ++++++++++++++++++++
 
 -  We implemented some performance improvements in the parallel execution of AIMMS.
--  The procedure GMP::Instance::CalculateSubGradient is now also supported by Gurobi.
--  The option `Lazy constraint mode` has been added for Gurobi. It can be used to specify how lazy constraints are handled by Gurobi. A new optional parameter has been added to the procedure GMP::Row::SetPoolType for the same purpose.
+-  The procedure :any:`GMP::Instance::CalculateSubGradient` is now also supported by Gurobi.
+-  The option `Lazy constraint mode` has been added for Gurobi. It can be used to specify how lazy constraints are handled by Gurobi. A new optional parameter has been added to the procedure :any:`GMP::Row::SetPoolType` for the same purpose.
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -2989,7 +2989,7 @@ AIMMS Improvements
 ++++++++++++++++++++
 
 -  The function axll::WriteCompositeTable now supports parameters with an integer or binary range.
--  Several optional arguments have been added to the procedure GMP::Solver::InitializeEnvironment.
+-  Several optional arguments have been added to the procedure :any:`GMP::Solver::InitializeEnvironment`.
 -  The performance of the saving and loading of cases when having published AIMMS models on the PRO environment, was improved.
 
 Resolved AIMMS Issues
@@ -3185,7 +3185,7 @@ AIMMS Improvements
 ++++++++++++++++++++
 
 -  The new solver ODH-CPLEX, designed to run on modern multiprocessor machines, has been added.
--  The procedures GMP::Solver::InitializeEnvironment and GMP::Solver::FreeEnvironment have been added. These procedures can be used to connect and disconnect to a remote server or cloud server multiple times during one AIMMS session.
+-  The procedures :any:`GMP::Solver::InitializeEnvironment` and :any:`GMP::Solver::FreeEnvironment` have been added. These procedures can be used to connect and disconnect to a remote server or cloud server multiple times during one AIMMS session.
 -  CONOPT 4.0 has been added. It comes with performance improvements for large nonlinear models. CONOPT 4.0 is less likely to end up in a locally infeasible solution.
 
 WebUI Improvements
@@ -3655,7 +3655,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++
 
 -  If a calendar has a unit larger than 'day', writing the calendar to a spreadsheet resulted in incorrect dates being written.
--  A crash could occur while AIMMS created an error message during a call to GMP::Column::FreezeMulti or GMP::Column::UnfreezeMulti because a column was not in the model.
+-  A crash could occur while AIMMS created an error message during a call to :any:`GMP::Column::FreezeMulti` or :any:`GMP::Column::UnfreezeMulti` because a column was not in the model.
 -  If in the WinUI Gantt chart multiple tasks were located exaclty at the same position, navigating between these tasks using the arrow keys sometimes did not work correctly.
 -  Using iterative operators like sum, exists, count, ... in a definition could lead to very slow performance in some cases.
 
@@ -3779,7 +3779,7 @@ AIMMS 4.38.1 Release (July 19, 2017 Build 4.38.1.1035)
 -  In rare cases, pivoting to the Aggregated field in a Widget, could lead to a memory overflow in AIMMS, leading to an unresponsive system.
 -  The level values of deterministic variables in a stochastic program can now be stored in the .level suffix (instead of the .stochastic suffix) by switching off the new option `Store deterministic solution as stochastic`.
 -  In the interface definition of a library, when expanding all identifiers in a section, now also the implicit subsets of AllIdentifiers that are associated with the contained sub sections or named declarations sections are added.
--  AIMMS should have generated an error if the objective variable was used (as the 'row') in the procedure GMP::Row::SetRightHandSide.
+-  AIMMS should have generated an error if the objective variable was used (as the 'row') in the procedure :any:`GMP::Row::SetRightHandSide`.
 
 
 
@@ -4219,8 +4219,8 @@ AIMMS 4.32.6 Release (March 20, 2017 Build 4.32.6.884)
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  The performance of the function GMP::Row::Generate could be poor if many empty columns had to be removed.
--  MIP starts marked by the procedure GMP::Solution::SetMIPStartFlag were not passed to CPLEX if a time callback procedure was installed.
+-  The performance of the function :any:`GMP::Row::Generate` could be poor if many empty columns had to be removed.
+-  MIP starts marked by the procedure :any:`GMP::Solution::SetMIPStartFlag` were not passed to CPLEX if a time callback procedure was installed.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -4423,7 +4423,7 @@ Resolved AIMMS Issues
 
 -  Pivoting the headers of a WinUI Pivot table that contained multiple identifiers could result in a crash.
 -  In the WinUI Pivot Table, the unit was sometimes not visible in the column header.
--  The function FindReplaceStrings now handles situations better, where the search string has overlapping occurrences of the string that must be replaced.
+-  The function :any:`FindReplaceStrings` now handles situations better, where the search string has overlapping occurrences of the string that must be replaced.
 -  If you switch between apps while AIMMS is starting up, it could lead to a situation where the AIMMS window is not displayed at all. This fix tries to recognize this situation and restores the window to a normal state.
 -  When opening a .aimmspack file, solver options changed in the Option Tree were not set correctly.
 
@@ -4474,7 +4474,7 @@ Resolved AIMMS Issues
 -  In a Pivot Table with more than 2 levels in the column header, the width of the columns was not always calculated correctly.
 -  Writing an identifier with a domain condition to a database didn't always go right.
 -  Internal errors were displayed in the Messages Window after closing the solver configuration on the Start Page.
--  The functions GMP::Column::GetUpperBound and GMP::Column::GetLowerBound could return an incorrect (scaled) value for a GMP created by GMP::Instance::CreatePresolved.
+-  The functions :any:`GMP::Column::GetUpperBound` and :any:`GMP::Column::GetLowerBound` could return an incorrect (scaled) value for a GMP created by :any:`GMP::Instance::CreatePresolved`.
 -  A fixed element as argument of an indexed set at the right-hand side of an IN condition could lead to an error.
 -  The dynamic multistart algorithm did not handle an infeasible model correctly, if the infeasibility was detected by the AIMMS Presolver.
 -  The progress window was not updated during a BARON solve.
@@ -4730,9 +4730,9 @@ AIMMS Improvements
 -  Two new functions have been added: PrinterSetupDialog and PrinterGetCurrentName.
 -  Gurobi 7.0 has been added. Gurobi 7.0 comes with significant performance improvements across MIP, LP, SOCP, MIQP and MIQCP problem types. Gurobi 7.0 supports indicator constraints and a solution pool for MIP problems. Please note that the interface dll for Gurobi 7.0 is named libgrb70.dll (previous versions used libgurobiXX.dll).
 -  Knitro 10.1 has been upgraded to version 10.1.2.
--  Several new optional arguments have been added to the procedure GMP::Instance::FindApproximatelyFeasibleSolution including an argument for specifying a time limit. The performance of this procedure has been improved drastically.
--  A new argument has been added to the procedure GMP::Solution::Check to retrieve the maximum infeasibility. If you were using this procedure in your project then you need to modify your project by adding this argument.
--  A new optional argument has been added to the function GMP::Solution::GetPenalizedObjective which can be used to skip the objective.
+-  Several new optional arguments have been added to the procedure :any:`GMP::Instance::FindApproximatelyFeasibleSolution` including an argument for specifying a time limit. The performance of this procedure has been improved drastically.
+-  A new argument has been added to the procedure :any:`GMP::Solution::Check` to retrieve the maximum infeasibility. If you were using this procedure in your project then you need to modify your project by adding this argument.
+-  A new optional argument has been added to the function :any:`GMP::Solution::GetPenalizedObjective` which can be used to skip the objective.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4762,7 +4762,7 @@ Resolved AIMMS Issues
 
 -  Renaming a page could lead to a 'page not found' error, for example when reading the menu  Builder data.
 -  Displaying stretched .PNG images could result in repeating images along the right and bottom edges.
--  The function GMP::SolverSession::Execute no longer generates an error if an external function is used in a constraint.
+-  The function :any:`GMP::SolverSession::Execute` no longer generates an error if an external function is used in a constraint.
 -  System procedures like PostMainInitialization, PreMainTermination, etc., no longer have attributes for Arguments and Properties.
 -  More improvements in authenticating proxies in combination with PRO.
 
@@ -5163,7 +5163,7 @@ AIMMS Improvements
 ++++++++++++++++++++
 
 -  A new version of Knitro is available: Knitro 10.1.
--  The new function GMP::Row::SetPoolType can be used to specify that a row should be added to a pool of lazy constraints or a pool of (user) cuts.
+-  The new function :any:`GMP::Row::SetPoolType` can be used to specify that a row should be added to a pool of lazy constraints or a pool of (user) cuts.
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -5655,7 +5655,7 @@ AIMMS 4.15.1.321 Release (The AIMMS 4.15.1.321 Release was released on February 
 AIMMS Improvements
 ++++++++++++++++++++
 
--  A new callback procedure has been added which can be called by a solver with a specified time interval (in elapsed seconds). This callback procedure can be installed using either the mathematical programming suffix .CallbackTime or the procedure GMP::Instance::SetCallbackTime. This callback procedure is supported by all linear solvers (CPLEX, Gurobi, CBC and XA).
+-  A new callback procedure has been added which can be called by a solver with a specified time interval (in elapsed seconds). This callback procedure can be installed using either the mathematical programming suffix .CallbackTime or the procedure :any:`GMP::Instance::SetCallbackTime`. This callback procedure is supported by all linear solvers (CPLEX, Gurobi, CBC and XA).
 -  Two new functions have been added to AIMMS: LoadDatabaseStructure and SaveDatabaseStructure. They can be used to Load/Save all currently available table structure information for the currently open database connections to a file. Using these functions, you can speed up the initialization process when accessing database tables for the first time during an AIMMS session.
 
 WebUI Improvements
@@ -5821,7 +5821,7 @@ Improvements
 +++++++++++++++++++
 
 
--  The functions GMP::SolverSession::GetTimeUsed and GMP::Solution::GetTimeUsed replace the deprecated functions GMP::SolverSession::GetCPUSecondsUsed and GMP::Solution::GetCPUSecondsUsed.
+-  The functions :any:`GMP::SolverSession::GetTimeUsed` and :any:`GMP::Solution::GetTimeUsed` replace the deprecated functions ``GMP::SolverSession::GetCPUSecondsUsed`` and ``GMP::Solution::GetCPUSecondsUsed``.
 
 Resolved issues
 +++++++++++++++++++
@@ -5860,9 +5860,9 @@ Resolved issues
 
 -  There could be a problem with the handling of domain conditions in the left hand side of an expression.
 -  In some cases, the EMPTY statement could perform badly if performed on already empty identifiers.
--  GMP-AOA could return an incorrect solution if columns were added before (using the function GMP::Column::Add).
+-  GMP-AOA could return an incorrect solution if columns were added before (using the function :any:`GMP::Column::Add`).
 -  Directly referencing the data of parameters with the property "uncertain" by using the suffix .level could not be properly handled by the compiler leading to superfluous error messages.
--  Robust counterparts were generated incorrectly if the set of uncertain parameters was changed in between successive calls to the function GMP::Instance::GenerateRobustCounterpart.
+-  Robust counterparts were generated incorrectly if the set of uncertain parameters was changed in between successive calls to the function :any:`GMP::Instance::GenerateRobustCounterpart`.
 -  AIMMS now properly communicates date values (i.e. elements of Calendar identifiers) to Excel and vice versa. Previously, the local Windows date format could lead to an incorrect interpretation of date values by Excel, leading to the wrong dates in your workbooks.
 
 
@@ -6006,7 +6006,7 @@ Resolved issues
 
 
 -  BARON 15 could be inefficient if CONOPT was used as the NLP solver.
--  The performance of the functions GMP::Column::Unfreeze and GMP::Column::UnfreezeMulti has been improved.
+-  The performance of the functions :any:`GMP::Column::Unfreeze` and :any:`GMP::Column::UnfreezeMulti` has been improved.
 -  The Parametric Curve object did not update the X-axis label upon an element parameter change.
 
 
@@ -6059,7 +6059,7 @@ Resolved issues
 -  Automatic Benders' Decomposition failed for models with SOS constraints.
 -  The multiple case view had a problem with filtering when the multi-dimensional identifier in an inactive case only contained one single data value.
 -  AIMMS could crash using Gurobi if the property RightHandSideRange or ShadowPriceRange was set for a constraint (or variable).
--  A superfluous error message could be issued when using the StringToMoment function.
+-  A superfluous error message could be issued when using the :any:`StringToMoment` function.
 -  If the `procedure upon selection` took relatively long, the network object did not handle the mouse messages correctly, possibly resulting in a crash of AIMMS.
 
 
@@ -6078,14 +6078,14 @@ Improvements
 
 
 -  It is no longer needed to make a copy of the GMP if you want to execute multiple solver sessions (asynchronously) for the same GMP.
--  Two optional arguments have been added to the function GMP::Solver::GetAsynchronousSessionsLimit.
+-  Two optional arguments have been added to the function :any:`GMP::Solver::GetAsynchronousSessionsLimit`.
 
 Resolved issues
 +++++++++++++++++++
 
 
 -  In rare cases, the GMP version of AOA could stop due to evaluation errors while evaluating inline variables.
--  The function GMP::Solution::SendToModel did not set the objective value to NA if the model status was infeasible.
+-  The function :any:`GMP::Solution::SendToModel` did not set the objective value to NA if the model status was infeasible.
 -  When an index is duplicated in the index attribute of a set, AIMMS now issues an error instead of a warning and provides better internal memory management.
 -  If your model had nested source files in sections or modules and were moved around in the model tree, having relative paths in the source file attribute of the sections or modules didn't lead to the actual files being copied. As a result, upon reopening your model, these files could not be found anymore (because the relative paths weren't correct anymore). Now, if you try to move such sections or modules, you are asked whether you want to move the actual files, or to adapt the relative paths.
 -  The ElementCast function did not work correctly on calendars with a non-fixed format.
@@ -6548,7 +6548,7 @@ Resolved issues
 -  The option to disable toolbar items didn't always work correctly.
 -  Programmatically trying to open a page that was already open could cause an error message about opening the page file.
 -  Editing the name of an identifier that was present on a page could lead to the page being marked with an exclamation mark and, as a result, to showing the browse/skip/cancel dialog for that identifier when opening that particular page.
--  The performance of the function GMP::Instance::GenerateStochasticProgram has been improved.
+-  The performance of the function :any:`GMP::Instance::GenerateStochasticProgram` has been improved.
 
 A high level overview can be found at the `AIMMS 4.2 New Features Page <https://www.aimms.com/support/new-features/aimms-42-new-features/>`__.
 
@@ -6603,7 +6603,7 @@ Improvements
 +++++++++++++++++++
 
 
--  The performance of the function GMP::Stochastic::CreateBendersRootproblem has been improved.
+-  The performance of the function :any:`GMP::Stochastic::CreateBendersRootproblem` has been improved.
 -  In the Case dialog, a shortcut to the My Documents folder has been added.
 
 Resolved issues
@@ -6615,7 +6615,7 @@ Resolved issues
 -  There was a performance glitch with inline variables with a complicated index domain expanded in high dimensional variables. This could lead to an unnecessary re-evaluation of the index domain while generating the high dimensional constraint.
 -  Empty index sets could lead DisAggregate with a locus set to interpolation into an infinite amount of memory allocated.
 -  Getting the Text Representation of a declaration node resulted in a crash if the section was unnamed. Otherwise, it did not show the identifiers.
--  The best bound, accessible through the math program suffix .BestBound or by using GMP functions like GMP::Solution::GetBestBound, was not updated for MIQP and MIQCP problems.
+-  The best bound, accessible through the math program suffix .BestBound or by using GMP functions like :any:`GMP::Solution::GetBestBound`, was not updated for MIQP and MIQCP problems.
 -  The option `Warning no transactions supported` was not taken into account. Instead, this warning was always given if the connected datasource did not offer transaction support.
 
 
