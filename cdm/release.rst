@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.19.0.4 [11-09-2020]
+    - Evaluation of :token:`cdm::RevisionBranch` would result in dense execution, taking excessively long for a large number of revisions.
+    
 1.19.0.3 [09-09-2020]
     - Calls to :js:func:`cdm::GetValuesLog1 could produce no values if some domain elements in the log values domain or range were not present in the current contents of the corresponding domain sets. Such tuples are now skipped, and the number of skipped values is reported in the log file.
     
