@@ -17,7 +17,7 @@ AIMMS 4.75.1 Release (September 9, 2020 - build 4.75.1.0)
 
 AIMMS Improvements
 +++++++++++++++++++++++++
--  Several multi procedures have been added to the `GMP::Column <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_column-procedures-and-functions/index.html>`_ and `GMP::Row <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_row-procedures-and-functions/index.html>`_ namespaces. These procedures can be used to efficiently modify a group of columns or rows, belonging to one variable or constraint respectively.
+-  Multi procedures have been added to the `GMP::Column <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_column-procedures-and-functions/index.html>`_ and `GMP::Row <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_row-procedures-and-functions/index.html>`_ namespaces. These procedures can be used to efficiently modify a group of columns or rows, belonging to one variable or constraint respectively.
 -  Knitro 12.2 has been successfully linked to AIMMS. 
 -  The list of recent projects to choose from on the start page or in the File menu now shows the title of the project next to the .aimms file name.
 
