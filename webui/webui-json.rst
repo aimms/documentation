@@ -1,10 +1,5 @@
-WebUI Folder
-************
-
-An AIMMS WebUI-ready application is an AIMMS application with a Web User Interface built on top of it. In particular, this means that the application directory contains a *WebUI* subfolder in the *MainProject* folder (this folder is created automatically when `starting WebUI <publishing.html>`_ for the first time). 
-
-.. image:: images/webuifolderstructure_v3.png
-    :align: center
+WebUI JSON
+==========
 
 .. important::
 
@@ -34,14 +29,3 @@ In order to allow you to continue your work when you are facing an incorrect val
 So, as explained above, the entire WebUI application (including *all pages and widgets*) is stored in a single *webui.json* file. When opening your application in the AIMMS IDE, the *webui.json* file will be automatically generated from your existing setup. During the conversion, only pages and their associated widgets which are actually referenced in the WebUI page manager will be included in the *webui.json* file. The conversion will *not* delete the contents of the existing pages, widgets and application folders on disk, allowing you to still use older AIMMS versions, which depend on the old format. If you make changes to the WebUI using older AIMMS versions, you may delete the *webui.json* file, in which case it will be automatically re-generated upon opening the project with AIMMS 4.67 and higher. However, the changes made with AIMMS 4.67 and higher will never be visible in older AIMMS versions.
 
 If you are using version control on your AIMMS project, please make sure to add the new *webui.json* file, and delete the pages, widgets and application folders from version control when you don't plan to use the project with AIMMS versions 4.66 or lower any longer. The new format as a true JSON file will make the structure of the WebUI directly clear, allowing you to resolve merge conflicts in the WebUI much easier. It also makes straightforward the searching on where widgets are used in your WebUI application.
-
-
-The description of the various topics related to the WebUI folder can be accessed using the following navigation scheme:
-
-.. toctree::
-
-   resources-subfolder
-   css-styling
-   units-support
-   multi-language
-
