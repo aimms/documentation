@@ -20,11 +20,13 @@ The table below maps the features available for data widgets.
     `Tooltips <widget-options.html#html-tooltips>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
     `Widget Actions <widget-options.html#widget-actions>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
     `Item Actions <widget-options.html#item-actions>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
+    Y-Axis Min & Max Bounds and Step,|tickmark|,,,|tickmark|,,,,,
     Show High/Low,,,,,,|tickmark|,,,
     `Highlight <css-styling.html#highlighting-experimental>`_,,,|tickmark|,,,|tickmark|,,,
     `Icons <../_static/aimms-icons/icons-reference.html>`_,,,,,,,,|tickmark|,
     `Inline text <widget-options.html#additional-identifier-properties>`_,,,|tickmark|,,,,,,
     Labels,,,,,,,,,|tickmark|
+    `Filtering <table-widget.html#data-filtering-on-the-table>`_,,,,,,|tickmark|,,,
 
 The table below maps the features available for supporting widgets.
 
@@ -53,7 +55,8 @@ The table below maps the features available for the different type of pages.
     :header: "Features","`Regular Page <webui-pages.html>`_","`Side Panel Page <side-panels.html>`_","`Dialog Page <dialog-pages.html>`_"
 
     `Page Actions <page-settings.html#page-actions>`_,|tickmark|,,
-    Layout,Classic,Fixed Width,Small/Medium/Large
+    `Classic Layout <webui-classic-pages.html>`_,|tickmark|,Fixed Width,Small/Medium/Large
+    `Grid Layout <webui-grid-pages.html>`_,|tickmark|,,
     `Action Upon Load <page-settings.html>`_,|tickmark|,,
     `Action Upon Leave <page-settings.html>`_,|tickmark|,,|tickmark|
-    Max Columns,|tickmark|,2 Column Fixed,Small/Medium/Large
+    Max Columns (Clasic Layout),|tickmark|,2 Column Fixed,Small/Medium/Large
