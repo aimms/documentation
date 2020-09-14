@@ -46,6 +46,7 @@ WebUI Improvements
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 -  Now table column widths will be rounded to two decimals when resized. This prevents problems when storing the model in a version control system, as this will lead to far less 'changed' lines.
+-  The maximum zoom out level of the map widget has been increased such that a larger area of the map can be displayed now. Also users can now pan right or left completely which was restricted before.
 
 
 
