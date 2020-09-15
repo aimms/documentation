@@ -18,8 +18,8 @@ The table below maps the features available for data widgets.
     `Slicing Support <widget-options.html#id6>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
     `Annotations <css-styling.html#data-dependent-styling>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
     `Tooltips <widget-options.html#html-tooltips>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
-    `Widget Actions <widget-options.html#widget-actions>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
-    `Item Actions <widget-options.html#item-actions>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
+    `Widget Actions <widget-options.html#widget-actions>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|
+    `Item Actions <widget-options.html#item-actions>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|
     Y-Axis Min & Max Bounds and Step,|tickmark|,,,|tickmark|,,,,,
     Show High/Low,,,,,,|tickmark|,,,
     `Highlight <css-styling.html#highlighting-experimental>`_,,,|tickmark|,,,|tickmark|,,,
