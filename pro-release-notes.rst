@@ -1,6 +1,27 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.36
+########
+
+AIMMS PRO 2.36.1 Release
+------------------------
+
+On September 15, 2020, we released AIMMS PRO 2.36.1 (2.36.1.1). 
+
+
+**Improvements**
+
+-  We have extended logging for AimmsPROAppLauncher with more infomation in the ProWebLink logfile and the error dialog to the user.
+-  When the AimmsPROAppLauncher.exe is installed using elevated rights, AimmsPROAppLauncher logfile(ProWebLink.log) will be written to %HOMEDRIVE%%HOMEPATH%/ProWebLink.log allowing the normal users to write to the logfile. (For normal installation it will still write to %LOCALAPPDATA%/AIMMS/PRO/AppLauncher/<version>/ProWebLink.log)
+
+
+**Resolved Issues**
+
+-  There was an issue where WebUI app could crash or hang when having a long-running WebuiPageOpen procedure.
+-  There was an issue with running concurrent solve sessions where only one session could run and rest of the sessions remained queued in some rare circumstances. (when license usage count is updated incorrectly in the AIMMS PRO database due to the race condition)
+
+
 PRO 2.35
 ########
 
