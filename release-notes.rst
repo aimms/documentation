@@ -11,6 +11,35 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.75
 #############
 
+AIMMS 4.75.2 Release (September 17, 2020 - build 4.75.2.10)
+------------------------------------------------------------------------------------------
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+-  The BoxR package for R has been upgraded from version 0.3.4 to 0.3.5.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Options that are given nondefault values to new models automatically, were not always saved. This applies especially to the option to use UTC times in reference dates introduced in 4.74. IMPORTANT: If your model uses time, check that the option "Use UTC forcaseandstartenddate" is on. Altering it once is enough to avoid the bug, but be aware: this changes the meaning of calenders.
+-  Finding an element in a quarterly calendar, using StringToElement, did not work sometimes.
+-  Specifying the 'order by' attribute on a runtime set, could lead to an unexpected error in recent AIMMS versions.
+-  We removed an incorrect warning about a missing semicolon.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Making a namechange to an identifier that was being used as a display-domain identifier in WebUI could result in the display-domain not being active anymore.
+-  'ElementsAreNumerical' was added as property to the webui::ExtensionOrder set, in order to prevent a (harmless) warning being displayed.
+-  When using the Grid Layout experimental feature, the option to create a Group widget will be hidden (since the Grid Layout removes the need for having Group widgets).
+
+
+--------------
+
+
+
+
 AIMMS 4.75.1 Release (September 9, 2020 - build 4.75.1.0)
 ------------------------------------------------------------------------------------------
 
