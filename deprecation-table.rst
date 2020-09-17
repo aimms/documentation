@@ -29,7 +29,7 @@ This is a list of (recent) deprecated features and provides an insight into its 
 
     System Requirements, Win 32                    , Deprecated , Dec 2019        , No longer delivered and supported                                              , Win64 versions                                                                                        
     System Requirements, Internet Explorer 11      , Deprecated , Jan 2020        , No longer supported                                                            , Chrome or Edge (latest or latest-1)                                                                  
-    System Requirements, Windows 7      , Deprecated , Jan 2020        , No longer supported            , Windows 10 or higher                                                                  
+    System Requirements, Windows 7      , Deprecated , Jan 2020        , No longer supported            , Windows 8 or higher                                                                  
     System Requirements, Windows Server 2008      , Deprecated , Jan 2020        , No longer supported         , Windows Server 2012 or higher                                                                  
     Licensing, Dongle                    , Deprecated , Dec 2019        , No longer delivered and supported                                              , Nodelock                                                                
     GUI, WinUI                     , Deprecated , not before 2023 , Currently only High Prio and fixable issues will be considered for solving                            , WebUI                                                                                                 
