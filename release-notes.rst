@@ -11,6 +11,26 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.75
 #############
 
+AIMMS 4.75.3 Release (September 23, 2020 - build 4.75.3.6)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In the debugger, when hovering over an identifier, the data shown in the tooltip no longer contains inactive data.
+-  We added the function axll::CopySheet to copy an existing sheet in a spreadsheet file. This was added to easily create sheets with pre-set formatting and coloring.
+
+
+Resolved Security Issues
++++++++++++++++++++++++++
+
+-  The WebUI now uses the HTTPS protocol for retrieving GeoFabrik map tile data.
+
+--------------
+
+
+
+
 AIMMS 4.75.2 Release (September 17, 2020 - build 4.75.2.10)
 ------------------------------------------------------------------------------------------
 
