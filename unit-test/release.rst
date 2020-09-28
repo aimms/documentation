@@ -5,6 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+1.0.0.98 [28-09-2020]
+    - Improved reporting of differences when comparing identifiers
+
 1.0.0.95 [21-07-2020]
     - Upgraded internal library due to performance issue
     
