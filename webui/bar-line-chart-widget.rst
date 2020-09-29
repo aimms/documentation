@@ -5,14 +5,14 @@ Bar-Line Chart Widget
 
 .. important:: The Bar-Line Chart currently supports only single domain identifiers, a common Y-axis and a one line for the first identifier added to the contents section.
 
-The bar-line chart combines the features of the `bar chart <bar-chart-widget.html>`_ and the `line chart <line-chart-widget.html>`_. The bar-line chart displays the data using a number of bars and/or lines, each of which represent a particular identifier or data set. A combination of bars and lines in the same visualization can be useful when comparing values in different categories, since the combination gives a clear view of which category is higher or lower. An example of this can be seen when using the bar-line combination chart to compare the projected sales with the actual sales of products across different channels.
+The bar-line chart combines the features of the `bar chart <bar-chart-widget.html>`_ and the `line chart <line-chart-widget.html>`_. The bar-line chart displays the data using a number of bars and/or lines, each of which represent a particular identifier or data set. A combination of bars and lines in the same visualization can be useful when comparing values in different categories, since the combination gives a clear view of which category is higher or lower. For example, a bar-line combination chart can be used in order to compare the projected sales with the actual sales of some products across different channels.
 
-An example of the bar-line chart widget is shown below
+An example of the bar-line chart widget is shown below:
 
 .. image:: images/BarLineChart_Example.png
     :align: center
 
-In the below sections, we discuss and illustrate one-by-one the tabs in the bar-line chart’s options editor which may be accessed through the Settings wheel as shown in the picture above.
+In the next sections we discuss and illustrate one-by-one the functionalities in the options editor of the bar-line chart.
 
 Contents and Pivoting
 ---------------------
@@ -23,7 +23,7 @@ for the available model data using the corresponding functionality at the bottom
 .. image:: images/BarLineChart_Contents.png
     :align: center
 	
-The first identifier added will always be represented on the line. All the other identifiers added will be represented as bars. 
+The first identifier added will always be represented as the line in the chart. All the other identifiers added will be represented as bars. 
 
 In the Pivot tab of the options editor, one can specify how the data dimensions are to be organized in the chart. For example, if the Products index ``p`` is specified in the X-axis section and the ``<IDENTIFIER-SET>`` in the Grouped section then the resulting bar-line chart looks like in the illustration below:
 
