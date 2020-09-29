@@ -13,6 +13,7 @@ More details on each widget are included in one of the corresponding sections be
    :titlesonly:
 
    bar-chart-widget
+   bar-line-chart-widget
    bubble-chart-widget
    button-widget
    download-widget
