@@ -6,6 +6,10 @@ The first public release of HTTPClient was version 1.0.0.3, release date Decembe
 
 New Features and Bug Fixes
 --------------------------
+1.0.2.175 [30-09-2020]
+    - Major rewrite of implementation
+    - Improved error and warning messages
+
 1.0.2.40 [25-09-2019]
     - Fixed an issue with parsing chunked HTTP responses that did not close the connection
     - Added web::request_generate_curl method
