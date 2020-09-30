@@ -11,6 +11,8 @@ The HTTP Client library provides a basic API through which HTTP requests can be 
 .. toctree::
 
     library
+    http
+    usage
     api
     release
     
