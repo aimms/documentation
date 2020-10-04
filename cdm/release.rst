@@ -11,7 +11,7 @@ New Features and Bug Fixes
     - Evaluation of :token:`cdm::RevisionBranch` would result in dense execution, taking excessively long for a large number of revisions.
     
 1.19.0.3 [09-09-2020]
-    - Calls to :js:func:`cdm::GetValuesLog1 could produce no values if some domain elements in the log values domain or range were not present in the current contents of the corresponding domain sets. Such tuples are now skipped, and the number of skipped values is reported in the log file.
+    - Calls to :js:func:`cdm::GetValuesLog1` could produce no values if some domain elements in the log values domain or range were not present in the current contents of the corresponding domain sets. Such tuples are now skipped, and the number of skipped values is reported in the log file.
     
 1.19.0.2 [03-09-2020]
     - Server-side lock was being held for too long, causing a dead-lock when multiple :js:func:`cdm::CreateSnapshot` requests were fired at the same time.

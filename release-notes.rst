@@ -18,7 +18,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  In the debugger, when hovering over an identifier, the data shown in the tooltip no longer contains inactive data.
--  We added the function axll::CopySheet to copy an existing sheet in a spreadsheet file. This was added to easily create sheets with pre-set formatting and coloring.
+-  We added the function ``axll::CopySheet`` to copy an existing sheet in a spreadsheet file. This was added to easily create sheets with pre-set formatting and coloring.
 
 
 Resolved Security Issues

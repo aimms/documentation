@@ -172,7 +172,7 @@ To view icons you might have to also configure the Size identifier. The icons ar
 Custom Tooltips and Annotations for nodes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When a user hovers over a node a tooltip displays the name of the node. It is also possible to override the defalut tooltips for these node by adding the :token:`webui::TooltipIdentifier` annotation attribute to the identifier that was specified as the "Size" for the respective node set. You can find further details in `Tooltips for nodes section <map-widget.html#tooltips-for-nodes>`_ on this page.
+When a user hovers over a node a tooltip displays the name of the node. It is also possible to override the defalut tooltips for these node by adding the :token:`webui::TooltipIdentifier` annotation attribute to the identifier that was specified as the "Size" for the respective node set. You can find further details in `Tooltips for nodes section <map-widget.html#tooltips-for-nodes>`__ on this page.
 
 It is also possible to add user-annotations in your AIMMS model which will be used to style the corresponding node styles with CSS. This can be achieved by adding the :token:`webui::AnnotationsIdentifier` annotation attribute to either the Set that the nodes are indexed over or the Size identifier. We suggest adding the :token:`webui::AnnotationsIdentifier` annotation attribute to the Size identifier, and if the size is not speficied to add it to the Set. You can find more details with the supported CSS properties in the `CSS properties supported for annotations section <css-styling.html#widgets-and-css-properties-supported-for-annotations>`_.
 
@@ -308,7 +308,7 @@ In the same vein, when considering the destinations nodes, the set of distributi
 Custom Tooltips and Annotations for arcs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When a user hovers over an arc there is no tooltip that displayed, since the information is displayed on the label. It is possible to configure user-defined tooltips for these arcs by adding the :token:`webui::TooltipIdentifier` annotation attribute to the identifier that was specified as the "Value" for the respective arc set. You can find further details in `Tooltips for nodes section <map-widget.html#tooltips-for-arcs>`_ on this page.
+When a user hovers over an arc there is no tooltip that displayed, since the information is displayed on the label. It is possible to configure user-defined tooltips for these arcs by adding the :token:`webui::TooltipIdentifier` annotation attribute to the identifier that was specified as the "Value" for the respective arc set. You can find further details in `Tooltips for nodes section <map-widget.html#tooltips-for-arcs>`__ on this page.
 
 It is also possible to add user-annotations in your AIMMS model which will be used to style the corresponding arc styles with CSS. This can be achieved by adding the :token:`webui::AnnotationsIdentifier` annotation attribute to the Value identifier. You can find more details with the supported CSS properties in the `CSS properties supported for annotations section <css-styling.html#widgets-and-css-properties-supported-for-annotations>`_.
 
