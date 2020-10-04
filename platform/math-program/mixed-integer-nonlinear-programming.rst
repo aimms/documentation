@@ -2,7 +2,7 @@ Mixed Integer Nonlinear Programming
 ====================================
 Mixed Integer Nonlinear Programming (MINLP) problems contain nonlinear expressions and integer variables. Mixed integer nonlinear programming problems are in general more difficult to solve than mixed integer programming problems and nonlinear programming problems.
 
-For a full description of the AIMMS Presolver see Chapter 17 in the :doc:`Language Reference <../../aimms_ref>`.
+For a full description of the AIMMS Presolver see `the Language Reference <https://documentation.aimms.com/language-reference/optimization-modeling-components/advanced-methods-for-nonlinear-programs/the-aimms-presolver.html>`__.
 
 Benefits of using AIMMS for MINLP
 -------------------------------------
