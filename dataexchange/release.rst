@@ -5,6 +5,12 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+
+1.1.0.9 [06-10-2020]
+    - Added support for reading from and writing to tables in sheets in Excel workbooks
+    - Added support for automatically generating standard Data Exchange mappings from model annotations
+    - Added new mapping attributes :token:`dense-children`, :token:`included-mapping` and :token:`value`.
+    
 1.0.0.24 [27-07-2020]
     - Name attributes used at mapping locations where no name is needed for a child elemen are now warned against when reading a mapping
     - Name-regex attributes used at mapping locations where no name is needed for a child element now result in an error
