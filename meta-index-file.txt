@@ -1,0 +1,3 @@
+https://documentation.aimms.com/language-reference/help_index_languagereference.txt 
+https://documentation.aimms.com/functionreference/help_index_functionreference.txt
+
