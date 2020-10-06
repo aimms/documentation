@@ -1,8 +1,6 @@
 Bar-Line Chart Widget
 =====================
 
-.. important:: Bar-Line Chart is available in software versions from AIMMS 4.76 onwards as part of Experimental Features. Please reach out to User Support on how to enable Experimental Features.
-
 .. important:: The Bar-Line Chart currently supports only single domain identifiers, a common Y-axis and a one line for the first identifier added to the contents section.
 
 The bar-line chart combines the features of the `bar chart <bar-chart-widget.html>`_ and the `line chart <line-chart-widget.html>`_. The bar-line chart displays the data using a number of bars and/or lines, each of which represent a particular identifier or data set. A combination of bars and lines in the same visualization can be useful when comparing values in different categories, since the combination gives a clear view of which category is higher or lower. For example, a bar-line combination chart can be used in order to compare the projected sales with the actual sales of some products across different channels.
