@@ -9,21 +9,47 @@ Request Management
 
 blabla
 
+    .. code::
+
+        web::request_create(requestId);        ! a new request
+
+        web::request_XXXXXX(requestId, ... );  ! use request functions
+
+        web::request_close(requestId);         ! delete the request
 
 
 The URL
 -------
 
 
-### The query
+
+
+
+
+The query
+^^^^^^^^^
 
 A special part of the URL is the query. This is a key value pair thingy.
 
 
+The Bodies
+----------
 
-Request and response headers
-----------------------------
+ksksksksks
 
+The Headers
+-----------
+
+
+jsjsjsjsjs
+
+The Request Header
+^^^^^^^^^^^^^^^^^^
+
+jjsjsjsjss
+
+The Response Header
+^^^^^^^^^^^^^^^^^^^
 
 hohoho
 
