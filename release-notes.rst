@@ -11,6 +11,25 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.75
 #############
 
+AIMMS 4.75.4 Release (October 8, 2020 - build 4.75.4.8)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We fixed a performance issue that was introduced in version 4.73 with the new way of handling definitions.
+-  Making a modification in a math program, while the Math Program Inspector was open, could in some cases result in a crash.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The WebUI now shows a warning when some of the widgets tries to change a value of an identifier that is not present anymore in the model.
+
+--------------
+
+
+
+
 AIMMS 4.75.3 Release (September 23, 2020 - build 4.75.3.6)
 ------------------------------------------------------------------------------------------
 
