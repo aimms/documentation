@@ -5,6 +5,10 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+1.0.0.99 [08-10-2020]
+    - Added source location for failing tests in AimmsUnit.xml
+    - Added support for testing specific error message in case of an expected runtime error
+
 1.0.0.98 [28-09-2020]
     - Improved reporting of differences when comparing identifiers
 
