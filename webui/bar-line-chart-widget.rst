@@ -21,7 +21,9 @@ for the available model data using the corresponding functionality at the bottom
 .. image:: images/BarLineChart_Contents.png
     :align: center
 	
-The first identifier added will always be represented as the line in the chart. All the other identifiers added will be represented as bars. 
+The first identifier added will always be represented as the line in the chart. All the other identifiers added will be represented as bars.
+
+.. note:: If the first identifier's value is null or 0, the second identifier will be represented as the line, unless the display domain for the first identifier is 1 to display null or 0 values. 
 
 In the Pivot tab of the options editor, one can specify how the data dimensions are to be organized in the chart. For example, if the Products index ``p`` is specified in the X-axis section and the ``<IDENTIFIER-SET>`` in the Grouped section then the resulting bar-line chart looks like in the illustration below:
 
