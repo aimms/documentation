@@ -35,7 +35,7 @@ The following example shows the implementation of the :js:func:`web::downloadFil
 * execute the query, and
 * close the HTTP request
 
-    .. code::
+    .. code-block:: aimms
 
         ! Setup the web-request
         web::request_create(requestId);

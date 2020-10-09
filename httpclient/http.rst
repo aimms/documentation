@@ -1,15 +1,17 @@
+
+.. _What_is_HTTP:
+
 What is HTTP?
 =============
-
 
 HTTP  (`HyperText Transfer Protocol <https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol>`_) originally was developed as a protocol for the World Wide Web that described how browsers fetch web pages and images from servers. Nowadays, its use case is generalized as one of the standardized ways information systems interact over the internet and exchange data. 
 
 An HTTP server is the system that has some resources and waits for an incoming HTTP request. An HTTP client is a program that can retrieve a resource from an HTTP server by making such request. In order to do so the HTTP client must follow these 4 steps: 
 
-- Connect to the server
-- Send the request message
-- Wait for the response 
-- Process the response message
+1. Connect to the server
+2. Send the request message
+3. Wait for the response 
+4. Process the response message
 
 After the response, the connection can be closed or a new request can be made.
 
@@ -58,10 +60,12 @@ Scheme
     The scheme is either ``http`` or its secure counterpart ``https``. Typically you always want to use https, unless you run a server locally on your machine. The schema is always followed by ``://``.
 
 
-All parts of the url are optional, except for the host in the authority and the scheme. For the scheme there are only two possible values. For the host the set of valid characters is limit to alpha numerical characters plus the ``.`` and ``-``. Instead of a host name we can use the `IP address <https://en.wikipedia.org/wiki/IP_address>`_.
+All parts of the URL are optional, except for the host in the authority and the scheme. For the scheme there are only two possible values. For the host the set of valid characters is limit to alpha numerical characters plus the ``.`` and ``-``. Instead of a host name we can use the `IP address <https://en.wikipedia.org/wiki/IP_address>`_.
 
 For the path and query more characters are allowed. Characters that are not allowed should be percent encode, which means that the *code point* of the character is spelled out as hexadecimal value preceded by a ``%``.
 
+
+.. _HTTPClient_WhatIsHTTP_RequestAndResponseMessages:
 
 Request and response messages 
 -----------------------------
