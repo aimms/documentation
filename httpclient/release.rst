@@ -6,6 +6,9 @@ The first public release of HTTPClient was version 1.0.0.3, release date Decembe
 
 New Features and Bug Fixes
 --------------------------
+1.1.0.1 [09-10-2020]
+    - New code base
+
 1.0.2.179 [05-10-2020]
     - Fix chunked encoding issue
     - Fix url percent encoding bug
