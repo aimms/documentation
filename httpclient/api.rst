@@ -1,6 +1,8 @@
 HTTP Client API
 ===============
 
+.. _HTTPClient_API_RequestManagement:
+
 Request Management
 ------------------
 
@@ -26,6 +28,9 @@ Request Management
     
     :param requestId:  id of the request object to invoke. 
     :param responseCode: output argument containing the HTTP response code of the request.
+
+
+.. _HTTPClient_API_RequestGettersAndSetters:
 
 Request Getters and Setters
 ---------------------------
@@ -153,6 +158,9 @@ Request Getters and Setters
     :param requestId: id of the request object
     :param headers: one-dimensional output string parameter holding the current HTTP response headers set for the request object
 
+
+.. _HTTPClient_API_UtilityFunctions:
+
 Utility functions
 -----------------
 .. js:function::  web::request_generate_curl(requestId, curlCmdFile)
@@ -192,6 +200,9 @@ Utility functions
     :param username: option username to use for retrieving the file, using basic authentication
     :param password: option password to use for retrieving the file, using basic authentication
         
+
+.. _HTTPClient_API_LibraryManagement:
+
 Library Management
 ------------------
 
