@@ -143,7 +143,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  On slower internet connections, WebUI apps were not always able to start properly. This was due to an internal timeout of 15 seconds. Therefore we introduced a new WebUI option called 'webui.webuiserver.max-session-idle-seconds', which now defaults to 5 minutes. You can specify this setting in the file 'MainProject\WebUI\settings\webui-options.conf'.
+-  On slower internet connections, WebUI apps were not always able to start properly. This was due to an internal timeout of 15 seconds. Therefore we introduced a new WebUI option called 'webui.webuiserver.max-session-idle-seconds', which now defaults to 5 minutes. You can specify this setting in the file 'MainProject\\WebUI\\settings\\webui-options.conf'.
 
 
 --------------
