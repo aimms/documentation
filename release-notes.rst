@@ -16,7 +16,7 @@ AIMMS 4.76.1 Release (October 16, 2020 - build 4.76.1.1)
 
 AIMMS Improvements
 +++++++++++++++++++++++++
--  As AIMMS is gradually moving towards online documentation, the Function Reference documentation that was previously shipped with the AIMMS installation and installed locally, is now only accessible online: https://documentation.aimms.com/functionreference/index.html.
+-  As AIMMS is gradually moving towards online documentation, the Function Reference documentation that was previously shipped with the AIMMS installation and installed locally, is now only accessible `online <https://documentation.aimms.com/functionreference/index.html>`__.
 
 
 Resolved AIMMS Issues
