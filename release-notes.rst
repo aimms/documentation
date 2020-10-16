@@ -33,7 +33,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We have added the combined BarLine Chart to the collection of WebUI widgets. For details, please see the `documentation <https://manual.aimms.com/webui/bar-line-chart-widget.html>`__.
+-  We have added the combined Bar-Line Chart to the collection of WebUI widgets. For details, please see the `documentation <https://manual.aimms.com/webui/bar-line-chart-widget.html>`__.
 -  We changed the way some totals (in WebUI tables) are computed: all 'total sum', 'total count', 'total mean', etc. totals are computed by the model using AIMMS expressions. Ergo, these do not take into account any rows or columns not being visible because of display-domain, sparsity or filtering. All 'sum', 'count', 'mean', etc. totals are computed by traversing the cells in the table itself and therefore reflect the totals of the *visible* cells in the table (potentially affected by sparsity, display-domains and/or filtering).
 
 
