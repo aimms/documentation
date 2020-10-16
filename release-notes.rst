@@ -8,6 +8,54 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 4.76
+#############
+
+AIMMS 4.76.1 Release (October 16, 2020 - build 4.76.1.1)
+------------------------------------------------------------------------------------------
+
+AIMMS Improvements
++++++++++++++++++++++++++
+-  As AIMMS is gradually moving towards online documentation, the Function Reference documentation that was previously shipped with the AIMMS installation and installed locally, is now only accessible online: https://documentation.aimms.com/functionreference/index.html.
+
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  IMPORTANT when you are making use of a file to store the database structure (with LoadDataBaseStructure): in version 4.72.4 we unintentionally made a change that has an impact on this functionality: it may be that if you used SaveDataBaseStructure in an older version, the resulting file is no longer compatible. So if you are using this functionality, please create a new database structure file once with a version 4.72.4 or higher to be used at LoadDataBaseStructure.
+-  In some rare cases when using the Mod function with arguments that have units of measurement, the result could have a precision lower than double precision for the floating point format.
+-  In AIMMS 4.75, the 'Subset of' wizard was not working as it should.
+-  An attempt to switch to the Profiler while the execution is stopped on a breakpoint in the Debugger is no longer allowed. It resulted in an error situation in earlier versions.
+-  The option 'Show_Stochastic_Data_if_Available' now does an additional check whether the .stochastic variant is completely empty while the original identifier is not. If so, AIMMS will display the data of the original identifier and not the empty stochastic data.
+
+
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  We have added the combined BarLine Chart to the collection of WebUI widgets. For details, please see the `documentation <https://manual.aimms.com/webui/bar-line-chart-widget.html>`__.
+-  We changed the way some totals (in WebUI tables) are computed: all 'total sum', 'total count', 'total mean', etc. totals are computed by the model using AIMMS expressions. Ergo, these do not take into account any rows or columns not being visible because of display-domain, sparsity or filtering. All 'sum', 'count', 'mean', etc. totals are computed by traversing the cells in the table itself and therefore reflect the totals of the *visible* cells in the table (potentially affected by sparsity, display-domains and/or filtering).
+
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When using a WebUI app on a tablet, checkboxes did not work properly. Furthermore, it was impossible to use column resizing in the Table widget. We also changed the scrollbar behavior in the Table widget: if there is scrollable content in a Table, the scrollbars are now automatically made visible on a tablet.
+-  We improved the warning messages when computing totals over identifiers with mismatching units in a WebUI Table widget.
+-  After pressing the ESC key when editing data in the Table widget, the value could be modified (rounded).
+-  Table filtering did not work correctly on translated element headers.
+-  Widget options for Side Panels and Dialog Pages were not showing up after creation, preventing the user from changing their height/width and positioning.
+-  System messages at the 'info' level will now show with the same icon as 'debug' messages (an 'i' within a solid circle), instead of having no icon at all.
+-  The webui::AnnotationsIdentifier and the webui::TooltipsIdentifier annotations are now also taken into account when in case comparison mode.
+-  Data being displayed in 'compase case mode' (in WebUI) now correctly uses the annotations and tooltips of the original identifier.
+-  Layout 9, part of our experimental Grid Layout feature released with 4.75, was inadvertently lacking the 'full screen' feature that the layout was originally created for. We added that property (called "runIntoGridgap"), for grid areas. It is also available for use in your custom layouts.
+
+
+--------------
+
+
+
+#############
 AIMMS 4.75
 #############
 
