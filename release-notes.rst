@@ -11,6 +11,28 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.76
 #############
 
+
+AIMMS 4.76.2 Release (October 21, 2020 - build 4.76.2.9)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If you need to declare a new unit for the unit a of calendar and the only existing time quantity is located in a read-only library, a second time quantity will be created. In previous AIMMS versions the unit was incorrectly added to the already existing read-only quantity.
+-  An attempt to call the AimmsAPI function AimmsServerProjectOpen for a second time, after closing a previously opened project, resulted in a crash.
+-  We addressed the strange "Too many casts" error when using an expression { elementParam1 .. elementParam2 } in which the two element parameters did not have the same set range.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  An unnecessary scrollbar was displayed in the Legend widget using the grid layout for pages.
+-  Contents added during widget creation were not always retained in the widget contents section, resulting in empty widgets.
+
+
+--------------
+
+
+
 AIMMS 4.76.1 Release (October 16, 2020 - build 4.76.1.1)
 ------------------------------------------------------------------------------------------
 
