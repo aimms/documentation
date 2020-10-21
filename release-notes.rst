@@ -15,6 +15,11 @@ AIMMS 4.76
 AIMMS 4.76.2 Release (October 21, 2020 - build 4.76.2.9)
 ------------------------------------------------------------------------------------------
 
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  We made various performance improvements in the AIMMS API that will improve the performance of libraries such as CDM, DataLink, DataExchange, and AIMMSUnitTest.
+
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
