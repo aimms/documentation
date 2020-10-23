@@ -12,6 +12,20 @@ AIMMS 4.76
 #############
 
 
+AIMMS 4.76.3 Release (October 23, 2020 - build 4.76.3.5)
+------------------------------------------------------------------------------------------
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Aimms could hang whenever you tried to make changes to the library setup of your project (using the IDE) while the WebUI was running.
+-  The specified display-domain was not always applied correctly to the identifiers in a widget that was showing data in 'case comparison' mode.
+
+
+--------------
+
+
+
 AIMMS 4.76.2 Release (October 21, 2020 - build 4.76.2.9)
 ------------------------------------------------------------------------------------------
 
