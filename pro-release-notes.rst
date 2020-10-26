@@ -7,7 +7,7 @@ PRO 2.36
 AIMMS PRO 2.36.2 Release
 ------------------------
 
-On October 27, 2020, we released AIMMS PRO 2.36.2 (2.36.2.0). 
+On October 26, 2020, we released AIMMS PRO 2.36.2 (2.36.2.0). 
 
 **Resolved Issues**
 
