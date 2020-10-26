@@ -4,6 +4,17 @@ AIMMS PRO Release Notes
 PRO 2.36
 ########
 
+AIMMS PRO 2.36.2 Release
+------------------------
+
+On October 27, 2020, we released AIMMS PRO 2.36.2 (2.36.2.0). 
+
+**Resolved Issues**
+
+-  **On-Premise:** Fixed an issue where PRO database backup could not be restored after a clean install of AIMMS PRO due to the table mismatch.
+-  **On-Premise:** There was an issue where sessions got stuck in the queue when having too many queued sessions in some rare circumstances. 
+-  **On-Premise:** Added support for connecting to servers that use TLS v1.3 HTTPS encryption. (This does require an **AIMMS Version 4.76.4** or **higher**)
+
 AIMMS PRO 2.36.1 Release
 ------------------------
 
