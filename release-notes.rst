@@ -12,6 +12,22 @@ AIMMS 4.76
 #############
 
 
+AIMMS 4.76.4 Release (October 28, 2020 - build 4.76.4.11)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Reading data into a subset of a calendar, using the AimmsXLLibrary, could give incorrect errors.
+-  A procedure with an output argument of type Set was incorrectly handling the argument as an InOut argument. This resulted in that the set was not empty at the start of the procedure body.
+-  Subtracting two elements in (a subset of) Integers did not always listen to the properties ElementsAreNumerical or ElementsAreLabels. For ElementAreNumerical an expression (int1-int2) should be evaluated as (Val(int1)-Val(int2)), and for ElementsAreLabels it should be evaluated as (Ord(int1)-Ord(int2)).
+-  The AimmsAPI function AimmsAttributeGetUnit was not working correctly when the output string was not consisting of unicode characters.
+-  This AIMMS version has added support for connecting to servers that use TLS v1.3 HTTPS encryption.
+
+--------------
+
+
+
 AIMMS 4.76.3 Release (October 23, 2020 - build 4.76.3.5)
 ------------------------------------------------------------------------------------------
 
