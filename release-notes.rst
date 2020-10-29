@@ -36,6 +36,7 @@ Resolved WebUI Issues
 
 -  Aimms could hang whenever you tried to make changes to the library setup of your project (using the IDE) while the WebUI was running.
 -  The specified display-domain was not always applied correctly to the identifiers in a widget that was showing data in 'case comparison' mode.
+-  The inverse cumulative of the Poisson distribution could suffer from numerical instabilities, which might even cause AIMMS to become unresponsive at high input values.
 
 
 --------------
