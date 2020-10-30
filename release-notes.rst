@@ -12,6 +12,24 @@ AIMMS 4.76
 #############
 
 
+AIMMS 4.76.5 Release (October 30, 2020 - build 4.76.5.8)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In case stochastic data is present and the option 'Show Stochastic Data if Available' is set to an appropriate value, AIMMS will now show a dialog asking you whether you want to see the deterministic or stochastic values of a variable or parameter on a data page.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The edit menu of the Text widget was not always visible when having a Text widget on a Dialog page.
+
+
+--------------
+
+
+
 AIMMS 4.76.4 Release (October 28, 2020 - build 4.76.4.11)
 ------------------------------------------------------------------------------------------
 
