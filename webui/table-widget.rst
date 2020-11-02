@@ -209,6 +209,8 @@ The data shows five columns that meet the applied rules. When we reorder the sec
 
 You can edit values and use the table normally after the data is filtered. If you change a value for a fitlered column or row, the data might change based on the filter rules set.
 
+.. note:: When filtering data on columns and rows, select either a numeric or string operator based on the data in the column/row. If the data is numeric use one of the numeric operators and if the data is alphanumeric use one of the string operators. When an element parameter is added to the table, the data will be treated either as numeric or alphanumeric. It is currently not possible to select elements while adding a filter rule the way it can be done when filtering headers, which is explained in the below section. 
+
 To add filter rules to columns/row headers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
