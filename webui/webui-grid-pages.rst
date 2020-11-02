@@ -182,6 +182,8 @@ Please note that the format you see in the layout editor will serve to create re
 
 	The names you give to your areas should re-appear as WidgetAreas components below the items of the Grid. The "gridArea" properties of it should be the same as of one of the defined areas in "gridTemplateAreas" of the Grid. Failure to do so may lead to unexpected results.
 
+	If you change the area name in the ``gridArea`` property and if any widgets were earlier assigned to that area, the widgets will get unassigned. To avoid this you could only change the area name in the ``name`` property.
+
 Only the areas that you define as sub-components will end up in the Page Configurator tab of the Page Manager, ready to be used to place your widgets in, so please keep these two in sync when you change the (CSS) names or the number of areas of your custom layout.
 
 WidgetArea components support a number of properties:
