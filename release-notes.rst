@@ -12,6 +12,26 @@ AIMMS 4.76
 #############
 
 
+AIMMS 4.76.6 Release (November 13, 2020 - build 4.76.6.10)
+------------------------------------------------------------------------------------------
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  There was a problem with time units, caused by the fact that the WebUI library now declares the unit 'minute'.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The experimental 'webui state support' feature will now also work for pages using the new Grid Layout (but some limitations to setting it up correctly will still apply).
+-  In some rare situations (in which you use similar totals in tables on more than one WebUI page), you could receive errors like 'Some of the attributes of runtime parameter "webui_runtime::Exprxxx" are not yet successfully compiled.'.
+-  Editing or changing a latitude or longitude identifier using the identifier selector from the Map widget options used to clear any previously made selection.
+
+
+--------------
+
+
+
 AIMMS 4.76.5 Release (October 30, 2020 - build 4.76.5.8)
 ------------------------------------------------------------------------------------------
 
