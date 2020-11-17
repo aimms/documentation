@@ -12,8 +12,10 @@ AIMMS 4.76
 #############
 
 
-AIMMS 4.76.6 Release (November 13, 2020 - build 4.76.6.10). Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AIMMS 4.76.6 Release (November 17, 2020 - build 4.76.6.10).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
@@ -29,6 +31,9 @@ Resolved WebUI Issues
 
 
 --------------
+
+
+
 
 
 
