@@ -6321,8 +6321,6 @@ AIMMS 4.8
 AIMMS 4.8.3 Release (August 11, 2015 Build 4.8.3.322)
 ---------------------------------------------------------------------------------------------------------
 
- A high level overview can be found at the `AIMMS New Features Page <http://main.aimms.com/downloads/aimms/new-features/>`__.
-
 Improvements
 +++++++++++++++++++
 
