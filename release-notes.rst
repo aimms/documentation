@@ -2204,6 +2204,7 @@ A number of changes have been made to the **FormatString** function:
 -  The conversion specifier %l is no longer available, it should be replaced by %e.
 
 There is a new option called 'Database string valued foreign keys'. When AIMMS writes to a database table, whenever there is no value for a string valued column, the default value ("") is written. However, if that string valued column is a foreign key, this should be a NULL. In earlier versions, and when this option is set to 'Check' (default), AIMMS automatically determines during database write actions, whether the written columns are foreign keys. This determination itself may be expensive in terms of performance. The option allows you to skip this test. If the value is 'Assume', AIMMS will insert a NULL instead of a "" for every string valued column without a value. When the value is 'Ignore', AIMMS will insert a "" for these columns. This, however, may cause errors when the column is a foreign key.
+
 WebUI Improvements
 ++++++++++++++++++++
 
