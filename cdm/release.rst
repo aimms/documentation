@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.19.0.6 [20-11-2020]
+    - Snapshot updating mechanism could end up in an infinite loop performing a check every millisecond.
+    - Reduce autotermination period by 1 minute.
+
 1.19.0.4 [11-09-2020]
     - Evaluation of :token:`cdm::RevisionBranch` would result in dense execution, taking excessively long for a large number of revisions.
     
