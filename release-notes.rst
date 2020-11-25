@@ -12,6 +12,29 @@ AIMMS 4.76
 #############
 
 
+AIMMS 4.76.7 Release (November 25, 2020 - build 4.76.7.12).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When an identifier was used in a definition of another identifier, and these two identifiers had different index domains (index domains without domain restriction and defined via a definition in their turn), run-time changes to the index domain of the first identifier were not taken into account when re-evaluating the definition of the second (i.e. that could lead to wrongly calculated inactive data).
+-  The check whether an element parameter is empty or not (using operator = or <>) did not work correctly if the value of the element parameter referred to an inactive element in the range set.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Maps may draw slightly faster when showing overlays with large amounts of straight line sections.
+-  Workflow configurations that redirect to a page using the Grid Layout did not work correctly in previous versions.
+-  A WebUI case could incorrectly not be marked as dirty after running a procedure from WebUI, resulting in the 'Save case as...' option to not appear.
+
+
+--------------
+
+
+
 AIMMS 4.76.6 Release (November 17, 2020 - build 4.76.6.10).
 ------------------------------------------------------------------------------------------
 
