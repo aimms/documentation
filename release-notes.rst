@@ -12,6 +12,29 @@ AIMMS 4.76
 #############
 
 
+AIMMS 4.76.8 Release (December 3, 2020 - build 4.76.8.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Defining a set via a procedure where the set is an output argument to that procedure did not work. The compiler now flags this as an error.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  There were issues with tooltips and some menus (like those for item actions or widget actions) hiding behind dialog pages or side panels in some cases.
+-  Map widget longitudes are no longer clipped between -180 and 180 but are instead wrapped to fall within the -360 to 360 range, which gives you more options when trying to keep a logical relation between the curves/nodes you might be drawing but that did not end up where you expected them.
+-  When having the option UI Editable set to 0 in a WebUI (as is the case under PRO, for example), the end-user was not able to use the Table filter mechanism to filter the data.
+-  errh::MarkAsHandled now also empties the predeclared string parameter CurrentErrorMessage if it is related to the handled error.
+
+
+--------------
+
+
+
 AIMMS 4.76.7 Release (November 25, 2020 - build 4.76.7.12).
 ------------------------------------------------------------------------------------------
 
