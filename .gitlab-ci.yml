@@ -1,3 +1,6 @@
+variables:
+    ANSIBLE_FORCE_COLOR: 'true'
+
 stages:
   - test
   - build-and-deploy

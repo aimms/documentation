@@ -15,7 +15,7 @@ AOA uses the system module ``GMPOuterApproximation``. This module contains a sta
 * being able to use different solvers NLP/MIP solvers during the algorithm in order to increase the chance to obtain feasible solutions, or even
 * being able to modify the submodels in a problem-specific manner in between algorithm steps.
 
-For a full description of the outer approximation algorithm implemented in AIMMS see Chapter 21 in the :doc:`Language Reference <../../aimms_ref>`.
+For a full description of the outer approximation algorithm implemented in AIMMS see :doc:`lr:optimization-modeling-components/aimms-outer-approximation-algorithm-for-minlp/index`.
 
 GMP Library
 -----------

@@ -41,14 +41,18 @@ extensions = ['sphinx.ext.doctest',
     'sphinx_aimms_theme']
 
 intersphinx_mapping = {'functionreference': ('https://documentation.aimms.com/functionreference/',
-                                  (None,'objects-functionreference.inv'))}
+                                  (None,'objects-functionreference.inv')),
+                        'lr': ('https://documentation.aimms.com/language-reference/', None)}
 	
 if os.name != 'nt':
 
 #Import spelling extension
     extensions.append('sphinx_sitemap')
     extensions.append('sphinx_last_updated_by_git')
-        
+
+# A list of regular expressions that match URIs that should not be checked when doing a linkcheck build.   
+linkcheck_ignore = [r'http://localhost:\d+/?', r'http://0\.0\.0\.0[:/]\d+/?', r'\b[\w-]+\.html', r'\.\..+\.html#?\w*']
+    
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

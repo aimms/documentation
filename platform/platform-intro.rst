@@ -76,7 +76,7 @@ Advanced modeling language features
 * Robust optimization
 * Automatic Benders’ decomposition
 
-For a full description of the AIMMS Mathematical Modeling Language see the :doc:`Language Reference <../../aimms_ref>`.
+For a full description of the AIMMS Mathematical Modeling Language see the :doc:`lr:index`.
 
 Integrated WebUI builder
 ^^^^^^^^^^^^^^^^^^^^^^^^
