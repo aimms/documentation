@@ -12,6 +12,23 @@ AIMMS 4.76
 #############
 
 
+AIMMS 4.76.9 Release (December 8, 2020 - build 4.76.9.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When you changing a value in the table, without hitting enter and then clicking away to a read-only cell, the change was not applied.
+-  Setting values of element parameters in a subset of a calendar with a non-standard datetime format, was not possible.
+-  Setting values of element parameters in a calendar using something else than the date-time-picker (e.g. a selection widget), did not work.
+
+
+--------------
+
+
+
 AIMMS 4.76.8 Release (December 3, 2020 - build 4.76.8.6).
 ------------------------------------------------------------------------------------------
 
