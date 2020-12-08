@@ -7,7 +7,7 @@ PRO 2.36
 AIMMS PRO 2.36.2 Release
 ------------------------
 
-On October 27, 2020, we released AIMMS PRO 2.36.2 (build 2.36.2.0 for On-premise, build 2.36.2.1 for AIMMS Cloud Platform). 
+On October 27, 2020, we released AIMMS PRO 2.36.2 (build 2.36.2.2 for On-premise, build 2.36.2.1 for AIMMS Cloud Platform). 
 
 **Resolved Issues**
 
