@@ -51,7 +51,8 @@ if os.name != 'nt':
     extensions.append('sphinx_last_updated_by_git')
 
 # A list of regular expressions that match URIs that should not be checked when doing a linkcheck build.   
-linkcheck_ignore = [r'http://localhost:\d+/?', r'http://0\.0\.0\.0[:/]\d+/?', r'\b[\w-]+\.html', r'\.\..+\.html#?\w*']
+linkcheck_ignore = [r'http://localhost:\d+/?', r'http://0\.0\.0\.0[:/]\d+/?', r'\b[\w-]+\.html', r'\.\..+\.html#?\w*', 
+r'_downloads/\w+\.pdf', r'http://your-server-name:\d+', r'http://example.com/?.*', r'https://yourproportal/?.*',r'https://your.*', r'https://icomoon.io/#preview-ultimate']
     
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

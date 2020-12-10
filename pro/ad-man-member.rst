@@ -14,7 +14,7 @@ Below, you can find the configuration that needs to be done to the browsers of t
 
 * IE: Add example.com to the "Local intranet" zone. For this, click the Settings Gear in IE->Internet Options->Security->Local intranet->Sites->Advanced. Then add the url of the AIMMS PRO Portal (example: "http://example.com").
 * Google Chrome uses the IE configuration steps above.
-* Firefox: go to about:config, "say you'll be careful", change the value for 'network.negotiate-auth.trusted-uris' into 'https://,http://example.com' and the value for 'network.negotiate-auth.delegation-uris' into 'http://example.com'
+* Firefox: go to ``about:config``, "say you'll be careful", change the value for `network.negotiate-auth.trusted-uris` into ``https://,http://example.com`` and the value for `network.negotiate-auth.delegation-uris` into ``http://example.com``
 
 
 .. note:: **Note for IT administrators**

@@ -164,7 +164,7 @@ If an identifier X does not have the :token:`webui::UponChangeProcedure` annotat
 	
 .. warning::
    **Security Warning:** 
-   Putting JavaScript code in an identifier (like the string filled in the :token:`webui::TooltipIdentifier` annotation attribute or like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
+   Putting JavaScript code in an identifier (like the string filled in the :token:`webui::TooltipIdentifier` annotation attribute or like :token:`X_Tooltips`) with write-permission from multiple users (like in :doc:`/cdm/index`)
    would allow a malicious user to do `Persistent XSS <https://en.wikipedia.org/wiki/Cross-site_scripting#Persistent_(or_stored)>`_.
    For example a malicious user could record all actions done by another user.	
 	

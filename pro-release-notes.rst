@@ -13,7 +13,7 @@ On September 15, 2020, we released AIMMS PRO 2.36.1 (2.36.1.1).
 **Improvements**
 
 -  We have extended logging for AimmsPROAppLauncher with more infomation in the ProWebLink logfile and the error dialog to the user.
--  When the AimmsPROAppLauncher.exe is installed using elevated rights, AimmsPROAppLauncher logfile(ProWebLink.log) will be written to %HOMEDRIVE%%HOMEPATH%/ProWebLink.log allowing the normal users to write to the logfile. (For normal installation it will still write to %LOCALAPPDATA%/AIMMS/PRO/AppLauncher/<version>/ProWebLink.log)
+-  When the AimmsPROAppLauncher.exe is installed using elevated rights, AimmsPROAppLauncher logfile(ProWebLink.log) will be written to ``%HOMEDRIVE%%HOMEPATH%/ProWebLink.log`` allowing the normal users to write to the logfile. (For normal installation it will still write to ``%LOCALAPPDATA%/AIMMS/PRO/AppLauncher/<version>/ProWebLink.log``)
 
 
 **Resolved Issues**
@@ -752,7 +752,7 @@ this release are listed below.
    functionality is not yet available on AIMMS Cloud Platform, it will
    be available in next release)
 -  'Seat Management' page is back to the Portal. Please see the
-   `documentation <http://manual.aimms.com/cloud/1/en/topic/seats-management>`__
+   `documentation <https://documentation.aimms.com/pro/admin-config-3.html#seats-management>`__
    for more details.
 
 **Resolved Issues**
@@ -796,7 +796,7 @@ On March 13, 2018, we released AIMMS PRO 2.22.0 (2.22.0.344).
    Versions are made available in the cloud and Administrators/AIMMS
    Publishers just need to activate the AIMMS Version into their AIMMS
    Cloud Platform. Please see the
-   `documentation <https://manual.aimms.com/cloud/1/en/topic/aimms-version-activation>`__
+   `documentation <https://documentation.aimms.com/cloud/activation.html>`__
    for more details.
 -  **AIMMS Cloud Platform**: Faster start-up of WebUI Applications.
 -  **AIMMS Cloud Platform**: Added 'Description' and 'Created' fields to
@@ -859,7 +859,7 @@ On January 16, 2018, we released AIMMS PRO 2.20.0 (2.20.0.311).
    framework allows you to link any environment to a SAML identity
    provider (e.g. AD FS) so that your users may be authenticated using
    your own user management system. Please see the
-   `documentation <http://manual.aimms.com/pro/2/en/topic/saml-support>`__
+   `documentation <https://documentation.aimms.com/pro/saml.html>`__
    for more details.
 
 **Resolved Issues**
@@ -934,7 +934,7 @@ On November 21, 2017, we released AIMMS PRO 2.18.0 (2.18.0.241).
    specify one or more IP-ranges through the 'IP Ranges' page under the
    'Configuration' menu of the AIMMS PRO Portal. For more details please
    see the
-   `documentation <http://manual.aimms.com/cloud/1/en/topic/ip-ranges>`__.
+   `documentation <https://documentation.aimms.com/cloud/admin-config-2.html>`__.
 -  AIMMS PRO APIs are now version independent, so that AIMMS PRO API
    users would not need to compile their API Programmes with every AIMMS
    PRO Upgrade.
@@ -983,7 +983,7 @@ On October 19, 2017, we released AIMMS PRO 2.17.1 (2.17.1.214).
    decentralized.
 -  Added 'Active Data Sessions' page under the Configuration menu of the
    AIMMS PRO Portal. For more details please see the
-   `documentation <http://manual.aimms.com/pro/2/en/topic/active-data-sessions>`__.
+   `documentation <https://documentation.aimms.com/pro/admin-config-3.html>`__.
 -  Removed 'Monitoring' pages and menu from the AIMMS PRO Portal which
    was mainly used by AIMMS PRO Developers.
 
@@ -1142,7 +1142,7 @@ AIMMS PRO 2.16.0 Release
          contains the configuration settings for Active Directory,
          Retention Time, Portal Customization, Tunnels. For more
          details, please see `AIMMS PRO
-         Manual <http://manual.aimms.com/pro/2/en/topic/configuration>`__
+         Manual <https://documentation.aimms.com/pro/admin-config.html>`__
       -  Moved some of the configuration settings like Active Directory,
          Retention Time, Portal Customization, Tunnels from AIMMS PRO
          Configurator to AIMMS PRO Portal's new menu 'Configuration' in
@@ -1311,7 +1311,7 @@ AIMMS PRO 2.13.3 Release
                      occupying one session. Please note that this
                      requires a version of the license server version
                      4.0.0.50 or higher. Click
-                     `Download Network License Server <https://www.aimms.com/support/downloads#other>`_.
+                     `Download Network License Server <https://www.aimms.com/support/downloads/#aimms-other-download>`_.
 
                   
 
@@ -1534,7 +1534,7 @@ AIMMS PRO 2.12 Release
                   -  Extended **AIMMS PRO API** with a new method
                      ‘Server.deleteFileFromStorage’ which deletes a file
                      from AIMMS PRO storage. For details, see `the
-                     documentation <http://manual.aimms.com/pro/2/en/topic/aimms-pro-api>`__.
+                     documentation <https://documentation.aimms.com/pro/api.html>`__.
 
 PRO 2.11
 ########
@@ -1565,7 +1565,7 @@ AIMMS PRO 2.11 Release
                         easier to change the log level to track down an
                         issue and then put it back to the default
                         value. For more details, please see `AIMMS PRO
-                        Manual <http://manual.aimms.com/pro/2/en/topic/log-management>`__.
+                        Manual <https://documentation.aimms.com/pro/admin-config-2.html>`__.
 
                   -  AIMMS PRO now provides support for proxy-servers
                      that require Kerberos authentication.
@@ -1970,9 +1970,7 @@ AIMMS PRO 2.7 Release
                      Running AIMMS PRO on a Linux Server is somewhat
                      different from running AIMMS PRO on a Windows
                      Server. The main difference lies in the field of
-                     AIMMS PRO installation. For more details, please
-                     see `the
-                     documentation <http://manual.aimms.com/pro/2/en/topic/installation-of-aimms-pro-on-linux>`__.
+                     AIMMS PRO installation.
                      The Windows installation process remains unaltered.
 
                   **Resolved Issues**
@@ -2113,7 +2111,7 @@ AIMMS PRO 2.6 Release
                      customization feature that lets you add your own
                      branding and in-house support contact details. For
                      details, see `the
-                     documentation <http://manual.aimms.com/pro/2/en/topic/portal-customization>`__.
+                     documentation <https://documentation.aimms.com/pro/admin-config-1.html#portal-customization>`__.
                   -  Improved the navigation in the AIMMS PRO
                      Configurator.
                   -  Improved the ability to diagnose problems by
@@ -2153,7 +2151,7 @@ AIMMS PRO 2.5 Release
                      PRO API allows you to perform most tasks supported
                      by the AIMMS PRO job request manager. For details,
                      see `the
-                     documentation <http://download.aimms.com/aimms/PROAPI/>`__.
+                     documentation <https://download.aimms.com/aimms/PROAPI/>`__.
                   -  **Backup-and-restore function:** This extension to
                      AIMMS PRO allows administrators to recover from
                      e.g. equipment failure and database corruption, and
@@ -2165,7 +2163,7 @@ AIMMS PRO 2.5 Release
                      to more easily reproduce your AIMMS PRO
                      configuration in case of questions. For details,
                      see `the
-                     documentation <http://manual.aimms.com/pro/2/en/topic/backup-management>`__.
+                     documentation <https://documentation.aimms.com/pro/config-sections.html#backup-management>`__.
 
                   
 
@@ -2209,7 +2207,7 @@ AIMMS PRO 2.4.1 Release
 
                   -  We added tunneling functionality – see the `manual
                      topic on
-                     this <http://manual.aimms.com/pro/2/en/topic/tunneling-support>`__.
+                     this <https://documentation.aimms.com/pro/tunneling.html>`__.
                   -  The PRO Configurator is now a Windows service. It
                      is now a web page and can be accessed by going to
                      http://your-server-name:9191. It will require
@@ -2364,7 +2362,7 @@ AIMMS PRO 2.3 Release
                         the license profiles are used: the administrator
                         has access to a set of monitoring pages. For
                         more information, `click
-                        here <http://manual.aimms.com/pro/2/en/topic/administrative-monitoring>`__.
+                        here <https://documentation.aimms.com/pro/monitoring.html>`__.
                      -  When upgrading from a previous version of PRO to
                         2.3, you should run the PRO configurator and
                         start the PRO services from there.

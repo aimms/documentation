@@ -21,6 +21,8 @@ GMP Library
 -----------
 AOA has been implemented by using routines from the `GMP library <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/index.html>`_. The AOA algorithm can be further customized using all available functionality in the GMP library, e.g. to modify the MIP master problem, or add problem-specific constraints.
 
-An example of a customization of AOA is provided in this paper about a `modified outer approximation algorithm <http://download.aimms.com/aimms/download/papers/rgraph_modified_oa.pdf>`_ for distillation column synthesis.
+.. comment: 
+  
+    An example of a customization of AOA is provided in this paper about a `modified outer approximation algorithm <http://download.aimms.com/aimms/download/papers/rgraph_modified_oa.pdf>`_ for distillation column synthesis.
 
 The AOA module also contains an outer approximation algorithm based on the approach of Quesada & Grossman (1992). This approach uses the branch-and-cut algorithm of :doc:`CPLEX <cplex>` or :doc:`GUROBI <gurobi>` in combination with outer approximation, and often solves convex models with binary variables much faster than other algorithms.

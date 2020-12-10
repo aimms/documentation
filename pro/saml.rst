@@ -11,7 +11,7 @@ In order to enable SAML authentication, you need to configure few things,
 AIMMS PRO Configuration
 -----------------------
 
-Setting up the link is straightforward: Click on the 'Link to SAML' 2nd icon on the right side of the environment box in the users tab of the AIMMS PRO Portal. This will open a dialog in which you must specify the SAML metadata URL. For example, https://saml.adfs/federationmetadata/2007-06/federationmetadata.xml. Leave the URL blank to remove the association.
+Setting up the link is straightforward: Click on the 'Link to SAML' 2nd icon on the right side of the environment box in the users tab of the AIMMS PRO Portal. This will open a dialog in which you must specify the SAML metadata URL. For example, ``https://saml.adfs/federationmetadata/2007-06/federationmetadata.xml``. Leave the URL blank to remove the association.
 
 It is allowed to have two environments pointing to the same SAML IDP.
 
@@ -23,14 +23,14 @@ SAML Identity Provider (IDP) Configuration
 You will need to configure your SAML identity provider to work with AIMMS PRO service provider.
 
 * First, your AIMMS PRO Portal needs to run using HTTPS.
-* Second, you need to add AIMMS PRO metadata to your IDP. You can get that metadata from https://yourproportal/sso/saml/metadata.xml
+* Second, you need to add AIMMS PRO metadata to your IDP. You can get that metadata from ``https://your-server-name/sso/saml/metadata.xml``
 * Third, you need to configure your IDP to provide claims to AIMMS PRO. Two claims are required and two are optional:
 
  
-    * *Group* (http://schemas.xmlsoap.org/claims/Group) – required. -- Groups that user is a member of. E.g. LDAP Token-Groups - Unqualified Names.
-    * *Name* (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) - required. -- Unique user ID. E.g. LDAP SAM-Account-Name.
-    * *Given Name* (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname) – optional. -- User’s full name. E.g. LDAP Display-Name.
-    * *E-Mail Address* (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress) – optional. -- User’s email address. E.g. LDAP E-Mail Addresses.
+    * *Group* (``http://schemas.xmlsoap.org/claims/Group``) – required. -- Groups that user is a member of. E.g. LDAP Token-Groups - Unqualified Names.
+    * *Name* (``http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name``) - required. -- Unique user ID. E.g. LDAP SAM-Account-Name.
+    * *Given Name* (``http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname``) – optional. -- User’s full name. E.g. LDAP Display-Name.
+    * *E-Mail Address* (``http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress``) – optional. -- User’s email address. E.g. LDAP E-Mail Addresses.
 
 
 Single Sign-on

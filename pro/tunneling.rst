@@ -37,7 +37,7 @@ Note: In lower AIMMS PRO versions (< 2.16), tunnels can be configured through AI
 The proposed workflow for adding a new tunnel is the following:
 
 
-* Administrator opens AIMMS PRO Portal in a browser (by default that would be http://myProHost:8080)
+* Administrator opens AIMMS PRO Portal in a browser (by default that would be ``http://my-server-name:8080``)
 * He or she navigates to configuration menu and then to a section Tunnels
 * In that section administrator clicks “Add a new tunnel” link and an input form appears (see the image above).
 * Administrator inputs all three required parameters – URI context path, Socket address and User Groups (see the detailed information about parameters below).
