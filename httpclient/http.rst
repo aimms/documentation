@@ -21,7 +21,7 @@ The URL
 
 The URL (Uniform Resource Location) may be very familiar because it is prominently visible in the address bar of a browser. Its purpose is twofold: it first specifies to which server to connect and how; and secondly may tell the server which particular resource to retrieve. In a way this gives each resource available on the internet a unique ID, and so instead of URL the term URI (`Uniform Resource Identifier <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier>`_) is often used.
 
-To break down the URL in its different functional parts we use the example from the `wikipedia page about URI: <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Examples>`_
+To break down the URL in its different functional parts we use the example from the `wikipedia page about URI: <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax>`_
 
 .. code-block:: text 
 
@@ -118,7 +118,7 @@ Here the last line is the body and it looks like JSON. We have added the header 
 Response
 ^^^^^^^^
 
-The header and body of the response are similar to the request, although the header fields are taken from the `HTTP Response Fields <https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Response_field>`_ list. 
+The header and body of the response are similar to the request, although the header fields are taken from the `HTTP Response Fields <https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Response_fields>`_ list. 
 Different is the **response line**, the first line of the response message. It could look like this:
 
 .. code-block:: text
