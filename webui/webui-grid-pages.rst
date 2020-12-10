@@ -62,6 +62,8 @@ The actions for adding, renaming, moving, changing the visibility, and deleting 
 .. image:: images/GridPage_PageManager_AppTab_InsertGrid.png
     :align: center
 
+.. note:: You may also select one of the existing pages in the App tab if you want to convert them to the grid layout. 
+
 Once a page has been selected in the App tab of the Page Manager, the Page tab shows more details about that particular page:
 
 .. image:: images/GridPage_PageManager_PageTab_1.png
@@ -74,12 +76,12 @@ Standard Layouts
 
 As shown in the last picture above, a particular case of a standard layout is the "Layout: classic". When this layout is applied to a grid page, then there are actually no specific areas defined and the widgets are placed on the page in the same way as done for a classic page. Resizing the entire browser window will result in the same repositioning of the widgets as the one applied to the classic pages.
 
-The user may choose to switch to another layout from the standard list. Currently this list offers Standard Layout A1, A2, A3, A4, Standard Layout B1, B2, Standard Layout C1, C2, and Standard Layout D1, D2 (please use the left arrow < and the right > in order to scroll horizontally through the list):   
+The user may choose to switch to another layout from the standard list. Currently this list offers ten standard layouts, Layout 1 to Layout 10 (please use the left arrow < and the right > in order to scroll horizontally through the list):   
 
 .. image:: images/GridPage_PageTab_StandardLayouts.png
     :align: center
 	
-For example, if we choose the Standard Layout B2 for a newly added grid page Grid_Standard_Layout in our TransNet application and add widgets for input and output data as explained in the "Getting Started" section, then we may assign widgets to the five areas Main, Aside A, Aside B, Aside C, and Aside D as shown in the following pictures:
+For example, if we choose Layout 6 for a newly added grid page Grid_Standard_Layout in our TransNet application and add widgets for input and output data as explained in the "Getting Started" section, then we may assign widgets to the five areas Area A, Area B, Area C, Area D, and Area E as shown in the following pictures:
 
 .. image:: images/GridPage_PageTab_Full_1.png
     :align: center
@@ -88,6 +90,8 @@ Initially, unassigned widgets may be moved from the "Unassigned widgets" section
 
 .. image:: images/GridPage_Drag-and-Drop_1.png
     :align: center
+
+.. important:: The deprecated group widget is not supported in the grid layout. If you had a group widget in the classic layout, the widgets that were part of the group widget will appear in the "Unassigned Area" as separate widgets. You can then assign these widgets to designated areas as required.
 
 The icon before the name of an area contains either a horizontal arrow from left to right, or a vertical arrow from top to bottom. These arrows indicate how the widgets are distributed within each area, either columnwise in equal columns or rowwise in equal rows, which is also indicated by the corresponding tooltip:
 
@@ -106,13 +110,13 @@ Note that the area "Aside B" is here in the lower right part of the page and con
 Switching between Layouts
 -------------------------
 
-When the user switches to another layout , for example to Standard Layout C1, then the widgets stay assigned to areas with the same name, if these areas exist in the newly selected layout. If not, then the corresponding widgets appear in the "Unassigned widgets" section and may be moved by drag-and-drop to one of the currently available areas, if required:
+When the user switches to another layout , for example to Layout 7, then the widgets stay assigned to areas with the same name, if these areas exist in the newly selected layout. If not, then the corresponding widgets appear in the "Unassigned widgets" section and may be moved by drag-and-drop to one of the currently available areas, if required:
 
 .. image:: images/GridPage_StandardLayoutC1_FullPage_1.png
     :align: center
 
-In this example, the Demand widget (which used to be assigned to area "Aside D" in the Standard Layout B2) has been moved to "Unassigned widgets" section (because the area "Aside D" is not defined in the Standard Layout C1).
-Also, the distribution of widgets in area "Aside B" is now rowwise in the current Standard Layout C1 (whereas it used to be columnwise in the Standard Layout B2).
+In this example, the Demand widget (which used to be assigned to area "Area E" in Layout 6) has been moved to "Unassigned widgets" section (because the area "Area E" is not defined in Layout 7).
+Also, the distribution of widgets in area "Area C" is now rowwise in the current Layout 7 (whereas it used to be columnwise in Layout 6).
 
 In general, widgets will always remember which named area they were assigned to, also upon switching layouts. Only when you explicitly move a widget to another area, will they store their new assignment. In other words, one can switch layouts without breaking the assignments of the widgets, as long as one does not re-arrange them.
 
@@ -136,17 +140,17 @@ This will open the layout Editor where the layout name and format may be adjuste
 .. image:: images/GridPage_CustomLayouts_Editor_1.png
     :align: center
 
-In particular, the editor contents above describes a layout with 4 columns and 2 rows. We can modify this layout and save the modified layout under the name "Custom Layout B2", for example, as follows:
+In particular, the editor contents above describes a layout with 4 columns and 2 rows. We can modify this layout and save the modified layout under the name "Custom Layout 6", for example, as follows:
 
 .. image:: images/GridPage_CustomLayoutB2_1.png
     :align: center
 	
-Note that in this case the grid has 8 columns and 3 rows (instead of 4 columns and 2 rows as it used to have initially). Also a new (sixth) area "Aside E" has been added to the layout:
+Note that in this case the grid has 8 columns and 3 rows (instead of 4 columns and 2 rows as it used to have initially). Also a new (sixth) area "area-f" has been added to the layout:
 
 .. image:: images/GridPage_CustomLayoutB2_2.png
     :align: center
 
-Clearly, this new area "Aside E" is used when defining the adjusted grid template areas in the modified layout format:
+Clearly, this new area "area-f" is used when defining the adjusted grid template areas in the modified layout format:
 
 .. image:: images/GridPage_CustomLayoutB2_3.png
     :align: center
@@ -156,7 +160,7 @@ When we apply the resulting custom layout as defined above to our page, the resu
 .. image:: images/GridPage_CustomLayoutB2_FullPage.png
     :align: center
 
-This resulting page looks better than the one achieved only based on the Standard Layout B2 discussed above. In particular, we have gained more space for the map widget such that the network is better visible now. Also, this page preserves the clear division between the input, optimization, and output data in a similar way as discussed in the "Getting Started" section of this manual. 
+This resulting page looks better than the one achieved only based on Layout 6 discussed above. In particular, we have gained more space for the map widget such that the network is better visible now. Also, this page preserves the clear division between the input, optimization, and output data in a similar way as discussed in the "Getting Started" section of this manual. 
 
 Creating Grid Definitions
 +++++++++++++++++++++++++
@@ -177,6 +181,8 @@ Please note that the format you see in the layout editor will serve to create re
 .. warning::
 
 	The names you give to your areas should re-appear as WidgetAreas components below the items of the Grid. The "gridArea" properties of it should be the same as of one of the defined areas in "gridTemplateAreas" of the Grid. Failure to do so may lead to unexpected results.
+
+	If you change the area name in the ``gridArea`` property and if any widgets were earlier assigned to that area, the widgets will get unassigned. To avoid this you could only change the area name in the ``name`` property.
 
 Only the areas that you define as sub-components will end up in the Page Configurator tab of the Page Manager, ready to be used to place your widgets in, so please keep these two in sync when you change the (CSS) names or the number of areas of your custom layout.
 

@@ -194,7 +194,7 @@ html_show_sourcelink = False
 html_baseurl = 'https://documentation.aimms.com/'
 
 # adding path to non-rst files that go to the build
-html_extra_path = ['robots.txt']
+html_extra_path = ['robots.txt', 'meta-index-file.txt']
 
 # -- Options for LaTeX output ---------------------------------------------
 
