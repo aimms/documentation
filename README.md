@@ -44,7 +44,7 @@ After installing all the above requirements, please go to the location of your p
 > **⚠️3:** If any warning is raised on gitlab, **the pipeline fails**
 
 
-The pipeline
+The Pipeline
 -
 
 Every push to gitlab remote will run a pipeline. This pipeline first "Test" stage contains 3 different jobs as defined in [.gitlab-ci.yml](.gitlab-ci.yml)
@@ -54,7 +54,7 @@ Every push to gitlab remote will run a pipeline. This pipeline first "Test" stag
 | job name | description | condition |
 | ------ | ------ | ----- |
 | ``build`` | builds the docs using the latest sphinx version | ❌ If any warning is raised, the job and pipeline fails |
-| ``build`` | checks every external link **and** anchor | ❌ If any link **or** anchor is broken, the job and pipeline fails |
+| ``linkcheck`` | checks every external link **and** anchor | ❌ If any link **or** anchor is broken, the job and pipeline fails |
 | ``spellcheck`` | checks the spelling of every word | ⚠️ If any spelling is broken, the job fails, but this job is **allowed to fail** |
 
 <details>
@@ -79,6 +79,10 @@ Every push to gitlab remote will run a pipeline. This pipeline first "Test" stag
 1. Fix links locally using `make linkcheck` or `python -msphinx -b linkcheck . _build/html`
 1. upgrade your sphinx version and sphinx-aimms-theme version (`python -mpip --upgrade sphinx sphinx-aimms-theme`)
 1. re-run the job in gitlab: **some links might be temporarily not reachable**
+1. If there is a link you want to **ignore**, put it 
+``` 
+``example.com`` 
+```
 </details>
 
 **If ``spellcheck`` fails, what should I do ?**
@@ -90,6 +94,12 @@ Every push to gitlab remote will run a pipeline. This pipeline first "Test" stag
 A push to master will run the pipeline and, if the `Test` stage is successful, it will copy the docs to [documentation.aimms.com](https://documentation.aimms.com/)
 
 If the pipeline fails, no copy will happen, thus website stays unchanged
+
+**Notes**
+1. If there is a link you want to **ignore**, put it 
+``` 
+``example.com`` 
+```
 
 
 Prereq's to build a PDF version (optional) 
