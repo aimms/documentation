@@ -102,20 +102,6 @@ If the pipeline fails, no copy will happen, thus website stays unchanged
 ```
 
 
-Prereq's to build a PDF version (optional) 
--------------------------------------------
-
-You can use the ``make latexpdf`` command to locally create a .pdf from the .rst source files.
-
-First, make sure you installed Latex - https://miktex.org/howto/install-miktex
-
-Then, to get the AIMMS code to look right, you need to run this:
-   
-   ``python -m pip install aimms-pygments-style``
- 
-   This will install an extension enabling latex to find the AIMMS style sheet define in the following open source repo 
-   https://gitlab.com/ArthurdHerbemont/aimms-pygments-style. Please contribute if you think you can improve it ! :)
-
 Style guide
 ==============
 
@@ -269,3 +255,16 @@ Use this to add contents of an entire file in the repo to your document as a sni
 
 http://docutils.sourceforge.net/docs/ref/rst/directives.html#include
 
+Prereq's to build a PDF version (optional) 
+-------------------------------------------
+
+You can use the ``make latexpdf`` command to locally create a .pdf from the .rst source files.
+
+First, make sure you installed Latex - https://miktex.org/howto/install-miktex
+
+Then, to get the AIMMS code to look right, you need to run this:
+   
+   ``python -m pip install aimms-pygments-style``
+ 
+   This will install an extension enabling latex to find the AIMMS style sheet define in the following open source repo 
+   https://gitlab.com/ArthurdHerbemont/aimms-pygments-style. Please contribute if you think you can improve it ! :)
