@@ -12,6 +12,29 @@ AIMMS 4.76
 #############
 
 
+AIMMS 4.76.10 Release (December 14, 2020 - build 4.76.10.11).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The Val function could suffer from multi-threading issues when used on calendar elements.
+-  The return value of the AttributeToString function, when used to get the "Default" attribute of a string parameter, was enclosed in redundant quotation marks.
+-  Solving a robust optimization model with an ellipsoidal uncertainty constraint could result in a failure.
+-  UTC start and end times of calendars were always shifted to local time, while timezone adjustments should only happen if the granularity of the calendar is higher than daily.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Uploading a file using the Upload widget in the WebUI to a folder that contained special unicode characters did not work on Windows.
+
+
+--------------
+
+
+
 AIMMS 4.76.9 Release (December 8, 2020 - build 4.76.9.4).
 ------------------------------------------------------------------------------------------
 
