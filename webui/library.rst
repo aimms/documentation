@@ -6,7 +6,7 @@ When preparing your AIMMS model for use with the WebUI, you have to add the WebU
 Pages and Dialog Support section
 ================================
 
-Pages and Dialog Support has been added to the AimmsWebUI library to be able to configure the `List Widget <list-widget.html>`_ , `Workflows <workflow-panels.html>`_ , `Status Bar <status-bar.html>`_ , `Side panels <side-panels.html>`_ , `Dialog pages <dialog-pages.html>`_ , `Page Actions <page-settings.html#page-actions>`_ , `Widget Actions <widget-options.html#widget-actions>`_ , `Item Actions <widget-options.html#item-actions>`_ and some useful procedures in AIMMS. This section can also be used to identify the different page types, their PageId's and Paths. 
+Pages and Dialog Support has been added to the AimmsWebUI library to be able to configure the `List Widget <list-widget.html>`_ , `Workflows <workflow-panels.html>`_ , `Status Bar <status-bar.html>`_ , `Side panels <side-panels.html>`_ , `Dialog pages <dialog-pages.html>`__ , `Page Actions <page-settings.html#page-actions>`_ , `Widget Actions <widget-options.html#widget-actions>`_ , `Item Actions <widget-options.html#item-actions>`_ and some useful procedures in AIMMS. This section can also be used to identify the different page types, their PageId's and Paths. 
 
 .. image:: images/pageanddialogsupportsection.png
 			:align: center
@@ -107,7 +107,7 @@ Public Pages Support Procedures:
 Public Dialog Support Procedures:  
 
 * `RequestPerformWebUIDialog(title,message,actions,onDone) <#requestperformwebuidialog>`_ - This procedure is used to display dialog message, such as alerts or warnings.
-* `OpenDialogPage(pageId,title,actions,onDone) <#opendialogpage>`_ - This procedure is used to open `dialog pages <page-manager.html#dialog-pages>`_ via the model, either by clicking on a button or some interaction in the model.
+* `OpenDialogPage(pageId,title,actions,onDone) <#opendialogpage>`_ - This procedure is used to open `dialog pages <page-manager.html#dialog-pages>`__ via the model, either by clicking on a button or some interaction in the model.
 
 .. note::
 

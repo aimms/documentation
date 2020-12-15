@@ -10,9 +10,9 @@ Parallel CP Optimizer
 -----------------------------
 CP Optimizer provides a parallel option allowing you to take advantage of the availability of additional CPUs to speed up performance while it solves a specific model. Parallel algorithms are included at no additional charge.
 
-ibm.pngAbout IBM ILOG CP Optimizer
+About IBM ILOG CP Optimizer
 -------------------------------------
-IBM ILOG CP Optimizer is developed and supported by `IBM, Inc <www.ibm.com>`_. IBM ILOG CP Optimizer is a registered trademark of IBM, Inc.
+`IBM ILOG CP Optimizer <https://www.ibm.com/analytics/cplex-cp-optimizer>`_ is developed and supported by IBM, Inc. IBM ILOG CP Optimizer is a registered trademark of IBM, Inc.
 
 CP Optimizer Supported Versions
 -------------------------------------

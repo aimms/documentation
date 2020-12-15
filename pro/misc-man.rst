@@ -11,7 +11,7 @@ It is very important to start and stop AIMMS PRO services through AIMMS PRO Conf
 AIMMS PRO Installation Healthcheck
 ----------------------------------
 
-If you want to periodically check your AIMMS PRO installation health, use /healthcheck.html page (e.g. https://your AIMMS PRO host/healthcheck.html). This page will return a JSON document with the version of your AIMMS PRO server and one of the following HTTP codes:
+If you want to periodically check your AIMMS PRO installation health, use ``/healthcheck.html`` page (e.g. ``https://your-pro-host/healthcheck.html``). This page will return a JSON document with the version of your AIMMS PRO server and one of the following HTTP codes:
 
 * 200, if everything is all right
 * 500, if Portal is up and running, but cannot reach PRO Backend

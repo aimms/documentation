@@ -19,7 +19,7 @@ Knitro can solve these four algorithms in parallel using multiple threads.
 
 This equips the user with a range of tools to achieve the best performance for a particular problem. For example, approximate solution points determined by a barrier algorithm can be converged to more accurate solutions by crossing over to the active set algorithm.
 
-All algorithms use exact :doc:`second order derivatives <../../aimms_ref>` from AIMMS, and scale efficiently to solve nonlinear problems with tens or even hundreds of thousands of variables and constraints.
+All algorithms use exact second order derivatives from AIMMS, and scale efficiently to solve nonlinear problems with tens or even hundreds of thousands of variables and constraints.
 
 Nonlinear programming problems are often non-convex and in that case there may be many locally optimal solutions. Normally Knitro returns the first locally optimal solution found but Knitro offers a multi-start algorithm that searches for a better optimal solution by restarting Knitro from different initial points.
 

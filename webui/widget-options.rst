@@ -164,7 +164,7 @@ If an identifier X does not have the :token:`webui::UponChangeProcedure` annotat
 	
 .. warning::
    **Security Warning:** 
-   Putting JavaScript code in an identifier (like the string filled in the :token:`webui::TooltipIdentifier` annotation attribute or like :token:`X_Tooltips`) with write-permission from multiple users (like in `CDM </cdm>`_)
+   Putting JavaScript code in an identifier (like the string filled in the :token:`webui::TooltipIdentifier` annotation attribute or like :token:`X_Tooltips`) with write-permission from multiple users (like in :doc:`/cdm/index`)
    would allow a malicious user to do `Persistent XSS <https://en.wikipedia.org/wiki/Cross-site_scripting#Persistent_(or_stored)>`_.
    For example a malicious user could record all actions done by another user.	
 	
@@ -432,7 +432,7 @@ Identifiers in AIMMS can have multiple dimensions. You can specify these dimensi
 These identifiers can be displayed in the WebUI and their data is shown over all these dimensions  by default. 
 However, there are also cases where you only want to see part of the dimensions/data. 
 In situations like this, you can slice the indices of one or more identifiers in your widget. This can be done by the 'Set slicing per index' option at the 
-`Identifier Settings <#identifier-settings>`_ tab of the `Widget Options <widget-options.html>`_.
+`Identifier Settings <#identifier-settings>`_ tab of the `Widget Options <widget-options.html>`__.
 
 .. image:: images/WidgetOptions_snap8.png
     :align: center
@@ -563,7 +563,7 @@ model declarations. All the cells which show no value are simply empty ("outside
 Pivot
 -----
 
-You can pivot the indices in most of the widget types. E.g. you can change which indices should appear in the row or column of a Table widget, or which index should be stacked in a Bar Chart widget. To pivot indices, you should open the `widget options <#widget-options>`_ and go to the Pivot tab:
+You can pivot the indices in most of the widget types. E.g. you can change which indices should appear in the row or column of a Table widget, or which index should be stacked in a Bar Chart widget. To pivot indices, you should open the `widget options <#widget-options>`__ and go to the Pivot tab:
 
 .. image:: images/WidgetOptions_snap3.png
     :align: center
@@ -576,7 +576,7 @@ Store Focus
 
 Some WebUI widgets offer you the possibility to store the (combination of) element(s) that currently have focus in the widget. E.g. in the Table widget you can store the focus cell, in the Bubble chart widget you can store the focus bubble. In WinUI you have similar functionality like this, called 'Reverse Link'. Specifying the Store Focus option opens up all kinds of interactive opportunities. E.g. by changing the focus cell in a table, other widgets could display relevant information for that specific cell.
 
-At the *Store Focus* tab in the `widget options <#widget-options>`_ you will see a list of indices. For each index you can specify the element parameter that should be filled with the element that has the focus in the widget. 
+At the *Store Focus* tab in the `widget options <#widget-options>`__ you will see a list of indices. For each index you can specify the element parameter that should be filled with the element that has the focus in the widget. 
 
 .. image:: images/WidgetOptions_snap4.png
     :align: center
@@ -587,7 +587,7 @@ The list of indices also includes an index referring to IDENTIFIER-SET. You can 
 Totals
 ------
 
-You can add totals, i.e. aggregators of (numerical) values to most widget types, such as tables or bar charts. To do so, open the `Widget Options <widget-options.html>`_ and go to the Totals tab:
+You can add totals, i.e. aggregators of (numerical) values to most widget types, such as tables or bar charts. To do so, open the `Widget Options <widget-options.html>`__ and go to the Totals tab:
 
 .. image:: images/New_Totals_Options.png
     :align: center
@@ -647,7 +647,7 @@ We envision that in future AIMMS versions, the possibility to add totals "on top
 Change Type
 -----------
 
-You can use all kind of widgets to display your AIMMS data. By changing the type of a widget, you can easily switch between e.g. a table or a chart, without creating a new widget for that. To do so, you should open the `widget options <#widget-options>`_ of your widget and go to the Change Type tab. There you will see the possible types to which you can switch.
+You can use all kind of widgets to display your AIMMS data. By changing the type of a widget, you can easily switch between e.g. a table or a chart, without creating a new widget for that. To do so, you should open the `widget options <#widget-options>`__ of your widget and go to the Change Type tab. There you will see the possible types to which you can switch.
 
 Miscellaneous
 -------------

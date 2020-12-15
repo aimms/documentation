@@ -9,7 +9,7 @@ Besides the mathematical programming types LP, MIP, NLP, MINLP and CP, AIMMS sup
 * Mixed Complementarity Programming (MCP)
 * Mathematical Program with Complementarity Constraints (MPCC)
 
-For a full description of the mixed complementarity programming support in AIMMS see Chapter 23 in the :doc:`Language Reference <../../aimms_ref>`.
+For a full description of the mixed complementarity programming support in AIMMS see :doc:`lr:optimization-modeling-components/mixed-complementarity-problems/complementarity-problems`.
 
 Mixed Complementarity Application Example
 -------------------------------------------

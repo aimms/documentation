@@ -13,7 +13,7 @@ Besides the general benefits of using AIMMS, there is some specific functionalit
 * Efficient Hessian Calculation: AIMMS contains an efficient implementation of Hessian calculation which can speed up the solution process of some nonlinear programming solvers.
 * Find the right solver: As the performance of the various available nonlinear programming solvers depends heavily on the specific problem, AIMMS makes it very easy to find the best solver for your specific problem by supporting links to many solvers.
 
-For a full description of the AIMMS Presolver and the multistart algorithm see Chapter 17 in the :doc:`Language Reference <../../aimms_ref>`.
+For a full description of the AIMMS Presolver and the multistart algorithm see :doc:`lr:optimization-modeling-components/advanced-methods-for-nonlinear-programs/the-aimms-presolver`.
 
 
 Nonlinear Programming solvers

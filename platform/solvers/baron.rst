@@ -24,4 +24,4 @@ AIMMS supports BARON 19 (Windows 64-bit only).
 
 Academic users
 --------------
-The Free Academic License does not contain a BARON license. A special academic BARON license is available within the `paid academic program <https://www.aimms.com/support/licensing.html>`_.
+The Free Academic License does not contain a BARON license. A special academic BARON license is available within the `paid academic program <https://www.aimms.com/support/licensing/>`_.

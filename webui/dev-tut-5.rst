@@ -29,7 +29,7 @@ you have completed the previous tutorials
 ((`Writing your first custom widget <dev-tut-1.html>`_,
 `Adding dynamic contents, part I: Options <dev-tut-2.html>`_, 
 `Adding dynamic contents, part II: Simple data from AIMMS <dev-tut-3.html>`_, and
-`Creating a custom widget with multi-dimensional data from AIMMS <dev-tut-4.hmtl>`_) first.
+`Creating a custom widget with multi-dimensional data from AIMMS <dev-tut-4.html>`_) first.
 
 Sending data changes to AIMMS
 -----------------------------

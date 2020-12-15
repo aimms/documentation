@@ -274,7 +274,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  In the debugger, when hovering over an identifier, the data shown in the tooltip no longer contains inactive data.
--  We added the function axll::CopySheet to copy an existing sheet in a spreadsheet file. This was added to easily create sheets with pre-set formatting and coloring.
+-  We added the function ``axll::CopySheet`` to copy an existing sheet in a spreadsheet file. This was added to easily create sheets with pre-set formatting and coloring.
 
 
 Resolved Security Issues
@@ -727,13 +727,13 @@ Resolved AIMMS Issues
 -  A syntax error in the SQL query could occur when writing to a database table that uses other quotes than '"' for its column names if the database structure was loaded from a file.
 -  A nodelock license could give an error (error code 104) when a laptop awakes from a sleep/hibernate state while the AIMMS session was still active.
 -  Help was missing for the option ``Database string valued foreign keys``.
--  **IMPORTANT:** A few months later than originally announced, AIMMS does no longer accept compound set constructs in your model and now flags these as an error. Please take measures to reformulate your model to not use compound sets anymore. See also `Deprecation of Compound Sets <https://how-to.aimms.com/C_Language/109-deprecate-compound-sets-overview.html>`__.
+-  **IMPORTANT:** A few months later than originally announced, AIMMS does no longer accept compound set constructs in your model and now flags these as an error. Please take measures to reformulate your model to not use compound sets anymore. See also `Deprecation of Compound Sets <https://how-to.aimms.com/Articles/109/109-deprecate-compound-sets-overview.html>`__.
 -  When the .ams source file was edited in an other editor and tabs were used instead of spaces for the indentation of the model tree, in the attribute windows in AIMMS the code was indented too far. Now both spaces and tabs are recognized as indentation.
 
 WebUI Improvements
 ++++++++++++++++++++
 
--  The Map widget has been extended with many exciting new features. For a complete overview of all that is new, please see `New Features (Map V3) <https://www.aimms.com/english/developers/downloads/product-information/new-features#MapV3>`__.
+-  The Map widget has been extended with many exciting new features. For a complete overview of all that is new, please see `New Features (Map V3) <https://www.aimms.com/support/new-features/#MapV3>`__.
 
 .. Warning::
 
@@ -1425,7 +1425,7 @@ AIMMS 4.68.5 Release (August 29, 2019)
 WebUI Improvements
 ++++++++++++++++++++
 
--  We have added an experimental feature "Highlight" for widgets in the WebUI. This features enables you to add additional css classes to specific tuples in widgets. It allows for more responsive synchronization between widgets. Currently the Gantt Chart and the Table widgets support this. For details on how to enable this experimental feature, please contact `AIMMS support <mailto:suppport@aimms.com>`__. For more details, see `the documentation <https://manual.aimms.com/webui/folder.html#highlighting-experimental>`__.
+-  We have added an experimental feature "Highlight" for widgets in the WebUI. This features enables you to add additional css classes to specific tuples in widgets. It allows for more responsive synchronization between widgets. Currently the Gantt Chart and the Table widgets support this. For details on how to enable this experimental feature, please contact `AIMMS support <mailto:suppport@aimms.com>`__. For more details, see `the documentation <https://documentation.aimms.com/webui/css-styling.html#highlighting-experimental>`__.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -2018,7 +2018,7 @@ In this release the implementation of the error handling system as described in 
 WebUI Improvements
 ++++++++++++++++++++
 
--  In the WebUI, you can now also add Side Panels to your pages. Side Panels allow you to put 'controlling' widgets to a panel on the right side of the screen, which can be opened and closed. This gives you the benefit of not having to clutter your pages with all kinds of selection widgets, allowing your users to focus better on the widgets that present your data. For more details, see `the documentation <https://manual.aimms.com/webui/page-manager.html#id6>`__.
+-  In the WebUI, you can now also add Side Panels to your pages. Side Panels allow you to put 'controlling' widgets to a panel on the right side of the screen, which can be opened and closed. This gives you the benefit of not having to clutter your pages with all kinds of selection widgets, allowing your users to focus better on the widgets that present your data. For more details, see `the documentation <https://manual.aimms.com/webui/side-panels.html>`__.
 -  See note on inefficient use of iterative operators in the section above.
 -  Errors and warnings that are reported in WebUI now listen to the error and warnings options that have been specified in your AIMMS project. In addition, errors that are caught and handled by the model, will not appear in the WebUI anymore. See the note(s) on error handling in the section above.
 
@@ -2653,7 +2653,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 ++++++++++++++++++++
 
--  Tasks in a Gantt chart in the WebUI can now have additional text displayed in the associated bars. The duration identifier needs an _text identifier annotation. See the `Gantt Chart documentation <https://manual.aimms.com/webui/gantt-chart-widget.html#features>`__ for details.
+-  Tasks in a Gantt chart in the WebUI can now have additional text displayed in the associated bars. The duration identifier needs an _text identifier annotation. See the `Gantt Chart documentation <https://manual.aimms.com/webui/gantt-chart-widget.html>`__ for details.
 -  There is a new and more clear dialog to set the sorting of a Table row or column. Furthermore, there is now a clear indicator to show you which row or column is sorted and in what direction.
 
 Resolved WebUI Issues
@@ -3018,7 +3018,7 @@ AIMMS 4.53.1 Release (April 24, 2018 Build 4.53.1.8)
 WebUI Improvements
 ++++++++++++++++++++
 
--  As part of our new user experience improvement project called UX 2.0, to drastically improve the usability of AIMMS applications, a new Navigation Menu has been added to the WebUI. This menu should help users find their way around AIMMS Apps and get a general overview much more easily. As this new menu will become the new default, your existing Apps will change automatically. Please see the `documentation <http://manual.aimms.com/webui/aimms4/en/topic/page-menu>`__ for more details.
+-  As part of our new user experience improvement project called UX 2.0, to drastically improve the usability of AIMMS applications, a new Navigation Menu has been added to the WebUI. This menu should help users find their way around AIMMS Apps and get a general overview much more easily. As this new menu will become the new default, your existing Apps will change automatically. Please see the `documentation <http://manual.aimms.com/webui/page-menu.html>`__ for more details.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -3167,7 +3167,7 @@ AIMMS Improvements
 WebUI Improvements
 ++++++++++++++++++++
 
--  The unit support in the WebUI has improved over previous versions. For details, see the `documentation <http://manual.aimms.com/webui/aimms4/en/topic/unit-support>`__.
+-  The unit support in the WebUI has improved over previous versions. For details, see the `documentation <https://documentation.aimms.com/webui/units-support.html>`__.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -5255,7 +5255,7 @@ WebUI Improvements
 ++++++++++++++++++++
 
 -  The Selectionbox widget can now also be dragged to a custom position. In order to allow this, a small drag area has been added to the right of the widget. This area becomes visible when hovering over the widget.
--  The Gantt Chart now supports reverse links (using the Store Focus tab in its options editor) and has new options to specify the visible viewport, allowing to implement scrolling/zooming in your model. For details, see the `Gantt Chart documentation <http://manual.aimms.com/webui/topic/gantt-chart-widget>`__.
+-  The Gantt Chart now supports reverse links (using the Store Focus tab in its options editor) and has new options to specify the visible viewport, allowing to implement scrolling/zooming in your model. For details, see the `Gantt Chart documentation <http://manual.aimms.com/webui/gantt-chart-widget.html>`__.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -5354,7 +5354,7 @@ Resolved WebUI Issues
 WebUI Improvements
 ++++++++++++++++++++
 
--  There is a new "UI Editable" option in the application settings of the WebUI. With this option, you can lock the UI for certain users in a very flexible way. When you are currently using the old-style locking mechanism, you will have to convert your model as the old one does not work anymore in AIMMS 4.22 and onwards. You can find more information on the "UI Editable" option in the `WebUI Documentation <http://manual.aimms.com/webui/aimms4/en/topic/locking-editors>`__ on our website.
+-  There is a new "UI Editable" option in the application settings of the WebUI. With this option, you can lock the UI for certain users in a very flexible way. When you are currently using the old-style locking mechanism, you will have to convert your model as the old one does not work anymore in AIMMS 4.22 and onwards. You can find more information on the "UI Editable" option in the `WebUI Documentation <https://documentation.aimms.com/webui/app-misc-settings.html#ui-editable>`__ on our website.
 
 
 
@@ -5479,7 +5479,7 @@ WebUI Improvements
 -  There is a New Table widget in the WebUI. This is a currently still read-only version of the Table widget, with much improved performance when displaying huge data sets. It supports smooth scrolling and sorting. If you only want to display your data (i.e. don't want users to edit the data), you can simply switch to the New Table widget type from any already existing Table widget (just do a type switch through the options editor).
 -  The Gantt Chart widget now offers support for vertical dragging and dropping of bars. It also includes functionality that supports a 'time window' on a Gantt Chart, making it easy to focus on the part of the Gantt Chart data that you are interested in.
 -  Scalar element parameters can now be used in Selectionbox and Multiselect Widgets. However, please note that these widgets with an element parameter as content, cannot (yet) be used a a filter for other widgets.
--  Model annotations and flags: We have introduced a breaking change in this version to avoid future problems, and to standardize existing usage. This change might require developers to update custom CSS or JavaScript included in their projects. Annotations and flags appearing anywhere in the HTML of plugins, for example classes like `Mod7Ord1` and `readOnly`, are now prefixed with e.g. `annotation-` or `flag-`, and are differently (and more consistently) escaped. For more information, please see the manual section on `data dependent styling <http://manual.aimms.com/webui/aimms4/en/topic/data-dependent-styling>`__.
+-  Model annotations and flags: We have introduced a breaking change in this version to avoid future problems, and to standardize existing usage. This change might require developers to update custom CSS or JavaScript included in their projects. Annotations and flags appearing anywhere in the HTML of plugins, for example classes like `Mod7Ord1` and `readOnly`, are now prefixed with e.g. `annotation-` or `flag-`, and are differently (and more consistently) escaped. For more information, please see the manual section on `data dependent styling <https://documentation.aimms.com/webui/css-styling.html>`__.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -6409,6 +6409,8 @@ AIMMS 4.8
 AIMMS 4.8.3 Release (August 11, 2015 Build 4.8.3.322)
 ---------------------------------------------------------------------------------------------------------
 
+ A high level overview can be found at the `AIMMS New Features Page <https://www.aimms.com/support/new-features/>`__.
+
 Improvements
 +++++++++++++++++++
 
@@ -6856,7 +6858,7 @@ Resolved issues
 -  Editing the name of an identifier that was present on a page could lead to the page being marked with an exclamation mark and, as a result, to showing the browse/skip/cancel dialog for that identifier when opening that particular page.
 -  The performance of the function :any:`GMP::Instance::GenerateStochasticProgram` has been improved.
 
-A high level overview can be found at the `AIMMS 4.2 New Features Page <https://www.aimms.com/support/new-features/aimms-42-new-features/>`__.
+A high level overview can be found at the `AIMMS 4.2 New Features Page <https://www.aimms.com/support/new-features/>`__.
 
 
 
@@ -6965,7 +6967,7 @@ Resolved issues
 -  We recommend not to use the Linux ODBC driver for SQL Server. It doesn't work well in combination with AIMMS, because some functions that AIMMS requires are not supported by this particular driver.
 -  In encrypted creating enduser .aimmspack files, the convention attribute was inadvertently not accepted by the compiler.
 
-A high level overview can be found at the `AIMMS 4.1 New Features Page <https://www.aimms.com/support/new-features/aimms-41-new-features/>`__.
+A high level overview can be found at the `AIMMS 4.1 New Features Page <https://www.aimms.com/support/new-features/>`__.
 
 
 

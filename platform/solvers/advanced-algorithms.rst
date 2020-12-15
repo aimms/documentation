@@ -18,7 +18,7 @@ With every mathematical program declared as part of your model, the GMP library 
 * a repository of initial, intermediate or final solutions, and
 * a pool of local or remote solver sessions.
 
-For a full description of the advanced algorithm functionalities in AIMMS see Chapter 16 in the :doc:`Language Reference <../../aimms_ref>`.
+For a full description of the advanced algorithm functionalities in AIMMS see :doc:`lr:optimization-modeling-components/implementing-advanced-algorithms-for-mathematical-programs/index`.
 
 Customizable Open Algorithms
 ----------------------------

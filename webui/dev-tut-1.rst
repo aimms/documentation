@@ -17,8 +17,8 @@ running in your set-up.
 Since this is a (software) development tutorial, we are also assuming that you have experience in writing
 software in a generic programming language, and, that you have a basic knowledge on HTML5 technologies
 (HTML5 DOM, CSS, Javascript, and the likes). It is also beneficial, however not required, if you are
-familiar with `jQuery <http://jquery.org>`_ and, to lesser extent,
-`jQuery UI <https://jqueryui.com>`_, as AIMMS WebUI is built on top of these technologies.
+familiar with `jQuery <http://jquery.org>`__ and, to lesser extent,
+`jQuery UI <https://jqueryui.com>`__, as AIMMS WebUI is built on top of these technologies.
 
 Let's start - A quick introduction to AWF
 -----------------------------------------
@@ -133,9 +133,9 @@ First we will write the widget:
     }));
 
 This is about as basic an AWF Widget can be. It just shows some static text: *Hello AIMMS!*. Close
-observers will also notice that an AWF Widget derives from a `jQuery UI <http://jqueryui.com/>`_ 
+observers will also notice that an AWF Widget derives from a `jQuery UI <http://jqueryui.com/>`__ 
 widget, so most of that documentation will also apply. If you do not know
-`jQuery <https://jquery.org/>`_ and/or jQuery UI yet, do not worry just ignore it for now.
+`jQuery <https://jquery.org/>`__ and/or jQuery UI yet, do not worry just ignore it for now.
 
 After that, we create the factory:
 
