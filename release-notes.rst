@@ -20,7 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  When a domain was specified using an IN-operator and the second operand of this IN-operator was a direct index name (used instead of a set name), the wrong domain could be deduced.
+-  In case of an iterative operator, when a domain was specified using an IN-operator and the second operand of this IN-operator was a direct stand-alone index name (used instead of a set name), the wrong domain could be deduced (for example, in an expression like count(indexName1 IN indexName2) ).
 
 
 --------------
