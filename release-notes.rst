@@ -20,7 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  In case a domain was specified using an IN-operator and the second operand of this IN-operator was a direct index name (used instead of a set name), the wrong domain could be deduced.
+-  When a domain was specified using an IN-operator and the second operand of this IN-operator was a direct index name (used instead of a set name), the wrong domain could be deduced.
 
 
 --------------
