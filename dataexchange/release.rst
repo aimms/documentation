@@ -5,6 +5,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+1.1.0.19 [17-08-2020]
+    - The library could crash when writing to a workbook with a duplicate sheet name.
+
 1.1.0.18 [12-08-2020]
     - The library could crash because of using a different version of the libxl.dll (used to actually read and write to Excel files) than the AimmsXLLibrary.
 
