@@ -15,7 +15,7 @@ Request Management
 
 .. js:function::  web::request_close(requestId)
 
-    Explicitly delete an HTTP request object. If you just make a single call to an HTTP server, you should call this function after :js:func:`web::request_invoke` to prevent memory leaks. At the end of the AIMMS session, all outstanding requests will be closed by :js:func:`web::library_termination`.
+    Closes an HTTP request object. When a request is closed it is no longer available and after it is completely handled it is deleted. At the end of the AIMMS session, all outstanding requests will be closed by :js:func:`web::library_termination`.
     
     :param requestId: id of the request to close. After the call the request object pointed to by *requestId* will be invalid.
     
@@ -28,6 +28,32 @@ Request Management
     
     :param requestId:  id of the request object to invoke. 
     :param responseCode: output argument containing the HTTP response code of the request.
+
+
+.. js:function::  web::request_invoke_async(requestId,CallBack)
+
+    Execute the HTTP request created by :js:func:`web::request_create` and prepared through calls to the `request getter and setter functions <#request-getters-and-setters>`_. Unlike :js:func:`web::request_invoke` this function will return directly to AIMMS after the request has been send. 
+    
+    To handle the response the user must define a "CallBack" procedure in AIMMS. This is a procedure in AIMMS  with arguments StringParameter requestId and Parameter responseCode. This procedure is called when the response arrives. 
+
+    Between the invocation and the callback, the request cannot be changed. In the callback all the getters and setters of the request are available. It is also possible to close the request in the callback. 
+
+    :param requestId:  id of the request object to invoke. 
+    :param CallBack: the name of a user defined callback funcproceduretion with arguments requestId and responseCode.
+
+
+.. js:function::  web::wait_for_response(timeout)
+
+    To make sure that AIMMS is not too busy to handle incoming callbacks, this function can be used to reserve time. It return immediately with value 1 if it one or more callbacks are handled. It returns 0 if it times out after `timeout` time.
+
+    :param timeout:  time in seconds to wait. 
+
+
+.. js:function::  web::wait_for_the_response(requestId)
+
+    Waits until the callback of request `requestId` has been handled and then returns to AIMMS. If a response of an other request arrives, it will be handled and then keeps waiting.
+
+    :param requestId:  id of the request object to invoke. 
 
 
 .. _HTTPClient_API_RequestGettersAndSetters:

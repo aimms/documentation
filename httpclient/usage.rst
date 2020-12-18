@@ -4,8 +4,8 @@ Using the HTTP Client
 
 
 
-Request Management
-------------------
+Synchronous Request Management
+------------------------------
 
 
 A **request** is something that can perform :ref:`the 4 steps <What_is_HTTP>` for an HTTP request.
@@ -36,6 +36,86 @@ A typical life cycle of a request would look like:
 
         web::request_close(requestId);                                 ! discard request
 
+
+
+Asynchronous Request Management
+-------------------------------
+
+One issue with the ``request_invoke`` call is that the round trip to the server may take a while. During this time AIMMS is blocked and cannot do anything. This not only slows down the model, it can also make WebUI apps feel less snappy.
+
+To overcome this we can cut the request in two:
+
+1. Send the request using ``request_invoke_async``
+2. Process the response using a user defined callback procedure.
+
+
+A typical asynchronous request could look like:
+
+.. code-block:: aimms
+
+    web::request_create(sp_requestId);                                   ! a new request
+    web::request_setURL(sp_requestId, "http://localhost/file.txt" );     ! set the url
+    web::request_setResponseBody(sp_requestId, 'File', "response.txt");  ! result in this file 
+    web::request_invoke_async( sp_requestId , "MyCallBack" );            ! invoke async request
+
+Here we see that the create and setters are used in the same way as with ``request_invoke``. In this example we set the response body that can be retrieved in the callback. For the callback we have to make a procedure with name "MyCallBack".
+
+.. code-block:: aimms
+
+    Procedure MyCallBack {
+        Arguments: (requestId,responseCode);
+        Body: {     
+            if (responseCode <> 200) then
+                ! something is wrong
+                raise error "responseCode <> 200 => Web Request Failed " + requestId;
+            else
+                ! assume resbodytype is 'File' then resbody is the filename
+                web::request_getResponseBody(requestId, resbodytype, resbody);
+                ! read the file
+                sp_response := fileread(resbody) ;
+            endif;
+            web::request_close(requestId);    ! we don't need it anymore so close it
+        }
+        StringParameter requestId {
+            Property: Input;
+        }
+        Parameter responseCode {
+            Property: Input;
+        }
+        StringParameter resbody;
+        StringParameter resbodytype;
+    }
+
+In this callback function we use the ``responseCode`` to check if the server send us what we have requested. If not there is something wrong. If the ``responseCode`` is 200 we use the getter ``request_getResponseBody`` to find out it which file the response body is written so we can read it. After the callback we no longer need this request so we can close it in the callback.
+
+The wait functions
+^^^^^^^^^^^^^^^^^^
+
+The purpose of ``request_invoke_async`` is to allow AIMMS do something else instead of waiting for the response. This can create the situation that AIMMS is too busy to call the callbacks. For this reason also two waiter functions have been introduced.
+
+wait_for_response
+    This waiter has as argument a timeout in seconds. It will return immediately with value 1 if it handles at least one callback. If it does timeout without handling any callbacks it will return 0. 
+
+wait_for_the_response
+    This is a specific waiter. If we cannot continue unless the callback of a certain request is handles, we can use this function.
+
+Note that the following calls are functionally equivalent. They only differ in where it is waiting for the response.
+
+.. code-block:: aimms
+
+    web::request_invoke_async(sp_requestId, "MyCallBack" );
+    web::wait_for_the_response(sp_requestId);                  ! here it waits for the response
+
+
+and
+
+.. code-block:: aimms
+
+    web::request_invoke(sp_requestId, statusCode);            ! here it waits for the response
+    MyCallBack(sp_requestId, statusCode);   
+
+
+This also shows that it is very easy to turn synchronous calls into asynchronous calls. First clean up the response handling into a "callback" procedure. Then change the second situation into the first. Finally we can squeeze other things between ``request_invoke_async`` and ``wait_for_the_response`` to make good use of the "waiting time".
 
 
 The URL
