@@ -20,7 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  In case of an iterative operator, when a domain was specified using an IN-operator and the second operand of this IN-operator was a direct stand-alone index name (used instead of a set name), the wrong domain could be deduced (for example, in an expression like count(indexName1 IN indexName2) ).
+-  In case of an iterative operator, when a domain was specified using an :ref:`IN-operator <lr:in-operator>` and the second operand of this IN-operator was a direct stand-alone index name (used instead of a set name), the wrong domain could be deduced (for example, in an expression like ``count(indexName1 IN indexName2)`` ).
 
 
 --------------
@@ -35,15 +35,15 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  The Val function could suffer from multi-threading issues when used on calendar elements.
--  The return value of the AttributeToString function, when used to get the "Default" attribute of a string parameter, was enclosed in redundant quotation marks.
+-  The :any:`Val` function could suffer from multi-threading issues when used on calendar elements.
+-  The return value of the :any:`AttributeToString` function, when used to get the "Default" attribute of a string parameter, was enclosed in redundant quotation marks.
 -  Solving a robust optimization model with an ellipsoidal uncertainty constraint could result in a failure.
 -  UTC start and end times of calendars were always shifted to local time, while timezone adjustments should only happen if the granularity of the calendar is higher than daily.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  Uploading a file using the Upload widget in the WebUI to a folder that contained special unicode characters did not work on Windows.
+-  Uploading a file using the :doc:`webui/upload-widget` in the WebUI to a folder that contained special unicode characters did not work on Windows.
 
 
 --------------
@@ -80,10 +80,10 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  There were issues with tooltips and some menus (like those for item actions or widget actions) hiding behind dialog pages or side panels in some cases.
+-  There were issues with `tooltips <https://documentation.aimms.com/webui/widget-options.html#html-tooltips>`__ and some menus (like those for item actions or widget actions) hiding behind dialog pages or side panels in some cases.
 -  Map widget longitudes are no longer clipped between -180 and 180 but are instead wrapped to fall within the -360 to 360 range, which gives you more options when trying to keep a logical relation between the curves/nodes you might be drawing but that did not end up where you expected them.
--  When having the option UI Editable set to 0 in a WebUI (as is the case under PRO, for example), the end-user was not able to use the Table filter mechanism to filter the data.
--  errh::MarkAsHandled now also empties the predeclared string parameter CurrentErrorMessage if it is related to the handled error.
+-  When having the option `UI Editable <https://documentation.aimms.com/webui/app-misc-settings.html#ui-editable>`__ set to 0 in a WebUI (as is the case under PRO, for example), the end-user was not able to use the Table filter mechanism to filter the data.
+-  :any:`errh::MarkAsHandled` now also empties the predeclared string parameter :any:`CurrentErrorMessage` if it is related to the handled error.
 
 
 --------------
@@ -105,7 +105,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  Maps may draw slightly faster when showing overlays with large amounts of straight line sections.
--  Workflow configurations that redirect to a page using the Grid Layout did not work correctly in previous versions.
+-  Workflow configurations that redirect to a page using :doc:`webui/webui-grid-pages` did not work correctly in previous versions.
 -  A WebUI case could incorrectly not be marked as dirty after running a procedure from WebUI, resulting in the 'Save case as...' option to not appear.
 
 
@@ -126,9 +126,9 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  The experimental 'webui state support' feature will now also work for pages using the new Grid Layout (but some limitations to setting it up correctly will still apply).
+-  The experimental 'webui state support' feature will now also work for pages using :doc:`the new Grid Layout <webui/webui-grid-pages>` (but some limitations to setting it up correctly will still apply).
 -  In some rare situations (in which you use similar totals in tables on more than one WebUI page), you could receive errors like 'Some of the attributes of runtime parameter "webui_runtime::Exprxxx" are not yet successfully compiled.'.
--  Editing or changing a latitude or longitude identifier using the identifier selector from the Map widget options used to clear any previously made selection.
+-  Editing or changing a latitude or longitude identifier using the identifier selector from `the Map widget options <https://documentation.aimms.com/webui/map-widget.html#adding-node-sets>`__ used to clear any previously made selection.
 
 
 --------------
@@ -151,7 +151,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  The edit menu of the Text widget was not always visible when having a Text widget on a Dialog page.
+-  The edit menu of the :doc:`webui/text-widget` was not always visible when having a Text widget on :doc:`webui/dialog-pages`.
 
 
 --------------
@@ -165,9 +165,9 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Reading data into a subset of a calendar, using the AimmsXLLibrary, could give incorrect errors.
--  A procedure with an output argument of type Set was incorrectly handling the argument as an InOut argument. This resulted in that the set was not empty at the start of the procedure body.
--  Subtracting two elements in (a subset of) Integers did not always listen to the properties ElementsAreNumerical or ElementsAreLabels. For ElementAreNumerical an expression (int1-int2) should be evaluated as (Val(int1)-Val(int2)), and for ElementsAreLabels it should be evaluated as (Ord(int1)-Ord(int2)).
--  The AimmsAPI function AimmsAttributeGetUnit was not working correctly when the output string was not consisting of unicode characters.
+-  A procedure with an output argument of type Set was incorrectly handling the argument as an ``InOut`` argument. This resulted in that the set was not empty at the start of the procedure body.
+-  Subtracting two elements in (a :ref:`SubsetOf <attr:set.subset-of>`) :any:`Integers` did not always listen to the properties ElementsAreNumerical or ElementsAreLabels. For ElementAreNumerical an expression ``(int1-int2)`` should be evaluated as ``(Val(int1)-Val(int2))``, and for ElementsAreLabels it should be evaluated as ``(Ord(int1)-Ord(int2))``.
+-  The AimmsAPI function ``AimmsAttributeGetUnit`` was not working correctly when the output string was not consisting of unicode characters.
 -  This AIMMS version has added support for connecting to servers that use TLS v1.3 HTTPS encryption.
 
 --------------
@@ -180,7 +180,7 @@ AIMMS 4.76.3 Release (October 23, 2020 - build 4.76.3.5)
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  Aimms could hang whenever you tried to make changes to the library setup of your project (using the IDE) while the WebUI was running.
+-  AIMMS could hang whenever you tried to make changes to the library setup of your project (using the IDE) while the WebUI was running.
 -  The specified display-domain was not always applied correctly to the identifiers in a widget that was showing data in 'case comparison' mode.
 -  The inverse cumulative of the Poisson distribution could suffer from numerical instabilities, which might even cause AIMMS to become unresponsive at high input values.
 
@@ -201,8 +201,8 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  If you need to declare a new unit for the unit a of calendar and the only existing time quantity is located in a read-only library, a second time quantity will be created. In previous AIMMS versions the unit was incorrectly added to the already existing read-only quantity.
--  An attempt to call the AimmsAPI function AimmsServerProjectOpen for a second time, after closing a previously opened project, resulted in a crash.
--  We addressed the strange "Too many casts" error when using an expression { elementParam1 .. elementParam2 } in which the two element parameters did not have the same set range.
+-  An attempt to call the AimmsAPI function ``AimmsServerProjectOpen`` for a second time, after closing a previously opened project, resulted in a crash.
+-  We addressed the strange "Too many casts" error when using an expression ``{ elementParam1 .. elementParam2 }`` in which the two element parameters did not have the same set range.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
@@ -230,7 +230,7 @@ Resolved AIMMS Issues
 -  In some rare cases when using the Mod function with arguments that have units of measurement, the result could have a precision lower than double precision for the floating point format.
 -  In AIMMS 4.75, the 'Subset of' wizard was not working as it should.
 -  An attempt to switch to the Profiler while the execution is stopped on a breakpoint in the Debugger is no longer allowed. It resulted in an error situation in earlier versions.
--  The option 'Show_Stochastic_Data_if_Available' now does an additional check whether the .stochastic variant is completely empty while the original identifier is not. If so, AIMMS will display the data of the original identifier and not the empty stochastic data.
+-  The option `Show_Stochastic_Data_if_Available` now does an additional check whether the :any:`.stochastic` variant is completely empty while the original identifier is not. If so, AIMMS will display the data of the original identifier and not the empty stochastic data.
 
 
 
@@ -250,7 +250,7 @@ Resolved WebUI Issues
 -  Table filtering did not work correctly on translated element headers.
 -  Widget options for Side Panels and Dialog Pages were not showing up after creation, preventing the user from changing their height/width and positioning.
 -  System messages at the 'info' level will now show with the same icon as 'debug' messages (an 'i' within a solid circle), instead of having no icon at all.
--  The webui::AnnotationsIdentifier and the webui::TooltipsIdentifier annotations are now also taken into account when in case comparison mode.
+-  The ``webui::AnnotationsIdentifier and the ``webui::TooltipsIdentifier`` annotations are now also taken into account when in case comparison mode.
 -  Data being displayed in 'compase case mode' (in WebUI) now correctly uses the annotations and tooltips of the original identifier.
 -  Layout 9, part of our experimental Grid Layout feature released with 4.75, was inadvertently lacking the 'full screen' feature that the layout was originally created for. We added that property (called "runIntoGridgap"), for grid areas. It is also available for use in your custom layouts.
 
@@ -314,15 +314,15 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Options that are given nondefault values to new models automatically, were not always saved. This applies especially to the option to use UTC times in reference dates introduced in 4.74. IMPORTANT: If your model uses time, check that the option "Use UTC forcaseandstartenddate" is on. Altering it once is enough to avoid the bug, but be aware: this changes the meaning of calenders.
--  Finding an element in a quarterly calendar, using StringToElement, did not work sometimes.
--  Specifying the 'order by' attribute on a runtime set, could lead to an unexpected error in recent AIMMS versions.
+-  Finding an element in a quarterly calendar, using :any:`StringToElement`, did not work sometimes.
+-  Specifying :ref:`the OrderBy attribute <set.order_by>` on a runtime set, could lead to an unexpected error in recent AIMMS versions.
 -  We removed an incorrect warning about a missing semicolon.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  Making a namechange to an identifier that was being used as a display-domain identifier in WebUI could result in the display-domain not being active anymore.
--  'ElementsAreNumerical' was added as property to the webui::ExtensionOrder set, in order to prevent a (harmless) warning being displayed.
+-  'ElementsAreNumerical' was added as property to the ``webui::ExtensionOrder`` set, in order to prevent a (harmless) warning being displayed.
 -  When using the Grid Layout experimental feature, the option to create a Group widget will be hidden (since the Grid Layout removes the need for having Group widgets).
 
 
@@ -1351,18 +1351,18 @@ AIMMS 4.69.1 Release (September 17, 2019)
 AIMMS Improvements
 ++++++++++++++++++++
 
--  Multi-objective optimization problems can now also be solved with Gurobi 8.0 and higher.
--  The *incumbent* callback procedure has been renamed to *candidate*, and the *new incumbent* callback procedure has been renamed to *incumbent*. Note that the functionality of the *incumbent* callback procedure has changed as it now can no longer be used to reject candidate incumbent solutions (use the new *candidate* callback for that).
--  The math program suffix *.CallbackNewIncumbent* has been renamed to *.CallbackIncumbent*. The procedure :any:`GMP::Instance::SetCallbackIncumbent` has been renamed to :any:`GMP::Instance::SetCallbackCandidate`, and the procedure ``GMP::Instance::SetCallbackNewIncumbent`` has been renamed to :any:`GMP::Instance::SetCallbackIncumbent`. (The math program suffix *.CallbackNewIncumbent* and the procedure ``GMP::Instance::SetCallbackNewIncumbent`` are now hidden.)
--  In rare cases, CPLEX 12.9 could incorrectly return a zero-solution inside an incumbent callback procedure (previously known as new incumbent; see the previous note) if the CPLEX option `Use generic callbacks` was at its default setting.
--  During the execution of certain statements, AIMMS now responds quicker on an attempt to interrupt the execution via the AIMMS interrupt tool.
--  AIMMS is gradually replacing its compiler by a new version. In the old compiler, the precedence of the $-operator was not always consistent and in many cases different from what the language reference says. In the new compiler the precedence of the dollar operator is always as stated in the language reference, taking precedence over all other binary operators. This can cause a different interpretation of your expressionm, and therefor a warning is now reported when the new compiler encounters an expression in which this may be an issue: The precedence of the $ operator has in some situations changed in the new compiler. Use parentheses to make your intention clear. In some cases, the changed interpretation can lead to compile errors, which may be puzzling. In other situations, the result may be different. To correct these warnings there are multiple solutions:
+- Multi-objective optimization problems can now also be solved with Gurobi 8.0 and higher.
+- The *incumbent* callback procedure has been renamed to *candidate*, and the *new incumbent* callback procedure has been renamed to *incumbent*. Note that the functionality of the *incumbent* callback procedure has changed as it now can no longer be used to reject candidate incumbent solutions (use the new *candidate* callback for that).
+- The math program suffix *.CallbackNewIncumbent* has been renamed to *.CallbackIncumbent*. The procedure :any:`GMP::Instance::SetCallbackIncumbent` has been renamed to :any:`GMP::Instance::SetCallbackCandidate`, and the procedure ``GMP::Instance::SetCallbackNewIncumbent`` has been renamed to :any:`GMP::Instance::SetCallbackIncumbent`. (The math program suffix *.CallbackNewIncumbent* and the procedure ``GMP::Instance::SetCallbackNewIncumbent`` are now hidden.)
+- In rare cases, CPLEX 12.9 could incorrectly return a zero-solution inside an incumbent callback procedure (previously known as new incumbent; see the previous note) if the CPLEX option `Use generic callbacks` was at its default setting.
+- During the execution of certain statements, AIMMS now responds quicker on an attempt to interrupt the execution via the AIMMS interrupt tool.
+- AIMMS is gradually replacing its compiler by a new version. In the old compiler, the precedence of the $-operator was not always consistent and in many cases different from what the language reference says. In the new compiler the precedence of the dollar operator is always as stated in the language reference, taking precedence over all other binary operators. This can cause a different interpretation of your expressionm, and therefor a warning is now reported when the new compiler encounters an expression in which this may be an issue: The precedence of the $ operator has in some situations changed in the new compiler. Use parentheses to make your intention clear. In some cases, the changed interpretation can lead to compile errors, which may be puzzling. In other situations, the result may be different. To correct these warnings there are multiple solutions:
 
-   -  add the parentheses around the operands of the in-operator in an expression: P $ i IN setI -> P $ (i IN setI)
-   -  replace the $-operator by a \|-operator for a domain condition: sum( i $ i <> EP, P(i)) -> sum( i | i <> EP, P)
-   -  remove the 1 $ for expressions that are already binary valued: 1 $ P(i) > 7 -> P(i) > 7
+	-  add the parentheses around the operands of the in-operator in an expression: P $ i IN setI -> P $ (i IN setI)
+	-  replace the $-operator by a \|-operator for a domain condition: sum( i $ i <> EP, P(i)) -> sum( i | i <> EP, P)
+	-  remove the 1 $ for expressions that are already binary valued: 1 $ P(i) > 7 -> P(i) > 7
 
-   Please note that the 'onlyif' operator is also treated as a $-operator.
+	Please note that the 'onlyif' operator is also treated as a $-operator.
 
 -  During the creation of an .aimmspack file, you can now indicate that you want to include a copy of each repository library that is part of your project. The end user can then run the project without the need to have access to the on-line library repository.
 -  It is no longer allowed to assign a set with only one element to a non-scalar element valued parameter. For example: myElemPar(i) := { i }; This has never been part of the official AIMMS syntax and should now be rewritten as myElemPar(i) := i;
