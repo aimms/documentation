@@ -10,7 +10,7 @@ In order to use any of the following listed features, you will need to create a 
 
 *<.aimms Root folder> > MainProject > WebUI > resources*. 
 
-This folder will be loaded each time the WebUI will start, or at every reload (F5) of your WebUI browser page.
+This folder is loaded each time the WebUI starts up or at every reload (F5) of your WebUI browser page.
 
 .. image:: images/folderstructureresources.png
     :align: center
@@ -34,6 +34,8 @@ For more info on CSS in general, see `this Wikipedia article <https://en.wikiped
 
 Load ordering
 -------------
+
+.. important:: The feature described in this section was available in AIMMS versions up to 4.77. Starting from AIMMS 4.78 this feature is no longer supported.
 
 By default, resources are loaded in alphabetical order. You can influence this loading order by putting a :token:`package.json` file in the folder alongside the resources to be loaded and specify a specific loading order in it.
 
