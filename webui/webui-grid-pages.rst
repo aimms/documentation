@@ -47,7 +47,7 @@ The CSS Grid concept features several advantages such as better responsiveness, 
 
 When a page layout is applied to a grid page, the page is divided into a number of rectangular areas and each area is to host a group of widgets. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout. Currently, all the standard layouts use so-called fractions for resizing. This way, the layout areas always preserve their relative size and position on the page, even when the entire browser window is being resized. However, Grid supports more options for (re)sizing like pixels, percentages or em’s, and also supports combinations of those. These options can already be used in custom layouts, please see further below in this section for more details. 
 
-The organization of a page and the widgets on the page by using page layouts is currentlt supported by dedicated functionalities in the WebUI Page Manager.
+The organization of a page and the widgets on the page by using page layouts is currently supported by dedicated functionalities in the WebUI Page Manager.
 
 Page Manager with Grid Pages
 ----------------------------
