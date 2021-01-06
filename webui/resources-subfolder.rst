@@ -1,7 +1,9 @@
 WebUI Resources
 ================
 
-This section describes the various application specific resources (ASR).
+This section describes the various application specific resources (ASR) for an AIMMS WebUI app. 
+
+.. note:: Before going into each specific resource, please note that it is a best practice to store only those resources which are actually needed/used by the project. In particular, you should not store in your final project version any files which have a "test" substring in their name, ie, which are intended for intermediate testing purposes for your app. Storing the needed resources only may contribute to a more efficient delivery of the WebUI components of your application.  
 
 Adding the **resources** folder
 -------------------------------
@@ -23,7 +25,9 @@ Application-specific images should be stored in the *resources/images* subfolder
 JavaScript
 ----------
 
-Application-specific JavaScript files (e.g. `widget [addons] <own-widgets.html>`_ or Unit Support files should be stored in the *resources/javascript* subfolder.
+Application-specific JavaScript files (e.g. `widget [addons] <own-widgets.html>`_ ) or Unit Support files should be stored in the *resources/javascript* subfolder.
+
+.. note:: Please note that in your final project version you should not include in this folder any file with a "test" addition to its name, for example, like "theme-switch-addon.test.integration.js". Such files may have a negative impact on the performance of delivering the WebUI components en therefore, they should be removed when the application is being deployed. Currently, AIMMS does not skip any files; it just wraps those files with some try/catch checks in order to avoid JS errors. Please note that AIMMS may skip such files which use the word "test" in the future. 
 
 CSS
 ---
