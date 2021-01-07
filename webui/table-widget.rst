@@ -366,7 +366,7 @@ Date and Time picker for Calendar elements
 ------------------------------------------
 
 .. Important:: 
-    The Date and Time picker is available in software versions from AIMMS 4.75 onwards as part of Experimental Features. Please reach out to User Support on how to enable Experimental Features.
+    The Date and Time picker is available in software versions from AIMMS 4.77 onwards.
 
 A Date and Time picker is displayed to select a date and time when a `Calendar <https://how-to.aimms.com/Articles/189/189-using-calendars-in-aimms.html>`_ is referenced in a table. A calendar icon appears in the cell, on hover, that represent `Calendar <https://how-to.aimms.com/Articles/189/189-using-calendars-in-aimms.html>`_ elements and the picker is displayed by either clicking the calendar icon or double clicking on the cell.
 

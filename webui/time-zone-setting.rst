@@ -1,7 +1,7 @@
 Time Zone Settings
 ==================
 
-.. important:: Time Zone settings is available in software versions from AIMMS 4.75 onwards as part of Experimental Features. Please reach out to User Support on how to enable Experimental Features.
+.. important:: Time Zone settings is available in software versions from AIMMS 4.77 onwards.
 
 This section outlines the `Best Practices to follow for creating multi-timezone applications <#best-practices-and-working-example>`_ and also explains few of the relevant and important WebUI Library sets and functions. For a detailed explanation and a working example please refer to our `Multi-Timezone application with best practices <https://how-to.aimms.com/Articles/362/362-multi-timezone.html>`_ article.
 
