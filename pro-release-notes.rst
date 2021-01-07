@@ -4,6 +4,18 @@ AIMMS PRO Release Notes
 PRO 2.36
 ########
 
+AIMMS PRO 2.36.3 Release
+------------------------
+
+On January 7, 2021, we released AIMMS PRO 2.36.3 (build 2.36.3.5). 
+
+**Resolved Issues**
+
+- When the Applauncher fails to download a complete file this file will now be removed, causing next launch to re-attempt to download that file, instead of using the leftover corrupt file.
+- Fixed an issue where it always require to authenticate again during SAML/ADFS authentication for the users who use Microsoft Azure AD as a SAML/ADFS indentity provider.
+-  **Cloud:** The update to TLS v1.3 caused incompatibilities with he MS SQL Server ODBC driver, resulting in crash. This has been fixed.
+-  **Cloud:** Fixed a rare issue with computing the current license usage.
+
 AIMMS PRO 2.36.2 Release
 ------------------------
 
