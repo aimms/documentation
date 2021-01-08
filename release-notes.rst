@@ -7,6 +7,67 @@ AIMMS Release Notes
 
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
+
+#############
+AIMMS 4.77
+#############
+
+
+AIMMS 4.77.1 Release (January 8, 2021 - build 4.77.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  IMPORTANT The warning "Missing semicolon at the end of a [statement list/procedure body] is deprecated. A future AIMMS version may give a compilation error on this." is now by default an error in AIMMS Developer. Note: it is possible to let AIMMS insert all the missing semicolons it found at once by clicking on the error.
+-  AIMMS now offers more control for the LP problems that are solved to calculate shadow price ranges and (variable) value ranges. The new general solvers option 'Time limit sensitivity ranges' can be used to set a time limit, while the new CPLEX and Gurobi option 'Sensitivity method' can be used to specify the LP method.
+-  Gurobi 9.1 (version 9.1.1) has been added. Gurobi 9.1 comes with performance improvements for LP, MIP, MIQP models and for convex and non-convex MIQCP models.
+-  CPLEX 20.1 has been added. CPLEX numbering has changed; it now is based on the year of release. CPLEX 20.1 comes with improvements to the performance of mixed integer programming (MIP) models that provide better solutions more quickly.
+-  CP Optimizer 20.1 has been added. CP Optimizer 20.1 comes with improvements to constraint programming models with variables that have large domains.
+-  CONOPT 4.1 has been added. CONOPT 4.1 comes with a few bug fixes.
+-  The code to read and write case files has been completely re-written. This should not have any negative impact on existing models. The format of the case files has not been changed and thus is still compatible with older AIMMS versions. The new code fixes a few problems related to the order in which data was read in and the in between evaluation of definitions. If you encounter any problems because of this change, please let us know as soon as possible.
+-  The Help On menu command in the attribute window of the model editor are now linked to the online version of the Language and the Function Reference.
+-  There is a new option "JIT_Body_Compilation". With this option you can enable the new feature: Just-In-Time body compilation. This means that the compilation of the body attributes of procedures and functions is skipped at startup and thus that startup time decreases. The procedures and functions are compiled just before they are first run.
+
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The action 'Substructure Causing Infeasibility' in the Math Program Inspector could fail in the rare case that a variable only appeared in the objective.
+-  Constructs like i in {lower(i) .. upper(i)} did not perform well, both in terms of memory and execution time.
+-  ODH-CPLEX could hang if a callback procedure was installed.
+-  The ODH-CPLEX option 'Solution improvement heuristic mode strategy' was missing a value.
+-  Case files that do not include all defined identifiers (which is the default for communication with solver sessions under PRO) were not always read correctly. Especially when sets were subsets of sets with a definition.
+-  The objectVersionId of the uploaded messages.log wasn't correctly stored for non-interrupted solver sessions, resulting in not being able to download the messages.log for finished sessions.
+-  No solution was passed back to AIMMS if BARON found a solution before hitting a time limit.
+-  In rare cases a GMP::Row routine could fail if a row number was passed in the 'row' argument.
+-  The message of a compile error on an if-then-else operator was too generic: now the 'else' and 'then' operands are mentioned in the message.
+
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  The Date Time Picker for Calendar elements and Time Zone Settings for multi timezone application, introduced in AIMMS 4.75 as experimental features, are now officially supported features.
+
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When no default value has been defined for the element parameter in AIMMS, the empty default option will not be shown in the scalar widget.
+-  The button on the Upload widget, when used on PRO in combination with the 'UI Editable' setting set to false, could 'dance' when hovered over.
+-  When switching from the Classic page layout to the new Grid layout, it could happen that the areas were displayed too small in the page manager.
+-  Widget actions were not showing up when a complete column was empty in the defining widget actions string parameter.
+-  There was a problem with the y-axis labels formatting when min/max/size were configured in the bar/line/bar-line charts.
+
+
+--------------
+
+
+
+
 #############
 AIMMS 4.76
 #############
