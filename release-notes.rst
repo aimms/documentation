@@ -37,7 +37,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  The action 'Substructure Causing Infeasibility' in the Math Program Inspector could fail in the rare case that a variable only appeared in the objective.
--  Constructs like i in {lower(i) .. upper(i)} did not perform well, both in terms of memory and execution time.
+-  Constructs like ``i in {lower(i) .. upper(i)}`` did not perform well, both in terms of memory and execution time.
 -  ODH-CPLEX could hang if a callback procedure was installed.
 -  The ODH-CPLEX option 'Solution improvement heuristic mode strategy' was missing a value.
 -  Case files that do not include all defined identifiers (which is the default for communication with solver sessions under PRO) were not always read correctly. Especially when sets were subsets of sets with a definition.
