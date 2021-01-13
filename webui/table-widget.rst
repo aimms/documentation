@@ -131,7 +131,7 @@ Data Filtering on the Table
 
   Filters are readily available for the table and there is no need to create a specification or configuration in the model. This is an end-user tool.
 
-  Filtering is available on tables that are added to regular pages. It is currently not possible to add filter rules to tables added to Dialog pages or Side Panel pages. 
+  Filtering is available on tables that are added to Regular pages and Side Panel pages. It is currently not possible to add filter rules to tables added to Dialog pages. 
 
 When working with tables you could be looking at a lot of data. It can be difficult to find information quickly in such cases. Filters can be used to narrow down the data in your table, allowing you to view only the information you need.
 
