@@ -12,7 +12,7 @@ On January 15, 2020, we released AIMMS PRO 2.37.1 (2.37.1.1).
 **Improvements**
 
 -  **Cloud:** Improved the way we schedule the sessions on AIMMS Cloud Platform and this will also enable the auto-up-scaling of session nodes when needed.
--  **Cloud:** Solver session could crash due to lack of resources(not enough CPU/Moemory on AIMMS Cloud Platform). This has been changed such a way that solver session will get queued and re-scheduled once the resources are available.
+-  **Cloud:** Solver session could crash due to lack of resources(not enough CPU/Memory on AIMMS Cloud Platform). This has been changed such a way that solver session will get queued and re-scheduled once the resources are available.
 -  **Cloud:** Some internal technical improvements.
 
 
