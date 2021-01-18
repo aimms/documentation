@@ -78,10 +78,14 @@ Sidebar Open by Default
 
 This is a logical condition which determines whether or not the Page Manager window is opened by default on the left side of the pages.  
 
+.. note:: Starting from AIMMS 4.78 this option is no longer available.
+
 Page Manager Hidden
 -------------------
 
 This is a logical condition which determines whether or not the Page Manager button on the menu bar is visible or is hidden.
+
+.. note:: Starting from AIMMS 4.78 this option is no longer available.
 
 Data Manager Hidden
 -------------------
