@@ -69,7 +69,7 @@ tutorial, just beneath the function *createCellElQ*):
 .. code-block:: javascript
             
     function createInputElQ(name, row, col) {
-        return $(['&lt;td&gt;&lt;input type="text" class="', name, ' row'+row, ' col'+col, '"&gt;&lt;/input&gt;&lt;/td&gt;'].join(''));
+        return $(['<td><input type="text" class="', name, ' row'+row, ' col'+col, '"></input></td>'].join(''));
     }
 
 In addition, we change the code that build the row header and grid area to
@@ -77,9 +77,9 @@ In addition, we change the code that build the row header and grid area to
 .. code-block:: javascript
 
     var numColsInGrid = numColsInColHeader;
-    var tbodyElQ = $('&lt;tbody&gt;');
+    var tbodyElQ = $('<tbody>');
     _times(numRowsInRowHeader, function(row) {
-        var trElQ = $('&lt;tr&gt;');
+        var trElQ = $('<tr>');
         _.times(numColsInRowHeader, function(col) {
             trElQ.append(createCellElQ('th', 'rowHeader', row, col));
         });

@@ -201,7 +201,7 @@ with creating a widget factory. The widget factory for the simple table looks li
 
         onCollectTypes: function(collectedTypes, contextElQ) {
             if(!contextElQ || contextElQ.awf.tags("placeable-widget-container")) {
-                collectedTypes.push("my-widget");
+                collectedTypes.push("my-table-widget");
             }
         },
 
@@ -301,8 +301,8 @@ Creating the widget container
     _create: function _create() {
         var widget = this;
 
-        widget.tableContainerElQ = $('&lt;div&gt;&lt;/div&gt;');
-        widget.tableElQ = $('&lt;table&gt;');
+        widget.tableContainerElQ = $('<div></div>');
+        widget.tableElQ = $('<table>');
 
         widget.tableContainerElQ
             .append(widget.tableElQ);
@@ -392,15 +392,15 @@ the table to your liking.
         var numColsInColHeader = colHeaderDimension.numCols;
         
         // Helper function to create table cell 'th' or 'td' element with extra classes
-        // For example, createCellElQ('th', 'foo', 3, 4) ==> '&lt;th class="foo row3 col4"&gt;&lt;/th&gt;'
+        // For example, createCellElQ('th', 'foo', 3, 4) ==> '<th class="foo row3 col4"></th>'
         function createCellElQ(type, name, row, col) {
             return $(['<', type, ' class="', name, ' row'+row, ' col'+col, '"></', type, '>'].join(''));
         }
 
         // Step 1: Create the column header
-        var theadElQ = $('&lt;thead&gt;');
+        var theadElQ = $('<thead>');
         _.times(numRowsInColHeader, function(col) {
-            var trElQ = $('&lt;tr&gt;');
+            var trElQ = $('<tr>');
             _.times(numColsInColHeader, function(row) {
                 trElQ.append(createCellElQ('th', 'colHeader', row, col));
             });
@@ -408,13 +408,13 @@ the table to your liking.
         });
 
         // Step 2: Add the pivot area, i.e. the 'empty' block in the upper-left corner of the table
-        theadElQ.find('tr:first').prepend('&lt;th colspan="'+numColsInRowHeader+'" rowspan="'+numRowsInColHeader+'"&gt;&lt;/th&gt;');
+        theadElQ.find('tr:first').prepend('<th colspan="'+numColsInRowHeader+'" rowspan="'+numRowsInColHeader+'"></th>');
 
         // Step 3: Create the row header and grid
         var numColsInGrid = numColsInColHeader;
-        var tbodyElQ = $('&lt;tbody&gt;');
+        var tbodyElQ = $('<tbody>');
         _.times(numRowsInRowHeader, function(row) {
-            var trElQ = $('&lt;tr&gt;');
+            var trElQ = $('<tr>');
             _.times(numColsInRowHeader, function(col) {
                 trElQ.append(createCellElQ('th', 'rowHeader', row, col));
             });
