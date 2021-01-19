@@ -136,7 +136,7 @@ react accordingly. In our case we update the text in the widget.
     jQuery.widget('ui.aimms_my_widget', AWF.Widget.create({
         _create: function() {
             var widget = this;
-            widget.contentElQ = $('&lt;div&gt;Hello AIMMS!&lt;/div&gt;');
+            widget.contentElQ = $('<div>Hello AIMMS!</div>');
 
             widget.element
                     .find('.awf-dock.center')

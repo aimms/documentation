@@ -127,7 +127,7 @@ First we will write the widget:
         _create: function() {
             this.element
                 .find('.awf-dock.center')
-                .append('&lt;div>Hello AIMMS!&lt;/div>')
+                .append('<div>Hello AIMMS!</div>')
             ;
         }
     }));
@@ -209,7 +209,7 @@ We'll look at the widget code once more, but this time it is annotated with comm
                 .find('.awf-dock.center')          // Every AWF Widget has a couple of
                                                    // designated anchor points to
                                                    // insert custom DOM elements.
-                .append('&lt;div>Hello AIMMS!&lt;/div>') // At the selected center anchor
+                .append('<div>Hello AIMMS!</div>') // At the selected center anchor
                                                    // point, we insert our DOM element.
             ;
         }
