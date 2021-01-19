@@ -131,6 +131,8 @@ Data Filtering on the Table
 
   Filters are readily available for the table and there is no need to create a specification or configuration in the model. This is an end-user tool.
 
+  Filtering is available on tables that are added to Regular pages and Side Panel pages. It is currently not possible to add filter rules to tables added to Dialog pages. 
+
 When working with tables you could be looking at a lot of data. It can be difficult to find information quickly in such cases. Filters can be used to narrow down the data in your table, allowing you to view only the information you need.
 
 Filters are useful when you want to focus only on specific information in a large dataset in a table. Filtering doesn't remove or modify data, it just changes which records appear on your widget. Filtering lets you temporarily hide unwanted data.
@@ -366,7 +368,7 @@ Date and Time picker for Calendar elements
 ------------------------------------------
 
 .. Important:: 
-    The Date and Time picker is available in software versions from AIMMS 4.75 onwards as part of Experimental Features. Please reach out to User Support on how to enable Experimental Features.
+    The Date and Time picker is available in software versions from AIMMS 4.77 onwards.
 
 A Date and Time picker is displayed to select a date and time when a `Calendar <https://how-to.aimms.com/Articles/189/189-using-calendars-in-aimms.html>`_ is referenced in a table. A calendar icon appears in the cell, on hover, that represent `Calendar <https://how-to.aimms.com/Articles/189/189-using-calendars-in-aimms.html>`_ elements and the picker is displayed by either clicking the calendar icon or double clicking on the cell.
 

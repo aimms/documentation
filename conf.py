@@ -145,6 +145,8 @@ html_theme_options = {
     'algolia_indexname': 'aimms',
 }
 
+html_last_updated_fmt = '%b %d, %Y'
+
 # rst_epilog = ``` ``` 
 
 # Add any paths that contain custom static files (such as style sheets) here,

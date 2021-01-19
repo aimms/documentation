@@ -46,7 +46,7 @@ Date and Time picker for Element parameters
 -------------------------------------------
 
 .. Important:: 
-    The Date and Time picker is available in software versions from AIMMS 4.75 onwards as part of Experimental Features. Please reach out to User Support on how to enable Experimental Features.
+    The Date and Time picker is available in software versions from AIMMS 4.77 onwards.
 
 A Data and Time picker icon is displayed when an element parameter that is ranged over a Calendar is configured in the Contents of the scalar widget:
 

@@ -7,6 +7,72 @@ AIMMS Release Notes
 
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
+
+#############
+AIMMS 4.77
+#############
+
+
+AIMMS 4.77.1 Release (January 8, 2021 - build 4.77.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+.. important::
+  
+  The warning "Missing semicolon at the end of a [statement list/procedure body] is deprecated. A future AIMMS version may give a compilation error on this." is now by default an error in AIMMS Developer. 
+  
+  **Note:** it is possible to let AIMMS insert all the missing semicolons it found at once by clicking on the error.
+
+-  AIMMS now offers more control for the LP problems that are solved to calculate shadow price ranges and (variable) value ranges. The new general solvers option 'Time limit sensitivity ranges' can be used to set a time limit, while the new CPLEX and Gurobi option 'Sensitivity method' can be used to specify the LP method.
+-  Gurobi 9.1 (version 9.1.1) has been added. Gurobi 9.1 comes with performance improvements for LP, MIP, MIQP models and for convex and non-convex MIQCP models.
+-  CPLEX 20.1 has been added. CPLEX numbering has changed; it now is based on the year of release. CPLEX 20.1 comes with improvements to the performance of mixed integer programming (MIP) models that provide better solutions more quickly.
+-  CP Optimizer 20.1 has been added. CP Optimizer 20.1 comes with improvements to constraint programming models with variables that have large domains.
+-  CONOPT 4.1 has been added. CONOPT 4.1 comes with a few bug fixes.
+-  The code to read and write case files has been completely re-written. This should not have any negative impact on existing models. The format of the case files has not been changed and thus is still compatible with older AIMMS versions. The new code fixes a few problems related to the order in which data was read in and the in between evaluation of definitions. If you encounter any problems because of this change, please let us know as soon as possible. For more details, see `here <https://community.aimms.com/product-updates-roadmap-36/cases-and-runtime-libraries-834>`__.
+-  The Help On menu command in the attribute window of the model editor are now linked to the online version of the Language and the Function Reference.
+-  There is a new option "JIT_Body_Compilation". With this option you can enable the new feature: Just-In-Time body compilation. This means that the compilation of the body attributes of procedures and functions is skipped at startup and thus that startup time decreases. The procedures and functions are compiled just before they are first run.
+
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The action 'Substructure Causing Infeasibility' in the Math Program Inspector could fail in the rare case that a variable only appeared in the objective.
+-  Constructs like ``i in {lower(i) .. upper(i)}`` did not perform well, both in terms of memory and execution time.
+-  ODH-CPLEX could hang if a callback procedure was installed.
+-  The ODH-CPLEX option 'Solution improvement heuristic mode strategy' was missing a value.
+-  Case files that do not include all defined identifiers (which is the default for communication with solver sessions under PRO) were not always read correctly. Especially when sets were subsets of sets with a definition.
+-  The objectVersionId of the uploaded messages.log wasn't correctly stored for non-interrupted solver sessions, resulting in not being able to download the messages.log for finished sessions.
+-  No solution was passed back to AIMMS if BARON found a solution before hitting a time limit.
+-  In rare cases a GMP::Row routine could fail if a row number was passed in the 'row' argument.
+-  The message of a compile error on an if-then-else operator was too generic: now the :any:`else` and :any:`then` operands are mentioned in the message.
+
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  The Date Time Picker for :any:`calendar` elements and Time Zone Settings for multi timezone application, introduced in `AIMMS 4.75`_ as experimental features, are now officially supported features.
+
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When no default value has been defined for the element parameter in AIMMS, the empty default option will not be shown in the scalar widget.
+-  The button on the Upload widget, when used on PRO in combination with the 'UI Editable' setting set to false, could 'dance' when hovered over.
+-  When switching from the Classic page layout to the new Grid layout, it could happen that the areas were displayed too small in the page manager.
+-  Widget actions were not showing up when a complete column was empty in the defining widget actions string parameter.
+-  There was a problem with the y-axis labels formatting when min/max/size were configured in the bar/line/bar-line charts.
+
+
+--------------
+
+
+
+
 #############
 AIMMS 4.76
 #############
@@ -35,10 +101,10 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  The :any:`Val` function could suffer from multi-threading issues when used on calendar elements.
+-  The :any:`Val` function could suffer from multi-threading issues when used on :any:`calendar` elements.
 -  The return value of the :any:`AttributeToString` function, when used to get the "Default" attribute of a string parameter, was enclosed in redundant quotation marks.
 -  Solving a robust optimization model with an ellipsoidal uncertainty constraint could result in a failure.
--  UTC start and end times of calendars were always shifted to local time, while timezone adjustments should only happen if the granularity of the calendar is higher than daily.
+-  UTC start and end times of :any:`calendars <calendar>` were always shifted to local time, while timezone adjustments should only happen if the granularity of the :any:`calendar` is higher than daily.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
@@ -59,8 +125,8 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  When you changing a value in the table, without hitting enter and then clicking away to a read-only cell, the change was not applied.
--  Setting values of element parameters in a subset of a calendar with a non-standard datetime format, was not possible.
--  Setting values of element parameters in a calendar using something else than the date-time-picker (e.g. a selection widget), did not work.
+-  Setting values of element parameters in a subset of a :any:`calendar` with a non-standard datetime format, was not possible.
+-  Setting values of element parameters in a :any:`calendar` using something else than the date-time-picker (e.g. a selection widget), did not work.
 
 
 --------------
@@ -226,7 +292,10 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  IMPORTANT when you are making use of a file to store the database structure (with LoadDataBaseStructure): in version 4.72.4 we unintentionally made a change that has an impact on this functionality: it may be that if you used SaveDataBaseStructure in an older version, the resulting file is no longer compatible. So if you are using this functionality, please create a new database structure file once with a version 4.72.4 or higher to be used at LoadDataBaseStructure.
+.. important::
+  
+  when you are making use of a file to store the database structure (with LoadDataBaseStructure): in version 4.72.4 we unintentionally made a change that has an impact on this functionality: it may be that if you used SaveDataBaseStructure in an older version, the resulting file is no longer compatible. So if you are using this functionality, please create a new database structure file once with a version 4.72.4 or higher to be used at LoadDataBaseStructure.
+
 -  In some rare cases when using the Mod function with arguments that have units of measurement, the result could have a precision lower than double precision for the floating point format.
 -  In AIMMS 4.75, the 'Subset of' wizard was not working as it should.
 -  An attempt to switch to the Profiler while the execution is stopped on a breakpoint in the Debugger is no longer allowed. It resulted in an error situation in earlier versions.
@@ -313,7 +382,10 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  Options that are given nondefault values to new models automatically, were not always saved. This applies especially to the option to use UTC times in reference dates introduced in 4.74. IMPORTANT: If your model uses time, check that the option "Use UTC forcaseandstartenddate" is on. Altering it once is enough to avoid the bug, but be aware: this changes the meaning of calenders.
+-  Options that are given nondefault values to new models automatically, were not always saved. This applies especially to the option to use UTC times in reference dates introduced in 4.74. 
+
+    .. important:: If your model uses time, check that the option "Use UTC forcaseandstartenddate" is on. Altering it once is enough to avoid the bug, but be aware: this changes the meaning of calenders.
+
 -  Finding an element in a quarterly calendar, using :any:`StringToElement`, did not work sometimes.
 -  Specifying :ref:`the OrderBy attribute <set.order_by>` on a runtime set, could lead to an unexpected error in recent AIMMS versions.
 -  We removed an incorrect warning about a missing semicolon.
@@ -532,7 +604,9 @@ AIMMS 4.74.1 Release (June 23, 2020 - build 4.74.1.0)
 
 AIMMS Improvements
 +++++++++++++++++++++++++
--  **IMPORTANT:** When the .ams file is written to disk, AIMMS itself now uses tabs instead of 4 spaces. This reduces the size of the .ams file up to 30%. Because AIMMS versions before 4.73 do not expect tabs as indentation, models saved in AIMMS 4.74 may introduce unexpected issues when opening them in versions older than 4.73. You can prevent this by first opening and saving the model in 4.73. After that, the model will be compatible with older versions again. When the .ams file is managed by a versioning system (such as git), .ams files will have changes on all lines.
+
+.. important::  When the .ams file is written to disk, AIMMS itself now uses tabs instead of 4 spaces. This reduces the size of the .ams file up to 30%. Because AIMMS versions before `AIMMS 4.73`_ do not expect tabs as indentation, models saved in `AIMMS 4.74`_ may introduce unexpected issues when opening them in versions older than 4.73. You can prevent this by first opening and saving the model in 4.73. After that, the model will be compatible with older versions again. When the .ams file is managed by a versioning system (such as git), .ams files will have changes on all lines.
+
 -  The CPLEX, Gurobi and ODH-CPLEX options related to heuristics have been placed in the new MIP Heuristic category.
 -  The math program suffix BestBound and the GMP functions for retrieving the best bound can now also be used to obtain the best bound for a continuous problem (NLP, QP or QCP) solved with BARON and for non-convex quadratic problems solved with CPLEX or Gurobi.
 -  The solver ODH-CPLEX 5.0 is now available. ODH-CPLEX 5.0 uses CPLEX 12.10 underneath. Whereas, ODH-CPLEX 4.0 uses CPLEX 12.8. Therefore, the new options for ODH-CPLEX 5.0 stem from the CPLEX part. For some MIP cases, the results obtained by ODH-CPLEX 4.0 are not deterministic. This behavior is fixed in the ODH-CPLEX 5.0.
