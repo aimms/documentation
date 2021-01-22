@@ -13,6 +13,29 @@ AIMMS 4.77
 #############
 
 
+AIMMS 4.77.2 Release (January 22, 2021 - build 4.77.2.7).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In a switch statement, using a macro being a quoted element name could lead to the compile-time error wrongly indicating that the quoted element is not in the range set. This bug was introduced in AIMMS 4.77.1.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When editing a cell in the table and moving to either the next cell or another widget by clicking, the update of the edited cell would be applied later than a store focus or uponchange procedure. That order is now corrected, such that the edited cell will first be updated and then the next action/procedure will execute.
+-  Widget actions were broken for widgets within a Group widget.
+-  With the introduction of the Date Time Picker feature, a table widget that showed calendar data which was filtered, could end up empty.
+-  WebUI state support was not working correctly on PRO, because the page names were not identified correctly.
+
+
+--------------
+
+
+
 AIMMS 4.77.1 Release (January 8, 2021 - build 4.77.1.1).
 ------------------------------------------------------------------------------------------
 
