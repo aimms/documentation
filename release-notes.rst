@@ -21,7 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  In a switch statement, using a macro being a quoted element name could lead to the compile-time error wrongly indicating that the quoted element is not in the range set. This bug was introduced in AIMMS 4.77.1.
+-  In a :any:`switch <switch>` statement, using a macro being a quoted element name could lead to the compile-time error wrongly indicating that the quoted element is not in the range set. This bug was introduced in AIMMS 4.77.1.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
