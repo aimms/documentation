@@ -25,10 +25,10 @@ Constraint Programming Application Examples
 --------------------------------------------
 
 - Allocations Problems
-- Bridge Building
+- `Bridge Building <https://how-to.aimms.com/Articles/140/140-Scheduling-Project-Planning.html>`__
 - Circuit Verification
-- Job Shop Scheduling
-- Nurse Scheduling
+- `Job Shop Scheduling <https://how-to.aimms.com/Articles/142/142-Narrowing-Time-Windows.html>`__
+- `Nurse Scheduling <https://how-to.aimms.com/Articles/137/137-Small-Rostering.html>`__
 - Pegboard Planning
 - Sport Scheduling
 - Vehicle Routing
