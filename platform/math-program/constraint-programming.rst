@@ -23,12 +23,13 @@ The AIMMS :doc:`Open Solver Interface <../solvers/open-solver-interface>` allows
 
 Constraint Programming Application Examples
 --------------------------------------------
-Allocations Problems
-Bridge Building
-Circuit Verification
-Job Shop Scheduling
-Nurse Scheduling
-Pegboard Planning
-Sport Scheduling
-Vehicle Routing
-Workforce Optimization
+
+- Allocations Problems
+- Bridge Building
+- Circuit Verification
+- Job Shop Scheduling
+- Nurse Scheduling
+- Pegboard Planning
+- Sport Scheduling
+- Vehicle Routing
+- Workforce Optimization
