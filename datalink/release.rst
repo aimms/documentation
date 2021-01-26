@@ -5,6 +5,9 @@ The first public release of DataLink was version 1.0.0.106, release date January
 
 New Features and Bug Fixes
 --------------------------
+1.1.1.27 [26-01-2021]
+    - Fix empty parameter crash issue
+
 1.1.1.24 [17-06-2020]
     - Mark TDEprovider deprecated
 
