@@ -29,7 +29,7 @@ Public Page and Widget Specification Declarations:
 
 Public WebUI Frontend State Support Declarations: 
 
-(note: this section was introduced with AIMMS 4.72, as the 'webui state support' experimental feature.)
+(note: this section was introduced with AIMMS 4.72, as the 'webui state support' `Experimental Features <experimental-features.html>`_.)
 
 * ``AllOpenWebUITabs`` - This set contains one element for each WebUI tab currently open. The element has the form of a UUID. 
 * ``LastActiveWebUITab`` - An element parameter in ``AllOpenWebUITabs``, which contains the UUID of the currently open WebUI tab in the browser (if any, it is empty otherwise).
