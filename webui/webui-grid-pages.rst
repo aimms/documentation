@@ -32,7 +32,7 @@ This section describes various tasks related to WebUI grid pages.
 
 .. important::
 
-	Grid WebUI pages are available starting from the AIMMS software version 4.75 on.
+	Grid WebUI pages are available starting from the AIMMS software version 4.75 onwards as part of `Experimental Features <experimental-features.html>`_. Please visit the `Experimental Features <experimental-features.html>`_ page on how to enable the feature.
 
 Grid pages introduce in AIMMS WebUI the CSS Grid concept of visualization based on page layouts, which is currently a widely used standard in webdesign. For more information on CSS Grid in general please see websites such as:
 
