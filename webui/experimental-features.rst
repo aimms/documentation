@@ -36,7 +36,7 @@ Current list of Experimental Features
    :widths: 20, 70, 10
 
    Compact Scalar, "By enabling this feature you have the option to condense the height of the scalar to a fixed height that is similar to a label or button widget. An option ``Enable Compact mode (1/0)``, will appear in the Miscellaneous section of the Scalar widget options that allows toggling the compact mode.", 4.46
-   `Highlight Annotations <css-styling.html#highlighting-experimental>`_, "Enable this feature to use annotations to responsively highlight certain tuples in the Table and the Gantt Chart widget. `Read more <css-styling.html#highlighting-experimental>`_.", 4.68.5
+   `Highlight Annotations <css-styling.html#highlighting-experimental>`_, "Enable this feature to use annotations to responsively highlight certain tuples in the Table and the Gantt Chart widget. `Read more here <css-styling.html#highlighting-experimental>`_.", 4.68.5
    Ignore Map Upgrade, "Enable this option to roll back to the previous map version. This is unlike the other experimental features. This option will eventually be removed and only the latest map widget will be available for use. This option is merely here such that you may make the transition to the new map widget gradually", 4.73
    WebUI State Support, "By enabling this feature the element parameters ``CurrentPageId`` and ``CurrentSidePanelPageId`` will be updated with the ``pageId`` of the current page the user is on and the ``pageId`` of the Side Panel page that is open, respectively.", 4.72
    `Grid Layout <webui-grid-pages.html>`_, "Enable this feature to leverage the new Grid Layout that makes it easy to create consistent and beautiful looking applications. `Read more <webui-grid-pages.html>`_.", 4.75
