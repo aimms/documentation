@@ -30,31 +30,83 @@ Application Management
 
 .. important:: The application management features described in this section are available starting from AIMMS version 4.78.
 
-With the introduction of application management features, the Page Manager not only renders the page tree structure of your WebUI, but also renders beneath each page the list of widgets belonging to that page. This allows the WebUI developer to manage the application contents by moving things around in this extended tree structure offered now by the Page Manager.
+With the introduction of application management features, the Page Manager not only renders the page tree structure of your WebUI, but it also renders beneath each page the list of widgets belonging to that page. This allows the WebUI developer to manage the application contents by moving things around in this extended tree structure offered now by the Page Manager.
 
- 
+The various operations for application management available to the WebUI developer are described below using illustrations based on the TransNet appplication example, see our `WebUI Tutorial <quick-start.html>`_ section.
 
+The the list of available pages in the WebUI is shown when pressing the ‘hamburger’ icon |page-manager| on the top left position of your browser window. The Page Manager will open rendering the page tree structure. You can expand a subtree by clicking on the 'arrow' ">" in front of a parent page and you can collapse it by clicking on the "v" in front of a parent page. In our example, we start with a single Home page with a number of widgets on it:
 
-A WebUI app can consist of multiple pages. To see the list of available pages in your WebUI, press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. The Page Manager will open rendering the page tree structure: 
-
-.. image:: images/PageManager_snap6.png
+.. image:: images/AppManag_PageManager_1.png
     :align: center
 
-You can add your pages here and structure them in a tree. You can access your pages by clicking on their name 
+Note that, unlike pages or sub-pages, the widgets listed underneath a page do not have an icon at the left of their names. 
 
-* in the Page Manager, or 
-* in the `Page Menu <page-menu.html>`_
+Next, we will create a new page, say Input Data, on the same level as the Home page in the tree. We can do this by using the options for adding new pages from the menu at the right of the Main Project node situated at the top of the tree:
 
-Please note that the *new* Page Menu and Page Manager are available in AIMMS 4.40+. From AIMMS 4.45 onwards, the Page Manager can also be used when running your WebUI app on PRO.
+.. image:: images/AppManag_AddingPage_1.png
+    :align: center
 
-You can expand a subtree by clicking on the 'arrow' ">" in front of a parent page. You can collapse it by clicking on the "v" in front of the parent page. The pages in the Page Manager will always be visible in the `Page Menu <page-menu.html>`_, unless the `visibility of a page <#change-the-visibility-of-a-page>`_ is set to either 'false' or 0. 
+Suppose we would like to place all the widgets related to input data on the newly created Input Data page. Starting with the InputLabel wdiget, one can simply **drag-and-drop** this widget in the tree from the initial location underneath the Home page to its new location underneath the Input Data page:
 
-The Page Navigator can be used in combination with the Page Menu, but there are a number of settings in the Application Options editor with which you can define how you want this to work:
+.. image:: images/AppManag_DragAndDrop_1.png
+    :align: center
 
-* *Sidebar Open By Default* Use this option to specify whether the Page Manager sidebar should be visible upon opening the WebUI app.
-* *Page Manager Hidden* Use this option to specify whether you want to offer the Page Manager to your end users or not.
-* *Page Menu Hidden* Use this option to specify whether you want to offer the (horizontal) Page Menu to your end users or not.
+Clearly, this operation will have the effect that the InputLabel widget won't be rendered any more on the Home page, but it will become present on the Input Data page, instead.
 
-When running on PRO, only the add/rename/delete options are offered to the end-user (i.e. the visibility-toggling and the wizard-creation options are left out).
+Next, one can **copy** the SupplyData widget using the menu at its right and **paste** it on the Input data page by using the menu at the right of this page:
 
-Details on creating and managing various pages can be accessed using the following scheme: 
+.. image:: images/AppManag_CopyPaste_1.png
+    :align: center
+
+At this point, it can be noticed that, besides the **Paste Widget** option (and the options for adding a sub-page), the menu at the right of a page also offers options to **rename** the page, to change **visibility** of the page, or to **delete** the page from the tree.
+
+The copy-pasted widget is named automatically as SupplyData(1). By using the option to **rename** from the menu at the right of this widget, the name may be changed, for example into Supply_Data:
+
+.. image:: images/AppManag_RenamingWidget_1.png
+    :align: center
+
+When a widget is no longer needed on a page, it may be removed by using the option to **delete** from the menu at the right of the widget, as is the case with the SupplyData widget on the Home page:
+
+.. image:: images/AppManag_DeletingWidget_1.png
+    :align: center
+
+The deletion must be confirmed in the corresponding pop-up dialog which appears before the operation is completed (as shown above).
+
+Of course, it is equally possible to **cut-and-paste** a widget in one go as illustrated below for the DemandData widget:
+
+.. image:: images/AppManag_CutAndPaste_1.png
+    :align: center
+
+The **cut-and-paste** operation can be repeated for each widget which should be moved to a different page in the tree. In our example, after performing **cut-and-paste** also for the widgets UnitCostData, InitializeInput, and ModifyUnitCost (and maybe renaming the pasted widgets), the page tree would like in the following picture:
+
+.. image:: images/AppManag_PM_30.jpg
+    :align: center
+	
+When we additionally move the Page Actions from the Home Page to the Input Data page (using the Page Settings on either page), the newly created Input Data page in the WebUI will look as follows:
+
+.. image:: images/AppManag_InputDataPage_1.jpg
+    :align: center
+
+.. note:: At this point, please note that the order or the positioning of the widgets on a page is determined as follows:
+
+          * for the `WebUI classic pages <webui-classic-pages.html>`_, the order of widgets on the page is the one given by the `Widget Manager <widget-manager.html>`_
+          * for the `WebUI grid pages <webui-grid-pages.html>`_, the positioning of the widgets on the page is the one given by the corresponding `Page tab of the Page Manager <webui-grid-pages.html#page-manager-with-grid-pages>`_
+
+In this example at hand, we can use similar actions as those illustrated above in order to create two new page, say Optimization and Output Data, and move the correspoding widgets from the Home page to these newly created pages, such that the page tree looks like in the following picture:
+
+.. image:: images/AppManag_PM_40.jpg
+    :align: center
+
+In this case, the Optimization and Output Data pages will look as follows in the WebUI:
+
+.. image:: images/AppManag_OptimizationPage_1.jpg
+    :align: center
+
+.. image:: images/AppManag_OutputPage_1.jpg
+    :align: center
+ 
+So, by using the application management features, it is possible to re-structure the WebUI of an app and move widgets around between the various WebUI pages.
+   
+
+
+  
