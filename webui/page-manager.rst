@@ -1,5 +1,5 @@
 Page Manager 
-=============
+============
 
 .. |page-manager| image:: images/PageManager_snap1.png
 

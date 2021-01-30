@@ -1,6 +1,40 @@
 Application Management 
 ======================
 
+.. |page-manager| image:: images/PageManager_snap1.png
+
+.. |dots| image:: images/PageManager_snap3.png
+
+.. |pencil| image:: images/PageManager_snap3_1.png
+
+.. |eye| image:: images/PageManager_snap3_2.png
+
+.. |hidden| image:: images/PageManager_snap3_3.png
+
+.. |bin| image:: images/PageManager_snap3_4.png
+
+.. |home| image:: images/PageManager_snap3_5.png
+
+.. |wizard| image:: images/PageManager_snap3_6.png
+
+.. |plus| image:: images/plus.png
+
+.. |kebab|  image:: images/kebab.png
+
+.. |addpage|  image:: images/addpage.png
+
+.. |sidepanel|  image:: images/sidepanel.png
+
+.. |dialog|  image:: images/dialogicon.png 
+
+
+.. important:: The application management features described in this section are available starting from AIMMS version 4.78.
+
+With the introduction of application management features, the Page Manager not only renders the page tree structure of your WebUI, but also renders beneath each page the list of widgets belonging to that page. This allows the WebUI developer to manage the application contents by moving things around in this extended tree structure offered now by the Page Manager.
+
+ 
+
+
 A WebUI app can consist of multiple pages. To see the list of available pages in your WebUI, press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. The Page Manager will open rendering the page tree structure: 
 
 .. image:: images/PageManager_snap6.png
