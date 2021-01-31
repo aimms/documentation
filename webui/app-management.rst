@@ -85,27 +85,30 @@ The **cut-and-paste** operation can be repeated for each widget which should be 
 When we additionally move the Page Actions from the Home Page to the Input Data page (using the Page Settings on either page), the newly created Input Data page in the WebUI will look as follows:
 
 .. image:: images/AppManag_InputDataPage_1.jpg
-    :align: center
+   :align: center
+   :scale: 60%
 
 .. note:: At this point, please note that the order or the positioning of the widgets on a page is determined as follows:
 
           * for the `WebUI classic pages <webui-classic-pages.html>`_, the order of widgets on the page is the one given by the `Widget Manager <widget-manager.html>`_
-          * for the `WebUI grid pages <webui-grid-pages.html>`_, the positioning of the widgets on the page is the one given by the corresponding `Page tab of the Page Manager <webui-grid-pages.html#page-manager-with-grid-pages>`_
+          * for the `WebUI grid pages <webui-grid-pages.html>`_, the positioning of the widgets on the page is the one given by the corresponding **Page tab** of the `Page Manager with Grid Pages <webui-grid-pages.html#page-manager-with-grid-pages>`_
 
 In this example at hand, we can use similar actions as those illustrated above in order to create two new page, say Optimization and Output Data, and move the correspoding widgets from the Home page to these newly created pages, such that the page tree looks like in the following picture:
 
 .. image:: images/AppManag_PM_40.jpg
-    :align: center
+   :align: center
 
 In this case, the Optimization and Output Data pages will look as follows in the WebUI:
 
 .. image:: images/AppManag_OptimizationPage_1.jpg
-    :align: center
+   :align: center
+   :scale: 60%
 
 .. image:: images/AppManag_OutputPage_1.jpg
-    :align: center
- 
-So, by using the application management features, it is possible to re-structure the WebUI of an app and move widgets around between the various WebUI pages.
+   :align: center
+   :scale: 66%
+   
+To summarize, this section illustrated how the application management features facilitate the (re-)structuring of the page tree in the WebUI and allow for moving widgets around between the various WebUI pages.
    
 
 
