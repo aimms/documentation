@@ -30,7 +30,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  Page Actions were moving along with the scroll on Grid-Layout pages.
--  In some cases when using the Grid Layout, leaving the final page of a wizard did not take you to the intended page in your WebUI. Instread, the wizard page remained.
+-  In some cases when using the Grid Layout, leaving the final page of a wizard did not take you to the intended page in your WebUI. Instead, the wizard page remained.
 
 
 --------------
