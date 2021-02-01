@@ -13,6 +13,29 @@ AIMMS 4.77
 #############
 
 
+AIMMS 4.77.3 Release (February 1, 2021 - build 4.77.3.15).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Warnings or errors that were triggered during the update of a definition during a case read could lead to strange errors in a later stage of execution.
+-  In the case of an external DLL function call: if this function had an array of strings as one input argument, wrong strings were passed.
+-  There was an error in CleanDependents in combination with data from multiple cases. This resulted in a situation where an element in a set was not recognized.
+-  Non-ASCII characters in user profile names could cause the new academic licensing scheme to fail.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Page Actions were moving along with the scroll on Grid-Layout pages.
+
+
+--------------
+
+
+
 AIMMS 4.77.2 Release (January 22, 2021 - build 4.77.2.7).
 ------------------------------------------------------------------------------------------
 
