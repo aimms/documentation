@@ -34,7 +34,7 @@ With the introduction of application management features, the Page Manager not o
 
 The various operations for application management available to the WebUI developer are described below using illustrations based on the TransNet appplication example, see our `WebUI Tutorial <quick-start.html>`_ section.
 
-The the list of available pages in the WebUI is shown when pressing the ‘hamburger’ icon |page-manager| on the top left position of your browser window. The Page Manager will open rendering the page tree structure. You can expand a subtree by clicking on the 'arrow' ">" in front of a parent page and you can collapse it by clicking on the "v" in front of a parent page. In our example, we start with a single Home page with a number of widgets on it:
+The list of available pages in the WebUI is shown when pressing the ‘hamburger’ icon |page-manager| on the top left position of your browser window. The Page Manager will open rendering the page tree structure. You can expand a subtree by clicking on the 'arrow' ">" in front of a parent page and you can collapse it by clicking on the "v" in front of a parent page. In our example, we start with a single Home page with a number of widgets on it:
 
 .. image:: images/AppManag_PageManager_1.png
     :align: center
