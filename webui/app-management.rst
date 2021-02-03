@@ -48,10 +48,15 @@ Next, we will create a new page, say Input Data, on the same level as the Home p
 
 Suppose we would like to place all the widgets related to input data on the newly created Input Data page. Starting with the InputLabel wdiget, one can simply **drag-and-drop** this widget in the tree from the initial location underneath the Home page to its new location underneath the Input Data page:
 
-.. image:: images/AppManag_DragAndDrop_1.png
+.. image:: images/AppManag_DragAndDrop_2.png
     :align: center
 
-Clearly, this operation will have the effect that the InputLabel widget won't be rendered any more on the Home page, but it will become present on the Input Data page, instead.
+.. note:: Note that the drop location during the **drag-and-drop** operation is marked by a coloured line in the tree. The starting poing of such a line (at its left side) idicates the intended location in the tree structure. A red line (see above) indicates that the intended drop location is not applicable, whereas a blue line (see above) indicates that the location is allowed and the node may be dropped there. 
+
+          With the introduction of application management features, this way of working not only applies to widget nodes in the tree, but also to page nodes in the tree and it complements the feature described in the section `Moving a Page <webui-classic-pages.html#moving-a-page>`_. 
+		
+
+Clearly, this drag-and-drop operation in our example at hand will have the effect that the InputLabel widget won't be rendered any more on the Home page, but it will become present on the Input Data page, instead.
 
 Next, one can **copy** the SupplyData widget using the menu at its right and **paste** it on the Input data page by using the menu at the right of this page:
 
@@ -88,7 +93,7 @@ When we additionally move the Page Actions from the Home Page to the Input Data 
    :align: center
    :scale: 60%
 
-.. note:: At this point, please note that the order or the positioning of the widgets on a page is determined as follows:
+.. note:: Note that the order or the positioning of the widgets on a page is determined as follows:
 
           * for the `WebUI classic pages <webui-classic-pages.html>`_, the order of widgets on the page is the one given by the `Widget Manager <widget-manager.html>`_
           * for the `WebUI grid pages <webui-grid-pages.html>`_, the positioning of the widgets on the page is the one given by the corresponding **Page tab** of the `Page Manager with Grid Pages <webui-grid-pages.html#page-manager-with-grid-pages>`_. In this case, the copy-pasted or cut-pasted widgets are placed in the Unssigned area of the destination page.
