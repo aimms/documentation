@@ -47,3 +47,5 @@ This is a list of (recent) deprecated features and provides an insight into its 
     System Requirements, Internet Explorer 11      , Deprecated , Jan 2020        , No longer supported                                                            , Chrome or Edge (latest or latest-1)                                                                  
     System Requirements, Windows 7      , Deprecated , Jan 2020        , No longer supported            , Windows 8 or higher                                                                  
     System Requirements, Windows Server 2008      , Deprecated , Jan 2020        , No longer supported         , Windows Server 2012 or higher                                                                  
+    GUI-WebUI, Sidebar Open By Default, Deprecated, March 2021, No longer available from 4.78, No alternative as such
+    GUI-WebUI, Page Manager Hidden, Deprecated, March 2021, No longer available from 4.78, Use Menu to navigate to other pages
