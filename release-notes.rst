@@ -13,6 +13,26 @@ AIMMS 4.77
 #############
 
 
+AIMMS 4.77.4 Release (February 5, 2021 - build 4.77.4.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When reading data from a case, identifiers that are defined over a calendar sometimes were not read correctly. Especially when the start and end date of the calendar were also read from the case. This was only a problem in earlier 4.77 versions.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Setting a widget to "full screen" will now work as expected again on both Classic and Grid Layout pages.
+
+
+--------------
+
+
+
 AIMMS 4.77.3 Release (February 1, 2021 - build 4.77.3.15).
 ------------------------------------------------------------------------------------------
 
