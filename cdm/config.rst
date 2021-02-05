@@ -195,6 +195,10 @@ If you want to be certain that all inactive data is removed from the branch on w
 
 * You can subsequently delete the element from the root set, and remove the element in the CDM data repository as well through a final commit.
 
+.. seealso::
+  
+  Documentation about ``CleanDependents`` operator in :any:`cleandependents`
+
 Creating globally unique set element names
 ------------------------------------------
 

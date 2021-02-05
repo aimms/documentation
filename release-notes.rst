@@ -43,8 +43,12 @@ Resolved AIMMS Issues
 
 -  Warnings or errors that were triggered during the update of a definition during a case read could lead to strange errors in a later stage of execution.
 -  In the case of an external DLL function call: if this function had an array of strings as one input argument, wrong strings were passed.
--  There was an error in CleanDependents in combination with data from multiple cases. This resulted in a situation where an element in a set was not recognized.
+-  There was an error in ``CleanDependents`` in combination with data from multiple cases. This resulted in a situation where an element in a set was not recognized.
 -  Non-ASCII characters in user profile names could cause the new academic licensing scheme to fail.
+
+.. seealso::
+  
+  Documentation about ``CleanDependents`` operator in :any:`cleandependents`
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
