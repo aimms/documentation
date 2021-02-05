@@ -325,6 +325,8 @@ When adding rules to numeric operators, characters cannot be entered. The field 
 .. note ::
     When ``show top`` or ``show bottom`` operators are used on a column/row, since the data is already sorted, sorting on other columns/rows will not be available. 
 
+    The ``is equal to (=)`` and ``is not equal to (!=)`` filters data that is displayed in the table. The other operators will filter data on the actual stored data which may vary in the number of decimals.
+
 .. _string-operators:
 
 +------------------------------+-------------------------------------------------------------------------------------------+
@@ -345,8 +347,6 @@ When adding rules to numeric operators, characters cannot be entered. The field 
 
 Best Practices
 ^^^^^^^^^^^^^^
-
-#. When using numeric operators for filtering data that are in decimals points, we advise the use of the range operator, i.e. "in between" or "not in between" since the data that is displayed in the table and the actual stored data may vary in the number of decimals. Using the "is equal" operator will look for an exact match in the stored data.
 
 #. When using the range operator, i.e. "in between" or "not in between", for decimal values, you might want to input values that have a small variance.  
 
