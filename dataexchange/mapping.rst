@@ -12,6 +12,10 @@ The following are the elements allowed in a JSON mapping
 * the :token:`ObjectMapping` element, a mapping element used to map a JSON object value (enclosed in curly brackets :token:`{` and :token:`}`)
 * the :token:`ArrayMapping` element, a mapping element used to map a JSON array value (enclosed in square brackets :token:`[` and :token:`]`). A JSON array mapping can only have a single child mapping, specifying the type of every element in the array.
 * the :token:`ValueMapping` element, a mapping element used to map a integer, double or string value in a JSON file
+* the :token:`RowOrientedObjectMapping` element, a mapping element used to map all underlying mapping nodes as an array of row arrays (containing heterogeneous value types)
+* the :token:`ColumnOrientedObjectMapping` element, a mapping element used to map all underlying mapping nodes as an array of column arrays (containing homogeneous value types)
+
+The represent row-oriented data, the :token:`RowOrientedObjectMapping` and :token:`ColumnOrientedObjectMapping` will provide the most compact JSON representations and will execute the fastest.
 
 XML Mapping elements
 ======================
@@ -58,13 +62,14 @@ The available mapping attributes are:
 * iterative-existing
 * iterative-reset   
 * maps-to
+* max-string-size    
 * value           
 * write-filter      
 * force-dense
 * dense-children     
 * included-mapping  
 * embedded-mapping 
-* base64-encoded    
+* base64-encoded
 
 The name attribute
 ------------------
@@ -101,6 +106,8 @@ The maps-to attribute
 You can assign the :token:`maps-to`  attribute to any value-holding mapping element. Its value should be a reference to an identifier in your model, including the indices bound at this location in the mapping tree. Note that this should match the dimension of the identifier exactly, and that the root domain of the identifier should match the root domains of the indices.  
 
 The :token:`write-filter` attribute can be specified at any node in the mapping tree, and should be a reference to an identifier in the model including the bound indices at this location as for the :token:`maps-to` attribute. For any tuple of bound indices for which the :token:`write-filter` attribute does not hold a non-default value, the corresponding part of the generate JSON, XML or CSV file will be skipped. 
+
+By default, the Data Exchange library assumes that all string values will hold up to 1024 characters. Through the :token:`max-string-size` attribute a maximum string size up to 8KB can be specified.
 
 The force-dense attribute
 -------------------------

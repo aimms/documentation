@@ -87,13 +87,19 @@ This will generate Data Exchange mappings in the subfolder :token:`Mappings/Gene
 
 .. csv-table:: 
    :header: "Mapping", "Description"
-   :widths: 40, 100
+   :widths: 100, 1000
    
     :token:`JSONDataset`, all tables for all datasets in a single JSON file
     :token:`XMLDataset`, all tables for all datasets in a single XML file
     :token:`Generated/<dataset>-Excel`, all tables for dataset :token:`<dataset>` in a single Excel file (one sheet per table)
-    :token:`Generated/<dataset>-<table>-JSON`, table :token:`<table>` in dataset :token:`<dataset>` in a single JSON file
-    :token:`Generated/<dataset>-<table>-XML`, table :token:`<table>` in dataset :token:`<dataset>` in a single XML file
+    :token:`Generated/<dataset>-<table>-JSON-Sparse`, table :token:`<table>` in dataset :token:`<dataset>` in a single sparse JSON file (only non-default data)
+    :token:`Generated/<dataset>-<table>-JSON-Dense`, table :token:`<table>` in dataset :token:`<dataset>` in a single dense JSON file (also default data)
+    :token:`Generated/<dataset>-<table>-JSON-RowOriented`, table :token:`<table>` in dataset :token:`<dataset>` in a single row-oriented JSON file (array of row arrays)
+    :token:`Generated/<dataset>-<table>-JSON-ColumnOriented`, table :token:`<table>` in dataset :token:`<dataset>` in a single column-oriented JSON file (array of column arrays)
+    :token:`Generated/<dataset>-<table>-XML-Sparse`, table :token:`<table>` in dataset :token:`<dataset>` in a single sparse XML file (indices as attributes; values as elements; only non-default data)
+    :token:`Generated/<dataset>-<table>-XML-SparseAttribute`, table :token:`<table>` in dataset :token:`<dataset>` in a single sparse XML file (indices and values as elements; only non-default data)
+    :token:`Generated/<dataset>-<table>-XML-Dense`, table :token:`<table>` in dataset :token:`<dataset>` in a single dense XML file (indices as attributes; values as elements; also default data)
+    :token:`Generated/<dataset>-<table>-XML-DenseAttribute`, table :token:`<table>` in dataset :token:`<dataset>` in a single dense XML file (indices and values as elements; also default data)
     :token:`Generated/<dataset>-<table>-CSV`, table :token:`<table>` in dataset :token:`<dataset>` in a single CSV file
 
 

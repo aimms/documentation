@@ -5,6 +5,11 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+1.1.0.25 [08-02-2021]
+    - Introduce new RowOrientedObjectNode and ColumnOrientedObjectNode for JSON mappings, that are both faster and more compact. 
+    - Introduce :token:`max-string-size` attribute to allow string parameters to hold strings of up to 8KB (default 1KB).
+    - When mapping from/to JSON, the memory used for storing the JSON object in memory would not be returned to the system.
+    
 1.1.0.19 [17-08-2020]
     - The library could crash when writing to a workbook with a duplicate sheet name.
 
