@@ -121,7 +121,9 @@ After the CDM support in your model has been set up, :token:`cdm::ConnectToAppli
 
 * By setting :token:`cdm::UseEmbeddedServer` to 1, the CDM library will start the embedded CDM service, taking its configuration :token:`CDMConfig.xml` file from the folder specified by :token:`cdm::EmbeddedServerConfigFolder`. The latter defaults to the Config subfolder of the main project folder. You can copy the :token:`CDMConfig.xml` file from the Config subfolder of the :token:`AimmsCDM` library there to get started, and adapt it to your needs. 
 
-* If the application using the CDM library is deployed from within the AIMMS Cloud Platform, and :token:`cdm::CloudServiceName` is set, the CDM library will connect to the an on-demand CDM service with the given name, or start such a service if has not been started yet. The service will connect to the MySQL database specified by 
+* If the application using the CDM library is deployed from within the AIMMS Cloud Platform, and :token:`cdm::CloudServiceName` is set, the CDM library will connect to the an on-demand CDM service with the given name, or start such a service if has not been started yet. As there is a small chance that an already running service will timeout and terminate in between getting the service URL, and CDM actually connecting to it, you can indicate how many times the CDM library will retry, through the parameter :token:`cdm::ConnectRetry`. 
+
+The service will connect to the MySQL database specified by 
 
   * :token:`cdm::DatabaseHost`
   * :token:`cdm::DatabaseUser`

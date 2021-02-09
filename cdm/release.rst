@@ -7,6 +7,11 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.19.0.9 [09-02-2021]
+    - :js:func:`cdm::CommitElementInCategory` could create negative label numbers in the CDM database, when additional elements were created in a set next to the one offered as an argument to the function.
+    - :js:func:`cdm::CommitChanges` would not create any left-over new elements of a set, after a call to :js:func:`cdm::CommitElementInCategory`.
+    - Added retry capability for cloud CDM service, which may time out and terminate in between obtaining the service URL and the actual connection attempt. 
+
 1.19.0.6 [20-11-2020]
     - Snapshot updating mechanism could end up in an infinite loop performing a check every millisecond.
     - Reduce autotermination period by 1 minute.
