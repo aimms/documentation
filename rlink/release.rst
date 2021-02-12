@@ -1,5 +1,5 @@
-Release Notes
-*************
+RLink Library Release Notes
+****************************
 
 The first public release of RLink was version 1.0.0.1, release date March 14, 2018. 
 

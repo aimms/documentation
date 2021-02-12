@@ -1,5 +1,5 @@
-Release Notes
-*************
+AIMMSUnitTest Library Release Notes
+************************************
 
 The first public release of AIMMSUnitTest was version 1.0.0.32, release date December 13, 2017
 

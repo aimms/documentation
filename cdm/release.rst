@@ -1,5 +1,5 @@
-Release Notes
-*************
+CDM Library Release Notes
+**************************
 
 The first public release of CDM was version 1.5.0.0, release date April 15, 2018. 
 

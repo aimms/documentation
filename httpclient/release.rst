@@ -1,5 +1,5 @@
-Release Notes
-*************
+HTTPClient Library Release Notes
+**********************************
 
 The first public release of HTTPClient was version 1.0.0.3, release date December 13, 2017. 
 

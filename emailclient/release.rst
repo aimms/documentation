@@ -1,5 +1,5 @@
-Release Notes
-*************
+EmailClient Library Release Notes
+**********************************
 
 The first public release of EmailClient was version 0.9.0.15, release date October 4, 2018. 
 

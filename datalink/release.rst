@@ -1,5 +1,5 @@
-Release Notes
-*************
+DataLink Library Release Notes
+********************************
 
 The first public release of DataLink was version 1.0.0.106, release date January 16, 2018. 
 
