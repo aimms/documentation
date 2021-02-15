@@ -46,12 +46,12 @@ Next, we will create a new page, say Input Data, on the same level as the Home p
 .. image:: images/AppManag_AddingPage_1.png
     :align: center
 
-Suppose we would like to place all the widgets related to input data on the newly created Input Data page. Starting with the InputLabel wdiget, one can simply **drag-and-drop** this widget in the tree from the initial location underneath the Home page to its new location underneath the Input Data page:
+Suppose we would like to place all the widgets related to input data on the newly created Input Data page. Starting with the InputLabel widget, one can simply **drag-and-drop** this widget in the tree from the initial location underneath the Home page to its new location underneath the Input Data page:
 
 .. image:: images/AppManag_DragAndDrop_2.png
     :align: center
 
-.. note:: Note that the drop location during the **drag-and-drop** operation is marked by a coloured line in the tree. The starting poing of such a line (at its left side) idicates the intended location in the tree structure. A red line (see above) indicates that the intended drop location is not applicable, whereas a blue line (see above) indicates that the location is allowed and the node may be dropped there. 
+.. note:: Note that the drop location during the **drag-and-drop** operation is marked by a coloured line in the tree. The starting poing of such a line (at its left side) indicates the intended location in the tree structure. A red line (see above) indicates that the intended drop location is not applicable, whereas a blue line (see above) indicates that the location is allowed and the node may be dropped there. 
 
           With the introduction of application management features, this way of working not only applies to widget nodes in the tree, but also to page nodes in the tree and it complements the feature described in the section `Moving a Page <webui-classic-pages.html#moving-a-page>`_. 
 		
