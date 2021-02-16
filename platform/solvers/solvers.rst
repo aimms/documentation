@@ -55,7 +55,7 @@ Available Solvers in AIMMS
 |                 |                                  |                          |
 +-----------------+----------------------------------+--------------------------+
 | CBC             | Open source linear programming / |                          |
-|                 | mixed integer programming solver | ✖                       |                     
+|                 | mixed integer programming solver | ✖                        |                     
 |                 | at COIN-OR                       |                          |
 +-----------------+----------------------------------+--------------------------+
 | CONOPT          | Large-scale nonlinear            |                          |
@@ -72,12 +72,12 @@ Available Solvers in AIMMS
 |                 |                                  |                          |
 +-----------------+----------------------------------+--------------------------+
 | GUROBI          | High performance linear          |                          |
-|                 | programming / mixed integer      | ✖                       |
+|                 | programming / mixed integer      | ✖                        |
 |                 | programming solver from Gurobi   |                          |
 |                 | Optimization                     |                          |
 +-----------------+----------------------------------+--------------------------+
 | IPOPT           | Open source Interior Point       |                          |
-|                 | optimizer for large-scale        | ✖                       |
+|                 | optimizer for large-scale        | ✖                        |
 |                 | nonlinear optimization at        |                          |
 |                 | COIN-OR                          |                          |
 +-----------------+----------------------------------+--------------------------+
@@ -86,7 +86,7 @@ Available Solvers in AIMMS
 |                 |                                  |                          |
 +-----------------+----------------------------------+--------------------------+
 | MINOS           | Nonlinear programming solver     |                          |
-|                 | from Stanford University         | ✖                       |
+|                 | from Stanford University         | ✖                        |
 |                 |                                  |                          |
 +-----------------+----------------------------------+--------------------------+
 | ODH-CPLEX       | High performance mixed integer   |                          |
@@ -94,11 +94,11 @@ Available Solvers in AIMMS
 |                 | Optimization Direct              |                          |
 +-----------------+----------------------------------+--------------------------+
 | PATH            | Newton-based solver for solving  |                          |
-|                 | mixed complementarity            | ✖                       |
+|                 | mixed complementarity            | ✖                        |
 |                 | programming                      |                          |
 +-----------------+----------------------------------+--------------------------+
 | SNOPT           | Nonlinear programming solver     |                          |
-|                 | from Stanford University         | ✖                       |
+|                 | from Stanford University         | ✖                        |
 |                 |                                  |                          |
 +-----------------+----------------------------------+--------------------------+
 
