@@ -42,65 +42,65 @@ Contents
 Available Solvers in AIMMS
 --------------------------
 
-+-----------------+----------------------------------+
-| Solver          | Description                      |
-+=================+==================================+
-| AOA             | White box AIMMS Outer            |
-|                 | Approximation module for solving |
-|                 | mixed integer nonlinear          |
-|                 | programming                      |
-+-----------------+----------------------------------+
-| BARON           | Branch-And-Reduce Optimization   |
-|                 | solver for global optimization   |
-|                 |                                  |
-+-----------------+----------------------------------+
-| CBC             | Open source linear programming / |
-|                 | mixed integer programming solver |
-|                 | at COIN-OR                       |
-+-----------------+----------------------------------+
-| CONOPT          | Large-scale nonlinear            |
-|                 | programming solver from Arki     |
-|                 | Consulting                       |
-+-----------------+----------------------------------+
-| CPLEX           | High performance linear          |
-|                 | programming / mixed integer      |
-|                 | programming solver from IBM ILOG |
-+-----------------+----------------------------------+
-| CP Optimizer    | State-of-the-art constraint      |
-|                 | programming solver from IBM ILOG |
-|                 |                                  |
-|                 |                                  |
-+-----------------+----------------------------------+
-| GUROBI          | High performance linear          |
-|                 | programming / mixed integer      |
-|                 | programming solver from Gurobi   |
-|                 | Optimization                     |
-+-----------------+----------------------------------+
-| IPOPT           | Open source Interior Point       |
-|                 | optimizer for large-scale        |
-|                 | nonlinear optimization at        |
-|                 | COIN-OR                          |
-+-----------------+----------------------------------+
-| KNITRO          | Large-scale nonlinear            |
-|                 | programming solver from Artelys  |
-|                 |                                  |
-+-----------------+----------------------------------+
-| MINOS           | Nonlinear programming solver     |
-|                 | from Stanford University         |
-|                 |                                  |
-+-----------------+----------------------------------+
-| ODH-CPLEX       | High performance mixed integer   |
-|                 | programming solver from          |
-|                 | Optimization Direct              |
-+-----------------+----------------------------------+
-| PATH            | Newton-based solver for solving  |
-|                 | mixed complementarity            |
-|                 | programming                      |
-+-----------------+----------------------------------+
-| SNOPT           | Nonlinear programming solver     |
-|                 | from Stanford University         |
-|                 |                                  |
-+-----------------+----------------------------------+
++-----------------+----------------------------------+--------------------------+
+| Solver          | Description                      | Available on AIMMS Cloud |
++=================+==================================+==========================+
+| AOA             | White box AIMMS Outer            |                          |
+|                 | Approximation module for solving | ✔                        |
+|                 | mixed integer nonlinear          |                          |
+|                 | programming                      |                          |
++-----------------+----------------------------------+--------------------------+
+| BARON           | Branch-And-Reduce Optimization   |                          |
+|                 | solver for global optimization   | ✔                        |
+|                 |                                  |                          |
++-----------------+----------------------------------+--------------------------+
+| CBC             | Open source linear programming / |                          |
+|                 | mixed integer programming solver | ❌                       |                     
+|                 | at COIN-OR                       |                          |
++-----------------+----------------------------------+--------------------------+
+| CONOPT          | Large-scale nonlinear            |                          |
+|                 | programming solver from Arki     | ✔                        |
+|                 | Consulting                       |                          |
++-----------------+----------------------------------+--------------------------+
+| CPLEX           | High performance linear          |                          |
+|                 | programming / mixed integer      | ✔                        |
+|                 | programming solver from IBM ILOG |                          |
++-----------------+----------------------------------+--------------------------+
+| CP Optimizer    | State-of-the-art constraint      |                          |
+|                 | programming solver from IBM ILOG | ✔                        |
+|                 |                                  |                          |
+|                 |                                  |                          |
++-----------------+----------------------------------+--------------------------+
+| GUROBI          | High performance linear          |                          |
+|                 | programming / mixed integer      | ❌                       |
+|                 | programming solver from Gurobi   |                          |
+|                 | Optimization                     |                          |
++-----------------+----------------------------------+--------------------------+
+| IPOPT           | Open source Interior Point       |                          |
+|                 | optimizer for large-scale        | ❌                       |
+|                 | nonlinear optimization at        |                          |
+|                 | COIN-OR                          |                          |
++-----------------+----------------------------------+--------------------------+
+| KNITRO          | Large-scale nonlinear            |                          |
+|                 | programming solver from Artelys  | ✔                        |
+|                 |                                  |                          |
++-----------------+----------------------------------+--------------------------+
+| MINOS           | Nonlinear programming solver     |                          |
+|                 | from Stanford University         | ❌                       |
+|                 |                                  |                          |
++-----------------+----------------------------------+--------------------------+
+| ODH-CPLEX       | High performance mixed integer   |                          |
+|                 | programming solver from          | ✔                        |
+|                 | Optimization Direct              |                          |
++-----------------+----------------------------------+--------------------------+
+| PATH            | Newton-based solver for solving  |                          |
+|                 | mixed complementarity            | ❌                       |
+|                 | programming                      |                          |
++-----------------+----------------------------------+--------------------------+
+| SNOPT           | Nonlinear programming solver     |                          |
+|                 | from Stanford University         | ❌                       |
+|                 |                                  |                          |
++-----------------+----------------------------------+--------------------------+
 
 .. _robust-optimization-add-on:
 
