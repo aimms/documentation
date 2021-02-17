@@ -90,12 +90,16 @@ Available Solvers in AIMMS
 |                 |                                  | (use CONOPT or KNITRO)   |
 +-----------------+----------------------------------+--------------------------+
 | ODH-CPLEX       | High performance mixed integer   |                          |
-|                 | programming solver from          | ✔                        |
-|                 | Optimization Direct              |                          |
+|                 | programming CPLEX solver add-on  | ✔                        |
+|                 | from Optimization Direct         |                          |
 +-----------------+----------------------------------+--------------------------+
 | PATH            | Newton-based solver for solving  |                          |
 |                 | mixed complementarity            | ✖                        |
 |                 | programming                      | (use KNITRO)             |
++-----------------+----------------------------------+--------------------------+
+| RO              | Robust Optimization Add-on       |                          |
+|                 | (see below)                      | ✔                        |
+|                 |                                  |                          |
 +-----------------+----------------------------------+--------------------------+
 | SNOPT           | Nonlinear programming solver     |                          |
 |                 | from Stanford University         | ✖                        |
