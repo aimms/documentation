@@ -43,7 +43,7 @@ Available Solvers in AIMMS
 --------------------------
 
 +-----------------+----------------------------------+--------------------------+
-| Solver          | Description                      | Available on AIMMS Cloud |
+| Solver          | Description                      | Available on AIMMS Cloud*|
 +=================+==================================+==========================+
 | AOA             | White box AIMMS Outer            |                          |
 |                 | Approximation module for solving | ✔                        |
@@ -51,12 +51,12 @@ Available Solvers in AIMMS
 |                 | programming                      |                          |
 +-----------------+----------------------------------+--------------------------+
 | BARON           | Branch-And-Reduce Optimization   |                          |
-|                 | solver for global optimization   | ✔                        |
-|                 |                                  |                          |
+|                 | solver for global optimization   | ✖                        |
+|                 |                                  | (on Roadmap to add)      |
 +-----------------+----------------------------------+--------------------------+
 | CBC             | Open source linear programming / |                          |
 |                 | mixed integer programming solver | ✖                        |                     
-|                 | at COIN-OR                       |                          |
+|                 | at COIN-OR                       | (use CPLEX)              |
 +-----------------+----------------------------------+--------------------------+
 | CONOPT          | Large-scale nonlinear            |                          |
 |                 | programming solver from Arki     | ✔                        |
@@ -73,12 +73,12 @@ Available Solvers in AIMMS
 +-----------------+----------------------------------+--------------------------+
 | GUROBI          | High performance linear          |                          |
 |                 | programming / mixed integer      | ✖                        |
-|                 | programming solver from Gurobi   |                          |
+|                 | programming solver from Gurobi   | (use CPLEX)              |
 |                 | Optimization                     |                          |
 +-----------------+----------------------------------+--------------------------+
 | IPOPT           | Open source Interior Point       |                          |
 |                 | optimizer for large-scale        | ✖                        |
-|                 | nonlinear optimization at        |                          |
+|                 | nonlinear optimization at        | (use CONOPT or KNITRO)   |
 |                 | COIN-OR                          |                          |
 +-----------------+----------------------------------+--------------------------+
 | KNITRO          | Large-scale nonlinear            |                          |
@@ -87,7 +87,7 @@ Available Solvers in AIMMS
 +-----------------+----------------------------------+--------------------------+
 | MINOS           | Nonlinear programming solver     |                          |
 |                 | from Stanford University         | ✖                        |
-|                 |                                  |                          |
+|                 |                                  | (use CONOPT or KNITRO)   |
 +-----------------+----------------------------------+--------------------------+
 | ODH-CPLEX       | High performance mixed integer   |                          |
 |                 | programming solver from          | ✔                        |
@@ -95,12 +95,14 @@ Available Solvers in AIMMS
 +-----------------+----------------------------------+--------------------------+
 | PATH            | Newton-based solver for solving  |                          |
 |                 | mixed complementarity            | ✖                        |
-|                 | programming                      |                          |
+|                 | programming                      | (use KNITRO)             |
 +-----------------+----------------------------------+--------------------------+
 | SNOPT           | Nonlinear programming solver     |                          |
 |                 | from Stanford University         | ✖                        |
-|                 |                                  |                          |
+|                 |                                  | (use CONOPT or KNITRO)   |
 +-----------------+----------------------------------+--------------------------+
+
+*) Because the AIMMS Cloud is a serviced platform we did not include all solvers that are available in an AIMMS Developer setup. At this moment, we added the most common solvers used in production setups and have a minimal requirement that a solver support team is available to handle issues that might arise (hence Open Source solvers are not part of the AIMMS Cloud setup). If you have any requests, please contact us via support@aimms.com.
 
 .. _robust-optimization-add-on:
 
