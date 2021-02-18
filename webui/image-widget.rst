@@ -12,4 +12,8 @@ This sub-folder is not created by default, so you need to create it yourself the
 
 .. image:: images/Image-View.png
     :align: center
-    
+
+You may want to update the image used in the widget with a new image. There are two ways you can achieve this.
+
+#. Update the string parameter specified in the *Contents* of the image widget with the new image name.
+#. Overwrite the image with the new image while retaining the original image name, for example, DiaplayImage.jpg. Please refer to the How-To article on `Refreshing an Image widget without changing the file name <https://how-to.aimms.com/Articles/512/512-image-widget-refresh.html>`_ for more details.
