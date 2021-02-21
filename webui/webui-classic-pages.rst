@@ -88,7 +88,7 @@ To rename a page in your AIMMS WebUI:
 Moving a Page
 -------------
 
-To move a page to a new position in your page tree in the AIMMS WebUI:  
+To move a page to a new position in your page tree you can perform a **drag-and-drop** operation as follows:  
 
 * Press the ‘hamburger’ icon |page-manager| on the top left position of your browser window. A page tree sidebar will open:
 

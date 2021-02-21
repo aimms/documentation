@@ -53,10 +53,11 @@ Suppose we would like to place all the widgets related to input data on the newl
 
 .. note:: Note that the drop location during the **drag-and-drop** operation is marked by a coloured line in the tree. The starting poing of such a line (at its left side) indicates the intended location in the tree structure. A red line (see above) indicates that the intended drop location is not applicable, whereas a blue line (see above) indicates that the location is allowed and the node may be dropped there. 
 
-          With the introduction of application management features, this way of working not only applies to widget nodes in the tree, but also to page nodes in the tree and it complements the feature described in the section `Moving a Page <webui-classic-pages.html#moving-a-page>`_. 
-		
+With the introduction of application management features, this way of working not only applies to widget nodes in the tree, but also to page nodes in the tree and it complements the drag-and-drop feature described in the section `Moving a Page <webui-classic-pages.html#moving-a-page>`_. 
 
-Clearly, this drag-and-drop operation in our example at hand will have the effect that the InputLabel widget won't be rendered any more on the Home page, but it will become present on the Input Data page, instead.
+.. note:: Note that a parent page which has its subtree expanded may not be moved by using drag-and-drop. So, its subtree must be collapsed first, before moving the parent page (including its subtree) to a different location in the overall tree. 
+		
+Clearly, the drag-and-drop operation in our example at hand will have the effect that the InputLabel widget won't be rendered any more on the Home page, but it will become present on the Input Data page, instead.
 
 Next, one can **copy** the SupplyData widget using the menu at its right and **paste** it on the Input data page by using the menu at the right of this page:
 
