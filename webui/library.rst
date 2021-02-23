@@ -11,7 +11,9 @@ Pages and Dialog Support has been added to the AimmsWebUI library to be able to 
 .. image:: images/pageanddialogsupportsection.png
 			:align: center
 
-Public Pages Support Declarations: 
+.. _public-pages-support-declarations:
+
+.. rubric:: Public Pages Support Declarations 
 
 * ``AllPageIDs`` - This set includes all the page ID for all page types added to the `Page Manager <page-manager.html>`_ (page tree). 
 * ``AllPageTypes`` - This set includes the different page types, currently page, side panel and dialog. 
@@ -21,13 +23,17 @@ Public Pages Support Declarations:
 * ``PagePath(indexPageId)`` - This string parameter indexed on ``AllPageIDs`` set maps the path for each page created.
 * ``PageName(indexPageId)`` - This string parameter indexed on ``AllPageIDs`` set maps the path for each page created.
 
-Public Page and Widget Specification Declarations:
+.. _public-page-and-widget-specification-declarations:
+
+.. rubric:: Public Page and Widget Specification Declarations
 
 * ``SidePanelSpecification`` - This set is the specification for the side panel pages. The string parameters used to `configure the side panels <side-panels.html#configuring-side-panels>`_ on pages are indexed on this set. 
 * ``WidgetActionSpecification`` - This set is the specification for adding `widget actions <widget-options.html#widget-actions>`_ . The string parameters used to configure the widget actions on certain widgets are indexed on this set.
 * ``PageActionSpecification`` - This set is the specification for adding `page actions <page-settings.html#page-actions>`_. The string parameters used to configure the primary action and secondary actions on certain pages are indexed on this set.
 
-Public WebUI Frontend State Support Declarations: 
+.. _public-webui-frontend-state-support-declarations:
+
+.. rubric:: Public WebUI Frontend State Support Declarations 
 
 (note: this section was introduced with AIMMS 4.72, as the 'webui state support' `Experimental Features <experimental-features.html>`_.)
 
@@ -38,8 +44,9 @@ Public WebUI Frontend State Support Declarations:
 
 .. _workflowspecification:
 
+.. _public-workflow-support-declarations:
 
-Public Workflow Support Declarations:
+.. rubric:: Public Workflow Support Declarations
 
 .. _workflowspecificationset: 
 
@@ -68,11 +75,15 @@ Public Workflow Support Declarations:
 * :token:`indexPageExtension` is used as a dimension of the string parameter which will configure the Page Actions(Primary and Secondary), Side Panels and Widget Actions on pages and widgets respectively.
 * :token:`indexApplicationExtension` is used as a dimension of the string parameter which will configure the Status Bar messages in the application. 
 
-Public StatusBar Support Declarations:
+.. _public-statusbar-support-declarations:
+
+.. rubric:: Public StatusBar Support Declarations
 
 :token:`StatusBarSpecification` - This set is the specification used to configure Status Messages on the `Status Bar <status-bar.html>`_ that appears on the footer. You will need to create string parameters indexed over this set.
 
-Public List Support Declarations
+.. _public-list-support-declarations:
+
+.. rubric:: Public List Support Declarations
 
 .. _listgroupspecification:
 
@@ -95,7 +106,9 @@ Public List Support Declarations
 
 Request Queue Declarations is used to manage the number of requests from WebUI. 
 
-Public Pages Support Procedures:
+.. _public-pages-support-procedures:
+
+.. rubric:: Public Pages Support Procedures
 
 * ``GetAllPages`` - This procedure is runs every time a page, side panel or dialog page is added to the page manager, which in turn updates the sets and identifiers in the Public Pages Support Declarations.
 * ``OpenSidePanel(pageId)`` - This procedure is used to open side panels via the model with respective pageIds as the argument. 
@@ -104,7 +117,9 @@ Public Pages Support Procedures:
 * ``ResetRequestQueue`` - This procedure empties the RequestQueue and the Requests set in the Request Queue Declarations.
 * `SetProgressMessage(message) <#setprogressmessage>`_ - This procedure allows one to overwrite the "Busy" message in the top left corner of the Menu bar by a customized message, which can better inform the user in case the AIMMS session is in "working/busy" state (ie, some code execution is going on in the background). 
 
-Public Dialog Support Procedures:  
+.. _public-dialog-support-procedures:
+
+.. rubric:: Public Dialog Support Procedures
 
 * `RequestPerformWebUIDialog(title,message,actions,onDone) <#requestperformwebuidialog>`_ - This procedure is used to display dialog message, such as alerts or warnings.
 * `OpenDialogPage(pageId,title,actions,onDone) <#opendialogpage>`_ - This procedure is used to open `dialog pages <page-manager.html#dialog-pages>`__ via the model, either by clicking on a button or some interaction in the model.
