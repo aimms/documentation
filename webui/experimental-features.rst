@@ -11,7 +11,7 @@ How to enable or disable Experimental Features
 
 To access and enable/disable the list of experimental features you can follow the below steps:
 
-#. You need to press a three-key combination i.e ``CTRL+SHIFT+.`` (Control Key + Shift Key + Dot/Fullstop Key).
+#. You need to press a three-key combination i.e ``CTRL`` + ``SHIFT`` + ``.`` (Control Key + Shift Key + Dot/Fullstop Key).
 #. Once you key in the combination you will see a new icon |experimental-features| in the Application Toolbar in the top right corner. Click on the icon.
 
     .. image:: images/Application_Toolbar.png
@@ -27,6 +27,11 @@ To access and enable/disable the list of experimental features you can follow th
     .. image:: images/Experimental_Reload.png
         :align: center
 
+
+.. note::
+
+  - A file called "experimental-features.conf" is placed in the ``webui/resources`` folder, such that experimental features are activated when publishing on PRO.
+  - Please be careful if you manually modify this file. Any syntax error will break the feature and might break the AIMMS model.
 
 Current list of Experimental Features
 -------------------------------------
