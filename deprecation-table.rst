@@ -34,7 +34,9 @@ This is a list of (recent) deprecated features and provides an insight into its 
     Connectivity, Excel Add-in              , Deprecated ,  Sept 2020                , Current status is no pro-active support                                        , No alternative as such                                                                                
     Connectivity, Tableau TDE Provider (part of DataLink) , Deprecated,                 , Current status is no pro-active support                     , Communication with BI tools via databases or CSV/XLS files (or upcoming JSON files)                  
     Connectivity, R-link (part of DataLink) , Deprecated,                 , Current status is no pro-active support                     , We promote the use of the new HTTP Client Library in combination with the Data Exchange; see  `How-to <https://how-to.aimms.com/Articles/498/498-aimms-with-r.html>`__   
-    Data, Single Data File          , Deprecated ,          , Current status: deprecated for years already; will not be removed before Q2 2021  , Use new File & Folders (there is a conversion tool in IDE); for details see `How-to <https://how-to.aimms.com/Articles/314/314-from-dat-to-data.html>`__                 
+    Data, Single Data File          , Deprecated ,          , Current status: deprecated for years already; will not be removed before Q2 2021  , Use new File & Folders (there is a conversion tool in IDE); for details see `How-to <https://how-to.aimms.com/Articles/314/314-from-dat-to-data.html>`__
+    GUI-WebUI, Sidebar Open By Default, Deprecated, March 2021, No longer available from 4.78. This is not same as the `Side Panel <https://manual.aimms.com/webui/side-panels.html>`_, No alternative as such
+    GUI-WebUI, Page Manager Hidden, Deprecated, March 2021, No longer available from 4.78, Use Menu to navigate to other pages                 
     GUI-WebUI, Map v1, Deprecated, May 2020, No longer available in 4.74, Use Map v2 (standard for 4.74 and up)
     GUI-WebUI, Page Actions v1, Deprecated, May 2020, No longer available in 4.74, Use Page Action v2 (standard for 4.74 and up) where all actions are defined with an identifier 
     GUI-WebUI, Wizard              , Deprecated , mid 2020   (to be planned)  ,  Will be removed - started with message and inability to add (`4.73 <release-notes.html#aimms-4-73>`_), Workflow Panel with fine grained control via model                     
@@ -47,5 +49,4 @@ This is a list of (recent) deprecated features and provides an insight into its 
     System Requirements, Internet Explorer 11      , Deprecated , Jan 2020        , No longer supported                                                            , Chrome or Edge (latest or latest-1)                                                                  
     System Requirements, Windows 7      , Deprecated , Jan 2020        , No longer supported            , Windows 8 or higher                                                                  
     System Requirements, Windows Server 2008      , Deprecated , Jan 2020        , No longer supported         , Windows Server 2012 or higher                                                                  
-    GUI-WebUI, Sidebar Open By Default, Deprecated, March 2021, No longer available from 4.78. This is not same as the `Side Panel <https://manual.aimms.com/webui/side-panels.html>`_, No alternative as such
-    GUI-WebUI, Page Manager Hidden, Deprecated, March 2021, No longer available from 4.78, Use Menu to navigate to other pages
+    
