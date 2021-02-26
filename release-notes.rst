@@ -42,7 +42,7 @@ Resolved AIMMS Issues
 
 WebUI Improvements
 +++++++++++++++++++++++++
--  AIMMS 4.78 comes with new `App Management <https://documentation.aimms.com/webui/app-management.html>`__ tooling that allows you to easily rename and copy widgets as well as move them between pages in your Web Apps. It is available as experimental feature.
+-  AIMMS 4.78 comes with new `App Management <https://documentation.aimms.com/webui/app-management.html>`__ tooling that allows you to easily rename and copy widgets as well as move them between pages in your Web Apps. It is available as an `experimental feature <https://manual.aimms.com/webui/experimental-features.html>`__.
 -  To improve the Table filtering, a certain tolerance has been added when comparing numerical values, resulting in a better user experience. This is especially important for using (in)equalities in a filter.
 -  The communication of resources to the browser has been made more efficient. For more details, see `this community post <https://community.aimms.com/product-updates-roadmap-36/smarter-delivery-of-webui-for-improved-performance-838>`__.
 -  The WebUI application options 'Sidebar open by default' and 'Page manager hidden' have been removed from the product.
