@@ -9,6 +9,59 @@ This page provides details of changes made in each AIMMS version. For an overvie
 
 
 #############
+AIMMS 4.78
+#############
+
+AIMMS 4.78.1 Release (February 26, 2021 - build 4.78.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+-  The solver ODH-CPLEX 5.3 is now available. ODH-CPLEX 5.3 fixes an issue in which only a fraction of all incumbent solutions found by ODH-CPLEX were passed through an incumbent callback procedure.
+-  It is now easier to use older solver versions in applications running on AIMMS Cloud or AIMMS Pro (because the automatically generated solver configuration file now also includes older solver versions for end-user projects).
+-  BARON has been upgraded to version 21. The default setting of the BARON option 'Relative termination tolerance' has been changed in this version. Please set this option to 1e-4 (the default value in previous BARON versions) if you experience a longer solving time for your model.
+-  Knitro 12.3 has been added.
+-  The scaling tool can now also be directly used in a solve statement (or a GMP solve) by switching on the option 'Scale model'. The model will then be scaled automatically before sending it to the solver. The new option 'Scaling algorithm' determines which algorithm will be used to scale the model. (Note: previously the option 'Scale model' could only be used in combination with the AIMMS Presolver).
+-  The scaling tool in the Math Program Inspector can now also be used for multi-objective optimization problems.
+-  The option categories in the section Solvers General are now alphabetically ordered.
+-  Different option settings can now be used for the optimization problems, corresponding to different objective priorities, solved during the optimization of a multi-objective problem by CPLEX or Gurobi. These options have to be set using parameter files, as controlled by the option 'Read parameter file' of CPLEX or Gurobi. See the AIMMS Help for more information.
+
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  There was a problem preventing a checkbox in the WinUI to be displayed if the size of the object was a bit too small.
+-  Setting a breakpoint on a Definition could lead to various errors because, while being on this breakpoint, the IDE was still able to evaluate other definitions (or even the same one again). In this new version of AIMMS, while being on a definition breakpoint, no other definitions will be evaluated.
+-  Runtime libraries will not be stored in a case anymore, see also `this community post <https://community.aimms.com/product-updates-roadmap-36/cases-and-runtime-libraries-834>`__. A warning will be logged to the logfile if a runtime library is encountered at reading a case.
+-  The terms and conditions dialog for the Academic License and Community Editions are now only shown once a day.
+
+
+
+WebUI Improvements
++++++++++++++++++++++++++
+-  AIMMS 4.78 comes with new `App Management <https://documentation.aimms.com/webui/app-management.html>`__ tooling that allows you to easily rename and copy widgets as well as move them between pages in your Web Apps. It is available as experimental feature.
+-  To improve the Table filtering, a certain tolerance has been added when comparing numerical values, resulting in a better user experience. This is especially important for using (in)equalities in a filter.
+-  The communication of resources to the browser has been made more efficient.
+-  The WebUI application options 'Sidebar open by default' and 'Page manager hidden' have been removed from the product.
+
+
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  As an app developer, while working on a page of which the width (with the sidebar open) exceeded the available screen width, you could run into tables that could neither have their columns resized nor their contents filtered.
+-  Changing the Center Latitude and Longitude along with the Zoom reverted the Center Latitude and Longitude to the previously set values in some cases.
+
+
+--------------
+
+
+
+
+#############
 AIMMS 4.77
 #############
 
