@@ -123,7 +123,7 @@ How to make sure that tunnels configuration is not altered
 
 AIMMS PRO reads tunnels configuration from AimmsPROWeb.json that is located file in Config subfolder of your AIMMS PRO data folder (by default that would be C:\\ProgramData\\AimmsPro\\Config\\). You may use some tool to parse that JSON file and make sure that the following section is correct:
 
-.. code::
+.. code-block:: none
 
     {
       "server": {
@@ -157,7 +157,7 @@ Monitoring the PRO Configurator logs
 
 AIMMS PRO Configurator logs all changes to PRO configuration at debug level. In your log file (by default that would be C:\\ProgramData\\AimmsPRO\\Log\\ AimmsPROConfigurator.log, see corresponding `Server-side Logging <logging.html>`_ section of the PRO manual for details) you will see messages similar to this one:
 
-.. code::
+.. code-block:: none
 
     10:10:14.441 [qtp1169794610-21] DEBUG c.a.p.c.s.config.ConfigServiceImpl.saveConfig():62 - Saving config PROConfig{authenticationConfig=AuthenticationConfig{ticketExpirationTime=86400}, publishingConfig=PublishingConfig{, clientLicenseProfile='licenseserver:3400,Client'}, serverConfig=ServerConfig{proLicenseProfile=' licenseserver:3400,ProLicense', listenPorts=[com.aimms.pro.configurator.dto.config.ListenPortConfig@ce00a2a6], tunnels=[TunnelConfig{context='mssql', socketAddress='sqlserver:1433', userGroups='Domain Users@PDT'}]}, serverNodes=[ServerNodeConfig{host='proHost', capacity=1, internalUri='tcp://proHost:19340', webUri=’proHost'}], storageConfig=StorageConfig{storageDirectory='C:/ProgramData/AimmsPro\Data\Storage'}, portalConfig=PortalConfig{httpPort='8080', httpsPort='null', pkcs12File='', keystorePassword=''}, adConfig=ADConfig{domain='', username='', password=''}, sessionConfig=SessionConfig{jobRetentionInDays=30, defaultLevel=5, queuePriorities=[QueuePriority{priority=5, user='.*', appName='.*', appVersion='.*'}], queueRules=[]}, workerProfiles=[WorkerProfile{capacity=1, name='Default', profile='licenseserver:3400,Server'}]}
 
