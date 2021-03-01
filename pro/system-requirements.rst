@@ -19,7 +19,7 @@ The minimum server requirements for **Windows Server** are:
 
 .. note::
 
-	For Windows Server lower than 2016 you may need to install an update for Universal C Runtime (CRT). Please refer `Update for Universal C Runtime in Windows <https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows>`_.
+	For Windows Server lower than 2016 you may need to install an update for Universal C Runtime (CRT). Please refer `Update for Universal C Runtime in Windows <https://support.microsoft.com/en-us/topic/update-for-universal-c-runtime-in-windows-c0514201-7fe6-95a3-b0a5-287930f3560c>`_.
 
 In assessing the actual server requirements, you have to take into account the anticipated number of concurrent server sessions n, in which case n + 1 cores would be advisable. Similarly, the memory requirements for the server are determined by the size of the data of the largest job running on the server multiplied by the number of concurrent server sessions. Using AIMMS PRO over time may accumulate application data in the PRO storage directory.
 

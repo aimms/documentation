@@ -100,15 +100,6 @@ Pages and Dialog Support has been added to the AimmsWebUI library to be able to 
   * ``title`` - The title for the workflow to be displayed on top of the Workflow Panel
   * ``style`` - A defined style for the workflow (This property is not in use currently. We have made the provision to incorporate different styles that we expect will be available in the future.)
 
-  :attribute definition:
-    .. code::
-    
-      data {
-      'title' , ! (Optional) The title for the Workflow to be displayed on top of the Workflow Panel.
-      'style' ! (CURRENTLY NOT IN USE) When styles or themes are introduced for the Workflow Panel, this attribute will hold that value.
-      }
-
-
 .. _workflowpagespecification:
 
 .. aimms:set:: WorkflowPageSpecification 
