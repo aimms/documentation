@@ -223,6 +223,66 @@ The page Results is shown as a step in both workflows:
 
 .. image:: images/Workflow_Pagein2Workflows_2.png
     :align: center
-    :scale: 75
 
 In this case, when the user is on the Inventory Management workflow and clicks on the Results step, the user will be redirected to the Results step in the Route Optimization workflow, because Route Optimization is the first workflow (referencing the page Results) in the order of the workflows as defined by the MyWorkflows string parameter.
+
+When and How to use the Workflow Panel
+--------------------------------------
+
+When designing a workflow we recommend following some best practices which can make it consistent and easier to use. Below are some practices we would advise:
+
+Background
+++++++++++
+
+The Workflow Panel can be used when it is important to maintain the user’s focus throughout the process of filling in data to the system. This is similar to the checkout process often found on e-commerce websites. The checkout process is the most critical part of the site, as this is the part that captures the customer’s money. The Workflow shows the user how far they are in the process, and provides a visible end to the process to aim for. 
+
+*Below: example of a typical e-commerce workflow*
+
+.. image:: images/Workflow_ecommerceflow.png
+    :align: center
+
+
+Branching logic
++++++++++++++++
+
+Next to maintaining focus, the Workflow Panel allows developers to reflect a business process with a sequence of steps. As a user enters information, the model computes the appropriate path and guides the user accordingly. Workflows therefore often have some branching logic, but the perceived user experience is that of a linear flow. The app guides them from one screen after another, and they click “next” to proceed (though you may also give the option “back,” or “cancel.”)
+
+Therefore, workflows can be used for processes where the next step depends on the information filled in the previous step(s) and it is critical that steps are completed before progressing to the next one.
+
+An example case for this is an S&OP process. Users need to fill in sales data, refine the sales forecast, do a capacity review, decide on a scenario, and export plans. If these steps are not taken consecutively, the app will produce no result or unreliable results.
+
+Flows and user groups
++++++++++++++++++++++
+
+Some applications have multiple user types, which each have their own goal and functionalities. An application can facilitate this by having multiple workflows tailored to each user group. For users that do not use the app very often, a Workflow Panel can help to guide them through the process.
+
+.. image:: images/Workflow_UserStepandFlow.png
+    :align: center
+
+*Above: steps in an S&OP process per user group.*
+
+.. image:: images/Workflow_SOP.png
+    :align: center
+
+*Above: example of the Workflow panel in S&OP Navigator.*
+
+Do's and don'ts
+---------------
+
+✅ Do  
+
+Use the Workflow panel for a process that has related steps and are part of the same goal a user is trying to achieve. The steps may (or may not) need to be completed in a specific order.
+
+For example, when doing a tax return, a use must enter data such as income details, property, savings, and family situation. These steps don’t always need to be done in a certain order, but all need to be filled out to achieve complete the tax return.
+
+🚫 Don’t  
+
+The Workflow steps are not tabs, meaning that if the steps are not directly related and are not part of the same goal, the Workflow panel is not the best choice. Using it in this way can be disruptive and confusing.
+
+✅ Do  
+
+Steps should be self sufficient, meaning that users don’t need to navigate to other pages to gather information in order to complete the step.
+
+🚫 Don’t  
+
+You should not require users to exit and re-enter the workflow in order to complete it.
