@@ -7,7 +7,7 @@ PRO 2.37
 AIMMS PRO 2.37.1 Release
 ------------------------
 
-On January 15, 2020, we released AIMMS PRO 2.37.1 (2.37.1.1). 
+On January 15, 2021, we released AIMMS PRO 2.37.1 (2.37.1.1). 
 
 **Improvements**
 
