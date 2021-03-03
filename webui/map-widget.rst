@@ -17,6 +17,14 @@ A simple situation is for example when a transport identifier indexed over facto
 .. image:: images/Map_Example.png
     :align: center
 
+The Map widget in WebUI can display many different types of data on a map. For example:
+
+* Icons for the type of asset, like Distribution Center, Production Facility and Stores.
+* Color for stock levels, like green for in stock and red for out of stock.
+* Node sizes for capacity of the asset
+* Arc width for volume of product flow (with optional labels to display the value in text)
+* Heatmap for geographical distribution of demand
+
 The map displayed in the background is provided by `Omniscale <https://maps.omniscale.com/en/>`_, when the application is running on localhost (developer mode, or on a local AIMMS PRO setup) and also when the application is deployed on the AIMMS PRO cloud. If the application has been deployed on-premise using a different domain the map server will roll back to OpenStreetMaps. 
 An Internet connection is required for rendering the map. Assuming the connection is available, the map may be zoomed at various levels (see also the Zoom option mentioned further below):
 
@@ -352,8 +360,6 @@ When the user selects that arc.
 
 These effects are specific to arcs that belong to the same arc set. Arcs that belong to other arc sets are not effected.
 
-
-
 Ordering and deleting node/arc sets
 -----------------------------------
 
@@ -368,10 +374,40 @@ The order of nodes sets determines which node sets should be drawn on top of oth
 Heatmap
 -------
 
-A Heatmap is used to represent data where values are depicted by color. Heatmaps make it easy to visualize complex data in a simple manner and understand it in a glance.
+The heatmap is a type of data visualization that shows the magnitude of data as a color value on a map. This gives users an easy way to see the geographical distribution of a phenomenon. The heatmap visualizes data values on grid of lat-lon coordinates and blurs the colors in between. This means that a heatmap is more for getting an overview of how data is clustered and varies than for exact values. Heatmaps make it easy to visualize complex data in a simple manner and understand it in a glance.
 
 .. image:: images/Heatmap_Example.png
     :align: center
+
+Heatmap Coloring
+^^^^^^^^^^^^^^^^
+
+The heatmap uses a default coloring scheme called Viridis, developed for `Matplotlib <https://www.youtube.com/watch?v=xAoljeRJ3lU>`_. The advantages of this scheme are:
+
+* Colorful
+* Pleasant to look at
+* Sequential (as opposed to Diverging or Categorical)
+* Perceptually uniform (It accurately represents data without sudden jumps in perception)
+* Works when printed in black and white
+* Accessible to colorblind users
+
+Below is an illustration of below data visualized with different color scheme’s
+
+.. image:: images/Map_ColorData.png
+    :align: center
+
++-------------------------------------------+-------------------------------------------+
+| .. image:: images/Map_Rainbow.jpg         | .. image:: images/Map_Virilis.jpg         |
+|    :align: center                         |    :align: center                         |
++-------------------------------------------+-------------------------------------------+
+| .. image:: images/Map_RainbowScale.png    | .. image:: images/Map_ViridisScale.png    |
+|    :align: center                         |    :align: center                         |
++-------------------------------------------+-------------------------------------------+
+
+Further reading on coloring for heatmaps: 
+
+https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html  
+https://matplotlib.org/3.1.1/tutorials/colors/colormaps.html
 
 
 Adding a Heatmap
@@ -492,7 +528,6 @@ Please note, if the API key does not have the correct permissions, the map will 
 
 .. image:: images/Map_GoogleAPIError.png
     :align: center
-    :scale: 75
 
 .. Important::
 
@@ -517,3 +552,12 @@ Some ways to achieve that are:
 
 *	Use selections to control the (sub)sets for the shown data
 *	Use domain identifiers to display data which is relevant
+
+Although the Map widget has several features, using them all together would make the map very cluttered. Which data is visualized how therefore needs to be carefully considered in a way that creates the most value.
+
+.. image:: images/Map_MapChaos.jpg
+    :align: center
+
+* All features used, making it difficult to understand the data
+* Too light colors (especially yellow) making it low contrast with the map
+* Colored arcs don’t add value
