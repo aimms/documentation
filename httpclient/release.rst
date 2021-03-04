@@ -6,6 +6,10 @@ The first public release of HTTPClient was version 1.0.0.3, release date Decembe
 
 New Features and Bug Fixes
 --------------------------
+1.2.0.36 [04-03-2021]
+    - Fix threading issue in web::request_invoke_async method
+    - Added  web::setConfig method
+
 1.2.0.6 [19-01-2021]
     - Fix hanging issue on connection error
 

@@ -236,4 +236,10 @@ Library Management
 
     This function is called during the termination sequence of the HTTP Client Library. It will close all outstanding requests.
 
+.. js:function::  web::request_setConfis(clientConfigs)
+
+    Sets the HTTP Client library configuration to be used. 
+    The library currently supports a single configuration ``ReqPoolSize``, the size of the request pool for async invocations.
     
+    :param clientConfigs: one-dimensional string parameter argument, holding the config arguments and values
+ 
