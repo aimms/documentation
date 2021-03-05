@@ -12,6 +12,23 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.78
 #############
 
+
+AIMMS 4.78.2 Release (March 5, 2021 - build 4.78.2.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS now gives a warning message when you use a lag/lead operator while the right hand side is not unit-less. AIMMS will interpret the right hand side in the base unit, which may not always be what you expect.
+-  There is a new option 'Post_Compilation_Procedure'. This option specifies a procedure that is run automatically after each explicit and successful compilation (via F5). It has been created to offer an easy way to run a set of tests on your model.
+
+
+--------------
+
+
+
 AIMMS 4.78.1 Release (February 26, 2021 - build 4.78.1.1).
 ------------------------------------------------------------------------------------------
 
