@@ -3,10 +3,16 @@ List Widget
 
 .. important:: The List Widget is available in software versions from AIMMS 4.74 onwards.
 
-The List Widget allows you to show a generated list of (grouped) items and connect those, if required, with actions. These items can e.g. represent a set of tasks, or a custom legend. Each group of items can have a title that is shown as a header. The items in the list can be interactive, meaning that some procedures can be configured to be executed upon clicking the items. As shown below in the examples and specification, each item has various properties to give the end user guidance such as a text description and an icon with color.
+The List Widget allows you to show a generated list of (grouped) items and connect those, if required, with actions. These items can e.g. represent a set of tasks, or a custom legend. Each group of items can have a title that is shown as a header. The items in the list can be interactive, meaning that some procedures can be configured to be executed upon clicking the items. 
 
 .. image:: images/List_ListWidget.png
     :align: center
+
+The list widget is a versatile widget that can serve a number of different purposes. It is essentially a list of items consisting of an icon, a text and a procedure. The procedure is optional. The list can be subdivided with subtitles.
+
+.. image:: images/List_ListWidget_Components.png
+    :align: center
+
 
 Creating a List Widget
 ----------------------
@@ -126,3 +132,57 @@ You can then slice these string parameters on :token:`indexUsers` with an elemen
 .. Note::
 
     It is currently not possible to slice on the key indices, i.e :token:`webui::indexListGroupOrder`, :token:`webui::indexNoOfListItems`, :token:`webui::indexListGroupSpec` and :token:`webui::indexListGroupItemsSpec` defined in the string parameters.
+
+
+Examples of usage of the List Widget
+------------------------------------
+
+Use as task-list
+++++++++++++++++
+
+Users might need to keep eyes on a number of different applications. Having a to-do list for various applications in one place helps them tame the chaos.
+
+Users might have periodically repeating tasks that happen every quarter, month or week. Having these to-do’s in one list creates a cadence of tasks that makes it easier to maintain them.
+
+Since a to-do list is usually something users do not need to see all the time, a sidepanel is the most obvious place for it.
+
+.. image:: images/List_ToDoList.png
+    :align: center
+
+
+Use as legend
++++++++++++++
+
+With the introduction of icons and colored nodes, much data can be displayed on a map. For example:
+
+* Icons indicate the type of asset, like Distribution Center, Production Facility and Stores.
+* Color indicate stock levels, like green for in stock and red for out of stock.
+* Node sizes to indicate volume of product flow.
+
+To easily understand this information, users need a good legend. This is an important use case for the list widget.
+
+.. image:: images/List_DistributionNetwork-1.png
+    :align: center
+
+Doing a legend for icons is straightforward: just use the appropriate icon and text. Making a legend for colors can be done by using a circle icon (aimms-circle2) and give it the right color.
+
+.. image:: images/List_Legend.png
+    :align: center
+
+Often one type of visualization is used per type of information. For example, icons represent a type of asset and colors represent stock levels. Using two types (both a color and an icon to visualize a type of asset) can be useful if:
+
+* Users need to scan a map very quickly.
+* Better accessibility for users with colorblindness is needed.
+
+Be aware however that using multiple types of visualization for the same information might be confusing to users. Green and red for example have strong connotations with positive and negative and using these colors for type of asset might cause users to read meaning where there is not.
+
+
+A few best practices on using icons/colors
+------------------------------------------
+
+* Using many different colors for icons can make the List Widget to busy and increase cognitive load.
+* Be sparse with colors: consider if it is needed to give an icon a different color. When in doubt, it’s probably wise to remember the saying “less is more” and keep colors the same.
+* Colors can be used to create categories, for example to-do items with an action required are blue and read only or action required outside of the application are dark green. The number of colors that work well on screens and can easily be differentiated by users is limited however. With more than about ten colors the differences become hard to distinguish.
+* Colors can communicate meaning, like green for OK and red for error. One of the most common forms of color blindness is red-green color blindness. It is therefore good practice to not rely on color only to communicate meaning, but shape as well like a checkmark or warning-triangle.
+* Avoid using colors with not enough contrast. This makes it hard to see for users, especially when using a lower-quality screen or a projector.
+* When using different colors for icons, try to use a harmonious set of colors with matching lightness/saturation. This makes the interface calmer and helps users feel in control. `This website <https://flatuicolors.com/>`_ has useful sets of colors that work together.

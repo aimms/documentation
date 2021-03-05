@@ -107,13 +107,14 @@ You may find that when you change your window size, the widgets re-arrange too o
 Page Actions
 ============
 
-In the bottom right corner of the page you can find the “Page Actions” menu. It is used for the “Primary Action" and “Secondary Actions” and largely replaces buttons on the canvas. The position of the Page Actions is fixed in the bottom right and floats above all other elements of the page.
+In the bottom right corner of the page you can find the “Page Actions” menu. It is used for the “Primary Action" and “Secondary Actions”. This feature, together with the `Widget Actions <widget-options.html#widget-actions>`_, largely replaces buttons on the canvas and frees up space for the widgets themselves. The position of the Page Actions Menu is fixed in the bottom right and floats above all other elements on the page.
+
+Page Actions are independent of a specific widget (typical general actions as optimize, save case, reinitialize, etc.). `Widget Actions <widget-options.html#widget-actions>`_ are focused on data in the widget (recalculate demand, delete selected batch, help on GC, etc.)
 
 The reason behind the Page Actions is to have key actions easily available for the users and to reduce clutter on the pages.
 
 .. image:: images/PageActions_Actual.png
     :align: center
-    :scale: 50
 
 .. image:: images/PageActions_OnlyActions.png
     :align: center    
@@ -125,6 +126,12 @@ The Primary Action is mainly used for actions that use the power of the AIMMS pr
 
 Each page can have only one Primary Action. If there is a need for more than one Primary Action, developers should first consider if this is beneficial to the user: often it is wise to focus on one key task per page. If more than one Primary Action per page is absolutely needed, only one should be considered the most important. Other Primary actions can be placed in Secondary Actions. There is no maximum to the number of Primary Action you can add, but we display the first Active (clickable) action. In case there are no Active actions, we display the first Inactive (not clickable) action as the Primary Action, with the associated style.
 
+Behavior of the Page Action menu.
+
+.. image:: images/PageActions_Animated.gif
+    :align: center  
+
+
 Secondary Action
 ^^^^^^^^^^^^^^^^
 
@@ -132,6 +139,10 @@ Besides the Primary Action, the Page Actions consist of “Secondary Action” b
 
 Secondary Action buttons consist of a label and an icon that can be configured in the model. When there are multiple Secondary Actions on a page, they are grouped together in a button with a hamburger icon. This expands to reveal all page actions. There is no maximum to the number of Secondary Actions you can add, but we display the top 10  Active and/or Inactive ordered action buttons on a page. AIMMS advises using ideally no more than five.
 
+.. image:: images/PageActions_SecondaryCombinations.png
+    :align: center  
+
+The above image shows the different states of the secondary actions menu.
 
 Configuring Page Actions
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -215,7 +226,7 @@ Once you have added the string parameter, the respective page actions buttons wi
 Similarly, you can create other string parameters for other pages and configure them using the same steps.
 
 Possible combinations of action states
-++++++++++++++++++++++++++++++++++++++++
+======================================
 
 The different combinations and possibilities with the states are illustrated below:
 

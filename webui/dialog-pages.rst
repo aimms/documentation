@@ -34,6 +34,13 @@ This section describes various tasks related to WebUI dialog pages.
 
 Dialog Pages are used for intermediate actions or steps in your workflow. You can build model interaction by calling dialog pages for the user to perform a specific action such as setting SLA's or adjusting inventory etc. In addition, you can use Dialog pages to display information about a selected item without breaking the flow by calling the OpenDialogPage function. For example showing the detailed properties of a scheduled batch. 
 
+Dialog pages appear as an overlay on top of content on other pages. They provide mainly two functions:
+
+#. Preventing users from continuing until some required action is performed. For example, a user has to fill in sales forecast data before being able to continue to forecast analysis. The main content is disabled until the interaction is done.  
+#. Navigating along the “z-axis” i.e. diving deeper into the data. In this use case, a user clicks on a job in a Gantt Chart to view a dialog page with more information on that job.  
+
+Especially in the first use case, the dialog page disrupts the user’s workflow and might cause them to lose track. Dialog pages should therefore be used for essential information only.
+
 A dialog page has one of three predefined sizes: Small, Medium and Large. Dialog pages can have up to 3 buttons, 2 of which are shown by default, typically Cancel and OK. The text and callback procedures for these buttons can be controlled via the OpenDialogPage function. 
 
 When a dialog box is open, the user can interact with the dialog only. The dialog box can only be closed by clicking on one of the actions.   
@@ -48,7 +55,6 @@ Click on the Insert Dialog page icon |dialog| and give it any name you desire. Y
 
 .. image:: images/dialogpage_add.png
 			:align: center
-			:scale: 75
 
 Dialog pages can be added to any level in the page tree, just like a normal page. Unlike Pages, Dialog pages do not appear in the Menu (navigation) and can only be accessed via the page manager. Dialog pages have the same options as a page or side panel, i.e. Rename, Delete, etc. You can also move the dialog pages the same way pages can be moved.
 
@@ -58,25 +64,21 @@ You can chose a size for the dialog page, the dimension for which are:
 
 	.. image:: images/dialog_diffsizes_small.png
 				:align: center
-				:scale: 50
 
 #.  Medium: Width = 6 Columns, Height = 3 Rows. Here you can fit widgets with dimensions that add up to 6 columns and 3 rows. 
 
 	.. image:: images/dialog_diffsizes_medium.png
 				:align: center
-				:scale: 50
 
 #.  Large: Width = 8 Columns, Height = 3 Rows .  Here you can fit widgets with dimensions that add up to 8 columns and 3 rows.
 
 	.. image:: images/dialog_diffsizes_large.png
 				:align: center
-				:scale: 50
 
 The title and action buttons on the dialog page can be configured via the model. These are placeholders to depict how the actual dialog page will look. This also gives an idea of the usable area for adding widgets in the dialog page.
 
 .. image:: images/dialog_placeholders.png
 			:align: center
-			:scale: 75
 
 .. note:: 
 	
@@ -91,17 +93,14 @@ Select a desired size by clicking on the respective button in the top right corn
 
 .. image:: images/dialogapge_selectsize.png
 			:align: center
-			:scale: 75
 
 When the height of a widget exceeds the height of the dialog page, the widget will be clipped, as Dialog pages do not have a scroll bar. Pick a suitable size for the dialog page and the widgets you want to have in the dialog page. You can change the size of the dialog page any number of times when in developer mode. The Small, Medium, Large buttons are not available to end users, so the sizes cannot be changed once the application is published.
 
 .. image:: images/dialogapge_widgetclipped.png
 			:align: center
-			:scale: 75
 
 .. image:: images/dialogapge_goodfit.png
 			:align: center
-			:scale: 75
 
 Configuring Dialog Pages
 ------------------------
@@ -119,13 +118,11 @@ An `example <library.html#id4>`_ of the procedure with declarations would result
 
 .. image:: images/dialog_procedurecall.png
 			:align: center
-			:scale: 50
 
 The button names are assigned from left to right from the defined set. If the set has only 1 element, only one button will be displayed. A maximum of 3 buttons can be shown. In the case where 3 buttons are shown, the style of the 1st two buttons are the same and the 3rd button is different.
 
 .. image:: images/dialog_1n3buttons.png
 			:align: center
-			:scale: 75
 
 Interacting With Dialog Pages
 -----------------------------

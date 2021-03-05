@@ -1,22 +1,6 @@
 Side Panels 
 ===========
 
-.. |page-manager| image:: images/PageManager_snap1.png
-
-.. |dots| image:: images/PageManager_snap3.png
-
-.. |pencil| image:: images/PageManager_snap3_1.png
-
-.. |eye| image:: images/PageManager_snap3_2.png
-
-.. |hidden| image:: images/PageManager_snap3_3.png
-
-.. |bin| image:: images/PageManager_snap3_4.png
-
-.. |home| image:: images/PageManager_snap3_5.png
-
-.. |wizard| image:: images/PageManager_snap3_6.png
-
 .. |plus| image:: images/plus.png
 
 .. |kebab|  image:: images/kebab.png
@@ -24,9 +8,6 @@ Side Panels
 .. |addpage|  image:: images/addpage.png
 
 .. |sidepanel|  image:: images/sidepanel.png
-
-.. |dialog|  image:: images/dialogicon.png 
-
 
 This section describes various tasks related to WebUI side panels.
 
@@ -37,20 +18,21 @@ Side panels help build model interactions. These help to free up real estate on 
 
 .. image:: images/SP_TabScreen.png
 			:align: center
-			:scale: 50
 			
 .. image:: images/SP_TabScreen_open.png
 			:align: center
-			:scale: 50			
 		
 What can side panels be used for?
 ---------------------------------
 
 Side panels can be used for various purposes, such as filters, displaying KPIs, making quick notes, showing help text.
 
+Side Panels give developers the possibility to add extra widgets to a page that are always easily accessible in a collapsible panel on the right. The Side Panel is a good place for filters or help text.
+
+Avoid core functionalities in side panels. E.g. steps to achieve (initial) output on the page. Avoid buttons in side panels. Buttons are probably a key function for the page. Put widget-specific procedure in `widget action <widget-options.html#widget-actions>`_. 
+
 .. image:: images/SP_Examples.png
 			:align: center
-			:scale: 75
 
 .. _adding a side panel page:
 
@@ -90,23 +72,19 @@ Step 1: Click the side panel page you want to add widgets to in the page manager
 
 .. image:: images/SP_Addwidget1toSP1.png
 			:align: center
-			:scale: 50
 			
 Step 2: You will see a 2-column width page. Open the Widget Manager.
 
 .. image:: images/SP_Addwidget1toSP2.png
 			:align: center
-			:scale: 50
 
 Step 3: Add desired widgets to the page.
 
 .. image:: images/SP_Addwidget1toSP3.png
 			:align: center
-			:scale: 50
 
 .. image:: images/SP_Addwidget1toSP4.png
 			:align: center
-			:scale: 50
 
 .. note:: 
 	
@@ -131,11 +109,9 @@ This set has 4 elements representing side panels properties:
 
 	.. image:: images/Allsidepanelpagesdata.png
 			:align: center
-			:scale: 75
 						
 	.. image:: images/SP_AllsidePanelPages_data.png
 			:align: center
-			:scale: 75
 			
 #. *tooltip*: The text here would be displayed when the user hovers over that respective side panel tab.
 #. *state*: This is the state for the side panel, i.e Active and Hidden.
@@ -163,7 +139,6 @@ Add the details for the side panels you would like to show on this page. For exa
 
 .. image:: images/SP_pagetree.png
 			:align: center
-			:scale: 75
 
 and you want 3 side panels on the "home" page, namely: 
 
@@ -175,7 +150,6 @@ then the data in the configuration string parameter may be filled in as follows:
 
 .. image:: images/SP_homepageSPidentifier_data.png
 			:align: center
-			:scale: 75
 
 .. note:: 
 
@@ -189,7 +163,6 @@ In the WebUI, navigate to the respective page. In the Page Settings you can loca
 
 .. image:: images/SP_configuresidepanel.png
 			:align: center
-			:scale: 75
 			
 Add the string parameter created for that respective page in the "Side Panels" field. 
 
@@ -213,10 +186,8 @@ Hovering over a side panel will show you the tooltip that was configured in the 
 
 .. image:: images/SP_tabinteraction.png
 			:align: center
-			:scale: 50
 
 Clicking on the tab highlights that tab and slides opens with the widgets that were added to that respective side panel page.
 
 .. image:: images/SP_tabinteraction_open.png
 			:align: center
-			:scale: 50

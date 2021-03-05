@@ -787,7 +787,13 @@ Item Actions
 .. important:: 
     Item Actions are available in software versions from AIMMS 4.74 onwards. 
 
+When using the right mouse button on an item in a widget, a menu can appear with different actions depending on the context. In UI design this is often called a contextual menu. In AIMMS WebUI, we use the term **Item Actions** to create a link with Widget Actions and `Page Actions <page-settings.html#page-actions>`_.
+
 Item Actions are a set of actions/procedures that can be defined via the model and configured for identifiers that are specified for a widget. These item actions are displayed when the user performs a right-click on the data elements in the widget. Item actions are defined per identifier and the right-click item action menu only appears on the data element associated with that identifier.  
+
+Item Actions give users quick access to frequently used commands related to the selected item.
+
+By default, Item Actions are hidden from view and there is no way for users to know if Item Actions are configured for a widget or not. Especially when the feature is new, users will not yet expect it to be there. It is therefore wise to mention it in documentation or onboarding for your app. On the page inside the app itself it can be mentioned in the Help sidepanel
 
 The right-click item action menu displays up to 10 actions. In case you configure more than 10, only the top 10 active and/or inactive actions will be displayed.
 
@@ -885,3 +891,33 @@ In case you have a long displaytext for an action, the item action menu will str
 .. image:: images/ItemActions_LongDisplaytext.png
 			:align: center 
 			:scale: 75
+
+
+Best Practices for Item Actions
+-------------------------------
+
+* Include only commands that have a direct relation to the selected item. For example when doing a right click on a Distribution Center on a map, “Exclude From Forecast” has a direct influence on the node, while “Save Scenario” does not.
+* Text for actions should be clear and concise.
+* Use verbs and verb phrases for menu items that initiate actions. Describe the action that occurs when the item action is chosen, such as Consider or Exclude. This avoids confusion compared to Considered and Excluded. Is Excluded the state it is now, or is this what occurs when clicking the action?
+
+    .. image:: images/ItemActions_YesNo1.png
+             :align: center
+
+* Refrain from using articles in menu item titles. For example, use Place Order instead of Place an Order, or Increase Capacity instead of Increase the Capacity. Articles rarely add value and make the text longer.
+* Use title case. The convention for AIMMS is to use Title Case in words. Sticking to this convention gives users a consistent experience.
+
+    .. image:: images/ItemActions_YesNo2.png
+             :align: center
+
+* Use adjectives or adjective phrases for Item Actions that toggle item states. Describe the attribute the action affects. Adjectives appearing in menu item titles imply an action and can often fit into the sentence “Change the selected object to…”—for example, *At Capacity* or *Closed*.
+* Use an ellipsis whenever choosing a menu item requires additional input from the user. The ellipsis character (…) means a dialog or separate window will open and prompt the user for additional information or to make a choice.
+* Disabled state is an item that is greyed out and gives a not-allowed pointer when hovered. This can be because the item is currently unavailable until a certain condition is met. Another use case can be for toggling between options, where the currently active option is disabled.
+
+    .. image:: images/ItemActions_DisabledAction1.png
+             :align: center
+
+.. note:: 
+    Most of these best practices also apply to Widget Actions.
+
+    Some content of this guide is taken from the Apple Human Interface Guidelines. These guideline provide a wealth of information on human-computer interactions.
+
