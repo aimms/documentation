@@ -23,6 +23,7 @@ Resolved AIMMS Issues
 
 -  AIMMS now gives a warning message when you use a lag/lead operator while the right hand side is not unit-less. AIMMS will interpret the right hand side in the base unit, which may not always be what you expect.
 -  There is a new option 'Post_Compilation_Procedure'. This option specifies a procedure that is run automatically after each explicit and successful compilation (via F5). It has been created to offer an easy way to run a set of tests on your model.
+-  Reading a 'relation' set from a case file could lead to a crash when the data of that relation was not yet accessed before the read.
 
 
 --------------
