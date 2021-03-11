@@ -21,6 +21,10 @@ Open Solver Interface
 ^^^^^^^^^^^^^^^^^^^^^^^
 The AIMMS :doc:`Open Solver Interface <../solvers/open-solver-interface>` allows solver developers to link their own solvers to AIMMS themselves.
 
+AIMMS Tutorials
+---------------
+* `Introduction to Linear Programming <https://academy.aimms.com/mod/quiz/view.php?id=199>`_  (Sign-up to AIMMS Academy required)
+
 Application Examples
 ---------------------
 
