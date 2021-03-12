@@ -46,3 +46,38 @@ If you want to create a link to an external URL page, simply paste the external 
 To change or remove a link, move your cursor to the left or right of the link and follow the menu that pops up.
 
 Lastly, to exit the text widget's editing mode, click the |exit-button| in the top right of the text box.
+
+
+Specifying a string parameter in Contents
+------------------------------------------
+
+.. important:: String parameter in contents is available in software versions from AIMMS 4.79 onwards.
+
+You can specify a string parameter in the contents to display text that changes based on either the current page or some other condition. This is very similar to specifying a string parameter in a scalar widget with the multi-line option, but with the advantage of using HTML content. This allows you to style the text, add images, hyperlinks, and a lot of other options that come with HTML formatting.
+
+You can add a string parameter by opening the Identifier Selector by clicking the button next to the contents field and selecting the identifier you want to specify as the contents.
+
+.. image:: images/Text_OpenIdentifierSelector.png
+    :align: center
+
+.. image:: images/Text_SelectIdentifier.png
+    :align: center
+
+.. image:: images/Text_Contents.png
+    :align: center
+
+.. image:: images/Text_Example.png
+    :align: center
+
+You can edit the contents of the string parameter by clicking on the edit button. After making the edits either click on the ``Save and Close`` "x" icon, or click the save icon.
+
+.. image:: images/Text_Save.png
+    :align: center
+
+When you have added content as a "Definition" to the string parameter, you will not be able to edit the content in the WebUI. The Edit button will be disabled.
+
+.. Note ::
+    
+    When reading from a file or adding HTML content to the string parameter ensure that the quotes used in style tags are escaped eg: ``\"``.
+
+    When reading from a file and defining content for the string parameter you might want to add ``NoSave`` to the ``Property`` attribute. This will ensure that the text is not stored in the case files, which would unnecessarily increase the size of the case file.
