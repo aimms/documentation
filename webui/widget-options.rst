@@ -320,6 +320,30 @@ In this case, the customized tooltip based on the HTML table layout (see also th
 .. image:: images/Tooltip_Ganttchart_1.png
     :align: center
 
+You can display icons from our `icon list <../_static/aimms-icons/icons-reference.html>`_, in the HTML tooltips. You will need to include a class property with the value of the icon name as illustrated below:
+
+.. code::
+
+    data { 
+    Product-1  : "<p class=\"aimms-presentation\"> &nbsp\; Electronic Products </p>",
+    Product-2  : "<p class=\"aimms-hour-glass\"> &nbsp\; Household Products </p>",
+    Product-3  : "<p class=\"aimms-stackoverflow\"> &nbsp\; Kitchen Equipment</p>",
+    Product-4  : "<p class=\"aimms-safari\"> &nbsp\; Gardening Products</p>",
+    Product-5  : "<p class=\"aimms-steam\"> &nbsp\; Heavy Equipment</p>",
+    Product-6  : "<p class=\"aimms-dropbox\"> &nbsp\; Industrial Products</p>",
+    Product-7  : "<p class=\"aimms-eraser2\"> &nbsp\; Stationery Products</p>",
+    Product-8  : "<p class=\"aimms-dribble\"> &nbsp\; Kids Products</p>",
+    Product-9  : "<p class=\"aimms-markup\"> &nbsp\; Misc</p>",
+    Product-10 : "<p class=\"aimms-share\"> &nbsp\; Non Categorized</p>" }
+
+.. image:: images/Tooltip_Icon.png
+    :align: center
+
+.. note ::
+
+    Ensure you escape the quotes in the HTML properties. eg: ``\"``.
+
+
 If you do not want to show the default tooltips for certain identifiers or data items, you can make this possible by clearing or emptying the data for the respective identifier or data point in the string parameter defining the tooltips.  
 
 For example, consider the table below. Say, you do not want to show the tooltip with the same value as the cell value, or if the value of a cell is 0.
@@ -344,7 +368,6 @@ Then in the string parameter defining the tooltips, you can just clear/empty the
 
 .. note::
     This feature fro hiding tooltips is available only in AIMMS releases starting from version 4.65 onwards. 
-
 
 Identifier Settings
 -------------------
