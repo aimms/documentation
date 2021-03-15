@@ -1,12 +1,14 @@
-[[_TOC_]]
+# Table of Contents
+* [Clone and Navigate the repo on your computer](#clone-and-navigate-the-repo-on-your-computer)
+* [Build Locally the HTML documentation](#build-locally-the-html-documentation)
+* [The Pipeline (optional)](#the-pipeline)
+* [Style guide](#style-guide)
+* [Prereq's to build a PDF version (optional)](#prereqs-to-build-a-pdf-version-optional)
 
-Clone the repo on your computer
-------------------------------------
+Clone and Navigate the repo on your computer
+---------------------------------------------
 
-If you make it here, it means you have access right to the documentation git repo. Thus you may "clone" it somewhere on your computer ([like this](https://tortoisegit.org/docs/tortoisegit/tgit-dug-clone.html)) using `git@gitlab.aimms.com:aimms/documentation.git`. This will just copy all files from the gitlab server on your computer.
-
-You should end up with a folder structure similar to the following:
-![image](/uploads/f05b56c0ee19a4b045bd6c8a2aac8daf/image.png)
+If you make it here, it means you have access right to the How-To git repo. Thus you may "clone" it somewhere on your computer ([like this](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository). This will copy all files from the server onto your computer.
 
 You may notice that the documentation in itself (the text) is located in the folders from ``cdm`` till ``webui``. All the rest are actually configuration and support folders and files.
 
@@ -26,9 +28,8 @@ After installing all the above requirements, please go to the location of your p
 
 <details>
 <summary>
-<b>Click me to show an example 👇</b>
-</summary>
-![image](/uploads/af294070a540237ba141ac325763febd/image.png) 
+<b>Click me to show more info on console output 👇</b>
+</summary>) 
 
 * As you may see at the bottom of the wonderfully colored prompt, **your html pages are in `_build\html` folder**, located in the current working directory (the same as always). You may check the build by opening any of those.
 * The red text are warnings (any error would actually break the building process, as in AIMMS): **Those warnings should be avoided**. Most of the time, this is due to a misuse of sphinx. You may correct them yourself, because your are awesome. Or let them be because your don't understand them. In any case, through your development please mind that **you should avoid to create any new warnings** (ask around if you don't understand)

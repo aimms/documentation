@@ -143,6 +143,10 @@ html_theme_options = {
     'algolia_appid': 'BH4D9OD16A', 
     'algolia_appkey': 'f7e44f5b57ababa5c5ceb1e1087ae3b1', 
     'algolia_indexname': 'aimms',
+    'display_help_and_feedback' : True,
+    'is_github' : True,
+    'repo_url' : "https://github.com/aimms/documentation",
+
 }
 
 html_last_updated_fmt = '%b %d, %Y'
