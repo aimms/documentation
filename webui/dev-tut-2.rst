@@ -51,7 +51,7 @@ An option in AWF consists of:
 		
 An option *name* is just that, a string to identify the option. It should be all lower
 case consisting of short nouns separated by periods, not unlike
-`Java package names <http://www.oracle.com/technetwork/java/codeconventions-135099.html>`_. For example:
+`Java package names <https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html>`_. For example:
 
 * :token:`car.interior.steeringwheel`
 * :token:`car.door.handle`
