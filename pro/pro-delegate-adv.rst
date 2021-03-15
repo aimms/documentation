@@ -120,7 +120,9 @@ Overriding the License Profile
 
 Through the ``licenseName`` argument you can override the default license profile that has been associated with the published project you are running. If ``licenseName`` refers to an existing license profile, that license profile will be used by the server-side session. If licenseName does not refer to an existing license profile, the default license profile will be used.
 
-Note: Starting from AIMMS PRO 2.12.1, if ``licenseName`` does not refer to an existing license profile then AIMMS will give error message and it will not use default license profile.
+.. note::
+
+    Starting from AIMMS PRO 2.12.1, if ``licenseName`` does not refer to an existing license profile then AIMMS will give error message and it will not use default license profile.
 
 Adjusting the Job Priority
 ++++++++++++++++++++++++++
