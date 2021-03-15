@@ -19,8 +19,7 @@ before_script:
 linkcheck:
   stage: test
   script:
-  - python3 -msphinx -W --keep-going -b linkcheck . _build/linkcheck
-  allow_failure: true
+  - python3 -msphinx -W -b linkcheck . _build/linkcheck
   tags: 
     - ubuntu
 
