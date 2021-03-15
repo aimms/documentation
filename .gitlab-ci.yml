@@ -13,12 +13,13 @@ before_script:
   - python3.8 -mvenv ../myenv
   - source ../myenv/bin/activate
   - python3.8 -mpip install --upgrade  pip
-  - python3.8 -mpip install -U sphinx sphinx-aimms-theme sphinx-sitemap sphinx-last-updated-by-git sphinxcontrib-bibtex sphinxcontrib-spelling
+  - python3.8 -mpip install -U sphinx sphinx-sitemap sphinx-last-updated-by-git sphinxcontrib-bibtex sphinxcontrib-spelling
+  - python3.8 -mpip install -I sphinx-aimms-theme
 
 linkcheck:
   stage: test
   script:
-  - python3 -msphinx -W -b linkcheck . _build/linkcheck
+  - python3 -msphinx -W --keep-going -b linkcheck . _build/linkcheck
   allow_failure: true
   tags: 
     - ubuntu
@@ -26,7 +27,7 @@ linkcheck:
 spellcheck:
   stage: test
   script:
-  - python3 -msphinx -W -b spelling . _build/spelling
+  - python3 -msphinx -W --keep-going -b spelling . _build/spelling
   allow_failure: true
   tags: 
     - ubuntu
@@ -34,7 +35,7 @@ spellcheck:
 build:
   stage: test
   script:
-    - sphinx-build -W -b html . _build/html 
+    - sphinx-build -W --keep-going -b html . _build/html 
   tags: 
     - ubuntu
 
