@@ -359,7 +359,7 @@ You need to add the ``webui::TooltipIdentifier`` annotation attribute to the set
     StringParameter NetHeaderTooltips {
         IndexDomain: net;
         Definition: {
-            formatstring("Custom <br> <i>Tooltips for headers<i> <br><br> %e",net);
+            formatstring("Current Capacity <br><br> <b>%e</b> <br><br> %n",net,CurrentCapacity(net));
         }
     }
 
