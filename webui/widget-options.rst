@@ -345,7 +345,7 @@ You can display icons from our `icon list <../_static/aimms-icons/icons-referenc
 
 **From AIMMS version 4.79** it is possible to configure custom tooltips for the elements in the row and column headers of the `Table <table-widget.html>`_ and on the x-axis elements of the `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_ and `Bar-Line Chart <bar-line-chart-widget.html>`_.
 
-You need to add the ``webui::TooltipIdentifier`` annotation attribute to the set and specify the string parameter indexed over the respective set. For example, 
+You need to add the ``webui::TooltipIdentifier`` annotation attribute to the set and specify the string parameter indexed over the respective set. For example: 
 
 .. code ::
 
