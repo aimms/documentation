@@ -16,7 +16,8 @@ Pages and Dialog Support has been added to the AimmsWebUI library to be able to 
 
 .. _public-pages-support-declarations:
 
-.. rubric:: Public Pages Support Declarations 
+Public Pages Support Declarations 
+-------------------------------------
 
 .. aimms:set:: AllPageIDs 
     
@@ -48,7 +49,8 @@ Pages and Dialog Support has been added to the AimmsWebUI library to be able to 
 
 .. _public-page-and-widget-specification-declarations:
 
-.. rubric:: Public Page and Widget Specification Declarations
+Public Page and Widget Specification Declarations
+-------------------------------------------------------
 
 .. aimms:set:: SidePanelSpecification 
 
@@ -64,7 +66,8 @@ Pages and Dialog Support has been added to the AimmsWebUI library to be able to 
 
 .. _public-webui-frontend-state-support-declarations:
 
-.. rubric:: Public WebUI Frontend State Support Declarations 
+Public WebUI Frontend State Support Declarations 
+-------------------------------------------------------
 
 (note: this section was introduced with AIMMS 4.72, as the 'webui state support' :doc:`experimental-features`.)
 
@@ -89,7 +92,8 @@ Pages and Dialog Support has been added to the AimmsWebUI library to be able to 
 
 .. _public-workflow-support-declarations:
 
-.. rubric:: Public Workflow Support Declarations
+Public Workflow Support Declarations
+-------------------------------------------------------
 
 .. _workflowspecificationset: 
 
@@ -126,7 +130,8 @@ Pages and Dialog Support has been added to the AimmsWebUI library to be able to 
 
 .. _public-statusbar-support-declarations:
 
-.. rubric:: Public StatusBar Support Declarations
+Public StatusBar Support Declarations
+-------------------------------------------------------
 
 .. aimms:set:: StatusBarSpecification
 
@@ -134,7 +139,8 @@ Pages and Dialog Support has been added to the AimmsWebUI library to be able to 
 
 .. _public-list-support-declarations:
 
-.. rubric:: Public List Support Declarations
+Public List Support Declarations
+-------------------------------------------------------
 
 .. _listgroupspecification:
 
@@ -163,12 +169,12 @@ Request Queue Declarations is used to manage the number of requests from WebUI.
 
 .. _public-pages-support-procedures:
 
-.. rubric:: Public Pages Support Procedures
-
+Public Pages Support Procedures
+-------------------------------------------------------
 
 .. aimms:procedure:: GetAllPages 
 
-	This procedure runs every time a page, side panel or dialog page is added to the page manager, which in turn updates the sets and identifiers in the Public Pages Support Declarations.
+	This procedure runs every time a page, side panel or dialog page is added to the page manager, which in turn updates the sets and identifiers in the `Public Pages Support Declarations`_.
 
 .. aimms:procedure:: OpenSidePanel(pageId) 
 
@@ -194,7 +200,8 @@ Request Queue Declarations is used to manage the number of requests from WebUI.
 
 .. _public-dialog-support-procedures:
 
-.. rubric:: Public Dialog Support Procedures
+Public Dialog Support Procedures
+-------------------------------------------------------
 
 .. aimms:procedure:: RequestPerformWebUIDialog(title,message,actions,onDone) 
 
@@ -288,7 +295,7 @@ Arguments
 
 This procedure has the following arguments:
 
-* ``pageId``: An element parameter(with range :any:`AllDialogPages`) which should contain the ``pageId`` of the dialog page you want to open. When a dialog page is created, an entry is added to the set :any:`AllDialogPages` under the ``Public Pages Support Declarations`` with a unique ``pageId`` in the `Pages and Dialog Support section`_.   
+* ``pageId``: An element parameter(with range :any:`AllDialogPages`) which should contain the ``pageId`` of the dialog page you want to open. When a dialog page is created, an entry is added to the set :any:`AllDialogPages` under the `Public Pages Support Declarations`_ with a unique ``pageId`` in the `Pages and Dialog Support section`_.   
 * ``title``: A string parameter which contains the text to be displayed as the title of the dialog box. If this is left blank, i.e "", it will display the dialog page name given during creation by default.
 * ``actions``: A set of custom actions. The elements of this set are represented as buttons in the message dialog and their text is the same as the action names. When an action is selected (button is clicked), it invokes the onDone procedure with the corresponding action as an argument. If this set is empty, the buttons will have "Cancel" and "OK" by default respectively. 
 * ``onDone``: A reference to a procedure in the set AllProcedures. The procedure should have a single input string parameter as argument. When a user selects an action, the onDone procedure is invoked with the action name as its argument.
