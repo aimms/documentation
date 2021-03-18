@@ -13,6 +13,29 @@ AIMMS 4.78
 #############
 
 
+AIMMS 4.78.3 Release (March 18, 2021 - build 4.78.3.18).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Local identifiers in a procedure or function were not always correctly emptied when calling the procedure or function multiple times.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Now you can click anywhere in a Table/Scalar cell to set a checkbox. You do not need to click specifically inside the checkbox anymore.
+-  Widget actions now also work when a widget is in full screen mode. Previously the widget actions menu did not appear when the button was clicked and the widget was in full screen mode.
+-  In a few Grid Layout templates, the selection box stretched to the complete area that it was assigned to instead of maintaining the actual height of the widget.
+-  There was an issue with the :doc:`Barline widget <../webui/bar-line-chart-widget>` aggregating data for elements that had the same element text attribute. The behavior is now consistent with other widgets.
+
+
+--------------
+
+
+
 AIMMS 4.78.2 Release (March 5, 2021 - build 4.78.2.4).
 ------------------------------------------------------------------------------------------
 
