@@ -60,6 +60,25 @@ You can add a string parameter by opening the Identifier Selector by clicking th
 .. image:: images/Text_OpenIdentifierSelector.png
     :align: center
 
+.. image:: images/Text_SelectScalarIdentifier.png
+    :align: center
+
+Specifying the string parameter ``s_HTMLText`` with the below data,
+
+.. code ::
+    
+    "<div style=\"text-align: center;\"><span style=\"font-size: 32px;\"><u><i>Centered Heading</i></u></span></div><div><br></div>"
+    "<div>This is an example of specifying a string parameter with <b>HTML content that has different styles </b>in a"
+    "<span style=\"background-color: rgb(255, 255, 0);\">Text widget</span>.&nbsp;</div><div><br></div><div><i>You can also add images:</i></div>"
+    "<div><img src=\"/app-resources/resources/images/SmallImage.jpg\"></div><div style=\"text-align: center;\"><br></div><div><br></div>"
+    "<div>You can add numbered lists or bulleted lists</div><ol><li>Point no 1</li><li><s>Point no 2 is struckout</s></li>"
+    "<li><u>I want to underline this point</u></li></ol>" ;
+
+.. image:: images/Text_Result.png
+    :align: center
+
+The Text widget supports a scalar string or a scalar slice of an indexed string parameter, as illustrated below. The string parameter ``s_myHelpText(webui::arp)`` is sliced over the element parameter ``ep_currentPageId`` ranged over the ``webui::AllPageIds``. 
+
 .. image:: images/Text_SelectIdentifier.png
     :align: center
 
