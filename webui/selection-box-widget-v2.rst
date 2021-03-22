@@ -3,15 +3,15 @@ Selection Box V2 Widget
 
 .. important::
 
-	Selection Box V2 widget is available starting from the AIMMS software version 4.79 onwards as part of `Experimental Features <experimental-features.html>`_. Please visit the `Experimental Features <experimental-features.html>`_ page on how to enable the feature.
+	The Selection Box V2 widget is available starting from the AIMMS software version 4.79 onwards as part of `Experimental Features <experimental-features.html>`_. Please visit the `Experimental Features <experimental-features.html>`_ page on how to enable the feature.
 
 The Selection Box V2 widget allows the user to select an element in a set or a subset of elements in a set by using an element parameter or a 1-dimensional parameter. 
 
 Selection Box V2 is identical to the Selection Box widget in terms of functionality and result, but has a few enhancements namely:
 
-#. Built with new technology.
-#. When searching, it uses server-side search that allows users to search the entire data set, i.e all elements in the set regardless of the size of the set. 
 #. Users can scroll the complete list of elements. The list of elements does not load at once and is loaded only when the user scrolls. This improves the performance of the widget.
+#. When searching for items using the search box from the list of elements, the search is executed on the server instead of in the browser. This brings performance benefits, regardless of the number of elements in the list. 
+#. Built with new technology.
 
 .. note :: The Selection Box V2 is available only in the Grid Layout. 
 
