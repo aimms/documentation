@@ -47,7 +47,7 @@ Resolved AIMMS Issues
 -  AIMMS now gives a warning message when you use a lag/lead operator while the right hand side is not unit-less. AIMMS will interpret the right hand side in the base unit, which may not always be what you expect.
 -  There is a new option 'Post_Compilation_Procedure'. This option specifies a procedure that is run automatically after each explicit and successful compilation (via F5). It has been created to offer an easy way to run a set of tests on your model.
 -  Reading a 'relation' set from a case file could lead to a crash when the data of that relation was not yet accessed before the read.
--  There is a new function RegexReplace that uses regular expressions to do replacements in a string.
+-  There is a new function :any:`RegexReplace` that uses regular expressions to do replacements in a string.
 
 
 --------------
@@ -66,7 +66,7 @@ AIMMS Improvements
 -  It is now easier to use older solver versions in applications running on AIMMS Cloud or AIMMS Pro (because the automatically generated solver configuration file now also includes older solver versions for end-user projects).
 -  BARON has been upgraded to version 21. The default setting of the BARON option 'Relative termination tolerance' has been changed in this version. Please set this option to 1e-4 (the default value in previous BARON versions) if you experience a longer solving time for your model.
 -  Knitro 12.3 has been added.
--  The scaling tool can now also be directly used in a solve statement (or a GMP solve) by switching on the option 'Scale model'. The model will then be scaled automatically before sending it to the solver. The new option 'Scaling algorithm' determines which algorithm will be used to scale the model. (Note: previously the option 'Scale model' could only be used in combination with the AIMMS Presolver).
+-  The scaling tool can now also be directly used in a solve statement (or a :any:`GMP::Instance::Solve`) by switching on the option 'Scale model'. The model will then be scaled automatically before sending it to the solver. The new option 'Scaling algorithm' determines which algorithm will be used to scale the model. (Note: previously the option 'Scale model' could only be used in combination with the AIMMS Presolver).
 -  The scaling tool in the Math Program Inspector can now also be used for multi-objective optimization problems.
 -  The option categories in the section Solvers General are now alphabetically ordered.
 -  Different option settings can now be used for the optimization problems, corresponding to different objective priorities, solved during the optimization of a multi-objective problem by CPLEX or Gurobi. These options have to be set using parameter files, as controlled by the option 'Read parameter file' of CPLEX or Gurobi. See the AIMMS Help for more information.
