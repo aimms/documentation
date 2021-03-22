@@ -15,13 +15,13 @@ All Widgets have a header bar, consisting of several options and the widget titl
 .. image :: images/WidgetHeader_SimpleHeader.png
     :align: center
 
-Title, Full Screen and Settings
-===============================
-Some of the options are specific to certian widgets but almost all widget have a Title, Full Screen |full-screen| and Settings options |widget-settings|.
+Title, Full Screen, and Settings
+================================
+Some of the options are specific to certain widgets but almost all widgets have Title, Full Screen |full-screen| and Settings options |widget-settings|.
 
 The **Title** for the widget can be specified in the ``Title`` option under the `Miscellaneous <widget-options.html#miscellaneous>`_ section of the `Widget Options <widget-options.html>`_.
 
-The |full-screen| icon expands the respective to a full screen mode. Clicking on the icon again returns the widget to the original size.
+The |full-screen| icon expands the respective to a full-screen mode. Clicking on the icon again returns the widget to the original size.
 
 .. image :: images/WidgetHeader_Normal.png
     :align: center
@@ -41,13 +41,13 @@ Download Image - PNG |download-image|
 
 This option allows users to save a snapshot of the widget to their disk.
 
-Download Image is available for `Table <table-widget.html>`_, `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_, `Bar-Line Chart <bar-line-chart-widget.html>`_, `Gantt Chart <gantt-chart-widget.html>`_, `Bubble Chart <bubble-chart-widget.html>`_, `Pie Chart <pie-chart-widget.html>`_, `Tree Map <tree-map-widget.html>`_, and also for the Full Page.
+Download Image is available for `Table <table-widget.html>`_, `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_, `Bar-Line Chart <bar-line-chart-widget.html>`_, `Gantt Chart <gantt-chart-widget.html>`_, `Bubble Chart <bubble-chart-widget.html>`_, `Pie Chart <pie-chart-widget.html>`_, `TreeMap <tree-map-widget.html>`_, and also for the Full Page.
 
 To save an image for the full page you currently are on click the |download-image| in the Application Menu Bar.
 
 When downloading the image, the widget title is taken as the filename. In the case that no title is specified for the widget, then the filename is the chart type (eg. barchart.png).
 
-This options is also available when the widget is toggled to the full screen mode.
+This option is also available when the widget is toggled to the full-screen mode.
 
 .. note::
 
@@ -55,7 +55,7 @@ This options is also available when the widget is toggled to the full screen mod
 
     The Gantt Chart does not support the scrollable area when downloading the image. 
 
-    For both these cases try expanding the widget to full screen mode and then downloading the image.
+    For both these cases try expanding the widget to full-screen mode and then downloading the image.
 
 
 Download CSV |download-csv|
