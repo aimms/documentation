@@ -28,6 +28,7 @@ More details on each widget are included in one of the corresponding sections be
    pie-chart-widget
    scalar-widget
    selection-widgets	
+   selection-box-widget-v2
    slider-widget
    table-widget
    text-widget
