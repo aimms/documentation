@@ -13,6 +13,27 @@ AIMMS 4.78
 #############
 
 
+AIMMS 4.78.4 Release (March 23, 2021 - build 4.78.4.13).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The Errors/Warnings window is no longer opened automatically at startup if there are no errors or warnings to report.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Large WebUI tables with active filters and totals could cause a crash.
+-  The Selectionbox widget now also works correctly when setting the value of an element parameter with a calendar range in combination with a custom non-default string format in the associated calendar.
+
+
+--------------
+
+
+
 AIMMS 4.78.3 Release (March 18, 2021 - build 4.78.3.18).
 ------------------------------------------------------------------------------------------
 
