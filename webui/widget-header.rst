@@ -29,7 +29,7 @@ The |full-screen| icon expands the respective to a full-screen mode. Clicking on
 .. image :: images/WidgetHeader_FullScreen.png
     :align: center
 
-The |widget-settings| icon option the `Widget Options <widget-options.html>`_ where you can specify contents, pivoting, and other options for the widget. 
+The |widget-settings| icon represents the `Widget Options <widget-options.html>`_ where you can specify contents, pivoting, and other options for the widget. 
 
 Below are some of the other icons you will see in the Widget Header if they are configured.
 
@@ -43,7 +43,7 @@ This option allows users to save a snapshot of the widget to their disk.
 
 Download Image is available for `Table <table-widget.html>`_, `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_, `Bar-Line Chart <bar-line-chart-widget.html>`_, `Gantt Chart <gantt-chart-widget.html>`_, `Bubble Chart <bubble-chart-widget.html>`_, `Pie Chart <pie-chart-widget.html>`_, `TreeMap <tree-map-widget.html>`_, and also for the Full Page.
 
-To save an image for the full page you currently are on click the |download-image| in the Application Menu Bar.
+In order to save an image for the full page which is currently active you neeed to click the |download-image| in the Application Menu Bar.
 
 When downloading the image, the widget title is taken as the filename. In the case that no title is specified for the widget, then the filename is the chart type (eg. barchart.png).
 
@@ -51,11 +51,11 @@ This option is also available when the widget is toggled to the full-screen mode
 
 .. note::
 
-    When downloading the image for a Table on the viewable area is saved and not the entire table.
+    When downloading the image for a Table only the viewable area is saved and not the entire table.
 
     The Gantt Chart does not support the scrollable area when downloading the image. 
 
-    For both these cases try expanding the widget to full-screen mode and then downloading the image.
+    For both these cases you can try expanding the widget to full-screen mode first and then download the image.
 
 
 Download CSV |download-csv|
