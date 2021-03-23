@@ -4,6 +4,19 @@ AIMMS PRO Release Notes
 PRO 2.37
 ########
 
+AIMMS PRO 2.37.2 Release
+------------------------
+
+On March 23, 2021, we released AIMMS PRO 2.37.2 (2.37.2.2). 
+
+**Improvements**
+
+-  Updated AIMMS PRO AppLauncher with the recent .NET verion 4.7 such that it can support the servers which uses TLS 1.3.
+
+**Resolved Issues**
+
+-  **Cloud:** Fixed an issue where the CPU hard limit was misconfigured for the solver session which is started from a WebUI Application. 
+
 AIMMS PRO 2.37.1 Release
 ------------------------
 
