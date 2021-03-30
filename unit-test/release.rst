@@ -5,7 +5,7 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
-1.0.0.111 [30-03-2021]
+1.0.0.112 [30-03-2021]
     - Allow test to continue on failed assertion.
     - Print location per exception/assertion.
     
