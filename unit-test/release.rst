@@ -5,6 +5,10 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+1.0.0.111 [30-03-2021]
+    - Allow test to continue on failed assertion.
+    - Print location per exception/assertion.
+    
 1.0.0.105 [08-02-2021]
     - Reduce memory requirements by using smaller data transfer buffers
     - Allow 8KB scalar strings, 2KB strings for 1-dimensional parameters and 1KB strings for 2+-dimensional string parameters to be transfered from/to cloned datasets.

@@ -34,12 +34,13 @@ The results of your unit tests reported back by the AIMMS Unit Test framework ar
 * :js:func:`aimmsunit::AssertFalse`
 * :js:func:`aimmsunit::AssertThrow`
 
-.. js:function:: aimmsunit::AssertTrue(desc, expression)
+.. js:function:: aimmsunit::AssertTrue(desc, expression, cont)
    
    The function evaluates whether the given *expression* evaluates to :token:`true`. If it evaluates to :token:`false`, this will be caught by the AIMMS Unit Test framework and reported back to the user with the given description. 
    
    :param desc: description to be displayed when the assertion fails
    :param expression: expression to be evaluated
+   :param cont: optional argument whether or not to continue with the test upon failure (default 0)
    
    For example, the test
 
@@ -57,12 +58,13 @@ The results of your unit tests reported back by the AIMMS Unit Test framework ar
 
    will fail. The latter will then throw an exception with description :token:`"p should be equal to 1"`.
 
-.. js:function:: aimmsunit::AssertFalse(desc, expression)
+.. js:function:: aimmsunit::AssertFalse(desc, expression, cont)
    
    The function evaluates whether the given *expression* evaluates to :token:`false`. If it evaluates to :token:`true`, this will be caught by the AIMMS Unit Test framework and reported back to the user with the given description. 
 
    :param desc: description to be displayed when the assertion fails
    :param expression: expression to be evaluated
+   :param cont: optional argument whether or not to continue with the test upon failure (default 0)
    
 .. js:function:: aimmsunit::AssertThrow(desc, errorcode, errormessage)
    
