@@ -77,7 +77,7 @@ Specifying the string parameter ``s_HTMLText`` with the below data,
 .. image:: images/Text_Result.png
     :align: center
 
-The Text widget supports a scalar string or a scalar slice of an indexed string parameter, as illustrated below. The string parameter ``s_myHelpText(webui::arp)`` is sliced over the element parameter ``ep_currentPageId`` ranged over the ``webui::AllPageIds``. 
+The Text widget supports a scalar string or a scalar slice of an indexed string parameter, as illustrated below. The string parameter ``s_myHelpText(webui::arp)`` is sliced over the element parameter ``ep_currentPageId`` ranged over the ``webui::AllPageIds``.
 
 .. image:: images/Text_SelectIdentifier.png
     :align: center
@@ -99,4 +99,4 @@ When you have added content as a "Definition" to the string parameter, you will 
     
     When reading from a file or adding HTML content to the string parameter ensure that the quotes used in style tags are escaped eg: ``\"``.
 
-    When reading from a file and defining content for the string parameter you might want to add ``NoSave`` to the ``Property`` attribute. This will ensure that the text is not stored in the case files, which would unnecessarily increase the size of the case file.
+    When reading from a file and defining content for the string parameter, we strongly recommend you set ``NoSave`` to the ``Property`` attribute. This will ensure that the text is not stored in the case files, which would unnecessarily increase the size of the case file.
