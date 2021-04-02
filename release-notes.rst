@@ -8,6 +8,53 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 
+
+#############
+AIMMS 4.79
+#############
+
+AIMMS 4.79.1 Release (April 2, 2021 - build 4.79.1.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+-  There is a new attribute for Libraries and Modules: Required Units. This attribute eliminates the need to declare Quantities inside a library or module.
+
+
+WebUI Improvements
++++++++++++++++++++++++++
+-  The Text Widget can now have a string parameter as its content. This means that you can now dynamically specify the content this widget, greatly enhancing the possibilities of this widget in your applications.
+-  Now the WebUI offers a button in the widget and page headers with which you can easily download the content of the widget or the whole page as an image file.
+-  The Bar Chart, the Line Chart and the Barline widgets now offer support for AIMMS sets with a tooltip annotation on it.
+
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+-  In case of errors happening during running solver sessions on PRO, AIMMS could crash.
+-  Changing the type of an identifier (for example from numeric to element valued) was not correctly registered when re-compiling the model afterwards.
+-  Handling of license related Gurobi errors has been improved.
+-  Using Checking directives in a Read statement where the database table itself is indexed, could lead to wrong index mappings and thus incorrect behavior and/or incorrect error messages.
+-  An expression like Ord(elemparam(i) $ expr(i)) could lead to a crash when either elemparam or expr was empty. This could also happen when the $ condition was added automatically because of a domain condition on the element parameter.
+-  The result of the function NonDefault was not numerical if the argument was a string parameter or an element parameter. Now it always returns either 1 or 0.
+-  In case of `list expressions <https://documentation.aimms.com/language-reference/non-procedural-language-components/numerical-and-logical-expressions/numerical-expressions.html#list-expressions>`__, the tuple size of the list expression should exactly match the number of running indices on the left hand side. For example, `Parameter(i, 'elem1') := data { ('i01', 'elem1') : 1.0 };` is not accepted anymore, and should become `Parameter(i, 'elem1') := data { ('i01') : 1.0 };` because the second index is fixed.
+-  Multi-line attribute windows could show too much indentation if the .ams file had been edited outside AIMMS.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The performance of WebUI tables that show indentifiers with a large index domain in combination with annotations and totals has been improved.
+-  The performance of webui tables (with large identifiers that use (complex) domain conditions to restrict the number of non-default entries) has been improved.
+-  Empty WebUI translations (entries like Identifier = '') in a `properties` file were ignored since AIMMS 4.78.
+
+
+--------------
+
+
+
+
 #############
 AIMMS 4.78
 #############
