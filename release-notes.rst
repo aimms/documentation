@@ -21,12 +21,12 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
 AIMMS Improvements
 +++++++++++++++++++++++++
--  There is a new attribute for Libraries and Modules: Required Units. This attribute eliminates the need to declare Quantities inside a library or module.
+-  There is a new attribute for Libraries and Modules: Required Units. This attribute eliminates the need to declare Quantities inside a library or module. For information on the topic, see `this community post <https://community.aimms.com/product-updates/78>`__.
 
 
 WebUI Improvements
 +++++++++++++++++++++++++
--  The Text Widget can now have a string parameter as its content. This means that you can now dynamically specify the content this widget, greatly enhancing the possibilities of this widget in your applications.
+-  The Text Widget can now have a string parameter as its content. This means that you can now dynamically specify the content of this widget, greatly enhancing the possibilities of this widget in your applications.
 -  Now the WebUI offers a button in the widget and page headers with which you can easily download the content of the widget or the whole page as an image file.
 -  The Bar Chart, the Line Chart and the Barline widgets now offer support for AIMMS sets with a tooltip annotation on it.
 
@@ -46,7 +46,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  The performance of WebUI tables that show indentifiers with a large index domain in combination with annotations and totals has been improved.
--  The performance of webui tables (with large identifiers that use (complex) domain conditions to restrict the number of non-default entries) has been improved.
+-  The performance of webUI tables (with large identifiers that use (complex) domain conditions to restrict the number of non-default entries) has been improved.
 -  Empty WebUI translations (entries like Identifier = '') in a `properties` file were ignored since AIMMS 4.78.
 
 
