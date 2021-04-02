@@ -343,6 +343,33 @@ You can display icons from our `icon list <../_static/aimms-icons/icons-referenc
 
     Ensure you escape the quotes in the HTML properties. eg: ``\"``.
 
+**From AIMMS version 4.79** it is possible to configure custom tooltips for the elements in the row and column headers of the `Table <table-widget.html>`_ and on the x-axis elements of the `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_ and `Bar-Line Chart <bar-line-chart-widget.html>`_.
+
+You need to add the ``webui::TooltipIdentifier`` annotation attribute to the set and specify the string parameter indexed over the respective set. For example: 
+
+.. code ::
+
+    Set Netherlands {
+        SubsetOf: AllLocations;
+        Index: net;
+        Definition: data { Amsterdam, 'Den Hague', Eindhoven, Haarlem };
+        webui::TooltipIdentifier: NetHeaderTooltips;
+    }
+
+    StringParameter NetHeaderTooltips {
+        IndexDomain: net;
+        Definition: {
+            formatstring("Current Capacity <br><br> <b>%e</b> <br><br> %n",net,CurrentCapacity(net));
+        }
+    }
+
+.. image:: images/Tooltip_TableHeader.png
+    :align: center
+
+The same tooltip will show for the x-axis elements on the Bar, Line and Bar-Line charts, as illustrated below:
+
+.. image:: images/Tooltip_ChartElements.png
+    :align: center
 
 If you do not want to show the default tooltips for certain identifiers or data items, you can make this possible by clearing or emptying the data for the respective identifier or data point in the string parameter defining the tooltips.  
 
@@ -367,7 +394,7 @@ Then in the string parameter defining the tooltips, you can just clear/empty the
 
 
 .. note::
-    This feature fro hiding tooltips is available only in AIMMS releases starting from version 4.65 onwards. 
+    This feature for hiding tooltips is available from AIMMS version 4.65 and onwards. 
 
 Identifier Settings
 -------------------
