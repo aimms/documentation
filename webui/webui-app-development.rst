@@ -31,6 +31,7 @@ The description of the tools for WebUI app development and related topics can be
    page-settings
    widget-manager
    widget-types
+   widget-header
    widget-options
    data-manager
    app-management
