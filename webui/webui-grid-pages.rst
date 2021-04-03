@@ -171,7 +171,7 @@ This section provides more details about creating (custom) grid layouts using th
 
 .. warning::
 
-	The special layout editor will only save valid layout definitions. The description of a (custom) grid layout created using the layout editor will be saved in the ``webui.json`` file mentioned in the `WebUI Folder <webui-folder.html>`_ section. Please DO NOT change this layout description in the ``webui.json`` directly. In particular, do not change any layout property names manually in the ``webui.json`` file. Failure to comply with this rule may lead to unexpected results. For more details, please check also the last two sub-sections below.
+	The special layout editor will only save valid layout definitions. The description of a (custom) grid layout created using the layout editor will be saved in the ``webui.json`` file mentioned in the `WebUI Folder <webui-webui-folder.html>`_ section. Please DO NOT change this layout description in the ``webui.json`` directly. In particular, do not change any layout property names manually in the ``webui.json`` file. Failure to comply with this rule may lead to unexpected results. For more details, please check also the last two sub-sections below.
 
 
 A layout is a technical description of a specific component (Grid), its properties and the items (sub-components) which live within that component. We currently (only) support Grid as the main component and WidgetArea as the sub-components.

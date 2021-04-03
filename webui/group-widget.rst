@@ -85,7 +85,7 @@ On the WebUI side, you have:
         * :token:`webui_runtime::myform_SaveForm`
         * :token:`webui_runtime::myform_DeleteEntry`
         
-    * A `translation file <folder.html#project-specific-translations>`_ ``WebUI/resources/languages/person-form-messages.properties`` which provides English translations for various form-specific internal names, containing, for example:
+    * A `translation file <webui-folder.html#project-specific-translations>`_ ``WebUI/resources/languages/person-form-messages.properties`` which provides English translations for various form-specific internal names, containing, for example:
 
     .. code-block:: none
 

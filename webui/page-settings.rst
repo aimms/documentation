@@ -155,7 +155,7 @@ Page Actions can be configured by the application developer via the AIMMS model.
 This set has 4 elements representing page action properties:
 
 * :token:`displayText` : The Title/Label to be displayed for the action.
-* :token:`icon` : The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_ . `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
+* :token:`icon` : The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_ . `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required.
 * :token:`procedure` : The procedure to be called when the action is clicked.
 * :token:`state` : The display state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
 

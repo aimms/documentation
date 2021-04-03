@@ -8,7 +8,7 @@ Here you can find a summary of the steps to be taken for creating a WebUI for yo
 #. Make sure you have the latest version of preferably the `Chrome <https://www.google.com/intl/en/chrome/browser/>`_ browser (as it performs the best), or Microsoft's Internet Explorer 11 or Edge.
 #. In the AIMMS development system, open an existing application or create a new one. 
 #. New application projects contain the :token:`AimmsPROLibrary` and the :token:`AimmsWebUI` system libraries by default. If you already have an older project, it might not contain these libraries, yet. In that case, you need to extend your model with these libraries. To add AIMMS libraries to your model: go to the *Library Manager* of AIMMS (in the *File* menu) and select *Add System Library*. 
-#. Start WebUI by clicking on *WebUI* in the AIMMS toolbar, or by using the *WebUI* (sub)menu in the AIMMS *Tools* menu. The first time, this will create a     `WebUI folder <folder.html>`_ in your *Main Project* subfolder. When using *Start WebUI*, the WebUI is started without opening a browser. When you select one of the browsers, WebUI is started and the browser is opened at the home page of your app.
+#. Start WebUI by clicking on *WebUI* in the AIMMS toolbar, or by using the *WebUI* (sub)menu in the AIMMS *Tools* menu. The first time, this will create a     `WebUI folder <webui-folder.html>`_ in your *Main Project* subfolder. When using *Start WebUI*, the WebUI is started without opening a browser. When you select one of the browsers, WebUI is started and the browser is opened at the home page of your app.
 #. Now you can follow the `WebUI tutorial <quick-start.html>`_! Once you are done, you can `publish your app on AIMMS PRO <publishing.html>`_.
 
 .. note::
@@ -69,4 +69,4 @@ To be able to show data for identifiers that are declared in an AIMMS library, y
 
 One may wonder why should the corresponding index domain sets be present in the library interface? The reason is that these index domain sets are used to display aggregated values (by pivoting/moving indices to the *Aggregated* group) in a widget. More precisely, AIMMS creates runtime identifiers in order to calculate these aggregated values (such as totals). To be able to evaluate the definitions of these runtime identifiers, the domain indices of the identifier need to be accessible too.
 
-When adding `project-specific translations <folder.html#project-specific-translations>`_ to your WebUI project and (some of) the translation identifiers are located in a library, please make sure to include the library prefixes to the .properties translation file.
+When adding `project-specific translations <webui-folder.html#project-specific-translations>`_ to your WebUI project and (some of) the translation identifiers are located in a library, please make sure to include the library prefixes to the .properties translation file.

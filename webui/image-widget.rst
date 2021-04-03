@@ -7,7 +7,7 @@ If you specify the literal name of the image file, make sure **not** to use quot
 
 If you plan to change the image that is displayed in the Image widget dynamically, you will have to use a string parameter. Specifying a literal value is useful only for static images.
 
-The images themselves should be stored in the *WebUI*/*resources*/*images* `sub-folder <folder.html#resouces#images>`_ of your *MainProject* directory. 
+The images themselves should be stored in the *WebUI*/*resources*/*images* `sub-folder <webui-folder.html#resouces#images>`_ of your *MainProject* directory. 
 This sub-folder is not created by default, so you need to create it yourself the very first time that you need it.
 
 .. note:: Please keep in mind that on Linux the casing of the image files should be correct, otherwise your images will not display. Also, please remember to specify the full name of the image, including the filename extension (like .jpg, .png etc). In particular, this is important to keep in mind in case your Windows Explorer is set to hide file extensions.

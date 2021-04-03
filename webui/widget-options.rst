@@ -45,8 +45,8 @@ Additional Identifier Properties
 
 For every identifier which you have specified as part of the Contents_ option in your widget you can also specify some additional identifiers in AIMMS in order to indicate certain properties for that identifier. More specifically, for a given identifier :token:`X` you can specify (create in AIMMS) the following:
 
-* :token:`X_annotations` to hold WebUI annotations that are put as CSS classes on associated DOM elements in your model. Please see the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
-* :token:`X_flags` to make updatable identifiers appear as read-only in the WebUI. Please see the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
+* :token:`X_annotations` to hold WebUI annotations that are put as CSS classes on associated DOM elements in your model. Please see the `Data-Dependent Styling <webui-folder.html#data-dependent-styling>`_ section for more details.
+* :token:`X_flags` to make updatable identifiers appear as read-only in the WebUI. Please see the `Data-Dependent Styling <webui-folder.html#data-dependent-styling>`_ section for more details.
 * :token:`X_text` to hold additional text to be shown within the DOM element associated with a data tuple. This option is currently only supported by the Gantt chart widget in the AIMMS WebUI. The CSS classes defined via the annotations identifier of the identifier :token:`X` itself will also be set for text displayed in the associated DOM element. You can use this, for instance, to change the styling of the displayed text of elements you want your end-users to pay extra attention to. 
     
     * For the Gantt chart, you can set CSS for the task text via ``.tag-ganttchart .label``, possible compounded with the additional CSS classes set via the annotations identifier of the <duration> parameter.
@@ -94,7 +94,7 @@ To start with, in the attribute form of the identifier for which you want to spe
 .. image:: images/Annotations_view1.png
     :align: center
 
-The specified string parameter should have as value a space-separated string of class-names (that will be used to decorate the so-called DOM elements with in the front-end). Such a string may be then used in combination with an additional project-specific `CSS <folder.html#css-styling>`_ file in order to define or refine the styling of some parts of the WebUI which reference the original identifier. Please see the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details.
+The specified string parameter should have as value a space-separated string of class-names (that will be used to decorate the so-called DOM elements with in the front-end). Such a string may be then used in combination with an additional project-specific `CSS <webui-folder.html#css-styling>`_ file in order to define or refine the styling of some parts of the WebUI which reference the original identifier. Please see the `Data-Dependent Styling <webui-folder.html#data-dependent-styling>`_ section for more details.
 
 The string parameter used in the annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier. Therefore,  when the original identifier is renamed, one no longer needs to rename the annotation parameter accordingly.
 
@@ -105,7 +105,7 @@ Similarly, in the attribute form of the identifier for which you want to specify
 .. image:: images/Annotations_view2.png
     :align: center
 
-Again, such a string may be then used for front-end styling purposes, please see the `Data-Dependent Styling <folder.html#data-dependent-styling>`_ section for more details. Also, the string parameter used in the flags annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier.
+Again, such a string may be then used for front-end styling purposes, please see the `Data-Dependent Styling <webui-folder.html#data-dependent-styling>`_ section for more details. Also, the string parameter used in the flags annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier.
 
 If an identifier X does not have the :token:`webui::FlagsIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_flags` discussed previously, if this is present in the model.
 
@@ -250,7 +250,7 @@ where ALLIslandImageURL is a string parameter holding the web URL of a correspon
 	
 .. note::
    **Using Application-Specific Resources:** 
-   By using a string of the form *"/app-resources/resources/images/Canarias.png"*, one may refer to an image included in the *resources/images* subfolder of the `WebUI folder <folder.html>`_ of the application directory.
+   By using a string of the form *"/app-resources/resources/images/Canarias.png"*, one may refer to an image included in the *resources/images* subfolder of the `WebUI folder <webui-folder.html>`_ of the application directory.
    
 Now, suppose that some aircraft data is shown in a bubblechart, where the size of the bubbles is determined by a parameter NumberOfSeats(p) with p being the index of a set Planes.
 Again, one may add and fill in a string parameter NumberOfSeatsInfo(p) to the :token:`webui::TooltipIdentifier` annotation attribute of NumberOfSeats. This string parameter may be defined for example by using the HTML data value as shown here:  
@@ -776,7 +776,7 @@ This set has 4 elements representing widget action properties:
 .. tip:: 
     If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append ``aimms-`` to the selected icon name when adding it to the model. For example: if the icon name is "calculator", then in AIMMS it needs to be ``aimms-calculator``.
 
-    `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
+    `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required.
     
 To configure widget actions, create a string parameter indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with :token:`webui::indexPageExtension` and WidgetActionSpecification with the index :token:`webui::indexWidgetActionSpec`, for example MyWidgetActions(webui::indexPageExtension,webui::indexWidgetActionSpec) as shown here:
 

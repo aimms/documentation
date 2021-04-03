@@ -75,7 +75,7 @@ The available options to be specified are the following:
 .. tip:: 
     If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append ``aimms-`` to the selected icon name when adding it to the model. For example: if the icon name is "calculator", then in AIMMS it needs to be ``aimms-calculator``.
 
-    `Custom icons <folder.html#custom-icon-sets>`_ can also be used if required.
+    `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required.
 
 .. note::
 
@@ -511,7 +511,7 @@ Similary, you can add user-defined tooltips to each node set.
 Using Google Maps with API key 
 ------------------------------
 
-If you already use services from Google Maps, it is possible to override the default map provider in AIMMS with Google Maps, by adding an `Application Specific Resource <resources-subfolder.html#webui-resources>`_ file. 
+If you already use services from Google Maps, it is possible to override the default map provider in AIMMS with Google Maps, by adding an `Application Specific Resource <resources-subwebui-folder.html#webui-resources>`_ file. 
 
 Create a .js file, lets call it GoogleAPI.js, in the resources/js folder. In the GoogleAPI.js, add the below code with your valid Google API key. Ensure you replace YOUR_API_KEY with your actual API key within the quotes.
 
