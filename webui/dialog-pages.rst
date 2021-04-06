@@ -28,7 +28,7 @@ Dialog Pages
 .. |dialog|  image:: images/dialogicon.png 
 
 
-This section describes various tasks related to WebUI dialog pages.
+This section describes various tasks related to the WebUI Dialog Pages.
 
 .. important:: Dialog pages are available in software versions from AIMMS 4.65 onwards.
 
