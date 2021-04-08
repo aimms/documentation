@@ -19,7 +19,7 @@ AIMMS 4.79.2 Release (April 8, 2021 - build 4.79.2.5).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
-Resolved AIMMS Issues
+AIMMS Improvements
 +++++++++++++++++++++++++
 
 -  We introduced a statement that you can use to test the behavior of the system when a crash occurs during execution. The statement `Raise error "AIMMS should crash now";` will cause AIMMS to crash when it is executed.
