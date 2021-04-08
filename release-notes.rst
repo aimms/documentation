@@ -13,6 +13,28 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.79
 #############
 
+
+AIMMS 4.79.2 Release (April 8, 2021 - build 4.79.2.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We introduced a statement that you can use to test the behavior of the system when a crash occurs during execution. The statement `Raise error "AIMMS should crash now";` will cause AIMMS to crash when it is executed.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We added scroll support to the row and column headers in the Table widget.
+-  There was a performance problem in the Barline chart.
+-  On a page with many selectionboxes (more than 25, either visible or hidden), it could happen that they did not show any content anymore. Only the text 'Empty Selectionbox' would be displayed and the selectionboxes could not be used. This problem was introduced in AIMMS 4.78.4.
+
+
+--------------
+
+
 AIMMS 4.79.1 Release (April 2, 2021 - build 4.79.1.5).
 ------------------------------------------------------------------------------------------
 
