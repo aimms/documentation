@@ -43,54 +43,56 @@ For instance, a dialog grid page not only has the option for one of the three pr
 Adding a Dialog Grid Page
 -------------------------
 
-Adding a dialog grid page is similar to adding a page or side panel.
+Adding a dialog grid page is similar to adding a (grid) page, a regular dialog, or a side panel.
 
-When using the App/Page Manager, click on the insert option "Add Grid Layout Dialog Page" and give the new dialog grid page any name you desire. Note that you cannot give it a name which you have already used for other pages, side panels or dialog pages. 
+When using the `App/Page Manager <app-management.html>`_, click on the insert option "Add Grid Layout Dialog Page" and give the new dialog grid page any name you desire. Note that you cannot give it a name which you have already used for other pages, side panels or dialog pages. 
 
 .. image:: images/dpG_add_new.png
 			:align: center
 
-Dialog grid pages can be added to any level in the page tree, just like any other type of page. Unlike pages or grid pages, dialog (grid) pages do not appear in the navigation Menu and can only be accessed via the App/Page Manager, where they have the same options as a page or side panel, i.e. Rename, Delete, etc. You can also move the dialog (grid) pages at a different location within the pages tree in the usual way. 
+Dialog grid pages can be added to any level in the page tree, just like any other type of page. Unlike pages or grid pages, dialog (grid) pages do not appear in the navigation Menu and can only be accessed via the `App/Page Manager <app-management.html>`_, where they have the same options as a page or side panel, i.e. Rename, Delete, etc. You can also move the dialog (grid) pages at a different location within the pages tree by using drag-and-drop in the usual way. 
 
 .. note:: 
 	
-	Avoid adding pages under dialog (grid) pages. These pages will not be shown in the navigation menu.
+	Avoid adding pages under dialog (grid) pages as such pages will not be shown in the navigation menu.
 
-By default, a newly added dialog grid page gets the stadndard grid "Layout 11", which has just one area for widgets.
+By default, a newly added dialog grid page gets the standard grid "Layout 11", which has just one area for widgets.
 
 For a dialog grid page you can chose a standard size from the three opions - Small, Medium, or Large, the dimensions of which are as follows:
 
-#.  Small: Width = 3 Columns, Height = 2 
+1.  Small: Width = 3 Columns, Height = 2 
 
 	.. image:: images/dpG_new_small.jpg
 				:align: center
 
-#.  Medium: Width = 6 Columns, Height = 3 Rows 
+2.  Medium: Width = 6 Columns, Height = 3 Rows 
 
 	.. image:: images/dpG_new_medium.jpg
 				:align: center
 
-#.  Large: Width = 8 Columns, Height = 3 Rows 
+3.  Large: Width = 8 Columns, Height = 3 Rows 
 
 	.. image:: images/dpG_new_large.jpg
 				:align: center
 
-Besides the option for one of the three predefined sizes above, a dialog grid page also has the option for a customized page size. In this case, the width and the height may be specified in the Miscellaneous section of the Page Settings:
+Besides the option for one of the three predefined sizes above, a dialog grid page also has the option for a customized page size. In this case, the width and the height may be specified in the Miscellaneous section of the `Page Settings <page-settings.html>`_:
 
-#.  Custom Size: Example: Width = 4 Columns, Height = 3 Rows  
+4.  Custom Size: Example: Width = 4 Columns, Height = 3 Rows  
 
 	.. image:: images/dpG_new_customsize.jpg
 				:align: center
 
-In the same way as for regular dialog pages, the title and action buttons on a dialog grid page can be configured via the model. 
+For a dialog grid page with custom size, the maxrows option may be set between 1 and 4, while the maxcolumns option may be set between 1 and 14. If other values are specified, then they will be rounded to the nearest integer within these intervals.
+
+The pictures above show the dialog grid pages in their preview mode. In this mode, the title and the action buttons shown are just placeholders in order to depict how the actual dialog grid page will look like when summoned. This preview also gives an idea of the usable area for adding widgets in the dialog grid page. In the same way as for regular dialog pages, the title and the action buttons applied on a dialog grid page which is summoned can be configured via the model, see further below. 
 
 
-Adding widgets to a Dialog Page
--------------------------------
+Adding widgets to a Dialog Grid Page
+------------------------------------
 
-`Adding widgets <widget-manager.html#adding-a-widget>`_ is the same for dialog pages as it is for normal pages or side panels.
+`Adding widgets <widget-manager.html#adding-a-widget>`_ to a dialog grid page works in the same way as for a (grid) page, a regular dialog, or a side panel.
 
-Select a desired size by clicking on the respective button in the top right corner of the dialog page. Open the widget manager and `add widgets <widget-manager.html#adding-a-widget>`_ that are needed. 
+First select a desired dialog size by clicking on the respective button in the top right corner of the dialog grid page or by defining a custom size for it. Then open the widget manager and `add widgets <widget-manager.html#adding-a-widget>`_ which are needed. 
 
 .. image:: images/dialogapge_selectsize.png
 			:align: center
@@ -103,10 +105,10 @@ When the height of a widget exceeds the height of the dialog page, the widget wi
 .. image:: images/dialogapge_goodfit.png
 			:align: center
 
-Configuring Dialog Pages
-------------------------
+Configuring Dialog Grid Pages
+-----------------------------
 
-The procedure `OpenDialogPage(pageId,title,actions,onDone) <library.html#opendialogpage>`_ needs to be used to invoke dialog pages on the desired page. 
+The procedure `OpenDialogPage(pageId,title,actions,onDone) <library.html#opendialogpage>`_ needs to be used in order to invoke a dialog grid page on the desired page. 
 
 An `example <library.html#id4>`_ of the procedure with declarations would result in:
 
@@ -125,9 +127,9 @@ The button names are assigned from left to right from the defined set. If the se
 .. image:: images/dialog_1n3buttons.png
 			:align: center
 
-Interacting With Dialog Pages
------------------------------
+Interacting With Dialog Grid Pages
+----------------------------------
 
-When a Dialog page is open, the user can only interact with the widgets on the dialog page and the dialog page itself. The dialog page can be closed only by clicking on the action(s). The user can move/drag the dialog page around the page.     
+When a dialog grid page is open, the user can only interact with the widgets on the dialog grid page and with the dialog grid page itself. The dialog grid page can be closed only by clicking on one of its actions button. The user can move/drag the dialog page around the page which invoked it.     
   
-When one dialog page is open, another dialog page cannot be invoked from the open dialog. 
+When one dialog grid page is open, no other dialog (grid) page can be invoked from the already openned dialog. 

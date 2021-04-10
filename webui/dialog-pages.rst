@@ -58,6 +58,11 @@ Click on the Insert Dialog page icon |dialog| and give it any name you desire. Y
 
 Dialog pages can be added to any level in the page tree, just like a normal page. Unlike Pages, Dialog pages do not appear in the Menu (navigation) and can only be accessed via the page manager. Dialog pages have the same options as a page or side panel, i.e. Rename, Delete, etc. You can also move the dialog pages the same way pages can be moved.
 
+.. note:: 
+	
+	Avoid adding pages under dialog pages as such pages will not be shown in the navigation menu.
+
+
 You can chose a size for the dialog page, the dimension for which are:
 
 #.  Small: Width = 3 Columns, Height = 2 Rows. Here you can fit widgets with dimensions that add up to 3 columns and 2 rows, e.g. 1 widget with width = 3 columns or less and height = 2 rows or less OR 2 widgets with width = 3 columns or less and height = 1 row.
@@ -79,10 +84,6 @@ The title and action buttons on the dialog page can be configured via the model.
 
 .. image:: images/dialog_placeholders.png
 			:align: center
-
-.. note:: 
-	
-	Avoid adding pages under dialog pages. These pages will not be shown in the navigation menu.
 
 Adding widgets to a Dialog Page
 -------------------------------
