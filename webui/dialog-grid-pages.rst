@@ -50,33 +50,40 @@ When using the App/Page Manager, click on the insert option "Add Grid Layout Dia
 .. image:: images/dpG_add_new.png
 			:align: center
 
-Dialog grid pages can be added to any level in the page tree, just like any other type of page. Unlike pages or grid pages, dialog (grid) pages do not appear in the navigation Menu and can only be accessed via the App/Page Manager, where they have the same options as a page or side panel, i.e. Rename, Delete, etc. You can also move the dialog (grid) pages at a different location within the pages tree in the usual way.
-
-For a dialog grid page you can chose a standard size from the three opions - Small, Medium, or Large, the dimensions of which are as follows:
-
-#.  Small: Width = 3 Columns, Height = 2 Rows. Here you can fit widgets with dimensions that add up to 3 columns and 2 rows, e.g. 1 widget with width = 3 columns or less and height = 2 rows or less OR 2 widgets with width = 3 columns or less and height = 1 row.
-
-	.. image:: images/dialog_diffsizes_small.png
-				:align: center
-
-#.  Medium: Width = 6 Columns, Height = 3 Rows. Here you can fit widgets with dimensions that add up to 6 columns and 3 rows. 
-
-	.. image:: images/dialog_diffsizes_medium.png
-				:align: center
-
-#.  Large: Width = 8 Columns, Height = 3 Rows .  Here you can fit widgets with dimensions that add up to 8 columns and 3 rows.
-
-	.. image:: images/dialog_diffsizes_large.png
-				:align: center
-
-The title and action buttons on the dialog page can be configured via the model. These are placeholders to depict how the actual dialog page will look. This also gives an idea of the usable area for adding widgets in the dialog page.
-
-.. image:: images/dialog_placeholders.png
-			:align: center
+Dialog grid pages can be added to any level in the page tree, just like any other type of page. Unlike pages or grid pages, dialog (grid) pages do not appear in the navigation Menu and can only be accessed via the App/Page Manager, where they have the same options as a page or side panel, i.e. Rename, Delete, etc. You can also move the dialog (grid) pages at a different location within the pages tree in the usual way. 
 
 .. note:: 
 	
-	Avoid adding pages under dialog pages. These pages will not be shown in the navigation menu.
+	Avoid adding pages under dialog (grid) pages. These pages will not be shown in the navigation menu.
+
+By default, a newly added dialog grid page gets the stadndard grid "Layout 11", which has just one area for widgets.
+
+For a dialog grid page you can chose a standard size from the three opions - Small, Medium, or Large, the dimensions of which are as follows:
+
+#.  Small: Width = 3 Columns, Height = 2 
+
+	.. image:: images/dpG_new_small.jpg
+				:align: center
+
+#.  Medium: Width = 6 Columns, Height = 3 Rows 
+
+	.. image:: images/dpG_new_medium.jpg
+				:align: center
+
+#.  Large: Width = 8 Columns, Height = 3 Rows 
+
+	.. image:: images/dpG_new_large.jpg
+				:align: center
+
+Besides the option for one of the three predefined sizes above, a dialog grid page also has the option for a customized page size. In this case, the width and the height may be specified in the Miscellaneous section of the Page Settings:
+
+#.  Custom Size: Example: Width = 4 Columns, Height = 3 Rows  
+
+	.. image:: images/dpG_new_customsize.jpg
+				:align: center
+
+In the same way as for regular dialog pages, the title and action buttons on a dialog grid page can be configured via the model. 
+
 
 Adding widgets to a Dialog Page
 -------------------------------
