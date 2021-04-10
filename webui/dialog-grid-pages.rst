@@ -45,14 +45,14 @@ Adding a Dialog Grid Page
 
 Adding a dialog grid page is similar to adding a page or side panel.
 
-When using the App Manager, click on the insert option "Add Grid Layout Dialog Page" and give the new dialog grid page any name you desire. Note that you cannot give it a name which you have already used for other pages, side panels or dialog pages. 
+When using the App/Page Manager, click on the insert option "Add Grid Layout Dialog Page" and give the new dialog grid page any name you desire. Note that you cannot give it a name which you have already used for other pages, side panels or dialog pages. 
 
 .. image:: images/dpG_add_new.png
 			:align: center
 
-Dialog pages can be added to any level in the page tree, just like a normal page. Unlike Pages, Dialog pages do not appear in the Menu (navigation) and can only be accessed via the page manager. Dialog pages have the same options as a page or side panel, i.e. Rename, Delete, etc. You can also move the dialog pages the same way pages can be moved.
+Dialog grid pages can be added to any level in the page tree, just like any other type of page. Unlike pages or grid pages, dialog (grid) pages do not appear in the navigation Menu and can only be accessed via the App/Page Manager, where they have the same options as a page or side panel, i.e. Rename, Delete, etc. You can also move the dialog (grid) pages at a different location within the pages tree in the usual way.
 
-You can chose a size for the dialog page, the dimension for which are:
+For a dialog grid page you can chose a standard size from the three opions - Small, Medium, or Large, the dimensions of which are as follows:
 
 #.  Small: Width = 3 Columns, Height = 2 Rows. Here you can fit widgets with dimensions that add up to 3 columns and 2 rows, e.g. 1 widget with width = 3 columns or less and height = 2 rows or less OR 2 widgets with width = 3 columns or less and height = 1 row.
 
