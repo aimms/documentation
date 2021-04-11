@@ -109,7 +109,7 @@ The newly added widget may be moved to one of the grid areas (in this case to Ar
 .. image:: images/dpG_widget_assigned_1.jpg
 			:align: center
 
-As it may be noticed in the last picture above, when a widget has more data than those which fit within the width of the assigned grid area, then the widget may get a horizontal scroll bar (and similarly a vertical scroll bar for the height). 
+As it may be noticed in the last picture above, when a widget has more data than those which fit within the width of the assigned grid area, then the widget may get a horizontal scroll bar (and similarly, a vertical scroll bar in the case of the height). 
 
 The dialog grid pages themselves do not have a scroll bar. Threfore, it is advisable to pick a suitable size and layout for the dialog grid page, depending on the widgets you want to place on it. You can change the size of the dialog grid page any number of times when in developer mode. However, the sizing options are not available to end users, so the sizes can no longer be changed after the application has been published.
 
@@ -125,26 +125,43 @@ Configuring Dialog Grid Pages
 
 The procedure `OpenDialogPage <library.html#opendialogpage>`_ needs to be used in order to configure/invoke a dialog grid page on the desired page. 
 
-An `example <library.html#id4>`_ of the procedure with declarations would result in:
+For example, we can define a procedure "Open_Dialog_Small" as
 
 .. code::
 
-	MyActions:= data { Decline, Accept };
-	pageId := 'dialog_page';
-	webui::OpenDialogPage(pageId, "Dialog Page Title", MyActions, 'Procedure_Actions');
+ 	empty DialogActions;
 
+	DialogActions := data{ 'OK' };
+	webui::OpenDialogPage('dialog_small_1', "Demand Values", DialogActions, 'Actions_Procedure');
 
-.. image:: images/dialog_procedurecall.png
+and use this procedure behind a secondary page action in order to invoke the "Dialog_Small" page with just one action button on it:
+
+.. image:: images/dpG_invoked_small_1.png
 			:align: center
 
-The button names are assigned from left to right from the defined set. If the set has only 1 element, only one button will be displayed. A maximum of 3 buttons can be shown. In the case where 3 buttons are shown, the style of the 1st two buttons are the same and the 3rd button is different.
+In a similar way, we can define a procedure "Open_Dialog_Medium" as
 
-.. image:: images/dialog_1n3buttons.png
+.. code::
+
+	empty DialogActions;
+
+	DialogActions := data{ 'Accept', 'Decline' };
+	webui::OpenDialogPage('dialog_medium_1', "Unit Costs and Transport for Selected Factories", DialogActions, 'Actions_Procedure');
+
+and use this procedure behind another secondary page action in order to invoke the "Dialog_Medium" page with two action buttons on it:
+
+.. image:: images/dpG_invoked_medium_1.png
 			:align: center
+
+The button names are assigned from left to right in the order given by the actions set. A maximum of three buttons can be shown on the dialog, so if the actions set has more than three elements, then only the first three will become visible on the page. In case three buttons are shown on the dialog, the style of the first two buttons are the same (white background) and the third button is different (blue background).
 
 Interacting With Dialog Grid Pages
 ----------------------------------
 
-When a dialog grid page is open, the user can only interact with the widgets on the dialog grid page and with the dialog grid page itself. The dialog grid page can be closed only by clicking on one of its actions button. The user can move/drag the dialog grid page around the page which invoked it.     
+When a dialog grid page is open (invoked), the user can only interact with the widgets on the dialog grid page and with the dialog grid page itself. In particular, the user can move/drag the dialog grid page around the page which invoked it. When one dialog grid page is open, no other dialog (grid) page can be invoked from the already openned dialog. The dialog grid page can be closed only by clicking on one of its actions button.
+
+.. note::
+
+	For a dialog grid page with custom size, where the maxrows and maxcolumns page options are specified through scalar model parameters, it is possible to put these parameters in a widget placed on the dialog itself and attempt to change the size of the dialog dynamically, after the dialog is invoked. This works fine as long as the dialog is not moved around on the invoking page. However, if the dialog is moved around and then resized dynamically by changing the values of the maxrows and maxcolumns parameters, then some scroll bars may become visible. This latter situation should be avoided. 
   
-When one dialog grid page is open, no other dialog (grid) page can be invoked from the already openned dialog. 
+ 
