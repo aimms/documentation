@@ -90,25 +90,40 @@ The pictures above show the dialog grid pages in their preview mode. In this mod
 Adding widgets to a Dialog Grid Page
 ------------------------------------
 
-`Adding widgets <widget-manager.html#adding-a-widget>`_ to a dialog grid page works in the same way as for a (grid) page, a regular dialog, or a side panel.
+Essentially, `adding widgets <widget-manager.html#adding-a-widget>`_ to a dialog grid page works in the same way as for a (grid) page, a regular dialog, or a side panel. Please follow the next steps.
 
-First select a desired dialog size by clicking on the respective button in the top right corner of the dialog grid page or by defining a custom size for it. Then open the widget manager and `add widgets <widget-manager.html#adding-a-widget>`_ which are needed. 
+First select a desired dialog size by clicking on the respective button in the top right corner of the dialog grid page or by defining a custom size for it. Subsequently, you can change the current grid layout to another grid layout in the same way as for regular `Grid Pages <webui-grid-pages.html>`_ by using the `Page Configurator tab of the App Manager <webui-grid-pages.html#standard-layouts>`_. Then open the widget manager and `add widgets <widget-manager.html#adding-a-widget>`_ which are needed. Please note that the "Add widget" option dialog can also be openned by clicking on the "+" button located at the bottom of the Page Configurator tab, see pictures above.
 
-.. image:: images/dialogapge_selectsize.png
+For example, for Dialog_Small declared above, we can keep the Small size and the grid Layout 11 (which has only Area A for widgets) and then add a table widget "demand_table" to this dialog grid page by using the "Add widget" option dialog:
+
+.. image:: images/dpG_add_widget_1.jpg
 			:align: center
 
-When the height of a widget exceeds the height of the dialog page, the widget will be clipped, as Dialog pages do not have a scroll bar. Pick a suitable size for the dialog page and the widgets you want to have in the dialog page. You can change the size of the dialog page any number of times when in developer mode. The Small, Medium, Large buttons are not available to end users, so the sizes cannot be changed once the application is published.
+After adding a new widget, this is initially placed in the "Unassigned widgets' section of the grid layout:
 
-.. image:: images/dialogapge_widgetclipped.png
+.. image:: images/dpG_widget_unassigned_1.jpg
 			:align: center
 
-.. image:: images/dialogapge_goodfit.png
+The newly added widget may be moved to one of the grid areas (in this case to Area A) by using drag-and-drop, such that the widget becomes visible on the page:
+
+.. image:: images/dpG_widget_assigned_1.jpg
 			:align: center
+
+As it may be noticed in the last picture above, when a widget has more data than those which fit within the width of the assigned grid area, then the widget may get a horizontal scroll bar (and similarly a vertical scroll bar for the height). 
+
+The dialog grid pages themselves do not have a scroll bar. Threfore, it is advisable to pick a suitable size and layout for the dialog grid page, depending on the widgets you want to place on it. You can change the size of the dialog grid page any number of times when in developer mode. However, the sizing options are not available to end users, so the sizes can no longer be changed after the application has been published.
+
+For instance, suppose that on the Dialog_Medium page we would like to show two table rendering the numerical values of the unit costs and the transportation amounts for a selection of factories. In this case, we can select the standard Layout 4 and add the widgets  "unitcost_table", "selected_factories", and "transport_table" to Area A, Area B, and Area C, respectively, as illustrated in the following picture:
+
+.. image:: images/dpG_widget_assigned_2.png
+			:align: center
+
+Once all the required widgets have been added, a dialog grid page is ready to be configured/invoked as explained next.
 
 Configuring Dialog Grid Pages
 -----------------------------
 
-The procedure `OpenDialogPage(pageId,title,actions,onDone) <library.html#opendialogpage>`_ needs to be used in order to invoke a dialog grid page on the desired page. 
+The procedure `OpenDialogPage <library.html#opendialogpage>`_ needs to be used in order to configure/invoke a dialog grid page on the desired page. 
 
 An `example <library.html#id4>`_ of the procedure with declarations would result in:
 
@@ -130,6 +145,6 @@ The button names are assigned from left to right from the defined set. If the se
 Interacting With Dialog Grid Pages
 ----------------------------------
 
-When a dialog grid page is open, the user can only interact with the widgets on the dialog grid page and with the dialog grid page itself. The dialog grid page can be closed only by clicking on one of its actions button. The user can move/drag the dialog page around the page which invoked it.     
+When a dialog grid page is open, the user can only interact with the widgets on the dialog grid page and with the dialog grid page itself. The dialog grid page can be closed only by clicking on one of its actions button. The user can move/drag the dialog grid page around the page which invoked it.     
   
 When one dialog grid page is open, no other dialog (grid) page can be invoked from the already openned dialog. 
