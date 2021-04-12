@@ -60,7 +60,7 @@ By default, a newly added dialog grid page gets the standard grid "Layout 11", w
 
 For a dialog grid page you can chose a standard size from the three opions - Small, Medium, or Large, the dimensions of which are as follows:
 
-1.  Small: Width = 3 Columns, Height = 2 
+1.  Small: Width = 3 Columns, Height = 2. This is the default size for a dialog grid page. 
 
 	.. image:: images/dpG_new_small.jpg
 				:align: center
@@ -75,14 +75,16 @@ For a dialog grid page you can chose a standard size from the three opions - Sma
 	.. image:: images/dpG_new_large.jpg
 				:align: center
 
-Besides the option for one of the three predefined sizes above, a dialog grid page also has the option for a customized page size. In this case, the width and the height may be specified in the Miscellaneous section of the `Page Settings <page-settings.html>`_:
+Besides the option for one of the three predefined sizes above, a dialog grid page also has the option for a customized page size. In this case, the height and the width may be specified respectively in the maxrows and the maxcolumns fields of the Miscellaneous section of the `Page Settings <page-settings.html>`_:
 
 4.  Custom Size: Example: Width = 4 Columns, Height = 3 Rows  
 
 	.. image:: images/dpG_new_customsize.jpg
 				:align: center
 
-For a dialog grid page with custom size, the maxrows option may be set between 1 and 4, while the maxcolumns option may be set between 1 and 14. If other values are specified, then they will be rounded to the nearest integer within these intervals.
+Values must be specified for both the maxrows and the maxcolumns fields in order to define a custom page size.
+
+For a dialog grid page with custom size, the maxrows option may be set between 1 and 4, while the maxcolumns option may be set between 2 and 14. If other values are specified, then they will be rounded to the nearest integer within these intervals. For example, a maxcolums value of 1 will be rounded to 2, while a maxrows value of 5 will be rounded to 4. 
 
 The pictures above show the dialog grid pages in their preview mode. In this mode, the title and the action buttons shown are just placeholders in order to depict how the actual dialog grid page will look like when summoned. This preview also gives an idea of the usable area for adding widgets in the dialog grid page. In the same way as for regular dialog pages, the title and the action buttons applied on a dialog grid page which is summoned can be configured via the model, see further below. 
 
