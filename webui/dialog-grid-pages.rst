@@ -155,7 +155,36 @@ and use this procedure behind another secondary page action in order to invoke t
 .. image:: images/dpG_invoked_medium_1.png
 			:align: center
 
+Two action buttons on a dialog grid page is also the default situation when the specified set of actions is empty:
+
+.. code::
+
+	empty DialogActions;
+
+	webui::OpenDialogPage('dialog_medium_1', "Unit Costs and Transport for Selected Factories", DialogActions, 'Actions_Procedure');
+	
+In this case the dialog shows by default the action buttons "cancel" and "OK":
+
+.. image:: images/dpG_invoked_nobutton.png
+			:align: center
+
 The button names are assigned from left to right in the order given by the actions set. A maximum of three buttons can be shown on the dialog, so if the actions set has more than three elements, then only the first three will become visible on the page. In case three buttons are shown on the dialog, the style of the first two buttons are the same (white background) and the third button is different (blue background).
+
+For example, when the invoking code is:
+
+.. code::
+
+	empty DialogActions;
+
+	DialogActions := data{ 'Accept', 'Decline', 'Cancel', '4th Action' };
+	webui::OpenDialogPage('dialog_medium_1', "Unit Costs and Transport for Selected Factories", DialogActions, 'Actions_Procedure');
+
+then the summoned dialog is rendered with three buttons like in the following picture:
+
+.. image:: images/dpG_invoked_3buttons.png
+			:align: center
+
+As a reminder, the effect of pushing one button or another on a dialog (grid) page is determined by the fourth argument of the procedure `OpenDialogPage <library.html#opendialogpage>`_. This fourth argument is a procedure which should have itself a single input string parameter as argument. When a user selects an action on the dialog (grid) page, this procedure is invoked with the action name as its argument. So, this procedure may execute different actions depending on the value of its input argument (which, in turn, is determined by the button pushed by the user).
 
 Interacting With Dialog Grid Pages
 ----------------------------------
