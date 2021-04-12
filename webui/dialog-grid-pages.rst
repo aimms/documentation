@@ -82,7 +82,7 @@ Besides the option for one of the three predefined sizes above, a dialog grid pa
 	.. image:: images/dpG_new_customsize.jpg
 				:align: center
 
-Values must be specified for both the maxrows and the maxcolumns fields in order to define a custom page size.
+Values must be specified for both the maxrows and the maxcolumns fields in order to define a valid custom page size.
 
 For a dialog grid page with custom size, the maxrows option may be set between 1 and 4, while the maxcolumns option may be set between 2 and 14. If other values are specified, then they will be rounded to the nearest integer within these intervals. For example, a maxcolums value of 1 will be rounded to 2, while a maxrows value of 5 will be rounded to 4. 
 
