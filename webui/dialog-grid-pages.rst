@@ -30,7 +30,7 @@ Dialog Grid Pages
 
 This section describes various tasks related to the WebUI Dialog Grid Pages.
 
-.. important:: Dialog pages are available in software versions from AIMMS 4.80 onwards.
+.. important:: Dialog grid pages are available in software versions from AIMMS 4.80 onwards.
 
 Dialog Grid Pages are dialog pages with a grid layout. So, they combine the features of `Dialog Pages <dialog-pages.html>`_ and the features of `WebUI Grid Pages <webui-grid-pages.html>`_. In this respect, the explanations about the behavior provided in the dialog pages section and in the WebUI grid pages section also apply to the dialog grid pages discussed here. Therefore, we advise the reader to take a look at those two sections as well for explanations on aspects that are generally applicable. 
 
@@ -94,7 +94,9 @@ Adding widgets to a Dialog Grid Page
 
 Essentially, `adding widgets <widget-manager.html#adding-a-widget>`_ to a dialog grid page works in the same way as for a (grid) page, a regular dialog, or a side panel. Please follow the next steps.
 
-First, select a desired dialog size by clicking on the respective button in the top right corner of the dialog grid page or by defining a custom size for it. Subsequently, you can change the current grid layout to another grid layout in the same way as for regular `Grid Pages <webui-grid-pages.html>`_ by using the `Page Configurator tab of the App Manager <webui-grid-pages.html#standard-layouts>`_. Then open the widget manager and `add widgets <widget-manager.html#adding-a-widget>`_ which are needed. Please note that the "Add widget" option dialog can also be opened by clicking on the "+" button located at the bottom of the Page Configurator tab, see pictures above.
+First, select a desired dialog size by clicking on the respective button in the top right corner of the dialog grid page or by defining a custom size for it. Subsequently, you can change the current grid layout to another grid layout in the same way as for regular `Grid Pages <webui-grid-pages.html>`_ by using the `Page Configurator tab of the App Manager <webui-grid-pages.html#page-manager-with-grid-pages>`_. More specifically, the layout may be chosen as any of the available `Standard Layouts <webui-grid-pages.html#standard-layouts>`_ or `Custom Layouts <webui-grid-pages.html#custom-layouts>`_. 
+
+Then open the widget manager and `add widgets <widget-manager.html#adding-a-widget>`_ which are needed. Please note that the "Add widget" option dialog can also be opened by clicking on the "+" button located at the bottom of the Page Configurator tab, see pictures above.
 
 For example, for Dialog_Small declared above, we can keep the Small size and the grid Layout 11 (which has only Area A for widgets) and then add a table widget "demand_table" to this dialog grid page by using the "Add widget" option dialog:
 
