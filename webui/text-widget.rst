@@ -55,6 +55,10 @@ Specifying a string parameter in Contents
 
 You can specify a string parameter in the contents to display text that changes based on either the current page or some other condition. This is very similar to specifying a string parameter in a scalar widget with the multi-line option, but with the advantage of using HTML content. This allows you to style the text, add images, hyperlinks, and a lot of other options that come with HTML formatting.
 
+.. Note ::
+    
+    The text widget is a rich text editor and does not support the complete list of tags or styles that an HTML document would provide. For example, the text widget does not support the ``<table>`` tag, meaning you cannot add tables to the HTML you wish to include in the text widget. The rich text editor will support any text formatting and some basic HTML styles.
+
 You can add a string parameter by opening the Identifier Selector by clicking the button next to the contents field and selecting the identifier you want to specify as the contents.
 
 .. image:: images/Text_OpenIdentifierSelector.png
