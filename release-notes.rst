@@ -14,6 +14,27 @@ AIMMS 4.79
 #############
 
 
+AIMMS 4.79.3 Release (April 16, 2021 - build 4.79.3.10).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Creating an .aimmspack file could go wrong if the project folders contained empty files.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  If you were combining Grid Layout pages with Side Panels and you were also specifying a layout that called for a vertical scrollbar on that page, you were often faced with the Side panel tabs overlapping the scrollbar, making it nearly inaccessible. This should no longer occur.
+-  The use of formatted numbers in tables, scalars and some other locations did not always result in a correct number being shown. Formatting is now slightly faster, correct up to at least 20 decimal/fraction digits and supports more locales and non-latin characters.
+
+
+--------------
+
+
+
 AIMMS 4.79.2 Release (April 8, 2021 - build 4.79.2.5).
 ------------------------------------------------------------------------------------------
 
