@@ -22,6 +22,7 @@ linkcheck:
   - python3 -msphinx -W -b linkcheck . _build/linkcheck
   tags: 
     - ubuntu
+  retry: 1
 
 spellcheck:
   stage: test
@@ -47,3 +48,4 @@ deploy:
     - ubuntu
   only:
     - master
+  retry: 1
