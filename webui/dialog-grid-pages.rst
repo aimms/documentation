@@ -64,24 +64,24 @@ For a dialog grid page you can choose a standard size from the three options - S
 
 1.  Small: Width = 3 Columns, Height = 2. This is the default size for a dialog grid page. 
 
-	.. image:: images/dpG_new_small.jpg
+	.. image:: images/dpG_new_small_2.jpg
 				:align: center
 
 2.  Medium: Width = 6 Columns, Height = 3 Rows 
 
-	.. image:: images/dpG_new_medium.jpg
+	.. image:: images/dpG_new_medium_2.jpg
 				:align: center
 
 3.  Large: Width = 8 Columns, Height = 3 Rows 
 
-	.. image:: images/dpG_new_large.jpg
+	.. image:: images/dpG_new_large_2.jpg
 				:align: center
 
-Besides the option for one of the three predefined sizes above, a dialog grid page also has the option for a customized page size. In this case, the height and the width may be specified respectively in the maxrows and the maxcolumns fields of the Miscellaneous section of the `Page Settings <page-settings.html>`_:
+Besides the option for one of the three predefined sizes above, a dialog grid page also has the option for a customized page size. In this case, the height and the width may be specified respectively in the maxrows and the maxcolumns fields of the Miscellaneous section of the `Page Settings <page-settings.html>`_, which opens automatically when clicking on the Custom size button of the dialog:
 
 4.  Custom Size: Example: Width = 4 Columns, Height = 3 Rows  
 
-	.. image:: images/dpG_new_customsize.jpg
+	.. image:: images/dpG_new_customsize_2.jpg
 				:align: center
 
 Values must be specified for both the maxrows and the maxcolumns fields in order to define a valid custom page size.
@@ -102,17 +102,17 @@ Then open the widget manager and `add widgets <widget-manager.html#adding-a-widg
 
 For example, for Dialog_Small declared above, we can keep the Small size and the grid Layout 11 (which has only Area A for widgets) and then add a table widget "demand_table" to this dialog grid page by using the "Add widget" option dialog:
 
-.. image:: images/dpG_add_widget_1.jpg
+.. image:: images/dpG_add_widget_2.jpg
 			:align: center
 
 After adding a new widget, this is initially placed in the "Unassigned widgets' section of the grid layout:
 
-.. image:: images/dpG_widget_unassigned_1.jpg
+.. image:: images/dpG_widget_unassigned_2.jpg
 			:align: center
 
 The newly added widget may be moved to one of the grid areas (in this case to Area A) by using drag-and-drop, such that the widget becomes visible on the page:
 
-.. image:: images/dpG_widget_assigned_1.jpg
+.. image:: images/dpG_widget_assigned_12.jpg
 			:align: center
 
 As it may be noticed in the last picture above, when a widget has more data than those which fit within the width of the assigned grid area, then the widget may get a horizontal scroll bar (and similarly, a vertical scroll bar in the case of the height). 
@@ -121,7 +121,7 @@ The dialog grid pages themselves do not have a scroll bar. Therefore, it is advi
 
 For instance, suppose that on the Dialog_Medium page we would like to show two tables rendering the numerical values of the unit costs and the transportation amounts for a selection of factories. In this case, we can select the standard Layout 4 and add the widgets  "unitcost_table", "selected_factories", and "transport_table" to Area A, Area B, and Area C, respectively, as illustrated in the following picture:
 
-.. image:: images/dpG_widget_assigned_2.png
+.. image:: images/dpG_widget_assigned_22.jpg
 			:align: center
 
 Once all the required widgets have been added, a dialog grid page is ready to be configured/invoked as explained next.
