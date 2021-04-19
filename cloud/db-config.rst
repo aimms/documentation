@@ -3,7 +3,7 @@ AIMMS Cloud Database and VPN configuration
 
 .. note::
 
-    This section of the Cloud Platform documentation only applies when your AIMMS Cloud Platform subscription provides you with an application database.
+    This article will frequently refer to the different set ups for exchanging data with the AIMMS cloud platform as described in the article :doc:`Articles/159/159-exchange-data-with-cloud`. Please get familiar with this article or have it open for additional context.
 
 This section describes how to manage and administer the application database and connectivity (through VPN or otherwise) to it.
 
