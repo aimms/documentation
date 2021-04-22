@@ -9,14 +9,15 @@ Platform availability
 Platform versions
 +++++++++++++++++++++
 
-The AIMMS Development Software is offered as a Windows 64-bit versions only. For deployment, one can use AIMMS PRO or AIMMS Cloud (the managed version of AIMMS PRO); the latter is the preferred deployment option for AIMMS Apps. For special deployments, we offer Linux versions (please contact support@aimmscom to learn more).
+The AIMMS Development Software is offered as a Windows 64-bit versions only. For deployment, one can use AIMMS PRO or AIMMS Cloud (the managed version of AIMMS PRO); the latter is the preferred deployment option for AIMMS Apps. 
+For special deployments, we offer Linux versions (please contact support@aimms.com to learn more).
 
 Solver availability
 +++++++++++++++++++
 
 +--------------+----------------------+------------------+
 | Solvers      | Solver + Solver Link | Solver Link Only |
-+==============+=========================================+
++--------------+----------------------+------------------+
 | AOA          | ✔                    |                  |
 +--------------+----------------------+------------------+
 | AOA          | ✔                    |                  |
