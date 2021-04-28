@@ -13,10 +13,9 @@ This section describes various tasks related to WebUI side panels.
 
 .. important:: Side panels are available in software versions from AIMMS 4.64 onwards.
 
-	Configuring icons and icon colors are available in software versions from AIMMS 4.80 onwards.
+	The feature of configuring icons and icon colors on a side panel tab is available in software versions from AIMMS 4.80 onwards.
 
-Side panels are 2 column width pages that can be configured with different widgets and accessed on different/all pages in an application via tabs on the right-hand side of the page.  
-Side panels help build model interactions. These help to free up real estate on pages, or also duplicate widgets that are required on different pages, such as filters.
+Side panels are special pages with a fixed width of two columns which can be accessed on various regular pages in an application by using tabs on the right-hand side of the page (see illustrations bellow). Side panels can be configured with widgets and can help building model interactions. Also, they can hold widgets (such as filters) which are required by several pages, preventing the need to duplicate such widgets on each individual page. This way, side panels help to free up space on regular pages.
 
 .. image:: images/SidePanel_HomeExample1.png
 			:align: center
@@ -27,7 +26,7 @@ Side panels help build model interactions. These help to free up real estate on 
 What can side panels be used for?
 ---------------------------------
 
-Side panels can be used for various purposes, such as filters, displaying KPIs, making quick notes, showing help text.
+Side panels can be used for various purposes, such as filters, displaying KPIs, making quick notes, showing help text, etc.
 
 Side Panels give developers the possibility to add extra widgets to a page that are always easily accessible in a collapsible panel on the right. The Side Panel is a good place for filters or help text.
 
@@ -63,7 +62,7 @@ Side panels can be added to any level in the page tree, just like any normal pag
 
 .. note:: 
 	
-	Avoid adding pages under side panel pages. These pages will not be shown in the navigation menu.
+	Avoid adding other pages under side panels as such pages will not be shown in the app navigation Menu.
 
 Adding widgets to a Side Panel
 ------------------------------
@@ -117,7 +116,7 @@ This set has 4 elements representing side panels properties:
 			
 #. ``tooltip``: The text here would be displayed when the user hovers over that respective side panel tab. This is an optional field and if left empty, no tooltip is displayed.
 #. ``icon``: The icon you want to display on the side panel tab. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required. This is an optional field and if left empty, no icon will be displayed.
-#. ``color``: The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes eg: #FF0000 for Red. This is an optional field and if left empty, the icon will be black when the tab is collapsed, and white when the side panel tab is expanded as the tab's color is blue.
+#. ``color``: The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes eg: #FF0000 for Red. This is an optional field; if left empty, the icon will be black when the tab is collapsed and white when the side panel tab is expanded and the tab's color becomes blue.
 #. ``state``: This is the state for the side panel, i.e Active and Hidden. This is an optional field and is currently not in use.
 
 .. note:: 
