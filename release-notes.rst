@@ -33,13 +33,6 @@ Resolved WebUI Issues
 -  Bars in the Gantt chart Widget were sometimes moved outside of the chart area.
 -  Specifying a filter in a column (or row) of a table widget that contained a '-' character (as a result of putting multiple identifiers with a different index domain in the same Table widget) did not work.
 
-Resolved Security Issues
-+++++++++++++++++++++++++
-
--  No security-related changes were made in this AIMMS version.
-
---------------
-
 
 
 AIMMS 4.79.3 Release (April 16, 2021 - build 4.79.3.10).
