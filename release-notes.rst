@@ -28,7 +28,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  Sometimes when slicing a multi-dimensional identifier the index would jump back to the first index while trying to set a slice for another index.
--  In some situations, specifying a slice for a identifiers in a widget, could result in a backend crash.
+-  In some situations, specifying a slice for an identifier in a widget, could result in a backend crash.
 -  When the windows key is pressed the webUI will now ignore the keypress (or combination of keys pressed), as this could result in unexpected behavior.
 -  Bars in the Gantt chart Widget were sometimes moved outside of the chart area.
 -  Specifying a filter in a column (or row) of a table widget that contained a '-' character (as a result of putting multiple identifiers with a different index domain in the same Table widget) did not work.
