@@ -14,6 +14,34 @@ AIMMS 4.79
 #############
 
 
+AIMMS 4.79.4 Release (April 29, 2021 - build 4.79.4.17).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Changing the base unit of the quantity SI_Unitless resulted in data from previously saved cases not being read back correctly. AIMMS stores all data in a case according to the base unit, so if a base unit has changed a unit conversion should be applied when reading back the case.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Sometimes when slicing a multi-dimensional identifier the index would jump back to the first index while trying to set a slice for another index.
+-  In some situations, specifying a slice for a identifiers in a widget, could result in a backend crash.
+-  When the windows key is pressed the webUI will now ignore the keypress (or combination of keys pressed), as this could result in unexpected behavior.
+-  Bars in the Gantt chart Widget were sometimes moved outside of the chart area.
+-  Specifying a filter in a column (or row) of a table widget that contained a '-' character (as a result of putting multiple identifiers with a different index domain in the same Table widget) did not work.
+
+Resolved Security Issues
++++++++++++++++++++++++++
+
+-  No security-related changes were made in this AIMMS version.
+
+--------------
+
+
+
 AIMMS 4.79.3 Release (April 16, 2021 - build 4.79.3.10).
 ------------------------------------------------------------------------------------------
 
