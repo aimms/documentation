@@ -116,7 +116,7 @@ This set has 4 elements representing side panels properties:
 			
 #. ``tooltip``: The text here would be displayed when the user hovers over that respective side panel tab. This is an optional field and if left empty, no tooltip is displayed.
 #. ``icon``: The icon you want to display on the side panel tab. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required. This is an optional field and if left empty, no icon will be displayed.
-#. ``color``: The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes eg: #FF0000 for Red. This is an optional field; if left empty, the icon will be black when the tab is collapsed and white when the side panel tab is expanded and the tab's color becomes blue.
+#. ``color``: The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes eg: #FF0000 for Red. This is an optional field; if left empty, the icon will be blue when the tab is collapsed. The icon color changes to white when the side panel tab is expanded since the tab's color becomes blue and most of the other colors blend in making it difficult to view the icon.
 #. ``state``: This is the state for the side panel, i.e Active and Hidden. This is an optional field and is currently not in use.
 
 .. note:: 
