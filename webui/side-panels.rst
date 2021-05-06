@@ -35,8 +35,6 @@ Avoid core functionalities in side panels. E.g. steps to achieve (initial) outpu
 .. image:: images/SidePanel_Examples.png
 			:align: center
 
-.. _adding a side panel page:
-
 Adding a Side Panel
 -------------------
 
