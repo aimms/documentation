@@ -23,7 +23,7 @@ This section describes various tasks related to WebUI Side Panel Grid Pages.
 
 Side Panel Grid Pages are Side Panel pages with a grid layout. So, they combine the features of the `Side Panels <side-panels.html>`_ and the features of `WebUI Grid Pages <webui-grid-pages.html>`_. In this respect, the explanations about the behavior provided in the side panels section and the WebUI grid pages section also apply to the side panel grid pages discussed here. Therefore, we advise the reader to take a look at those two sections as well for explanations on aspects that are generally applicable.
 
-Side panels are special pages with a fixed width of two columns which can be accessed on various regular pages in an application by using tabs on the right-hand side of the page (see illustrations bellow). Side panels can be configured with widgets and can help building model interactions. Also, they can hold widgets (such as filters) which are required by several pages, preventing the need to duplicate such widgets on each individual page. This way, side panels help to free up space on regular pages.
+Side panels are special pages with a fixed width which can be accessed on various regular pages in an application by using tabs on the right-hand side of the page (see illustrations bellow). Side panels can be configured with widgets and can help building model interactions. Also, they can hold widgets (such as filters) which are required by several pages, preventing the need to duplicate such widgets on each individual page. This way, side panels help to free up space on regular pages.
 
 .. image:: images/SidePanel_HomeExample1.png
 			:align: center
@@ -38,7 +38,7 @@ Side panels can be used for various purposes, such as filters, displaying KPIs, 
 
 Side Panels give developers the possibility to add extra widgets to a page that are always easily accessible in a collapsible panel on the right. The Side Panel is a good place for filters or help text.
 
-Avoid core functionalities in side panels. E.g. steps to achieve (initial) output on the page. Avoid buttons in side panels. Buttons are probably a key function for the page. Put widget-specific procedure in `widget action <widget-options.html#widget-actions>`_. 
+Avoid core functionalities in side panels. E.g. steps to achieve (initial) output on the page. Avoid buttons in side panels. Buttons are probably a key function for the page. Put widget-specific procedures in `widget action <widget-options.html#widget-actions>`_. 
 
 .. image:: images/SidePanel_Examples.png
 			:align: center
@@ -81,7 +81,7 @@ Step 1: Click the side panel grid page you want to add widgets to, in the applic
 .. image:: images/SPGL_SelectPage.png
 			:align: center
 			
-Step 2: You will see a 2-column width page. Switch to the "Page" tab, notice that ``Layout 11`` is assigned by default. 
+Step 2: You will see a narrow fixed width page. Switch to the "Page" tab, notice that ``Layout 11`` is assigned by default. 
 
 .. image:: images/SPGL_Layout11Default.png
 			:align: center
@@ -109,7 +109,7 @@ Step 6: Repeat steps 3 to 5 to add more widgets to the side panel. Since ``Layou
 Creating a Custom Layout 
 ------------------------
 
-As illustrated above, when a new side panel grid page is added, ``Layout 11`` is assigned by default. Let's say you do not want the widgets to be distributed equally but in different proportions, you may want to choose from the other standard layouts. However, since the side panel is restricted to a 2-column width, almost all of the standard layouts will not be suitable. In such a case you can create a custom layout.
+As illustrated above, when a new side panel grid page is added, ``Layout 11`` is assigned by default. Let's say you do not want the widgets to be distributed equally but in different proportions, you may want to choose from the other standard layouts. However, since the side panel is restricted to a certain fixed width, almost all the standard layouts will not be suitable. In such a case you can create a custom layout.
 
 Follow the below steps to create your custom layouts that can be assigned to the side panel grid pages.
 
@@ -162,7 +162,7 @@ Step 3: Since the side panel has a custom width, we advise you to configure/modi
 			]
 		}
 
-You can also change the ``"gridTemplateColumns"`` property to add more columns, but please be aware that the columns will be adjusted in the space that is available in the 2-column width, as illustrated below:
+You can also change the ``"gridTemplateColumns"`` property to add more columns, but please be aware that the columns will be adjusted in the space that is available in the fixed width, as illustrated below:
 
 .. image:: images/SPGL_TwoColumns.png
 			:align: center
@@ -269,6 +269,8 @@ Once you have added the string parameter, the respective side panel tabs will ap
 Similarly, you can create some (other) string parameters for other pages and configure them using the same steps.
 
 You can configure as many side panels as you need in your application. However, please note that, since there is limited screen space, **AIMMS WebUI only displays the top 6 side panels on each page.**
+
+For consistency, the size of the tabs is always the same i.e. 1/6th of the available height, no matter how many are shown or how long the title of the tab is.
 
 Interacting with side panels
 ----------------------------
