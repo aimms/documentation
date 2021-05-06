@@ -57,3 +57,4 @@ Details on creating and managing various pages can be accessed using the followi
    webui-grid-pages
    side-panels
    dialog-pages
+   side-panels-grd-layout
