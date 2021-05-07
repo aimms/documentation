@@ -5,6 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+1.0.0.113 [06-05-2021]
+    - Element parameter comparisons could fail if one parameter contained an inactive element for some tuple while the other parameter contained no data for the same tuple
+    
 1.0.0.112 [30-03-2021]
     - Allow test to continue on failed assertion.
     - Print location per exception/assertion.
