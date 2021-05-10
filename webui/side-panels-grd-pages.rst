@@ -1,5 +1,5 @@
-Side Panels Grid Pages
-======================
+Side Panel Grid Pages
+=====================
 
 .. |plus| image:: images/plus.png
 
@@ -15,13 +15,13 @@ Side Panels Grid Pages
 
 .. |appmanager_kebab|  image:: images/appmanager_kebab.png
 
-This section describes various tasks related to WebUI Side Panel Grid Pages.
+This section describes various features and tasks related to WebUI Side Panel Grid Pages.
 
 .. important:: Side Panel Grid Pages are available in software versions from AIMMS 4.80 onwards.
 
 .. note:: When running an AIMMS project which was created with AIMMS 4.80 (or with a newer version) by using AIMMS 4.79 (or an older version), the side panel grid pages created in AIMMS 4.80 may be treated as regular pages in AIMMS 4.79, because side panel grid pages are not available in AIMMS 4.79 or in older AIMMS versions. Before upgrading your AIMMS project to a new AIMMS version, please create a backup of your project which may still be run with the older AIMMS versions.
 
-Side Panel Grid Pages are Side Panel pages with a grid layout. So, they combine the features of the `Side Panels <side-panels.html>`_ and the features of `WebUI Grid Pages <webui-grid-pages.html>`_. In this respect, the explanations about the behavior provided in the side panels section and the WebUI grid pages section also apply to the side panel grid pages discussed here. Therefore, we advise the reader to take a look at those two sections as well for explanations on aspects that are generally applicable.
+Side Panel Grid Pages are Side Panel pages with a grid layout. So, they combine the features of the `Side Panels <side-panels.html>`_ and the features of `WebUI Grid Pages <webui-grid-pages.html>`_. In this respect, the explanations about the behavior provided in the side panels section and the WebUI grid pages section also apply to the side panel grid pages discussed here. Therefore, we advise the reader to take a look at those two sections as well for explanations on aspects which are generally applicable.
 
 Side panels are special pages with a fixed width which can be accessed on various regular pages in an application by using tabs on the right-hand side of the page (see illustrations bellow). Side panels can be configured with widgets and can help building model interactions. Also, they can hold widgets (such as filters) which are required by several pages, preventing the need to duplicate such widgets on each individual page. This way, side panels help to free up space on regular pages.
 
@@ -36,9 +36,9 @@ What can side panels be used for?
 
 Side panels can be used for various purposes, such as filters, displaying KPIs, making quick notes, showing help text, etc.
 
-Side Panels give developers the possibility to add extra widgets to a page that are always easily accessible in a collapsible panel on the right. The Side Panel is a good place for filters or help text.
+Side panels give developers the possibility to add extra widgets to a page that are always easily accessible in a collapsible panel on the right. In this vein, a side panel is a good place for filters or help text, for example.
 
-Avoid core functionalities in side panels. E.g. steps to achieve (initial) output on the page. Avoid buttons in side panels. Buttons are probably a key function for the page. Put widget-specific procedures in `widget action <widget-options.html#widget-actions>`_. 
+Please avoid adding core functionalities on side panels; e.g. steps to achieve (initial) output on the page. Also, using buttons on side panels should be limited as buttons are usualy a key function for a regular page. Moreover, widget-specific procedures may be put in `widget actions <widget-options.html#widget-actions>`_. 
 
 .. image:: images/SidePanel_Examples.png
 			:align: center
@@ -48,7 +48,7 @@ Adding a Side Panel Grid Page
 
 Adding a side panel grid page is similar to adding any other page.
 
-When using the `Application Manager <app-management.html>`_, in the App tab click the |appmanager_kebab| icon for the page under which want to add the side panel grid page and select the "Add Side Panel Page". Give the new side panel grid page any name you desire. Note that you cannot give it a name that you have already used for other pages, side panels, or dialog pages. 
+When using the `Application Manager <app-management.html>`_, in the App tab click the |appmanager_kebab| icon for the page under which want to add the side panel grid page and select the "Add Side Panel Page". Give the new side panel grid page any name of your choice. Note, however, that you cannot give it a name which you have already used for other pages, side panels, or dialog pages. 
 
 +----------------------------------------------+-----------------------------------+
 | With Application Management                  | Without Application Management    |
@@ -63,45 +63,45 @@ When using the `Application Manager <app-management.html>`_, in the App tab clic
 .. image:: images/SPGL_Named.png
 			:align: center
 
-You can differentiate between other types of pages and a side panel grid page by the icons that represent each type. The side panel grid page is represented with |sidepanelgrid|.
+You can differentiate between other types of pages and a side panel grid page by the icons representing each type. The side panel grid page is represented by the icon |sidepanelgrid|.
 			
-Side panel pages can be added to any level in the page tree, just like any normal page. Unlike Pages, Side panel pages do not appear in the Menu (navigation) and can only be accessed via the Application manager (Page manager). Side panel grid pages have the same options as any other page i.e Rename, Delete, etc. You can also move the side panel the same way pages can be moved.
+Side panel pages can be added to any level in the page tree, just like any other page. However, unlike regular pages, side panel pages do not appear in the app navigation Menu and can be accessed only through the Application Manager (Page Manager). In the flyout menu in the pages tree, the side panel grid pages have the same options as any other page, i.e. Rename, Delete, etc. You can also move the side panel to a different location in the pages tree by using drag-and-drop in the same way as regular pages can be moved.
 
 .. note:: 
 	
-	Avoid adding regular pages under other side panel pages. These pages will not be shown in the navigation menu.
+	Avoid adding regular pages under side panel pages as such pages will not be shown in the app navigation Menu.
 
 Adding widgets to a Side Panel Grid Page
 ----------------------------------------
 
 Essentially, adding widgets to a side panel grid page works in the same way as for a grid page. 
 
-Step 1: Click the side panel grid page you want to add widgets to, in the application tree.
+Step 1: Click the side panel grid page you want to add widgets to, in the application tree:
 
 .. image:: images/SPGL_SelectPage.png
 			:align: center
 			
-Step 2: You will see a narrow fixed width page. Switch to the "Page" tab, notice that ``Layout 11`` is assigned by default. 
+Step 2: You will see a narrow fixed width page. Switch to the "Page" tab, notice that ``Layout 11`` is assigned by default:
 
 .. image:: images/SPGL_Layout11Default.png
 			:align: center
 
-Step 3: Click the "+" button to open the widget addition wizard and add a widget.
+Step 3: Click the "+" button at the bottom of the Page Configuration tab in order to open the widget addition wizard and add a widget:
 
 .. image:: images/SPGL_AddWidget.png
 			:align: center
 
-Step 4: Any new widget added appears in the "Unassigned widgets" area. Drag and drop the widget into "Area A".
+Step 4: Any new widget added appears in the "Unassigned widgets" area. Drag-and-drop the widget into "Area A":
 
 .. image:: images/SPGL_AddandDrag.png
 			:align: center
 
-Step 5: Once the widget appears in the designated area, you can configure the widget as required.
+Step 5: Once the widget appears in the designated area, you can configure the widget as required:
 
 .. image:: images/SPGL_ConfigureWidget.png
 			:align: center
 
-Step 6: Repeat steps 3 to 5 to add more widgets to the side panel. Since ``Layout 11`` is the assigned layout, all widgets added to the area will be distributed equally.
+Step 6: Repeat steps 3 to 5 to add more widgets to the side panel. Since ``Layout 11`` is the assigned layout (by default), all widgets added to the "Area A" will be distributed equally in this case:
 
 .. image:: images/SPGL_Final.png
 			:align: center
@@ -109,21 +109,21 @@ Step 6: Repeat steps 3 to 5 to add more widgets to the side panel. Since ``Layou
 Creating a Custom Layout 
 ------------------------
 
-As illustrated above, when a new side panel grid page is added, ``Layout 11`` is assigned by default. Let's say you do not want the widgets to be distributed equally but in different proportions, you may want to choose from the other standard layouts. However, since the side panel is restricted to a certain fixed width, almost all the standard layouts will not be suitable. In such a case you can create a custom layout.
+As illustrated above, when a new side panel grid page is added, ``Layout 11`` is assigned by default. If you do not want the widgets to be distributed equally but in different proportions, you may also choose another standard layout. However, since the side panel is restricted to a certain fixed width, almost all the standard layouts may not be suitable in practice. In this case, you can create a custom layout for a side panel page as well.
 
-Follow the below steps to create your custom layouts that can be assigned to the side panel grid pages.
+Please follow the steps below in order to create your custom layouts which can be assigned to side panel grid pages.
 
-Step 1: Clone ``Layout 11`` by clicking the |kebab| icon and clicking "Clone to Custom" OR Click on the "Custom" tab and then "Add a layout" option.
+Step 1: Clone ``Layout 11`` by clicking the |kebab| icon and clicking "Clone to Custom" (or, alternatively, click on the "Custom" tab and then "Add a layout" option):
 
 .. image:: images/SPGL_CloneToCustom.png
 			:align: center
 
-Step 2: This opens the Layout Editor. Give the template a desired name.
+Step 2: This opens the Layout Editor where you can give the template a desired name:
 
 .. image:: images/SPGL_LayoutEditor.png
 			:align: center
 
-Step 3: Since the side panel has a custom width, we advise you to configure/modify values in the ``gridTemplateRows`` property. For example, divide the rows into three areas that are distributed in the ratio 1:2:3, namely Area-A, Area-B, and Area-C. 
+Step 3: Since the side panel itself has a confined width, we advise you to configure/modify only the values in the ``gridTemplateRows`` property. For example, divide the rows into three areas which are distributed in the ratio 1:2:3, namely Area-A, Area-B, and Area-C: 
 
 .. code ::
 
@@ -162,21 +162,24 @@ Step 3: Since the side panel has a custom width, we advise you to configure/modi
 			]
 		}
 
-You can also change the ``"gridTemplateColumns"`` property to add more columns, but please be aware that the columns will be adjusted in the space that is available in the fixed width, as illustrated below:
+You can also change the ``"gridTemplateColumns"`` property in order to add more columns, but please be aware that the columns will be adjusted in the space which is available in the fixed width of the side panel itself, as illustrated below:
 
 .. image:: images/SPGL_TwoColumns.png
 			:align: center
 
-Step 4: Once created, the custom template is applied. Now assign the widgets to the areas as required.
+.. note::
+   This latter situation should be avoided whenever possible. Please use as much as possible only one column in the property ``"gridTemplateColumns"`` of the custom grid.
+
+Step 4: Once created, the custom grid layout can be applied to a side panel and the desired widgets can be assigned to the available grid areas as required.
 
 .. image:: images/SPGL_CustomAssigned.png
 			:align: center
 
-If you require more information on custom layouts please `read more on Creating Grid Definitions <webui-grid-pages.html#creating-grid-definitions>`_. 
+If you need more information about defining custom layouts, please read more on `Creating Grid Definitions <webui-grid-pages.html#creating-grid-definitions>`_. 
 
-In case the widgets being assigned require more space, you can introduce a vertical scroll by dividing the areas `using percentages <webui-grid-pages.html#using-percentages>`_, the total of which should exceed 100%.
+In case the widgets being assigned require more space, you can introduce a vertical scroll by dividing the areas `using percentages <webui-grid-pages.html#using-percentages>`_, the sum of which should exceed 100%.
 
-Horizontal scroll is not supported in Side Panels.
+Horizontal scrolling is not supported in Side Panels.
 
 Configuring side panels
 -----------------------
