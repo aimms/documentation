@@ -28,7 +28,7 @@ Application Management
 .. |dialog|  image:: images/dialogicon.png 
 
 
-.. important:: The application management features described in this section are available starting from AIMMS version 4.78.
+.. important:: The application management features described in this section are available starting from AIMMS version 4.78 as part of `Experimental Features <experimental-features.html>`_. Please visit the `Experimental Features <experimental-features.html>`_ page on how to enable the feature.
 
 With the introduction of application management features, the Page Manager not only renders the page tree structure of your WebUI, but it also renders beneath each page the list of widgets belonging to that page. This allows the WebUI developer to manage the application contents by moving things around in this extended tree structure offered now by the Page Manager.
 

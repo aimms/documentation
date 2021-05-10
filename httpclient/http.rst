@@ -1,4 +1,3 @@
-
 .. _What_is_HTTP:
 
 What is HTTP?
@@ -112,7 +111,7 @@ Let's remove the query from our example and replace it with a JSON body:
     
     {"tag":"networking","order":"newest"}
 
-Here the last line is the body and it looks like JSON. We have added the header fields ``Content-Length`` and ``Content-Type`` to the header, to provide the server with relevant information about the body. The content type should be take from the standard list of  `Media types <https://en.wikipedia.org/wiki/Media_type>`_.
+Here the last line is the body and it looks like JSON. We have added the header fields ``Content-Length`` and ``Content-Type`` to the header, to provide the server with relevant information about the body. The content type should be take from the standard list of  `Media types <https://en.wikipedia.org/wiki/Media_type#Common_examples_[10]>`_.
 
 
 Response

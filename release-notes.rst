@@ -13,6 +13,66 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.79
 #############
 
+
+AIMMS 4.79.4 Release (April 29, 2021 - build 4.79.4.17).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Changing the base unit of the quantity SI_Unitless resulted in data from previously saved cases not being read back correctly. AIMMS stores all data in a case according to the base unit, so if a base unit has changed a unit conversion should be applied when reading back the case.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Sometimes when slicing a multi-dimensional identifier the index would jump back to the first index while trying to set a slice for another index.
+-  In some situations, specifying a slice for an identifier in a widget, could result in a backend crash.
+-  When the windows key is pressed the webUI will now ignore the keypress (or combination of keys pressed), as this could result in unexpected behavior.
+-  Bars in the Gantt chart Widget were sometimes moved outside of the chart area.
+-  Specifying a filter in a column (or row) of a table widget that contained a '-' character (as a result of putting multiple identifiers with a different index domain in the same Table widget) did not work.
+
+
+
+AIMMS 4.79.3 Release (April 16, 2021 - build 4.79.3.10).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Creating an .aimmspack file could go wrong if the project folders contained empty files.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  If you were combining Grid Layout pages with Side Panels and you were also specifying a layout that called for a vertical scrollbar on that page, you were often faced with the Side panel tabs overlapping the scrollbar, making it nearly inaccessible. This should no longer occur.
+-  The use of formatted numbers in tables, scalars and some other locations did not always result in a correct number being shown. Formatting is now slightly faster, correct up to at least 20 decimal/fraction digits and supports more locales and non-latin characters.
+
+
+--------------
+
+
+
+AIMMS 4.79.2 Release (April 8, 2021 - build 4.79.2.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We added scroll support to the row and column headers in the Table widget.
+-  There was a performance problem in the Barline chart.
+-  On a page with many selectionboxes (more than 25, either visible or hidden), it could happen that they did not show any content anymore. Only the text 'Empty Selectionbox' would be displayed and the selectionboxes could not be used. This problem was introduced in AIMMS 4.78.4.
+
+
+--------------
+
+
 AIMMS 4.79.1 Release (April 2, 2021 - build 4.79.1.5).
 ------------------------------------------------------------------------------------------
 

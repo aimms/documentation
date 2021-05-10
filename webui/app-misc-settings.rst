@@ -45,10 +45,8 @@ When this condition evaluates to "true" and the value of the "Limited Options Ed
 are also made available to the end-user who runs the application in AIMMS PRO/Cloud. For example, the end-user can change the order of the widgets on a page in this case.
 
 When the "UI Editable" condition evaluates to "false", then the end-user running the application in AIMMS PRO/Cloud is no longer allowed to edit the user interface, but only to use the pages 
-and widgets as are, i.e. as provided by the app developer. More specifically, the Application Settings, Page Settings, and Widget Manager icons are no longer available in the Menu Bar. In particular, 
-the order of the widgets on a page cannot be changed in this case.
-The Page Manager icon may still be available, but the option for adding new pages (i.e., the "+" button) is removed. The page visibility and the page settings (including page name) are not
-editable by the end-user. The page order may be temporarily modified for visualization, but as soon as a complete re-load take place the original page order is re-established. 
+and widgets as they are, i.e. as provided by the app developer. More specifically, the Application Settings, Page Settings, Widget Manager and Page Manager icons are no longer available in the Menu Bar. The latter (the Page Manager) is never displayed when run under the PRO platform.
+
 Moreover, the "cog wheel" Settings icon is no longer available for any of the widgets, so the widget options are no longer editable.
 
 Limited Option Editor(1/0)
