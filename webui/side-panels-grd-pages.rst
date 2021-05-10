@@ -185,15 +185,15 @@ Configuring side panels
 -----------------------
 
 Side panels can be configured by the application developer via the AIMMS model. 
-A new declaration has been added to the AimmsWebUI library called Public Page and Widget Specification Declarations under the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section, used to configuring side panels. The set SidePanelSpecification declared inside Public Page and Widget Specification Declarations is used for configuring the side panels as illustrated here in the next steps. 
+A new declaration for configuring side panels has been added to the AimmsWebUI library called Public Page and Widget Specification Declarations under the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section. More specifically, the set SidePanelSpecification declared inside Public Page and Widget Specification Declarations may be used for configuring side panels as illustrated in the next steps below. 
 
 .. image:: images/SidePanel_Specification.png
 			:align: center
 
 This set has 4 elements representing side panels properties: 
 
-#.  ``displayText``: Is the text/label you would like the side panel tab to have. This is an optional field. If left empty, no text will be displayed on the tab.
-#.  ``pageId``: When a page or side panel is created it is has a unique pageId.  You can find all the side panel pageIds in the set AllSidePanelPages. This is a required field.
+#.  ``displayText``: This is the text/label you would like the side panel tab to have and it is an optional field. If left empty, no text will be displayed on the tab.
+#.  ``pageId``: When a page or side panel is created it is has a unique pageId. You can find all the side panel pageId's in the set AllSidePanelPages. This is a required field.
 
 	.. image:: images/Allsidepanelpagesdata.png
 			:align: center
@@ -201,17 +201,17 @@ This set has 4 elements representing side panels properties:
 	.. image:: images/SP_AllsidePanelPages_data.png
 			:align: center
 			
-#. ``tooltip``: The text here would be displayed when the user hovers over that respective side panel tab. This is an optional field and if left empty, no tooltip is displayed.
-#. ``icon``: The icon you want to display on the side panel tab. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required. This is an optional field and if left empty, no icon will be displayed.
-#. ``iconcolor``: The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes eg: #FF0000 for Red. This is an optional field; if left empty, the icon will be blue when the tab is collapsed. The icon color changes to white when the side panel tab is expanded since the tab's color becomes blue and most of the other colors blend in making it difficult to view the icon.
+#. ``tooltip``: The text specified here is displayed when the user hovers over that respective side panel tab. This is an optional field and if left empty, no tooltip is displayed.
+#. ``icon``: This is the icon you want to display on the side panel tab. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. Moreover, `custom icons <webui-folder.html#custom-icon-sets>`_ can also be used, if required. This is an optional field and if left empty, no icon will be displayed.
+#. ``iconcolor``: This is the color you want to display for the configured icon, eg: 'blue', 'red', etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. You can also use Hex codes eg: #FF0000 for Red. This is an optional field; if left empty, the icon will be blue when the tab is collapsed. The icon color changes to white when the side panel tab is expanded since the tab's color becomes blue and most of the other colors blend in making it difficult to view the icon.
 #. ``state``: This is the state for the side panel, i.e Active and Hidden. This is an optional field and is currently not in use.
 
 .. note:: 
 	
 	* If the set AllSidePanelPages is not yet filled with all side panel pages, please run the procedure GetAllPages. You can find this procedure in Page Support section under Public Pages Support Procedures. 
-	* The ``state`` property is not yet in use, but will be applicable in future releases. In side panels it is considered as Active by default. You can use domain conditions to show or hide side panels on a page.
+	* The ``state`` property is not yet in use, but will be applicable in future releases. In side panels the state is considered Active, by default. You can use domain conditions to show or hide side panels on a page.
 	
-To configure side panels on a page, create a string parameter indexed on the `ExtensionOrder <library.html#extensionorder>`_ set with ``webui::indexPageExtension`` and SidePanelSpecification set with ``webui::indexSidePanelSpec`` indices, for example ``HomePageSidePanel(webui::indexPageExtension,indexSidePanelSpec)``. 
+To configure side panels on a page, create a string parameter indexed on the `ExtensionOrder <library.html#extensionorder>`_ set with the ``webui::indexPageExtension`` index and the SidePanelSpecification set with the ``webui::indexSidePanelSpec`` index; for example, a string parameter like ``HomePageSidePanel(webui::indexPageExtension,indexSidePanelSpec)``. 
 
 .. Note::
 
@@ -237,54 +237,53 @@ then the data in the configuration string parameter may be filled in as follows:
 
 .. code:: 
 
-	data { ( 1, displayText ) : "Filters"            ,  ( 1, pageId      ) : "filters_1"          ,
+	data {	( 1, displayText ) : "Filters"               ,  ( 1, pageId      ) : "filters_1"             ,
 		( 1, tooltip     ) : "Global Filters"        ,  ( 1, icon        ) : "aimms-filter3"         ,
 		( 2, displayText ) : "Quick Notes"           ,  ( 2, pageId      ) : "quick_notes"           ,
 		( 2, tooltip     ) : "Make a Quick Note"     ,  ( 3, displayText ) : "Help"                  ,
 		( 3, pageId      ) : "help_1"                ,  ( 3, tooltip     ) : "All the help you need!",
-		( 3, icon        ) : "aimms-question"        ,  ( 3, iconcolor       ) : "green"              }
+		( 3, icon        ) : "aimms-question"        ,  ( 3, iconcolor   ) : "green"                  }
 		
-In the above data we have not defined values for the color of the icon for the Filters tab and the icon and its color for the Quick Notes tab.
+Note that in the above example data we have defined both the icon and its color for the "help_1" tab, but we did not defined values for the color of the icon for the Filters tab and neither the icon nor its color for the Quick Notes tab.
 
 .. note:: 
 
 	* Side panels appear in the same order from top to bottom as they appear in the data of the string parameter.
 	* If you enter an incorrect pageId, then the corresponding side panel tab will not be shown.
 	
-Configuring the string parameter on respective pages
-----------------------------------------------------
+Configuring the string parameter on regular pages
+-------------------------------------------------
 
-In the WebUI, navigate to the respective page. In the Page Settings you can locate the Page Extensions option:
+In the WebUI, navigate to a regular page, open its Page Settings and locate the Page Extensions option:
 
 .. image:: images/SP_configuresidepanel.png
 			:align: center
 			
-Add the string parameter created for that respective page in the "Side Panels" field. 
+Add the string parameter created for that respective page in the "Side Panels" field: 
 
 .. image:: images/SidePanel_SpecifyingStringParameter.png
 			:align: center
 
-Once you have added the string parameter, the respective side panel tabs will appear on that page.
+Once you have added the string parameter, the respective side panel tabs will appear on that page:
 
 .. image:: images/SidePanel_Result.png
 			:align: center
 			
-Similarly, you can create some (other) string parameters for other pages and configure them using the same steps.
+Similarly, you can create some (other) string parameters for other pages and configure them using the same steps. You can configure as many side panels as you need in your application. 
 
-You can configure as many side panels as you need in your application. However, please note that, since there is limited screen space, **AIMMS WebUI only displays the top 6 side panels on each page.**
-
-For consistency, the size of the tabs is always the same i.e. 1/6th of the available height, no matter how many are shown or how long the title of the tab is.
+.. note::
+	Please note that, since there is limited screen space, **AIMMS WebUI only displays the first 6 side panel tabs on each (regular) page**. So, eventhough the string parameter used for configuring the side panel may have data for 7 or more tabs, only the first 6 valid tabs will become visible. For consistency, the size of the tabs is always the same, i.e. 1/6th of the available height, no matter how many tabs are shown or how long the title text of a tab is.
 
 Interacting with side panels
 ----------------------------
 
 A side panel can be opened and closed by clicking on the respective tab. 
-Hovering over a side panel will show you the tooltip that was configured in the model. 
+Hovering over a side panel will show you the tooltip which was configured in the model: 
 
 .. image:: images/SidePanel_TabInteraction.png
 			:align: center
 
-Clicking on the tab highlights that tab and slides opens with the widgets that were added to that respective side panel page.
+Clicking on a tab highlights that tab and slides it open with the widgets which have been added to that respective side panel page:
 
 .. image:: images/SidePanel_TabInteraction_Open.png
 			:align: center
