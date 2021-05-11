@@ -1,8 +1,6 @@
 Side Panel Grid Pages
 =====================
 
-.. |plus| image:: images/plus.png
-
 .. |kebab|  image:: images/kebab.png
 
 .. |addpage|  image:: images/addpage.png
