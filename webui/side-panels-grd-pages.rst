@@ -84,6 +84,14 @@ Step 2: You will see a narrow fixed width page. Switch to the "Page" tab, notice
 .. image:: images/SPGL_Layout11Default.png
 			:align: center
 
+The Side Panel Title on the side panel page's header can be configured via the model. This is a preview and acts as a placeholder to depict how the actual side panel tab will look. This also gives an idea of the **usable area** for adding widgets in the side panel grid page. Side Panel Title is replaced with the `displayText` value specified in the string parameter used to configure the side panels.
+
+.. image:: images/SPGL_Preview.png
+			:align: center
+
+.. image:: images/SPGL_Preview_Small.png
+			:align: center
+
 Step 3: Click the "+" button at the bottom of the Page Configuration tab in order to open the widget addition wizard and add a widget:
 
 .. image:: images/SPGL_AddWidget.png
