@@ -31,7 +31,7 @@ Resolved WebUI Issues
 
 -  Using an 'upon-change' procedure to revert the value that just had been edited (for example, in a table widget) did  not update/refresh the widget correctly (i.e. the edited value instead of the original value was shown).
 -  Clearing a selected element by using the cross icon in a Selectionbox widget did not clear the underlying value in the AIMMS model.
--  In some situations, scrolling a table could trigger a simultaneous scrolling onf the whole page.
+-  In some situations, scrolling a table could trigger a simultaneous scrolling on the whole page.
 
 
 --------------
