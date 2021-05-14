@@ -6,6 +6,11 @@ The first public release of HTTPClient was version 1.0.0.3, release date Decembe
 
 New Features and Bug Fixes
 --------------------------
+1.2.0.41 [14-05-2021]
+    - Prevent double url_encoding for parts of the URL
+    - Protect web::base64_decode for invalid input
+    - Handle double equal signs in URL query differently
+
 1.2.0.36 [04-03-2021]
     - Fix threading issue in web::request_invoke_async method
     - Added  web::setConfig method
