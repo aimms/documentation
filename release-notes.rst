@@ -14,6 +14,30 @@ AIMMS 4.79
 #############
 
 
+AIMMS 4.79.5 Release (May 14, 2021 - build 4.79.5.26).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  A case read in a model that contains 'defining procedures' could lead to a situation that string parameters did not get the correct values. Because of that the model could easily crash after a case read.
+-  Getting help on the GMP functions (for example GMP::instance::generate) did not bring you to the online documentation.
+-  When writing to a database table in replace rows mode in case of (assumed) foreign keys and fixed columns and rows in the database that should be deleted, the fixed columns were not taken into account in the DELETE query, resulting in too many rows to be deleted.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Using an 'upon-change' procedure to revert the value that just had been edited (for example, in a table widget) did  not update/refresh the widget correctly (i.e. the edited value instead of the original value was shown).
+-  Clearing a selected element by using the cross icon in a Selectionbox widget did not clear the underlying value in the AIMMS model.
+-  In some situations, scrolling a table could trigger a simultaneous scrolling onf the whole page.
+
+
+--------------
+
+
+
 AIMMS 4.79.4 Release (April 29, 2021 - build 4.79.4.17).
 ------------------------------------------------------------------------------------------
 
