@@ -181,7 +181,7 @@ Step 4: Once created, the custom grid layout can be applied to a side panel and 
 .. image:: images/SPGL_CustomAssigned.png
 			:align: center
 
-If you need more information about defining custom layouts, please read more on `Creating Grid Definitions <webui-grid-pages.html#creating-grid-definitions>`_. 
+If you need more information about defining custom layouts, please read more on `Creating Grid Definitions <webui-grid-pages.html#creating-grid-definitions>`_. All layout properties described there apply to side panels as well. One exception is that using the property 'runIntoGridGap' of a GridArea may lead to undesired visual side-effects in case of side panels. The grid layout property 'runIntoGridGap' was designed to make full-screen-like pages (like for a map) which need to overlap the natural internal padding any page has. For side panels the padding inside the 'page' (which the sidepanel actually is) has been taken away. So, if you define an area to 'run into the padding' (which is not there) then you end up outside the page or below the edge. Therefore, using the property 'runIntoGridGap' of a GridArea should be avoided for side panels with grid layout.
 
 In case the widgets being assigned require more space, you can introduce a vertical scroll by dividing the areas `using percentages <webui-grid-pages.html#using-percentages>`_, the sum of which should exceed 100%.
 
