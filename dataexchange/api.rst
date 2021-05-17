@@ -1,18 +1,21 @@
-The Data Exchange API
-*********************
+Methods provided by the Data Exchange library
+=============================================
 
 The following functions you can use within your model, are exposed by the Data Exchange library.
 
+Methods for reading and writing data
+------------------------------------
+
 .. js:function::  dex::AddMapping(mappingName,mappingFile)
 
-    Parses :token:`mappingFile` to create a mapping called :token:`mappingName`.
+    Parses :token:`mappingFile` to create a mapping called :token:`mappingName`. The function will return 1 on success, or 0 on failure.
     
     :param mappingName: the name of the mapping to be created
     :param mappingFile: the relative path to the mapping file to be parsed.
     
 .. js:function::  dex::ReadFromFile(dataFile,mappingName,emptyIdentifiers,emptySets,resetCounters)
 
-    Reads data from file :token:`dataFile` into model identifiers using mapping :token:`mappingName`. Note that the identifiers used in the :token:`included-mapping` and :token:`write-filter` will not be emptied, regardless of the :token:`emptyIdentifiers` argument. When the mapping contains an the :token:`included-mapping` or the :token:`iterative-existing` attributes, emptying sets is likely to cause problems, unless the domain sets referred in these attributes are defined.
+    Reads data from file :token:`dataFile` into model identifiers using mapping :token:`mappingName`. Note that the identifiers used in the :token:`included-mapping` and :token:`write-filter` will not be emptied, regardless of the :token:`emptyIdentifiers` argument. When the mapping contains an the :token:`included-mapping` or the :token:`iterative-existing` attributes, emptying sets is likely to cause problems, unless the domain sets referred in these attributes are defined. The function will return 1 on success, or 0 on failure.
     
     :param dataFile: the relative path to the data file to be read
     :param mappingName: the name of the mapping to be used
@@ -22,7 +25,7 @@ The following functions you can use within your model, are exposed by the Data E
 
 .. js:function::  dex::WriteToFile(dataFile,mappingName,pretty)
 
-    Writes file :token:`dataFile` from data in model identifiers using mapping :token:`mappingName`.
+    Writes file :token:`dataFile` from data in model identifiers using mapping :token:`mappingName`. The function will return 1 on success, or 0 on failure.
     
     :param dataFile: the relative path to the data file to write to
     :param mappingName: the name of the mapping to be used for writing
@@ -31,7 +34,7 @@ The following functions you can use within your model, are exposed by the Data E
 
 .. js:function::  dex::ReadAllMappings
 
-    Read all mappings contained in the folder :token:`Mappings` and store all successfully read mappings in the set :token:`dex::Mappings`.
+    Read all mappings contained in the folder :token:`Mappings` and store all successfully read mappings in the set :token:`dex::Mappings`. The function will return 1 on success, or 0 on failure.
     
 .. js:function::  dex::ReadAnnotations
 
@@ -50,7 +53,7 @@ The following functions you can use within your model, are exposed by the Data E
     
 .. js:function::  dex::GenerateDatasetMappings
 
-    Generate standardized table and Excel sheet mappings based on the :token:`dex::Dataset`, :token:`dex::TableName`, and :token:`dex::ColumnName` annotations. The generated mappings will be stored in the :token:`Mappings/Generated` subfolder of the project folder. All generated mappings will automatically be added to the set of available mappings, and can be directly used to read and write the standardized JSON, XML, CSV or Excel data sources based on the data exchange annotations.
+    Generate standardized table and Excel sheet mappings based on the :token:`dex::Dataset`, :token:`dex::TableName`, and :token:`dex::ColumnName` annotations. The generated mappings will be stored in the :token:`Mappings/Generated` subfolder of the project folder. All generated mappings will automatically be added to the set of available mappings, and can be directly used to read and write the standardized JSON, XML, CSV or Excel data sources based on the data exchange annotations. The function will return 1 on success, or 0 on failure.
 
     You can influence how mappings will be generated through:
     
@@ -58,3 +61,179 @@ The following functions you can use within your model, are exposed by the Data E
     * :token:`dex::DatasetXMLAttributeMappings`: determines whether the generated XML format will write all values as XML attribute values (default) or as element values. Indices will always be written as XML attributes.
     
     You can use the generated mappings directly with the functions :js:func:`dex::WriteToFile` and :js:func:`dex::ReadFromFile` as with any manually created mapping.
+    
+HTTP Client methods
+-------------------
+
+The Data Exchange library contains collection of functions implemented using libCurl (see the `libCurl documentation <https://curl.se/libcurl/c/>`_). The following methods are exposed by the Data Exchange library to send HTTP client requests and to handle their responses. 
+
+.. js:function::  dex::client::NewRequest
+
+    Create a new HTTP request with (unique) identification :token:`theRequest` to the URL :token:`url`, with method :token:`httpMethod` (optional, default :token:`GET`). Upon response from the web server, the callback method :token:`callback` will be called. The prototype of :token:`callback` should be the same as the function :token:`dex::client::EmptyCallback`. 
+    For :token:`POST` and :token:`PUT` methods, you can specify the file :token:`requestFile` from which to take the request body of the request. If you specify the optional :token:`responseFile` argument, the response body will be captured in the specified file. If ommitted the response body will be silently discarded. The function will return 1 on success, or 0 on failure.
+    
+    :param theRequest: string parameter holding the unique identification of the request.
+    :param url: string parameter holding the URL of the request, including any query parameters you want to add to the request.
+    :param callback: element parameter into :token:`AllProcedures`, holding the callback to be called asynchronously after the response to the HTTP request has been received
+    :param httpMethod: (optional) element parameter into :token:`dex::client::HTTPMethods`, specifying the HTTP method to use for the request (default :token:`GET`)
+    :param requestFile: (optional) string parameter holding the filename from which to take the request body
+    :param responseFile: (optional) string parameter holding the filename in which  to store the response body
+    
+.. js:function::  dex::client::CloseRequest
+    
+    Close the request :token:`theRequest` and all resources held by the Data Exchange library for the request. If the request has been executed, but Data Exchange library is still listening for a response to the request, it will stop doing so. By default, the Data Exchange library will close the request directly after its callback method has been called to free its resources as soon as possible (e.g. when a large number of request is being executed). Notice that closing a request will *not* remove any request or response files specified in :token:`dex::client::NewRequest`. The function will return 1 on success, or 0 on failure.
+    
+    :param theRequest: string parameter holding the unique identification of the request to close
+    
+.. js:function::  dex::client::CloseAllRequests
+
+    Close any outstanding HTTP requests, that have been created and may still be executing. The function will return 1 on success, or 0 on failure.
+    
+.. js:function::  dex::client::PerformRequest
+
+    Execute a previously created HTTP request :token:`theRequest`. Upon response, the Data Exchange library will call the specified :token:`callback` function asynchronously, as soon as the request has been completed and the AIMMS engine is idle. To force :token:callback`to be called synchronously within a procedure of your model, you can use the method :token:`dex::client::WaitForResponses`. The function will return 1 on success, or 0 on failure.
+   
+    :param theRequest: string parameter holding the unique identification of the request to execute
+
+.. js:function::  dex::client::AddRequestOptions
+   
+    Using the function :token:`dex::client::AddRequestOptions` you can specify multiple string and integer-valued Curl options to request :token:`theRequest`, to modify the behavior of libCurl. All available Curl options can be found in the sets :token:`dex::client::StringOptions` and :token:`dex::client::IntOptions`. For the interpretation of these options please refer to the `Curl options documentation <https://curl.se/libcurl/c/curl_easy_setopt.html>`_. The function will return 1 on success, or 0 on failure. 
+    
+    :param theRequest: string parameter holding the unique identification of the request to add request options to.
+    :param intOptions: integer parameter over the set :token:`dex::client::intOptions` holding the integer Curl options to set
+    :param stringOptions: integer parameter over the set :token:`dex::client::StringOptions` holding the string Curl options to set
+
+.. js:function::  dex::client::AddStringOption
+
+    Low-level method to set a single string-valued Curl option for request :token:`theRequest`. The argument :token:`stringOptionId` should be the id corresponding to the option taken from the parameter :token:`dex::client:CurlOptionId`. The function will return 1 on success, or 0 on failure.
+   
+    :param theRequest: string parameter holding the unique identification of the request to add the string-valued request option to.
+    :param stringOptionId: parameter holding the Curl id for the option (taken from :token:`dex::client:CurlOptionId`).
+    :param optionValue: string parameter holding the option value.
+
+.. js:function::  dex::client::AddIntOption
+
+    Low-level method to set a single integer-valued Curl option for request :token:`theRequest`. The argument :token:`intOptionId` should be the id corresponding to the option taken from the parameter :token:`dex::client:CurlOptionId`. The function will return 1 on success, or 0 on failure.
+   
+    :param theRequest: string parameter holding the unique identification of the request to add the integer-valued request option to.
+    :param intOptionId: parameter holding the Curl id for the option (taken from :token:`dex::client:CurlOptionId`).
+    :param optionValue: parameter holding the option value.
+
+.. js:function::  dex::client::AddRequestHeaders
+
+    Using the function :token:`dex::client::AddRequestHeaders` you can specify any HTTP headers you want to add to request :token:`theRequest`. Notice that some Curl options will also result in the addition of HTTP headers to the request. The function will return 1 on success, or 0 on failure.
+    
+    :param theRequest: string parameter holding the unique identification of the request to add request headers to.
+    :param headers: string parameter over a (user-defined) set of headernames holding the corresponding header values to add
+
+.. js:function::  dex::client::AddRequestHeader
+
+    Using the function :token:`dex::client::AddRequestHeader` you can specify a single HTTP header you want to add to request :token:`theRequest`. The function will return 1 on success, or 0 on failure.
+    
+    :param theRequest: string parameter holding the unique identification of the request to add a request header to.
+    :param headers: string parameter holding the header name to add
+    :param headerValue: string parameter holding the header value to add
+
+.. js:function::  dex::client::AddMimePart
+
+    Using the function :token:`dex::client::AddMimePart` you can create a multi-part MIME body for a :token:`POST` request. The function will return 1 on success, or 0 on failure.
+
+    :param theRequest: string parameter holding the unique identification of the request for which to create a multi-part MIME body.
+    :param partname: string parameter holding the name of the part
+    :param partfile: string parameter holding the name of the file containing the contents of the part.
+    :param asfile: parameter indicating whether part is to be treated as a file part, in which case the base name of :token:`partfile` is transferred as the remote file name.
+
+.. js:function::  dex::client::EmptyCallback
+
+    Prototype function for any callback to be added as the :token:`callback` parameter of the function :token:`dex::client::NewRequest`. 
+    Inside the callback you can retrieve info items provided by libCurl and any response headers regarding the executed request, or handle the response file associated with the request. To free resources, the Data Exchange library will delete a request directly after its callback has been called. At such point, you will not be able to retrieve any info items for the request any longer, but, you as a caller will remain responsible for deleting any request and response files you may have specified.
+    
+    :param theRequest: string parameter holding the unique identification of the request for which the callback is called.
+    :param statusCode: HTTP status code of the response.
+    :param errorCode: Curl error code for the response in case the request was not successful.
+
+.. js:function::  dex::client::GetInfoItems
+
+    Using the function :token:`dex::client::GetInfoItems` you can retrieve string- and integer-valued info items provided by libCurl regarding the executed request inside the :token:`callback` function specified in the :token:`dex::client::NewRequest` method. For the interpretation of the available info items, see the `Curl info documentation <https://curl.se/libcurl/c/curl_easy_getinfo.html>`_. The function will return 1 on success, or 0 on failure.
+    
+    :param theRequest: string parameter holding the unique identification of the request for you want to retrieve info items
+    :param infoItems: subset of :token:`dex::client::CurlInfoItems` holding the collection of string- or integer-valued info items you want to retrieve.
+    :param intInfoItems: output parameter holding the integer-valued info item values.
+    :param stringInfoItems: output string parameter holding the string-value info item values.
+
+.. js:function::  dex::client::GetStringInfoItem
+
+    Using the function :token:`dex::client::GetStringInfoItem` you can retrieve a single string-valued info item provided by libCurl regarding the executed request inside the :token:`callback` function specified in the :token:`dex::client::NewRequest` method. The parameter :token:`stringinfoId` should hold the id corresponding to the info item taken from the parameter :token:`dex::client:CurlInfoId`. The function will return 1 on success, or 0 on failure.
+    
+    :param theRequest: string parameter holding the unique identification of the request for you want to retrieve info items
+    :param stringinfoId: parameter holding the id of the string-valued info item
+    :param infoValue: output string parameter holding the value of the requested string info item.
+
+.. js:function::  dex::client::GetIntInfoItem
+
+    Using the function :token:`dex::client::GetStringInfoItem` you can retrieve a single integer-valued info item provided by libCurl regarding the executed request inside the :token:`callback` function specified in the :token:`dex::client::NewRequest` method. The parameter :token:`intinfoId` should hold the id corresponding to the info item taken from the parameter :token:`dex::client:CurlInfoId`. The function will return 1 on success, or 0 on failure.
+    
+    :param theRequest: string parameter holding the unique identification of the request for you want to retrieve info items
+    :param intinfoId: parameter holding the id of the integer-valued info item
+    :param infoValue: output parameter holding the value of the requested integer info item.
+
+.. js:function::  dex::client::GetResponseHeaders
+
+    Using the function you can retrieve the HTTP headers of the response of :token:`theRequest`. The function will return 1 on success, or 0 on failure.
+    
+    :param theRequest: string parameter holding the unique identification of the request for you want to retrieve the response headers
+    :param headers: output string parameter over a (user-defined) header set, holding the values of all headers in response, which will be added to the header set.
+
+.. js:function::  dex::client::GetErrorMessage
+
+    With this function you can retrieve the Curl error message associated with the error code passed back via a request calbback. The function will return 1 on success, or 0 on failure.
+    
+    :param errorCode: parameter holding the error code passed back via a request callback
+    :param errorMessage: output string parameter holding the associated error message
+
+.. js:function::  dex::client::WaitForResponses
+
+    Using this function you can block the execution of the calling procedure for a maximum of :token:`timeout` milliseconds to wait for incoming responses of any outstanding HTTP requests.
+    As soon as a first response is available for any of the outstanding requests within the given timeout, its associated callback will be called, as well as for any other available responses. If there are no further responses, the function will return. The function will return 1 if one or more responses came in within the given timeout, or 0 on timeout.
+    
+    :param timeout: the maximum time in milliseconds to wait for any incoming responses.
+
+.. js:function::  dex::client::SetParallelConnections
+
+    With this function you can set the maximum number of client connections that will be used concurrently. Any HTTP request submitted using :token:`dex::client::PerformRequest` will be executed using one of these concurrent connections. If the number of non-processed requests exceeds the maximum number of concurrent connections, the request will be queued until a connection becomes available.
+    
+    :param nrconn: the desired maximum number of concurrent client connections allowed (default 16).
+
+.. js:function::  dex::client::QueryMapEncode
+
+    Using this function you can construct a URL-encoded list of query parameters that you want to add to a URL. All query parameters are separated by an :token:`&`, and you can add it to a URL by appending it with a :token:`?` token to the URL. 
+    
+    :param queryMap: an indexed string parameter over a set of query parameters, holding the associated query parameter values
+    :param queryString: a scalar output string parameter holding the URL-encoded query parameter string that you can append to the URL.
+    
+.. js:function::  dex::client::StopClient
+
+    This function close all outstanding requests, and uninitialize libCurl to handle any incoming responses. The function will return 1 on success, or 0 on failure.
+    
+
+HTTP Server methods
+-------------------
+
+The Data Exchange library supports exposing procedures in your model as endpoints of an HTTP REST service. You can configure and use this service via the methods below.
+
+.. js:function::  dex::api::StartAPIService
+
+    This function will collect all procedures with a :token:`dex::ServiceName` annotation, and will start the HTTP service listener, to listen to, and handle incoming service requests. Prior to calling :token:`dex::api::StartAPIService`, you can configure the listen port and maximum accepted request size in MB, through the configuration parameters:
+    
+    * :token:`dex::api::ListenerPort` (default 8080)
+    * :token:`dex::api::MaxRequestSize` (default 128 MB)
+
+.. js:function::  dex::api::StopAPIService
+
+    This function will stop the HTTP service listener waiting for incoming requests.
+
+.. js:function::  dex::api::Yield
+    
+    You can use this function yield control for a maximum of :token:`timeout` milliseconds to the HTTP server component of the Data Exchange library to handle incoming requests synchronously. The function will return 1 if one or more requests were handled within the given timeout, or 0 on timeout.
+    
+    :param timeout: the maximum time in milliseconds to wait for, and handle, any incoming requests.

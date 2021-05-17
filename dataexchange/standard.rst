@@ -1,19 +1,19 @@
 Standard Data Exchange format
-*****************************
+=============================
 
 The Data Exchange library allows you to flexibly map any JSON, XML format, and CSV or Excel sheet onto appropriate identifiers in your AIMMS model. Although not difficult, creating such mappings may considerable time to create. In this section we will describe how to create *standard Data Exchange formats* for JSON, XML, CSV and Excel based on the identifiers in your model, just by specifying which identifiers to take together in a single table through annotations specific to the Data Exchange library.
 
 To introduce the concepts behind these standardized Data Exchange formats offered by the Data Exchange library, we'll describe a generic pattern used by many customers to set up application databases with their models, which we will use as a base for constructing the standardized formats.
 
 Commonly used principles in setting up application databases
-============================================================
+---------------------------------------------------------------
 
 Application databases for AIMMS models, typically group identifiers with an identical domain into a single relational table, with a separate column in the primary key of the table for each index in the shared index domain and a non-primary column for every multi-dimensional identifier. To allow for storing multiple datasets/scenarios in such a table, typically an additional *dataset/scenario* key is added to the primary key of the table. Typically, the dataset/scenario key is shared among multiple tables. 
 
 When exchanging data with such an application database, typically, the data for an dataset/scenario is read from, or written to, the tables holding the data for these datasets/scenarios *in its entirety*. Replacing the data of individual rows or columns within a dataset/scenario, may lead to consistency problems with application instances that have already read the data in the dataset/scenario prior to updating individual rows/columns. Thus, even when only some data is changed, creating a complete new dataset seems a much easier and safer approach, especially as it is fairly easy to clean up old and, potentially, replaced datasets. In case updating individual rows and columns is essential, the use of `CDM <../cdm/index.html>`_ seems to be the more appropriate solution to make sure that data between multiple sessions is properly synced.
 
 Design principles of standard Data Exchange format
-==================================================
+---------------------------------------------------------------
 
 Thus, we arrive a common and generic framework that will allow to exchange almost any data with an AIMMS model:
 
@@ -61,7 +61,7 @@ The following JSON data contains the data of an instance of two datasets, each c
     }
     
 Uses of the standard Data Exchange format
-=========================================
+------------------------------------------
 
 The standard Data Exchange format discussed above is flexible enough to support a range of scenarios for integrating an AIMMS model into the wider IT landscape:
 
@@ -70,7 +70,7 @@ The standard Data Exchange format discussed above is flexible enough to support 
 * Based on the concepts of datasets and tables, it easy to generate an application database from the model annotations, and to create a web service that allows data exchange with such an application database using the standard format.
 
 Generating the mapping files from annotations
-=============================================
+---------------------------------------------------------------
 
 To create the mapping between multi-dimensional identifiers and datasets, tables and column names, you can use the following model annotations:
 

@@ -12,10 +12,12 @@ The following are the elements allowed in a JSON mapping
 * the :token:`ObjectMapping` element, a mapping element used to map a JSON object value (enclosed in curly brackets :token:`{` and :token:`}`)
 * the :token:`ArrayMapping` element, a mapping element used to map a JSON array value (enclosed in square brackets :token:`[` and :token:`]`). A JSON array mapping can only have a single child mapping, specifying the type of every element in the array.
 * the :token:`ValueMapping` element, a mapping element used to map a integer, double or string value in a JSON file
-* the :token:`RowOrientedObjectMapping` element, a mapping element used to map all underlying mapping nodes as an array of row arrays (containing heterogeneous value types)
-* the :token:`ColumnOrientedObjectMapping` element, a mapping element used to map all underlying mapping nodes as an array of column arrays (containing homogeneous value types)
+* the :token:`RowMapping` element (underneath an :token:`ObjectMapping`), a mapping element used to map all underlying mapping nodes as an array of row arrays (containing heterogeneous value types)
+* the :token:`RowMapping` element (underneath a :token:`ColumnMapping`), a mapping element used to map the value of a particular element in a :token:`ColumnMapping` to a specific identifier in the model.
+* the :token:`ColumnMapping` element (underneath an :token:`ObjectMapping`), a mapping element used to map all underlying mapping nodes as an array of column arrays (containing homogeneous value types)
+* the :token:`ColumnMapping` element (underneath a :token:`RowMapping`), a mapping element used to map the value of a particular element in a :token:`RowMapping` to a specific identifier in the model.
 
-The represent row-oriented data, the :token:`RowOrientedObjectMapping` and :token:`ColumnOrientedObjectMapping` will provide the most compact JSON representations and will execute the fastest.
+The represent row-oriented data, the :token:`RowMapping` and :token:`ColumnMapping` will provide the most compact JSON representations and will execute the fastest.
 
 XML Mapping elements
 ======================
@@ -33,8 +35,8 @@ CSV Mapping elements
 The following are the elements allowed in a CSV mapping
 
 * the :token:`AimmsCSVMapping` element, the mandatory root of a CSV mapping. It should contain a single :token:`CSVTableMapping` element.
-* the :token:`CSVTableMapping` element, a mapping element used to map a CSV table
-* the :token:`CSVColumnMapping` element, a mapping element used to map the value of a column in a CSV table
+* the :token:`RowMapping` element, a mapping element used to map rows of a CSV table
+* the :token:`ColumnMapping` element, a mapping element used to map the value of a column in a CSV table
 
 Excel Mapping elements
 ======================
@@ -43,7 +45,8 @@ The following are the elements allowed in a CSV mapping
 
 * the :token:`AimmsExcelMapping` element, the mandatory root of an Excel mapping. It can contain multiple :token:`ExcelSheetMapping` elements.
 * the :token:`ExcelSheetMapping` element, a mapping element used to map an Excel sheet
-* the :token:`ExcelColumnMapping` element, a mapping element used to map the value of a column in an Excel sheet
+* the :token:`RowMapping` element, a mapping element used to map a row in an Excel sheet
+* the :token:`ColumnMapping` element, a mapping element used to map the value of a column in an Excel sheet
 
 Mapping attributes
 ======================
@@ -57,12 +60,16 @@ The available mapping attributes are:
 * name-binds-to     
 * name-regex    
 * name-regex-prefix    
+* name-regex-postfix    
 * iterative-binds-to
 * iterative-prefix  
 * iterative-existing
-* iterative-reset   
+* iterative-reset
+* implicit-binds-to
+* binds-existing
 * maps-to
 * max-string-size    
+* range-existing
 * value           
 * write-filter      
 * force-dense
@@ -96,9 +103,33 @@ The :token:`iterative-binds-to` attribute can be used if the given JSON or XML f
 
 The :token:`iterative-prefix` attribute can be used alongside the :token:`iterative-binds-to` attribute. All elements created in the model will be prefixed with the prefix specified here. If you don't specify a prefix, the element names will be just increasing integer values.
 
-Assigning a value of 1 to the the :token:`iterative-existing` attribute causes the :token:`iterative-binds-to` attribute to not generate new elements, but instead to use existing elements of the set bound to the index specified in the :token:`iterative-binds-to` attribute, starting at the element with ordinal 1.
+Assigning a value of 1 to the the :token:`iterative-existing` attribute causes the :token:`iterative-binds-to` attribute to not generate new elements, but instead to use existing elements of the set bound to the index specified in the :token:`iterative-binds-to` attribute, starting at the element with ordinal 1. If a generated element is not present, the reading will stop with an error.
 
-The :token:`iterative-reset` attribute can be specified at the parent element of a mapping element which holds a :token:`iterative-binds-to` attribute. It will cause the integer counter of all direct child mappings to be reset to 1.
+The :token:`iterative-reset` attribute can be specified at the parent element of a mapping element which holds a :token:`iterative-binds-to` attribute. It will cause the integer counter of all direct child mappings to be reset to 1. 
+
+The implicit-binds-to attribute
+-------------------------------
+
+By default, if a node in a mapping has sibling nodes, any index bound via a :token:`binds-to` attribute at such a node *n* can be used in any attribute of all nodes in the subtree starting at the *parent* node of *n*. Via the :token:`implicit-binds-to` attribute you can make such an index available for use in subtrees starting at even higher parent nodes. You can use this, for instance, if an id of a JSON/XML data structure, that you intend to use as the index value for all data in such a data structure, is stored deeper in such a data structure. By means of the :token:`implicit-binds-to` attribute you can make sure that the Data Exchange library will first read the entire subtree containing the index value, prior to reading the subtrees where this index is referenced in e.g. a :token:`maps-to` attribute.
+
+The binds-existing attribute
+----------------------------
+
+The :token:`binds-existing` attribute can be used in conjunction with the :token:`binds-to`, :token:`name-binds-to` and :token:`iterative-binds-to` attribute to indicate that, when reading a data file, now new set elements will be created based on node values or names. If a newly read or generated element is not present in the set, any data value underneath the node to which the element is bound will be skipped (cf. to :token:`iterative-reset` which will return with an error in such a case). This allows for a filtering mechanism where a data file can only be partially read for all nodes that correspond to existing set elements in the model.
+
+External bindings in mappings
+-----------------------------
+
+Directly underneath the root node of any mapping you can specify one or more :token:`ExternalBinding` nodes. An external mapping node has two attributes:
+
+* binds-to
+* binding
+
+Through the :token:`binds-to` attribute you can specify the index which should be bound externally to the scalar element parameter specified through the :token:`binding` attribute. 
+
+As a result of an :token:`ExternalBinding`, any externally bound index cannot be bound any longer within the document, and any use of an externally bound index in multi-dimensional identifiers used in e.g. a :token:`maps-to` attribute will refer to the slice of that identifier associated with the element parameter specified through the :token:`binding` attribute.
+
+You can use an :token:`ExternalBinding` node to read or write a document only for the slice associated with the specified element parameter. Alternatively, you can use it to bind it in an :token:`included-mapping` to the current value of an index bound in an outer mapping at the node containing the :token:`included-mapping`.
 
 The maps-to attribute
 ---------------------
@@ -109,6 +140,11 @@ The :token:`write-filter` attribute can be specified at any node in the mapping 
 
 By default, the Data Exchange library assumes that all string values will hold up to 1024 characters. Through the :token:`max-string-size` attribute a maximum string size up to 8KB can be specified.
 
+The range-existing attribute
+----------------------------
+
+If the identifier associated with a :token:`maps-to` attribute is an element parameter, the :token:`range-existing` attribute can be used to that any values encountered that do not correspond to an existing element in the range set, should be skipped, rather than creating a new element in the range set for such a value. 
+
 The force-dense attribute
 -------------------------
 The :token:`force-dense` attribute should also contain a reference to an identifier plus bound indices as for the :token:`maps-to` attribute. Thru this attribute you can force a specific density pattern by specifying a domain for which nodes *should* be generated, regardless of whether non-default data is present to fill such nodes, e.g. because the identifier specified in the :token:`maps-to` attribute of the node itself, or any of its sub-nodes, holds no non-default data. Note that a density pattern enforced thru the :token:`force-dense` attribute is still subject to a write filter specified in a :token:`write-filter` attribute.
@@ -117,7 +153,9 @@ Enforcing a density pattern may be important when the bound indices are generate
 
 .. note::
     
-        None of the :token:`maps-to`, :token:`write-filter` and :token:`force-dense` attributes may contain an identifier *slice*, but must be bound to indices in the mapping for *all* dimensions of the given identifier. *Thus, for instance, specifying a value of 1 to the* :token:`force-dense` *attribute to enforce full density is not allowed.* Instead you should create a full-dimensional parameter holding 1 for every tuple in its domain and assign that to the  :token:`force-dense` attribute.
+        None of the :token:`maps-to`, :token:`write-filter` and :token:`force-dense` attributes may contain an identifier *slice*, but must be bound to indices in the mapping for *all* dimensions of the given identifier. *Thus, for instance, specifying a value of 1 to the* :token:`force-dense` *attribute to enforce full density is not allowed.* Instead you should create a full-dimensional parameter holding 1 for every tuple in its domain and assign that to the  :token:`force-dense` attribute. 
+        
+        To enforce slicing for a particular index, you can specify an :token:`ExternalBinding` node directly underneath the root node of the mapping.
 
 The dense-children attribute
 ----------------------------
@@ -138,9 +176,15 @@ With the :token:`value` attribute you can specify that, when writing a file, the
 The included-mapping attribute
 ------------------------------
 
-Through the :token:`included-mapping` attribute, you can indicate that the contents of an object or array element in a given JSON or XML file should be read/written using a mapping, the name of which is contained in the string parameter specified in this attribute. The dimension of the string parameter should match the indices already bound at the given node. With this attribute you can specify a *data-driven* mapping name for a certain sub-tree of a JSON or XML file, e.g., to specify a table-specific mapping, where the table name is already bound in a parent node of the node at hand. 
+Through the :token:`included-mapping` attribute, you can indicate that the contents of an object or array element in a given JSON or XML file should be read/written using a mapping, the name of which is contained in the string parameter specified in this attribute. The dimension of the string parameter should match the indices already bound at the given node. With this attribute you can specify a *data-driven* mapping name for a certain sub-tree of a JSON or XML file, e.g., to specify a table-specific mapping, where the table name is already bound in a parent node of the node at hand.
 
-Note that the mapping specified here cannot refer to the indices already bound at the node, e.g. the contents of the tree node should be able to be read/written as if read from/written to a completely separate JSON/XML file.  
+Alternatively, if the string value of the :token:`included-mapping` attribute starts with the :token:`@` character, the remainder of the value will be interpreted as the *fixed* name of a mapping to be applied for the node at hand, instead of as a string parameter holding mapping names.
+
+Note that when reading the contents of the node associated with the included mapping you cannot refer to the indices already bound at that node in the containing mapping, i.e., the contents of the tree node should be able to be read/written as if read from/written to a completely separate JSON/XML file. 
+
+It is possible, however, to externally bind the values of bound indices to indices used in the included mapping by specifying an :token:`ExternalBinding` node underneath the node containing the :token:`included-mapping` attribute. To this end, the included mapping itself should have an possess an :token:`ExternalBinding` for the index you want to bind to. In addition, you should specify an :token:`ExternalBinding` node underneath the node with :token:`included-mapping` attribute, with the :token:`binds-to` attribute set to the externally bound index in the included mapping, and the :token:`binding` attribute set to the bound index in the outer mapping you want to bind to. 
+
+You can use external bindings in combination with included mappings to break a longer mapping into its constituing components. Note, however, that breaking up mappings this way will carry a performance penalty, especially if there is a lot of repetition in the nodes using an included mapping. 
 
 The embedded-mapping attribute
 ------------------------------
@@ -152,7 +196,6 @@ Assigning a value of 1 to the :token:`base64-encoded` attribute indicates whethe
 How does the mapping work for reading and writing?
 ==================================================
 
-
 In this section we will explain how the Data Exchange library uses the mapping to read or write a given format.
 
 During read
@@ -162,16 +205,23 @@ When reading a JSON, XML, CSV or Excel file using a specified mapping, the Data 
 
 If reading a particular node in the data file, it will first try to bind any indices specified 
 
-* at the node itself thru the :token:`name-binds-to` or :token:`iterative-binds-to` attributes, or 
-* at direct child nodes thru the :token:`binds-to` attribute, 
+* at the node itself thru the :token:`name-binds-to` or :token:`iterative-binds-to` attributes, 
+* at direct child nodes thru the :token:`binds-to` attribute, or
+* at deeper child nodes that make their indices available thru :token:`implicit-binds-to` attributes.
 
-and maintain a stack bound indices. Subsequently it will examine all other child nodes. If such a node is a structural or iterative node, it will recursively try to read the data associated with the child node. If the examined node is a value-holding node mapped to an multi-dimensional identifier, the value will be assigned to that identifier. Finally, if the node itself is a value-holding node mapped onto an identifier, it will also assign this value.
+All elements assiocated with indices bound this way will be maintained in a stack of bound indices. 
+
+Subsequently the Data Exchange library will examine all other child nodes. If such a node is a structural or iterative node, it will recursively try to read the data associated with the child node. If the examined node is a value-holding node mapped to an multi-dimensional identifier, the value will be assigned to that identifier. Finally, if the node itself is a value-holding node mapped onto an identifier, it will also assign this value.
+
+If a node in the mapping contains an included mapping, all externally bound indices bound to the values of bound indices in the outer mapping, will be carried over to the included mapping, prior to reading the subtree associated with the included mapping.
 
 During write
 ------------
 
-When generating a JSON, XML, CSV or Excel file for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes thru either the :token:`maps-to`, :token:`write-filter` or :token:`force-dense` attributes, and will try to find the lowest subtuple associated with all these identifiers, for all indices bound at this level while fixing the indices already found at a previous level. If such a subtuple can found, bind the new indices at this level, write any mappped value-holding nodes at this level, and iterate over any structural or iterative nodes recursively. If such a node does not exist, there is nothing to generate for this node, and the Data Exchange library will track back to the previous node, and try to progress there. 
+When generating a JSON, XML, CSV or Excel file for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes thru either the :token:`maps-to`, :token:`write-filter` or :token:`force-dense` attributes, and will try to find the lowest subtuple associated with all these identifiers, for all indices bound at this level (through the :token:`binds-to`, :token:`name-binds-to`, :token:`iterative-binds-to`, or :token:`implicit-binds-to` attributes) while fixing the indices already found at a previous level. If such a subtuple can be found, the new indices at this level will be stored, and any mappped value-holding nodes at this level will be written the associated values of any multi-dimensional identifiers matching with the value of the currently bound indices, and the Data Exchange library will iterate over all any structural or iterative child nodes recursively. If no further multi-dimensional data can be found for a particular node, the Data Exchange library will track back to the parent node, and try to progress there. 
 
-The message here is that an JSON, XML, CSV or Excel sheet tree is generated solely on the basis of multi-dimensional identifiers in the mapping, *never* on the basis of any of the :token:`binds-to` attributes. Such nodes will be generated based on bound indices by iterating over multi-dimensional data.
+The message here is that an JSON, XML, CSV or Excel sheet tree is generated solely on the basis of multi-dimensional identifiers in the mapping, and *never* on the basis of any of the :token:`binds-to` attributes. Such nodes will be generated based on indices bound by iterating over multi-dimensional data.
 
 Thus, for instance, to generate a JSON array containing only all element names of a set in your model, you must combine a :token:`binds-to` attribute, together with a :token:`force-dense` attribute consisting an identifier over the index you want to generate the elements for, holding a value of 1 for every element you want to be contained in the array.
+
+If a node in the mapping contains an included mapping, all externally bound indices bound to the values of bound indices in the outer mapping, will be carried over to the included mapping, resulting in the Data Exchange library to use the identifier slices corresponding to the externally bound indices to generate the node contents.

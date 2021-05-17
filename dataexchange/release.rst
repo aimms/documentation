@@ -1,10 +1,32 @@
 DataExchange Library Release Notes
-************************************
+==================================
 
 The first public release of the DataExchange library was version 1.0.0.18, release date July 10, 2020. 
 
+Library Roadmap
+---------------
+
+The DataExchange library is under active development. The following new features are on the roadmap of the DataExchange library:
+
+- Adding `parquet <https://parquet.apache.org/documentation/latest/>`_ as a new support data format
+- Creation of OpenAPI specifications for model-based REST APIs
+- Automated creation of client code for a given REST API from its OpenAPI specification
+- Automated creation of application databases based on the :token:`dex::Dataset` and :token:`dex::TableName` annotations. 
+- Adding these application databases as an additional data source to the (synchronous) DataExchange read and write methods next to JSON, XML, CSV and Excel files.
+- Exposing these application databases to external applications via dedicated application database-specific API services. This will also allow for asynchronous reading and writing to such application databases from within an AIMMS model. 
+
 New Features and Bug Fixes
 --------------------------
+1.2.0.0 [17-05-2021]
+    - Add a completely asynchronous Curl-based HTTP client to the DataExchange library, supporting all string- and integer-valued options provided by libCurl.
+    - Add a REST API server to the DataExchange library, allowing model procedures to become available through a REST API via simple model annotations.
+    - Allow generic :token:`RowMapping` and :token:`ColumnMapping` names to be used in row-based formats such as CSV, Excel, and row- and column-oriented JSON mappings next to the mapping type-specific names available before. This allows for easier switching between various mapping types.
+    - Allow string values upto 8 kB during data transfer with string parameters in the model. The default max string size is 1 kB, which can be changed via the :token:`max-string-size` attribute for particular string-valued nodes mapped onto AIMMS identifiers.
+    - Add support for transferring sliced AIMMS data via :token:`ExternalBinding` mappings that bind indices to the value of an element parameter.
+    - Allow nodes with an :token:`included-mapping` attribute to dynamically map the value of bound indices in the outer mapping to externally bound indices in the included mapping. This allows for splitting mappings into smaller constituing components.
+    - Allow an index bound via the :token:`binds-to` attribute to become available higher up in a JSON/XML tree via the :token:`implicit-binds-to` attribute.
+    - Allow read filtering by skipping all data that cannot be bound to an existing element via the :token:`binds-existing` attribute.
+    
 1.1.0.25 [08-02-2021]
     - Introduce new RowOrientedObjectNode and ColumnOrientedObjectNode for JSON mappings, that are both faster and more compact. 
     - Introduce :token:`max-string-size` attribute to allow string parameters to hold strings of up to 8KB (default 1KB).

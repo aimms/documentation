@@ -1,5 +1,5 @@
-Using the Data Exchange library
-*******************************
+Using the Data Exchange library for communicating data
+======================================================
 
 The AIMMS Data Exchange library allows mapping multi-dimensional AIMMS data onto tree-based data formats such as JSON, XML or even CSV (as a trivial tree-based format). It does so by letting you describe the repetitive structure of a given JSON, XML or CSV format in a mapping file that you can subsequently use to read data of a given format into multi-dimensional identifiers in your model, or write multi-dimensional data in your model to a given format. 
  
@@ -15,7 +15,7 @@ The following simple examples demonstrate some basic uses of the Data Exchange l
 
 
 Example: JSON mapping
-=====================
+---------------------
 
 Look at the following mapping for a JSON format
 
@@ -60,7 +60,7 @@ It describes a JSON file with an object with four children, one of which is an a
     }
 
 Example: XML Mapping
-====================
+---------------------
 
 Look at the following mapping for an XML format
 
@@ -104,22 +104,22 @@ It describes an XML file with an object with four children, one of which is anot
 These example make clear each mapping closely follows the structure of the JSON, XML or CSV file being described. Thus, if you know the format of the file to map, creating a corresponding mapping file for the Data Exchange library is a rather straightforward task.
 
 Example: CSV mapping
-====================
+---------------------
 
 Look at the following mapping for a CSV format:
 
 .. code-block:: xml
 
     <AimmsCSVMapping>
-        <CSVTableMapping>
-            <CSVColumnMapping name="set1" binds-to="i"/>
-            <CSVColumnMapping name="set2" binds-to="j"/>
-            <CSVColumnMapping name="d1" maps-to="d1(i,j)"/>
-            <CSVColumnMapping name="d2" maps-to="d2(i,j)"/>
-            <CSVColumnMapping name="de" maps-to="de(i,j)"/>
-            <CSVColumnMapping name="ds" maps-to="ds(i,j)"/>
-            <CSVColumnMapping name="di" maps-to="di(i,j)"/>
-        </CSVTableMapping>
+        <RowMapping>
+            <ColumnMapping name="set1" binds-to="i"/>
+            <ColumnMapping name="set2" binds-to="j"/>
+            <ColumnMapping name="d1" maps-to="d1(i,j)"/>
+            <ColumnMapping name="d2" maps-to="d2(i,j)"/>
+            <ColumnMapping name="de" maps-to="de(i,j)"/>
+            <ColumnMapping name="ds" maps-to="ds(i,j)"/>
+            <ColumnMapping name="di" maps-to="di(i,j)"/>
+        </RowMapping>
     </AimmsCSVMapping>
 
 It describes a repetitive table node, i.e. a repetitive structure consisting of multiple rows, each consisting of multiple named column leaf-nodes either being bound to the indices :token:`i` and :token:`j`, or to multi-dimensional identifiers over these two indices. A CSV file associated with this mapping could look like:
@@ -139,22 +139,24 @@ It describes a repetitive table node, i.e. a repetitive structure consisting of 
     arr-2,a-5,0.112488,0.0,,"string ,""2",86
 
 Example: Excel mapping
-======================
+----------------------
 
 Look at the following mapping for a Excel file with a single sheet with a table:
 
 .. code-block:: xml
 
     <AimmsExcelMapping>
-        <ExcelSheetMapping name="Table1">
-            <ExcelColumnMapping name="set1" binds-to="i"/>
-            <ExcelColumnMapping name="set2" binds-to="j"/>
-            <ExcelColumnMapping name="d1" maps-to="d1(i,j)"/>
-            <ExcelColumnMapping name="d2" maps-to="d2(i,j)"/>
-            <ExcelColumnMapping name="de" maps-to="de(i,j)"/>
-            <ExcelColumnMapping name="ds" maps-to="ds(i,j)"/>
-            <ExcelColumnMapping name="di" maps-to="di(i,j)"/>
-        </ExcelSheetMapping>
+        <SheetMapping name="Table1">
+            <RowMapping name="row">
+                <ColumnMapping name="set1" binds-to="i"/>
+                <ColumnMapping name="set2" binds-to="j"/>
+                <ColumnMapping name="d1" maps-to="d1(i,j)"/>
+                <ColumnMapping name="d2" maps-to="d2(i,j)"/>
+                <ColumnMapping name="de" maps-to="de(i,j)"/>
+                <ColumnMapping name="ds" maps-to="ds(i,j)"/>
+                <ColumnMapping name="di" maps-to="di(i,j)"/>
+            </RowMapping>
+        </SheetMapping>
     </AimmsExcelMapping>
 
 This mapping will create the same table as in the CSV example, but will now output the table to an Excel workbook with a sheet called :token:`Table1`. A single Excel mapping can contain mappings for multiple sheets.
