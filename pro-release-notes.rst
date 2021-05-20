@@ -12,6 +12,8 @@ On March 23, 2021, we released AIMMS PRO 2.37.2 (2.37.2.2).
 **Improvements**
 
 -  Updated AIMMS PRO AppLauncher with the recent .NET verion 4.7 such that it can support the servers which uses TLS 1.3.
+-  **Cloud:** Added validation for a 'Company CIDR' such that it validates the specified network range while adding a VPN connection for a cloud application database.
+-  **Cloud:** Added validation for a database 'Username' while creating a cloud application database.
 
 **Resolved Issues**
 
