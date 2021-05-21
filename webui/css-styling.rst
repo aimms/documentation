@@ -269,7 +269,7 @@ Example JavaScript:
 Example 2: Using the annotation or flag in a stylesheet
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The prefixed annotation or flag should still be properly escaped for use in a selector (see `CSS.escape <https://drafts.csswg.org/cssom/#utility-apis>`_), although in these examples it is not strictly necessary. Example CSS:
+The prefixed annotation or flag should still be properly escaped for use in a selector, although in these examples it is not strictly necessary. Example CSS:
 
 .. code-block:: css
 
