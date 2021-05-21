@@ -107,11 +107,11 @@ NB. This fix required a change in the format of the changesets sent over the wir
     - Predeclared identifiers could not be part of any category.
 
 1.16.0.2 [21-01-2020]
-    - When contents of root sets was added thru multiple change sets during checkout (e.g. when using cached checkout snapshots), the root set would only contain the elements added during the last change set. 
+    - When contents of root sets was added Through multiple change sets during checkout (e.g. when using cached checkout snapshots), the root set would only contain the elements added during the last change set. 
     - Recompile CDM runtime library before calling action procedures to prevent compile errors due to edit actions in other runtime libraries such as the WebUI runtime library.
 
 1.16.0.0 [16-01-2020]
-    - Data manipulations involving shadow identifiers when committing, checking out and pulling changes, are now running faster by executing them in a procedure in the CDM runtime library, instead of retrieving, comparing and setting all data thru the AIMMS API.
+    - Data manipulations involving shadow identifiers when committing, checking out and pulling changes, are now running faster by executing them in a procedure in the CDM runtime library, instead of retrieving, comparing and setting all data Through the AIMMS API.
 
 1.15.0.22 [11-01-2020]
     - Add :token:`cdm::IdentifierCategoryOverride` to CDM library to allow adding identifiers from read-only libraries to categories

@@ -147,9 +147,10 @@ If the identifier associated with a :token:`maps-to` attribute is an element par
 
 The force-dense attribute
 -------------------------
-The :token:`force-dense` attribute should also contain a reference to an identifier plus bound indices as for the :token:`maps-to` attribute. Thru this attribute you can force a specific density pattern by specifying a domain for which nodes *should* be generated, regardless of whether non-default data is present to fill such nodes, e.g. because the identifier specified in the :token:`maps-to` attribute of the node itself, or any of its sub-nodes, holds no non-default data. Note that a density pattern enforced thru the :token:`force-dense` attribute is still subject to a write filter specified in a :token:`write-filter` attribute.
+The :token:`force-dense` attribute should also contain a reference to an identifier plus bound indices as for the :token:`maps-to` attribute. Through
+ this attribute you can force a specific density pattern by specifying a domain for which nodes *should* be generated, regardless of whether non-default data is present to fill such nodes, e.g. because the identifier specified in the :token:`maps-to` attribute of the node itself, or any of its sub-nodes, holds no non-default data. Note that a density pattern enforced Through the :token:`force-dense` attribute is still subject to a write filter specified in a :token:`write-filter` attribute.
 
-Enforcing a density pattern may be important when the bound indices are generated thru the :token:`iterative-binds-to` attribute, and not explicitly represented thru data-holding node bound to a regular :token:`binds-to` attribute. In such cases, not writing nodes that hold no non-default data, may lead to inconsistent numbering of generated elements when reading the generated JSON or XML files back in. *When reading a JSON, XML, CSV or Excel file, the library will assign a value of 1 for the identifier specified in the* :token:`force-dense` *attribute to any tuple encountered, such that the same file will be generated when writing back the file using the same mapping based on the data just read in.* 
+Enforcing a density pattern may be important when the bound indices are generated Through the :token:`iterative-binds-to` attribute, and not explicitly represented Through data-holding node bound to a regular :token:`binds-to` attribute. In such cases, not writing nodes that hold no non-default data, may lead to inconsistent numbering of generated elements when reading the generated JSON or XML files back in. *When reading a JSON, XML, CSV or Excel file, the library will assign a value of 1 for the identifier specified in the* :token:`force-dense` *attribute to any tuple encountered, such that the same file will be generated when writing back the file using the same mapping based on the data just read in.* 
 
 .. note::
     
@@ -205,9 +206,9 @@ When reading a JSON, XML, CSV or Excel file using a specified mapping, the Data 
 
 If reading a particular node in the data file, it will first try to bind any indices specified 
 
-* at the node itself thru the :token:`name-binds-to` or :token:`iterative-binds-to` attributes, 
-* at direct child nodes thru the :token:`binds-to` attribute, or
-* at deeper child nodes that make their indices available thru :token:`implicit-binds-to` attributes.
+* at the node itself Through the :token:`name-binds-to` or :token:`iterative-binds-to` attributes, 
+* at direct child nodes Through the :token:`binds-to` attribute, or
+* at deeper child nodes that make their indices available Through :token:`implicit-binds-to` attributes.
 
 All elements assiocated with indices bound this way will be maintained in a stack of bound indices. 
 
@@ -218,7 +219,7 @@ If a node in the mapping contains an included mapping, all externally bound indi
 During write
 ------------
 
-When generating a JSON, XML, CSV or Excel file for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes thru either the :token:`maps-to`, :token:`write-filter` or :token:`force-dense` attributes, and will try to find the lowest subtuple associated with all these identifiers, for all indices bound at this level (through the :token:`binds-to`, :token:`name-binds-to`, :token:`iterative-binds-to`, or :token:`implicit-binds-to` attributes) while fixing the indices already found at a previous level. If such a subtuple can be found, the new indices at this level will be stored, and any mappped value-holding nodes at this level will be written the associated values of any multi-dimensional identifiers matching with the value of the currently bound indices, and the Data Exchange library will iterate over all any structural or iterative child nodes recursively. If no further multi-dimensional data can be found for a particular node, the Data Exchange library will track back to the parent node, and try to progress there. 
+When generating a JSON, XML, CSV or Excel file for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes Through either the :token:`maps-to`, :token:`write-filter` or :token:`force-dense` attributes, and will try to find the lowest subtuple associated with all these identifiers, for all indices bound at this level (through the :token:`binds-to`, :token:`name-binds-to`, :token:`iterative-binds-to`, or :token:`implicit-binds-to` attributes) while fixing the indices already found at a previous level. If such a subtuple can be found, the new indices at this level will be stored, and any mappped value-holding nodes at this level will be written the associated values of any multi-dimensional identifiers matching with the value of the currently bound indices, and the Data Exchange library will iterate over all any structural or iterative child nodes recursively. If no further multi-dimensional data can be found for a particular node, the Data Exchange library will track back to the parent node, and try to progress there. 
 
 The message here is that an JSON, XML, CSV or Excel sheet tree is generated solely on the basis of multi-dimensional identifiers in the mapping, and *never* on the basis of any of the :token:`binds-to` attributes. Such nodes will be generated based on indices bound by iterating over multi-dimensional data.
 
