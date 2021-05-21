@@ -251,7 +251,9 @@ Manipulating and selecting elements by annotations or flags
 
 Once an annotation or flag has been applied to an HTML element in a plugin, that element can be selected programmatically, or styled, with CSS selectors.
 
-To achieve this, the prefixed annotation or flag should always be CSS-escaped using the standards-track `CSS.escape <https://drafts.csswg.org/cssom/#utility-apis>`_ method. A substitute for this method is provided by the WebUI runtime when the user's browser does not yet support it.
+.. <https://drafts.csswg.org/cssom/#utility-apis>`
+
+To achieve this, the prefixed annotation or flag should always be CSS-escaped using the standards-track CSS.escape method. A substitute for this method is provided by the WebUI runtime when the user's browser does not yet support it.
 
 Example 1: Programmatically selecting and manipulating HTML elements by annotation or flag
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
