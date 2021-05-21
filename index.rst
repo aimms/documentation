@@ -63,3 +63,4 @@
    release-notes
    pro-release-notes
    deprecation-table
+   info-sec
