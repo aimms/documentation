@@ -17,6 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.2.0.1 [26-05-2021]
+    - Added a DLL that was missing in the PROClient IFA on Windows, causing WinUI PRO sessions to fail
+
 1.2.0.0 [17-05-2021]
     - Add a completely asynchronous Curl-based HTTP client to the DataExchange library, supporting all string- and integer-valued options provided by libCurl.
     - Add a REST API server to the DataExchange library, allowing model procedures to become available through a REST API via simple model annotations.
