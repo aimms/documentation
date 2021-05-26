@@ -60,7 +60,7 @@
    pro/index
    cloud/index   
    library-repository
+   infosec/index
    release-notes
    pro-release-notes
    deprecation-table
-   infosec/index
