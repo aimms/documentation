@@ -1,5 +1,7 @@
-Group Widget
-============
+Group Widget (DEPRECATED)
+=========================
+
+.. important:: The Group widget is `deprecated <../deprecation-table.html#deprecated-and-end-of-life>`_. Please use the `Grid Layout <webui-grid-pages.html>`_ instead.
 
 The Group widget allows you to group a number of widgets together. This way you can easily create form-like structures or simply keep two or more widgets together. It is not intended to be a replacement for page layout.
 
