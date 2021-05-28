@@ -17,6 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.2.0.2 [28-05-2021]
+    - Updated REST service listener component that used a faulty concurrency setting, potentially leading to connectivity loss
+
 1.2.0.1 [26-05-2021]
     - Added a DLL that was missing in the PROClient IFA on Windows, causing WinUI PRO sessions to fail
 
