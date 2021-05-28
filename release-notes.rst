@@ -14,6 +14,24 @@ AIMMS 4.79
 #############
 
 
+AIMMS 4.79.6 Release (May 28, 2021 - build 4.79.6.12).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The AIMMS IDE is now more resilient with respect to loss of connectivity with a license server. It will accept up to 24 hours of connection loss, and will automatically restore the connection whenever possible.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The 'Select All' and the 'Select None' buttons are now properly disabled when a Multiselect widget contains readonly data.
+-  In AIMMS 4.79.2, we accidentally introduced numerical formatting on string values that could be interpreted as numerical values (strings like '12345', or '100e7'), when double-clicking on such string values in Table or Scalar widgets. This led to unexpected changes in the underlying strings in the AIMMS model.
+
+
+
 AIMMS 4.79.5 Release (May 14, 2021 - build 4.79.5.26).
 ------------------------------------------------------------------------------------------
 
