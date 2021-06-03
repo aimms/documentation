@@ -54,11 +54,12 @@ The table below maps the features available for the UI components.
 The table below maps the features available for the different type of pages.
 
 .. csv-table:: 
-    :header: "Features","`Regular Page <webui-pages.html>`_","`Side Panel Page <side-panels.html>`_","`Dialog Page <dialog-pages.html>`_"
+    :header: "Features","`Regular Page <webui-pages.html>`_","`Side Panel Page <side-panels-grd-pages.html>`_","`Dialog Page <dialog-grid-pages.html>`_"
 
     `Page Actions <page-settings.html#page-actions>`_,|tickmark|,,
     `Classic Layout <webui-classic-pages.html>`_,|tickmark|,Fixed Width,Small/Medium/Large
-    `Grid Layout <webui-grid-pages.html>`_,|tickmark|,,
+    `Grid Layout <webui-grid-pages.html>`_,|tickmark|,|tickmark|,|tickmark|
+    Custom Size (Grid Layout),,,|tickmark|
     `Action Upon Load <page-settings.html>`_,|tickmark|,,
     `Action Upon Leave <page-settings.html>`_,|tickmark|,,|tickmark|
-    Max Columns (Clasic Layout),|tickmark|,2 Column Fixed,Small/Medium/Large
+    
