@@ -204,6 +204,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Local identifiers in a procedure or function were not always correctly emptied when calling the procedure or function multiple times.
+-  Local copies of repository libraries included in an .aimmspack file could not be loaded if their path on Windows after extraction exceeded 200 characters.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
