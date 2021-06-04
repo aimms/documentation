@@ -14,6 +14,18 @@ AIMMS 4.79
 #############
 
 
+AIMMS 4.79.7 Release (June 4, 2021 - build 4.79.7.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issue
++++++++++++++++++++++++++
+
+-  In some specific scenarios it could happen that the right-click action items menu on a widget would randomly disappear when being displayed.
+
+
+
 AIMMS 4.79.6 Release (May 28, 2021 - build 4.79.6.12).
 ------------------------------------------------------------------------------------------
 
