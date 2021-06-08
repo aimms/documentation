@@ -35,6 +35,7 @@ AIMMS Improvements
   - TRACE: field level
 
   more info on logging can be found `here <https://how-to.aimms.com/Articles/329/329-more-logging.html>`__.
+
 -  In order to activate the logging configuration (LoggerConfig.xml), in addition to using the `--logcfg` command line option there is now another possibility. When AIMMS is started directly with a project name (for example, double-clicking on a .aimms project file) and there is a LoggerConfig.xml file in the same folder with the project file, then this LoggingConfig.xml file will be picked up automatically and no `--logcfg` option is needed anymore.   
 -  When exporting an end-user version (creating an .aimmspack) if your application uses libraries from the online library repository, you can now choose to include the sources of these libraries in the .aimmspack. This was already possible for the Windows part but not for the Linux part. So now, also when running on the (Linux) cloud, the sources don't need to be downloaded during startup.
 
