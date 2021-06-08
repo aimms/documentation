@@ -45,13 +45,13 @@ The download widget always looks for the file to be downloaded in the below list
 * the root folder of the AIMMS project if in Developer mode 
 * the temporary PRO folder, if the app is launched from a PRO server (or AIMMS Cloud)
 
-However, to create a file with name ``FileLocation`` in the temporary PRO folder, you will need to know the path of that folder and append it before the file name. This can be done by using the pre-defined function :token:`webui::GetIOFilePath` after assigning a string value to ``FileLocation``.
+However, to create a file with name ``FileLocation`` in the temporary PRO folder, you will need to know the path of that folder and append it before the filename. This can be done by using the pre-defined function :token:`webui::GetIOFilePath` after assigning a string value to ``FileLocation``.
 
 .. code::
 
     webui::GetIOFilePath(FileLocation);
 
-The above function returns a string value with the absolute path to the file ``FileLocation`` if you are using it from PRO and returns the unchanged file name if you are in Developer mode. By using this returned value as the location for the file to be created by your procedure, you will make it available for the download widget. 
+The above function returns a string value with the absolute path to the file ``FileLocation`` if you are using it from PRO and returns the unchanged filename if you are in Developer mode. By using this returned value as the location for the file to be created by your procedure, you will make it available for the download widget. 
 
 In case you want to be able to download a previously created file through the download widget, you will need to copy that file into the appropriate location. You can use the :any:`FileCopy` function as below to do that 
 
@@ -59,6 +59,12 @@ In case you want to be able to download a previously created file through the do
 
     FileCopy(FileLocation, webui::GetIOFilePath(FileLocation));
     
+
+.. important::
+
+    Please note that the following special characters should not be used in filenames - ``# * + | \ < > ? , /``. Any files with the mentioned special characters in the filename will result in an error, and the file will not be downloaded.
+
+
 StatusCode
 ^^^^^^^^^^^^
 
@@ -122,7 +128,7 @@ An example for the body of the download procedure is shown below. This particula
        
     endif;
 
-When executed through the download widget, this procedure will let you download a file named MyDownloadFile.txt with FinalLocation := "MyDownloadFile.txt" as its content. If launched from PRO, the file name will still remain same but the value for FinalLocation will be "temporary PRO path + MyDownloadFile.txt"
+When executed through the download widget, this procedure will let you download a file named MyDownloadFile.txt with FinalLocation := "MyDownloadFile.txt" as its content. If launched from PRO, the filename will still remain same but the value for FinalLocation will be "temporary PRO path + MyDownloadFile.txt"
 
 Note that this generated file is NOT automatically deleted if you are running WebUI in AIMMS developer mode. If you want to delete this file after a download, you should use the function :any:`FileDelete` as below. 
 
