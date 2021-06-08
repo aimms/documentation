@@ -62,9 +62,7 @@ To navigate to the newly created page, press the page in the list of available p
 
 After adding a page, you can `add widgets <widget-manager.html#adding-a-widget>`_ to it.
 
-.. important::
-
-	There are some changes made to the page manager with the introduction of `Side Panels <page-manager.html#sidepanels>`_ from software version 4.64. The changes are explained in :ref:`adding a side panel page`.
+.. important:: There are some changes made to the page manager with the introduction of `Side Panels <side-panels.html>`_ from software version 4.64. The changes are explained in `adding a side panel page <side-panels.html#adding-a-side-panel>`_.
 
 Renaming a Page
 ---------------

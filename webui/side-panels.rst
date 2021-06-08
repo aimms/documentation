@@ -13,28 +13,27 @@ This section describes various tasks related to WebUI side panels.
 
 .. important:: Side panels are available in software versions from AIMMS 4.64 onwards.
 
-Side panels are 2 column width pages that can be configured with different widgets and accessed on different/all pages in an application via tabs on the right-hand side of the page.  
-Side panels help build model interactions. These help to free up real estate on pages, or also duplicate widgets that are required on different pages, such as filters.
+	The feature of configuring icons and icon colors on a side panel tab is available in software versions from AIMMS 4.80 onwards.
 
-.. image:: images/SP_TabScreen.png
+Side panels are special pages with a fixed width of two columns which can be accessed on various regular pages in an application by using tabs on the right-hand side of the page (see illustrations bellow). Side panels can be configured with widgets and can help building model interactions. Also, they can hold widgets (such as filters) which are required by several pages, preventing the need to duplicate such widgets on each individual page. This way, side panels help to free up space on regular pages.
+
+.. image:: images/SidePanel_HomeExample1.png
 			:align: center
 			
-.. image:: images/SP_TabScreen_open.png
+.. image:: images/SidePanel_HomeExample2.png
 			:align: center
 		
 What can side panels be used for?
 ---------------------------------
 
-Side panels can be used for various purposes, such as filters, displaying KPIs, making quick notes, showing help text.
+Side panels can be used for various purposes, such as filters, displaying KPIs, making quick notes, showing help text, etc.
 
 Side Panels give developers the possibility to add extra widgets to a page that are always easily accessible in a collapsible panel on the right. The Side Panel is a good place for filters or help text.
 
 Avoid core functionalities in side panels. E.g. steps to achieve (initial) output on the page. Avoid buttons in side panels. Buttons are probably a key function for the page. Put widget-specific procedure in `widget action <widget-options.html#widget-actions>`_. 
 
-.. image:: images/SP_Examples.png
+.. image:: images/SidePanel_Examples.png
 			:align: center
-
-.. _adding a side panel page:
 
 Adding a Side Panel
 -------------------
@@ -61,7 +60,7 @@ Side panels can be added to any level in the page tree, just like any normal pag
 
 .. note:: 
 	
-	Avoid adding pages under side panel pages. These pages will not be shown in the navigation menu.
+	Avoid adding other pages under side panels as such pages will not be shown in the app navigation Menu.
 
 Adding widgets to a Side Panel
 ------------------------------
@@ -99,13 +98,13 @@ Configuring side panels
 Side panels can be configured by the application developer via the AIMMS model. 
 A new declaration has been added to the AimmsWebUI library called Public Page and Widget Specification Declarations under the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section, used to configuring side panels. The set SidePanelSpecification declared inside Public Page and Widget Specification Declarations is used for configuring the side panels as illustrated here in the next steps. 
 
-.. image:: images/SidePanelSpecificationset.png
+.. image:: images/SidePanel_Specification.png
 			:align: center
 
 This set has 4 elements representing side panels properties: 
 
-#.  *displayText*: Is the text/label you would like the side panel tab and header to have. 
-#.  *pageId*: When a page or side panel is created it is has a unique pageId.  You can find all the side panel pageIds in the set AllSidePanelPages. 
+#.  ``displayText``: Is the text/label you would like the side panel tab to have. This is an optional field. If left empty, no text will be displayed on the tab.
+#.  ``pageId``: When a page or side panel is created it is has a unique pageId.  You can find all the side panel pageIds in the set AllSidePanelPages. This is a required field.
 
 	.. image:: images/Allsidepanelpagesdata.png
 			:align: center
@@ -113,26 +112,25 @@ This set has 4 elements representing side panels properties:
 	.. image:: images/SP_AllsidePanelPages_data.png
 			:align: center
 			
-#. *tooltip*: The text here would be displayed when the user hovers over that respective side panel tab.
-#. *state*: This is the state for the side panel, i.e Active and Hidden.
+#. ``tooltip``: The text here would be displayed when the user hovers over that respective side panel tab. This is an optional field and if left empty, no tooltip is displayed.
+#. ``icon``: The icon you want to display on the side panel tab. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required. This is an optional field and if left empty, no icon will be displayed.
+#. ``iconcolor``: The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes eg: #FF0000 for Red. This is an optional field; if left empty, the icon will be blue when the tab is collapsed. The icon color changes to white when the side panel tab is expanded since the tab's color becomes blue and most of the other colors blend in making it difficult to view the icon.
+#. ``state``: This is the state for the side panel, i.e Active and Hidden. This is an optional field and is currently not in use.
 
 .. note:: 
 	
 	* If the set AllSidePanelPages is not yet filled with all side panel pages, please run the procedure GetAllPages. You can find this procedure in Page Support section under Public Pages Support Procedures. 
-	* The "state" property is not yet in use, but will be applicable in future releases. In side panels it is considered as Active by default. You can use domain conditions to show or hide side panels on a page.
+	* The ``state`` property is not yet in use, but will be applicable in future releases. In side panels it is considered as Active by default. You can use domain conditions to show or hide side panels on a page.
 	
-To configure side panels on a page, create a string parameter indexed on the `ExtensionOrder <library.html#extensionorder>`_ set with :token:`webui::indexPageExtension` and SidePanelSpecification set with :token:`webui::indexSidePanelSpec` indices, for example :token:`homepageSP(webui::indexPageExtension,webui::indexSidePanelSpec)` as shown here:
-
-.. image:: images/SP_homepageSPidentifier.png
-			:align: center
+To configure side panels on a page, create a string parameter indexed on the `ExtensionOrder <library.html#extensionorder>`_ set with ``webui::indexPageExtension`` and SidePanelSpecification set with ``webui::indexSidePanelSpec`` indices, for example ``HomePageSidePanel(webui::indexPageExtension,indexSidePanelSpec)``. 
 
 .. Note::
 
-    When creating the string parameter to configure side panels, the first index needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the index from the pre-declared set `ExtensionOrder <library.html#extensionorder>`_ for this purpose i.e. :token:`indexPageExtension`.
+    When creating the string parameter to configure side panels, the first index needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the index from the pre-declared set `ExtensionOrder <library.html#extensionorder>`_ for this purpose i.e. ``indexPageExtension``.
 
 Right click the string parameter and click on the Data option in order to open the data page:
 
-.. image:: images/SP_stringparameterdata.png
+.. image:: images/SidePanel_StringParameterData.png
 			:align: center
 
 Add the details for the side panels you would like to show on this page. For example, if your page tree has 5 pages and 7 side panels, like here
@@ -148,8 +146,16 @@ and you want 3 side panels on the "home" page, namely:
 
 then the data in the configuration string parameter may be filled in as follows:
 
-.. image:: images/SP_homepageSPidentifier_data.png
-			:align: center
+.. code:: 
+
+	data { ( 1, displayText ) : "Filters"            ,  ( 1, pageId      ) : "filters_1"          ,
+		( 1, tooltip     ) : "Global Filters"        ,  ( 1, icon        ) : "aimms-filter3"         ,
+		( 2, displayText ) : "Quick Notes"           ,  ( 2, pageId      ) : "quick_notes"           ,
+		( 2, tooltip     ) : "Make a Quick Note"     ,  ( 3, displayText ) : "Help"                  ,
+		( 3, pageId      ) : "help_1"                ,  ( 3, tooltip     ) : "All the help you need!",
+		( 3, icon        ) : "aimms-question"        ,  ( 3, iconcolor       ) : "green"              }
+		
+In the above data we have not defined values for the color of the icon for the Filters tab and the icon and its color for the Quick Notes tab.
 
 .. note:: 
 
@@ -166,12 +172,12 @@ In the WebUI, navigate to the respective page. In the Page Settings you can loca
 			
 Add the string parameter created for that respective page in the "Side Panels" field. 
 
-.. image:: images/SP_configurehomepage2.png
+.. image:: images/SidePanel_SpecifyingStringParameter.png
 			:align: center
 
 Once you have added the string parameter, the respective side panel tabs will appear on that page.
 
-.. image:: images/SP_3panels.png
+.. image:: images/SidePanel_Result.png
 			:align: center
 			
 Similarly, you can create some (other) string parameters for other pages and configure them using the same steps.
@@ -184,10 +190,10 @@ Interacting with side panels
 A side panel can be opened and closed by clicking on the respective tab. 
 Hovering over a side panel will show you the tooltip that was configured in the model. 
 
-.. image:: images/SP_tabinteraction.png
+.. image:: images/SidePanel_TabInteraction.png
 			:align: center
 
 Clicking on the tab highlights that tab and slides opens with the widgets that were added to that respective side panel page.
 
-.. image:: images/SP_tabinteraction_open.png
+.. image:: images/SidePanel_TabInteraction_Open.png
 			:align: center
