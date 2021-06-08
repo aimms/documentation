@@ -58,3 +58,5 @@ Details on creating and managing various pages can be accessed using the followi
    dialog-pages
    side-panels
    side-panels-grd-pages
+   dialog-pages
+   dialog-grid-pages
