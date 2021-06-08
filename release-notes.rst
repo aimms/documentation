@@ -10,6 +10,67 @@ This page provides details of changes made in each AIMMS version. For an overvie
 
 
 #############
+AIMMS 4.80
+#############
+
+
+AIMMS 4.80.1 Release (June 8, 2021 - build 4.80.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The functions GMP::Solution::GetColumnValue and GMP::Solution::GetRowValue can now also be used to retrieve information regarding basic columns and rows.
+-  The latest CPLEX and CP Optimizer releases have been upgraded to version 20.1.0.1, which comes with regression fixes for some rare issues.
+-  The optional argument 'merge' has been added to the procedures GMP::Solution::SendToModel and GMP::Solution::SendToModelSelection. This argument can be used to merge the values of the variables and constraints in a math program with a solution in the solution repository of a GMP.
+-  The time needed to read or write a case file has been improved. This has been achieved by a slightly different case format for which you can select the character encoding to be used to store strings and element names. Especially on Linux this leads to a much a faster read. To use this you should set the option case_compatibility to AIMMS_4_80 and specify the most suitable value for option case_string_character_set.
+-  The code to update all the defined identifiers used in a statement was re-visited and improved. This fixes some rare situations where the definition of an identifier was not updated in time.
+-  We updated the logging for the AIMMS database functionality. All database-related activity is now logged on child loggers of AIMMS.Database. All queries etc. are now logged on the logger AIMMS.Database.dbms.SqlExecuter. These are the available levels:
+  
+  - INFO: model level
+  - DEBUG: statement level 
+  - TRACE: field level
+
+  more info on logging can be found `here <https://how-to.aimms.com/Articles/329/329-more-logging.html>`__.
+-  In order to activate the logging configuration (LoggerConfig.xml), in addition to using the `--logcfg` command line option there is now another possibility. When AIMMS is started directly with a project name (for example, double-clicking on a .aimms project file) and there is a LoggerConfig.xml file in the same folder with the project file, then this LoggingConfig.xml file will be picked up automatically and no `--logcfg` option is needed anymore.   
+-  When exporting an end-user version (creating an .aimmspack) if your application uses libraries from the online library repository, you can now choose to include the sources of these libraries in the .aimmspack. This was already possible for the Windows part but not for the Linux part. So now, also when running on the (Linux) cloud, the sources don't need to be downloaded during startup.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When reading an identifier from a case where all stored values were at their default could lead to a situation in which the WebUI did not show the correct values and/or definitions that used this identifier were not re-evaluated.
+-  Defined identifiers that are used in a statement of a Function were not always updated at the right moment.
+-  Gurobi 9.1 has been upgraded to version 9.1.2.
+-  When assigning a list expression to an identifier, omitting the index domain on the left hand side of the assignment is deprecated and a warning is now displayed. This will result in a compile error in a future AIMMS version. For example, Parameter := data { ('i01') : 1.0 }; is now deprecated and should become Parameter(i) := data { ('i01') : 1.0 };.
+
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  Now the Dialog and Side Panel page types can also be designed using the Grid Layout Experimental Feature.
+-  We introduced custom sizing for the Dialog page.
+-  The tabs on a Side Panel can now have a colored icon on it for easier identification.
+-  We introduced the 'selectionbox-v2' widget as an experimental feature. The widget uses a new technology stack and should use less resources and support a large number of items (more than tens of thousands) in the selectionbox dropdown. We also foresee a significant page load performance increase on pages with a lot of selectionboxes. Please note: a selectionbox-v2 requires the page to use the Grid Layout.
+-  The animation that occurs when navigating between WebUI pages has been changed to be more agreeable and to have less impact for more users.
+-  We improved the performance of opening the option dialog of a widget.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The option to download a .csv file from a WebUI Table widget now takes the regional settings of the browser into account. This ensures that the column separator used in the .csv file is the same as either the decimal or the thousand separator for the specified region.
+
+
+
+--------------
+
+
+
+
+
+#############
 AIMMS 4.79
 #############
 
