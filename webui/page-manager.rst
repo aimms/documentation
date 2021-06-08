@@ -55,7 +55,6 @@ Details on creating and managing various pages can be accessed using the followi
 
    webui-classic-pages
    webui-grid-pages
-   dialog-pages
    side-panels
    side-panels-grd-pages
    dialog-pages
