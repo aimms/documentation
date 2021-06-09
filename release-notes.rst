@@ -61,7 +61,7 @@ WebUI Improvements
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  The option to download a .csv file from a WebUI Table widget now takes the regional settings of the browser into account. This ensures that the column separator used in the .csv file is the same as either the decimal or the thousand separator for the specified region.
+-  The option to download a .csv file from a WebUI Table widget now takes the regional settings of the browser into account. This ensures that the column separator used in the .csv file is not the same as either the decimal or the thousand separator for the specified region.
 
 
 
