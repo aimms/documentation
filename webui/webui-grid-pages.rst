@@ -402,7 +402,7 @@ If you are not able to get your desired output you might want to check a few asp
 * Check if your division matches the rows and columns and if the grouping is correct.
 * Check if the values in "gridArea" used to define each area has the correct case sensitive names.
 * Check if there are no spaces in "gridTemplateColumns": "1fr", and "gridTemplateRows": "1fr 1fr", between the numeric and measure of proportion.
-* Check for errors in the JSON using a JSON Parser. You can use one of the links here. `Link 1 <http://json.parser.online.fr/>`_ or `Link 2 <https://jsonparseronline.com/>`_.
+* Check for errors in the JSON using a JSON Parser. You can use the links `here <https://jsonparseronline.com/>`_.
 
 
   
