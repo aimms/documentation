@@ -17,6 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.2.0.8 [10-06-2021]
+	- Prevent crash on program exit on Linux
+	
 1.2.0.2 [28-05-2021]
     - Updated REST service listener component that used a faulty concurrency setting, potentially leading to connectivity loss
 
