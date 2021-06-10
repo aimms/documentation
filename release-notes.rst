@@ -23,16 +23,16 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  The functions GMP::Solution::GetColumnValue and GMP::Solution::GetRowValue can now also be used to retrieve information regarding basic columns and rows.
+-  The functions :any:`GMP::Solution::GetColumnValue` and :any:`GMP::Solution::GetRowValue` can now also be used to retrieve information regarding basic columns and rows.
 -  The latest CPLEX and CP Optimizer releases have been upgraded to version 20.1.0.1, which comes with regression fixes for some rare issues.
--  The optional argument 'merge' has been added to the procedures GMP::Solution::SendToModel and GMP::Solution::SendToModelSelection. This argument can be used to merge the values of the variables and constraints in a math program with a solution in the solution repository of a GMP.
--  The time needed to read or write a case file has been improved. This has been achieved by a slightly different case format for which you can select the character encoding to be used to store strings and element names. Especially on Linux this leads to a much a faster read. To use this you should set the option case_compatibility to AIMMS_4_80 and specify the most suitable value for option case_string_character_set.
+-  The optional argument 'merge' has been added to the procedures :any:`GMP::Solution::SendToModel` and :any:`GMP::Solution::SendToModelSelection`. This argument can be used to merge the values of the variables and constraints in a math program with a solution in the solution repository of a GMP.
+-  The time needed to read or write a case file has been improved. This has been achieved by a slightly different case format for which you can select the character encoding to be used to store strings and element names. Especially on Linux this leads to a much a faster read. To use this you should set the option `case_compatibility` to `AIMMS_4_80` and specify the most suitable value for option `case_string_character_set`.
 -  The code to update all the defined identifiers used in a statement was re-visited and improved. This fixes some rare situations where the definition of an identifier was not updated in time.
--  We updated the logging for the AIMMS database functionality. All database-related activity is now logged on child loggers of AIMMS.Database. All queries etc. are now logged on the logger AIMMS.Database.dbms.SqlExecuter. These are the available levels:
+-  We updated the logging for the AIMMS database functionality. All database-related activity is now logged on child loggers of AIMMS.Database. All queries etc. are now logged on the logger `AIMMS.Database.dbms.SqlExecuter`. These are the available levels:
   
-  - INFO: model level
-  - DEBUG: statement level 
-  - TRACE: field level
+  - `INFO`: model level
+  - `DEBUG`: statement level 
+  - `TRACE`: field level
 
   more info on logging can be found `here <https://how-to.aimms.com/Articles/329/329-more-logging.html>`__.
 
@@ -115,7 +115,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  A case read in a model that contains 'defining procedures' could lead to a situation that string parameters did not get the correct values. Because of that the model could easily crash after a case read.
--  Getting help on the GMP functions (for example GMP::instance::generate) did not bring you to the online documentation.
+-  Getting help on the GMP functions (for example :any:`GMP::Instance::Generate`) did not bring you to the online documentation.
 -  When writing to a database table in replace rows mode in case of (assumed) foreign keys and fixed columns and rows in the database that should be deleted, the fixed columns were not taken into account in the DELETE query, resulting in too many rows to be deleted.
 
 Resolved WebUI Issues
