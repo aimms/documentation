@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.19.0.15 [10-06-2021]
+	- Only load log configuration if no one has been loaded already
+	- Table definition would not correctly retrieve the latest version during table verification when connecting to category
+
 1.19.0.9 [09-02-2021]
     - :js:func:`cdm::CommitElementInCategory` could create negative label numbers in the CDM database, when additional elements were created in a set next to the one offered as an argument to the function.
     - :js:func:`cdm::CommitChanges` would not create any left-over new elements of a set, after a call to :js:func:`cdm::CommitElementInCategory`.
