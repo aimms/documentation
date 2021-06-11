@@ -26,7 +26,6 @@ AIMMS Improvements
 -  The functions :any:`GMP::Solution::GetColumnValue` and :any:`GMP::Solution::GetRowValue` can now also be used to retrieve information regarding basic columns and rows.
 -  The latest CPLEX and CP Optimizer releases have been upgraded to version 20.1.0.1, which comes with regression fixes for some rare issues.
 -  The optional argument 'merge' has been added to the procedures :any:`GMP::Solution::SendToModel` and :any:`GMP::Solution::SendToModelSelection`. This argument can be used to merge the values of the variables and constraints in a math program with a solution in the solution repository of a GMP.
--  The time needed to read or write a case file has been improved. This has been achieved by a slightly different case format for which you can select the character encoding to be used to store strings and element names. Especially on Linux this leads to a much a faster read. To use this you should set the option `case_compatibility` to `AIMMS_4_80` and specify the most suitable value for option `case_string_character_set`.
 -  The code to update all the defined identifiers used in a statement was re-visited and improved. This fixes some rare situations where the definition of an identifier was not updated in time.
 -  We updated the logging for the AIMMS database functionality. All database-related activity is now logged on child loggers of AIMMS.Database. All queries etc. are now logged on the logger `AIMMS.Database.dbms.SqlExecuter`. These are the available levels:
   
