@@ -8,6 +8,16 @@ Consuming REST APIs
 
 The Data Exchange library contains a fully asynchronous HTTP client library, based on the well-known libCurl library (see the `libCurl documentation <https://curl.se/libcurl/c/>`_). Each request will be executed in parallel through a fixed number of concurrent connections, and upon each response a user-specified callback will be executed when the AIMMS engine is idle, or whenever the modeler has explicitly requested the Data Exchange library to execute the callbacks for all handled requests. This approach allows massive amounts of requests to be handled in parallel, tremendously decreasing the total time it takes to perform all requests when the service called is set up in a scalable manner.
 
+.. note::
+	
+	The functions in the `dex::client` namespace offer alternative to the `httpclient` library, fully integrated within the Data Exchange library which will most likely be necessary for API calls anyway to map request bodies and responses to identifiers in the model. Both offer similar functionality, although there are some differences, most notably
+	
+	* the `httpclient` library does automatic proxy discovery, while for `dex::client` requests proxy discovery must be performed manually via the :js:func:`dex::client::ProxyResolve` function and subsequently set via the curl `CURLOPT_PROXY` option
+	* `dex::client` HTTP requests can make use of all libCurl functionality that is available via libCurl options but not in the `httpclient` library (e.g. SPNEGO authentication)
+	* `dex::client` HTTP requests only support a fully asynchronous execution model, optimized for massive amounts of HTTP/API requests to be executed in parallel
+	
+	Although the `dex::client` HTTP requests more than the `httpclient` library forces you to e.g. adhere strictly to its asynchronous model, or invoke certain functionality by specifically enabling it through the available options, the tight integration with the Data Exchange mapping capabilities allows for more advanced features on the :ref:`Data Exchange roadmap` like automatic API client generation from an OpenAPI specification. 
+	
 To initiate a request, call the function :js:func:`dex::client::NewRequest`, where you specify the URL of the request, the callback to be called for the response, the HTTP method (:token:`GET`, :token:`POST`, ...), and, if 
 
 .. code-block:: aimms

@@ -215,7 +215,24 @@ The Data Exchange library contains collection of functions implemented using lib
 
     This function close all outstanding requests, and uninitialize libCurl to handle any incoming responses. The function will return 1 on success, or 0 on failure.
     
+.. js:function:: dex::client::ProxyResolve
 
+	Use the OS proxy configuration to discover a proxy for the given URL. Whenever a proxy is found it can be added to a HTTP request via the `CURLOP_PROXY` option. This function is only implemented for the Windows OS. 
+	
+	:param url: the URL for which to determine a proxy 
+	:param proxyUrl: output string argument to hold the proxy URL for the given URL.
+	
+.. js:function:: dex::client::Poll
+
+	Convenience function to poll for certain events by executing a procedure at a given interval. This can for instance by used to regularly check the status of a long-running REST call. Only one function can poll at any given moment.
+	
+	:param pollingProcedure: element parameter into `AllProcedures` holding the procedure to be executed regularly. The procedure should have no arguments. Polling will be stopped whenever the procedure returns a value of 0, in all other cases polling will continue.
+	:param interval: fixed interval in milliseconds in between calls to the polling procedure.
+	
+.. js:function:: dex::client::StopPolling
+
+	Alterative method to externally stop the sequence of calls to a polling procedure added via :js:func:`dex::client::Poll`.
+	
 HTTP Server methods
 -------------------
 

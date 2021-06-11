@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+
+1.19.0.19 [11-06-2021]
+	- Set maximum lifetime of non-connected on-demand CDM service in cloud to 4 hours
+	
 1.19.0.15 [10-06-2021]
 	- Only load log configuration if no one has been loaded already
 	- Table definition would not correctly retrieve the latest version during table verification when connecting to category
