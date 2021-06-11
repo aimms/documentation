@@ -11,7 +11,7 @@ On June 10, 2021, we released AIMMS PRO 2.38.1 (2.38.1.1).
 
 **Improvements**
 
--  **Cloud:** Added support to use Gurobi solver licenses on AIMMS Cloud Platform. (Please note that this does require a new AIMMS Version i.e. AIMMS 4.81. New AIMMS Release and documentation on this feature will follow soon)
+-  **Cloud:** Added support to use Gurobi on the AIMMS Cloud Platform through the new **Gurobi Web Float License** offered by Gurobi Optimization.  (Please note that this does require a new AIMMS Version i.e. **AIMMS 4.81**. New AIMMS Release and documentation on this feature will follow soon)
 
 PRO 2.37
 ########
