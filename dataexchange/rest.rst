@@ -12,7 +12,7 @@ The Data Exchange library contains a fully asynchronous HTTP client library, bas
 	
 	The functions in the `dex::client` namespace offer alternative to the `httpclient` library, fully integrated within the Data Exchange library which will most likely be necessary for API calls anyway to map request bodies and responses to identifiers in the model. Both offer similar functionality, although there are some differences, most notably
 	
-	* the `httpclient` library does automatic proxy discovery, while for `dex::client` requests proxy discovery must be performed manually via the :js:func:`dex::client::ProxyResolve` function and subsequently set via the curl `CURLOPT_PROXY` option
+	* the `httpclient` library does automatic proxy discovery, while for `dex::client` requests proxy discovery must be performed manually via the :js:func:`dex::client::ProxyResolve` function and subsequently set via the curl `PROXY` option
 	* `dex::client` HTTP requests can make use of all libCurl functionality that is available via libCurl options but not in the `httpclient` library (e.g. SPNEGO authentication)
 	* `dex::client` HTTP requests only support a fully asynchronous execution model, optimized for massive amounts of HTTP/API requests to be executed in parallel
 	
@@ -49,6 +49,23 @@ If the status code is 200 (:token:`OK`), then you can proceed to request the res
 The Data Exchange library will close a request as soon as the specified callback function has been called, not to leave any resources in use unnecessary. It will, however, not remove any request and/or response files you specified. 
 
 The library has been tested to be able to call a very simple HTTP service (i.e., with an empty response) for 100,000 times over 256 parallel connections within 20 or so seconds, so should able to deal with a more realistic number of calls to a non-trivial service as well. Note that in this case, the time taken to deal with the response in the callback (e.g. reading the data in AIMMS identifiers) may substantially add to the overall time to make and handle all requests.
+
+Debugging client requests
+-------------------------
+
+When you experience trouble invoking a URL using `dex::client` requests, a good way to debug this is to install a tool called `Fiddler Everywhere <https://www.telerik.com/download/fiddler-everywhere>`_. Using this tool you can install a local proxy on your own computer, which can decrypt any HTTPS traffic you send from `dex::client` requests. As Fiddler uses a local root certificate on your computer without a certificate revocation list, you need to set some additional options on the request, to make libcurl not check the revocation list. 
+
+.. code-block:: aimms
+	
+	dex::client::ProxyResolve(requestURL, proxyURL);	! determine proxy URL
+	if (proxyURL) then
+		stringOptions(dex::client::stropt) := { 'PROXY' : proxyURL };    			! instruct libcurl to use the given proxy
+		intOptions(dex::client::intopt) := { 'HTTPPROXYTUNNEL' : 1, 'SSL_OPTIONS' : 2 };	! use a proxy tunnel, and don't check revocation list
+		dex::client::AddRequestOptions(reqId, intOptions, stringOptions);
+	endif;
+	
+When you perform the request after setting these options, you can watch the contents of the request in Fiddler, and check what could be the cause of the problem.
+
 
 Providing REST APIs
 -------------------
@@ -132,7 +149,3 @@ With each procedure in your model, you can associate a :token:`dex::ServiceName`
     
     * :token:`GET`: will return a :token:`404 Not found` if there is no taks with the given id, or :token:`200 OK` with an intermediate status response body stored as stored in the file :token:`dex::api::RequestAttribute('status-data-path')` by the service handler procedure.
    
-    
-
-
-
