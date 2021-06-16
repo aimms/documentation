@@ -14,6 +14,28 @@ AIMMS 4.80
 #############
 
 
+AIMMS 4.80.2 Release (June 16, 2021 - build 4.80.2.17).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The DATE column type in a Teradata database expects a string instead of a DateTime structure like other vendors do. This has been adapted in our database interface. Warning: AIMMS does not do any date-to-string conversion so the date format must be exactly as expected by TeraData.
+-  Error reporting on database subjects could sometimes show an old error again instead of the new one.
+-  64-Bit Integer database columns were no longer recognized since 4.72.4.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The new feature of 4.80 to store cases in a new format had a serious bug that could lead to a situation where not all data was correctly read back from a case.
+
+
+--------------
+
+
+
 AIMMS 4.80.1 Release (June 8, 2021 - build 4.80.1.0).
 ------------------------------------------------------------------------------------------
 
@@ -37,6 +59,7 @@ AIMMS Improvements
 
 -  In order to activate the logging configuration (LoggerConfig.xml), in addition to using the `--logcfg` command line option there is now another possibility. When AIMMS is started directly with a project name (for example, double-clicking on a .aimms project file) and there is a LoggerConfig.xml file in the same folder with the project file, then this LoggerConfig.xml file will be picked up automatically and no `--logcfg` option is needed anymore.   
 -  When exporting an end-user version (creating an .aimmspack) if your application uses libraries from the online library repository, you can now choose to include the sources of these libraries in the .aimmspack. This was already possible for the Windows part but not for the Linux part. So now, also when running on the (Linux) cloud, the sources don't need to be downloaded during startup.
+-  The time needed to read or write a case file has been improved. This has been achieved by a slightly different case format for which you can select the character encoding to be used to store strings and element names. Especially on Linux this leads to a much a faster read. To use this you should set the option `case_compatibility` to `AIMMS_4_80` and specify the most suitable value for option `case_string_character_set`.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
