@@ -62,8 +62,12 @@ indexed over both indices of the `ExtensionOrder <library.html#extensionorder>`_
 
 .. Note::
 
-    The indices must follow the same order as described in the string parameter :token:`MyListGroupItems(webui::indexListGroupOrder,webui::indexNoOfListItems,webui::indexListGroupItemsSpec)`
-
+    The indices must follow the same order as described in the string parameter 
+    
+    .. code::
+        
+        MyListGroupItems(webui::indexListGroupOrder,webui::indexNoOfListItems,webui::indexListGroupItemsSpec)
+    
 There is no limit for the number of items each list group may have. As a guideline, AIMMS recommends no more than 10 items per list group. 
 
 In order to inspect the values, right click on the MyListGroupItems string parameter and click on the Data option in order to open its Data page:
