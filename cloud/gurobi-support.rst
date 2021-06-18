@@ -7,7 +7,7 @@ Running Gurobi on the AIMMS Cloud Platform requires the `Gurobi Web License Serv
 
 	To use Gurobi on the AIMMS Cloud Platform you will need **AIMMS version 4.81** (or higher) and **Gurobi version 9.1** (or higher).
 
-To run Gurobi on the AIMMS Cloud Platform you first have to access the Gurobi Web License Manager (requires login to your Gurobi account) and download your Gurobi client license file, called ‘gurobi.lic’. This license file contains connection parameters which are used by Gurobi to connect to the WLS server and retrieve a token.
+To run Gurobi on the AIMMS Cloud Platform you first have to access the `Gurobi Web License Manager <https://license.gurobi.com/manager/doc/overview/>`__ (requires login to your Gurobi account) and download your Gurobi client license file, called ‘gurobi.lic’. This license file contains connection parameters which are used by Gurobi to connect to the WLS server and retrieve a token.
 
 Next this information has to be made available in your AIMMS project, for which two approaches are available.
 
@@ -20,7 +20,7 @@ Next this information has to be made available in your AIMMS project, for which 
 An example
 ----------
 
-.. code-block:: none
+.. code-block:: aimms
 
 	if pro::DelegateToServer then
     	return 1;
