@@ -23,7 +23,8 @@ Resolved WebUI Issues
 
 -  The default values for the Lower and Upper threshold options have been set to -Infinity and Infinity, respectively.
 -  The Selectionbox-V2 widget now works properly when you try to add it to a new Grid Layout page.
--  For the Selectionbox-V2 widget, you cannot set the Contents directly in the Add Widget dialog box anymore.
+-  For the Selectionbox-V2 widget, setting the Contents directly in the Add Widget dialog box did not work correctly. Now, you cannot specify the Contents in this dialog anymore (the identifiers are greyed out). Instead, you should open the newly created widget and provide the contents in its Contents option editor.
+
 
 --------------
 
