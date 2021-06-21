@@ -13,6 +13,21 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.80
 #############
 
+AIMMS 4.80.3 Release (June 21, 2021 - build 4.80.3.10).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The default values for the Lower and Upper threshold options have been set to -Infinity and Infinity, respectively.
+-  The Selectionbox-V2 widget now works properly when you try to add it to a new Grid Layout page.
+-  For the Selectionbox-V2 widget, you cannot set the Contents directly in the Add Widget dialog box anymore.
+
+--------------
+
+
 
 AIMMS 4.80.2 Release (June 16, 2021 - build 4.80.2.17).
 ------------------------------------------------------------------------------------------
