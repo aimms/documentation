@@ -95,13 +95,20 @@ The Data Exchange library contains collection of functions implemented using lib
    
     :param theRequest: string parameter holding the unique identification of the request to execute
 
+.. js:function::  dex::client::SetDefaultOptions
+   
+    Using the function :token:`dex::client::SetDefaultOptions` you can specify multiple string and integer-valued Curl options that will be applied to all requests, to modify the behavior of libCurl. All available Curl options can be found in the sets :token:`dex::client::StringOptions` and :token:`dex::client::IntOptions`. For the interpretation of these options please refer to the `Curl options documentation <https://curl.se/libcurl/c/curl_easy_setopt.html>`_. The function will return 1 on success, or 0 on failure. 
+    
+    :param intOptions: integer parameter over the set :token:`dex::client::intOptions` holding the default integer Curl options to set
+    :param stringOptions: string parameter over the set :token:`dex::client::StringOptions` holding the default string Curl options to set
+
 .. js:function::  dex::client::AddRequestOptions
    
     Using the function :token:`dex::client::AddRequestOptions` you can specify multiple string and integer-valued Curl options to request :token:`theRequest`, to modify the behavior of libCurl. All available Curl options can be found in the sets :token:`dex::client::StringOptions` and :token:`dex::client::IntOptions`. For the interpretation of these options please refer to the `Curl options documentation <https://curl.se/libcurl/c/curl_easy_setopt.html>`_. The function will return 1 on success, or 0 on failure. 
     
     :param theRequest: string parameter holding the unique identification of the request to add request options to.
     :param intOptions: integer parameter over the set :token:`dex::client::intOptions` holding the integer Curl options to set
-    :param stringOptions: integer parameter over the set :token:`dex::client::StringOptions` holding the string Curl options to set
+    :param stringOptions: string parameter over the set :token:`dex::client::StringOptions` holding the string Curl options to set
 
 .. js:function::  dex::client::AddStringOption
 
@@ -118,6 +125,12 @@ The Data Exchange library contains collection of functions implemented using lib
     :param theRequest: string parameter holding the unique identification of the request to add the integer-valued request option to.
     :param intOptionId: parameter holding the Curl id for the option (taken from :token:`dex::client:CurlOptionId`).
     :param optionValue: parameter holding the option value.
+
+.. js:function::  dex::client::SetDefaultHeaders
+
+    Using the function :token:`dex::client::AddRequestHeaders` you can specify any HTTP headers you want to add to subsequent request. Notice that some Curl options will also result in the addition of HTTP headers to the request. The function will return 1 on success, or 0 on failure.
+    
+    :param headers: string parameter over a (user-defined) set of headernames holding the corresponding header values to add to all subsequent requests.
 
 .. js:function::  dex::client::AddRequestHeaders
 

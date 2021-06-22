@@ -7,6 +7,11 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.19.0.25 [22-06-2021]
+	- On-demand service in cloud now prints stack trace before exiting on crash.
+	
+1.19.0.21 [21-06-2021]
+	- The function :js:func:`cdm::CloneAndRollbackElementInCategory` and :js:func:`cdm::EmptyElementInCategory` could crash when logging element names.
 
 1.19.0.19 [11-06-2021]
 	- Set maximum lifetime of non-connected on-demand CDM service in cloud to 4 hours
