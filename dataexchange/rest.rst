@@ -53,19 +53,38 @@ The library has been tested to be able to call a very simple HTTP service (i.e.,
 Debugging client requests
 -------------------------
 
-When you experience trouble invoking a URL using `dex::client` requests, a good way to debug this is to install a tool called `Fiddler Everywhere <https://www.telerik.com/download/fiddler-everywhere>`_. Using this tool you can install a local proxy on your own computer, which can decrypt any HTTPS traffic you send from `dex::client` requests. As Fiddler uses a local root certificate on your computer without a certificate revocation list, you need to set some additional options on the request, to make libcurl not check the revocation list. 
+When you experience trouble invoking a URL using `dex::client` requests, here are a number of guidelines that may help you tackle it:
 
-.. code-block:: aimms
-	
-	dex::client::ProxyResolve(requestURL, proxyURL);	! determine proxy URL
-	if (proxyURL) then
-		stringOptions(dex::client::stropt) := { 'PROXY' : proxyURL };    			! instruct libcurl to use the given proxy
-		intOptions(dex::client::intopt) := { 'HTTPPROXYTUNNEL' : 1, 'SSL_OPTIONS' : 2 };	! use a proxy tunnel, and don't check revocation list
-		dex::client::AddRequestOptions(reqId, intOptions, stringOptions);
-	endif;
-	
-When you perform the request after setting these options, you can watch the contents of the request in Fiddler, and check what could be the cause of the problem.
+* libcurl doesn't automatically follow redirects, and is pretty strict on checking revocation lists by default. This may cause HTTP requests to fail with sometimes hard to follow error messages. You change this behavior by setting the follow default options to be applied for all requests:
 
+	.. code-block:: aimms
+		
+		stringOptions(dex::client::stropt) := { 'MAXREDIRS' : 10 }; 				    ! max of 10 redirects to follow
+		intOptions(dex::client::intopt) := { 'SSL_OPTIONS' : 2, 'FOLLOWLOCATION' : 1 };	! don't check revocation list, and follow redirects
+		dex::client::SetDefaultOptions(intOptions, stringOptions);						! set default options used for all subsequent requests
+
+* The HTTP client in the Data Exchange library does not perform automatic proxy discovery, which may cause HTTP requests to fail because the proper proxy is not used during the request. The following code will discover the proxy, and set it for the request. 
+
+	.. code-block:: aimms
+		
+		dex::client::ProxyResolve(requestURL, proxyURL);	! determine proxy URL
+		if (proxyURL) then
+			stringOptions(dex::client::stropt) := { 'PROXY' : proxyURL };   ! instruct libcurl to use the given proxy
+			intOptions(dex::client::intopt) := { 'HTTPPROXYTUNNEL' : 1 };	! use a proxy tunnel
+			dex::client::AddRequestOptions(reqId, intOptions, stringOptions);
+		endif;
+
+  If the proxy does not change per URL, you may also set the proxy as a default option. 
+
+* If your request contains a request body, the HTTP client will deduce the content type of the request body from the file extension containing the body, or if it cannot deduce it, set it to `application/octetstream`. You may need to set the `Content-Type` header to a proper value to make the request succeed, specifically when you do a POST request with url-encoded parameters, as follows
+
+	.. code-block:: aimms
+	
+		dex::client::AddRequestHeader(reqId, "Content-Type", "application/x-www-form-urlencoded"); 
+
+* A good way to debug this HTTP requests to install a tool called `Fiddler Everywhere <https://www.telerik.com/download/fiddler-everywhere>`_. Using this tool you can install a local proxy on your own computer, which can decrypt any HTTPS traffic you send from `dex::client` requests. As Fiddler uses a local root certificate on your computer (without a certificate revocation list, so also set the options from the first bulled). When you perform the request with Fiddler activated, you can watch the contents of the request in Fiddler, and check what could be the cause of the problem.
+
+* Alternatively, you can use the echo service that comes with the API service, as explained below. By changing the URL of your request `http://localhost:8080/api/v1/echo` your request will be echo'ed back to you, including any request body and all headers that you passed to the echo service.
 
 Providing REST APIs
 -------------------
@@ -110,7 +129,7 @@ With each procedure in your model, you can associate a :token:`dex::ServiceName`
          ! the application-specific returncode that will be returned via the task status of the job
          return 1;
 
-* :token:`/api/v1/tasks`
+* :token:`/api/v1/tasks/`
     
     * :token:`GET`: will return :token:`200 OK` where the  response body will contain a array with the statuses of all submitted jobs, similar to:
       
@@ -149,3 +168,24 @@ With each procedure in your model, you can associate a :token:`dex::ServiceName`
     
     * :token:`GET`: will return a :token:`404 Not found` if there is no taks with the given id, or :token:`200 OK` with an intermediate status response body stored as stored in the file :token:`dex::api::RequestAttribute('status-data-path')` by the service handler procedure.
    
+Activating the REST service
+---------------------------
+
+You can activate the REST service via the call
+
+.. code-block:: aimms
+
+	dex::api::StartAPIService
+	
+This will read all the service name annotations, and start the service listening to incoming requests. Via the configuration parameters `dex::api::ListenerPort` and `dex::api::MaxRequestSize` you can configure the port the service will be listening on (default port 8080), and the maximum request size of request and response bodies accepted by the REST service (default 128 MB). After starting the API service, you can reach it via the base URL `http://localhost:{listenerport}` followed by the path the specific REST service you want to call, as listed above.
+
+Using the echo service
+----------------------
+
+Next to the REST API service described above, the API service also provides an *echo* service, that will simply echo all headers and (any) body you present to it, via either a GET, PUT, POST, or DELETE request. You can use the echo service to check whether there are any problems with requests that you would like to send to a real service. The echo service is available via the path `http://localhost:{listenerport}/api/v1/echo/`, and it supports a single optional query parameter, `delay`, indicating a delay in milliseconds before replying back to the caller.
+
+Yielding time to the API service to handle requests
+---------------------------------------------------
+
+Within the execution of an AIMMS procedure, you can call the function `dex::api::Yield` to yield time to the API service to handle requests. You can use this functionality for instance, to implement tests in a project providing REST services using the `dex::client` functions to call the service endpoints exposed by your model. 
+

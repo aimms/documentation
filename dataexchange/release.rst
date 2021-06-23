@@ -19,8 +19,11 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
-1.2.0.17 [22-06-2021]
+
+1.2.0.19 [23-06-2021]
 	- Add :js:func:`dex::client::SetDefaultOptions` and :js:func:`dex::client::SetDefaultHeaders` methods
+	- Support for setting and retrieving headers for upto 4096 characters
+	- Also support GET, PUT and DELETE requests for echo service
 
 1.2.0.8 [10-06-2021]
 	- Prevent crash on program exit on Linux
