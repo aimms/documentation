@@ -46,7 +46,7 @@ If there was a libCurl error, the HTTP status code will be 0, and you can use th
 
 If the status code is 200 (:token:`OK`), then you can proceed to request the response headers using the function :js:func:`dex::client::GetResponseHeaders`, request additional info about the request from libCurl using the function :js:func:`dex::client::GetInfoItems` (e.g. the total request time, or the final destination of your request in case of redirects), or can use the function :js:func:`dex::ReadFromFile` to read the response data into identifiers in your model in case of REST call to some REST API. 
 
-The Data Exchange library will close a request as soon as the specified callback function has been called, not to leave any resources in use unnecessary. It will, however, not remove any request and/or response files you specified. 
+The Data Exchange library will automatically close a request as soon as the specified callback function has been called, not to leave any resources in use unnecessary. It will, however, not remove any request and/or response files or memory streams you specified, unless the memory stream names start with `##` (see :ref:`memory streams`).
 
 The library has been tested to be able to call a very simple HTTP service (i.e., with an empty response) for 100,000 times over 256 parallel connections within 20 or so seconds, so should able to deal with a more realistic number of calls to a non-trivial service as well. Note that in this case, the time taken to deal with the response in the callback (e.g. reading the data in AIMMS identifiers) may substantially add to the overall time to make and handle all requests.
 

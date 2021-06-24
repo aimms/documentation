@@ -20,6 +20,9 @@ The DataExchange library is under active development. The following new features
 New Features and Bug Fixes
 --------------------------
 
+1.2.0.21 [24-06-2021]
+	- Add reading and writing to memory streams instead of files.
+	
 1.2.0.19 [23-06-2021]
 	- Add :js:func:`dex::client::SetDefaultOptions` and :js:func:`dex::client::SetDefaultHeaders` methods
 	- Support for setting and retrieving headers for upto 4096 characters
