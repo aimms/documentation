@@ -32,8 +32,10 @@ In order to put a new widget on your page:
 
     Since the widget database is shared for all pages of your application, please make sure that the names for all pages and widgets are unique throughout your application. 
 
-Custom Position
-===============
+Custom Position (DEPRECATED)
+============================
+
+.. important:: Custom Position for widgets is `deprecated <../deprecation-table.html#deprecated-and-end-of-life>`_. Please use the `Grid Layout <webui-grid-pages.html>`_ to create intuitive and consistent layouts instead.
 
 The position of a widget on a page is automatically determined based on the widget order in the list of widgets, and the widget size. However, you can also take a widget out of this natural flow, and instead position it exactly where you want it. To do so, you need to turn on the *Custom Position* setting for a widget:
 
