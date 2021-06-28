@@ -82,9 +82,7 @@ When you experience trouble invoking a URL using `dex::client` requests, here ar
 	
 		dex::client::AddRequestHeader(reqId, "Content-Type", "application/x-www-form-urlencoded"); 
 
-* A good way to debug this HTTP requests to install a tool called `Fiddler Everywhere <https://www.telerik.com/download/fiddler-everywhere>`_. Using this tool you can install a local proxy on your own computer, which can decrypt any HTTPS traffic you send from `dex::client` requests. As Fiddler uses a local root certificate on your computer (without a certificate revocation list, so also set the options from the first bulled). When you perform the request with Fiddler activated, you can watch the contents of the request in Fiddler, and check what could be the cause of the problem.
-
-* Alternatively, you can use the echo service that comes with the API service, as explained below. By changing the URL of your request `http://localhost:8080/api/v1/echo` your request will be echo'ed back to you, including any request body and all headers that you passed to the echo service.
+* A good way to debug HTTP requests is to enable request tracing by specifying a trace file in the :js:func:`dex::client::NewRequest` function. The resulting file will contain all available tracing information made available by libcurl, including all verbatim request and response headers and bodies.
 
 Providing REST APIs
 -------------------
