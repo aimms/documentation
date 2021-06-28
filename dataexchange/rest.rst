@@ -55,26 +55,14 @@ Debugging client requests
 
 When you experience trouble invoking a URL using `dex::client` requests, here are a number of guidelines that may help you tackle it:
 
-* libcurl doesn't automatically follow redirects, and is pretty strict on checking revocation lists by default. This may cause HTTP requests to fail with sometimes hard to follow error messages. You change this behavior by setting the follow default options to be applied for all requests:
+* libcurl doesn't automatically follow redirects, and is pretty strict on checking revocation lists by default. This may cause HTTP requests to fail with sometimes hard to follow error messages. In addition, the HTTP client in the Data Exchange library does not perform automatic proxy discovery, which may cause HTTP requests to fail because the proper proxy is not used during the request. The following code will sensible defaults to prevent all of these issues:
 
 	.. code-block:: aimms
 		
-		stringOptions(dex::client::stropt) := { 'MAXREDIRS' : 10 }; 				    ! max of 10 redirects to follow
-		intOptions(dex::client::intopt) := { 'SSL_OPTIONS' : 2, 'FOLLOWLOCATION' : 1 };	! don't check revocation list, and follow redirects
-		dex::client::SetDefaultOptions(intOptions, stringOptions);						! set default options used for all subsequent requests
-
-* The HTTP client in the Data Exchange library does not perform automatic proxy discovery, which may cause HTTP requests to fail because the proper proxy is not used during the request. The following code will discover the proxy, and set it for the request. 
-
-	.. code-block:: aimms
-		
-		dex::client::ProxyResolve(requestURL, proxyURL);	! determine proxy URL
-		if (proxyURL) then
-			stringOptions(dex::client::stropt) := { 'PROXY' : proxyURL };   ! instruct libcurl to use the given proxy
-			intOptions(dex::client::intopt) := { 'HTTPPROXYTUNNEL' : 1 };	! use a proxy tunnel
-			dex::client::AddRequestOptions(reqId, intOptions, stringOptions);
-		endif;
-
-  If the proxy does not change per URL, you may also set the proxy as a default option. 
+		dex::client::ProxyResolve("https://www.aimms.com", proxyURL);	! determine proxy URL, assuming the same proxy result for any url
+		stringOptions(dex::client::stropt) := { 'PROXY' : proxyURL };   ! instruct libcurl to use the given proxy
+		intOptions(dex::client::intopt) := { 'HTTPPROXYTUNNEL' : 1, 'SSL_OPTIONS' : 2, 'FOLLOWLOCATION' : 1, 'MAXREDIRS' : 10 };
+		dex::client::SetDefaultOptions(intOptions, stringOptions);
 
 * If your request contains a request body, the HTTP client will deduce the content type of the request body from the file extension containing the body, or if it cannot deduce it, set it to `application/octetstream`. You may need to set the `Content-Type` header to a proper value to make the request succeed, specifically when you do a POST request with url-encoded parameters, as follows
 
