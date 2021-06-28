@@ -71,7 +71,7 @@ The Data Exchange library contains collection of functions implemented using lib
 
     Create a new HTTP request with (unique) identification :token:`theRequest` to the URL :token:`url`, with method :token:`httpMethod` (optional, default :token:`GET`). Upon response from the web server, the callback method :token:`callback` will be called. The prototype of :token:`callback` should be the same as the function :token:`dex::client::EmptyCallback`. 
     For :token:`POST` and :token:`PUT` methods, you can specify the file :token:`requestFile` from which to take the request body of the request. If you specify the optional :token:`responseFile` argument, the response body will be captured in the specified file. If ommitted the response body will be silently discarded. The function will return 1 on success, or 0 on failure.
-	If a :token:`traceFile` is being specified, tracing for the request will be enabled, and the detail trace output from libcurl will be stored in the specified file. 
+    If a :token:`traceFile` is being specified, tracing for the request will be enabled, and the detail trace output from libcurl will be stored in the specified file. 
     
     :param theRequest: string parameter holding the unique identification of the request.
     :param url: string parameter holding the URL of the request, including any query parameters you want to add to the request.
