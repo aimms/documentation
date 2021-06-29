@@ -35,7 +35,7 @@ This section describes various tasks related to the WebUI Dialog Grid Pages.
 .. note::
 	 When running an AIMMS project which was created with AIMMS 4.80 (or with a newer version) by using AIMMS 4.79 (or an older version), the dialog grid pages created in AIMMS 4.80 may be treated as regular pages in AIMMS 4.79, because dialog grid pages are not avaialble in AIMMS 4.79 or in older AIMMS versions. Before upgrading your AIMMS project to a new AIMMS version, please create a backup of your project which may still be run with the older AIMMS versions.
 
-	 Currently, it is a known limitation that you will notice a performance slowness in the page load for pages with hidden widgets, majorly on the number of hidden widgets. Until this matter is addressed in future software versions, the usage of hidden widgets on grid pages is not recommended for the time being.
+	 Currently, it is a known limitation that hidden widgets do not always work as expected on grid pages and that you will notice a performance slowness in the page load for pages with hidden widgets, majorly on the number of hidden widgets. Until this matter is addressed in future software versions, the usage of hidden widgets on grid pages is not recommended for the time being.
 
 Dialog Grid Pages are dialog pages with a grid layout. So, they combine the features of `Dialog Pages <dialog-pages.html>`_ and the features of `WebUI Grid Pages <webui-grid-pages.html>`_. In this respect, the explanations about the behavior provided in the dialog pages section and in the WebUI grid pages section also apply to the dialog grid pages discussed here. Therefore, we advise the reader to take a look at those two sections as well for explanations on aspects that are generally applicable. 
 
