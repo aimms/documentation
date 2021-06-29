@@ -11,7 +11,10 @@ On June 10, 2021, we released AIMMS PRO 2.38.1 (2.38.1.1).
 
 **Improvements**
 
--  **Cloud:** Added support to use Gurobi on the AIMMS Cloud Platform through the new `Gurobi Web License Service <https://www.gurobi.com/web-license-service/>`__ offered by Gurobi Optimization.  (Please note that this does require a new AIMMS Version i.e. **AIMMS 4.81**. New AIMMS Release and documentation on this feature will follow soon)
+-  **Cloud:** Added support to use Gurobi on the AIMMS Cloud Platform through the new `Gurobi Web License Service <https://www.gurobi.com/web-license-service/>`__ offered by Gurobi Optimization. For details,
+   please see the
+   `documentation <https://documentation.aimms.com/cloud/gurobi-support.html>`__.
+   (This does require an **AIMMS Version 4.81** or **higher**).
 
 PRO 2.37
 ########
