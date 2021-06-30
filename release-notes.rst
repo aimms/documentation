@@ -13,6 +13,31 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.80
 #############
 
+AIMMS 4.80.4 Release (June 30, 2021 - build 4.80.4.14).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  An index without a scope in an 'IN' construction was not always recognized as such. Now, the appropriate compile error is given.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When having item actions on two pages and triggering such an action on a page, followed by a switch to the other page and going back to the first, the item action there was not triggered anymore since AIMMS 4.79.7.
+-  The progress message, which is displayed when the WebUI is busy, now shows an ellipsis in the end when the message is too long.
+-  A new widget with a name consisting of only numbers was not displayed on the WebUI when being added. There were also console errors.
+-  The selection box did not display the value that was selected for a calendar element parameter with element text.
+-  Item actions did not appear when a Barline chart was resized or made fullscreen.
+-  Gantt chart jobs could sometimes extend beyond their designated area.
+
+
+--------------
+
+
+
 AIMMS 4.80.3 Release (June 21, 2021 - build 4.80.3.10).
 ------------------------------------------------------------------------------------------
 
