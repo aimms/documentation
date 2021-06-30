@@ -20,6 +20,10 @@ The DataExchange library is under active development. The following new features
 New Features and Bug Fixes
 --------------------------
 
+1.2.0.30 [30-06-2021]
+	- Allow memory streams to be read twice by :js:func:`ReadFromFile`
+	- Allow double values in JSON documents to be read into string parameters
+
 1.2.0.28 [28-06-2021]
 	- Add support for memory streams that can be used instead of files in :js:func:`dex::WriteToFile`, :js:func:`dex::ReadFromFile` and :js:func:`dex::client::NewRequest`.
 	- Add support for `dex::client` request tracing
