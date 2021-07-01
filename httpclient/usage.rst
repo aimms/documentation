@@ -125,6 +125,8 @@ Configuration
 
 The number of asynchronous requests that can run simultaneously is limited by the request pool size. When the request pool is full all subsequent calls to ``request_invoke_async`` will be placed in a queue. As soon as a slot is free in the request pool, the next request from the queue is placed in the pool and called.
 
+For example, if ``ReqPoolSize`` is 4 and one does 10 async requests, only the first 4 are invoked immediately and the other 6 are queued. These 6 will be picked up when a thread has completed the request, until all requests are done.
+
 The default value of the request pool size is 4. The value can be changed using ``web::setConfig`` :
 
 .. code-block:: aimms
@@ -135,7 +137,7 @@ The default value of the request pool size is 4. The value can be changed using 
     }
     web::setConfig(sp_ClientConfig)
 
-Note that increasing the request pool size has immediate effect. However, when you decrease the size of the pool while it is full, the pool shrinks only when running calls are finished.
+Note that increasing the request pool size has immediate effect. However, if one decreases the size of the pool while it is full, the pool shrinks only when all already running calls are finished.
 
 
 
