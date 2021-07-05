@@ -105,6 +105,7 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
+-  AIMMS would not install libraries from the library-repository when it is behind a web-proxy that uses HTTP redirects. These redirects are now supported and libraries can be installed.
 -  When reading an identifier from a case where all stored values were at their default could lead to a situation in which the WebUI did not show the correct values and/or definitions that used this identifier were not re-evaluated.
 -  Defined identifiers that are used in a statement of a Function were not always updated at the right moment.
 -  Gurobi 9.1 has been upgraded to version 9.1.2.
