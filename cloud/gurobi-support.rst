@@ -1,7 +1,7 @@
 Gurobi Support on AIMMS Cloud Platform
 ======================================
 
-Running Gurobi on the AIMMS Cloud Platform requires the `Gurobi Web License Service <https://www.gurobi.com/web-license-service/>`__ offered by Gurobi Optimization which is a Gurobi licensing service for containers running on Docker (among others). 
+Running Gurobi on the AIMMS Cloud Platform requires the `Gurobi Web License Service <https://www.gurobi.com/web-license-service/>`__ offered by Gurobi Optimization which is a Gurobi licensing service for containers running on Docker (among others).  Also, you need to acquire a (paid) Gurobi-link extension for your AIMMS Cloud; please contact us at info@aimms.com if you are interested.
 
 .. note::
 
