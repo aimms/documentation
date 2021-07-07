@@ -8,6 +8,46 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 
+#############
+AIMMS 4.81
+#############
+
+AIMMS 4.81.1 Release (July 7, 2021 - build 4.81.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  A new option, called "Pass Quadratic Structure", was added to the Solvers General category. If this option is active, quadratic structures are passed to Knitro 12.3 or higher versions. See the AIMMS Help for more information.
+-  This AIMMS version adds functionality to run Gurobi on the AIMMS Cloud using the new Gurobi `Web License Service <https://www.gurobi.com/web-license-service/`__. The new procedures GMP::Solver::SetEnvironmentStringParameter and GMP::Solver::SetEnvironmentIntegerParameter can be used to specify the required connection parameters. See the [AIMMS Cloud documentation](https://manual.aimms.com/cloud/gurobi-support.html) for more information.
+-  If the coefficient matrix of a math program contains several independent block submatrices then the new function `GMP::Instance::CreateBlockMatrices <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_instance-procedures-and-functions/gmp_instance_createblockmatrices.html>`__ can be used to decompose the math program into several generated math programs, each containing an independent block submatrix. Each of these blocks can be solved separately, and by combining the solutions of these blocks a solution of the original math program can be obtained. This approach can be more efficient than solving the original math program.
+
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In rare cases the AIMMS Presolver did not handle quadratic constraints correctly.
+
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  The Grid Layout for WebUI pages was already available as an Experimental Feature since AIMMS 4.75, but with the release of AIMMS 4.81, it has become the default way of organizing your pages. 
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When an identifier name was very long it did not fit in in the identifier selector properly.
+-  The Page Configurator, where you choose your Classic Layout or Grid Layout templates, will now accurately show which template is active for the current page, moving the layout carousel to the correct page for both custom and standard layouts.
+-  Both the titles/tooltips and the header texts of Side Panel tabs will now be translated by either the default or your own translation resources. Please note: if your 'simple' tab titles are present in any of those resources, you might now end up with an unexpectedly 'translated' text. However, it also means you can finally adapt them to your users' language settings.
+
+
+--------------
+
+
+
 
 #############
 AIMMS 4.80
