@@ -11,7 +11,7 @@ Typically a tree-based data format can consists of several types of nodes:
 * repetitive nodes, which can hold multiple (named or unnamed) child nodes of the same type and structure, and
 * value-holding leaf nodes, which hold the actual labels of bound indices or values of multi-dimensional identifiers.
 
-The following simple examples demonstrate some basic uses of the Data Exchange library for JSON, XML and CSV formats. Next to these example, you can also download our internal :download:`unit test project<downloads/DataExchangeTest.zip>` for the Data Exchange library, which will provide you with more example mappings demonstrating all available capabilities in the Data Exchange library. It also contains the mappings and corresponding collections of AIMMS identifiers for reading and writing the JSON formats for geocoding and distance service from Google and GraphHopper.
+The following simple examples demonstrate some basic uses of the Data Exchange library for JSON, XML and CSV formats. Next to these examples, you can also download our internal :download:`unit test project<downloads/DataExchangeTest.zip>` for the Data Exchange library, which will provide you with more example mappings demonstrating various capabilities of the Data Exchange library. It also contains the mappings and corresponding collections of AIMMS identifiers for reading and writing the JSON formats for geocoding and distance service from Google and GraphHopper.
 
 
 Example: JSON mapping
@@ -101,7 +101,7 @@ It describes an XML file with an object with four children, one of which is anot
         </array>
     </RootObject>
 
-These example make clear each mapping closely follows the structure of the JSON, XML or CSV file being described. Thus, if you know the format of the file to map, creating a corresponding mapping file for the Data Exchange library is a rather straightforward task.
+These examples make clear that each mapping closely follows the structure of the JSON, XML, or CSV file being described. Thus, if you know the format of the file to map, creating a corresponding mapping file for the Data Exchange library is rather straightforward.
 
 Example: CSV mapping
 ---------------------

@@ -3,7 +3,7 @@ Experimental Features
 
 .. |experimental-features| image:: images/experimentalfeatures_icon.png
 
-Experimental Features are pre-release versions that you can enable to try out and share feedback about. Based on the usage and feedback the feature(s) eventually become official features in the WebUI, or might be removed if they are proven to not work well or do not add value to users. 
+Experimental Features are features that have not been ironed out fully yet, but which you can enable to try out and share feedback about. Based on the usage and feedback the feature(s) eventually become official features in the WebUI or might be removed if they are proven to not work well or do not add value to users. 
 
 
 How to enable or disable Experimental Features
@@ -32,14 +32,26 @@ Current list of Experimental Features
 -------------------------------------
 
 .. csv-table:: 
-   :header: "Experimental Feature", "Description", "Version introduced"
-   :widths: 20, 70, 10
+   :header: "Experimental Feature", "Description", "Version introduced - Stage","General Availability expected by"
+   :widths: 20, 65, 10, 5
 
-   Compact Scalar, "By enabling this feature you have the option to condense the height of the scalar to a fixed height that is similar to a label or button widget. An option ``Enable Compact mode (1/0)``, will appear in the Miscellaneous section of the Scalar widget options that allows toggling the compact mode.", 4.46
-   `Highlight Annotations <css-styling.html#highlighting-experimental>`_, "Enable this feature to use annotations to responsively highlight certain tuples in the Table and the Gantt Chart widget. `Read more here <css-styling.html#highlighting-experimental>`_.", 4.68.5
-   Ignore Map Upgrade, "Enable this option to roll back to the previous map version. This is unlike the other experimental features. This option will eventually be removed and only the latest map widget will be available for use. This option is merely here such that you may make the transition to the new map widget gradually", 4.73
-   WebUI State Support, "By enabling this feature the element parameters ``CurrentPageId`` and ``CurrentSidePanelPageId`` will be updated with the ``pageId`` of the current page the user is on and the ``pageId`` of the Side Panel page that is open, respectively.", 4.72
-   `Grid Layout <webui-grid-pages.html>`_, "Enable this feature to leverage the new Grid Layout that makes it easy to create consistent and beautiful looking applications. `Read more <webui-grid-pages.html>`_.", 4.75
-   `Application Management <app-management.html>`_, "Enable this feature to activate the application manager that allows you to copy, cut, paste, and drag widgets from one page to another. `Read more about Application Management <app-management.html>`_.", 4.78
-   Skip Combining CSS/JS Files, "Activate this option to load the CSS and JS files separately. This is unlike the other experimental features. This option will eventually be removed and the new setup will be applied. `Read more about the improvements here <https://community.aimms.com/product-updates-roadmap-36/smarter-delivery-of-webui-for-improved-performance-838>`_. This option is merely here such that you can  roll back in case you face issues with the new setup. Please note, you will have to close the project, reopen the project and launch the WebUI each time this option is toggled.", 4.78
-   `Download Image - PNG <widget-header.html#download-image-png-download-image>`_, "Enable this feature to be able to save images of the widgets and the page to disk. `Read more about about the feature <widget-header.html#download-image-png-download-image>`_.", 4.79
+   Compact Scalar, "By enabling this feature you have the option to condense the height of the scalar to a fixed height that is similar to a label or button widget. An option ``Enable Compact mode (1/0)``, will appear in the Miscellaneous section of the Scalar widget options that allows toggling the compact mode.", 4.46 - Feature Candidate, TBD
+   `Highlight Annotations <css-styling.html#highlighting-experimental>`_, "Enable this feature to use annotations to responsively highlight certain tuples in the Table and the Gantt Chart widget. `Read more here <css-styling.html#highlighting-experimental>`_.", 4.68.5 - Feature Candidate, TBD
+   WebUI State Support, "By enabling this feature the element parameters ``CurrentPageId`` and ``CurrentSidePanelPageId`` will be updated with the ``pageId`` of the current page the user is on and the ``pageId`` of the Side Panel page that is open, respectively.", 4.72 - Feature Candidate, TBD
+   `Grid Layout <webui-grid-pages.html>`_, "Enable this feature to leverage the new Grid Layout that makes it easy to create consistent and beautiful looking applications. `Read more <webui-grid-pages.html>`_.", 4.75 - Beta, 4.81
+   `Disable Grid Layout <webui-grid-pages.html>`_, "Disable the Grid Layout, if required. `Read more <webui-grid-pages.html>`_.", 4.81, 4.81
+   `Application Management <app-management.html>`_, "Enable this feature to activate the application manager that allows you to copy, cut, paste, and drag widgets from one page to another. `Read more about Application Management <app-management.html>`_.", 4.78 - Release Candidate, 4.81
+   Skip Combining CSS/JS Files, "Activate this option to load the CSS and JS files separately. This is unlike the other experimental features. This option will eventually be removed and the new setup will be applied. `Read more about the improvements here <https://community.aimms.com/product-updates-roadmap-36/smarter-delivery-of-webui-for-improved-performance-838>`_. This option is merely here such that you can use the old setup in case you face issues with the new setup. Please note, you will have to close the project, reopen the project and launch the WebUI each time this option is toggled.", 4.78 - Feature Standby, TBD
+   `Download Image - PNG <widget-header.html#download-image-png-download-image>`_, "Enable this feature to be able to save images of the widgets and the page to disk. `Read more about about the feature <widget-header.html#download-image-png-download-image>`_.", 4.79 - Beta, 4.82
+
+
+Development Stages:
+
+* Feature Standby - An option that allows you to use the earlier version of a General Availability feature that is recently introduced. This option is removed after a period of time that allows models to be updated and adjusted to the new feature.
+* Feature Candidate - The feature is available to be used and tested, but might have a change in implementation. There could be a chance that we replace this feature with an alternate improved feature as well.
+* Beta - The feature is available to be used and tested. We collect feedback and suggestions for further improvement that may or may not be implemented before General Availability.
+* Release Candidate - The feature is stable and ready to be released unless significant bugs emerge. 
+* General Availability - The feature is officially released and supported as part of SLA. 
+
+.. note ::
+    The development stages and General Availability versions for the experimental features can change based on certain conditions.

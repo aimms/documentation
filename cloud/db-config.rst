@@ -1,4 +1,4 @@
-AIMMS Cloud Database and VPN configuration
+AIMMS Cloud Database and VPN Configuration
 ==========================================
 
 .. note::

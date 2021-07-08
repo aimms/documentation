@@ -62,9 +62,7 @@ To navigate to the newly created page, press the page in the list of available p
 
 After adding a page, you can `add widgets <widget-manager.html#adding-a-widget>`_ to it.
 
-.. important::
-
-	There are some changes made to the page manager with the introduction of `Side Panels <page-manager.html#sidepanels>`_ from software version 4.64. The changes are explained in :ref:`adding a side panel page`.
+.. important:: There are some changes made to the page manager with the introduction of `Side Panels <side-panels.html>`_ from software version 4.64. The changes are explained in `adding a side panel page <side-panels.html#adding-a-side-panel>`_.
 
 Renaming a Page
 ---------------
@@ -141,8 +139,10 @@ In the `Page Manager <page-manager.html>`_, the first page in the *Main Project*
     
 By default, there is one page in your WebUI app called *home*. This is the first page and thus the 'startup' page. However, as an app developer you can make another page the startup page if you want, by `moving another page to the first position <#move-a-page>`_. This automatically makes this page the new startup page. Of course, if you just want to give the default home page another name, you can do so by `renaming the page <#rename-a-page>`_.
 
-Wizards
--------
+Wizards (DEPRECATED)
+--------------------
+
+.. important :: The Wizard is `deprecated <../deprecation-table.html#deprecated-and-end-of-life>`_. Please use the `Workflow Panel <workflow-panels.html>`_ that has a more rich and fine grained experience.
 
 In AIMMS WebUI it is possible to create so-called *Wizards*. A *Wizard* is a set of pages that an app user should follow in a certain order. On every page in a wizard, the user can click on Next or Previous,
 

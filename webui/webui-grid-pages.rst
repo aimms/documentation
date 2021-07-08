@@ -32,7 +32,9 @@ This section describes various tasks related to WebUI grid pages.
 
 .. important::
 
-	Grid WebUI pages are available starting from the AIMMS software version 4.75 onwards as part of `Experimental Features <experimental-features.html>`_. Please visit the `Experimental Features <experimental-features.html>`_ page on how to enable the feature.
+	Grid WebUI pages are available starting from the AIMMS software version 4.75 onwards as part of `Experimental Features <experimental-features.html>`_. Please check the `Experimental Features <experimental-features.html>`_ page on how to enable the feature.
+	
+	Starting from AIMMS software version 4.81 onwards the Grid WebUI pages are available by default as standard feature (no longer experimental). Please check the `Experimental Features <experimental-features.html>`_ page on how to disable the feature, if required.
 
 Grid pages introduce in AIMMS WebUI the CSS Grid concept of visualization based on page layouts, which is currently a widely used standard in webdesign. For more information on CSS Grid in general please see websites such as:
 
@@ -47,7 +49,7 @@ The CSS Grid concept features several advantages such as better responsiveness, 
 
 When a page layout is applied to a grid page, the page is divided into a number of rectangular areas and each area is to host a group of widgets. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout. Currently, all the standard layouts use so-called fractions for resizing. This way, the layout areas always preserve their relative size and position on the page, even when the entire browser window is being resized. However, Grid supports more options for (re)sizing like pixels, percentages or em’s, and also supports combinations of those. These options can already be used in custom layouts, please see further below in this section for more details. 
 
-.. note:: Currently, it is a known limitation that hidden widgets do not always work as expected on grid pages. Until this matter will be addressed in future software versions, the usage of hidden widgets on grid pages is not recommended for the time being.  
+.. note:: Currently, it is a known limitation that hidden widgets do not always work as expected on grid pages and that you will notice a performance slowness in the page load for pages with hidden widgets, majorly on the number of hidden widgets. Until this matter is addressed in future software versions, the usage of hidden widgets on grid pages is not recommended for the time being.
 
 The organization of a page and the widgets on the page by using page layouts is supported by dedicated functionalities in the WebUI Page Manager.
 
@@ -402,7 +404,7 @@ If you are not able to get your desired output you might want to check a few asp
 * Check if your division matches the rows and columns and if the grouping is correct.
 * Check if the values in "gridArea" used to define each area has the correct case sensitive names.
 * Check if there are no spaces in "gridTemplateColumns": "1fr", and "gridTemplateRows": "1fr 1fr", between the numeric and measure of proportion.
-* Check for errors in the JSON using a JSON Parser. You can use one of the links here. `Link 1 <http://json.parser.online.fr/>`_ or `Link 2 <https://jsonparseronline.com/>`_.
+* Check for errors in the JSON using a JSON Parser. You can use the links `here <https://jsonparseronline.com/>`_.
 
 
   

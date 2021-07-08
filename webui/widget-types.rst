@@ -24,10 +24,10 @@ More details on each widget are included in one of the corresponding sections be
    line-chart-widget
    list-widget
    map-widget
-   map-widget-old-style
    pie-chart-widget
    scalar-widget
    selection-widgets	
+   selection-box-widget-v2
    slider-widget
    table-widget
    text-widget

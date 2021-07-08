@@ -1,6 +1,31 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.38
+########
+
+AIMMS PRO 2.38.2 Release
+------------------------
+
+On July 8, 2021, we released AIMMS PRO 2.38.2 (2.38.2.1). 
+
+**Resolved Issues**
+
+- Fixed an issue where newly added user could not login to the Active Directory environment on AIMMS PRO.
+
+
+AIMMS PRO 2.38.1 Release
+------------------------
+
+On June 10, 2021, we released AIMMS PRO 2.38.1 (2.38.1.1). 
+
+**Improvements**
+
+-  **Cloud:** Added support to use Gurobi on the AIMMS Cloud Platform through the new `Gurobi Web License Service <https://www.gurobi.com/web-license-service/>`__ offered by Gurobi Optimization. For details,
+   please see the
+   `documentation <https://documentation.aimms.com/cloud/gurobi-support.html>`__.
+   (This does require an **AIMMS Version 4.81** or **higher**).
+
 PRO 2.37
 ########
 

@@ -37,6 +37,17 @@ By default, all core WebUI plugins (including widgets) will prefix user annotati
 .. note:: 
      Please note that in AIMMS versions prior to 4.49, you had to define a string parameter called :token:`X_annotations(i,j)` (with the domain of this '_annotations identifier' being a valid subdomain of the original identifier) in order to achieve the same result. This had the disadvantage that when you renamed the original identifier, the '_annotations identifier' was not automatically renamed with it, possibly leading to unexpected effects in the WebUI front-end.
 
+     AIMMS displays warning messages during startup when it encounters identifiers with the old-style WebUI annotations. This helps you update your model and adjust to the new way of applying annotations.
+
+        .. image:: images/Annotations_Warnings.png
+            :align: center
+
+    In case you do not want AIMMS to display these warnings, you can toggle the option ``Check for old style webUIannotations`` to ``No`` in the Project Settings as shown below.
+
+    .. image:: images/Annotations_Warnings_OnOff.png
+        :align: center
+
+
 The WebUI uses flags to indicate whether a certain DOM element corresponds to a *readOnly* value or not. DOM elements that correspond to editable values are annotated with a :token:`flag-editable` CSS class while read-only DOM elements are annotated with a :token:`flag-readOnly` class. It is possible to make the data which is editable from a model perspective appear as read-only in the WebUI by using user-flags. One can achieve this as follows: define a new string parameter in the model, say FlagsOfX(i,j), add a :token:`webui::FlagsIdentifier` annotation to the attribute form of the original identifier X, and fill in the new string FlagsOfX(i,j) as the contents of this annotation: 
 
 .. image:: images/Annotations_view2.png

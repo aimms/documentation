@@ -28,9 +28,9 @@ Dialog Pages
 .. |dialog|  image:: images/dialogicon.png 
 
 
-This section describes various tasks related to WebUI dialog pages.
+This section describes various tasks related to the WebUI Dialog Pages.
 
-.. important:: Dialog pages are available in software versions from AIMMS 4.65 onwards.
+.. important:: Dialog pages are available in software versions from AIMMS 4.65 onwards. Note that starting from AIMMS 4.80 onwards, dialog grid pages are available as well, so please also check the section `Dialog Grid Pages <dialog-grid-pages.html>`_. 
 
 Dialog Pages are used for intermediate actions or steps in your workflow. You can build model interaction by calling dialog pages for the user to perform a specific action such as setting SLA's or adjusting inventory etc. In addition, you can use Dialog pages to display information about a selected item without breaking the flow by calling the OpenDialogPage function. For example showing the detailed properties of a scheduled batch. 
 
@@ -58,6 +58,11 @@ Click on the Insert Dialog page icon |dialog| and give it any name you desire. Y
 
 Dialog pages can be added to any level in the page tree, just like a normal page. Unlike Pages, Dialog pages do not appear in the Menu (navigation) and can only be accessed via the page manager. Dialog pages have the same options as a page or side panel, i.e. Rename, Delete, etc. You can also move the dialog pages the same way pages can be moved.
 
+.. note:: 
+	
+	Avoid adding pages under dialog pages as such pages will not be shown in the navigation menu.
+
+
 You can chose a size for the dialog page, the dimension for which are:
 
 #.  Small: Width = 3 Columns, Height = 2 Rows. Here you can fit widgets with dimensions that add up to 3 columns and 2 rows, e.g. 1 widget with width = 3 columns or less and height = 2 rows or less OR 2 widgets with width = 3 columns or less and height = 1 row.
@@ -79,10 +84,6 @@ The title and action buttons on the dialog page can be configured via the model.
 
 .. image:: images/dialog_placeholders.png
 			:align: center
-
-.. note:: 
-	
-	Avoid adding pages under dialog pages. These pages will not be shown in the navigation menu.
 
 Adding widgets to a Dialog Page
 -------------------------------

@@ -71,6 +71,7 @@ The Data Exchange library contains collection of functions implemented using lib
 
     Create a new HTTP request with (unique) identification :token:`theRequest` to the URL :token:`url`, with method :token:`httpMethod` (optional, default :token:`GET`). Upon response from the web server, the callback method :token:`callback` will be called. The prototype of :token:`callback` should be the same as the function :token:`dex::client::EmptyCallback`. 
     For :token:`POST` and :token:`PUT` methods, you can specify the file :token:`requestFile` from which to take the request body of the request. If you specify the optional :token:`responseFile` argument, the response body will be captured in the specified file. If ommitted the response body will be silently discarded. The function will return 1 on success, or 0 on failure.
+    If a :token:`traceFile` is being specified, tracing for the request will be enabled, and the detail trace output from libcurl will be stored in the specified file. 
     
     :param theRequest: string parameter holding the unique identification of the request.
     :param url: string parameter holding the URL of the request, including any query parameters you want to add to the request.
@@ -78,6 +79,7 @@ The Data Exchange library contains collection of functions implemented using lib
     :param httpMethod: (optional) element parameter into :token:`dex::client::HTTPMethods`, specifying the HTTP method to use for the request (default :token:`GET`)
     :param requestFile: (optional) string parameter holding the filename from which to take the request body
     :param responseFile: (optional) string parameter holding the filename in which  to store the response body
+	:param traceFile: (optional) string parameter holding the filename in which all trace information about the request is being stored
     
 .. js:function::  dex::client::CloseRequest
     
@@ -95,13 +97,20 @@ The Data Exchange library contains collection of functions implemented using lib
    
     :param theRequest: string parameter holding the unique identification of the request to execute
 
+.. js:function::  dex::client::SetDefaultOptions
+   
+    Using the function :token:`dex::client::SetDefaultOptions` you can specify multiple string and integer-valued Curl options that will be applied to all requests, to modify the behavior of libCurl. All available Curl options can be found in the sets :token:`dex::client::StringOptions` and :token:`dex::client::IntOptions`. For the interpretation of these options please refer to the `Curl options documentation <https://curl.se/libcurl/c/curl_easy_setopt.html>`_. The function will return 1 on success, or 0 on failure. 
+    
+    :param intOptions: integer parameter over the set :token:`dex::client::intOptions` holding the default integer Curl options to set
+    :param stringOptions: string parameter over the set :token:`dex::client::StringOptions` holding the default string Curl options to set
+
 .. js:function::  dex::client::AddRequestOptions
    
     Using the function :token:`dex::client::AddRequestOptions` you can specify multiple string and integer-valued Curl options to request :token:`theRequest`, to modify the behavior of libCurl. All available Curl options can be found in the sets :token:`dex::client::StringOptions` and :token:`dex::client::IntOptions`. For the interpretation of these options please refer to the `Curl options documentation <https://curl.se/libcurl/c/curl_easy_setopt.html>`_. The function will return 1 on success, or 0 on failure. 
     
     :param theRequest: string parameter holding the unique identification of the request to add request options to.
     :param intOptions: integer parameter over the set :token:`dex::client::intOptions` holding the integer Curl options to set
-    :param stringOptions: integer parameter over the set :token:`dex::client::StringOptions` holding the string Curl options to set
+    :param stringOptions: string parameter over the set :token:`dex::client::StringOptions` holding the string Curl options to set
 
 .. js:function::  dex::client::AddStringOption
 
@@ -118,6 +127,12 @@ The Data Exchange library contains collection of functions implemented using lib
     :param theRequest: string parameter holding the unique identification of the request to add the integer-valued request option to.
     :param intOptionId: parameter holding the Curl id for the option (taken from :token:`dex::client:CurlOptionId`).
     :param optionValue: parameter holding the option value.
+
+.. js:function::  dex::client::SetDefaultHeaders
+
+    Using the function :token:`dex::client::AddRequestHeaders` you can specify any HTTP headers you want to add to subsequent request. Notice that some Curl options will also result in the addition of HTTP headers to the request. The function will return 1 on success, or 0 on failure.
+    
+    :param headers: string parameter over a (user-defined) set of headernames holding the corresponding header values to add to all subsequent requests.
 
 .. js:function::  dex::client::AddRequestHeaders
 
@@ -215,7 +230,24 @@ The Data Exchange library contains collection of functions implemented using lib
 
     This function close all outstanding requests, and uninitialize libCurl to handle any incoming responses. The function will return 1 on success, or 0 on failure.
     
+.. js:function:: dex::client::ProxyResolve
 
+	Use the OS proxy configuration to discover a proxy for the given URL. Whenever a proxy is found it can be added to a HTTP request via the `CURLOP_PROXY` option. This function is only implemented for the Windows OS. 
+	
+	:param url: the URL for which to determine a proxy 
+	:param proxyUrl: output string argument to hold the proxy URL for the given URL.
+	
+.. js:function:: dex::client::Poll
+
+	Convenience function to poll for certain events by executing a procedure at a given interval. This can for instance by used to regularly check the status of a long-running REST call. Only one function can poll at any given moment.
+	
+	:param pollingProcedure: element parameter into `AllProcedures` holding the procedure to be executed regularly. The procedure should have no arguments. Polling will be stopped whenever the procedure returns a value of 0, in all other cases polling will continue.
+	:param interval: fixed interval in milliseconds in between calls to the polling procedure.
+	
+.. js:function:: dex::client::StopPolling
+
+	Alterative method to externally stop the sequence of calls to a polling procedure added via :js:func:`dex::client::Poll`.
+	
 HTTP Server methods
 -------------------
 
@@ -237,3 +269,58 @@ The Data Exchange library supports exposing procedures in your model as endpoint
     You can use this function yield control for a maximum of :token:`timeout` milliseconds to the HTTP server component of the Data Exchange library to handle incoming requests synchronously. The function will return 1 if one or more requests were handled within the given timeout, or 0 on timeout.
     
     :param timeout: the maximum time in milliseconds to wait for, and handle, any incoming requests.
+
+.. _memory streams:
+
+Memory streams
+--------------
+
+Any file 
+
+* generated by :js:func:`dex::WriteToFile`,
+* read by :js:func:`dex::ReadFromFile`, 
+* serving as a request or response file to :js:func:`dex::client::NewRequest` 
+
+can also be a memory stream. If the file name starts with a `#`, the Data Exchange library will assume that the specified file name is to be interpreted as a memory stream. Memory streams for the output file of the function :js:func:`dex::WriteToFile` and the response file of the function :js:func:`dex::client::NewRequest` will create a memory stream with the given file name as its key, while the input file of the function :js:func:`dex::ReadFromFile` and the request file of the function :js:func:`dex::client::NewRequest` will assume an existing memory stream with the given key. 
+
+Memory streams with keys starting with `##` used as request or response files will be *automatically deleted* when the corresponding `dex::client` request is closed. 
+
+The following functions are available for management of the memory streams.
+
+.. js:function::  dex::DeleteStream
+
+    Delete the memory stream corresponding to key `streamName`.
+	
+    :param streamName: name of the stream key to delete (including the `#`)
+	
+.. js:function::  dex::DeleteAllStreams
+
+    This function will delete all streams created via :js:func:`dex::WriteToFile` and :js:func:`dex::client::NewRequest`.
+
+.. js:function::  dex::SetDefaultStreamSize
+    
+    Every stream created will hold space for `streamSize` bytes. When more bytes are written to a memory stream it will automatically double the available amount of memory but at the expense of copying the existing content. The initial default stream size is 64 KB.
+    
+    :param streamSize: the default stream size (in bytes) to use.
+
+.. js:function:: dex::ImportStreamContent
+
+	Import the content of a string parameter into a new memory stream. The name of the stream should start with a `#`, to allow the stream to be used by other functions of the Data Exchange library. This function supports string parameters up to 8 KB of content. 
+	
+	:param streamName: name of memory stream to import content into
+	:param content: input string parameter holding the string to import into the memory stream
+	
+.. js:function:: dex::ExportStreamContent
+
+	Export the content of an existing memory stream into a string parameter. This function supports exporting memory streams up to 8KB.
+	
+	:param streamName: name of memory stream to export content from
+	:param content: output string parameter to hold the content (up to 8KB) exported from the memory stream	
+	
+.. js:function:: dex::WriteStreamToFile
+
+	Write the content of an existing memory stream to a file. 
+	
+	:param streamName: name of memory stream to write content from
+	:param fileName: name of the to which the content of the stream needs to be written.
+	

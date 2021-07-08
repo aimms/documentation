@@ -8,6 +8,16 @@ Consuming REST APIs
 
 The Data Exchange library contains a fully asynchronous HTTP client library, based on the well-known libCurl library (see the `libCurl documentation <https://curl.se/libcurl/c/>`_). Each request will be executed in parallel through a fixed number of concurrent connections, and upon each response a user-specified callback will be executed when the AIMMS engine is idle, or whenever the modeler has explicitly requested the Data Exchange library to execute the callbacks for all handled requests. This approach allows massive amounts of requests to be handled in parallel, tremendously decreasing the total time it takes to perform all requests when the service called is set up in a scalable manner.
 
+.. note::
+	
+	The functions in the `dex::client` namespace offer alternative to the `httpclient` library, fully integrated within the Data Exchange library which will most likely be necessary for API calls anyway to map request bodies and responses to identifiers in the model. Both offer similar functionality, although there are some differences, most notably
+	
+	* the `httpclient` library does automatic proxy discovery, while for `dex::client` requests proxy discovery must be performed manually via the :js:func:`dex::client::ProxyResolve` function and subsequently set via the curl `PROXY` option
+	* `dex::client` HTTP requests can make use of all libCurl functionality that is available via libCurl options but not in the `httpclient` library (e.g. SPNEGO authentication)
+	* `dex::client` HTTP requests only support a fully asynchronous execution model, optimized for massive amounts of HTTP/API requests to be executed in parallel
+	
+	Although the `dex::client` HTTP requests more than the `httpclient` library forces you to e.g. adhere strictly to its asynchronous model, or invoke certain functionality by specifically enabling it through the available options, the tight integration with the Data Exchange mapping capabilities allows for more advanced features on the :ref:`Data Exchange roadmap` like automatic API client generation from an OpenAPI specification. 
+	
 To initiate a request, call the function :js:func:`dex::client::NewRequest`, where you specify the URL of the request, the callback to be called for the response, the HTTP method (:token:`GET`, :token:`POST`, ...), and, if 
 
 .. code-block:: aimms
@@ -36,9 +46,31 @@ If there was a libCurl error, the HTTP status code will be 0, and you can use th
 
 If the status code is 200 (:token:`OK`), then you can proceed to request the response headers using the function :js:func:`dex::client::GetResponseHeaders`, request additional info about the request from libCurl using the function :js:func:`dex::client::GetInfoItems` (e.g. the total request time, or the final destination of your request in case of redirects), or can use the function :js:func:`dex::ReadFromFile` to read the response data into identifiers in your model in case of REST call to some REST API. 
 
-The Data Exchange library will close a request as soon as the specified callback function has been called, not to leave any resources in use unnecessary. It will, however, not remove any request and/or response files you specified. 
+The Data Exchange library will automatically close a request as soon as the specified callback function has been called, not to leave any resources in use unnecessary. It will, however, not remove any request and/or response files or memory streams you specified, unless the memory stream names start with `##` (see :ref:`memory streams`).
 
 The library has been tested to be able to call a very simple HTTP service (i.e., with an empty response) for 100,000 times over 256 parallel connections within 20 or so seconds, so should able to deal with a more realistic number of calls to a non-trivial service as well. Note that in this case, the time taken to deal with the response in the callback (e.g. reading the data in AIMMS identifiers) may substantially add to the overall time to make and handle all requests.
+
+Debugging client requests
+-------------------------
+
+When you experience trouble invoking a URL using `dex::client` requests, here are a number of guidelines that may help you tackle it:
+
+* libcurl doesn't automatically follow redirects, and is pretty strict on checking revocation lists by default. This may cause HTTP requests to fail with sometimes hard to follow error messages. In addition, the HTTP client in the Data Exchange library does not perform automatic proxy discovery, which may cause HTTP requests to fail because the proper proxy is not used during the request. The following code will sensible defaults to prevent all of these issues:
+
+	.. code-block:: aimms
+		
+		dex::client::ProxyResolve("https://www.aimms.com", proxyURL);	! determine proxy URL, assuming the same proxy result for any url
+		stringOptions(dex::client::stropt) := { 'PROXY' : proxyURL };   ! instruct libcurl to use the given proxy
+		intOptions(dex::client::intopt) := { 'HTTPPROXYTUNNEL' : 1, 'SSL_OPTIONS' : 2, 'FOLLOWLOCATION' : 1, 'MAXREDIRS' : 10 };
+		dex::client::SetDefaultOptions(intOptions, stringOptions);
+
+* If your request contains a request body, the HTTP client will deduce the content type of the request body from the file extension containing the body, or if it cannot deduce it, set it to `application/octetstream`. You may need to set the `Content-Type` header to a proper value to make the request succeed, specifically when you do a POST request with url-encoded parameters, as follows
+
+	.. code-block:: aimms
+	
+		dex::client::AddRequestHeader(reqId, "Content-Type", "application/x-www-form-urlencoded"); 
+
+* A good way to debug HTTP requests is to enable request tracing by specifying a trace file in the :js:func:`dex::client::NewRequest` function. The resulting file will contain all available tracing information made available by libcurl, including all verbatim request and response headers and bodies.
 
 Providing REST APIs
 -------------------
@@ -83,7 +115,7 @@ With each procedure in your model, you can associate a :token:`dex::ServiceName`
          ! the application-specific returncode that will be returned via the task status of the job
          return 1;
 
-* :token:`/api/v1/tasks`
+* :token:`/api/v1/tasks/`
     
     * :token:`GET`: will return :token:`200 OK` where the  response body will contain a array with the statuses of all submitted jobs, similar to:
       
@@ -122,7 +154,24 @@ With each procedure in your model, you can associate a :token:`dex::ServiceName`
     
     * :token:`GET`: will return a :token:`404 Not found` if there is no taks with the given id, or :token:`200 OK` with an intermediate status response body stored as stored in the file :token:`dex::api::RequestAttribute('status-data-path')` by the service handler procedure.
    
-    
+Activating the REST service
+---------------------------
 
+You can activate the REST service via the call
 
+.. code-block:: aimms
+
+	dex::api::StartAPIService
+	
+This will read all the service name annotations, and start the service listening to incoming requests. Via the configuration parameters `dex::api::ListenerPort` and `dex::api::MaxRequestSize` you can configure the port the service will be listening on (default port 8080), and the maximum request size of request and response bodies accepted by the REST service (default 128 MB). After starting the API service, you can reach it via the base URL `http://localhost:{listenerport}` followed by the path the specific REST service you want to call, as listed above.
+
+Using the echo service
+----------------------
+
+Next to the REST API service described above, the API service also provides an *echo* service, that will simply echo all headers and (any) body you present to it, via either a GET, PUT, POST, or DELETE request. You can use the echo service to check whether there are any problems with requests that you would like to send to a real service. The echo service is available via the path `http://localhost:{listenerport}/api/v1/echo/`, and it supports a single optional query parameter, `delay`, indicating a delay in milliseconds before replying back to the caller.
+
+Yielding time to the API service to handle requests
+---------------------------------------------------
+
+Within the execution of an AIMMS procedure, you can call the function `dex::api::Yield` to yield time to the API service to handle requests. You can use this functionality for instance, to implement tests in a project providing REST services using the `dex::client` functions to call the service endpoints exposed by your model. 
 

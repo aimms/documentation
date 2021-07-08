@@ -8,10 +8,206 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 
+#############
+AIMMS 4.81
+#############
+
+AIMMS 4.81.1 Release (July 7, 2021 - build 4.81.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  A new option, called "Pass Quadratic Structure", was added to the Solvers General category. If this option is active, quadratic structures are passed to Knitro 12.3 or higher versions. See the AIMMS Help for more information.
+-  This AIMMS version adds functionality to run Gurobi on the AIMMS Cloud using the new Gurobi `Web License Service <https://www.gurobi.com/web-license-service/>`__. The new procedures GMP::Solver::SetEnvironmentStringParameter and GMP::Solver::SetEnvironmentIntegerParameter can be used to specify the required connection parameters. See the `AIMMS Cloud documentation <https://manual.aimms.com/cloud/gurobi-support.html>`__ for more information.
+-  If the coefficient matrix of a math program contains several independent block submatrices then the new function `GMP::Instance::CreateBlockMatrices <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_instance-procedures-and-functions/gmp_instance_createblockmatrices.html>`__ can be used to decompose the math program into several generated math programs, each containing an independent block submatrix. Each of these blocks can be solved separately, and by combining the solutions of these blocks a solution of the original math program can be obtained. This approach can be more efficient than solving the original math program.
+
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In rare cases the AIMMS Presolver did not handle quadratic constraints correctly.
+
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  The Grid Layout for WebUI pages was already available as an Experimental Feature since AIMMS 4.75, but with the release of AIMMS 4.81, it has become the default way of organizing your pages. 
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When an identifier name was very long it did not fit in in the identifier selector properly.
+-  The Page Configurator, where you choose your Classic Layout or Grid Layout templates, will now accurately show which template is active for the current page, moving the layout carousel to the correct page for both custom and standard layouts.
+-  Both the titles/tooltips and the header texts of Side Panel tabs will now be translated by either the default or your own translation resources. Please note: if your 'simple' tab titles are present in any of those resources, you might now end up with an unexpectedly 'translated' text. However, it also means you can finally adapt them to your users' language settings.
+
+
+--------------
+
+
+
+
+#############
+AIMMS 4.80
+#############
+
+AIMMS 4.80.4 Release (June 30, 2021 - build 4.80.4.14).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  An index without a scope in an 'IN' construction was not always recognized as such. Now, the appropriate compile error is given.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When having item actions on two pages and triggering such an action on a page, followed by a switch to the other page and going back to the first, the item action there was not triggered anymore since AIMMS 4.79.7.
+-  The progress message, which is displayed when the WebUI is busy, now shows an ellipsis in the end when the message is too long.
+-  A new widget with a name consisting of only numbers was not displayed on the WebUI when being added. There were also console errors.
+-  The selection box did not display the value that was selected for a calendar element parameter with element text.
+-  Item actions did not appear when a Barline chart was resized or made fullscreen.
+-  Gantt chart jobs could sometimes extend beyond their designated area.
+
+
+--------------
+
+
+
+AIMMS 4.80.3 Release (June 21, 2021 - build 4.80.3.10).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The default values for the Lower and Upper threshold options have been set to -Infinity and Infinity, respectively.
+-  The Selectionbox-V2 widget now works properly when you try to add it to a new Grid Layout page.
+-  For the Selectionbox-V2 widget, setting the Contents directly in the Add Widget dialog box did not work correctly. Now, you cannot specify the Contents in this dialog anymore (the identifiers are greyed out). Instead, you should open the newly created widget and provide the contents in its Contents option editor.
+
+
+--------------
+
+
+
+AIMMS 4.80.2 Release (June 16, 2021 - build 4.80.2.17).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The DATE column type in a Teradata database expects a string instead of a DateTime structure like other vendors do. This has been adapted in our database interface. Warning: AIMMS does not do any date-to-string conversion so the date format must be exactly as expected by TeraData.
+-  Error reporting on database subjects could sometimes show an old error again instead of the new one.
+-  64-Bit Integer database columns were no longer recognized since 4.72.4.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The new feature of 4.80 to store cases in a new format had a serious bug that could lead to a situation where not all data was correctly read back from a case.
+
+
+--------------
+
+
+
+AIMMS 4.80.1 Release (June 8, 2021 - build 4.80.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The functions :any:`GMP::Solution::GetColumnValue` and :any:`GMP::Solution::GetRowValue` can now also be used to retrieve information regarding basic columns and rows.
+-  The latest CPLEX and CP Optimizer releases have been upgraded to version 20.1.0.1, which comes with regression fixes for some rare issues.
+-  The optional argument 'merge' has been added to the procedures :any:`GMP::Solution::SendToModel` and :any:`GMP::Solution::SendToModelSelection`. This argument can be used to merge the values of the variables and constraints in a math program with a solution in the solution repository of a GMP.
+-  The code to update all the defined identifiers used in a statement was re-visited and improved. This fixes some rare situations where the definition of an identifier was not updated in time.
+-  We updated the logging for the AIMMS database functionality. All database-related activity is now logged on child loggers of AIMMS.Database. All queries etc. are now logged on the logger `AIMMS.Database.dbms.SqlExecuter`. These are the available levels:
+  
+  - `INFO`: model level
+  - `DEBUG`: statement level 
+  - `TRACE`: field level
+
+  more info on logging can be found `here <https://how-to.aimms.com/Articles/329/329-more-logging.html>`__.
+
+-  In order to activate the logging configuration (LoggerConfig.xml), in addition to using the `--logcfg` command line option there is now another possibility. When AIMMS is started directly with a project name (for example, double-clicking on a .aimms project file) and there is a LoggerConfig.xml file in the same folder with the project file, then this LoggerConfig.xml file will be picked up automatically and no `--logcfg` option is needed anymore.   
+-  When exporting an end-user version (creating an .aimmspack) if your application uses libraries from the online library repository, you can now choose to include the sources of these libraries in the .aimmspack. This was already possible for the Windows part but not for the Linux part. So now, also when running on the (Linux) cloud, the sources don't need to be downloaded during startup.
+-  The time needed to read or write a case file has been improved. This has been achieved by a slightly different case format for which you can select the character encoding to be used to store strings and element names. Especially on Linux this leads to a much a faster read. To use this you should set the option `case_compatibility` to `AIMMS_4_80` and specify the most suitable value for option `case_string_character_set`.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS would not install libraries from the library-repository when it is behind a web-proxy that uses HTTP redirects. These redirects are now supported and libraries can be installed.
+-  When reading an identifier from a case where all stored values were at their default could lead to a situation in which the WebUI did not show the correct values and/or definitions that used this identifier were not re-evaluated.
+-  Defined identifiers that are used in a statement of a Function were not always updated at the right moment.
+-  Gurobi 9.1 has been upgraded to version 9.1.2.
+-  When assigning a list expression to an identifier, omitting the index domain on the left hand side of the assignment is deprecated and a warning is now displayed. This will result in a compile error in a future AIMMS version. For example, Parameter := data { ('i01') : 1.0 }; is now deprecated and should become Parameter(i) := data { ('i01') : 1.0 };.
+
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  Now the Dialog and Side Panel page types can also be designed using the Grid Layout Experimental Feature.
+-  We introduced custom sizing for the Dialog page.
+-  The tabs on a Side Panel can now have a colored icon on it for easier identification.
+-  We introduced the 'selectionbox-v2' widget as an experimental feature. The widget uses a new technology stack and should use less resources and support a large number of items (more than tens of thousands) in the selectionbox dropdown. We also foresee a significant page load performance increase on pages with a lot of selectionboxes. Please note: a selectionbox-v2 requires the page to use the Grid Layout.
+-  The animation that occurs when navigating between WebUI pages has been changed to be more agreeable and to have less impact for more users.
+-  We improved the performance of opening the option dialog of a widget.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The option to download a .csv file from a WebUI Table widget now takes the regional settings of the browser into account. This ensures that the column separator used in the .csv file is not the same as either the decimal or the thousand separator for the specified region.
+
+
+
+--------------
+
+
+
+
 
 #############
 AIMMS 4.79
 #############
+
+
+AIMMS 4.79.7 Release (June 4, 2021 - build 4.79.7.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issue
++++++++++++++++++++++++++
+
+-  In some specific scenarios it could happen that the right-click action items menu on a widget would randomly disappear when being displayed.
+
+
+
+AIMMS 4.79.6 Release (May 28, 2021 - build 4.79.6.12).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The AIMMS IDE is now more resilient with respect to loss of connectivity with a license server. It will accept up to 24 hours of connection loss, and will automatically restore the connection whenever possible.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The 'Select All' and the 'Select None' buttons are now properly disabled when a Multiselect widget contains readonly data.
+-  In AIMMS 4.79.2, we accidentally introduced numerical formatting on string values that could be interpreted as numerical values (strings like '12345', or '100e7'), when double-clicking on such string values in Table or Scalar widgets. This led to unexpected changes in the underlying strings in the AIMMS model.
+
 
 
 AIMMS 4.79.5 Release (May 14, 2021 - build 4.79.5.26).
@@ -23,7 +219,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  A case read in a model that contains 'defining procedures' could lead to a situation that string parameters did not get the correct values. Because of that the model could easily crash after a case read.
--  Getting help on the GMP functions (for example GMP::instance::generate) did not bring you to the online documentation.
+-  Getting help on the GMP functions (for example :any:`GMP::Instance::Generate`) did not bring you to the online documentation.
 -  When writing to a database table in replace rows mode in case of (assumed) foreign keys and fixed columns and rows in the database that should be deleted, the fixed columns were not taken into account in the DELETE query, resulting in too many rows to be deleted.
 
 Resolved WebUI Issues
@@ -174,6 +370,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Local identifiers in a procedure or function were not always correctly emptied when calling the procedure or function multiple times.
+-  Local copies of repository libraries included in an .aimmspack file could not be loaded if their path on Windows after extraction exceeded 200 characters.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++

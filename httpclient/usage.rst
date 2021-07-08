@@ -118,6 +118,29 @@ and
 This also shows that it is very easy to turn synchronous calls into asynchronous calls. First clean up the response handling into a "callback" procedure. Then change the second situation into the first. Finally we can squeeze other things between ``request_invoke_async`` and ``wait_for_the_response`` to make good use of the "waiting time".
 
 
+.. _LinkConfigReqPoolSize:
+
+Configuration
+^^^^^^^^^^^^^
+
+The number of asynchronous requests that can run simultaneously is limited by the request pool size. When the request pool is full all subsequent calls to ``request_invoke_async`` will be placed in a queue. As soon as a slot is free in the request pool, the next request from the queue is placed in the pool and called.
+
+For example, if ``ReqPoolSize`` is 4 and one does 10 async requests, only the first 4 are invoked immediately and the other 6 are queued. These 6 will be picked up when a thread has completed the request, until all requests are done.
+
+The default value of the request pool size is 4. The value can be changed using ``web::setConfig`` :
+
+.. code-block:: aimms
+
+    StringParameter sp_ClientConfig {
+        IndexDomain: web::cc;
+        InitialData: Data{ 'ReqPoolSize' : "6"};
+    }
+    web::setConfig(sp_ClientConfig)
+
+Note that increasing the request pool size has immediate effect. However, if one decreases the size of the pool while it is full, the pool shrinks only when all already running calls are finished.
+
+
+
 The URL
 -------
 

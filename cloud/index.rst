@@ -17,6 +17,7 @@ The AIMMS Cloud Platform is a fully managed AIMMS PRO environment. It is secure,
    admin
    ../pro/portal
    ../pro/project
+   gurobi-support
    ../pro/api
 
 

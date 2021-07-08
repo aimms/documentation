@@ -7,6 +7,24 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.20.0.3 [06-07-2021]
+	- Element names with accents in characters and trailing spaces could lead to a unique index constraint to fail for the MySQL backend. Depending on MySQL version, specific character sets and collations may need to be set on the `name_nc` column in the element space tables associated with the affected sets.
+	- Deletion of empty branches could take a lot of time because of needlessly trying to remove data from identifier and set tables.
+	- The function :js:func:`cdm::EmptyElementInCategory` would not remove values from element parameters which held the specified element value.
+	
+1.19.0.25 [22-06-2021]
+	- On-demand service in cloud now prints stack trace before exiting on crash.
+	
+1.19.0.21 [21-06-2021]
+	- The function :js:func:`cdm::CloneAndRollbackElementInCategory` and :js:func:`cdm::EmptyElementInCategory` could crash when logging element names.
+
+1.19.0.19 [11-06-2021]
+	- Set maximum lifetime of non-connected on-demand CDM service in cloud to 4 hours
+	
+1.19.0.15 [10-06-2021]
+	- Only load log configuration if no one has been loaded already
+	- Table definition would not correctly retrieve the latest version during table verification when connecting to category
+
 1.19.0.9 [09-02-2021]
     - :js:func:`cdm::CommitElementInCategory` could create negative label numbers in the CDM database, when additional elements were created in a set next to the one offered as an argument to the function.
     - :js:func:`cdm::CommitChanges` would not create any left-over new elements of a set, after a call to :js:func:`cdm::CommitElementInCategory`.

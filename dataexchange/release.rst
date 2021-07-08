@@ -3,8 +3,10 @@ DataExchange Library Release Notes
 
 The first public release of the DataExchange library was version 1.0.0.18, release date July 10, 2020. 
 
-Library Roadmap
----------------
+.. _Data Exchange roadmap:
+
+Data Exchange Roadmap
+---------------------
 
 The DataExchange library is under active development. The following new features are on the roadmap of the DataExchange library:
 
@@ -17,6 +19,31 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+
+1.2.0.30 [30-06-2021]
+	- Allow memory streams to be read twice by :js:func:`ReadFromFile`
+	- Allow double values in JSON documents to be read into string parameters
+
+1.2.0.28 [28-06-2021]
+	- Add support for memory streams that can be used instead of files in :js:func:`dex::WriteToFile`, :js:func:`dex::ReadFromFile` and :js:func:`dex::client::NewRequest`.
+	- Add support for `dex::client` request tracing
+	- Allow reading integer and double values from JSON string properties.
+	- Fixed crash in :js:func:`dex::client::GetInfoItems` when calling for string items with no result.
+	
+1.2.0.19 [23-06-2021]
+	- Add :js:func:`dex::client::SetDefaultOptions` and :js:func:`dex::client::SetDefaultHeaders` methods
+	- Support for setting and retrieving headers for upto 4096 characters
+	- Also support GET, PUT and DELETE requests for echo service
+
+1.2.0.8 [10-06-2021]
+	- Prevent crash on program exit on Linux
+	
+1.2.0.2 [28-05-2021]
+    - Updated REST service listener component that used a faulty concurrency setting, potentially leading to connectivity loss
+
+1.2.0.1 [26-05-2021]
+    - Added a DLL that was missing in the PROClient IFA on Windows, causing WinUI PRO sessions to fail
+
 1.2.0.0 [17-05-2021]
     - Add a completely asynchronous Curl-based HTTP client to the DataExchange library, supporting all string- and integer-valued options provided by libCurl.
     - Add a REST API server to the DataExchange library, allowing model procedures to become available through a REST API via simple model annotations.
