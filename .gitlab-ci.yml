@@ -20,6 +20,7 @@ linkcheck:
   stage: test
   script:
   - python3 -msphinx -W -b linkcheck . _build/linkcheck
+  allow_failure: true
   tags: 
     - ubuntu
   retry: 1
