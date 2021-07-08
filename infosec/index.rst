@@ -10,5 +10,6 @@ See the certificate :download:`here <resources//aimms_isc.pdf>`.
 .. toctree::
     :maxdepth: 1
 
-    aimms-software
     cloud-platform
+    aimms-software
+    
