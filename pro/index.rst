@@ -9,12 +9,13 @@ PRO Platform
 This is the documentation for the AIMMS PRO Platform
 
 .. toctree::
+    :maxdepth: 1
 
-   intro
-   install
-   configurator
-   admin
-   portal
-   project
-   api
+    intro
+    install
+    configurator
+    admin
+    portal
+    project
+    api
 

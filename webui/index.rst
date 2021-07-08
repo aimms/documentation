@@ -11,6 +11,7 @@ To some extent, this manual may also prove itself to be useful as reference for 
 when using widget configuration options available to them while running the WebUI applications on the AIMMS PRO platform (including the AIMMS Cloud).
 
 .. toctree::
+   :maxdepth: 1
 
    getting-started
    webui-app-development
