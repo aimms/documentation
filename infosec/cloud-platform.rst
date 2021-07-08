@@ -1,5 +1,5 @@
 Information security for the AIMMS Cloud Platform (on AWS)
-=====================================
+============================================================================
 
 Backups / Business Continuity / Disaster Recovery
 ----------------------------------------------------

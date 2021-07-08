@@ -1,5 +1,5 @@
 Information security for AIMMS (the software)
-===========================
+====================================================
 
 We have implemented a collection of measures to make sure we deliver secure software to our customers. 
 
