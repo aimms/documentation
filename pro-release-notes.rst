@@ -4,6 +4,16 @@ AIMMS PRO Release Notes
 PRO 2.38
 ########
 
+AIMMS PRO 2.38.2 Release
+------------------------
+
+On July 8, 2021, we released AIMMS PRO 2.38.2 (2.38.2.1). 
+
+**Resolved Issues**
+
+- Fixed an issue where newly added user could not login to the Active Directory environment on AIMMS PRO.
+
+
 AIMMS PRO 2.38.1 Release
 ------------------------
 
