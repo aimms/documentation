@@ -6,7 +6,7 @@ AIMMS Application Management
 Publishing Applications
 -----------------------
 
-Any PRO-enabled AIMMS project can be published onto an AIMMS PRO Server. PRO-enabled projects must be made available in the form of a .aimmspack file, and can be published through the **Apps** area of the portal. All members of the admin and the *AppPublishers* groups will have a **publish** button available in the **Apps** area, through which they can publish PRO-enabled .aimmspack files. After selecting a .aimmspack file and an (optional) application icon to be used in the portal, you have to provide some additional information about the application:
+Any PRO-enabled AIMMS project can be published onto an AIMMS PRO Server. PRO-enabled projects must be made available in the form of a .aimmspack file (In AIMMS developer using menu **File** then **Export End User Project...** ), and can be published through the **Apps** area of the portal. All members of the admin and the *AppPublishers* groups will have a **publish** button available in the **Apps** area, through which they can publish PRO-enabled .aimmspack files. After selecting a .aimmspack file and an (optional) application icon to be used in the portal, you have to provide some additional information about the application:
  
 * Application name: the name by which the application will be identified within the AIMMS PRO Framework.
 * Application version: the application version. The combination of the name and version should be unique.
