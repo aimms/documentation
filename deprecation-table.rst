@@ -38,6 +38,7 @@ This is a list of (recent) deprecated features and provides an insight into its 
     Data, Single Data File          , Deprecated ,          , Current status: deprecated for years already; will not be removed before Q2 2021  , Use new File & Folders (there is a conversion tool in IDE); for details see `How-to <https://how-to.aimms.com/Articles/314/314-from-dat-to-data.html>`__
     GUI-WebUI, Map v1, Deprecated, May 2020, No longer available in 4.74, Use Map v2 (standard for 4.74 and up)
     GUI-WebUI, Page Actions v1, Deprecated, May 2020, No longer available in 4.74, Use Page Action v2 (standard for 4.74 and up) where all actions are defined with an identifier 
+    GUI-WebUI, Custom Position widgets, Deprecated ,                 , Currently only high priority and fixable issues , Switch to Grid Layout that gives the flexibility to create your desired layout.                                                           
     GUI-WebUI, Wizard              , Deprecated , mid 2020   (to be planned)  ,  Will be removed - started with message and inability to add (`4.73 <release-notes.html#aimms-4-73>`_), Workflow Panel with fine grained control via model                     
     GUI-WebUI, Group Widget              , Deprecated ,                 , Start with inability to add and remove suggestion in widget creation dialog    , Switch to Grid Layout that gives the flexibility to create your desired layout.                                                           
     GUI-WebUI, Sidebar Open By Default, Deprecated, March 2021, No longer available from 4.78. This is not same as the `Side Panel <https://manual.aimms.com/webui/side-panels.html>`_, No alternative as such
@@ -51,4 +52,4 @@ This is a list of (recent) deprecated features and provides an insight into its 
     System Requirements, Internet Explorer 11      , Deprecated , Jan 2020        , No longer supported                                                            , Chrome or Edge (latest or latest-1)                                                                  
     System Requirements, Windows 7      , Deprecated , Jan 2020        , No longer supported            , Windows 8 or higher                                                                  
     System Requirements, Windows Server 2008      , Deprecated , Jan 2020        , No longer supported         , Windows Server 2012 or higher                                                                  
-    GUI-WebUI, Custom Position for widgets, Deprecated ,                 , Currently only high priority and fixable issues , Switch to Grid Layout that gives the flexibility to create your desired layout.                                                           
+    
