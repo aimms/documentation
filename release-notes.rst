@@ -12,6 +12,23 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.81
 #############
 
+
+AIMMS 4.81.2 Release (July 14, 2021 - build 4.81.2.9).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Item actions on the Scalar widget with a Display Domain active did not work correctly in some scenarios.
+-  Since the Export-To-Image feature was incorporated, the pipe icon separating the widget actions & Filter buttons from the rest of Widget header section buttons was missing.
+-  Selectionbox-v2 now correctly occupies (less) space again when used on a Grid Layout page/dialog/side panel, and within a grid area with the widgets stacked in rows. We've also addressed some minor visual issues and text translations that were seen around some features/widgets when used in combination with Grid Layout.
+
+
+--------------
+
+
 AIMMS 4.81.1 Release (July 7, 2021 - build 4.81.1.0).
 ------------------------------------------------------------------------------------------
 
