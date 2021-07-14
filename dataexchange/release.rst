@@ -19,7 +19,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
-
+1.2.0.34 [14-07-2021]
+	- :js:func:`dex::client::GetResponseHeaders` and other functions would not support arguments that are identifier slices. 
+	
 1.2.0.30 [30-06-2021]
 	- Allow memory streams to be read twice by :js:func:`ReadFromFile`
 	- Allow double values in JSON documents to be read into string parameters
