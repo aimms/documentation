@@ -15,12 +15,16 @@ Side Panel Grid Pages
 
 This section describes various features and tasks related to WebUI Side Panel Grid Pages.
 
-.. important:: Side Panel Grid Pages are available in software versions from AIMMS 4.80 onwards.
+.. important::
+
+	 Side Panel Grid Pages are available in software versions from AIMMS 4.80 onwards.
+
+	 When running an AIMMS project which was created with AIMMS 4.80 (or with a newer version) and that has Side Panel Grid Pages added, in AIMMS 4.79.3 (or an older version) you might face an invalid schema error. Please contact support if you face such issues.
 
 .. note:: 
-	When running an AIMMS project which was created with AIMMS 4.80 (or with a newer version) by using AIMMS 4.79 (or an older version), the side panel grid pages created in AIMMS 4.80 may be treated as regular pages in AIMMS 4.79, because side panel grid pages are not available in AIMMS 4.79 or in older AIMMS versions. Before upgrading your AIMMS project to a new AIMMS version, please create a backup of your project which may still be run with the older AIMMS versions.
+	 When running an AIMMS project which was created with AIMMS 4.80 (or with a newer version) by using AIMMS 4.79 (or an older version), the side panel grid pages created in AIMMS 4.80 may be treated as regular pages in AIMMS 4.79, because side panel grid pages are not available in AIMMS 4.79 or in older AIMMS versions. Before upgrading your AIMMS project to a new AIMMS version, please create a backup of your project which may still be run with the older AIMMS versions.
 
-	Currently, it is a known limitation that hidden widgets do not always work as expected on grid pages and that you will notice a performance slowness in the page load for pages with hidden widgets, majorly on the number of hidden widgets. Until this matter is addressed in future software versions, the usage of hidden widgets on grid pages is not recommended for the time being.
+	 Currently, it is a known limitation that hidden widgets do not always work as expected on grid pages and that you will notice a performance slowness in the page load for pages with hidden widgets, majorly on the number of hidden widgets. Until this matter is addressed in future software versions, the usage of hidden widgets on grid pages is not recommended for the time being.
 
 Side Panel Grid Pages are Side Panel pages with a grid layout. So, they combine the features of the `Side Panels <side-panels.html>`_ and the features of `WebUI Grid Pages <webui-grid-pages.html>`_. In this respect, the explanations about the behavior provided in the side panels section and the WebUI grid pages section also apply to the side panel grid pages discussed here. Therefore, we advise the reader to take a look at those two sections as well for explanations on aspects which are generally applicable.
 
