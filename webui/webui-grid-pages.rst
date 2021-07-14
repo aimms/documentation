@@ -34,7 +34,9 @@ This section describes various tasks related to WebUI grid pages.
 
 	Grid WebUI pages are available starting from the AIMMS software version 4.75 onwards as part of `Experimental Features <experimental-features.html>`_. Please check the `Experimental Features <experimental-features.html>`_ page on how to enable the feature.
 	
-	Starting from AIMMS software version 4.81 onwards the Grid WebUI pages are available by default as standard feature (no longer experimental). Please check the `Experimental Features <experimental-features.html>`_ page on how to disable the feature, if required.
+	Starting from AIMMS software version 4.81 onwards the Grid WebUI pages are available by default as standard feature (no longer experimental).
+
+	When running an AIMMS project which was created with AIMMS 4.80 (or with a newer version) and that has Dialog Grid Pages or Side Panel Grid Pages added, in AIMMS 4.79.3 (or an older version) you might face an invalid schema error. Please contact support if you face such issues.
 
 Grid pages introduce in AIMMS WebUI the CSS Grid concept of visualization based on page layouts, which is currently a widely used standard in webdesign. For more information on CSS Grid in general please see websites such as:
 

@@ -30,7 +30,11 @@ Dialog Grid Pages
 
 This section describes various tasks related to the WebUI Dialog Grid Pages.
 
-.. important:: Dialog grid pages are available in software versions from AIMMS 4.80 onwards.
+.. important:: 
+
+	 Dialog grid pages are available in software versions from AIMMS 4.80 onwards.
+
+	 When running an AIMMS project which was created with AIMMS 4.80 (or with a newer version) and that has Dialog Grid Pages added, in AIMMS 4.79.3 (or an older version) you might face an invalid schema error. Please contact support if you face such issues.
 
 .. note::
 	 When running an AIMMS project which was created with AIMMS 4.80 (or with a newer version) by using AIMMS 4.79 (or an older version), the dialog grid pages created in AIMMS 4.80 may be treated as regular pages in AIMMS 4.79, because dialog grid pages are not avaialble in AIMMS 4.79 or in older AIMMS versions. Before upgrading your AIMMS project to a new AIMMS version, please create a backup of your project which may still be run with the older AIMMS versions.
