@@ -221,7 +221,7 @@ This set has 4 elements representing side panels properties:
 
 .. note:: 
 	
-	* If the set AllSidePanelPages is not yet filled with all side panel pages, please run the procedure GetAllPages. You can find this procedure in Page Support section under Public Pages Support Procedures. 
+	If the set AllSidePanelPages is not yet filled with all side panel pages, please run the procedure GetAllPages. You can find this procedure in Page Support section under Public Pages Support Procedures. 
 	
 To configure side panels on a page, create a string parameter indexed on the `ExtensionOrder <library.html#extensionorder>`_ set with the ``webui::indexPageExtension`` index and the SidePanelSpecification set with the ``webui::indexSidePanelSpec`` index; for example, a string parameter like ``HomePageSidePanel(webui::indexPageExtension,indexSidePanelSpec)``. 
 
@@ -265,6 +265,7 @@ Note that in the above example data we have defined both the icon and its color 
 
 	* Side panels appear in the same order from top to bottom as they appear in the data of the string parameter.
 	* If you enter an incorrect pageId, then the corresponding side panel tab will not be shown.
+	* When a side panel tab is open in the WebUI and if the ``displayText``, ``tooltip``, ``icon``, or ``iconcolor`` are changed/updated the side panel does not collapse in the WebUI. Only when the ``pageId`` or ``state`` are changed/updated an open side panel will collapse.
 	
 Configuring the string parameter on regular pages
 -------------------------------------------------
