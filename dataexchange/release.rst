@@ -19,6 +19,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.2.0.36 [16-07-2021]
+	- Memory streams with binary content could be truncated prematurely when read.
+	
 1.2.0.34 [14-07-2021]
 	- :js:func:`dex::client::GetResponseHeaders` and other functions would not support arguments that are identifier slices. 
 	
