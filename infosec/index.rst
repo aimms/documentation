@@ -8,7 +8,7 @@ At the bottom of this page and in the navigation pane on the left you find the l
 ISO 27001 Certified
 -------------------
 
-AIMMS is **ISO 27001** certified for 'Development, maintenance, delivery, and support of software and cloud service': 
+AIMMS is ISO 27001 certified for 'Development, maintenance, delivery, and support of software and cloud service': 
 
 * :download:`Certificate <resources//aimms_isc.pdf>` 
 * :download:`Statement of Applicability<resources//aimms_soa.pdf>` 
