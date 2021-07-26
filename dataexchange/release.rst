@@ -19,6 +19,11 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+
+1.2.0.38 [26-07-2021]
+	- :js:func:`dex::ExportStreamContent` would crash for streams bigger than 8 KB
+	- Allow `dex::ColumnName` annotation to be set on separate index declarations
+	
 1.2.0.36 [16-07-2021]
 	- Memory streams with binary content could be truncated prematurely when read.
 	
