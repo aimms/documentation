@@ -26,7 +26,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  Performance has been improved when using the WebUI Option Editor to define a slice over a set with a huge number (in this case around 750.000) of elements.
--  If your use an identifier to configure the visibility of a page, this configuration will now be persisted correctly.
+-  If you use an identifier to configure the visibility of a page, this configuration will now be persisted correctly.
 -  Fixed the console error that a Map would issue when the Heatmap data was empty and the visibility of the heatmap was changed.
 -  For element parameters over a calendar, AIMMS WebUI will now first look at a `webui::ElementTextIdentifier` to determine its display value. Only if not specified, the timeslot format of the calendar (or any timeslot format from a convention that overrides the timeslot format of the calendar at hand) will be used.
 -  The `webui::ElementTextIdentifier` annotation is now also considered for element parameters over calendars. This annotation will prevail over any timeslot format (either of the calendar itself or the `webui::ApplicationConvention`).
