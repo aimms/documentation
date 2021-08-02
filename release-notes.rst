@@ -12,6 +12,32 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.81
 #############
 
+AIMMS 4.81.3 Release (August 2, 2021 - build 4.81.3.15).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Writing a case file with the option value 'Case_Compatibility' set to the new value 'AIMMS_4_80' did not always produce a correct case on Linux.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Performance has been improved when using the WebUI Option Editor to define a slice over a set with a huge number (in this case around 750.000) of elements.
+-  If your use an identifier to configure the visibility of a page, this configuration will now be persisted correctly.
+-  Fixed the console error that a Map would issue when the Heatmap data was empty and the visibility of the heatmap was changed.
+-  For element parameters over a calendar, AIMMS WebUI will now first look at a `webui::ElementTextIdentifier` to determine its display value. Only if not specified, the timeslot format of the calendar (or any timeslot format from a convention that overrides the timeslot format of the calendar at hand) will be used.
+-  The `webui::ElementTextIdentifier` annotation is now also considered for element parameters over calendars. This annotation will prevail over any timeslot format (either of the calendar itself or the `webui::ApplicationConvention`).
+-  Restored the ability to scroll the contents of Side Panels when the content length requires it, using a scrollbar.
+-  Because toggling the visibility of a widget could lead to 'stale' Option Editors, the editor will now close whenever you edit widget visibility.
+-  When navigating from pages with Workflow to ones without it, Grid Layout pages now properly use all screen real-estate again.
+-  If you were using Side Panels with Grid Layout and the Side Panel contained a Selection Box V2, then you were (wrongly) warned about incompatibility of that combination. This will no longer occur.
+-  Although never officially supported before, we've removed (full) support for the use of identifiers to set the 'hidden' state of widgets or the 'compact' state of Scalars (on Grid Layout type pages only). The impact on page load performance and behavior was unacceptable, in our view. Only static values will work correctly now. Refer to the documentation for more information.
+
+--------------
+
 
 AIMMS 4.81.2 Release (July 14, 2021 - build 4.81.2.9).
 ------------------------------------------------------------------------------------------
