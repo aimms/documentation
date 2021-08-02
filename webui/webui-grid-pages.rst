@@ -97,7 +97,13 @@ Initially, unassigned widgets may be moved from the "Unassigned widgets" section
 .. image:: images/GridPage_Drag-and-Drop_1.png
     :align: center
 
-.. important:: The deprecated group widget is not supported in the grid layout. If you had a group widget in the classic layout, the widgets that were part of the group widget will appear in the "Unassigned Area" as separate widgets. You can then assign these widgets to designated areas as required.
+.. important:: 
+	 
+	 If you assign a fixed height widget like the button, compact scalar, label, etc. to a grid with "``gridAutoFlow``": "``row``" and when the visibility of the widget is toggled from visible to hidden, other widgets assigned to the respective grid will not be distributed correctly. Until this matter is addressed in future software versions, the usage of hidden widgets in this specific scenario is not recommended for the time being.
+
+	 The deprecated group widget is not supported in the grid layout. If you had a group widget in the classic layout, the widgets that were part of the group widget will appear in the "Unassigned Area" as separate widgets. You can then assign these widgets to designated areas as required.
+
+
 
 The icon before the name of an area contains either a horizontal arrow from left to right, or a vertical arrow from top to bottom. These arrows indicate how the widgets are distributed within each area, either columnwise in equal columns or rowwise in equal rows, which is also indicated by the corresponding tooltip:
 
