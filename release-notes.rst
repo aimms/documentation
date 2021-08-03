@@ -34,7 +34,17 @@ Resolved WebUI Issues
 -  Because toggling the visibility of a widget could lead to 'stale' Option Editors, the editor will now close whenever you edit widget visibility.
 -  When navigating from pages with Workflow to ones without it, Grid Layout pages now properly use all screen real-estate again.
 -  If you were using Side Panels with Grid Layout and the Side Panel contained a Selection Box V2, then you were (wrongly) warned about incompatibility of that combination. This will no longer occur.
--  Although never officially supported before, we've removed (full) support for the use of identifiers to set the 'hidden' state of widgets or the 'compact' state of Scalars (on Grid Layout type pages only). The impact on page load performance and behavior was unacceptable, in our view. Only static values will work correctly now. Refer to the documentation for more information.
+-  .. raw:: html 
+   
+    <strike> 
+
+    If you assign a fixed height widget like the button, compact scalar, label, etc. to a grid with "``gridAutoFlow``": "``row``" and when the visibility of the widget is toggled from visible to hidden, other widgets assigned to the respective grid will not be distributed correctly. Until this matter is addressed in future software versions, the usage of hidden widgets in this specific scenario is not recommended for the time being. 
+      
+   .. raw:: html 
+    
+    </strike>
+
+.. note:: The release notes have been updated. The last bullet point will be part of the next hotfix release and is not present in this hotfix release.
 
 --------------
 
