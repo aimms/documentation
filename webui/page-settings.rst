@@ -113,11 +113,14 @@ Page Actions are independent of a specific widget (typical general actions as op
 
 The reason behind the Page Actions is to have key actions easily available for the users and to reduce clutter on the pages.
 
+.. important:: A Page Actions tutorial is available in the `WebUI Advanced User Interactions <https://academy.aimms.com/course/view.php?id=57>`__ course on `the AIMMS Academy <https://academy.aimms.com/>`__.
+
 .. image:: images/PageActions_Actual.png
     :align: center
 
 .. image:: images/PageActions_OnlyActions.png
     :align: center    
+
 
 Primary Action
 ^^^^^^^^^^^^^^

@@ -11,7 +11,10 @@ Side Panels
 
 This section describes various tasks related to WebUI side panels.
 
-.. important:: Side panels are available in software versions from AIMMS 4.64 onwards.
+.. important:: 
+
+  - Side panels are available in software versions from AIMMS 4.64 onwards.
+  - A Side panels tutorial is available in the `WebUI Advanced User Interactions <https://academy.aimms.com/course/view.php?id=57>`__ course on `the AIMMS Academy <https://academy.aimms.com/>`__.
 
 	The feature of configuring icons and icon colors on a side panel tab is available in software versions from AIMMS 4.80 onwards.
 

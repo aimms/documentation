@@ -30,7 +30,10 @@ Dialog Pages
 
 This section describes various tasks related to the WebUI Dialog Pages.
 
-.. important:: Dialog pages are available in software versions from AIMMS 4.65 onwards. Note that starting from AIMMS 4.80 onwards, dialog grid pages are available as well, so please also check the section `Dialog Grid Pages <dialog-grid-pages.html>`_. 
+.. important:: 
+
+  - Dialog pages are available in software versions from AIMMS 4.65 onwards. Note that starting from AIMMS 4.80 onwards, dialog grid pages are available as well, so please also check the section `Dialog Grid Pages <dialog-grid-pages.html>`_. 
+  - A Dialog pages tutorial is available in the `WebUI Advanced User Interactions <https://academy.aimms.com/course/view.php?id=57>`__ course on `the AIMMS Academy <https://academy.aimms.com/>`__.
 
 Dialog Pages are used for intermediate actions or steps in your workflow. You can build model interaction by calling dialog pages for the user to perform a specific action such as setting SLA's or adjusting inventory etc. In addition, you can use Dialog pages to display information about a selected item without breaking the flow by calling the OpenDialogPage function. For example showing the detailed properties of a scheduled batch. 
 
