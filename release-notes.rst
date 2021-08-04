@@ -12,6 +12,21 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.81
 #############
 
+AIMMS 4.81.4 Release (August 4, 2021 - build 4.81.4.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  If you assign a fixed height widget like the button, compact scalar, label, etc. to a grid with "``gridAutoFlow``": "``row``" and when the visibility of the widget is toggled from visible to hidden, other widgets assigned to the respective grid will not be distributed correctly. Until this matter is addressed in future software versions, the usage of hidden widgets in this specific scenario is not recommended for the time being.
+-  Removed/resolved some 'uninitialized data' warnings for some runtime identifiers that are created when you use WebUI Forms.
+-  The side panel tab will stay open when the ``displayText``, ``tooltip``, ``icon``, or ``iconcolor`` are changed/updated. Only when the ``pageId`` or ``state`` are changed/updated an open side panel will collapse.
+
+--------------
+
+
 AIMMS 4.81.3 Release (August 2, 2021 - build 4.81.3.15).
 ------------------------------------------------------------------------------------------
 
