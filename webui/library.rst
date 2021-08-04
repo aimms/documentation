@@ -22,28 +22,42 @@ Public Pages Support Declarations
 .. aimms:set:: AllPageIDs 
     
   This set includes all the page ID for all page types added to the :doc:`page-manager` (page tree). 
+  
+  .. aimms:index:: indexPageId
 
 .. aimms:set:: AllPageTypes
   
   This set includes the different page types, currently page, side panel and dialog. 
+  
+  .. aimms:index:: apt
 
 .. aimms:set:: AllSidePanelPages
+
+  :SubsetOf: :any:`AllPageIDs` 
   
   This set includes all the side panel pages added to the Page Manager. 
+  
+  .. aimms:index:: aspp
 
 .. aimms:set:: AllDialogPages 
 
-  This set includes all the dialog pages added to the Page Manager. 
+  :SubsetOf: :any:`AllPageIDs`
 
-.. aimms:set:: PageType(indexPageId) 
+  This set includes all the dialog pages added to the Page Manager.
 
-  This string parameter indexed on :any:`AllPageIDs` set maps which page type applies to which page id.
+  .. aimms:index:: adp
 
-.. aimms:set:: PagePath(indexPageId)
+.. aimms:elementparameter:: PageType(indexPageId) 
+  
+  :Range: :any:`AllPageTypes`
+
+  This element parameter indexed on :any:`AllPageIDs` set maps which page type applies to which page id.
+
+.. aimms:stringparameter:: PagePath(indexPageId)
 
   This string parameter indexed on :any:`AllPageIDs` set maps the path for each page created.
 
-.. aimms:set:: PageName(indexPageId)
+.. aimms:stringparameter:: PageName(indexPageId)
   
   This string parameter indexed on :any:`AllPageIDs` set maps the path for each page created.
 

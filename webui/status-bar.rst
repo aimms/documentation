@@ -75,6 +75,33 @@ To enable the Status Bar, click on the Application Extension icon |ApplicationEx
 
 Once the string parameter is added, the Status Bar is displayed with the configured status messages, in the footer of the application.
 
+How to define a different Status Bar per page
+-----------------------------------------------
+
+You may want to have a different status bar depending on the page your user is visiting. 
+The Status Bar can be configured to display different messages on each page of the application 
+by indexing the string parameter ``sp_MyStatusBar`` over the index of the :any:`webui::AllPageIDs` set
+``sp_MyStatusBar(webui::indexPageId,webui::indexApplicationExtension,webui::indexStatusBarSpec)``. 
+
+
+1. add the :any:`webui::indexPageId` to the index domain of the status bar string parameter (``sp_MyStatusBar`` in our case) 
+2. enable the :doc:`experimental feature <experimental-features>` "webui state support"
+3. define an ``ep_currentPage`` element parameter such that
+  
+  .. code::
+
+    ElementParameter ep_currentPage {
+      Range: webui::AllRegularPages;
+      Definition: webui::CurrentPageId(webui::LastActiveWebUITab);
+    }
+    
+4. Choose to slice ``sp_MyStatusBar`` on ``ep_currentPage`` when configuring the application settings
+
+  .. image:: images/appsettings_currentpage.png
+  
+
+5. You may now define, for each page, the data to be displayed. You’ll have to explicitly define every page you want each message to appear. 
+   All the pages that weren’t explicitly defined in the string parameter will not display any message on the Status Bar.
 
 Some best practices on using icons/colors
 -----------------------------------------
