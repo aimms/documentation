@@ -115,12 +115,11 @@ This set has 4 elements representing side panels properties:
 #. ``tooltip``: The text here would be displayed when the user hovers over that respective side panel tab. This is an optional field and if left empty, no tooltip is displayed.
 #. ``icon``: The icon you want to display on the side panel tab. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required. This is an optional field and if left empty, no icon will be displayed.
 #. ``iconcolor``: The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes eg: #FF0000 for Red. This is an optional field; if left empty, the icon will be blue when the tab is collapsed. The icon color changes to white when the side panel tab is expanded since the tab's color becomes blue and most of the other colors blend in making it difficult to view the icon.
-#. ``state``: This is the state for the side panel, i.e Active and Hidden. This is an optional field and is currently not in use.
+#. ``state``: The state determines the visibility of the side panel tab, i.e ``Active`` (displayed and clickable) and ``Hidden`` (not displayed). This is an optional field, but we suggest you specify one of the values. However, if not specified the default is considered as ``Active``.
 
 .. note:: 
 	
-	* If the set AllSidePanelPages is not yet filled with all side panel pages, please run the procedure GetAllPages. You can find this procedure in Page Support section under Public Pages Support Procedures. 
-	* The ``state`` property is not yet in use, but will be applicable in future releases. In side panels it is considered as Active by default. You can use domain conditions to show or hide side panels on a page.
+	If the set AllSidePanelPages is not yet filled with all side panel pages, please run the procedure GetAllPages. You can find this procedure in Page Support section under Public Pages Support Procedures.
 	
 To configure side panels on a page, create a string parameter indexed on the `ExtensionOrder <library.html#extensionorder>`_ set with ``webui::indexPageExtension`` and SidePanelSpecification set with ``webui::indexSidePanelSpec`` indices, for example ``HomePageSidePanel(webui::indexPageExtension,indexSidePanelSpec)``. 
 
@@ -148,12 +147,15 @@ then the data in the configuration string parameter may be filled in as follows:
 
 .. code:: 
 
-	data { ( 1, displayText ) : "Filters"            ,  ( 1, pageId      ) : "filters_1"          ,
+	 data 
+		{ ( 1, displayText ) : "Filters"             ,  ( 1, pageId      ) : "filters_1"             ,
 		( 1, tooltip     ) : "Global Filters"        ,  ( 1, icon        ) : "aimms-filter3"         ,
-		( 2, displayText ) : "Quick Notes"           ,  ( 2, pageId      ) : "quick_notes"           ,
-		( 2, tooltip     ) : "Make a Quick Note"     ,  ( 3, displayText ) : "Help"                  ,
+		( 1, state       ) : "Active"                ,  ( 2, displayText ) : "Quick Notes"           ,
+		( 2, pageId      ) : "quick_notes"           ,  ( 2, tooltip     ) : "Make a Quick Note"     ,
+		( 2, state       ) : "Active"                ,  ( 3, displayText ) : "Help"                  ,
 		( 3, pageId      ) : "help_1"                ,  ( 3, tooltip     ) : "All the help you need!",
-		( 3, icon        ) : "aimms-question"        ,  ( 3, iconcolor       ) : "green"              }
+		( 3, icon        ) : "aimms-question"        ,  ( 3, iconcolor   ) : "green"                 ,
+		( 3, state       ) : "Active"                 }
 		
 In the above data we have not defined values for the color of the icon for the Filters tab and the icon and its color for the Quick Notes tab.
 
@@ -161,6 +163,7 @@ In the above data we have not defined values for the color of the icon for the F
 
 	* Side panels appear in the same order from top to bottom as they appear in the data of the string parameter.
 	* If you enter an incorrect pageId, then the corresponding side panel tab will not be shown.
+	* When a side panel tab is open in the WebUI and if the ``displayText``, ``tooltip``, ``icon``, or ``iconcolor`` are changed/updated the side panel does not collapse in the WebUI. Only when the ``pageId`` or ``state`` are changed/updated an open side panel will collapse.
 	
 Configuring the string parameter on respective pages
 ----------------------------------------------------
