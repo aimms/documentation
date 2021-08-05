@@ -165,7 +165,7 @@ This set has 4 elements representing page action properties:
 Configuring the Primary Action
 ++++++++++++++++++++++++++++++
 
-Create a string parameter indexed by PageActionSpecification. Let's call this :token:`MyPrimaryActions(webui::indexPageActionSpec)`. Right click the string parameter and click on the Data option to open the data page. Add the details for the Primary Action you would like to show for the respective page(s). For example:
+Create a string parameter indexed by :any:`webui::PageActionSpecification`. Let's call this ``MyPrimaryActions(webui::indexPageActionSpec)``. Right click the string parameter and click on the Data option to open the data page. Add the details for the Primary Action you would like to show for the respective page(s). For example:
 
 .. image:: images/PageActions_PrimaryStringParamAndData.png
     :align: center
@@ -175,7 +175,7 @@ The result of the illustrated example will be
 .. image:: images/PageActions_Optimize.png
     :align: center
 
-By default, when the :token:`displayText` is not defined the Primary Action label will be "OPTIMIZE". When the :token:`icon` is not defined the AIMMS logo will be displayed.
+By default, when the ``displayText`` is not defined the Primary Action label will be "OPTIMIZE". When the ``icon`` is not defined the AIMMS logo will be displayed.
 
 .. image:: images/PageActions_OptimizeDefault.png
     :align: center
@@ -198,14 +198,14 @@ Similarly, you can create other string parameters for other pages and configure 
 Configuring Secondary Actions
 +++++++++++++++++++++++++++++
 
-Create a string parameter indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with :token:`webui::indexPageExtension` and PageActionSpecification with the index :token:`webui::indexPageActionSpec`. Let's call this :token:`MySecondaryActions(webui::indexPageExtension,webui::indexPageActionSpec)`. Right click the string parameter and click on the Data option to open the data page. Add the details for the Secondary Actions you would like to show for the respective page(s). For example:
+Create a string parameter indexed by the :any:`webui::ExtensionOrder` set with :any:`webui::indexPageExtension` and :any:`webui::PageActionSpecification` with the index :any:`webui::indexPageActionSpec`. Let's call this ``MySecondaryActions(webui::indexPageExtension,webui::indexPageActionSpec)``. Right click the string parameter and click on the Data option to open the data page. Add the details for the Secondary Actions you would like to show for the respective page(s). For example:
 
 .. image:: images/PageActions_SecondaryStringParamAndData.png
     :align: center
 
 .. Note::
 
-    When creating the string parameter to configure secondary page actions, the first index needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the index from the pre-declared set `ExtensionOrder <library.html#extensionorder>`_ for this purpose i.e. :token:`indexPageExtension`.
+    When creating the string parameter to configure secondary page actions, the first index needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the index from the pre-declared set :any:`webui::ExtensionOrder` for this purpose i.e. :any:`webui::indexPageExtension`.
 
 In the illustrated example, we have defined 5 Secondary Actions with different states. We display the Active and Inactive actions.  
 

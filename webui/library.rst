@@ -70,13 +70,19 @@ Public Page and Widget Specification Declarations
 
 	This set is the specification for the side panel pages. The string parameters used to `configure the side panels <side-panels.html#configuring-side-panels>`_ on pages are indexed on this set. 
 
+  .. aimms:index: indexSidePanelSpec
+
 .. aimms:set:: WidgetActionSpecification 
 
 	This set is the specification for adding `widget actions <widget-options.html#widget-actions>`_ . The string parameters used to configure the widget actions on certain widgets are indexed on this set.
 
+  .. aimms:index: indexWidgetActionSpec
+
 .. aimms:set:: PageActionSpecification 
 
 	This set is the specification for adding `page actions <page-settings.html#page-actions>`_. The string parameters used to configure the primary action and secondary actions on certain pages are indexed on this set.
+
+  .. aimms:index:: indexPageActionSpec
 
 .. _public-webui-frontend-state-support-declarations:
 
@@ -141,6 +147,14 @@ Public Workflow Support Declarations
   * ``indexWorkflowOrder`` and ``indexNoOfPages`` are used as dimensions of the string parameters which will configure the Workflows and the steps of the Workflows in the application.
   * ``indexPageExtension`` is used as a dimension of the string parameter which will configure the Page Actions(Primary and Secondary), Side Panels and Widget Actions on pages and widgets respectively.
   * ``indexApplicationExtension`` is used as a dimension of the string parameter which will configure the Status Bar messages in the application. 
+  
+  .. aimms:index:: indexWorkflowOrder
+  
+  .. aimms:index:: indexNoOfPages
+
+  .. aimms:index:: indexPageExtension
+  
+  .. aimms:index:: indexApplicationExtension
 
 .. _public-statusbar-support-declarations:
 
