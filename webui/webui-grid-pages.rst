@@ -238,7 +238,7 @@ Once you know the height of the viewport, if you want to fix the height of your 
 
 To illustrate the above example, let's consider that the height of the browser viewport is 1000px. In this case, the specification of the `gridTemplateRows` could be, for instance, as follows: 
 
-.. code::
+.. code-block:: json
 
     "props": {
 		"gridTemplateColumns": "2fr 1fr 1fr",
@@ -250,7 +250,7 @@ As long as the sum of the values used to divide the rows does not exceed the bro
 
 So, assuming again that the viewport height is 1000px, if you want to introduce a vertical scrollbar you can use a code snippet such as the following:
 
-.. code::
+.. code-block:: json
 
     "props": {
 		"gridTemplateColumns": "2fr 1fr 1fr",
@@ -262,7 +262,7 @@ Now let's consider the situation where the width of the browser viewport is 1000
 
 Similarly as above, for fixing the width such that the layout is half of the browser viewport, just divide the values such that the sum of the values used to divide the columns is half of the viewport's width:  
 
-.. code::
+.. code-block:: json
 
 	"props": {
 		"gridTemplateColumns": "100px 200px 200px",
@@ -272,7 +272,7 @@ Similarly as above, for fixing the width such that the layout is half of the bro
 
 If you want to introduce a horizontal scrollbar you can use a code snippet like the one below, where the sum exceeds the browser viewport width:
 
-.. code::
+.. code-block:: json
 
 	"props": {
 		"gridTemplateColumns": "300px 500px 500px",
@@ -288,7 +288,7 @@ Similar to the case of pixels, in order to avoid a scrollbar when using percenta
 
 To illustrate an example where you want to avoid scrollbar or want the application to be half the size of the browser viewport, you can use a snippet such as below:
 
-.. code::
+.. code-block:: json
 
     "props": {
 		"gridTemplateColumns": "2fr 1fr 1fr",
@@ -298,7 +298,7 @@ To illustrate an example where you want to avoid scrollbar or want the applicati
 
 If you want to introduce a vertical scrollbar you can use, for instance, this snippet below:
 
-.. code::
+.. code-block:: json
 
     "props": {
 		"gridTemplateColumns": "2fr 1fr 1fr",
@@ -308,7 +308,7 @@ If you want to introduce a vertical scrollbar you can use, for instance, this sn
 
 Similarly, if you want to control the width of the application, to avoid a horizontal scrollbar or use only half the width of the viewport you can use the below snippet.
 
-.. code::
+.. code-block:: json
 
 	"props": {
 		"gridTemplateColumns": "10% 20% 20%",
@@ -318,7 +318,7 @@ Similarly, if you want to control the width of the application, to avoid a horiz
 
 If you want to introduce a horizontal scrollbar you can use a snippet such as the following: 
 
-.. code::
+.. code-block:: json
 
 	"props": {
 		"gridTemplateColumns": "10% 40% 80%",
@@ -336,7 +336,7 @@ You can also use a combination of fractions and pixels and percentages. This is 
 
 The snippet below illustrates the use of fractions (fr) and pixels (px), where the first and second columns have a fixed width of 200px each, and the first row has a fixed height of 100px. This will result in the `Title` and `Extra` areas having a fixed height of 100px and the `Map` area with a width of 400px. 
 
-.. code::
+.. code-block:: json
 
 	"props": {
 		"gridTemplateColumns": "200px 200px 1fr 1fr",
@@ -356,7 +356,7 @@ It is important to understand some of the syntax and semantics of the JSON used 
 
 #. Please ensure the structure is intact. It should follow the structure below:
 
-		.. code::
+		.. code-block:: json
 				
 				{
 					"componentName": "Grid",
