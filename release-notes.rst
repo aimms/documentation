@@ -23,6 +23,7 @@ Resolved WebUI Issues
 -  If you assign a fixed height widget like the button, compact scalar, label, etc. to a grid with "``gridAutoFlow``": "``row``" and when the visibility of the widget is toggled from visible to hidden, other widgets assigned to the respective grid will not be distributed correctly. Until this matter is addressed in future software versions, the usage of hidden widgets in this specific scenario is not recommended for the time being.
 -  Removed/resolved some 'uninitialized data' warnings for some runtime identifiers that are created when you use WebUI Forms.
 -  The side panel tab will stay open when the ``displayText``, ``tooltip``, ``icon``, or ``iconcolor`` are changed/updated. Only when the ``pageId`` or ``state`` are changed/updated an open side panel will collapse.
+-  The side panels now listen to the ``state`` property that determines the visibility of the side panel tab. ``Active`` (displayed and clickable) and ``Hidden`` (not displayed).
 
 --------------
 
