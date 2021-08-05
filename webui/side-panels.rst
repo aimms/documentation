@@ -104,7 +104,7 @@ A new declaration has been added to the AimmsWebUI library called Public Page an
 .. image:: images/SidePanel_Specification.png
 			:align: center
 
-This set has 4 elements representing side panels properties: 
+This set has the following elements representing side panels properties: 
 
 #.  ``displayText``: Is the text/label you would like the side panel tab to have. This is an optional field. If left empty, no text will be displayed on the tab.
 #.  ``pageId``: When a page or side panel is created it is has a unique pageId.  You can find all the side panel pageIds in the set AllSidePanelPages. This is a required field.
