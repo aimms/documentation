@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.20.0.6 [12-08-2021]
+	- In certain situations the identifier ordering could be wrong because of taking into account defined parameters multiple times, leading to botched data checkouts.
+
 1.20.0.3 [06-07-2021]
 	- Element names with accents in characters and trailing spaces could lead to a unique index constraint to fail for the MySQL backend. Depending on MySQL version, specific character sets and collations may need to be set on the `name_nc` column in the element space tables associated with the affected sets.
 	- Deletion of empty branches could take a lot of time because of needlessly trying to remove data from identifier and set tables.
