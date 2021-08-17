@@ -96,7 +96,7 @@ AIMMS diagnostic tools make it easy to debug logical and programming errors, red
 * Identifier cardinalities tool
 * Math Program Inspector
 
-For a full description of the AIMMS Diagnostic Tools see the :doc:`User’s Guide </aimms_user>`.
+For a full description of the AIMMS Diagnostic Tools see the :doc:`User’s Guide <ug:index>`.
 
 
 Data management
