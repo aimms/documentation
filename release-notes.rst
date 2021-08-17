@@ -12,6 +12,29 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.81
 #############
 
+
+AIMMS 4.81.5 Release (August 17, 2021 - build 4.81.5.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  There is a new option 'case_save_defined_identifiers'. If you set this option to 'Off' you easily exclude all identifiers with a definition from a case during saving. When you only create cases for standard save and load sequences and not use any of the multiple case comparison features in the language or WebUI, this option may help to decrease both the time to write a case file and the size of a case file.
+-  When saving a case, any identifier that (indirectly) depends on the pre-defined set AllDataFiles or AllCases will no longer be included in the case. Besides that this gave unexpected errors during the save operation, it seems rather useless to store data of other cases inside a case and it is not really defined how this data will be read back. If you encounter problems with this new behavior, please let us know.
+-  The optional argument 'evalInline' has been added to the procedures GMP::Solution::SendToModel and GMP::Solution::SendToModelSelection. It can be used to disable the evaluation of inline variables (if any).
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When running a WebUI app in the cloud, it will not correctly listen to changes in the browser's language setting. A browser refresh is still required to apply the changes on the browser page (e.g. changes in number formats). Previously, even a browser refresh did not help. In non-cloud mode, this has always been working fine.
+
+
+
+--------------
+
+
 AIMMS 4.81.4 Release (August 4, 2021 - build 4.81.4.4).
 ------------------------------------------------------------------------------------------
 
