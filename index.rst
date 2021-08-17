@@ -53,7 +53,7 @@
 
    platform/index
    Function Reference <https://documentation.aimms.com/functionreference/index.html>
-   aimms_user
+   User's Guide <https://documentation.aimms.com/user-guide/index.html>
    Language Reference <https://documentation.aimms.com/language-reference/index.html>
    aimms_modeling
    webui/index
