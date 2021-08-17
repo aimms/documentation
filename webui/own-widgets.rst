@@ -1,5 +1,7 @@
-Developing Custom Widgets
-*************************
+Developing Custom Widgets (DEPRECATED) 
+**************************************
+
+.. important:: This framework to create custom widgets is deprecated. The custom widgets that were developed with this framework will continue to work. We are currently working on a new and improved framework that is more robust and scalable. Until the new framework is made available, we do not recommend using this method of creating custom widget. 
 
 Building apps with WebUI does not require any programming skills and the growing built-in widget collection will increasingly cover all your possible requirements for building wonderful apps. However, we do offer the option to add your own widget types, for example adding company-specific data visualizations. The following paragraph describes how to get started.
 
