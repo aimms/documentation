@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>http://documentation.aimms.com/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>http://documentation.aimms.com/functionreference/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>http://documentation.aimms.com/language-reference/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>http://documentation.aimms.com/aimmsxllibrary/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>http://documentation.aimms.com/user-guide/sitemap.xml</loc>
+  </sitemap>
+
+
+</sitemapindex>
