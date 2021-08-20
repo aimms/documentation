@@ -3,7 +3,7 @@ Selection Box V2 Widget
 
 .. important::
 
-	The Selection Box V2 widget is available starting from the AIMMS software version 4.79 onwards as part of `Experimental Features <experimental-features.html>`_. Please visit the `Experimental Features <experimental-features.html>`_ page on how to enable the feature.
+	The Selection Box V2 widget is available by default in software versions from AIMMS 4.82 onwards. Selection Box V2 is available only for Grid Layout pages. When adding the widget it will appear as ``selectionbox`` in the list of widgets.
 
 The Selection Box V2 widget allows the user to select an element in a set or a subset of elements in a set by using an element parameter or a 1-dimensional parameter. 
 
