@@ -3,55 +3,45 @@ Application Management
 
 .. |page-manager| image:: images/PageManager_snap1.png
 
-.. |dots| image:: images/PageManager_snap3.png
+.. |arrow-expand| image:: images/arrow-expand.png
 
-.. |pencil| image:: images/PageManager_snap3_1.png
-
-.. |eye| image:: images/PageManager_snap3_2.png
-
-.. |hidden| image:: images/PageManager_snap3_3.png
-
-.. |bin| image:: images/PageManager_snap3_4.png
-
-.. |home| image:: images/PageManager_snap3_5.png
-
-.. |wizard| image:: images/PageManager_snap3_6.png
-
-.. |plus| image:: images/plus.png
+.. |arrow-collapse| image:: images/arrow-collapse.png
 
 .. |kebab|  image:: images/kebab.png
 
-.. |addpage|  image:: images/addpage.png
 
-.. |sidepanel|  image:: images/sidepanel.png
+.. important:: Application Management is available in software versions from AIMMS 4.82 onwards
 
-.. |dialog|  image:: images/dialogicon.png 
+With the introduction of application management features, the Page Manager not only renders the page tree structure of your WebUI, but it also renders beneath each page the list of widgets belonging to that page. That allows the WebUI developer to manage the application contents by moving things around in this extended tree structure offered now by the Page Manager.
 
+You can access the Application Manager by clicking on the hamburger icon |page-manager| on the top-left position of the WebUI. The Application Manager has two sections. The "App" section helps create the application structure and manage the widgets on each page of the app, and the "Page" section helps to select a layout for pages and the arrangement of widgets on the page.
 
-.. important:: The application management features described in this section are available starting from AIMMS version 4.78 as part of `Experimental Features <experimental-features.html>`_. Please visit the `Experimental Features <experimental-features.html>`_ page on how to enable the feature.
+The various operations for the "App" section available to the WebUI developer are described below using illustrations based on the TransNet application example in the `WebUI Tutorial <quick-start.html>`_ section.
 
-With the introduction of application management features, the Page Manager not only renders the page tree structure of your WebUI, but it also renders beneath each page the list of widgets belonging to that page. This allows the WebUI developer to manage the application contents by moving things around in this extended tree structure offered now by the Page Manager.
+To know more about the "Page" section, you can view the `Page Manager with Grid Pages <webui-grid-pages.html#page-manager-with-grid-pages>`_ topic.
 
-The various operations for application management available to the WebUI developer are described below using illustrations based on the TransNet appplication example, see our `WebUI Tutorial <quick-start.html>`_ section.
-
-The list of available pages in the WebUI is shown when pressing the ‘hamburger’ icon |page-manager| on the top left position of your browser window. The Page Manager will open rendering the page tree structure. You can expand a subtree by clicking on the 'arrow' ">" in front of a parent page and you can collapse it by clicking on the "v" in front of a parent page. In our example, we start with a single Home page with a number of widgets on it:
+The Manager opens with the App tab that renders the page tree structure. You can expand a subtree by clicking on the expand arrow |arrow-expand| in front of a parent page and you can collapse it by clicking on the collapse arrow |arrow-collapse| in front of a parent page. In our example, we start with a single Home page with several widgets on it:
 
 .. image:: images/AppManag_PageManager_1.png
     :align: center
 
-Note that, unlike pages or sub-pages, the widgets listed underneath a page do not have an icon at the left of their names. 
+Notice that all widgets that are part of a page are categorized and listed under the respective page's "Widgets on page" section along with a count of the widgets on the page. Also, unlike pages or sub-pages, the widgets listed underneath a page do not have an icon at the left of their names. 
 
 Next, we will create a new page, say Input Data, on the same level as the Home page in the tree. We can do this by using the options for adding new pages from the menu at the right of the Main Project node situated at the top of the tree:
 
 .. image:: images/AppManag_AddingPage_1.png
     :align: center
 
+New pages created will have the "Widgets on page" section by default so that it is easy to drag and drop widgets from one page to another.
+
 Suppose we would like to place all the widgets related to input data on the newly created Input Data page. Starting with the InputLabel widget, one can simply **drag-and-drop** this widget in the tree from the initial location underneath the Home page to its new location underneath the Input Data page:
 
 .. image:: images/AppManag_DragAndDrop_2.png
     :align: center
 
-.. note:: Note that the drop location during the **drag-and-drop** operation is marked by a coloured line in the tree. The starting poing of such a line (at its left side) indicates the intended location in the tree structure. A red line (see above) indicates that the intended drop location is not applicable, whereas a blue line (see above) indicates that the location is allowed and the node may be dropped there. 
+.. important:: Widgets can only be dragged and dropped from the source page's "Widgets on page" section to the destination page's "Widgets on page" section.
+
+.. note:: Note that the drop location during the **drag-and-drop** operation is marked by a coloured line in the tree. The starting poing of such a line (at its left side) indicates the intended location in the tree structure. A red line (see above) indicates that the intended drop location is not allowed, whereas a blue line (see above) indicates that the location is allowed and the node may be dropped there. 
 
 With the introduction of application management features, this way of working not only applies to widget nodes in the tree, but also to page nodes in the tree and it complements the drag-and-drop feature described in the section `Moving a Page <webui-classic-pages.html#moving-a-page>`_. 
 
@@ -115,7 +105,3 @@ In this case, the Optimization and Output Data pages will look as follows in the
    :scale: 66%
    
 To summarize, this section illustrated how the application management features facilitate the (re-)structuring of the page tree in the WebUI and allow for moving widgets around between the various WebUI pages.
-   
-
-
-  
