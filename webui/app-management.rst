@@ -10,7 +10,7 @@ Application Management
 .. |kebab|  image:: images/kebab.png
 
 
-.. important:: Application Management is available in software versions from AIMMS 4.82 onwards
+.. important:: Application Management is available in software versions from AIMMS 4.82 onwards.
 
 With the introduction of application management features, the Page Manager not only renders the page tree structure of your WebUI, but it also renders beneath each page the list of widgets belonging to that page. That allows the WebUI developer to manage the application contents by moving things around in this extended tree structure offered now by the Page Manager.
 
