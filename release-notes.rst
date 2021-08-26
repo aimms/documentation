@@ -40,8 +40,8 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  There is a new option 'case_save_defined_identifiers'. If you set this option to 'Off' you easily exclude all identifiers with a definition from a case during saving. When you only create cases for standard save and load sequences and not use any of the multiple case comparison features in the language or WebUI, this option may help to decrease both the time to write a case file and the size of a case file.
--  When saving a case, any identifier that (indirectly) depends on the pre-defined set AllDataFiles or AllCases will no longer be included in the case. Besides that this gave unexpected errors during the save operation, it seems rather useless to store data of other cases inside a case and it is not really defined how this data will be read back. If you encounter problems with this new behavior, please let us know.
--  The optional argument 'evalInline' has been added to the procedures GMP::Solution::SendToModel and GMP::Solution::SendToModelSelection. It can be used to disable the evaluation of inline variables (if any).
+-  When saving a case, any identifier that (indirectly) depends on the pre-defined set :any:`AllDataFiles` or :any:`AllCases` will no longer be included in the case. Besides that this gave unexpected errors during the save operation, it seems rather useless to store data of other cases inside a case and it is not really defined how this data will be read back. If you encounter problems with this new behavior, please let us know.
+-  The optional argument 'evalInline' has been added to the procedures :any:`GMP::Solution::SendToModel` and :any:`GMP::Solution::SendToModelSelection`. It can be used to disable the evaluation of inline variables (if any).
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
