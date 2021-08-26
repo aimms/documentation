@@ -13,6 +13,24 @@ AIMMS 4.81
 #############
 
 
+AIMMS 4.81.6 Release (August 26, 2021 - build 4.81.6.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Downloading a CSV file from a WebUI table which contained values with more than 20 decimals did not work properly.
+-  The notification dialog got two scrollbars if there were several notifications.
+-  It was not possible to scroll using the mouse wheel in a multiline Scalar widget when it contained more than one identifier.
+-  The appearance of the selection box has been made consistent across all page types.
+
+
+--------------
+
+
+
 AIMMS 4.81.5 Release (August 17, 2021 - build 4.81.5.5).
 ------------------------------------------------------------------------------------------
 
