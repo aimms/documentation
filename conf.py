@@ -44,7 +44,8 @@ intersphinx_mapping = {'functionreference': ('https://documentation.aimms.com/fu
                                   (None,'objects-functionreference.inv')),
                         'lr': ('https://documentation.aimms.com/language-reference/', None),
                         'howto': ('https://how-to.aimms.com/', None),
-                        'ug': ('https://documentation.aimms.com/user-guide/', None)}
+                        'ug': ('https://documentation.aimms.com/user-guide/', None),
+                        'axll': ('https://documentation.aimms.com/aimmsxllibrary/', None),}
 	
 if os.name != 'nt':
 

@@ -35,18 +35,18 @@ Intuitive development UI
 
 Productivity tools reduce the workload of development and maintenance and speed up time to value for large-scale decision support applications.
 
-Feature-rich code editor
+.. rubric:: Feature-rich code editor
 
 * Configurable syntax highlighting
 * Autocomplete and dropdown selection
 * Function and procedure tooltips
 
-Graphic model representation
+.. rubric:: Graphic model representation
 
 * Model tree with drag and drop capability
 * Form-based identifier selector
 
-Integrated UI builder
+.. rubric:: Integrated UI builder
 
 * Component-based design
 * Page and menu builders
@@ -54,14 +54,14 @@ Integrated UI builder
 
 Mathematical modeling language
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Intuitive multidimensional modeling language
+.. rubric:: Intuitive multidimensional modeling language
 
 * Model tree
 * Attribute based declarations
 * Procedures and definitions
 * Optimization modeling
 
-Advanced modeling language features
+.. rubric:: Advanced modeling language features
 
 * Time-based modeling
 * Units of measurement
@@ -96,7 +96,7 @@ AIMMS diagnostic tools make it easy to debug logical and programming errors, red
 * Identifier cardinalities tool
 * Math Program Inspector
 
-For a full description of the AIMMS Diagnostic Tools see the :doc:`User’s Guide <ug:index>`.
+For a full description of the AIMMS Diagnostic Tools see the :doc:`ug:creating-and-managing-a-model/debugging-and-profiling-an-aimms-model/index`.
 
 
 Data management
@@ -114,22 +114,28 @@ AIMMS provides an advanced data manager.
 **Database connectivity**
 
 * ODBC data connectivity interfaces link your application to corporate databases and spreadsheets – Oracle, SQL, Sybase, MS Access, and others.
-* Data wizards make it easy to map relations between tables.
-* Built-in functions perform database specific tasks – to test the connections, to determine the underlying database table structures, or to directly execute SQL statements
+* Data wizards make it easy to map relations between tables. See :doc:`data-communication-components/communicating-with-databases/the-databasetable-declaration`.
+* :doc:`Built-in functions <data-management/database-functions/index>` perform database specific tasks – to test the connections, to determine the underlying database table structures, or to directly execute SQL statements
 
 **Excel connections**
 
 Easily exchange data between an Excel spreadsheet and your AIMMS model.
 
-The AIMMS Excel Library (AXLL) communicates with Excel files in server environments where Excel is not installed.
+The :doc:`AIMMS Excel Library <axll:index>` communicates with Excel files in server environments where Excel is not installed.
+
+You may also use the generic :doc:`/dataexchange/index`.
 
 **Support for XML files**
 
 AIMMS supports reading and writing XML files in almost every conceivable format.
 
-* Mapping wizard helps map the XML schema for an XML file to multidimensional identifiers in your AIMMS model.
-* Built-in functions read and write XML data according to your mapping.
+* Mapping wizard helps map the XML schema for an XML file to multidimensional identifiers in your AIMMS model. See :doc:`data-communication-components/reading-and-writing-xml-data/introduction-to-xml-support-in-aimms`.
+* :doc:`Built-in functions <data-management/xml-functions/index>` read and write XML data according to your mapping.
 
+**General mapping and REST APIs**
+
+The :doc:`/dataexchange/index` is built as a mean to configure a generic mapping between your AIMMS identifiers and most of your datasources. 
+This library can be use to consume and provide REST APIs. 
 
 Solvers
 ^^^^^^^^^
@@ -146,7 +152,7 @@ You can also extend your license to include commercial solver add-ons.
 
 All solvers are connected to AIMMS by using the :doc:`AIMMS Open Solver Interface <solvers/open-solver-interface>`, which links solvers through a collection of C++ interfaces.
 
-For full listing of solver availability, see the Solvers page.
+For full listing of solver availability, see :doc:`solvers/index` page.
 
 
 Links and libraries
