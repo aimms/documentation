@@ -13,6 +13,27 @@ AIMMS 4.81
 #############
 
 
+AIMMS 4.81.7 Release (September 9, 2021 - build 4.81.7.8).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In rare situations, when the runtime unit analysis was executing a statement, AIMMS could give an incorrect warning on a unit mismatch. Runtime unit analysis (as opposed to compile-time unit analysis) is needed when an expression contains references to unit parameters that are not tied to one specific quantity.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We improved support for setting and handling infinite values ('INF' and 'MININF') in the WebUI.
+-  For a project with the :any:`Case sensitive element comparison` turned on, the WebUI library could issue some errors/warnings caused by invalid casing of hard-coded references to elements in the set :any:`AllAttributeNames` and :any:`AllIdentifierTypes`.
+
+
+--------------
+
+
+
 AIMMS 4.81.6 Release (August 26, 2021 - build 4.81.6.6).
 ------------------------------------------------------------------------------------------
 
