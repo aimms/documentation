@@ -27,7 +27,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  We improved support for setting and handling infinite values ('INF' and 'MININF') in the WebUI.
--  For a project with the :any:`Case sensitive element comparison` turned on, the WebUI library could issue some errors/warnings caused by invalid casing of hard-coded references to elements in the set :any:`AllAttributeNames` and :any:`AllIdentifierTypes`.
+-  For a project with the Case sensitive element comparison turned on, the WebUI library could issue some errors/warnings caused by invalid casing of hard-coded references to elements in the set :any:`AllAttributeNames` and :any:`AllIdentifierTypes`.
 
 
 --------------
