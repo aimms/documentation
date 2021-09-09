@@ -18,6 +18,11 @@ AIMMS 4.81.7 Release (September 9, 2021 - build 4.81.7.8).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  We added support for custom tooltips to the Button, Upload and Download widgets.
+
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
