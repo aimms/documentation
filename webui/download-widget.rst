@@ -141,3 +141,42 @@ This step is not required on PRO as the temporary PRO folder in which the file i
 .. tip::
 
 	If you need to use folder names in your model, use forward slashes to separate them. This ensures that your project will be able to be executed on a Linux server
+
+
+Miscellaneous
+-------------
+
+In the Miscellaneous tab of the Download widget's options editor, other options may be set that are explained below: 
+
+.. image:: images/Download_Misc.png
+    :align: center
+
+
+Visibility
+^^^^^^^^^^
+
+You can control the visibility of the download widget by either specifying a literal value 1 (visible) or 0 (hidden) or a binary parameter.
+
+Title
+^^^^^
+
+Set the display text on the download widget here. By default, the text that is displayed is "Prepare download". You can specify either a literal value like "Download the report" or a string parameter.
+
+.. image:: images/Download_Title.png
+    :align: center
+
+Custom Tooltip
+^^^^^^^^^^^^^^
+
+You can specify a custom tooltip to display more information when the user hovers over a respective button. You can specify either a literal value like "Excel File - Ready for Download" or a string parameter.
+
+The content for the string parameter can be data driven and also supports HTML. 
+
+As illustrated below, the definition of string parameter ``sp_TT_Download`` used to specify the ``Custom Tooltip`` option.
+
+.. code:: 
+    
+    "The report is ready to be downloaded. <br> <i> All headers included</i>"
+
+.. image:: images/Download_CustomTooltip.png
+    :align: center
