@@ -33,7 +33,37 @@ Finally, if the action type chosen is ExternalLink, then one may select an URL f
 Miscellaneous
 -------------
 
-In the Miscellaneous tab of the button's options editor, other options may be set such as the title of the widget and whether or not the widget is visible (this may be determined by a model parameter):
+In the Miscellaneous tab of the button's options editor, other options may be set that are explained below: 
 
 .. image:: images/Button-Misc.png
+    :align: center
+
+
+Visibility
+^^^^^^^^^^
+
+You can control the visibility of the button by either specifying a literal value 1 (visible) or 0 (hidden) or a binary parameter.
+
+Title
+^^^^^
+
+Set the button title/text here. You can specify either a literal value like "OK" or "Accept" or a string parameter.
+
+.. image:: images/Button_Title.png
+    :align: center
+
+Custom Tooltip
+^^^^^^^^^^^^^^
+
+You can specify a custom tooltip to display more information when the user hovers over a respective button. You can specify either a literal value like "Click here to confirm the action" or a string parameter.
+
+The content for the string parameter can be data driven and also supports HTML. 
+
+As illustrated below, the definition of string parameter ``sp_TT_Button`` used to specify the ``Custom Tooltip`` option.
+
+.. code:: 
+    
+    formatstring("Click to submit the details for <br><br>City: <strong>Amsterdam</strong>");
+
+.. image:: images/Button_CustomTooltip.png
     :align: center

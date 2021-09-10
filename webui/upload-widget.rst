@@ -140,3 +140,40 @@ This step is not required on PRO as the temporary PRO folder in which the file i
 
 	If you need to use folder names in your model, use forward slashes to separate them. This ensures that your project will be able to be executed on a Linux server
 
+Miscellaneous
+-------------
+
+In the Miscellaneous tab of the Upload widget's options editor, other options may be set that are explained below: 
+
+.. image:: images/Upload_Misc.png
+    :align: center
+
+
+Visibility
+^^^^^^^^^^
+
+You can control the visibility of the upload widget by either specifying a literal value 1 (visible) or 0 (hidden) or a binary parameter.
+
+Title
+^^^^^
+
+Set the display text on the upload widget here. By default, the text that is displayed is "Upload File". You can specify either a literal value like "Upload Excel File Only" or a string parameter.
+
+.. image:: images/Upload_Title.png
+    :align: center
+
+Custom Tooltip
+^^^^^^^^^^^^^^
+
+You can specify a custom tooltip to display more information when the user hovers over a respective button. You can specify either a literal value like "Upload the latest excel report for processing" or a string parameter.
+
+The content for the string parameter can be data driven and also supports HTML. 
+
+As illustrated below, the definition of string parameter ``sp_TT_Upload`` used to specify the ``Custom Tooltip`` option.
+
+.. code:: 
+    
+    formatstring("Preferred file formats: <br><strong> XLS </strong><br><strong> CSV </strong>");
+
+.. image:: images/Upload_CustomTooltip.png
+    :align: center
