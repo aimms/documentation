@@ -19,6 +19,8 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.2.0.46 [13-09-2021]
+	- Added new function :js:func:`dex::ConvertFileToEncoding`
 
 1.2.0.38 [26-07-2021]
 	- :js:func:`dex::ExportStreamContent` would crash for streams bigger than 8 KB

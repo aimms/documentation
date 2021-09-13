@@ -61,6 +61,16 @@ Methods for reading and writing data
     * :token:`dex::DatasetXMLAttributeMappings`: determines whether the generated XML format will write all values as XML attribute values (default) or as element values. Indices will always be written as XML attributes.
     
     You can use the generated mappings directly with the functions :js:func:`dex::WriteToFile` and :js:func:`dex::ReadFromFile` as with any manually created mapping.
+	
+.. js:function:: dex::ConvertFileToEncoding(inputFile, inputEncoding, ouputFile, outputEncoding, noBOM)
+
+	Converts file :token:`inputFile` with encoding :token:`inputEncoding` to file :token:`outputFile` with :token:`outputEncoding`, optionally with a BOM. 
+    
+    :param inputFile: file path of the input file
+    :param inputEncoding: encoding of the input file from the predefined set :token:`AllCharacterEncodings`
+    :param outputFile: file path of the output file
+    :param outputEncoding: encoding of the output file from the predefined set :token:`AllCharacterEncodings`
+    :param noBOM: optional argument indicating whether or not the output file should start with a BOM (default 1)
     
 HTTP Client methods
 -------------------
