@@ -42,9 +42,9 @@ WebUI Improvements
 -  Downloading widget contents as a PNG is now available for the Map widget as well and will be a General Availability feature (no more an experimental feature). You can use it by clicking the camera icon in the widget header.
 -  Selection Box V2 is now available as a General Availability feature (no more an experimental feature).
 -  The Application Manager is now the default option to manage pages and widgets on these pages. There are some noticeable changes from the first iteration which was released under the experimental features.
-   #. Widgets under the page are now grouped under a section "Widgets on page" which is expandable and collapsible.
-   #. You can see the count of widgets on each page in the "Widgets on page" node.
-   #. When a widget is pasted the destination node is expanded.
+   1. Widgets under the page are now grouped under a section "Widgets on page" which is expandable and collapsible.
+   2. You can see the count of widgets on each page in the "Widgets on page" node.
+   3. When a widget is pasted the destination node is expanded.
 -  This AIMMS version provides the ability to remove a wizard from the new App Manager (so that the wizard function can be replaced by a workflow).
 
 
