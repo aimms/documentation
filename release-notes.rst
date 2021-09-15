@@ -26,7 +26,7 @@ AIMMS Improvements
 -  The analysis of using non-initialized identifiers inside a definition evaluation has been improved. This may lead to some new warnings in existing models.
 
 
-Resolved AIMMS Issuesv
+Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Empty indicator constraints were sometimes incorrectly marked as infeasible during generation.
