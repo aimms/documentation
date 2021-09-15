@@ -7,6 +7,57 @@ AIMMS Release Notes
 
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
+#############
+AIMMS 4.82
+#############
+
+
+AIMMS 4.82.1 Release (September 15, 2021 - build 4.82.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Procedures now have an additional attribute: 'Uses runtime libs'. A procedure with this attribute specified can use identifiers of the indicated runtime libraries, as long as they exist when the procedure is called. Model editing procedures are prohibited within procedures that use this feature.
+-  An optional argument, called feasTol, was added to the procedure :any:`GMP::Solution::Check`. This argument is used to determine the feasibility tolerance used by this procedure. If a constraint violation is smaller than this tolerance then it will be ignored. If this argument is not passed, or if it is set to a negative value, the option 'Constraint Listing Feasibility Tolerance' is used as the feasibility tolerance.
+-  The function :any:`GMP::Instance::GenerateStochasticProgram` now generates stochastic rows for all scenarios (instead of only for the representative scenarios), if the generation mode equals 'CreateNonAnticipativityConstraints'.
+-  The analysis of using non-initialized identifiers inside a definition evaluation has been improved. This may lead to some new warnings in existing models.
+
+
+Resolved AIMMS Issuesv
++++++++++++++++++++++++++
+
+-  Empty indicator constraints were sometimes incorrectly marked as infeasible during generation.
+-  A quadratic constraint could be generated incorrectly if it contained two (or more) quadratic terms that would cancel each other out, e.g., x * y - x * y.
+-  There was a problem with retrieving AIMMS PRO User Group information during solver sessions.
+-  When reading an identifier from a case file using the case-dot notation, AIMMS did not respond correctly when in between these reads the underlying case file was overwritten. It could lead to all kinds of case read errors.
+
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  In the App Manager, widgets under a page are now categorized in a section "Widgets on page".
+-  Downloading widget contents as a PNG is now available for the Map widget as well and will be a General Availability feature (no more an experimental feature). You can use it by clicking the camera icon in the widget header.
+-  Selection Box V2 is now available as a General Availability feature (no more an experimental feature).
+-  The Application Manager is now the default option to manage pages and widgets on these pages. There are some noticeable changes from the first iteration which was released under the experimental features.
+   #. Widgets under the page are now grouped under a section "Widgets on page" which is expandable and collapsible.
+   #. You can see the count of widgets on each page in the "Widgets on page" node.
+   #. When a widget is pasted the destination node is expanded.
+-  This AIMMS version provides the ability to remove a wizard from the new App Manager (so that the wizard function can be replaced by a workflow).
+
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Identifier name changes in AIMMS did not reflect in the WebUI for the Map widget.
+-  Group widgets can not be added anymore as they are deprecated.
+
+
+--------------
+
+
 
 #############
 AIMMS 4.81
