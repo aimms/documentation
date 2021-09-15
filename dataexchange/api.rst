@@ -36,6 +36,14 @@ Methods for reading and writing data
 
     Read all mappings contained in the folder :token:`Mappings` and store all successfully read mappings in the set :token:`dex::Mappings`. The function will return 1 on success, or 0 on failure.
     
+.. js:function::  dex::ReadMappings(startPath, recursive)
+
+    Read all mappings contained in the folder :token:`Mappings` contained in :token:`startPath`, and store all successfully read mappings in the set :token:`dex::Mappings`. The function will return 1 on success, or 0 on failure.
+	
+    :param startPath: optional string argument indicating the folder containing mapping folder (default "", indicating the project folder)
+    :param recursive: optional argument indicating whether or not to search for mapping files recursively in the :token:`Mappings` folder
+	
+	
 .. js:function::  dex::ReadAnnotations
 
     Read all :token:`dex::Dataset`, :token:`dex::TableName`, and :token:`dex::ColumnName` annotations specified in the model, and use these annotations to fill the identifiers 

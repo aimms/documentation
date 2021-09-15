@@ -19,6 +19,11 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.2.0.47 [15-09-2021]
+	- When reading CSV files, guess the most likely delimiter
+	- Read/write all values according to the identifier unit/selected convention
+	- Add :js:func:`dex::ReadMappings` function to allow reading mappings from various locations
+
 1.2.0.46 [13-09-2021]
 	- Added new function :js:func:`dex::ConvertFileToEncoding`
 
