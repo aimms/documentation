@@ -37,11 +37,11 @@ Below are some of the other icons you will see in the Widget Header if they are 
 Download Image - PNG |download-image|
 =====================================
 
-.. note :: 	Download Image - PNG is available starting from the AIMMS software version 4.79 onwards as part of `Experimental Features <experimental-features.html>`_. Please visit the `Experimental Features <experimental-features.html>`_ page on how to enable the feature.
+.. note :: 	Download Image - PNG is available by default in software versions from AIMMS 4.82 onwards.
 
 This option allows users to save a snapshot of the widget to their disk.
 
-Download Image is available for `Table <table-widget.html>`_, `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_, `Bar-Line Chart <bar-line-chart-widget.html>`_, `Gantt Chart <gantt-chart-widget.html>`_, `Bubble Chart <bubble-chart-widget.html>`_, `Pie Chart <pie-chart-widget.html>`_, `TreeMap <tree-map-widget.html>`_, and also for the Full Page.
+Download Image is available for `Table <table-widget.html>`_, `Map <map-widget.html>`_, `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_, `Bar-Line Chart <bar-line-chart-widget.html>`_, `Gantt Chart <gantt-chart-widget.html>`_, `Bubble Chart <bubble-chart-widget.html>`_, `Pie Chart <pie-chart-widget.html>`_, `TreeMap <tree-map-widget.html>`_, and also for the Full Page.
 
 In order to save an image for the full page which is currently active you neeed to click the |download-image| in the Application Menu Bar.
 
@@ -53,7 +53,7 @@ This option is also available when the widget is toggled to the full-screen mode
 
     When downloading the image for a Table only the viewable area is saved and not the entire table.
 
-    The Gantt Chart does not support the scrollable area when downloading the image. 
+    The Full page (when in Grid Layout) and the Gantt Chart does not support the scrollable area when downloading the image. 
 
     For both these cases you can try expanding the widget to full-screen mode first and then download the image.
 
