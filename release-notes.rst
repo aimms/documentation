@@ -38,7 +38,6 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  In the App Manager, widgets under a page are now categorized in a section "Widgets on page".
 -  Downloading widget contents as a PNG is now available for the Map widget as well and will be a General Availability feature (no more an experimental feature). You can use it by clicking the camera icon in the widget header.
 -  Selection Box V2 is now available as a General Availability feature (no more an experimental feature).
 -  The Application Manager is now the default option to manage pages and widgets on these pages. There are some noticeable changes from the first iteration which was released under the experimental features.
