@@ -23,7 +23,8 @@ AIMMS Improvements
 -  Procedures now have an additional attribute: 'Uses runtime libs'. A procedure with this attribute specified can use identifiers of the indicated runtime libraries, as long as they exist when the procedure is called. Model editing procedures are prohibited within procedures that use this feature.
 -  An optional argument, called feasTol, was added to the procedure :any:`GMP::Solution::Check`. This argument is used to determine the feasibility tolerance used by this procedure. If a constraint violation is smaller than this tolerance then it will be ignored. If this argument is not passed, or if it is set to a negative value, the option 'Constraint Listing Feasibility Tolerance' is used as the feasibility tolerance.
 -  The function :any:`GMP::Instance::GenerateStochasticProgram` now generates stochastic rows for all scenarios (instead of only for the representative scenarios), if the generation mode equals 'CreateNonAnticipativityConstraints'.
--  The analysis of using non-initialized identifiers inside a definition evaluation has been improved. This may lead to some new warnings in existing models.
+-  The analysis of using non-initialized identifiers inside a definition evaluation has been improved. This may lead to some new warnings in existing models. 
+-  You now get an error on parameters with a definition where the property Stochastic is irrelevant, because the definition is not referring to any other stochastic identifier.
 
 
 Resolved AIMMS Issues
