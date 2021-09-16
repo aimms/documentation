@@ -19,6 +19,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.2.0.49 [16-09-2021]
+	- Add support for applying NFC/NFD normalizations to composed Unicode character both contained in the model, or when reading or writing an JSON, XML, CSV or Excel data source.
+
 1.2.0.47 [15-09-2021]
 	- When reading CSV files, guess the most likely delimiter
 	- Read/write all values according to the identifier unit/selected convention

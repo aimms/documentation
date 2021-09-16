@@ -70,6 +70,12 @@ Methods for reading and writing data
     
     You can use the generated mappings directly with the functions :js:func:`dex::WriteToFile` and :js:func:`dex::ReadFromFile` as with any manually created mapping.
 	
+Changing encodings and normalizations
+-------------------------------------
+
+The Data Exchange library only accepts UTF-8 JSON, XML and CSV files. Through the following functions you can change the encoding of a file prior to reading or after writing its contents.
+The library also contains a number of functions to normalize composed Unicode characters in strings and sets in your model to either the NFC or NFD normalization.
+
 .. js:function:: dex::ConvertFileToEncoding(inputFile, inputEncoding, ouputFile, outputEncoding, noBOM)
 
 	Converts file :token:`inputFile` with encoding :token:`inputEncoding` to file :token:`outputFile` with :token:`outputEncoding`, optionally with a BOM. 
@@ -79,7 +85,23 @@ Methods for reading and writing data
     :param outputFile: file path of the output file
     :param outputEncoding: encoding of the output file from the predefined set :token:`AllCharacterEncodings`
     :param noBOM: optional argument indicating whether or not the output file should start with a BOM (default 1)
+  
+.. js:function:: dex::NormalizeString(inStr, outStr, normalization)
+
+	Normalize :token:`inStr` to :token:`outStr` using the normalization procedure indicated by :token:`normalization`.
     
+    :param inStr: scalar input string parameter to hold the string value to normalize
+    :param outStr: scalar output string parameter that will hold the normalized string
+    :param normalization: optional element parameter into :token:`dex::Normalizations` indicating the normalization to apply (either :token:`nfc` (default) or :token:`nfd`)
+
+.. js:function:: dex::NormalizeSet(aSet, normalization)
+
+	Normalize all elements in the set :token:`aSet` using the normalization procedure indicated by :token:`normalization`. All elements that changed by the selected normalization will be renamed in the set.
+    
+    :param aSet: set argument indicating the set for which to normalize all elements
+    :param normalization: optional element parameter into :token:`dex::Normalizations` indicating the normalization to apply (either :token:`nfc` (default) or :token:`nfd`)
+
+
 HTTP Client methods
 -------------------
 

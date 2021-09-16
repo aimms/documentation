@@ -77,6 +77,8 @@ The available mapping attributes are:
 * included-mapping  
 * embedded-mapping 
 * base64-encoded
+* read-normalize
+* write-normalize
 
 The name attribute
 ------------------
@@ -194,6 +196,18 @@ The embedded-mapping attribute
 Through the :token:`embedded-mapping` attribute, you can indicate that a value-holding element in the given JSON or XML file should hold a string that can be read or written using the mapping specified in this attribute. Note that the mapping element to which this attribute is attached may not have bound indices. The mapping specified in this attribute may be of any type (e.g. XML, JSON, CSV or Excel) and will be represented as a single (base64 encoded) string.
 
 Assigning a value of 1 to the :token:`base64-encoded` attribute indicates whether embedded mapped string is or should be base64 encoded.
+
+Unicode normalization
+=====================
+
+The Data Exchange library can read and write JSON, XML and CSV files which are encoded as UTF-8. However, in Unicode there multiple ways to represent composed characters such as characters with accents. In the Unicode standard these representations are considered equivalent, although their binary representations are different (see for instance `Unicode equivalence <https://en.wikipedia.org/wiki/Unicode_equivalence>`_) When you are reading data from multiple data sources, this may present a problem in your AIMMS model. Set elements may be read from a data source using one representation, while data defined over these sets may come from data sources using another representation. 
+
+The Unicode standard provides several normalization procedures to normalize different text representations to various normalized forms. By itself, AIMMS will not normalize any incoming Unicode characters, as this may lead to problems when, for instance, you are trying to write back data to a database which was read in a different normalized form and then re-normalized in AIMMS. 
+Instead the Data Exchange library offers support for normalizing Unicode data from and to the NFC (representing composed characters as a single character, preferred) and the NFD representation (representing composed characters decomposed as the character itself and separate characters for the accents).
+
+In a mapping you can specify a normalization to apply before writing any string data to AIMMS through the :token:`read-normalize` attribute, while the attribute :token:`write-normalize` indicates the normalization to apply when reading out data to a data source. You can specify these attributes for any string-valued tree node in the mapping that binds to an index or maps to a string or element parameter. The value of these attributes can be :token:`nfc` or :token:`nfd`, indicating whether to apply the NFC or NFD normalization before reading the data from or writing the data to a data source.
+
+In addition, the Data Exchange library offers the functions :js:func:`dex::NormalizeString` and :js:func:`dex::NormalizeSet` to normalize strings and set elements that are already present in the model.
 
 How does the mapping work for reading and writing?
 ==================================================
