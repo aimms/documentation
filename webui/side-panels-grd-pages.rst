@@ -223,7 +223,7 @@ This set has the following elements representing side panels properties:
 	
 	If the set AllSidePanelPages is not yet filled with all side panel pages, please run the procedure GetAllPages. You can find this procedure in Page Support section under Public Pages Support Procedures. 
 	
-To configure side panels on a page, create a string parameter indexed on the `ExtensionOrder <library.html#extensionorder>`_ set with the ``webui::indexPageExtension`` index and the SidePanelSpecification set with the ``webui::indexSidePanelSpec`` index; for example, a string parameter like ``HomePageSidePanel(webui::indexPageExtension,indexSidePanelSpec)``. 
+To configure side panels on a page, create a string parameter indexed on the `ExtensionOrder <library.html#extensionorder>`_ set with the ``webui::indexPageExtension`` index and the SidePanelSpecification set with the ``webui::indexSidePanelSpec`` index; for example, a string parameter like ``HomePageSidePanel(webui::indexPageExtension,webui::indexSidePanelSpec)``. 
 
 .. Note::
 
