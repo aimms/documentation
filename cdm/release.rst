@@ -7,6 +7,11 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.21.0.4 [21-09-2021]
+	- Notify server of regular client termination
+	- Decrease hardbeat timings to allow for quicker shutdown of on-demand service
+	- Serialize access to list of clients in service to prevent potential race condition in shutdown of on-demand service
+	
 1.20.0.6 [12-08-2021]
 	- In certain situations the identifier ordering could be wrong because of taking into account defined parameters multiple times, leading to botched data checkouts.
 
