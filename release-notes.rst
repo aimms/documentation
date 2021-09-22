@@ -20,9 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  If an identifier has a unit specification containing an expression over an indexed unit parameter (as in: [m]/myUnitParam(i)), you now get a warning when you try to display this identifier in the WebUI. The reason for this is that the unit analysis implementation in AIMMS is not yet capable to deal with the multi-threaded way that WebUI retrieves the data, resulting in internal errors.
-To work around this limitation, you can create a new unit parameter: myUnitParam2(i) with the definition [m]/myUnitParam(i), and then use this new unit parameter as the unit of the identifier that you want to display in the WebUI.
-If you ignore this new warning, the data will now be displayed as if no unit was specified.
+-  If an identifier has a unit specification containing an expression over an indexed unit parameter (as in: [m]/myUnitParam(i)), you now get a warning when you try to display this identifier in the WebUI. The reason for this is that the unit analysis implementation in AIMMS is not yet capable to deal with the multi-threaded way that WebUI retrieves the data, resulting in internal errors. To work around this limitation, you can create a new unit parameter: myUnitParam2(i) with the definition [m]/myUnitParam(i), and then use this new unit parameter as the unit of the identifier that you want to display in the WebUI. If you ignore this new warning, the data will now be displayed as if no unit was specified.
 -  AIMMS cannot handle constraints that contain conditions (using $ or | operators) that have references to stochastic identifiers. When such a condition was used inside the iterative operator SUM, no error message was given but it did not work as expected. Now you do get the error message when the condition in a SUM contains stochastic references.
 
 Resolved WebUI Issues
