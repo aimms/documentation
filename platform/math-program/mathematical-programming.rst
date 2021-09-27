@@ -9,7 +9,7 @@ Here are some of the benefits of using AIMMS as Mathematical Programming Softwar
 
 * Highly focused on MP: Our Mathematical Programming software focuses on providing specific functionality to facilitate modeling mathematical programming problems and deploying these mathematical programming models. The models can be LP, MIP, NLP and CP or a combination thereof; feeding each other or in an integrated way to solve e.g. MINLP’s.
 * Interface for solvers: AIMMS provides a direct and fast interface to the best available solvers by a simple ‘solve’ statement; if needed, the use and performance of :doc:`Mathematical Programming solvers <../solvers/solvers>` can be adjusted via option settings and callbacks.
-* Extended analytics tools: Investigating solver statistics, solution inspection and analysis are possible through several diagnostics tools such as the `Mathematical Program Inspector <https://download.aimms.com/aimms/download/manuals/AIMMS3UG_MathProgramInspector.pdf>`_,.
+* Extended analytics tools: Investigating solver statistics, solution inspection and analysis are possible through several diagnostics tools such as the :doc:`Mathematical Program Inspector <creating-and-managing-a-model/the-math-program-inspector/index>`.
 * Completeness: The completeness of our Mathematical Programming software makes it possible to read data from any source in a matter of a few clicks (database, Excel, XML, txt file, etc.) and visualize & control the input and results in a fully customizable interactive user interface.
 
 Mathematical Programming Solvers
@@ -27,7 +27,7 @@ Read more about the broad class of mathematical programs AIMMS supports:
 * :doc:`Mixed Integer Nonlinear Programming <mixed-integer-nonlinear-programming>`
 * :doc:`Other Mathematical Programming Types <other-mp>`
 
-AIMMS Mathematical Programming software also offers support for the following advanced mathematical Optimization features:
+AIMMS Mathematical Programming software also offers support for the following advanced mathematical Optimization features (See the AIMMS Help inside the AIMMS IDE for more details):
 
 * Robust Optimization
 * Stochastic Programming

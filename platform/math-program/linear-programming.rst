@@ -9,7 +9,7 @@ AIMMS for Linear Programming
 Besides the general benefits of using AIMMS, there there are specific functionalities that make AIMMS excellent software for modeling linear programming problems:
 
 * Interface for solvers: Like other mathematical modeling languages, AIMMS provides a full interface to the best linear programming solvers, allowing you to control the performance of linear programming solvers via option settings, callbacks, and inspection of the statistics the solvers give back, such as reduced costs.
-* Extended analytics tools: AIMMS is equipped with the `Mathematical Program Inspector <https://download.aimms.com/aimms/download/manuals/AIMMS3UG_MathProgramInspector.pdf>`_, a tool that lets you inspect your linear programming model and solution, execute “what-if” scenarios, analyze bounds, etc. This makes debugging your model very easy.
+* Extended analytics tools: AIMMS is equipped with the :doc:`Mathematical Program Inspector <creating-and-managing-a-model/the-math-program-inspector/index>`, a tool that lets you inspect your linear programming model and solution, execute “what-if” scenarios, analyze bounds, etc. This makes debugging your model very easy.
 
 Linear Programming Solvers
 ------------------------------
