@@ -1,6 +1,22 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.39
+########
+
+AIMMS PRO 2.39.1 Release
+------------------------
+
+On September 28, 2021, we released AIMMS PRO 2.39.1 (2.39.1.1). 
+
+**Improvements**
+
+-  **Cloud:** Extended AIMMS PRO Library with *pro::management::RetrieveAccountInfo* which allows you to retrieve your AIMMS Cloud Platform Account characteristics (i.e. DNS_NAME, CONCURRENT_SOLVES, CONCURRENT_USERS, CUSTOMIZATION_PROFILE, SOLVER_LICENSES). Please note that this does require an **AIMMS Version 4.82** or higher.
+
+**Resolved Issues**
+
+- **Cloud:** Fixed an issue where WebUI sessions could not start when too many solver sessions are scheduled without having enough license capacity on AIMMS Cloud Platform.
+
 PRO 2.38
 ########
 
@@ -247,7 +263,7 @@ On September 24, 2019, we released AIMMS PRO 2.33.1(2.33.1.1).
 
 **Improvements**
 
--  Extended AIMMS PRO Library with *pro::storage::ExistsBucke*\ t and
+-  Extended AIMMS PRO Library with *pro::storage::ExistsBucket* and
    *pro::storage::ExistsObject* which allows you to check whether
    Directories or Files exist in the AIMMS PRO Storage. For details,
    please see the
