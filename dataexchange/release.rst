@@ -19,6 +19,10 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.2.1.1 [29-09-2021]
+	- The Data Exchange :token:`LibraryInitialization` procedure could crash some models running on the AIMMS Cloud platform
+	- Excel sheets with additional columns without a header in the first row would crash in :js:func:`dex::ReadFromFile`
+
 1.2.0.49 [16-09-2021]
 	- Add support for applying NFC/NFD normalizations to composed Unicode character both contained in the model, or when reading or writing an JSON, XML, CSV or Excel data source.
 
