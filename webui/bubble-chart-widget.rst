@@ -54,9 +54,22 @@ Specific options
 
 The bubble chart has some specific options that you can specify. These are located on the Miscellaneous tab of the widget's options editor:
 
-* X-axis label: here you can specify a literal string or a model identifier to use as a legend which will be displayed along the X-axis.
+* X-axis label: here you can specify a literal string or a model identifier to use as a legend which will be displayed along the X-axis. 
 * Y-axis label: the same, only this time for the Y-axis.
 * Size label: here you can specify a literal string or a model identifier to describe what piece of information is used as the bubble size. It is displayed in the top-right corner of your bubble chart.
+
+You can add custom HMTL tooltips that can help convey more information about these axes.
+In order to do so you will have to add the ``webui::TooltipIdentifier`` annotation attribute to the identifier that was specified as the option for these respective labels. (as mentioned above in `Overriding tooltips <bubble-chart-widget.html#overriding-tooltips>`_)
+
+.. image:: images/BubbleChart-TooltipOnAxisLabel_ConfiguringIt2.png
+    :align: left
+
+.. image:: images/BubbleChart-TooltipOnAxisLabel_ConfiguringIt3.png
+    :align: center
+
+.. image:: images/BubbleChart-TooltipOnAxisLabel_ConfiguringIt1.png
+    :align: center
+
 
 Widget Extensions
 -----------------
