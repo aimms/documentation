@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.22.0.10 [30-09-2021]
+	- Added capability to clone a CDM database from on database to another (see :js:func:`cdm::CloneApplicationDatabase`)
+	
 1.21.0.4 [21-09-2021]
 	- Notify server of regular client termination
 	- Decrease hardbeat timings to allow for quicker shutdown of on-demand service

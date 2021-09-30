@@ -48,6 +48,14 @@ ApplicationDB Functions
   
    :param dbName: specifies the name of the application database to delete.
 
+.. js:function::  cdm::CloneApplicationDatabase(dbName, dbTo, configFile)
+
+   Clone the given application database :token:`dbName` to application database :token:`dbTo` running on the database server specified through :token:`configFile`. This function may be used to change a CDM database between any of the supported database backends. 
+  
+   :param dbName: specifies the name of the application database to clone.
+   :param dbTo: specifies the schema to which the existing application database is cloned.
+   :param configFile: CDM configuration file which specifies the database type and settings, and user credentials of the database (server) to which to clone the existing database.
+
 .. js:function::  cdm::GetKeyValue(db,key,value)
   
    Retrieve the value for the given key from the key-value store embedded within given application database. The function will fail if the specified key cannot be found.
