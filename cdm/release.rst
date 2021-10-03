@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.22.0.11 [02-10-2021]
+	- Non-mapped labels in tables for multi-dimensional identifiers and set memberships could lead to client errors, and are now filtered.
+
 1.22.0.10 [30-09-2021]
 	- Added capability to clone a CDM database from on database to another (see :js:func:`cdm::CloneApplicationDatabase`)
 	
