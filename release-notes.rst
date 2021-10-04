@@ -12,6 +12,31 @@ AIMMS 4.82
 #############
 
 
+AIMMS 4.82.3 Release (October 4, 2021 - build 4.82.3.29).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The procedure attribute 'Uses runtime libs' (introduced in AIMMS 4.82.1) has been included in the set :any:`AllAtributeNames`.
+-  The statement 'Empty myDatabaseTable;' did not first update any of the attributes of the Database table. This could lead to the situation that for example the string parameter holding the data source name was still empty.
+-  When deleting a definition of a parameter or set it could happen that you got errors that the identifier seemed to still have a definition.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The Table widget underwent some refinements in the way it deals with the row and column sizing, which should help in keeping their styling consistent and dependable across the entire table. At 100% browser zoom, custom sizes might be one pixel more or less now. At other zoom levels, rows and columns no longer grow quadratically (so 150% zoom would result in rows being 2.25x as high. Now 1.5x as you would expect), which you will notice in the data/labels showing in existing apps where you had a tight fit. Moreover, we've made sure that scrollbars allow you to reach all of your data, also when the Table is shown in a very small area. And finally, the indicators (fading to white) that show whether there are more rows or columns outside your current viewport position, now work correctly.
+-  The redirects you set up for Workflow steps could be bypassed if your Workflow's pages were nested in a certain way and if you then used the breadcrumb to navigate to a parent page. You will now correctly navigate to where Workflow restrictions should take you.
+-  When having the Sidebar open to show anything else than the Page Navigator or the Widget Manager (i.e. the Case Manager or the Experimental Feature toggles), we no longer show the names and borders of the widget areas on a page with Grid Layout.
+-  Selecting an item from a Legend with read-only contents will no longer result in an error and unclickable items. Behavior for writable contents has not changed.
+
+
+--------------
+
+
+
 AIMMS 4.82.2 Release (September 22, 2021 - build 4.82.2.13).
 ------------------------------------------------------------------------------------------
 
