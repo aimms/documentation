@@ -20,7 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  The procedure attribute 'Uses runtime libs' (introduced in AIMMS 4.82.1) has been included in the set :any:`AllAtributeNames`.
+-  The procedure attribute 'Uses runtime libs' (introduced in AIMMS 4.82.1) has been included in the set :any:`AllAttributeNames`.
 -  The statement 'Empty myDatabaseTable;' did not first update any of the attributes of the Database table. This could lead to the situation that for example the string parameter holding the data source name was still empty.
 -  When deleting a definition of a parameter or set it could happen that you got errors that the identifier seemed to still have a definition.
 
