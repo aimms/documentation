@@ -12,6 +12,7 @@ New Features and Bug Fixes
 
 1.22.0.10 [30-09-2021]
 	- Added capability to clone a CDM database from on database to another (see :js:func:`cdm::CloneApplicationDatabase`)
+	- :token:`cdm::CommitTimeout` has been renamed to :token:`cdm::AsyncTimeout`, is now also used for :js:func:`cdm::CloneApplicationDatabase`. Normally, the CDM namechange file should take care of this name change.
 	
 1.21.0.4 [21-09-2021]
 	- Notify server of regular client termination
