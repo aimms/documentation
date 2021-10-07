@@ -70,7 +70,9 @@ In the AIMMS PRO Library we provide a wrapper procedure called 'pro::solverlease
         leaseMaxDuration               :  10, 
         jobDescription                 :  "MyDescription");
         
-where all arguments are optional except the mathematicalProgrammingProblem argument. The solveMode and selecteSolver are the only options that need to be specified in the SOLVE statement (see chapter 15.3 in the Language Reference) explicitly for AIMMS to pick up. Other options can be set using the BLOCK statement:
+where all arguments are optional except the mathematicalProgrammingProblem argument. 
+The ``solveMode`` and ``selecteSolver`` are the only options that need to be specified 
+in :doc:`optimization-modeling-components/solving-mathematical-programs/the-solve-statement` explicitly for AIMMS to pick up. Other options can be set using the BLOCK statement:
 
 .. code:: 
 
