@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.22.0.15 [09-10-2021]
+	- :js:func:`cdm::CheckoutSnapshot` will now skip non-existing elements when assigning data to model identifiers, instead of producing an error, but only when used with AIMMS versions >= 4.82.4. Such non-existing elements could occur when checking out multiple categories which consisted of a cached snapshot in conjunction with a pull changeset, where the element was deleted in a pull changeset of one category, and some data for that element was changed in another category.
+	
 1.22.0.11 [02-10-2021]
 	- Non-mapped labels in tables for multi-dimensional identifiers and set memberships could lead to client errors, and are now filtered.
 
