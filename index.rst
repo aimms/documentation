@@ -31,7 +31,12 @@
             <a class="box_home_page" href="pro/index.html">
                 <img alt="pro" src="_images/pro-calendar-32.png">
                 <h1>PRO</h1>
-                <div>Documentation for the AIMMS PRO platform</div>
+                <div>Documentation for the AIMMS PRO deployment platform</div>
+            </a>
+            <a class="box_home_page" href="cloud/index.html">
+                <img alt="cloud" src="_images/cloud-checked-32.png">
+                <h1>Cloud Platform</h1>
+                <div>Documentation for the AIMMS Cloud deployment platform</div>
             </a>
             <a class="box_home_page" href="cloud/index.html">
                 <img alt="cloud" src="_images/cloud-checked-32.png">
