@@ -5,8 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
-1.0.0.121 [12-10-2021]
+1.0.0.122 [12-10-2021]
 	- Cloned data sets could not contain identifiers from libraries and modules.
+	- Variables can now be part of cloned data sets.
 	- This release does no longer support 32-bit Windows
 	- This release requires AIMMS versions >= 4.79, because of its dependency on the RequiredUnits attribute
 	
