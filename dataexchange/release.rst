@@ -19,6 +19,12 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.2.1.4 [13-10-2021]
+	- Allow adding additional suffices to tables in datasets through :token:`dex::SuffixList` annotation
+	- Allow specifying custom mapping attributes to identifiers contained in tables in datasets through the :token:`dex::ExtraAttributeList` annotation
+	- Allow adding row filters for writing tables in datasets through the :token:`dex::RowFilter` annotation
+	- Added the function :js:func:`dex::DeleteMapping` to delete previously added mappings. AIMMS would crash when mappings were deleted that contained runtime identifiers from a runtime library that was deleted prior to deleting the mapping.
+	
 1.2.1.1 [29-09-2021]
 	- The Data Exchange :token:`LibraryInitialization` procedure could crash some models running on the AIMMS Cloud platform
 	- Excel sheets with additional columns without a header in the first row would crash in :js:func:`dex::ReadFromFile`

@@ -12,6 +12,12 @@ Methods for reading and writing data
     
     :param mappingName: the name of the mapping to be created
     :param mappingFile: the relative path to the mapping file to be parsed.
+
+.. js:function::  dex:DeleteMapping(mappingName)
+
+    Deletes an existing mapping :token:`mappingName`. The function will return 1 on success, or 0 on failure. Mappings referring to runtime identifiers, must be deleted prior to deleting the corresponding runtime library.
+    
+    :param mappingName: the name of the mapping to be created
     
 .. js:function::  dex::ReadFromFile(dataFile,mappingName,emptyIdentifiers,emptySets,resetCounters)
 

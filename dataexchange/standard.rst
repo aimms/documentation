@@ -77,12 +77,33 @@ To create the mapping between multi-dimensional identifiers and datasets, tables
 * :token:`dex::Dataset`
 * :token:`dex::TableName`
 * :token:`dex::ColumnName`
+* :token:`dex::SuffixList`
+* :token:`dex::ExtraAttributeList`
+* :token:`dex::RowFilter`
 
 Through the :token:`dex::TableName` annotation you can indicate for multi-dimensional identifiers and/or sections of multi-dimensional identifiers, to which table they should belong. The Data Exchange library will verify that all identifiers share a common index domain, and return an error if this is not the case. You can use the :token:`dex::ColumnName` annotation to indicate a columnname for multi-dimensional identifiers and indices. If you don't specify an explicit column name, the Data Exchange library will use the identifier name as the implicit column name. Instead of using annotations, you can also directly set the column name for specific identifiers via the identifier :token:`dex::ColumnName`.
 
 By assigning the :token:`dex::Dataset` annotation to specific identifiers or sections of identifiers, the Data Exchange library will deduce the mapping between datasets and tables. Typically one would assign the :token:`dex::TableName` and :token:`dex::Dataset` to sections of identifiers with identical domains. If any identifier is both mapped to a table and a dataset, the combination will be assigned to :token:`dex::DatasetTableMapping`. Instead of using the :token:`dex::Dataset` annotation, you can also assign 1 to specific combinations of tables and datasets in the identifier :token:`dex::DatasetTableMapping` directly. 
 
-You can generate the mappings based on the above annotations and/or the manually assigned values to the identifiers :token:`dex::ColumnName` and :token:`dex::DatasetTableMapping`, by calling the procedure :js:func:`dex::GenerateDatasetMappings`.
+Through the :token:`dex::SuffixList` annotation you can specify the extra suffices (next to the level value) that you want to add the to the set of columns of the table to which the identifier itself is added. The format of the of the :token:`dex::SuffixList` is as follows
+
+.. code-block::
+	
+	<suffix-1>[=<suffix-1-columnname>][;<suffix-2>[=<suffix-2-columnname>]];...
+	
+If you do not explicitly specify column names in the semi-colon-separated list of suffices, the column names will be :token:`<identifier>.<suffix>`. 
+
+With the :token:`dex::ExtraAttributeList` annotation you can specifiy any additional mapping attributes that you want to have added to the mapping generated for a specific identifier. The value of the :token:`dex::ExtraAttributeList` annotation is a semi-colon-separated list
+
+.. code-block::
+	
+	<annotation>=<value>[;<annotation>=<value];...
+
+where :token:`<value>` is the literal text that you want assign to the annotation :token:`<annotation>`.
+
+You can use the annotation :token:`dex::RowFilter` to specify an identifier that should serve as a :token:`write-filter` attribute for the rows being generated in the mapping. The identifier should have the same indices as all identifiers in the table. The :token:`RowFilter` annotation should be the same for all identifiers in a specific table. If all identifiers in a table are contained in a single section in your model, you can best add the annation to that section, in which case all identifiers in the section will inherit it. With the row filter you can limit the number of rows being generated when writing a file using the mapping.
+
+To generate all annotation-based mapping, you can call the procedure :js:func:`dex::GenerateDatasetMappings`.
 This will generate Data Exchange mappings in the subfolder :token:`Mappings/Generated` in the main project folder. The following mappings will become available for every :token:`<dataset>`  and :token:`<table>`:
 
 .. csv-table:: 
