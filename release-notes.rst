@@ -21,8 +21,6 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  In AIMMS 4.82 and above, you could get an incorrect error message about a cyclic definition when introducing a set definition equal to the union of some subsets (``parentSet = subSet1 + subSet2``). This happened only in the same session where you edited the set's definition attribute, so the error was not there after re-opening the model. 
-
-> When introducing a set definition that is a union of its sub sets, in the latest version of AIMMS you could get an incorrect error on a cyclic definition. This only happened when editing the definition.
 -  If a set has a definition equal to the union of some subsets (`parentSet = subset1 + subset2`) then the content of that set can be changed by changing the content of either of these subsets. If this definition was removed then it was sometimes still possible to change the set via its subsets.
 -  The AIMMS API could not deal with data defined over non-existing elements provided by CDM in particular situations.
 -  If the solve of a MIP problem was interrupted inside a time callback then the solve of the postsolve problem (if any) would also be interrupted.
