@@ -12,6 +12,32 @@ AIMMS 4.82
 #############
 
 
+AIMMS 4.82.4 Release (October 14, 2021 - build 4.82.4.25).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In AIMMS 4.82 and above, you could get an incorrect error message about a cyclic definition when introducing a set definition equal to the union of some subsets (``parentSet = subSet1 + subSet2``). This happened only in the same session where you edited the set's definition attribute, so the error was not there after re-opening the model. 
+
+> When introducing a set definition that is a union of its sub sets, in the latest version of AIMMS you could get an incorrect error on a cyclic definition. This only happened when editing the definition.
+-  If a set has a definition equal to the union of some subsets (`parentSet = subset1 + subset2`) then the content of that set can be changed by changing the content of either of these subsets. If this definition was removed then it was sometimes still possible to change the set via its subsets.
+-  The AIMMS API could not deal with data defined over non-existing elements provided by CDM in particular situations.
+-  If the solve of a MIP problem was interrupted inside a time callback then the solve of the postsolve problem (if any) would also be interrupted.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Ignoring the 'special values in WebUI are not supported warning' could lead to loads of these warnings being sent at the same time, which could eventually lead to a crash.
+-  There were some issues with editing group widgets: they could not be edited anymore and buttons in edit mode of group widgets displayed erratically.
+-  We addressed an unexpected warning message about "webui::ClientBrowserName" that users occasionally encountered when opening an empty WebUI page.
+
+--------------
+
+
+
 AIMMS 4.82.3 Release (October 4, 2021 - build 4.82.3.29).
 ------------------------------------------------------------------------------------------
 
