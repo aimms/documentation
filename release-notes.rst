@@ -12,6 +12,29 @@ AIMMS 4.82
 #############
 
 
+AIMMS 4.82.5 Release (October 19, 2021 - build 4.82.5.10).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In version 4.81.5 there was a change in which identifiers that were depending on AllDataFiles were excluded from a case save operation. This turned out to be a bit too rigid. Now AIMMS only excludes an identifier from a case if (1) it is a subset of AllDataFiles, (2) any of its domain sets is a subset of AllDataFiles, or (3) if the set range is a subset of AllDataFiles.
+-  The functions AimmsMeFirst and AimmsMeNext did not work correctly if you tried to enumerate nodes in a model that has 'unnamed' declaration sections in it (that is Declaration Sections with just the name "Declaration").
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When creating or renaming a page we will no longer append '_1' to the underlying page name if it is not needed.
+-  above.
+-  `webui::FlagsIdentifiers` annotations were not taken into account correctly when the identifier was displayed in 'compare-case' mode.
+-  In some rare cases, opening a dialog page could inadvertently lead to unassigning widgets from the grid areas in the underlying page. The assignment of widgets to grid areas is now preserved in such situations.
+
+--------------
+
+
+
 AIMMS 4.82.4 Release (October 14, 2021 - build 4.82.4.25).
 ------------------------------------------------------------------------------------------
 
