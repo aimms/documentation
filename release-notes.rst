@@ -27,7 +27,6 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  When creating or renaming a page we will no longer append '_1' to the underlying page name if it is not needed.
--  above.
 -  `webui::FlagsIdentifiers` annotations were not taken into account correctly when the identifier was displayed in 'compare-case' mode.
 -  In some rare cases, opening a dialog page could inadvertently lead to unassigning widgets from the grid areas in the underlying page. The assignment of widgets to grid areas is now preserved in such situations.
 
