@@ -12,6 +12,28 @@ AIMMS 4.82
 #############
 
 
+AIMMS 4.82.6 Release (October 27, 2021 - build 4.82.6.10).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The function Round() when handled by the new compiler and engine had a small difference compared to the implementation in the old engine. In some rare situations where both implementations were used next to each other this could lead to wrong results. Now both the new and the old engine use the exact same implementation to do the rounding.
+-  The intrinsic functions Character() and CharacterNumber() now also support the unicode characters in the range U+10000 to U+1FFFF.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Double clicking on an item on the status bar which has a procedure behind it could lead to an unexpected error.
+-  The Node and Arc Sets Options of the Map Widget are now more relatable, as the Set's title reflects the name of its main identifier instead of 'Node.0'.
+-  The Classic layout on the Page Manager has been moved to the back. Previously, it was the first option, but we want to encourage the use of the true Grid layout.
+
+--------------
+
+
+
 AIMMS 4.82.5 Release (October 19, 2021 - build 4.82.5.10).
 ------------------------------------------------------------------------------------------
 
