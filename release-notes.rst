@@ -20,8 +20,8 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  The function Round() when handled by the new compiler and engine had a small difference compared to the implementation in the old engine. In some rare situations where both implementations were used next to each other this could lead to wrong results. Now both the new and the old engine use the exact same implementation to do the rounding.
--  The intrinsic functions Character() and CharacterNumber() now also support the unicode characters in the range U+10000 to U+1FFFF.
+-  The function :any:`Round` when handled by the new compiler and engine had a small difference compared to the implementation in the old engine. In some rare situations where both implementations were used next to each other this could lead to wrong results. Now both the new and the old engine use the exact same implementation to do the rounding.
+-  The intrinsic functions :any:`Character` and :any:`CharacterNumber` now also support the unicode characters in the range U+10000 to U+1FFFF.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
@@ -42,8 +42,8 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  In version 4.81.5 there was a change in which identifiers that were depending on AllDataFiles were excluded from a case save operation. This turned out to be a bit too rigid. Now AIMMS only excludes an identifier from a case if (1) it is a subset of AllDataFiles, (2) any of its domain sets is a subset of AllDataFiles, or (3) if the set range is a subset of AllDataFiles.
--  The functions AimmsMeFirst and AimmsMeNext did not work correctly if you tried to enumerate nodes in a model that has 'unnamed' declaration sections in it (that is Declaration Sections with just the name "Declaration").
+-  In version 4.81.5 there was a change in which identifiers that were depending on AllDataFiles were excluded from a case save operation. This turned out to be a bit too rigid. Now AIMMS only excludes an identifier from a case if (1) it is a subset of :any:`AllDataFiles`, (2) any of its domain sets is a subset of :any:`AllDataFiles`, or (3) if the set range is a subset of :any:`AllDataFiles`.
+-  The functions ``AimmsMeFirst`` and ``AimmsMeNext`` did not work correctly if you tried to enumerate nodes in a model that has 'unnamed' declaration sections in it (that is Declaration Sections with just the name "Declaration").
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
