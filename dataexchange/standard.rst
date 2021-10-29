@@ -96,16 +96,16 @@ By assigning the :token:`dex::Dataset` annotation to specific identifiers or sec
 Through the :token:`dex::SuffixList` annotation you can specify the extra suffices (next to the level value) that you want to add the to the set of columns of the table to which the identifier itself is added. The format of the of the :token:`dex::SuffixList` is as follows
 
 .. code-block::
-	
-	<suffix-1>[=<suffix-1-columnname>][;<suffix-2>[=<suffix-2-columnname>]];...
-	
+    
+    <suffix-1>[=<suffix-1-columnname>][;<suffix-2>[=<suffix-2-columnname>]];...
+    
 If you do not explicitly specify column names in the semi-colon-separated list of suffices, the column names will be :token:`<identifier>.<suffix>`. 
 
 With the :token:`dex::ExtraAttributeList` annotation you can specifiy any additional mapping attributes that you want to have added to the mapping generated for a specific identifier. The value of the :token:`dex::ExtraAttributeList` annotation is a semi-colon-separated list
 
 .. code-block::
-	
-	<annotation>=<value>[;<annotation>=<value];...
+    
+    <annotation>=<value>[;<annotation>=<value];...
 
 where :token:`<value>` is the literal text that you want assign to the annotation :token:`<annotation>`.
 
@@ -140,26 +140,26 @@ Next to a table-based format, the Data Exchange library can also generate a docu
 .. code-block:: json
 
     {
-	  "documentDate" : "2021-10-29T10:00:00Z",
-	  "Countries" : [
-		{
-			"country" : "The Netherlands",
-			"population" : 17651600, 
-			"capital" : "Amsterdam", 
-			"Provinces" : [
-				{
-					"province" : "Drente",
-					"capital"  : "Assen", 
-					...
-				},
-				...
-			],
-			...
-		}, 
-		...
-	  ],
-	  ...
-	}
+      "documentDate" : "2021-10-29T10:00:00Z",
+      "Countries" : [
+        {
+            "country" : "The Netherlands",
+            "population" : 17651600, 
+            "capital" : "Amsterdam", 
+            "Provinces" : [
+                {
+                    "province" : "Drente",
+                    "capital"  : "Assen", 
+                    ...
+                },
+                ...
+            ],
+            ...
+        }, 
+        ...
+      ],
+      ...
+    }
 
 This document could be generated on the basis of the following identifiers in the model
 
