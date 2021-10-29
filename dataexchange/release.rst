@@ -19,6 +19,15 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.0.3 [29-10-2021]
+	- Unicode characters taking more than 2 bytes, would not be written correctly to CSV files.
+
+1.3.0.0 [22-10-2021]
+	- Introduced new annotation-based JSONDocument generator that creates a mapping for a standardized nested JSON document to read and write all data for a given collection of identifiers in a model. 
+	- The :token:`iterative-reset` can now also specify a list of indices that needs to be reset at a particular node prior to handling all child nodes.
+	- Introduced a new function :js:func:`dex::ResetMappingData` to empty all identifiers, sets, and reset counters used in a particular mapping.
+	- Changed the default of the :token:`resetCounters` argument of :js:func:`dex::ReadFromFile` function from 1 to 0, to promote specification-based resetting of counters.
+	
 1.2.1.4 [13-10-2021]
 	- Allow adding additional suffices to tables in datasets through :token:`dex::SuffixList` annotation
 	- Allow specifying custom mapping attributes to identifiers contained in tables in datasets through the :token:`dex::ExtraAttributeList` annotation

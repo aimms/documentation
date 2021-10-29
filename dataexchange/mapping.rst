@@ -107,7 +107,7 @@ The :token:`iterative-prefix` attribute can be used alongside the :token:`iterat
 
 Assigning a value of 1 to the the :token:`iterative-existing` attribute causes the :token:`iterative-binds-to` attribute to not generate new elements, but instead to use existing elements of the set bound to the index specified in the :token:`iterative-binds-to` attribute, starting at the element with ordinal 1. If a generated element is not present, the reading will stop with an error.
 
-The :token:`iterative-reset` attribute can be specified at the parent element of a mapping element which holds a :token:`iterative-binds-to` attribute. It will cause the integer counter of all direct child mappings to be reset to 1. 
+The :token:`iterative-reset` attribute can be specified at a particular element of your mapping. If attribute value is "1", it will cause the integer counter associated with the of :token:`iterative-binds-to` attributes of all direct child mappings to be reset to 1. If it contains a comma-separated list of indices used in the mapping or in any of its included mappings, then the integer counter associated with each of these indices will be reset to 1. The indices specified in an :token:`iterative-reset` attribute do not have to be bound at that node.  
 
 The implicit-binds-to attribute
 -------------------------------
