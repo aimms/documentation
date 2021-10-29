@@ -18,19 +18,10 @@ Methods for reading and writing data
     Deletes an existing mapping :token:`mappingName`. The function will return 1 on success, or 0 on failure. Mappings referring to runtime identifiers, must be deleted prior to deleting the corresponding runtime library.
     
     :param mappingName: the name of the mapping to be created
-  
-.. js:function::  dex::ResetMappingData(mappingName,emptyIdentifiers,emptySets,resetCounters)
-
-    Reset data associated with the mapping :token:`mappingName`. The function can empty identifiers and sets associated with the mapping, and reset any iterative counters used in it. The function will return 1 on success, or 0 on failure.
     
-    :param mappingName: the name of the mapping to be reset
-    :param emptyIdentifiers: indicates whether all identifiers referred in the mapping should be emptied 
-    :param emptySets: indicates whether all domain and range sets referred in the mapping should be emptied 
-    :param resetCounters: indicates whether to reset all counters for :token:`iterative-binds-to` indices used in the mapping should be reset
-	
 .. js:function::  dex::ReadFromFile(dataFile,mappingName,emptyIdentifiers,emptySets,resetCounters)
 
-    Reads data from file :token:`dataFile` into model identifiers using mapping :token:`mappingName`. Note that the identifiers used in the :token:`included-mapping` and :token:`write-filter` will also be emptied, depending on the :token:`emptyIdentifiers` argument. When the mapping contains an the :token:`included-mapping` or the :token:`iterative-existing` attributes, emptying sets is likely to cause problems, unless the domain sets referred in these attributes are defined. In that case it is better to call :js:func:`dex::ResetMappingData` for selected mappings, or reset counters selectively using the :token:`iterative-reset` attribute. The function will return 1 on success, or 0 on failure.
+    Reads data from file :token:`dataFile` into model identifiers using mapping :token:`mappingName`. Note that the identifiers used in the :token:`included-mapping` and :token:`write-filter` will not be emptied, regardless of the :token:`emptyIdentifiers` argument. When the mapping contains an the :token:`included-mapping` or the :token:`iterative-existing` attributes, emptying sets is likely to cause problems, unless the domain sets referred in these attributes are defined. The function will return 1 on success, or 0 on failure.
     
     :param dataFile: the relative path to the data file to be read
     :param mappingName: the name of the mapping to be used
