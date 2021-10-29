@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.23.0.1 [29-10-2021]
+	- Set default character set for MySQL to utf8mb4 for new CDM schemas to allow for 4-byte UTF-8 characters, and set up the MySQL client for transport of 4-byte UTF-8 characters. For existing schema, you can replace the character set for the *columns* in identifier tables that hold values with 4-byte UTF-8 characters to utf8mb4, in combination with using CDM version >= 1.23.
+
 1.22.0.15 [09-10-2021]
 	- :js:func:`cdm::CheckoutSnapshot` will now skip non-existing elements when assigning data to model identifiers, instead of producing an error, but only when used with AIMMS versions >= 4.82.4. Such non-existing elements could occur when checking out multiple categories which consisted of a cached snapshot in conjunction with a pull changeset, where the element was deleted in a pull changeset of one category, and some data for that element was changed in another category.
 	
