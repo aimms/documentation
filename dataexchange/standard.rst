@@ -150,15 +150,15 @@ Next to a table-based format, the Data Exchange library can also generate a docu
                 {
                     "province" : "Drente",
                     "capital"  : "Assen", 
-                    ...
+                    "..." : "..."
                 },
-                ...
+                "..." : "..."
             ],
-            ...
+            "..." : "..."
         }, 
-        ...
+        "..." : "..."
       ],
-      ...
+      "..." : "..."
     }
 
 This document could be generated on the basis of the following identifiers in the model
