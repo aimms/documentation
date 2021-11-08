@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.23.0.2 [8-11-2021]
+	- CDM client could crash when category was no longer connected due to heartbeat failure
+	- CDM service erroneously was set to stopping state while it was actually still waiting for new connections
+
 1.23.0.1 [29-10-2021]
 	- Set default character set for MySQL to utf8mb4 for new CDM schemas to allow for 4-byte UTF-8 characters, and set up the MySQL client for transport of 4-byte UTF-8 characters. For existing schema, you can replace the character set for the *columns* in identifier tables that hold values with 4-byte UTF-8 characters to utf8mb4, in combination with using CDM version >= 1.23.
 
