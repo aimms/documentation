@@ -12,6 +12,29 @@ AIMMS 4.82
 #############
 
 
+AIMMS 4.82.7 Release (November 15, 2021 - build 4.82.7.10).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In rare cases, opening a model could yield an incorrect "range violation" warning.
+-  Reading a runtime identifier from a case file using the case-dot notation (like in caseIndex.runtimeLibPrefix::runtimeIdentifier) did not result in any data being read from the case file.
+-  Although it is not used that often, a scalar identifier can have a domain condition (specified like this: " | myCondition "). This condition was not always applied correctly during execution.
+-  For procedures with a large number of arguments (like pro::sessionmanager::ListSessionsSinceDate) the tooltip text was not displayed correctly.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In some situations, dragging jobs vertically in a Gantt chart could lead to a too sensitive movement in the Gantt chart widget. We addressed this issue such that the Gantt chart vertical movement is now consistent with the dragging of the jobs.
+-  It could happen that the `webui::FlagsIdentifier` was not correctly taken into account when combined with a 'display-domain' in a WebUI widget.
+
+--------------
+
+
+
 AIMMS 4.82.6 Release (October 27, 2021 - build 4.82.6.10).
 ------------------------------------------------------------------------------------------
 
