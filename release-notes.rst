@@ -22,6 +22,7 @@ Resolved AIMMS Issues
 
 -  In rare cases, opening a model could yield an incorrect "range violation" warning.
 -  Reading a runtime identifier from a case file using the case-dot notation (like in caseIndex.runtimeLibPrefix::runtimeIdentifier) did not result in any data being read from the case file.
+-  The data of runtime identifiers is now always included in a case file, unless this is explicitly disabled via the property 'NoSave'. When reading back such a case these runtime identifiers should be present, otherwise the corresponding data in the case file is just ignored.
 -  Although it is not used that often, a scalar identifier can have a domain condition (specified like this: " | myCondition "). This condition was not always applied correctly during execution.
 -  For procedures with a large number of arguments (like pro::sessionmanager::ListSessionsSinceDate) the tooltip text was not displayed correctly.
 
