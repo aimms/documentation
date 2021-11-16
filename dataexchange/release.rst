@@ -19,6 +19,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.0.8 [16-11-2021]
+	- :js:func:`dex::ReadAllMappings` read from non-existing directory.
+	
 1.3.0.5 [31-10-2021]
 	- Added support in Excel mappings to map date valued columns to calendars and calendar-valued element parameters.
 
