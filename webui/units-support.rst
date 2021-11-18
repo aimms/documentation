@@ -1,7 +1,7 @@
 Support for Units of Measurement
 ================================
 
-In the WebUI, the units of measurement from your AIMMS model will be displayed per default in the Table, Scalar and Slider widgets. These widgets have an option 'Show Units' in the 'Miscellaneous' tab of their options editor where you can overrule the displaying of units. Furthermore, for all widget types, the units of measurement are displayed in their tooltips as well.
+In the WebUI, the units of measurement from your AIMMS model are displayed per default in the Table, Scalar and Slider widgets. These widgets have an option 'Show Units' in the 'Miscellaneous' tab of their options editor where you can overrule the displaying of units. Furthermore, for all widget types, the units of measurement are displayed in their tooltips as well.
 
 Current support for units of measurement
 ----------------------------------------
@@ -15,7 +15,7 @@ The units which are displayed in the WebUI follow the Convention identifier in y
 Old support for units of measurement (deprecated)
 -------------------------------------------------
 
-In AIMMS versions up to 4.50, the units of measurement displayed in the WebUI used to be spcified using a mapping identifier such as:
+In AIMMS versions up to 4.50, the units of measurement displayed in the WebUI used to be specified using a mapping identifier such as:
 
 .. code-block:: js
 
