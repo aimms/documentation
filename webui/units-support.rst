@@ -1,13 +1,21 @@
 Support for Units of Measurement
 ================================
 
-In the WebUI, units from your AIMMS model will per default be displayed in the Table, Scalar and Slider widgets. These widgets have an option 'Show Units' in the 'Miscellaneous' tab of their options editor where you can overrule this. For all widget types, the units will be displayed in the tooltips as well.
+In the WebUI, the units of measurement from your AIMMS model will be displayed per default in the Table, Scalar and Slider widgets. These widgets have an option 'Show Units' in the 'Miscellaneous' tab of their options editor where you can overrule the displaying of units. Furthermore, for all widget types, the units of measurement are displayed in their tooltips as well.
 
-The units that are displayed follow the Convention identifier in your model that is specified in the Convention attribute of you Main model.
+Current support for units of measurement
+----------------------------------------
+
+The units which are displayed in the WebUI follow the Convention identifier in your model, which is specified in the Convention attribute of the Main Model node of the model tree.
 
 .. note:: 
 
-    In AIMMS 4.50 and lower versions, unit support was handled in the manner described below. When opening your WebUI in AIMMS 4.51 or higher, you will automatically get a warning dialog if this 'old-style' unit support is detected. You are encouraged to adapt your model to the new standard.
+    In AIMMS 4.50 and previous versions, unit support was handled in the old manner described below. When opening your WebUI in AIMMS 4.51 or higher, you will automatically get a warning dialog if this 'old-style' unit support is detected. You are encouraged to adapt your model to the new standard using the Convention identifier mentioned above.
+
+Old support for units of measurement (deprecated)
+-------------------------------------------------
+
+In AIMMS versions up to 4.50, the units of measurement displayed in the WebUI used to be spcified using a mapping identifier such as:
 
 .. code-block:: js
 
@@ -15,4 +23,6 @@ The units that are displayed follow the Convention identifier in your model that
 		"Distance" : "km"
 	};
 
-will display the distance values in 'km'. Input for the 'Distance' identifier will also be interpreted in terms of 'km'. Please note that you can only specify display units for which there exists a valid conversion to the base unit of the identifier in your model.
+In this example, the mapping identifier specified that the values of the parameter Distance were to be displayed using the unit 'km'. In this case, also the input for the parameter 'Distance' given through the WebUI was interpreted in terms of the unit 'km'. 
+
+Please note that you could only specify display units for which there was a valid conversion to the base unit of the identifier in your model.
