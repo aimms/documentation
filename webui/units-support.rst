@@ -6,7 +6,16 @@ In the WebUI, the units of measurement from your AIMMS model are displayed per d
 Current support for units of measurement
 ----------------------------------------
 
-The units which are displayed in the WebUI follow the Convention identifier in your model, which is specified in the Convention attribute of the Main Model node of the model tree.
+The units which are displayed in the WebUI follow the Convention identifier in the AIMMS model which is specified in the Convention attribute of the Main node of the model tree.
+
+In order to achieve this setting, first you need to declare a Convention in the model tree. After that, the Convention attribute becomes available for the Main node and the declared Convention may be specified in that attribute, as illustrated in the following picture:
+
+.. image:: images/MainConvention.png
+    :align: center
+     
+| 	 
+	
+For details on using Conventions for overriding units of measurement please see `AIMMS Language Reference <https://documentation.aimms.com/language-reference/advanced-language-components/units-of-measurement/globally-overriding-units-through-conventions.html#sec-units-convention>`__ .
 
 .. note:: 
 
