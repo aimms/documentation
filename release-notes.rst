@@ -12,6 +12,26 @@ AIMMS 4.82
 #############
 
 
+AIMMS 4.82.8 Release (November 23, 2021 - build 4.82.8.9).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The first time during a day that the right mouse menu in the model editor was used, AIMMS could be unresponsive for some seconds. This was because of the preparation of the "Help On" sub menu that needs to communicate with the online manuals. This preparation has now been moved to the startup phase of AIMMS (in a separate thread) so that you will probably no longer notice this delay.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The Button widget did not show any Grid pages in the PageLinks dropdown option.
+-  When renaming the current page, the page became empty. Only after a refresh the contents reappeared.
+
+--------------
+
+
+
 AIMMS 4.82.7 Release (November 15, 2021 - build 4.82.7.10).
 ------------------------------------------------------------------------------------------
 
