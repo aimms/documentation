@@ -12,6 +12,20 @@ AIMMS 4.82
 #############
 
 
+AIMMS 4.82.9 Release (November 24, 2021 - build 4.82.9.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The unit analysis for the modulo function, mod(x,y), now demands the same quantity for x, y and its return value. Previously the unit of x was incorrectly divided by y which, even with unit checking disabled, may have given wrong results if non-base-units were used in the modulo function.
+
+--------------
+
+
+
 AIMMS 4.82.8 Release (November 23, 2021 - build 4.82.8.9).
 ------------------------------------------------------------------------------------------
 
