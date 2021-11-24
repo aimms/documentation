@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.23.0.4 [24-11-2021]
+	- Add additional logging to facilitate better tracing of on-demand CDM service connection failures
+	
 1.23.0.3 [11-11-2021]
 	- Complex category orders could be determined incorrectly
 
