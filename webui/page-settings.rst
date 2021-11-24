@@ -107,6 +107,8 @@ You may find that when you change your window size, the widgets re-arrange too o
 Page Actions
 ============
 
+.. note:: A Page Actions tutorial is available in the `WebUI Advanced User Interactions <https://academy.aimms.com/mod/page/view.php?id=967>`_ training on the AIMMS Academy
+
 In the bottom right corner of the page you can find the “Page Actions” menu. It is used for the “Primary Action" and “Secondary Actions”. This feature, together with the `Widget Actions <widget-options.html#widget-actions>`_, largely replaces buttons on the canvas and frees up space for the widgets themselves. The position of the Page Actions Menu is fixed in the bottom right and floats above all other elements on the page.
 
 Page Actions are independent of a specific widget (typical general actions as optimize, save case, reinitialize, etc.). `Widget Actions <widget-options.html#widget-actions>`_ are focused on data in the widget (recalculate demand, delete selected batch, help on GC, etc.)

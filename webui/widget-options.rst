@@ -747,6 +747,8 @@ Widget Actions
 
 .. important:: Widget Actions are available in software versions from AIMMS 4.66 onwards.
 
+.. note:: Widget actions tutorial is available in the `WebUI Advanced User Interactions <https://academy.aimms.com/mod/page/view.php?id=971>`_ training on the AIMMS Academy
+
 Widget Actions are a set of actions/procedures that can be defined via the model and configured for individual widgets. These widget actions are grouped under the |widget-action| icon in the widget header. The widget action displays up to 10 actions. In case you configure more than 10, only the top 10 active and/or inactive actions will be displayed.
 
 The widget actions can be associated with any procedure in your model. For example: Resetting data, Saving data, etc.
@@ -761,7 +763,7 @@ The widget actions can be associated with any procedure in your model. For examp
 Configuring Widget Actions
 ++++++++++++++++++++++++++
 
-Widget Actions can be configured by the application developer via the AIMMS model. The set WidgetActionSpecification declared inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section is used for configuring the widget actions, as illustrated here in the next steps. 
+Widget Actions can be configured by the application developer via the AIMMS model. The set :any:`webui::WidgetActionSpecification` declared inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section is used for configuring the widget actions, as illustrated here in the next steps. 
 
 .. image:: images/WidgetActionSpecification.png
 			:align: center
@@ -778,7 +780,7 @@ This set has 4 elements representing widget action properties:
 
     `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required.
     
-To configure widget actions, create a string parameter indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with :token:`webui::indexPageExtension` and WidgetActionSpecification with the index :token:`webui::indexWidgetActionSpec`, for example MyWidgetActions(webui::indexPageExtension,webui::indexWidgetActionSpec) as shown here:
+To configure widget actions, create a string parameter indexed by the :any:`webui::ExtensionOrder` set with :any:`webui::indexPageExtension` and :any:`webui::WidgetActionSpecification` with the index :any:`webui::indexWidgetActionSpec`, for example MyWidgetActions(webui::indexPageExtension,webui::indexWidgetActionSpec) as shown here:
 
 .. image:: images/WidgetActions_MyWidgetActions.png
 			:align: center
@@ -858,7 +860,8 @@ Configuring Item Actions
 
 Item Actions can be configured by the application developer via the AIMMS model, similar to how widget actions are configured.
 
-To configure item actions, create a string parameter indexed by the WidgetItemActionSpecification set with the index :token:`webui::indexWidgetItemActionSpec`, `ExtensionOrder <library.html#extensionorder>`_ set with :token:`webui::indexPageExtension` and `WidgetActionSpecification <widget-options.html#configuring-widget-actions>`_ set with the index :token:`webui::indexWidgetActionSpec`, for example :token:`MyItemActions(webui::indexWidgetItemActionSpec,webui::indexPageExtension,webui::indexWidgetActionSpec)` as shown here:
+To configure item actions, create a string parameter indexed by the ``WidgetItemActionSpecification`` set with the index ``webui::indexWidgetItemActionSpec``, :any:`webui::ExtensionOrder` set with :any:`webui::indexPageExtension` and 
+:any:`webui::WidgetActionSpecification` set with the index :any:`webui::indexWidgetActionSpec`, for example ``MyItemActions(webui::indexWidgetItemActionSpec,webui::indexPageExtension,webui::indexWidgetActionSpec)`` as shown here:
 
 .. image:: images/ItemActions_StringParameter.png
             :align: center
@@ -873,7 +876,7 @@ Select the identifier that you want to define the item actions:
 .. image:: images/ItemActions_StringParameterDataIdentifier.png
 			:align: center
 
-Add the details for the item actions. In the illustration below we are adding four item actions to the identifier :token:`SupplyUSAWest(usw)`.
+Add the details for the item actions. In the illustration below we are adding four item actions to the identifier ``SupplyUSAWest(usw)``.
 
 .. image:: images/ItemActions_StringParameterDataIdentifier_Filled.png
 			:align: center
