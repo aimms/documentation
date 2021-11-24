@@ -70,13 +70,13 @@ Public Page and Widget Specification Declarations
 
 	This set is the specification for the side panel pages. The string parameters used to `configure the side panels <side-panels.html#configuring-side-panels>`_ on pages are indexed on this set. 
 
-  .. aimms:index: indexSidePanelSpec
+  .. aimms:index:: indexSidePanelSpec
 
 .. aimms:set:: WidgetActionSpecification 
 
 	This set is the specification for adding `widget actions <widget-options.html#widget-actions>`_ . The string parameters used to configure the widget actions on certain widgets are indexed on this set.
 
-  .. aimms:index: indexWidgetActionSpec
+  .. aimms:index:: indexWidgetActionSpec
 
 .. aimms:set:: PageActionSpecification 
 
