@@ -37,7 +37,7 @@ WebUI Improvements
 +++++++++++++++++++++++++
 
 -  You can now add custom HMTL tooltips to the Bubble chart axes title, that can help convey additional information about these axes.
--  WebUI improved the handling of the special values 'inf' and '-inf'. WebUI will display those and is able to use them in totals. However, if a total contains bot 'inf' and '-inf' the result is undefined (following the logic AIMMS itself uses). In addition, you will be able to input 'inf' and '-inf'.
+-  WebUI improved the handling of the special values 'inf' and '-inf'. WebUI will display those and is able to use them in totals. However, if a total contains both 'inf' and '-inf' the result is undefined (following the logic AIMMS itself uses). In addition, you will be able to input 'inf' and '-inf'.
 
 
 Resolved WebUI Issues
