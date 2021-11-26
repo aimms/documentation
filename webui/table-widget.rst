@@ -51,6 +51,20 @@ The table widget offers the user possibilities for various actions such as:
   * You can use the space bar to toggle binary values displayed as checkboxes that have the focus.
   
   * You can use either ENTER or ALT+ARROW DOWN to open the drop-down list in focus, in order to change its value.
+  
+
+Limited Support for Special Numbers
+-----------------------------------
+
+AIMMS offers support for special numbers, like inf, na, undef, etc. The WebUI table offers limited support here, for inf and -inf only. The following applies:
+
+* The Table widget displays inf/-inf values from AIMMS as ∞/-∞.
+* You can enter the value for infinity in the Table itself by typing either 'inf', '-inf', 'Infinity', '-Infinity', '∞' or '-∞'.
+* If you are displaying Totals in the Table, the following rules apply:
+  * any Total that contains 'inf' (as an operand) and no '-inf' results in 'inf'.
+  * any total that contains '-inf' (as an operand) and no 'inf' results in '-inf'.
+  * any total that contains 'inf' (as an operand) as well as '-inf' results in undefined and produces an error message in the WebUI.
+
 
 Download Table Data
 --------------------------
