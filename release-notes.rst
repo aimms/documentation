@@ -61,7 +61,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  The unit analysis for the modulo function, :any:`mod`(x,y), now demands the same quantity for x, y and its return value. Previously the unit of x was incorrectly divided by y which, even with unit checking disabled, may have given wrong results if non-base-units were used in the modulo function.
+-  The unit analysis for the modulo function, :any:`mod(x,y) <mod>` , now demands the same quantity for x, y and its return value. Previously the unit of x was incorrectly divided by y which, even with unit checking disabled, may have given wrong results if non-base-units were used in the modulo function.
 
 --------------
 
