@@ -12,6 +12,35 @@ AIMMS 4.82
 #############
 
 
+AIMMS 4.83.1 Release (November 26, 2021 - build 4.83.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  New HSL option values have been added for the IPOPT option 'Linear solver selection'.
+
+Note: This should be under Resolved AIMMS Issues.
+-  The function GMP::Instance::CreateBlockMatrices did not always generate correct block GMP's if no block value was specified for some of the (non-objective) variables.
+-  Gurobi 9.5 (version 9.5.0) has been added. Gurobi 9.5 comes with performance improvements for LP, MIP, MIQP models and for convex and non-convex MIQCP models.
+-  The new procedure GMP::SolverSession::GetIIS can be used to retrieve an irreducible infeasible set (IIS) for an infeasible math program. It returns the row and column numbers of the rows and columns in the IIS. The IIS will be calculated by the solver and is supported by CPLEX, Gurobi and BARON.
+-  By using the new CPLEX 20.1 option 'Find fractional root solution' you can instruct CPLEX to find and return the fractional solution after exploring the root node in the branch-and-bound tree of a MIP solve. It can be useful to analyze this fractional solution to improve the formulation of a MIP problem, aiming to reduce the solving time. This new option can be combined with another new option, named 'Write cuts', which can be used to write the cutting planes, found by CPLEX at the root node, to a file, while possibly also writing the presolved model. Both options can be found in the new category MIP Advanced.
+-  For most GMP procedures that can be used to modify columns, rows or coefficients, a 'raw' variant has been added which uses a set of column and/or row numbers as input.
+-  The system libraries AIMMSXLLibrary and AIMMSForecasting are no longer shipped as system libraries. For some time already the latest versions of these libraries were also available as Repository libraries. If your application uses either of these two system libraries, the application is now automatically modified to use the corresponding Repository library.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  You can now add custom HMTL tooltips to the Bubble chart axes title, that can help convey additional information about these axes.
+-  WebUI improved the handling of the special values 'inf' and '-inf'. WebUI will display those and is able to use them in totals. However, if a total contains bot 'inf' and '-inf' the result is undefined (following the logic AIMMS itself uses). In addition, you will be able to input 'inf' and '-inf'.
+-  If you had selected (or kept, instead of converting it to Grid Layout) a Classic Layout for your page, then the previews of the layouts in the Page Configurator would not automatically scroll to the right part of the list, making it less clear which layout was active.
+
+--------------
+
+
+
 AIMMS 4.82.9 Release (November 24, 2021 - build 4.82.9.1).
 ------------------------------------------------------------------------------------------
 
