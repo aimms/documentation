@@ -12,6 +12,21 @@ AIMMS 4.83
 #############
 
 
+AIMMS 4.83.2 Release (December 8, 2021 - build 4.83.2.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  A scalar identifier with a domain condition that consists of a multi-dimensional identifier with all indices fixed, was giving errors when used in an expression.
+-  During a case load the (peak) memory usage was growing a bit too fast. Now some of the (temporary) needed memory is returned to the operating system during the read and not only at the end.
+
+--------------
+
+
+
 AIMMS 4.83.1 Release (November 26, 2021 - build 4.83.1.0).
 ------------------------------------------------------------------------------------------
 
