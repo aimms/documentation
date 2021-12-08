@@ -71,7 +71,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'AIMMS Documentation'
-copyright = u'2018-2020, AIMMS'
+copyright = u'2018-2021, AIMMS'
 author = u'AIMMS'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -255,12 +255,6 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
-#import the one and only spelling exception central file 
-# if os.name == 'nt':
-	# context = ssl._create_unverified_context()
-	# urllib.urlretrieve("https://gitlab.aimms.com/Arthur/unified-spelling_word_list_filename/raw/master/spelling_wordlist.txt", "spelling_wordlist.txt", context=context)
 
-#spelling_word_list_filename = ''
-		   
 highlight_language = 'aimms'
 
