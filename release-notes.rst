@@ -1710,14 +1710,12 @@ AIMMS 4.73.1 Release (April 29, 2020)
 AIMMS Improvements
 ++++++++++++++++++++
 
-The Irreducible Inconsistent System (IIS) will from now on be retrieved from the solver, by default, if this action is selected in the Math Program Inspector. Before an algorithm implemented in AIMMS was used. Using the IIS from the solver has several advantages: it is faster and for models with integer variables it also finds an IIS if the infeasibility is triggered by the integrality of some of the variables. (The new option `Use IIS from solver` controls which approach is used to calculate an IIS.).
-The mechanism to determine when a definition should be re-evaluated has been completely replaced. This has been done to better support the new compiler but also to clear the path for some upcoming new features. Because of these changes you may notice some differences in your model:
+-  The Irreducible Inconsistent System (IIS) will from now on be retrieved from the solver, by default, if this action is selected in the Math Program Inspector. Before an algorithm implemented in AIMMS was used. Using the IIS from the solver has several advantages: it is faster and for models with integer variables it also finds an IIS if the infeasibility is triggered by the integrality of some of the variables. (The new option `Use IIS from solver` controls which approach is used to calculate an IIS.).
+-  The mechanism to determine when a definition should be re-evaluated has been completely replaced. This has been done to better support the new compiler but also to clear the path for some upcoming new features. Because of these changes you may notice some differences in your model, listed below. We tested the new version thoroughly, but it can still be that something in your model is not working correctly because of this change. Please let us know as soon as possible.
 
--  definitions are sometimes evaluated in a different order than before.
--  certain uses of the orderBy attribute are now detected as a 'cyclic dependency'.
--  the ordering of elements in a set that does not have an orderBy attribute specified can be different.
-
-We tested the new version thoroughly, but it can still be that something in your model is not working correctly because of this change. Please let us know as soon as possible.
+  -  definitions are sometimes evaluated in a different order than before.
+  -  certain uses of the orderBy attribute are now detected as a 'cyclic dependency'.
+  -  the ordering of elements in a set that does not have an orderBy attribute specified can be different.
 
 -  AIMMS now reads its timezone names from a supplied JSON file, generated from the static time zone information of Windows during deployment of the AIMMS release. Making this list independent of locale, OS and time-of-use should increase stability when using time zones explicitly in calendars. As a consequence, time zone names are now always in English. If really needed, the file can be adapted to match locale or changed policies.
 
