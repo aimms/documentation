@@ -17,6 +17,7 @@ Please note that when using these libraries on AIMMS PRO, it needs access to the
 .. toctree::
    :maxdepth: 1
    
+   general-library/getting-started
    cdm/index
    dataexchange/index
    datalink/index

@@ -2,7 +2,7 @@ Getting started with the AIMMS Library Repositories
 **************************************
 
 How to add a library from the repository?
-==========================
+===========================================
 
 Adding a library from the repository to your AIMMS model is really easy. Make sure you have your model saved and pages/cases and/or editors closed before installing. With your AIMMS model open, go to File -> Library Manager:
 
@@ -30,7 +30,7 @@ The libraries you install are immediately available in your model, at the bottom
 
 
 How to use a library from the repository?
-==========================
+===========================================
 
 Once the library is added to your model you can start using the procedures and functions that come with it. Every library has a prefix; when you start typing this prefix, the autofill will help you finding the function you need. To find the prefix of a chosen library, you can double-click on the library and see what is written under the 'prefix' item:
 
@@ -49,7 +49,7 @@ Please note that some of the procedures require arguments (indicated by a proced
 For every library a documentation page and how-to's are available to provide you with more library-specific information. 
  
 Deleting a library from the repository
-==========================
+========================================
 
 If you want to delete a library from the repository, go to File -> Library Manager, select the library you want to delete, and press the delete button:
 
