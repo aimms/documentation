@@ -1,5 +1,5 @@
 Getting started with the AIMMS Library Repositories
-**************************************
+*****************************************************
 
 How to add a library from the repository?
 ===========================================
