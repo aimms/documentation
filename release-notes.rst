@@ -12,6 +12,20 @@ AIMMS 4.83
 #############
 
 
+AIMMS 4.83.3 Release (December 10, 2021 - build 4.83.3.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In some situations, the error message 'Unable to mark current tab active in model due to an unspecified error' could unexpectedly appear in the WebUI.
+
+--------------
+
+
+
 AIMMS 4.83.2 Release (December 8, 2021 - build 4.83.2.4).
 ------------------------------------------------------------------------------------------
 
