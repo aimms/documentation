@@ -42,14 +42,14 @@ The host application chosen for VS2017 versions of AIMMS  for windows could not 
 Version 1.4.1
 ++++++++++++++
 
-This version does not bring any new functionality, but some issues for running on linux have been addressed:
+This version does not bring any new functionality, but some issues for running on Linux have been addressed:
 
 At the client side, there is now only an AIMMS SDK version compiled with gcc 4.9, as there were some compatibility issues with the gcc 6.1 versions we distributed earlier.
 At the server side, there is now only a Host application compiled with gcc 6.1, which is supporting AIMMS 4.29 and up.
 
 .. note::
 
-  If you need to run with older AIMMS versions on linux, the 1.4.0.10 gcc 4.9 still applies.
+  If you need to run with older AIMMS versions on Linux, the 1.4.0.10 gcc 4.9 still applies.
  
 
 Version 1.4.0.10
@@ -72,11 +72,11 @@ When setting the HostLoggerConfigfile in the CPP front-end, the file could not b
 Version 1.3.0.0
 +++++++++++++++++
  
-Due to a compiler change for linux of AIMMS, the older versions of the SDK do not support the Aimms versions 4.29 and higher. This version of the SDK supports all Aimms versions 4.3 and higher.
+Due to a compiler change for Linux of AIMMS, the older versions of the SDK do not support the Aimms versions 4.29 and higher. This version of the SDK supports all Aimms versions 4.3 and higher.
  
 .. note::
   
-  If you are using the SDK Server on linux, you will need to use the rules provided in this version if you are using an AIMMS version 4.29 or newer. The rule for 4.29 is provided, for newer AIMMS versions you will need to (copy and) adapt the 4.29 rule See also `the documentation <http://download.aimms.com/aimms/AimmsSDK/frames.html?frmname=topic&frmfile=index.html>`_ on how to do this.
+  If you are using the SDK Server on Linux, you will need to use the rules provided in this version if you are using an AIMMS version 4.29 or newer. The rule for 4.29 is provided, for newer AIMMS versions you will need to (copy and) adapt the 4.29 rule See also `the documentation <http://download.aimms.com/aimms/AimmsSDK/frames.html?frmname=topic&frmfile=index.html>`_ on how to do this.
 
 Version 1.2.5.0
 +++++++++++++++++

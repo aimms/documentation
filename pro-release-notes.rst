@@ -94,7 +94,7 @@ On October 27, 2020, we released AIMMS PRO 2.36.2 (build 2.36.2.2 for On-premise
 
 **Resolved Issues**
 
-- The .NET PRO API now depends on a latest armi4net.dll that fixes an IPV6 issue running on linux.
+- The .NET PRO API now depends on a latest armi4net.dll that fixes an IPV6 issue running on Linux.
 - Added support for connecting to servers that use TLS v1.3 HTTPS encryption. (This does require an **AIMMS Version 4.76.4** or **higher**)
 -  **On-Premise:** Fixed an issue where PRO database backup could not be restored after a clean install of AIMMS PRO due to the table mismatch.
 -  **On-Premise:** There was an issue where sessions got stuck in the queue when having too many queued sessions in some rare circumstances. 
@@ -634,7 +634,7 @@ AIMMS PRO 2.26.0 Release
 ------------------------
 
 On August 17, 2018, we released AIMMS PRO 2.26.0 (2.26.0.4).  Please note that, although the
-.26 number suggests otherwise, this is a bugfix release instead of a
+.26 number suggests otherwise, this is a bug fix release instead of a
 Feature Release.
 
 **Resolved Issues**
@@ -1943,7 +1943,7 @@ AIMMS PRO 2.9.2 Release
 ----------------------------
 
 
-                  On March 11, 2016, we released a bugfix on AIMMS PRO
+                  On March 11, 2016, we released a bug fix on AIMMS PRO
                   2.9 (build 2.9.2.524). Changes made in this release
                   are listed below.
 
@@ -1961,7 +1961,7 @@ AIMMS PRO 2.9.1 Release
 ----------------------------
 
 
-                  On March 10, 2016, we released a bugfix on AIMMS PRO
+                  On March 10, 2016, we released a bug fix on AIMMS PRO
                   2.9 (build 2.9.1.518). Changes made in this release
                   are listed below.
 
@@ -2274,7 +2274,7 @@ AIMMS PRO 2.4.2 Release
 ----------------------------
 
 
-                  On September 9, 2015, we released a bugfix on AIMMS
+                  On September 9, 2015, we released a bug fix on AIMMS
                   PRO 2.4 (build 2.4.2.190). The following improvements
                   have been made in this release:
 
@@ -2336,7 +2336,7 @@ AIMMS PRO 2.3.2.142 Release
 ----------------------------
 
 
-                  On August 5, 2015, we released a bugfix on AIMMS PRO
+                  On August 5, 2015, we released a bug fix on AIMMS PRO
                   2.3 (build 2.3.2.142). The following improvement has
                   been made in this release:
 
@@ -2354,7 +2354,7 @@ AIMMS PRO 2.3.2.136 Release
 ----------------------------
 
 
-                  On July 20, 2015, we released a bugfix on AIMMS PRO
+                  On July 20, 2015, we released a bug fix on AIMMS PRO
                   2.3 (build 2.3.2.136). The following improvements have
                   been made in this release:
 
@@ -2392,7 +2392,7 @@ AIMMS PRO 2.3.1.121 Release
 ----------------------------
 
 
-                  On July 8, 2015, we released a bugfix on AIMMS PRO 2.3
+                  On July 8, 2015, we released a bug fix on AIMMS PRO 2.3
                   (build 2.3.1.121). The following improvements have
                   been made in this release:
 
@@ -2417,7 +2417,7 @@ AIMMS PRO 2.3.1 Release
 ----------------------------
 
 
-                  On June 25, 2015, we released a bugfix on AIMMS PRO
+                  On June 25, 2015, we released a bug fix on AIMMS PRO
                   2.3 (build 2.3.1.108). The following improvements have
                   been made in this release:
 
@@ -2489,7 +2489,7 @@ AIMMS PRO 2.2.1.86 Release
 ----------------------------
 
 
-                     On April 22, 2015, we released a bugfix on AIMMS
+                     On April 22, 2015, we released a bug fix on AIMMS
                      PRO 2.2 (build 2.2.1.86).
 
                      -  This release enables you to use up to 255

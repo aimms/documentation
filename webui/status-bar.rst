@@ -47,7 +47,7 @@ StatusBarSpecification - This set is used to configure messages in the Status Ba
 
 * :token:`header` - The Header/Title text you want to display for the status message. This is an optional field. If left empty, no value is displayed.
 * :token:`icon` - The icon you want to associate with the message. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required. This is an optional field and if left empty, no icon will be displayed.
-* :token:`color` - The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes eg: #FF0000 for Red.
+* :token:`color` - The color you want to display for the icon configured, e.g., Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes e.g., #FF0000 for Red.
 * :token:`text` - The text you want to display for the status message. This is a required field.
 * :token:`tooltip` - The text to be displayed when the user hovers over the status message. This is an optional field and if left empty, no tooltip is displayed.
 * :token:`procedure` - The procedure you want to execute when the respective status message is clicked. This is an optional field.

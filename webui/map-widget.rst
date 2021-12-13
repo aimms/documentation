@@ -155,7 +155,7 @@ This also allows you to relatively size nodes from different node sets with the 
 Icons for nodes
 ^^^^^^^^^^^^^^^
 
-You can add icons within nodes to represent a node set, eg: Factories or Centers. To configure icons for a node set, create a string parameter that is indexed by the index of the respective node set. Define an icon name that you selected from the list of icons available, as illustrated below.   
+You can add icons within nodes to represent a node set, e.g., Factories or Centers. To configure icons for a node set, create a string parameter that is indexed by the index of the respective node set. Define an icon name that you selected from the list of icons available, as illustrated below.   
 
 .. image:: images/MapV3_FactoryIcon.png
     :align: center

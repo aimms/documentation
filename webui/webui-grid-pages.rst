@@ -105,7 +105,7 @@ Initially, unassigned widgets may be moved from the "Unassigned widgets" section
 
 
 
-The icon before the name of an area contains either a horizontal arrow from left to right, or a vertical arrow from top to bottom. These arrows indicate how the widgets are distributed within each area, either columnwise in equal columns or rowwise in equal rows, which is also indicated by the corresponding tooltip:
+The icon before the name of an area contains either a horizontal arrow from left to right, or a vertical arrow from top to bottom. These arrows indicate how the widgets are distributed within each area, either column-wise in equal columns or row-wise in equal rows, which is also indicated by the corresponding tooltip:
 
 .. image:: images/GridPage_Area_Name_Tooltip.png
     :align: center
@@ -117,7 +117,7 @@ The layout selection and the assignments of widgets to areas as shown above resu
 .. image:: images/GridPage_StandardLayout_FullPage_1.png
     :align: center
 
-Note that the area "Aside B" is here in the lower right part of the page and contains the two widgets for Transport and Total Costs values, which are distributed columnwise in equal columns.
+Note that the area "Aside B" is here in the lower right part of the page and contains the two widgets for Transport and Total Costs values, which are distributed column-wise in equal columns.
 
 Switching between Layouts
 -------------------------
@@ -128,7 +128,7 @@ When the user switches to another layout , for example to Layout 7, then the wid
     :align: center
 
 In this example, the Demand widget (which used to be assigned to area "Area E" in Layout 6) has been moved to "Unassigned widgets" section (because the area "Area E" is not defined in Layout 7).
-Also, the distribution of widgets in area "Area C" is now rowwise in the current Layout 7 (whereas it used to be columnwise in Layout 6).
+Also, the distribution of widgets in area "Area C" is now row-wise in the current Layout 7 (whereas it used to be column-wise in Layout 6).
 
 In general, widgets will always remember which named area they were assigned to, also upon switching layouts. Only when you explicitly move a widget to another area, will they store their new assignment. In other words, one can switch layouts without breaking the assignments of the widgets, as long as one does not re-arrange them.
 
@@ -213,11 +213,11 @@ Different types of Custom Layout
 
 The previous explained the general framework for creating custom layouts. The following sections illustrate more specifically how to use pixels (px) or percentages (%) in order to set a fixed width or height to columns or rows in your layouts.
 
-This is useful when you either require a vertical scrollbar or in some cases a horizontal scrollbar, or if you do not want to use the full height or width of your viewport.
+This is useful when you either require a vertical scroll bar or in some cases a horizontal scrollbar, or if you do not want to use the full height or width of your viewport.
 
-To control the height of your application either to a fixed height or to introduce a vertical scrollbar you need to customize the values in `gridTemplateRows` i.e. for the rows. 
+To control the height of your application either to a fixed height or to introduce a vertical scroll bar you need to customize the values in `gridTemplateRows` i.e. for the rows. 
 
-To control the width of your application either to a fixed width or to introduce a horizontal scrollbar you need to customize the values in `gridTemplateColumns` i.e. for the columns. 
+To control the width of your application either to a fixed width or to introduce a horizontal scroll bar you need to customize the values in `gridTemplateColumns` i.e. for the columns. 
 
 Using pixels (px)
 +++++++++++++++++
@@ -246,9 +246,9 @@ To illustrate the above example, let's consider that the height of the browser v
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-As long as the sum of the values used to divide the rows does not exceed the browser viewport, no scrollbar will appear. To introduce a vertical scrollbar the sum needs to exceed the browser viewport height.
+As long as the sum of the values used to divide the rows does not exceed the browser viewport, no scroll bar will appear. To introduce a vertical scroll bar the sum needs to exceed the browser viewport height.
 
-So, assuming again that the viewport height is 1000px, if you want to introduce a vertical scrollbar you can use a code snippet such as the following:
+So, assuming again that the viewport height is 1000px, if you want to introduce a vertical scroll bar you can use a code snippet such as the following:
 
 .. code-block:: json
 
@@ -270,7 +270,7 @@ Similarly as above, for fixing the width such that the layout is half of the bro
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-If you want to introduce a horizontal scrollbar you can use a code snippet like the one below, where the sum exceeds the browser viewport width:
+If you want to introduce a horizontal scroll bar you can use a code snippet like the one below, where the sum exceeds the browser viewport width:
 
 .. code-block:: json
 
@@ -284,9 +284,9 @@ If you want to introduce a horizontal scrollbar you can use a code snippet like 
 Using percentages (%)
 +++++++++++++++++++++
 
-Similar to the case of pixels, in order to avoid a scrollbar when using percentages the sum of the values should not exceed 100%, and if you want a scrollbar then the sum must exceed 100%.
+Similar to the case of pixels, in order to avoid a scroll bar when using percentages the sum of the values should not exceed 100%, and if you want a scroll bar then the sum must exceed 100%.
 
-To illustrate an example where you want to avoid scrollbar or want the application to be half the size of the browser viewport, you can use a snippet such as below:
+To illustrate an example where you want to avoid scroll bar or want the application to be half the size of the browser viewport, you can use a snippet such as below:
 
 .. code-block:: json
 
@@ -296,7 +296,7 @@ To illustrate an example where you want to avoid scrollbar or want the applicati
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-If you want to introduce a vertical scrollbar you can use, for instance, this snippet below:
+If you want to introduce a vertical scroll bar you can use, for instance, this snippet below:
 
 .. code-block:: json
 
@@ -306,7 +306,7 @@ If you want to introduce a vertical scrollbar you can use, for instance, this sn
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-Similarly, if you want to control the width of the application, to avoid a horizontal scrollbar or use only half the width of the viewport you can use the below snippet.
+Similarly, if you want to control the width of the application, to avoid a horizontal scroll bar or use only half the width of the viewport you can use the below snippet.
 
 .. code-block:: json
 
@@ -316,7 +316,7 @@ Similarly, if you want to control the width of the application, to avoid a horiz
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-If you want to introduce a horizontal scrollbar you can use a snippet such as the following: 
+If you want to introduce a horizontal scroll bar you can use a snippet such as the following: 
 
 .. code-block:: json
 
@@ -387,7 +387,7 @@ It is important to understand some of the syntax and semantics of the JSON used 
 
 #. In the ``props`` section, only change the values for ``gridTemplateColumns``, ``gridTemplateRows``, and ``gridTemplateAreas``, as explained above.
 
-#. While defining "``gridTemplateColumns`` and ``gridTemplateRows`` no spaces should be given between the numeric and measure of proportionality. eg: 1fr, 50px, 20%.
+#. While defining "``gridTemplateColumns`` and ``gridTemplateRows`` no spaces should be given between the numeric and measure of proportionality. e.g., 1fr, 50px, 20%.
 
 	.. image:: images/PageV2_RightWrongDivisions.png
     		:align: center

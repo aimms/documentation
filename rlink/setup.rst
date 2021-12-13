@@ -83,7 +83,7 @@ It will prompt and ask for a repository if no default repository is specified. A
 
 .. important::
 
-    The function :token:`install.packages` is a normal R function and can  also be called in RLink. The AIMMS Cloud Server requires the linux version of the packages and on CRAN they are only provided as source. This means that an app installing a package will always have to download and compile it, every time the app is launched, adding considerable to the startup time.
+    The function :token:`install.packages` is a normal R function and can  also be called in RLink. The AIMMS Cloud Server requires the Linux version of the packages and on CRAN they are only provided as source. This means that an app installing a package will always have to download and compile it, every time the app is launched, adding considerable to the startup time.
 
 RLink and DataLink
 ------------------

@@ -3,7 +3,7 @@ WebUI Resources
 
 This section describes the various application specific resources (ASR) for an AIMMS WebUI app. 
 
-.. note:: Before going into each specific resource, please note that it is a best practice to store only those resources which are actually needed/used by the project. In particular, you should not store in your final project version any files which have a "test" substring in their name, ie, which are intended for intermediate testing purposes for your app. Storing the needed resources only may contribute to a more efficient delivery of the WebUI components of your application.  
+.. note:: Before going into each specific resource, please note that it is a best practice to store only those resources which are actually needed/used by the project. In particular, you should not store in your final project version any files which have a "test" substring in their name, i.e., which are intended for intermediate testing purposes for your app. Storing the needed resources only may contribute to a more efficient delivery of the WebUI components of your application.  
 
 Adding the **resources** folder
 -------------------------------

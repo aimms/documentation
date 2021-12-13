@@ -18,6 +18,7 @@
 #
 import os
 import sys
+import sphinx_aimms_theme
 if os.name == 'nt':
 	import ssl
 	import urllib
@@ -59,6 +60,13 @@ r'_downloads/\w+\.pdf', r'http://your-server-name:\d+', r'http://example.com/?.*
     
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
+
+# Getting the spelling word list from the sphinx-aimms-theme
+spelling_word_list_filename = [os.path.join(os.path.dirname(sphinx_aimms_theme.__file__),"spelling_wordlist.txt"),"spelling_wordlist.txt"]
+
+from spellingFilters import ProperNounsFilter
+
+spelling_filters = ['enchant.tokenize.URLFilter','spellingFilters.ProperNounsFilter']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:

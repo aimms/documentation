@@ -341,7 +341,7 @@ You can display icons from our `icon list <../_static/aimms-icons/icons-referenc
 
 .. note ::
 
-    Ensure you escape the quotes in the HTML properties. eg: ``\"``.
+    Ensure you escape the quotes in the HTML properties. e.g., ``\"``.
 
 **From AIMMS version 4.79** it is possible to configure custom tooltips for the elements in the row and column headers of the `Table <table-widget.html>`_ and on the x-axis elements of the `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_ and `Bar-Line Chart <bar-line-chart-widget.html>`_.
 
@@ -647,7 +647,7 @@ For each index in your widget, you can turn on one or several aggregators, such 
 .. image:: images/New_Totals_totalsum.png
     :align: center
 
-If no display domain has been specified for the shown identifier, then the "Sum" aggregator has the same effect (ie, same value) as the "Total sum" aggregator. However, if a restricting display domain has been specified such that the widget displays less values than the full identifier domain, then the "Sum" aggregator only considers the displayed values, whereas the "Total sum" aggregator still considers all the values from the full domain. Consequently, in this case the "Sum" and the "Total sum" aggregators may result in different values being added to the widget view:
+If no display domain has been specified for the shown identifier, then the "Sum" aggregator has the same effect (i.e., same value) as the "Total sum" aggregator. However, if a restricting display domain has been specified such that the widget displays less values than the full identifier domain, then the "Sum" aggregator only considers the displayed values, whereas the "Total sum" aggregator still considers all the values from the full domain. Consequently, in this case the "Sum" and the "Total sum" aggregators may result in different values being added to the widget view:
 
 .. image:: images/New_Totals_w_DisplayDomain_view.png
     :align: center

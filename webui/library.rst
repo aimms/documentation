@@ -186,7 +186,7 @@ Public List Support Declarations
   This set is used to `configure the list items <list-widget.html#configuring-items-for-lists>`_ in a specific list group. You will need to create a string parameter indexed over this set. The elements of this set (defining list group items) are the following:
 
   * ``icon`` - The icon you want to display for the respective list item. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <css-styling.html#custom-icon-sets>`_ can also be used if required.
-  * ``color`` - The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around 140 color names. This is an optional field. You can also use Hex codes eg: #FF0000 for Red.
+  * ``color`` - The color you want to display for the icon configured, e.g., Blue, Red, etc. Browsers support around 140 color names. This is an optional field. You can also use Hex codes e.g., #FF0000 for Red.
   * ``text`` - The text you want to display for the list item. This is a required field.
   * ``tooltip`` - Tooltip to be displayed when the user hovers over the respective list item.
   * ``procedure`` - The procedure you want to call when the respective list item is clicked.
@@ -222,7 +222,7 @@ Public Pages Support Procedures
   
 .. aimms:procedure:: SetProgressMessage(message) 
 
-  This procedure allows one to overwrite the "Busy" message in the top left corner of the Menu bar by a customized message, which can better inform the user in case the AIMMS session is in "working/busy" state (ie, some code execution is going on in the background). 
+  This procedure allows one to overwrite the "Busy" message in the top left corner of the Menu bar by a customized message, which can better inform the user in case the AIMMS session is in "working/busy" state (i.e., some code execution is going on in the background). 
   
   See `SetProgressMessage`_ below.
 

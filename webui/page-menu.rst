@@ -72,7 +72,7 @@ The menu is designed with max 6 columns in mind, however it supports up to 7 col
 Vertical overflow
 -----------------
 
-When the height of the menu is higher than the viewport, the Close button becomes sticky at the bottom of the page, and the content becomes scrollable. (The scrollbar does not cause the menu elements to shift horizontally.)
+When the height of the menu is higher than the viewport, the Close button becomes sticky at the bottom of the page, and the content becomes scrollable. (The scroll bar does not cause the menu elements to shift horizontally.)
 
 .. image:: images/PageMenu_VerticalOverflow.png
     :align: center
