@@ -12,6 +12,26 @@ AIMMS 4.83
 #############
 
 
+AIMMS 4.83.4 Release (December 13, 2021 - build 4.83.4.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Checking assertions within a for loop was not always working correctly.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Special values (e.g. 'inf') in WebUI could trigger some false, empty (and therefore confusing) warnings.
+-  Sometimes a WebUI Table pushed outside the reserved widget space or outside its own area from the grid layout. This could result in the Table slightly overlapping with another widget from a neighboring area.
+
+--------------
+
+
+
 AIMMS 4.83.3 Release (December 10, 2021 - build 4.83.3.1).
 ------------------------------------------------------------------------------------------
 
