@@ -111,7 +111,7 @@ Look at the following mapping for a CSV format:
 .. code-block:: xml
 
     <AimmsCSVMapping>
-        <RowMapping>
+        <RowMapping name="table1">
             <ColumnMapping name="set1" binds-to="i"/>
             <ColumnMapping name="set2" binds-to="j"/>
             <ColumnMapping name="d1" maps-to="d1(i,j)"/>
