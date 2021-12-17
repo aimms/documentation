@@ -2868,7 +2868,7 @@ AIMMS 4.66.1 Release (May 3, 2019)
 
 **Please note:** This is the last AIMMS version which is also released in its VS2013 version. Going forward, only VS2017 versions will be released. When using PRO, you will need AIMMS PRO version 2.28 or higher to be able to run the VS2017 versions.
 
-Looking for best practices on how to use AIMMS? Check out the `AIMMS Knowledge Center <https://how-to.aimms.com/>`__.
+Looking for best practices on how to use AIMMS?  Check out the `AIMMS Knowledge Center <https://how-to.aimms.com/>`__.
 
 AIMMS Improvements
 ++++++++++++++++++++
