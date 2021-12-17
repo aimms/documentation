@@ -12,6 +12,21 @@ AIMMS 4.83
 #############
 
 
+AIMMS 4.83.5 Release (December 17, 2021 - build 4.83.5.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In the WebUI you could get incorrect errors on "This identifier is already in use as a keyword" while just opening an option editor for the first time.
+-  In the Table filter dialog, the part with the 'Clear All Filters' was not displayed in the expected style anymore.
+
+--------------
+
+
+
 AIMMS 4.83.4 Release (December 13, 2021 - build 4.83.4.4).
 ------------------------------------------------------------------------------------------
 
