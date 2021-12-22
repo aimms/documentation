@@ -12,6 +12,25 @@ AIMMS 4.83
 #############
 
 
+AIMMS 4.83.6 Release (December 22, 2021 - build 4.83.6.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  While creating new element names via the AIMMSApi (for example in the Data Exchange library) there was an incorrect check on 'what is a valid unicode character'. This check resulted in a severe internal error.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The Slider widget will no longer allow you to edit, nor suggest that you can edit data that is read-only.
+
+--------------
+
+
+
 AIMMS 4.83.5 Release (December 17, 2021 - build 4.83.5.4).
 ------------------------------------------------------------------------------------------
 
