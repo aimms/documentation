@@ -903,9 +903,9 @@ In the illustration above, the two identifiers :token:`SupplyUSAWest(usw)` and :
     In the map widget, for node sets, you can configure the item action to either the identifier that will be specified as the Size of the node set or the set used to define the node set. If item actions have been defined for both the size identifier as well as for the set, the item actions configured for the size identifier will be considered.
     For arc sets, item actions need to be defined on the identifier specified as the Value for the arc set. 
 
-    To configure Item Actions for the Gantt chart the actions should be added to the identifer that is used as the Duration property in the Gantt chart settings.
+    To configure Item Actions for the Gantt chart the actions should be added to the identifier that is used as the Duration property in the Gantt chart settings.
     
-    To configure Item Actions for the Bubble chart the actions should be added to the identifer that is used as the Size property in the Bubble chart settings.
+    To configure Item Actions for the Bubble chart the actions should be added to the identifier that is used as the Size property in the Bubble chart settings.
 
 You could also define different item actions for the same identifier but in two different string parameters and configure each of those string parameters to different widgets.
 

@@ -108,7 +108,7 @@ An example for the body of the Upload procedure is shown below. This particular 
       ! if successful, statusCode is set to 'OK' which will trigger the WebUI to show the message below in a grey box
       StatusCode := webui::ReturnStatusCode('OK'); 
 
-      ! displaying the status message, and logging it in the webui messages
+      ! displaying the status message, and logging it in the WebUI messages
       StatusDescription := "File was uploaded and read successfully"; 
       
    else    !if previous read statement was not successful 

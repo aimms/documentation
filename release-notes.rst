@@ -1677,7 +1677,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  The ``webui::FlagsIdentifier`` annotation was not always taken correctly into account in widgets with multiple identifiers, some of which having indices that were used during aggregation.
--  In rare situations, the webui.json could miss a specific line. If so, not all webui pages were available for navigation using the ``webui::OpenPage`` procedure.
+-  In rare situations, the webui.json could miss a specific line. If so, not all WebUI pages were available for navigation using the ``webui::OpenPage`` procedure.
 -  'Totals on top' were moved to the bottom when a Table column (or row) was sorted. Now, they correctly stick to the top.
 -  Item actions work on touch devices as well now.
 
@@ -2485,7 +2485,7 @@ Resolved WebUI Issues
 -  In the Bubble Chart widget, the Pivot options editor did not work correctly.
 -  Read-only flags were not always immediately updated in the WebUI upon changing.
 -  Tooltips were sometimes shown outside the intended area.
--  Single-page webui apps were converted to the new webui.json format incorrectly in AIMMS 4.68.
+-  Single-page WebUI apps were converted to the new webui.json format incorrectly in AIMMS 4.68.
 
 
 
@@ -3287,7 +3287,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++
 
 -  It could happen that the name and path of a local case file was mentioned in error messages you get when running AIMMS on the PRO system.
--  A definition that was using the :any:`.ProgramStatus` suffix of a math program was not always updated after solving the math program.
+-  A definition that was using the :ref:`.ProgramStatus` suffix of a math program was not always updated after solving the math program.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++

@@ -256,7 +256,7 @@ In the Widget Extensions tab, it is possible to add the string parameters config
     :align: center    
 
 .. note:: 
-    When configuring the string parameter for the Item Actions, the actions should be added to the identifer that is used as the Duration property in the Gantt chart settings in the Add Gantt Layer section.
+    When configuring the string parameter for the Item Actions, the actions should be added to the identifier that is used as the Duration property in the Gantt chart settings in the Add Gantt Layer section.
 	
 Adding, deleting and modifying tasks
 ------------------------------------
