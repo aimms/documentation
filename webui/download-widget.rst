@@ -165,6 +165,8 @@ Set the display text on the download widget here. By default, the text that is d
 .. image:: images/Download_Title.png
     :align: center
 
+.. _download-widget-custom-tooltip:
+
 Custom Tooltip
 ^^^^^^^^^^^^^^
 

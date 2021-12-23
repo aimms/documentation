@@ -52,6 +52,8 @@ Set the button title/text here. You can specify either a literal value like "OK"
 .. image:: images/Button_Title.png
     :align: center
 
+.. _button-widget-custom-tooltip:
+
 Custom Tooltip
 ^^^^^^^^^^^^^^
 

@@ -368,7 +368,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We added support for custom tooltips to the `Button <webui/button-widget.html#custom-tooltip>`_, `Upload <webui/upload-widget.html#custom-tooltip>`_ and `Download <webui/download-widget.html#custom-tooltip>`_ widgets.
+-  We added support for custom tooltips to the :ref:`Button <button-widget-custom-tooltip>`, :ref:`Upload <upload-widget-custom-tooltip>` and :ref:`Download <download-widget-custom-tooltip>` widgets.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
