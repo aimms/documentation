@@ -10,9 +10,9 @@ The Data Exchange library contains a fully asynchronous HTTP client library, bas
 
 .. note::
 	
-	The functions in the `dex::client` namespace offer alternative to the `httpclient` library, fully integrated within the Data Exchange library which will most likely be necessary for API calls anyway to map request bodies and responses to identifiers in the model. Both offer similar functionality, although there are some differences, most notably
+	The functions in the `dex::client` namespace offer an alternative for the `httpclient` library, fully integrated within the Data Exchange library which will most likely be necessary for API calls anyway to map request bodies and responses to identifiers in the model. Both offer similar functionality, although there are some differences, most notably
 	
-	* the `httpclient` library does automatic proxy discovery, while for `dex::client` requests proxy discovery must be performed manually via the :js:func:`dex::client::ProxyResolve` function and subsequently set via the curl `PROXY` option
+	* the `httpclient` library does automatic proxy discovery, while for `dex::client` requests proxy discovery must be performed manually via the :js:func:`dex::client::ProxyResolve` function and subsequently set via the curl `PROXY` option. The function :js:func:`dex::client::DetermineProxyServer` will do perform steps for you.
 	* `dex::client` HTTP requests can make use of all libCurl functionality that is available via libCurl options but not in the `httpclient` library (e.g. SPNEGO authentication)
 	* `dex::client` HTTP requests only support a fully asynchronous execution model, optimized for massive amounts of HTTP/API requests to be executed in parallel
 	
@@ -50,6 +50,77 @@ The Data Exchange library will automatically close a request as soon as the spec
 
 The library has been tested to be able to call a very simple HTTP service (i.e., with an empty response) for 100,000 times over 256 parallel connections within 20 or so seconds, so should able to deal with a more realistic number of calls to a non-trivial service as well. Note that in this case, the time taken to deal with the response in the callback (e.g. reading the data in AIMMS identifiers) may substantially add to the overall time to make and handle all requests.
 
+Using OAuth2 for API authorization
+----------------------------------
+
+The two most common ways to authorize the use of APIs is through the use of
+
+* API keys that you must add to an API-specific header
+* the `OAuth2 authorization protocol <https://oauth.net/2/>`_
+
+While the use of API keys is fairly straightforward, and requires no additional support in AIMMS to use, the implementation of the OAuth2 protocol can be quite intricate, and some authorization flows require support in AIMMS to function at all. For this reason, the Data Exchange library provides all means necessary to effortlessly authorize the use of an API through the OAuth2 protocol.
+
+With the OAuth2 protocol, a client application (i.e., your model) can be authorized to access an API. This authorization can take place at two levels:
+
+* at the application level, where the application itself will be authorized to access the API (called the Client Credentials flow), or
+* the application can get access to the API on behalf of the user operating the application through a UI (called the Authorization Code flow).
+
+For both of these authorization flows, the result of a successful authorization through the OAuth2 protocol will be a `Bearer` token, which, when added to an API call, will authorize the application to access the API with a given level of access for a limited period of time. 
+
+Every client application with access to an API is identified through a `client id` and a `client secret`, which are handed out by the administrator of the API. The level of access to the API is set via one or more `scope`s, which the API administrator also needs to provide to client applications.
+
+To get OAuth2 to work, you further need some end points of the identity platform that is used by the API for authentication and authorization. For both authorization at the application and user level, you will need to know the `token endpoint`, where the application can retrieve the Bearer token. 
+
+When requesting authorization on behalf of an end-user of an application, you further need to supply the `authorization endpoint` of the identity platform, where the end-user needs to authenticate herself with the identity platform, as well as a `redirect url` through which the identity platform can inform the application about the result of the end-user authentication. 
+
+Using the Client Credentials flow
++++++++++++++++++++++++++++++++++
+
+To use the OAuth2 Client Credentials flow, you need to specify the following information
+
+* Identify your AIMMS model as a API client, by adding a client name to the set :token:`dex::oauth::APIClients`, 
+* Provide the `client id`, `client secret` and `token endpoint` for the API client via the string parameter :token:`dex::oauth::APIClientStringData`, and
+* Provide the requested access level through the `scope` provided by the API administrator.
+
+With this information, you can now add a Bearer authorization token to any `dex::client` request :token:`theRequest`, by calling 
+
+	.. code-block:: aimms
+
+		dex::oauth::AddBearerToken(apiClient, theRequest);
+		
+prior to the actual call to :js:func:`dex::client::PerformRequest`. The function :js:func:`dex::oauth::AddBearerToken` will check whether there is still a Bearer token for the given `apiClient` valid up to an interval of :token:`dex::oauth::TokenValidityThreshold` seconds of the token's expiration time, and if not, request a new Bearer token. 
+
+Using the Authorization Code flow
++++++++++++++++++++++++++++++++++
+
+To use the OAuth2 Authorization Code flow, you need to provide, on top of the information you also need for the Client Credentials flow
+
+* the `authorization endpoint` where the end-user needs to authenticate herself,
+* the path part of the `redirect URL` where the used identity platform will need to forward the result of the end-user authorization step to the application.
+
+The following example shows the Authorization Code flow specification required for a client application authorized through the Azure Active Directory identity platform.
+
+  .. code-block:: aimms
+
+	dex::oauth::APIClients := data { MS };
+
+	dex::oauth::APIClientStringData('MS',dex::oauth::apidata) :=$ data { 
+			authorizationEndpoint : "https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/authorize", 
+			tokenEndpoint : "https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token", 
+			clientId : "<client-id>", 
+			clientSecret : "*******************************88", 
+			scope: "https://graph.microsoft.com/User.Read https://graph.microsoft.com/Group.Read.All",
+			redirectPath : "oauth2/"
+		};
+
+When running the AIMMS application locally on your desktop, AIMMS will instantiate a fixed redirect URL :token:`http://localhost/oauth2/`. You need to provide this redirect URL to the API administrator to allow the application to be authorized when run from the desktop. 
+
+With these settings, you can again call the function :js:func:`dex::oauth::AddBearerToken` to add a Bearer token to your API request. In this case, however, the end-user will need to authenticate herself with the identity platform through a brower session that will be initiated by AIMMS on the first call, and optionally on additional calls when a previous Bearer token has expired. 
+
+.. note::
+	
+	At this point AIMMS only offers OAuth2 Authorization Code flow support for AIMMS sessions running locally on the desktop. For offering this authorization flow also via the WebUI session running in the cloud, additional changes are necessary to the AIMMS WebUI and Cloud platform to allow the redirects from the identity platfom to arrive in the data session that initiated the Authorization Code flow. 
+
 Debugging client requests
 -------------------------
 
@@ -63,6 +134,8 @@ When you experience trouble invoking a URL using `dex::client` requests, here ar
 		stringOptions(dex::client::stropt) := { 'PROXY' : proxyURL };   ! instruct libcurl to use the given proxy
 		intOptions(dex::client::intopt) := { 'HTTPPROXYTUNNEL' : 1, 'SSL_OPTIONS' : 2, 'FOLLOWLOCATION' : 1, 'MAXREDIRS' : 10 };
 		dex::client::SetDefaultOptions(intOptions, stringOptions);
+
+The procedure :js:func:`dex::client::DetermineProxyServer` will set these defaults options for. 
 
 * If your request contains a request body, the HTTP client will deduce the content type of the request body from the file extension containing the body, or if it cannot deduce it, set it to `application/octetstream`. You may need to set the `Content-Type` header to a proper value to make the request succeed, specifically when you do a POST request with url-encoded parameters, as follows
 

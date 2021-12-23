@@ -19,6 +19,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.0.19 [23-12-2021]
+	- Add support for the OAuth2 Authorization Code and Client Credentials flows to the Data Exchange library. The Authorization Code flow will currently only function on AIMMS desktop sessions. The Client Credentials flow can be used both in desktop and cloud sessions.
+	
 1.3.0.15 [22-12-2021]
 	- Rows in a CSV and Excel files with an empty value for a binding column would produce duplicate values for the last bound element.
 	- Introduced the attribute :token:`binds-skip-non-existing` that will determine whether to skip rows/objects with an non-existing (or empty) binding or to produce a runtime error. 

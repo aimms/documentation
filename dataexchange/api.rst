@@ -292,6 +292,10 @@ The Data Exchange library contains collection of functions implemented using lib
 	:param url: the URL for which to determine a proxy 
 	:param proxyUrl: output string argument to hold the proxy URL for the given URL.
 	
+.. js:function:: dex::client::DetermineProxyServer
+
+	This function sets common default options for all subsequent `dex::client` requests, in case a HTTP proxy is discovered on the network. 
+	
 .. js:function:: dex::client::Poll
 
 	Convenience function to poll for certain events by executing a procedure at a given interval. This can for instance by used to regularly check the status of a long-running REST call. Only one function can poll at any given moment.
@@ -303,6 +307,16 @@ The Data Exchange library contains collection of functions implemented using lib
 
 	Alterative method to externally stop the sequence of calls to a polling procedure added via :js:func:`dex::client::Poll`.
 	
+Support for OAuth2 authorization
+--------------------------------
+
+.. js:function:: dex::oauth::AddBearerToken
+
+	Add a Bearer token to a given `dex::client` request :token:`theRequest`, after optionally authorizing the client application :token:`apiClient` with the identity platform configured as described in this `section <rest.html#using-oauth2-for-api-authorization>`_. The function will return a return value of 1 on success, or 0 if the authorization failed. In the latter case, the string parameter :token:`dex::oauth::APIClientErrors` contains the error messages returned by the identity platform.
+	
+	:param apiClient: element parameter into :token:`dex::oath::APIClients`, for which the string parameter :token:`dex::oauth::APIClientStringData` holds the client configuration.
+	:param theRequest: `dex`::client` request name to which the Bearer authorization token should be added via the Authorization header.
+
 HTTP Server methods
 -------------------
 
