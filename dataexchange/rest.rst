@@ -67,7 +67,7 @@ With the OAuth2 protocol, a client application (i.e., your model) can be authori
 
 For both of these authorization flows, the result of a successful authorization through the OAuth2 protocol will be a `Bearer` token, which, when added to an API call, will authorize the application to access the API with a given level of access for a limited period of time. 
 
-Every client application with access to an API is identified through a `client id` and a `client secret`, which are handed out by the administrator of the API. The level of access to the API is set via one or more `scope`s, which the API administrator also needs to provide to client applications.
+Every client application with access to an API is identified through a `client id` and a `client secret`, which are handed out by the administrator of the API. The level of access to the API is set via one or more `scopes`, which the API administrator also needs to provide to client applications.
 
 To get OAuth2 to work, you further need some end points of the identity platform that is used by the API for authentication and authorization. For both authorization at the application and user level, you will need to know the `token endpoint`, where the application can retrieve the Bearer token. 
 
