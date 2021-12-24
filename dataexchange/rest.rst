@@ -108,14 +108,14 @@ The following example shows the Authorization Code flow specification required f
 			authorizationEndpoint : "https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/authorize", 
 			tokenEndpoint : "https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token", 
 			clientId : "<client-id>", 
-			clientSecret : "*******************************88", 
+			clientSecret : "*******************************", 
 			scope: "https://graph.microsoft.com/User.Read https://graph.microsoft.com/Group.Read.All",
 			redirectPath : "oauth2/"
 		};
 
 When running the AIMMS application locally on your desktop, AIMMS will instantiate a fixed redirect URL :token:`http://localhost/oauth2/`. You need to provide this redirect URL to the API administrator to allow the application to be authorized when run from the desktop. 
 
-With these settings, you can again call the function :js:func:`dex::oauth::AddBearerToken` to add a Bearer token to your API request. In this case, however, the end-user will need to authenticate herself with the identity platform through a brower session that will be initiated by AIMMS on the first call, and optionally on additional calls when a previous Bearer token has expired. 
+With these settings, you can again call the function :js:func:`dex::oauth::AddBearerToken` to add a Bearer token to your API request. In this case, however, the end-user will need to authenticate herself with the identity platform through a brower session that will be initiated by AIMMS on the first call, and optionally on additional calls when a previous Bearer token has expired and cannot be refreshed.
 
 .. note::
 	
