@@ -243,7 +243,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  The Table widget underwent some refinements in the way it deals with the row and column sizing, which should help in keeping their styling consistent and dependable across the entire table. At 100% browser zoom, custom sizes might be one pixel more or less now. At other zoom levels, rows and columns no longer grow quadratically (so 150% zoom would result in rows being 2.25x as high. Now 1.5x as you would expect), which you will notice in the data/labels showing in existing apps where you had a tight fit. Moreover, we've made sure that scrollbars allow you to reach all of your data, also when the Table is shown in a very small area. And finally, the indicators (fading to white) that show whether there are more rows or columns outside your current viewport position, now work correctly.
+-  The Table widget underwent some refinements in the way it deals with the row and column sizing, which should help in keeping their styling consistent and dependable across the entire table. At 100% browser zoom, custom sizes might be one pixel more or less now. At other zoom levels, rows and columns no longer grow quadratically (so 150% zoom would result in rows being 2.25x as high. Now 1.5x as you would expect), which you will notice in the data/labels showing in existing apps where you had a tight fit. Moreover, we've made sure that scroll bars allow you to reach all of your data, also when the Table is shown in a very small area. And finally, the indicators (fading to white) that show whether there are more rows or columns outside your current viewport position, now work correctly.
 -  The redirects you set up for Workflow steps could be bypassed if your Workflow's pages were nested in a certain way and if you then used the breadcrumb to navigate to a parent page. You will now correctly navigate to where Workflow restrictions should take you.
 -  When having the Sidebar open to show anything else than the Page Navigator or the Widget Manager (i.e. the Case Manager or the Experimental Feature toggles), we no longer show the names and borders of the widget areas on a page with Grid Layout.
 -  Selecting an item from a Legend with read-only contents will no longer result in an error and unclickable items. Behavior for writable contents has not changed.
@@ -426,7 +426,7 @@ Resolved WebUI Issues
 -  Fixed the console error that a Map would issue when the Heatmap data was empty and the visibility of the heatmap was changed.
 -  For element parameters over a calendar, AIMMS WebUI will now first look at a `webui::ElementTextIdentifier` to determine its display value. Only if not specified, the timeslot format of the calendar (or any timeslot format from a convention that overrides the timeslot format of the calendar at hand) will be used.
 -  The `webui::ElementTextIdentifier` annotation is now also considered for element parameters over calendars. This annotation will prevail over any timeslot format (either of the calendar itself or the `webui::ApplicationConvention`).
--  Restored the ability to scroll the contents of Side Panels when the content length requires it, using a scrollbar.
+-  Restored the ability to scroll the contents of Side Panels when the content length requires it, using a scroll bar.
 -  Because toggling the visibility of a widget could lead to 'stale' Option Editors, the editor will now close whenever you edit widget visibility.
 -  When navigating from pages with Workflow to ones without it, Grid Layout pages now properly use all screen real-estate again.
 -  If you were using Side Panels with Grid Layout and the Side Panel contained a Selection Box V2, then you were (wrongly) warned about incompatibility of that combination. This will no longer occur.
@@ -698,7 +698,7 @@ Resolved WebUI Issues
 
 -  Sometimes when slicing a multi-dimensional identifier the index would jump back to the first index while trying to set a slice for another index.
 -  In some situations, specifying a slice for an identifier in a widget, could result in a backend crash.
--  When the windows key is pressed the webUI will now ignore the keypress (or combination of keys pressed), as this could result in unexpected behavior.
+-  When the windows key is pressed the WebUI will now ignore the keypress (or combination of keys pressed), as this could result in unexpected behavior.
 -  Bars in the Gantt chart Widget were sometimes moved outside of the chart area.
 -  Specifying a filter in a column (or row) of a table widget that contained a '-' character (as a result of putting multiple identifiers with a different index domain in the same Table widget) did not work.
 
@@ -717,7 +717,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  If you were combining Grid Layout pages with Side Panels and you were also specifying a layout that called for a vertical scroll bar on that page, you were often faced with the Side panel tabs overlapping the scrollbar, making it nearly inaccessible. This should no longer occur.
+-  If you were combining Grid Layout pages with Side Panels and you were also specifying a layout that called for a vertical scroll bar on that page, you were often faced with the Side panel tabs overlapping the scroll bar, making it nearly inaccessible. This should no longer occur.
 -  The use of formatted numbers in tables, scalars and some other locations did not always result in a correct number being shown. Formatting is now slightly faster, correct up to at least 20 decimal/fraction digits and supports more locales and non-latin characters.
 
 
@@ -775,7 +775,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  The performance of WebUI tables that show indentifiers with a large index domain in combination with annotations and totals has been improved.
--  The performance of webUI tables (with large identifiers that use (complex) domain conditions to restrict the number of non-default entries) has been improved.
+-  The performance of WebUI tables (with large identifiers that use (complex) domain conditions to restrict the number of non-default entries) has been improved.
 -  Empty WebUI translations (entries like Identifier = '') in a `properties` file were ignored since AIMMS 4.78.
 
 
@@ -1940,7 +1940,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++
 
 -  Sometimes, starting up the WebUI in a recent version of AIMMS would display an incorrect 'Compatibility Issue' dialog.
--  We improved the error message (when opening WebUI) in case the 'webui.json' project file is invalid (e.g. as a result of a source control merge conflict being resolved in a faulty way).
+-  We improved the error message (when opening WebUI) in case the ``webui.json`` project file is invalid (e.g. as a result of a source control merge conflict being resolved in a faulty way).
 -  Element parameters in (a subset of) the set AllCases will now, in the WebUI, be displayed by the filename of the corresponding case file (instead of as an integer in the set AllIntegers).
 
 
@@ -2022,7 +2022,7 @@ AIMMS 4.71.2 Release (February 4, 2020)
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  Sometimes when editing a value in a widget on a page with a scrollbar, the page could unexpectedly scroll to a different position after doing so.
+-  Sometimes when editing a value in a widget on a page with a scroll bar, the page could unexpectedly scroll to a different position after doing so.
 -  The Gantt chart could get frozen when resizing a job.
 
 
@@ -2803,7 +2803,7 @@ Resolved WebUI Issues
 
 -  If no value was set for the procedure column in the WidgetActions string parameter identifier, none of the widget actions were listed in the widget.
 -  Widget actions, bar chart settings, line chart settings and store focus options were not displayed in the Options editor when running a WebUI app on an iPad.
--  After editing a cell in a Table involving a vertical scrollbar, the focus on the current element could be lost (i.e. on a row which scrolled out of focus as a result of the edit).
+-  After editing a cell in a Table involving a vertical scroll bar, the focus on the current element could be lost (i.e. on a row which scrolled out of focus as a result of the edit).
 -  It could happen that after using the search box in a Multiselect widget was used, it disappeared. Related, when having 2 Multiselect widgets depending on each other, selecting a value in one could lead to the disappearance of the search box in the other.
 
 
@@ -3611,7 +3611,7 @@ WebUI Improvements
 -  The Barchart and the Linechart widget now offer the possibility to specify a minimum bound, a maximum bound and the step size for the Y-axis. This allows you to provide the end-user of your WebUI apps with more focus on specific parts of your data.
 -  We offer a new option `WebUI maximum number of entries in widget` in the AIMMS project options, to specify how many values will be displayed in a WebUI widget. The default value is 50.000, which has always been the default behind the scenes. In cases of extreme data, you might want to increase this limit. Be aware though that performance may be lower when doing so.
 -  The Map-V2 widget (which is still behind a feature toggle) now offers Store Focus support.
--  The new option `Save webUI state` controls whether the WebUI state is saved when run under PRO. See the help in the options dialog in AIMMS for details.
+-  The new option ``Save webUI state`` controls whether the WebUI state is saved when run under PRO. See the help in the options dialog in AIMMS for details.
 -  When hovering over one of the chart widgets in the WebUI, the hovered over item is now displayed more prominently and the other elements are rendered more light, in order to add even more focus on the current one.
 -  When using the spacebar or a mouse-click to change the value of a checkbox in a Table widget, the focus is not set to the cell below anymore.
 
@@ -4418,7 +4418,7 @@ Resolved WebUI Issues
 -  Tooltips were not displayed anymore when displaying a widget in full screen mode.
 -  Editing a numerical value with more decimals than were displayed in the WebUI, could lead to the actual AIMMS-value being rounded unintentionally.
 -  The Table widget could 'flicker' when the user entered data and used the mouse to click on another cell.
--  When using the horizontal scrollbar, sometimes the last column was not visible at once.
+-  When using the horizontal scroll bar, sometimes the last column was not visible at once.
 -  Sometimes it was impossible to select a value in a Table widget with the mouse in order to edit it from a specific position.
 
 
@@ -4456,7 +4456,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++
 
 -  The more widgets you already had in your application, the slower the creation of new ones would become. This has been addressed.
--  An index domain over a compound set could lead to no data being displayed in the webUI.
+-  An index domain over a compound set could lead to no data being displayed in the WebUI.
 
 
 

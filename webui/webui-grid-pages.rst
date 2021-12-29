@@ -213,7 +213,7 @@ Different types of Custom Layout
 
 The previous explained the general framework for creating custom layouts. The following sections illustrate more specifically how to use pixels (px) or percentages (%) in order to set a fixed width or height to columns or rows in your layouts.
 
-This is useful when you either require a vertical scroll bar or in some cases a horizontal scrollbar, or if you do not want to use the full height or width of your viewport.
+This is useful when you either require a vertical scroll bar or in some cases a horizontal scroll bar, or if you do not want to use the full height or width of your viewport.
 
 To control the height of your application either to a fixed height or to introduce a vertical scroll bar you need to customize the values in `gridTemplateRows` i.e. for the rows. 
 

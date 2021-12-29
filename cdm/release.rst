@@ -19,7 +19,7 @@ New Features and Bug Fixes
 	- CDM service erroneously was set to stopping state while it was actually still waiting for new connections
 
 1.23.0.1 [29-10-2021]
-	- Set default character set for MySQL to utf8mb4 for new CDM schemas to allow for 4-byte UTF-8 characters, and set up the MySQL client for transport of 4-byte UTF-8 characters. For existing schema, you can replace the character set for the *columns* in identifier tables that hold values with 4-byte UTF-8 characters to utf8mb4, in combination with using CDM version >= 1.23.
+	- Set default character set for MySQL to ``utf8mb4`` for new CDM schemas to allow for 4-byte UTF-8 characters, and set up the MySQL client for transport of 4-byte UTF-8 characters. For existing schema, you can replace the character set for the *columns* in identifier tables that hold values with 4-byte UTF-8 characters to ``utf8mb4``, in combination with using CDM version >= 1.23.
 
 1.22.0.15 [09-10-2021]
 	- :js:func:`cdm::CheckoutSnapshot` will now skip non-existing elements when assigning data to model identifiers, instead of producing an error, but only when used with AIMMS versions >= 4.82.4. Such non-existing elements could occur when checking out multiple categories which consisted of a cached snapshot in conjunction with a pull changeset, where the element was deleted in a pull changeset of one category, and some data for that element was changed in another category.
@@ -33,7 +33,7 @@ New Features and Bug Fixes
 	
 1.21.0.4 [21-09-2021]
 	- Notify server of regular client termination
-	- Decrease hardbeat timings to allow for quicker shutdown of on-demand service
+	- Decrease heartbeat timings to allow for quicker shutdown of on-demand service
 	- Serialize access to list of clients in service to prevent potential race condition in shutdown of on-demand service
 	
 1.20.0.6 [12-08-2021]
@@ -64,7 +64,7 @@ New Features and Bug Fixes
 
 1.19.0.6 [20-11-2020]
     - Snapshot updating mechanism could end up in an infinite loop performing a check every millisecond.
-    - Reduce autotermination period by 1 minute.
+    - Reduce auto-termination period by 1 minute.
 
 1.19.0.4 [11-09-2020]
     - Evaluation of :token:`cdm::RevisionBranch` would result in dense execution, taking excessively long for a large number of revisions.
@@ -105,7 +105,7 @@ New Features and Bug Fixes
     - Unitialized local variable could cause crash on Linux.
     
 1.18.0.11 [01-07-2020]
-    - Fixed missing symbol in libcdm.so on Linux
+    - Fixed missing symbol in ``libcdm.so`` on Linux
 
 1.18.0.9 [24-06-2020]
     - Changesets are now compressed during transport to reduce transmission time and in database cache to reduce stored snapshot size.
@@ -121,7 +121,7 @@ NB. Because the wire and storage format for snapshots changed, all cached snapsh
     
 1.17.1.12 [25-02-2020]
     - CDM runtime identifiers for identifiers with defaults and a derived unit, would inadvertently get a default in the base unit, leading to unnecessary commits to the CDM database.
-    - Identifier-specific commit cardinalities could fail the cdm::GetRevisions function for identifiers that no longer exist in the model
+    - Identifier-specific commit cardinalities could fail the ``cdm::GetRevisions`` function for identifiers that no longer exist in the model
     - The CDM runtime could fail when retrieving branch data for branch- and revision-related identifiers in the CDM library with different internal AIMMS storage types.
 
 1.17.1.9 [17-02-2020]

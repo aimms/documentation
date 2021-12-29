@@ -49,7 +49,7 @@ The requestId helps in identifying if a Dialog page or Message Dialog is open. T
 
 The pre-defined function :token:`webui::ReturnStatusCode` has a number of possible arguments (OK, CREATED, BAD_REQUEST, UNAUTHORIZED, CONFLICT and ERROR). Because your procedure is expected to handle the navigation, the status OK is expected if the user is allowed to navigate to the next page successfully. You can use one of the other status codes to signal that the user still needs to stay on the same page. The preferred statuses are OK and ERROR.
 
-The value given for the :token:`statusDescription` will be displayed in the webUI when the returned statusCode is any other than "OK".
+The value given for the :token:`statusDescription` will be displayed in the WebUI when the returned ``statusCode`` is any other than "OK".
 
 Creating the procedure:
 ^^^^^^^^^^^^^^^^^^^^^^^

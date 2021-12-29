@@ -7,7 +7,7 @@ WebUI JSON
 	
 	In the older AIMMS versions up to 4.66, the WebUI `pages <page-manager.html>`_ and the `widgets <widget-manager.html>`_ are/were stored (by the WebUI Server) in the *pages* and *widgets* subfolders of the *WebUI* folder, respectively. 
 
-AIMMS WebUI uses JSON (see https://www.json.org/json-en.html) as the format to store the specification of your WebUI. JSON is a commonly used, very simple, text-based format to transfer data over the web. The 'webui.json' file can be found in the *MainProject/WebUI* subfolder of your project directory and contains the specifications of all pages and widgets which toghether make up your WebUI app.
+AIMMS WebUI uses JSON (see https://www.json.org/json-en.html) as the format to store the specification of your WebUI. JSON is a commonly used, very simple, text-based format to transfer data over the web. The ``webui.json`` file can be found in the *MainProject/WebUI* subfolder of your project directory and contains the specifications of all pages and widgets which toghether make up your WebUI app.
 
 When opening your application in the AIMMS IDE, the *webui.json* file will be automatically generated from your existing setup. During the conversion, only pages and their associated widgets which are actually referenced in the WebUI page manager will be included in the *webui.json* file. The conversion will *not* delete the contents of the existing pages, widgets and application folders on disk, allowing you to still use older AIMMS versions, which depend on the old format. If you make changes to the WebUI using older AIMMS versions, you may delete the *webui.json* file, in which case it will be automatically re-generated upon opening the project with AIMMS 4.67 and higher. However, the changes made with AIMMS 4.67 and higher will never be visible in older AIMMS versions.
 
@@ -16,7 +16,7 @@ If you are using version control on your AIMMS project, please make sure to add 
 WebUI JSON validation schema
 ----------------------------
 
-AIMMS WebUI uses JSON schema validation (see https://json-schema.org/) to impose additional structure to the contents of the 'webui.json' file. The schema validation file *webui-schema.json* is located in the *Bin* subfolder of your AIMMS installation directory. Among others, this schema validation file requires that every widget has a 'type' property, that the 'type' of a page is a known type, that the zoom level of a map widget is a fixed number, or a reference to an AIMMS identifier, etc. 
+AIMMS WebUI uses JSON schema validation (see https://json-schema.org/) to impose additional structure to the contents of the ``webui.json`` file. The schema validation file *webui-schema.json* is located in the *Bin* subfolder of your AIMMS installation directory. Among others, this schema validation file requires that every widget has a 'type' property, that the 'type' of a page is a known type, that the zoom level of a map widget is a fixed number, or a reference to an AIMMS identifier, etc. 
 
 A JSON syntax error will lead to an nonfunctional WebUI. If your *webui.json* contains a JSON syntax error, you may check the syntax using one of the many JSON parsers that are available online (e.g. https://jsonformatter.org/). For example, we have seen missing comma's as a result of a faulty merge conflict resolution.
 

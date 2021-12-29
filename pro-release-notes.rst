@@ -1558,7 +1558,7 @@ AIMMS PRO 2.12.3 Release
                   -  Added more detailed logging and error message in
                      AimmsPROLauncher while launching AIMMS desktop
                      applications when no of concurrent connections
-                     exceeds the limit (by default limit is upto 50
+                     exceeds the limit (by default limit is up to 50
                      connections).
 
 .. _aimms-pro-2.12.2-release:
@@ -1699,7 +1699,7 @@ AIMMS PRO 2.10.6 Release
                      -  When a fatal application error occurs on a
                         solver or data session a dump file is now
                         generated in %AIMMSPRO_DATADIR%\ErrorReports.
-                     -  Fixed an issue with saving the last webUI
+                     -  Fixed an issue with saving the last WebUI
                         data-session state (case file) when large
                         amounts of data were involved.
 
@@ -1951,7 +1951,7 @@ AIMMS PRO 2.9.2 Release
 
                   -  Fixed an issue where incoming websocket traffic
                      could be intermittently truncated due to which
-                     multiselect widget in webUI apps remained empty.
+                     multiselect widget in WebUI apps remained empty.
 
 .. _aimms-pro-2.9.1-release:
 
