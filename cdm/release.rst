@@ -249,7 +249,7 @@ NB. This fix required a change in the format of the changesets sent over the wir
     - Added support for release notes
 
 1.10.0.3 [11-05-2019]
-    - Improve performance by not unnecessarily pulling category data upon new commit notifications when categories were already at the latest revision. Note that the commit notification procedures   have gotten a new optional 4th argument, which is required for this performance improvement to work. If you have implemented a custom commit notification procedure, then you should add the 4th argument and re-visit :js:func:`cdm::DefaultCommitInfoNotification` to investigate what further changes to your custom commit notification procedure are required.
+    - Improve performance by not unnecessarily pulling category data upon new commit notifications when categories were already at the latest revision. Note that the commit notification procedures   have gotten a new optional 4:superscript:`th` argument, which is required for this performance improvement to work. If you have implemented a custom commit notification procedure, then you should add the 4:superscript:`th` argument and re-visit :js:func:`cdm::DefaultCommitInfoNotification` to investigate what further changes to your custom commit notification procedure are required.
 
 1.9.0.12 [25-04-2019]
     - On-demand CDM service in AIMMS cloud could hang on exit, leading to new clients not being serviced properly

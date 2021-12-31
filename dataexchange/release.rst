@@ -102,7 +102,7 @@ New Features and Bug Fixes
     - Allow generic ``RowMapping`` and ``ColumnMapping`` names to be used in row-based formats such as CSV, Excel, and row- and column-oriented JSON mappings next to the mapping type-specific names available before. This allows for easier switching between various mapping types.
     - Allow string values up to 8 kB during data transfer with string parameters in the model. The default max string size is 1 kB, which can be changed via the ``max-string-size`` attribute for particular string-valued nodes mapped onto AIMMS identifiers.
     - Add support for transferring sliced AIMMS data via ``ExternalBinding`` mappings that bind indices to the value of an element parameter.
-    - Allow nodes with an ``included-mapping`` attribute to dynamically map the value of bound indices in the outer mapping to externally bound indices in the included mapping. This allows for splitting mappings into smaller constituing components.
+    - Allow nodes with an ``included-mapping`` attribute to dynamically map the value of bound indices in the outer mapping to externally bound indices in the included mapping. This allows for splitting mappings into smaller constituting components.
     - Allow an index bound via the ``binds-to`` attribute to become available higher up in a JSON/XML tree via the ``implicit-binds-to`` attribute.
     - Allow read filtering by skipping all data that cannot be bound to an existing element via the ``binds-existing`` attribute.
     
@@ -123,7 +123,7 @@ New Features and Bug Fixes
     - Added new mapping attributes ``dense-children``, ``included-mapping`` and ``value``.
     
 1.0.0.24 [27-07-2020]
-    - Name attributes used at mapping locations where no name is needed for a child elemen are now warned against when reading a mapping
+    - Name attributes used at mapping locations where no name is needed for a child element are now warned against when reading a mapping
     - Name-regex attributes used at mapping locations where no name is needed for a child element now result in an error
     - Boolean values in a JSON file are now correctly mapped onto integer, double and string parameters. During a write the value will be output according to the AIMMS storage type.
 

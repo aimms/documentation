@@ -107,7 +107,7 @@ A new declaration has been added to the AimmsWebUI library called Public Page an
 This set has the following elements representing side panels properties: 
 
 #.  ``displayText``: Is the text/label you would like the side panel tab to have. This is an optional field. If left empty, no text will be displayed on the tab.
-#.  ``pageId``: When a page or side panel is created it is has a unique pageId.  You can find all the side panel pageIds in the set AllSidePanelPages. This is a required field.
+#.  ``pageId``: When a page or side panel is created it is has a unique page Id.  You can find all the side panel page Ids in the set AllSidePanelPages. This is a required field.
 
 	.. image:: images/Allsidepanelpagesdata.png
 			:align: center
@@ -165,7 +165,7 @@ In the above data we have not defined values for the color of the icon for the F
 .. note:: 
 
 	* Side panels appear in the same order from top to bottom as they appear in the data of the string parameter.
-	* If you enter an incorrect pageId, then the corresponding side panel tab will not be shown.
+	* If you enter an incorrect ``pageId``, then the corresponding side panel tab will not be shown.
 	* When a side panel tab is open in the WebUI and if the ``displayText``, ``tooltip``, ``icon``, or ``iconcolor`` are changed/updated the side panel does not collapse in the WebUI. Only when the ``pageId`` or ``state`` are changed/updated an open side panel will collapse.
 	
 Configuring the string parameter on respective pages

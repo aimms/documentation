@@ -132,11 +132,11 @@ Public Workflow Support Declarations
 
   * ``displayText`` - The label you want to give to the workflow step
   * ``icon`` - The icon you want to associate with the step. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <css-styling.html#custom-icon-sets>`_ can also be used if required.
-  * ``pageId`` - The pageId of the Page this step should be associated with. Ideally, every page in a workflow is a step in the Workflow Panel. The pageIds can be referred from the pre-declared ``AllRegularPages`` set. Using pageIds of Side Panel or Dialog page will result in unwanted behaviour. **This is a required field.**
+  * ``pageId`` - The page Id of the Page this step should be associated with. Ideally, every page in a workflow is a step in the Workflow Panel. The page Ids can be referred from the pre-declared ``AllRegularPages`` set. Using page Ids of Side Panel or Dialog page will result in unwanted behaviour. **This is a required field.**
   * ``tooltip`` - The text to be displayed when the user hovers over the step
   * ``workflowPageState`` - The workflow state of the page, which may be Active (displayed and clickable), Inactive (displayed and not clickable) or Hidden (not visible). If not defined, by default the state is Hidden. 
   * ``pageDataState`` - The data state of the page, which may be Complete, Incomplete or Error. The specification of this state is optional. If not defined, by default it has an Empty state.
-  * ``redirectPageId`` - The pageId of the page the user should be redirected to when the ``workflowPageState`` is Inactive or Hidden. When the user tries to navigate to an Inactive or Hidden workflow step they are redirected to this page. The pageId's can be referred from the elements of the pre-declared set ``AllRegularPages``.
+  * ``redirectPageId`` - The page Id of the page the user should be redirected to when the ``workflowPageState`` is Inactive or Hidden. When the user tries to navigate to an Inactive or Hidden workflow step they are redirected to this page. The page Id's can be referred from the elements of the pre-declared set ``AllRegularPages``.
 
 .. _extensionorder:
 
@@ -206,7 +206,7 @@ Public Pages Support Procedures
 
 .. aimms:procedure:: OpenSidePanel(pageId) 
 
-	This procedure is used to open side panels via the model with respective pageIds as the argument. 
+	This procedure is used to open side panels via the model with respective ``pageIds`` as the argument. 
 
 .. aimms:procedure:: OpenPage(pageId) 
 
@@ -276,10 +276,11 @@ Remark
 
 Note that when the procedure :any:`SetProgressMessage` is called with an empty string argument, then the displayed message will be set back to the default "Busy" message.
 
+
 RequestPerformWebUIDialog
 =========================
 
-You can call the procedure :any:`RequestPerformWebUIDialog` to display a message dialog in a WebUI page. Along with the message you can also display buttons which you can bind to custom actions.
+You can call the procedure :any:`webui::RequestPerformWebUIDialog` to display a message dialog in a WebUI page. Along with the message you can also display buttons which you can bind to custom actions.
 
 Arguments
 ---------

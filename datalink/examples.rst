@@ -62,7 +62,7 @@ The string value of data map :token:`TemperatureMapping` is the column name and 
 
 The first element in our mapping we specify that we are looking in table "Average High", which is the name of the work sheet in our xlsx file. Then we specify the name of the identifier in AIMMS. Note the subtle difference: the name of the set is "Countries" (plural), while the column name in the spreadsheet is "Country" (singular). 
 
-The column number is 1 and this is lower than that of the other entries of the data map. Indeed, Set elements have to be read first. We can see it is a Set because the domain number (4th column) is 1 (non-zero). The other two entries domain numbers are 0, meaning that they are parameters indexed over specified domain number(s) greater than 0. Following the same logic, in case of multi dimensional parameters the domain numbers of your different Set indices will be 1, 2, 3 etc.
+The column number is 1 and this is lower than that of the other entries of the data map. Indeed, Set elements have to be read first. We can see it is a Set because the domain number (4:superscript:`th` column) is 1 (non-zero). The other two entries domain numbers are 0, meaning that they are parameters indexed over specified domain number(s) greater than 0. Following the same logic, in case of multi dimensional parameters the domain numbers of your different Set indices will be 1, 2, 3 etc.
 
 The code
 ========

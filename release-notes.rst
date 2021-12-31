@@ -401,7 +401,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  If you assign a fixed height widget like the button, compact scalar, label, etc. to a grid with "``gridAutoFlow``": "``row``" and when the visibility of the widget is toggled from visible to hidden, other widgets assigned to the respective grid will not be distributed correctly. Until this matter is addressed in future software versions, the usage of hidden widgets in this specific scenario is not recommended for the time being.
--  Removed/resolved some 'uninitialized data' warnings for some runtime identifiers that are created when you use WebUI Forms.
+-  Removed/resolved some un-initialized data warnings for some runtime identifiers that are created when you use WebUI Forms.
 -  The side panel tab will stay open when the ``displayText``, ``tooltip``, ``icon``, or ``iconcolor`` are changed/updated. Only when the ``pageId`` or ``state`` are changed/updated an open side panel will collapse.
 -  The side panels now listen to the ``state`` property that determines the visibility of the side panel tab. ``Active`` (displayed and clickable) and ``Hidden`` (not displayed).
 
@@ -1554,7 +1554,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  A warning will be shown if a valid page contains an invalid redirectPageId and some error messages related to workflow have been improved.
+-  A warning will be shown if a valid page contains an invalid ``redirectPageId`` and some error messages related to workflow have been improved.
 -  When a bubble was highlighted in a Bubble Chart widget and then an X bubble-point was selected, the previously selected bubble was no longer highlighted.
 
 
@@ -1913,7 +1913,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++
 
 -  The busy screen could be flickering when a dialog page was open in the WebUI.
--  The webui::GetAllPages procedure failed to execute sometimes after creating a new page.
+-  The ``webui::GetAllPages`` procedure failed to execute sometimes after creating a new page.
 
 
 
@@ -3713,7 +3713,7 @@ Resolved WebUI Issues
 -  The new UponChange feature did not work correctly in case you specified the 'hasChanged' argument (i.e. the first argument of the UponChange procedure) to have the binary range.
 -  The Store Focus functionality in the Gantt chart has been made more robust in combination with making changes to jobs.
 -  An error could occure while scrolling in a sorted table for which totals had been specified on some index other than the first index in a part.
--  An execution error in webui::DataChangeMonitorUpdate has been fixed.
+-  An execution error in ``webui::DataChangeMonitorUpdate`` has been fixed.
 
 
 
@@ -5156,7 +5156,7 @@ AIMMS 4.37.4 Release (July 12, 2017 Build 4.37.4.1024)
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  The procedure webui::requestPerformWebUIDialog did not work properly anymore. When called, it displayed an error message about the index webui::rq not being present.
+-  The procedure :any:`webui::RequestPerformWebUIDialog` did not work properly anymore. When called, it displayed an error message about the index webui::rq not being present.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++

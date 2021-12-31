@@ -145,8 +145,8 @@ The URL
 -------
 
 The most important setter from :ref:`Request Getters and Setters <HTTPClient_API_RequestGettersAndSetters>` is the function ``request_setURL``. Without it the request cannot be invoked. 
-The second argument of this function is the url string.
-Because of its importance, this url string will be cleaned and corrected to always end up with a valid URL. If that is not possible the url string is rejected and the URL stays unspecified.   
+The second argument of this function is the URL string.
+Because of its importance, this URL string will be cleaned and corrected to always end up with a valid URL. If that is not possible the URL string is rejected and the URL stays unspecified.   
 
 Cleaning
     Redundant elements are removed.
@@ -175,7 +175,7 @@ In the resulting URL the missing schema ``https`` is filled in and the  erroneou
 
 
 Rejecting
-    Some errors cannot be corrected. Typically this happens when there are illegal characters in the host name. The HTTPClient cannot guess the correct name, so it will reject the url string. A warning will be given because the request cannot be invoked.
+    Some errors cannot be corrected. Typically this happens when there are illegal characters in the host name. The HTTPClient cannot guess the correct name, so it will reject the URL string. A warning will be given because the request cannot be invoked.
 
 Example:
 

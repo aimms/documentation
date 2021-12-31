@@ -44,7 +44,7 @@ Methods for reading and writing data
     
     :param dataFile: the relative path to the data file to write to
     :param mappingName: the name of the mapping to be used for writing
-    :param pretty: indicates whether to use a pretty writer (enhances readibility at the cost of bigger file size)
+    :param pretty: indicates whether to use a pretty writer (enhances readability at the cost of bigger file size)
 
 
 .. js:function::  dex::ReadAllMappings
@@ -125,7 +125,7 @@ The Data Exchange library contains collection of functions implemented using lib
 .. js:function::  dex::client::NewRequest
 
     Create a new HTTP request with (unique) identification :token:`theRequest` to the URL :token:`url`, with method :token:`httpMethod` (optional, default :token:`GET`). Upon response from the web server, the callback method :token:`callback` will be called. The prototype of :token:`callback` should be the same as the function :token:`dex::client::EmptyCallback`. 
-    For :token:`POST` and :token:`PUT` methods, you can specify the file :token:`requestFile` from which to take the request body of the request. If you specify the optional :token:`responseFile` argument, the response body will be captured in the specified file. If ommitted the response body will be silently discarded. The function will return 1 on success, or 0 on failure.
+    For :token:`POST` and :token:`PUT` methods, you can specify the file :token:`requestFile` from which to take the request body of the request. If you specify the optional :token:`responseFile` argument, the response body will be captured in the specified file. If omitted the response body will be silently discarded. The function will return 1 on success, or 0 on failure.
     If a :token:`traceFile` is being specified, tracing for the request will be enabled, and the detail trace output from libcurl will be stored in the specified file. 
     
     :param theRequest: string parameter holding the unique identification of the request.
@@ -256,7 +256,7 @@ The Data Exchange library contains collection of functions implemented using lib
 
 .. js:function::  dex::client::GetErrorMessage
 
-    With this function you can retrieve the Curl error message associated with the error code passed back via a request calbback. The function will return 1 on success, or 0 on failure.
+    With this function you can retrieve the Curl error message associated with the error code passed back via a request callback. The function will return 1 on success, or 0 on failure.
     
     :param errorCode: parameter holding the error code passed back via a request callback
     :param errorMessage: output string parameter holding the associated error message
@@ -283,7 +283,7 @@ The Data Exchange library contains collection of functions implemented using lib
     
 .. js:function::  dex::client::StopClient
 
-    This function close all outstanding requests, and uninitialize libCurl to handle any incoming responses. The function will return 1 on success, or 0 on failure.
+    This function close all outstanding requests, and un-initialize libCurl to handle any incoming responses. The function will return 1 on success, or 0 on failure.
     
 .. js:function:: dex::client::ProxyResolve
 

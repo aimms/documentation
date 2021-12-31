@@ -148,11 +148,11 @@ With each procedure in your model, you can associate a :token:`dex::ServiceName`
     
 * :token:`/api/v1/tasks/{id}/response`
     
-    * :token:`GET`: will return a :token:`404 Not found` if there is no taks with the given id, or :token:`200 OK` with the final response body stored as stored in the file :token:`dex::api::RequestAttribute('response-data-path')` by the service handler procedure.
+    * :token:`GET`: will return a :token:`404 Not found` if there is no task with the given id, or :token:`200 OK` with the final response body stored as stored in the file :token:`dex::api::RequestAttribute('response-data-path')` by the service handler procedure.
     
 * :token:`/api/v1/tasks/{id}/status`
     
-    * :token:`GET`: will return a :token:`404 Not found` if there is no taks with the given id, or :token:`200 OK` with an intermediate status response body stored as stored in the file :token:`dex::api::RequestAttribute('status-data-path')` by the service handler procedure.
+    * :token:`GET`: will return a :token:`404 Not found` if there is no task with the given id, or :token:`200 OK` with an intermediate status response body stored as stored in the file :token:`dex::api::RequestAttribute('status-data-path')` by the service handler procedure.
    
 Activating the REST service
 ---------------------------

@@ -206,7 +206,7 @@ A new declaration for configuring side panels has been added to the AimmsWebUI l
 This set has the following elements representing side panels properties: 
 
 #.  ``displayText``: This is the text/label you would like the side panel tab to have and it is an optional field. If left empty, no text will be displayed on the tab.
-#.  ``pageId``: When a page or side panel is created it is has a unique pageId. You can find all the side panel pageId's in the set AllSidePanelPages. This is a required field.
+#.  ``pageId``: When a page or side panel is created it is has a unique page Id. You can find all the side panel page Id's in the set :any:`webui::AllSidePanelPages`. This is a required field.
 
 	.. image:: images/Allsidepanelpagesdata.png
 			:align: center

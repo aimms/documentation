@@ -94,7 +94,7 @@ The name-binds-to attribute
 
 The :token:`name-binds-to` attribute provides a way of binding the name of an element in a JSON or XML file to an index in your AIMMS model. You would typically use this if a JSON or XML file holds elements with different names but with the same structure. Rather than creating a mapping for each of the elements you can create a mapping where the element names serves as an extra index in the binding of the multi-dimensional identifiers mapped to the values contained in each of the elements.
 
-The :token:`name-regex` attribute should be used in conjuction with a :token:`name-binds-to` attribute, to specify a regular expression to restrict the element to which the :token:`name-binds-to` attribute should be applied. 
+The :token:`name-regex` attribute should be used in conjunction with a :token:`name-binds-to` attribute, to specify a regular expression to restrict the element to which the :token:`name-binds-to` attribute should be applied. 
 
 With the :token:`name-regex-prefix` attribute you can specify a prefix that is used in the JSON, XML, CSV or Excel file, but which should not be included in the element names in the model. Note that the value of the :token:`name-regex-prefix` attribute is automatically prepended to the regular expression specified in the :token:`name-regex` attribute, and subsequently removed from the match if a match has been found.
 
@@ -188,7 +188,7 @@ Note that when reading the contents of the node associated with the included map
 
 It is possible, however, to externally bind the values of bound indices to indices used in the included mapping by specifying an :token:`ExternalBinding` node underneath the node containing the :token:`included-mapping` attribute. To this end, the included mapping itself should have an possess an :token:`ExternalBinding` for the index you want to bind to. In addition, you should specify an :token:`ExternalBinding` node underneath the node with :token:`included-mapping` attribute, with the :token:`binds-to` attribute set to the externally bound index in the included mapping, and the :token:`binding` attribute set to the bound index in the outer mapping you want to bind to. 
 
-You can use external bindings in combination with included mappings to break a longer mapping into its constituing components. Note, however, that breaking up mappings this way will carry a performance penalty, especially if there is a lot of repetition in the nodes using an included mapping. 
+You can use external bindings in combination with included mappings to break a longer mapping into its constituting components. Note, however, that breaking up mappings this way will carry a performance penalty, especially if there is a lot of repetition in the nodes using an included mapping. 
 
 The embedded-mapping attribute
 ------------------------------
@@ -225,7 +225,7 @@ If reading a particular node in the data file, it will first try to bind any ind
 * at direct child nodes through the :token:`binds-to` attribute, or
 * at deeper child nodes that make their indices available through :token:`implicit-binds-to` attributes.
 
-All elements assiocated with indices bound this way will be maintained in a stack of bound indices. 
+All elements associated with indices bound this way will be maintained in a stack of bound indices. 
 
 Subsequently the Data Exchange library will examine all other child nodes. If such a node is a structural or iterative node, it will recursively try to read the data associated with the child node. If the examined node is a value-holding node mapped to an multi-dimensional identifier, the value will be assigned to that identifier. Finally, if the node itself is a value-holding node mapped onto an identifier, it will also assign this value.
 
@@ -234,7 +234,7 @@ If a node in the mapping contains an included mapping, all externally bound indi
 During write
 ------------
 
-When generating a JSON, XML, CSV or Excel file for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes through either the :token:`maps-to`, :token:`write-filter` or :token:`force-dense` attributes, and will try to find the lowest subtuple associated with all these identifiers, for all indices bound at this level (through the :token:`binds-to`, :token:`name-binds-to`, :token:`iterative-binds-to`, or :token:`implicit-binds-to` attributes) while fixing the indices already found at a previous level. If such a subtuple can be found, the new indices at this level will be stored, and any mappped value-holding nodes at this level will be written the associated values of any multi-dimensional identifiers matching with the value of the currently bound indices, and the Data Exchange library will iterate over all any structural or iterative child nodes recursively. If no further multi-dimensional data can be found for a particular node, the Data Exchange library will track back to the parent node, and try to progress there. 
+When generating a JSON, XML, CSV or Excel file for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes through either the :token:`maps-to`, :token:`write-filter` or :token:`force-dense` attributes, and will try to find the lowest sub-tuple associated with all these identifiers, for all indices bound at this level (through the :token:`binds-to`, :token:`name-binds-to`, :token:`iterative-binds-to`, or :token:`implicit-binds-to` attributes) while fixing the indices already found at a previous level. If such a sub-tuple can be found, the new indices at this level will be stored, and any mappped value-holding nodes at this level will be written the associated values of any multi-dimensional identifiers matching with the value of the currently bound indices, and the Data Exchange library will iterate over all any structural or iterative child nodes recursively. If no further multi-dimensional data can be found for a particular node, the Data Exchange library will track back to the parent node, and try to progress there. 
 
 The message here is that an JSON, XML, CSV or Excel sheet tree is generated solely on the basis of multi-dimensional identifiers in the mapping, and *never* on the basis of any of the :token:`binds-to` attributes. Such nodes will be generated based on indices bound by iterating over multi-dimensional data.
 
