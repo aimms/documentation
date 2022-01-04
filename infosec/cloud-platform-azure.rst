@@ -4,14 +4,6 @@ Information security for the AIMMS Cloud Platform (on Azure)
 Backups / Business Continuity / Disaster Recovery
 ----------------------------------------------------
 
-* File storage is on AWS *S3 Buckets*, a Multi-AZ AWS service with a durability of 'eleven nines'. The data is replicated across at least two *Availability Zones* (data centers). **Backups** are made every 24 hours to an isolated account and are retained for at least 30 days. 
-
-* The optional, account-specific Application Databases use AWS' *Multi-AZ RDS* service. The data is replicated across at least two *Availability Zones* (data centers). **Snapshots** are taken every 5 minutes and retained for at least 30 days. **Backups** are made every 24 hours to an isolated account and are retained for at least 30 days. You can contact our support team to restore any of those backups on your live database (or on the side). 
-* **Hardware failover**: Hardware failure will hardly ever cause an outage because all software services are using redundant hardware components. Failed hardware is automatically replaced by AWS, typically within minutes. 
-* **Software failover**: Almost all software services are run redundantly, typically in Docker containers on a cluster of virtual machines and are automatically restarted in case of unplanned termination. 
-* **Disaster recovery**: In case of complete disaster, where our all of our platform accounts are lost (this has never happened to date and can only be caused by a targeted cyber attack or the simultaneous loss of at least two data centers), the infrastructure will be restored by running our automated scripts and the data will be retrieved from the separate isolated backups. For this scenario, the RPO is 24 hours and the RTO is around 2 business days. 
-* **Uptime**: Uptime target for our cloud platform is 99.5%, measured as the total number of hours downtime, including planed downtime, per month divided over the total number of hours in a month. 
-
 * File storage is on Azure *Storage*, an Azure service with a durability of ‘twelve nines’. The data is replicated across 3 *Data Centers* within the Azure *Region* and an additional copy is stored in the Azure *Partner Region*. **Backups** are made every 24 hours to an isolated account and are retained for at least 30 days.
 * The optional, account-specific Application Databases use Azure’s *Flexible Server* MySQL service. The data is replicated across at least two Availability Zones (group of data centres). **Backups** of the transaction logs are taken every 5 minutes and retained for at least 30 days. These permit restores at each 5-minute interval. **Backups** are made every 24 hours to an isolated account and are retained for at least 30 days. You can contact our support team to restore any of those backups on your live database (or on the side).
 * **Hardware failover:** Hardware failure will hardly ever cause an outage because all software services are using redundant hardware components. Failed hardware is automatically replaced by Azure, typically within minutes.
@@ -19,12 +11,11 @@ Backups / Business Continuity / Disaster Recovery
 * **Disaster recovery:** In case of complete disaster, where our all of our platform accounts are lost (this has never happened to date and can only be caused by a targeted cyber attack or the simultaneous loss of at least two data centers), the infrastructure will be restored by running our automated scripts and the data will be retrieved from the separate isolated backups. For this scenario, the RPO is 24 hours and the RTO is around 2 business days.
 * **Uptime:** Uptime target for our cloud platform is 99.5%, measured as the total number of hours downtime, including planed downtime, per month divided over the total number of hours in a month.
 
-
 Data security
 -----------------
-* All AIMMS projects and data files are encrypted and stored on AWS S3 with server-side encryption enabled. AWS generates a unique encryption key for each object, and then encrypts the object using AES-256. The encryption key is then encrypted itself using AES-256, with a master that is stored in a secure location.
-* The application databases use AWS RDS' AES-256 encryption function, also for logs, backups and snapshots. 
-* Application databases are single-customer and are placed in a single-customer VPC, accessible via VPN or via an AIMMS provided application. 
+* All AIMMS projects and data files are encrypted and stored on Azure *Storage* with server-side encryption enabled. Azure *Storage* is encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Encryption keys are managed by Microsoft, including key rotation with Microsoft Azure *Managed Identity*. 
+* The application databases use Azure MySQL *Flexible Server* AES-256 encryption function, also for logs, backups and snapshots.
+* Application databases are single-customer and are placed in a single-customer Vnet, accessible via VPN or via an AIMMS-provided application.
 
 Password security
 -----------------------
@@ -43,9 +34,10 @@ User management
 
 Staff access
 ---------------
-* AIMMS staff cannot sign into customer accounts and/or access customer projects and data, unless the customer provides us with access credentials. 
-* AIMMS staff does have access to all log files, which contain activity logs. 
-* AIMMS staff can only access the AWS consol via a VPN connection, using MFA. In case of employing contractors, these are only given access to the development account for the duration of the assignment, with the  *least privileges* principle applied. Only AIMMS staff have access to the production environments. 
+* AIMMS staff or staff of our contractor Intercept cannot sign into customer accounts and/or access customer projects and data, unless the customer provides us with access credentials.
+* AIMMS staff does have access to all log files, which contain activity logs.
+* Selected AIMMS staff and selected staff of our contractor Intercept can only access the Azure console, using MFA and Azure *Active Directory*. 
+* Production environment configuration changes are only made through scripts. Change access to production environments requires explicit and temporary permission elevation (using Azure *Privileged Identity Management*), only to be used in case of severe incidents. Any manual access by AIMMS or Intercept staff is logged and logs can be made available to customers. 
 
 System security
 ---------------------
