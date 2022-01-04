@@ -10,8 +10,8 @@ ISO 27001 Certified
 
 AIMMS is ISO 27001 certified for 'Development, maintenance, delivery, and support of software and cloud service': 
 
-* :download:`Certificate <resources//aimms_isc.pdf>` 
-* :download:`Statement of Applicability<resources//aimms_soa.pdf>` 
+* :download:`Certificate <resources//ISC_346_122021.pdf>` 
+* :download:`Statement of Applicability<resources//AIMMS_Statement_of_Applicability_21062021.xlsx>` 
 
 Answers for commonly used questionnaires
 ----------------------------------------
