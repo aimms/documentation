@@ -27,5 +27,6 @@ Documentation pages with more details
     :maxdepth: 1
 
     cloud-platform
+    cloud-platform-azure
     aimms-software
     
