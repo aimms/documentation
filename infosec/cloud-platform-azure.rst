@@ -41,12 +41,13 @@ Staff access
 
 System security
 ---------------------
-* All AIMMS software runs inside Docker containers using AWS ECS.
-* These Docker containers use hardened, patched Linux versions. 
+* All AIMMS software runs inside Docker containers using Azure *AKS*.
+* *AKS Nodes* are patched continuously.
+* These Docker containers use hardened, patched Linux versions.
 
 Physical security
 ---------------------
-The AIMMS Cloud Platform is hosted on AWS, meeting the highest standards for physical security, including:
+The AIMMS Cloud Platform is hosted on Azure, meeting the highest standards for physical security, including:
 
 * Restricted perimeter, physical access by authorized data center employees only.
 * Physical access control with security badges or biometric security. 
@@ -67,20 +68,23 @@ Communications
 Network defense
 ----------------------
 * Network firewalls protect network traffic, including protection against DDoS attacks.
-* AWS' Web Application Firewalls using the AWS default rule sets to monitor web traffic. 
-* AWS' intrusion detection services, including *Detective* and *GuardDuty*, help detect intrusions. AIMMS staff will be alerted 24/7 in case of 'High'  or 'Critical' alerts. 
+* Azure *Web Application Firewall* is configured to use the Azure default rule sets to monitor web traffic.
+* The Azure *Kubernetes Cluster* and its access to all components are protected by the web application firewall within *NGINX* and are based on the OWASP-top-10 rule sets.
+* Azure’s intrusion detection services, including *Microsoft Defender for Cloud*, help detect intrusions. Intercept and AIMMS staff will be alerted 24/7 in case of ‘High’ or ‘Critical’ alerts.
+
   
 Logging
 ----------------
-* AWS CloudTrail and AWS Configure are used for logging configuration changes to record all changes to infrastructure configuration.
-* User logons, logon failures and other events potentially indicating security incidents are logged by AIMMS PRO. 
+* Azure *Log Analytics* and Azure *Table Storage* are used for logging configuration changes to record all changes to infrastructure configuration.
+* User logons, logon failures and other events potentially indicating security incidents are logged by AIMMS PRO.
 * No users have permissions for changing or removing logs.
-* Log retention times: indefinite for audit and security logs, 6 months for our cloud operations tool, 1 month for other application logs. 
+* Log retention times: indefinite for audit and security logs, 6 months for our cloud operations tool, 1 month for other application logs.
 
 Third-party security assessments
 -------------------------------------
 * At least annually the AIMMS Cloud Platform undergoes a third-party security assessment including penetration tests. 
 * Any 'critical' or 'high' findings (none to date) are remedied immediately. Other findings are addressed within 12 months. 
+* Microsoft *Defender for Cloud* continuously scans and reports on the security configuration within Azure, results are represented by a *Secure Score*.
 
 Incident management
 ----------------------------
