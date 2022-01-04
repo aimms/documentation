@@ -43,12 +43,12 @@ Staff access
 System security
 ---------------------
 * All AIMMS software runs inside Docker containers using Azure *AKS*.
-* *AKS Nodes* are patched continuously.
 * These Docker containers use hardened, patched Linux versions.
+* *AKS Nodes* are patched continuously.
 
 Physical security
 ---------------------
-The AIMMS Cloud Platform is hosted on Azure, meeting the highest standards for physical security, including:
+The AIMMS Cloud Platform is hosted on Azure, which meets the highest standards for physical security, including:
 
 * Restricted perimeter, physical access by authorized data center employees only.
 * Physical access control with security badges or biometric security. 
