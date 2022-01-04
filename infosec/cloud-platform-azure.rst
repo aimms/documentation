@@ -1,4 +1,4 @@
-Information security for the AIMMS Cloud Platform (on AWS)
+Information security for the AIMMS Cloud Platform (on Azure)
 ============================================================================
 
 Backups / Business Continuity / Disaster Recovery
@@ -11,6 +11,14 @@ Backups / Business Continuity / Disaster Recovery
 * **Software failover**: Almost all software services are run redundantly, typically in Docker containers on a cluster of virtual machines and are automatically restarted in case of unplanned termination. 
 * **Disaster recovery**: In case of complete disaster, where our all of our platform accounts are lost (this has never happened to date and can only be caused by a targeted cyber attack or the simultaneous loss of at least two data centers), the infrastructure will be restored by running our automated scripts and the data will be retrieved from the separate isolated backups. For this scenario, the RPO is 24 hours and the RTO is around 2 business days. 
 * **Uptime**: Uptime target for our cloud platform is 99.5%, measured as the total number of hours downtime, including planed downtime, per month divided over the total number of hours in a month. 
+
+* File storage is on Azure *Storage*, an Azure service with a durability of ‘twelve nines’. The data is replicated across 3 *Data Centers* within the Azure *Region* and an additional copy is stored in the Azure *Partner Region*. **Backups** are made every 24 hours to an isolated account and are retained for at least 30 days.
+* The optional, account-specific Application Databases use Azure’s *Flexible Server* MySQL service. The data is replicated across at least two Availability Zones (group of data centres). **Backups** of the transaction logs are taken every 5 minutes and retained for at least 30 days. These permit restores at each 5-minute interval. **Backups** are made every 24 hours to an isolated account and are retained for at least 30 days. You can contact our support team to restore any of those backups on your live database (or on the side).
+* **Hardware failover:** Hardware failure will hardly ever cause an outage because all software services are using redundant hardware components. Failed hardware is automatically replaced by Azure, typically within minutes.
+* **Software failover:** Almost all software services are run redundantly, typically in Docker containers on a cluster of virtual machines and are automatically restarted in case of unplanned termination.
+* **Disaster recovery:** In case of complete disaster, where our all of our platform accounts are lost (this has never happened to date and can only be caused by a targeted cyber attack or the simultaneous loss of at least two data centers), the infrastructure will be restored by running our automated scripts and the data will be retrieved from the separate isolated backups. For this scenario, the RPO is 24 hours and the RTO is around 2 business days.
+* **Uptime:** Uptime target for our cloud platform is 99.5%, measured as the total number of hours downtime, including planed downtime, per month divided over the total number of hours in a month.
+
 
 Data security
 -----------------
