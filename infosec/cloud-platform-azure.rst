@@ -34,6 +34,7 @@ User management
 
 Staff access
 ---------------
+* Background checks are performed for AIMMS staff and for staff of our contractor Intercept. Staff are contractually bound to information security policies with an option for disciplinary action in case of non-compliance.
 * AIMMS staff or staff of our contractor Intercept cannot sign into customer accounts and/or access customer projects and data, unless the customer provides us with access credentials.
 * AIMMS staff does have access to all log files, which contain activity logs.
 * Selected AIMMS staff and selected staff of our contractor Intercept can only access the Azure console, using MFA and Azure *Active Directory*. 
