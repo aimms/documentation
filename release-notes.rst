@@ -12,6 +12,21 @@ AIMMS 4.83
 #############
 
 
+AIMMS 4.83.8 Release (January 6, 2022 - build 4.83.8.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In a stochastic model a recompilation of the model after a 'commit namechanges' sometimes resulted in a crash.
+-  In an assignment statement where an identifier appeared both at the left and the right hand side of the assignment, using a domain condition with a '(not Index in Set)' could sometimes result in a crash.
+
+--------------
+
+
+
 AIMMS 4.83.7 Release (January 4, 2022 - build 4.83.7.8).
 ------------------------------------------------------------------------------------------
 
