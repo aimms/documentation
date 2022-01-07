@@ -266,3 +266,5 @@ texinfo_documents = [
 
 highlight_language = 'aimms'
 
+spelling_lang='en_US'
+
