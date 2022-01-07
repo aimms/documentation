@@ -162,6 +162,8 @@ Set the display text on the upload widget here. By default, the text that is dis
 .. image:: images/Upload_Title.png
     :align: center
 
+.. _upload-widget-custom-tooltip:
+
 Custom Tooltip
 ^^^^^^^^^^^^^^
 

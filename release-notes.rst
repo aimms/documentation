@@ -12,6 +12,40 @@ AIMMS 4.83
 #############
 
 
+AIMMS 4.83.6 Release (December 22, 2021 - build 4.83.6.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  While creating new element names via the AIMMSApi (for example in the Data Exchange library) there was an incorrect check on 'what is a valid unicode character'. This check resulted in a severe internal error.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The Slider widget will no longer allow you to edit, nor suggest that you can edit data that is read-only.
+
+--------------
+
+
+
+AIMMS 4.83.5 Release (December 17, 2021 - build 4.83.5.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In the WebUI you could get incorrect errors on "This identifier is already in use as a keyword" while just opening an option editor for the first time.
+-  In the Table filter dialog, the part with the 'Clear All Filters' was not displayed in the expected style anymore.
+
+--------------
+
+
+
 AIMMS 4.83.4 Release (December 13, 2021 - build 4.83.4.4).
 ------------------------------------------------------------------------------------------
 
@@ -334,7 +368,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We added support for custom tooltips to the `Button <webui/button-widget.html#custom-tooltip>`_, `Upload <webui/upload-widget.html#custom-tooltip>`_ and `Download <webui/download-widget.html#custom-tooltip>`_ widgets.
+-  We added support for custom tooltips to the :ref:`Button <button-widget-custom-tooltip>`, :ref:`Upload <upload-widget-custom-tooltip>` and :ref:`Download <download-widget-custom-tooltip>` widgets.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
@@ -8168,3 +8202,4 @@ Improvements
     parallelization
     unixODBC
     gridlines
+    unicode

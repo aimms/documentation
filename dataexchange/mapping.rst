@@ -67,6 +67,7 @@ The available mapping attributes are:
 * iterative-reset
 * implicit-binds-to
 * binds-existing
+* binds-skip-non-existing
 * maps-to
 * max-string-size    
 * range-existing
@@ -114,10 +115,12 @@ The implicit-binds-to attribute
 
 By default, if a node in a mapping has sibling nodes, any index bound via a :token:`binds-to` attribute at such a node *n* can be used in any attribute of all nodes in the subtree starting at the *parent* node of *n*. Via the :token:`implicit-binds-to` attribute you can make such an index available for use in subtrees starting at even higher parent nodes. You can use this, for instance, if an id of a JSON/XML data structure, that you intend to use as the index value for all data in such a data structure, is stored deeper in such a data structure. By means of the :token:`implicit-binds-to` attribute you can make sure that the Data Exchange library will first read the entire subtree containing the index value, prior to reading the subtrees where this index is referenced in e.g. a :token:`maps-to` attribute.
 
-The binds-existing attribute
-----------------------------
+The binds-existing and binds-skip-non-existing attribute
+--------------------------------------------------------
 
-The :token:`binds-existing` attribute can be used in conjunction with the :token:`binds-to`, :token:`name-binds-to` and :token:`iterative-binds-to` attribute to indicate that, when reading a data file, now new set elements will be created based on node values or names. If a newly read or generated element is not present in the set, any data value underneath the node to which the element is bound will be skipped (cf. to :token:`iterative-reset` which will return with an error in such a case). This allows for a filtering mechanism where a data file can only be partially read for all nodes that correspond to existing set elements in the model.
+The :token:`binds-existing` attribute can be used in conjunction with the :token:`binds-to`, :token:`name-binds-to` and :token:`iterative-binds-to` attribute to indicate that, when reading a data file, no new set elements will be created based on node values or names. If a newly read or generated element is not present in the set, any data value underneath the node to which the element is bound will be skipped or lead to an error depending on the value of the :token:`binds-skip-non-existing` attribute. This allows for a filtering mechanism where a data file can only be partially read for all nodes that correspond to existing set elements in the model. This option behaves slightly different than the  :token:`iterative-existing` attribute for iterative bindings which will always return with an error in such a case. 
+
+The :token:`binds-skip-non-existing` attribute specifies the desired behavior when the Data Exchange library encounters a non-existing element for a :token:`binds-to` attribute. If you specify a value of 0, an error will be returned, while with the default value of 1 all data dependent on the empty value for the :token:`binds-to` attribute will be silently skipped. You can use this attribute to skip objects or rows that are indexed by empty labels in the data file, but also by non-empty labels that cannot be added to e.g. a defined set in the model.
 
 External bindings in mappings
 -----------------------------

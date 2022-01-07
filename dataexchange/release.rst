@@ -19,12 +19,16 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.0.22 [02-01-2022]
+	- Refresh token could exceed length of 1024 characters, leading to failed OAuth2 refresh token flow.
+	- Added scope to token request.
+	
+
 1.3.0.19 [23-12-2021]
-	- Add support for the OAuth2 Authorization Code and Client Credentials flows to the Data Exchange library. The Authorization Code flow will currently only function on AIMMS desktop sessions. The Client Credentials flow can be used both in desktop and cloud sessions.
+	- Add support for the OAuth2 Authorization Code and Client Credentials flows to the Data Exchange library. The Authorization Code flow will currently only function on AIMMS desktop sessions. The Client Credentials flow can be used both in desktop and cloud sessions.	
 	
 1.3.0.15 [22-12-2021]
-	- Rows in a CSV and Excel files with an empty value for a binding column would produce duplicate values for the last bound element.
-	- Introduced the attribute ``binds-skip-non-existing`` that will determine whether to skip rows/objects with an non-existing (or empty) binding or to produce a runtime error. 
+	- Rows in a CSV and Excel files with an empty value for a binding column would produce duplicate values for the last bound element.	- Introduced the attribute :token:`binds-skip-non-existing` that will determine whether to skip rows/objects with an non-existing (or empty) binding or to produce a runtime error. 
 	
 1.3.0.8 [16-11-2021]
 	- The procedure :any:`dex::ReadAllMappings` would read from a non-existing directory.

@@ -3,6 +3,11 @@ Server-side Logging
 
 All activities of the AIMMS PRO Service, Portal Service and server-side sessions are logged. Such logs may be useful when tracing the cause of unexpected errors that may occur while running AIMMS PRO.
 
+.. note:: 
+
+    Security notice, see:  `Apache log4j vulnerability does not affect AIMMS software <https://community.aimms.com/aimms-pro-cloud-platform-43/apache-log4j-vulnerability-does-not-affect-aimms-software-1123>`_
+
+
 Logs Location
 -------------
 

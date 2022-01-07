@@ -8,7 +8,7 @@ The Button widget allows the user to execute an action upon clicking on it. The 
 
 In the sequel we discuss and illustrate the type of actions which may be specified through the Settings wheel as shown in the picture above.
 
-.. note:: Please note that calling the pre-defined function :any:`ExitAimms` from within WebUI (for example, as part of an action behind a button) is currently not supported and will result in an error (for more info on this function, please see `AIMMS Function Reference <https://manual.aimms.com/_downloads/AIMMS_func.pdf>`_). 
+.. note:: Please note that calling the pre-defined function :any:`ExitAimms` from within WebUI (for example, as part of an action behind a button) is currently not supported and will result in an error (for more info on this function, please see `AIMMS Function Reference <https://documentation.aimms.com/functionreference/>`_). 
    In fact, calling :any:`ExitAimms` only works for the main AIMMS thread itself and not for any of the other AIMMS contexts (of which WebUI is just one example). Exiting only from the underlying AIMMS session itself is not deemed as a proper behavior for an application with Web-based User Interface. See also: `"Constructs to Avoid" section in the AIMMS PRO documentation <../pro/conversion-to-pro.html>`_.
 
 Action
@@ -51,6 +51,8 @@ Set the button title/text here. You can specify either a literal value like "OK"
 
 .. image:: images/Button_Title.png
     :align: center
+
+.. _button-widget-custom-tooltip:
 
 Custom Tooltip
 ^^^^^^^^^^^^^^
