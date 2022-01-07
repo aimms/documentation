@@ -323,7 +323,7 @@ When you want the user to be able to adjust some task property that cannot be ch
 Task update handler
 """""""""""""""""""
 
-The *task update handler* is called when the form is saved by the user (through calling the *SaveForm* procedure that is created in the *AIMMSWebUIRuntime* library by the call to :token:`webui::SetupForm`). This handler is responsible for
+The *task update handler* is called when the form is saved by the user (through calling the *SaveForm* procedure that is created in the *AIMMSWebUIRuntime* library by the call to ``webui::SetupForm``). This handler is responsible for
 
 * creating a new task element (in case a new item is created)
 * initializing (in case of a new item) or updating model data reflecting the changes that have been made

@@ -13,19 +13,19 @@ Setting up a service account
 ++++++++++++++++++++++++++++
 
 As mentioned above your IT department needs to set up a service account, with rights to delegate to any service using Kerberos. This procedure won't be covered in this manual.
-But let's assume that now you have such an account with username *ADUser* and password *ADPassword*. And you have a domain called *ADDomain* that will be used for your users to access AIMMS PRO. And your PRO portal is available at host *pro.myhost.com*.
+But let's assume that now you have such an account with username ``ADUser`` and password ``ADPassword``. And you have a domain called ``ADDomain`` that will be used for your users to access AIMMS PRO. And your PRO portal is available at host ``pro.myhost.com``.
 
 Set Active directory settings under Configuration menu of PRO Portal
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 1. Navigate to `AD settings <admin-config.html#ad-settings>`_ under the Configuration menu of the AIMMS PRO Portal.
-2. Enter *ADDomain* in domain field, *ADUser* in Username field, *ADPassword* in Password field.
+2. Enter ``ADDomain`` in domain field, ``ADUser`` in Username field, ``ADPassword`` in Password field.
 3. Save your configuration by clicking the corresponding button.
 
 Associate the Service Principal Name
 ++++++++++++++++++++++++++++++++++++
 
-To determine the Service Principal Name (SPN) for your PRO server, you must know the DNS name by which PRO clients will reach the PRO server. This is the host name you specified in the **Web URI** field in the PRO Configurator for this node. Assuming this DNS name is *pro.myhost.com*, the Service Principal Name you need to associate with the service account will be *HTTP/pro.myhost.com*
+To determine the Service Principal Name (SPN) for your PRO server, you must know the DNS name by which PRO clients will reach the PRO server. This is the host name you specified in the **Web URI** field in the PRO Configurator for this node. Assuming this DNS name is ``pro.myhost.com``, the Service Principal Name you need to associate with the service account will be ``HTTP/pro.myhost.com``
 (please note the capitals used). 
 
 If the service account username is *ADUser* within the AD domain *ADDomain*, you can associate the SPN with it through the following command:

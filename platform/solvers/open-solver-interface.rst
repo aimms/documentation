@@ -20,4 +20,4 @@ A solver must implement a number of interfaces to allow AIMMS to
 
 You can find more information about the AIMMS OSI in the `Open Solver Interface User’s Guide and Reference <http://download.aimms.com/aimms/AimmsOSI/frames.html?frmname=topic&frmfile=index.html>`_.
 
-The solvers CBC and IPOPT are linked to AIMMS using the AIMMS OSI. The links to these solvers are publically available as part of the AIMMSlinks project, which is an open source project at `COIN-OR <https://github.com/coin-or/AIMMSlinks>`_.
+The solvers CBC and IPOPT are linked to AIMMS using the AIMMS OSI. The links to these solvers are publicly available as part of the AIMMSlinks project, which is an open source project at `COIN-OR <https://github.com/coin-or/AIMMSlinks>`_.

@@ -120,13 +120,13 @@ The library also contains a number of functions to normalize composed Unicode ch
 HTTP Client methods
 -------------------
 
-The Data Exchange library contains collection of functions implemented using libCurl (see the `libCurl documentation <https://curl.se/libcurl/c/>`_). The following methods are exposed by the Data Exchange library to send HTTP client requests and to handle their responses. 
+The Data Exchange library contains collection of functions implemented using ``libCurl`` (see the `libCurl documentation <https://curl.se/libcurl/c/>`_). The following methods are exposed by the Data Exchange library to send HTTP client requests and to handle their responses. 
 
 .. js:function::  dex::client::NewRequest
 
     Create a new HTTP request with (unique) identification :token:`theRequest` to the URL :token:`url`, with method :token:`httpMethod` (optional, default :token:`GET`). Upon response from the web server, the callback method :token:`callback` will be called. The prototype of :token:`callback` should be the same as the function :token:`dex::client::EmptyCallback`. 
     For :token:`POST` and :token:`PUT` methods, you can specify the file :token:`requestFile` from which to take the request body of the request. If you specify the optional :token:`responseFile` argument, the response body will be captured in the specified file. If omitted the response body will be silently discarded. The function will return 1 on success, or 0 on failure.
-    If a :token:`traceFile` is being specified, tracing for the request will be enabled, and the detail trace output from libcurl will be stored in the specified file. 
+    If a :token:`traceFile` is being specified, tracing for the request will be enabled, and the detail trace output from ``libCurl`` will be stored in the specified file. 
     
     :param theRequest: string parameter holding the unique identification of the request.
     :param url: string parameter holding the URL of the request, including any query parameters you want to add to the request.
@@ -134,7 +134,7 @@ The Data Exchange library contains collection of functions implemented using lib
     :param httpMethod: (optional) element parameter into :token:`dex::client::HTTPMethods`, specifying the HTTP method to use for the request (default :token:`GET`)
     :param requestFile: (optional) string parameter holding the filename from which to take the request body
     :param responseFile: (optional) string parameter holding the filename in which  to store the response body
-	:param traceFile: (optional) string parameter holding the filename in which all trace information about the request is being stored
+    :param traceFile: (optional) string parameter holding the filename in which all trace information about the request is being stored
     
 .. js:function::  dex::client::CloseRequest
     
@@ -154,14 +154,14 @@ The Data Exchange library contains collection of functions implemented using lib
 
 .. js:function::  dex::client::SetDefaultOptions
    
-    Using the function :token:`dex::client::SetDefaultOptions` you can specify multiple string and integer-valued Curl options that will be applied to all requests, to modify the behavior of libCurl. All available Curl options can be found in the sets :token:`dex::client::StringOptions` and :token:`dex::client::IntOptions`. For the interpretation of these options please refer to the `Curl options documentation <https://curl.se/libcurl/c/curl_easy_setopt.html>`_. The function will return 1 on success, or 0 on failure. 
+    Using the function :token:`dex::client::SetDefaultOptions` you can specify multiple string and integer-valued Curl options that will be applied to all requests, to modify the behavior of ``libCurl``. All available Curl options can be found in the sets :token:`dex::client::StringOptions` and :token:`dex::client::IntOptions`. For the interpretation of these options please refer to the `Curl options documentation <https://curl.se/libcurl/c/curl_easy_setopt.html>`_. The function will return 1 on success, or 0 on failure. 
     
     :param intOptions: integer parameter over the set :token:`dex::client::intOptions` holding the default integer Curl options to set
     :param stringOptions: string parameter over the set :token:`dex::client::StringOptions` holding the default string Curl options to set
 
 .. js:function::  dex::client::AddRequestOptions
    
-    Using the function :token:`dex::client::AddRequestOptions` you can specify multiple string and integer-valued Curl options to request :token:`theRequest`, to modify the behavior of libCurl. All available Curl options can be found in the sets :token:`dex::client::StringOptions` and :token:`dex::client::IntOptions`. For the interpretation of these options please refer to the `Curl options documentation <https://curl.se/libcurl/c/curl_easy_setopt.html>`_. The function will return 1 on success, or 0 on failure. 
+    Using the function :token:`dex::client::AddRequestOptions` you can specify multiple string and integer-valued Curl options to request :token:`theRequest`, to modify the behavior of ``libCurl``. All available Curl options can be found in the sets :token:`dex::client::StringOptions` and :token:`dex::client::IntOptions`. For the interpretation of these options please refer to the `Curl options documentation <https://curl.se/libcurl/c/curl_easy_setopt.html>`_. The function will return 1 on success, or 0 on failure. 
     
     :param theRequest: string parameter holding the unique identification of the request to add request options to.
     :param intOptions: integer parameter over the set :token:`dex::client::intOptions` holding the integer Curl options to set
@@ -187,14 +187,14 @@ The Data Exchange library contains collection of functions implemented using lib
 
     Using the function :token:`dex::client::AddRequestHeaders` you can specify any HTTP headers you want to add to subsequent request. Notice that some Curl options will also result in the addition of HTTP headers to the request. The function will return 1 on success, or 0 on failure.
     
-    :param headers: string parameter over a (user-defined) set of headernames holding the corresponding header values to add to all subsequent requests.
+    :param headers: string parameter over a (user-defined) set of header names holding the corresponding header values to add to all subsequent requests.
 
 .. js:function::  dex::client::AddRequestHeaders
 
     Using the function :token:`dex::client::AddRequestHeaders` you can specify any HTTP headers you want to add to request :token:`theRequest`. Notice that some Curl options will also result in the addition of HTTP headers to the request. The function will return 1 on success, or 0 on failure.
     
     :param theRequest: string parameter holding the unique identification of the request to add request headers to.
-    :param headers: string parameter over a (user-defined) set of headernames holding the corresponding header values to add
+    :param headers: string parameter over a (user-defined) set of header names holding the corresponding header values to add
 
 .. js:function::  dex::client::AddRequestHeader
 
@@ -216,7 +216,7 @@ The Data Exchange library contains collection of functions implemented using lib
 .. js:function::  dex::client::EmptyCallback
 
     Prototype function for any callback to be added as the :token:`callback` parameter of the function :token:`dex::client::NewRequest`. 
-    Inside the callback you can retrieve info items provided by libCurl and any response headers regarding the executed request, or handle the response file associated with the request. To free resources, the Data Exchange library will delete a request directly after its callback has been called. At such point, you will not be able to retrieve any info items for the request any longer, but, you as a caller will remain responsible for deleting any request and response files you may have specified.
+    Inside the callback you can retrieve info items provided by ``libCurl`` and any response headers regarding the executed request, or handle the response file associated with the request. To free resources, the Data Exchange library will delete a request directly after its callback has been called. At such point, you will not be able to retrieve any info items for the request any longer, but, you as a caller will remain responsible for deleting any request and response files you may have specified.
     
     :param theRequest: string parameter holding the unique identification of the request for which the callback is called.
     :param statusCode: HTTP status code of the response.
@@ -224,7 +224,7 @@ The Data Exchange library contains collection of functions implemented using lib
 
 .. js:function::  dex::client::GetInfoItems
 
-    Using the function :token:`dex::client::GetInfoItems` you can retrieve string- and integer-valued info items provided by libCurl regarding the executed request inside the :token:`callback` function specified in the :token:`dex::client::NewRequest` method. For the interpretation of the available info items, see the `Curl info documentation <https://curl.se/libcurl/c/curl_easy_getinfo.html>`_. The function will return 1 on success, or 0 on failure.
+    Using the function :token:`dex::client::GetInfoItems` you can retrieve string- and integer-valued info items provided by ``libCurl`` regarding the executed request inside the :token:`callback` function specified in the :token:`dex::client::NewRequest` method. For the interpretation of the available info items, see the `Curl info documentation <https://curl.se/libcurl/c/curl_easy_getinfo.html>`_. The function will return 1 on success, or 0 on failure.
     
     :param theRequest: string parameter holding the unique identification of the request for you want to retrieve info items
     :param infoItems: subset of :token:`dex::client::CurlInfoItems` holding the collection of string- or integer-valued info items you want to retrieve.
@@ -233,7 +233,7 @@ The Data Exchange library contains collection of functions implemented using lib
 
 .. js:function::  dex::client::GetStringInfoItem
 
-    Using the function :token:`dex::client::GetStringInfoItem` you can retrieve a single string-valued info item provided by libCurl regarding the executed request inside the :token:`callback` function specified in the :token:`dex::client::NewRequest` method. The parameter :token:`stringinfoId` should hold the id corresponding to the info item taken from the parameter :token:`dex::client:CurlInfoId`. The function will return 1 on success, or 0 on failure.
+    Using the function :token:`dex::client::GetStringInfoItem` you can retrieve a single string-valued info item provided by ``libCurl`` regarding the executed request inside the :token:`callback` function specified in the :token:`dex::client::NewRequest` method. The parameter :token:`stringinfoId` should hold the id corresponding to the info item taken from the parameter :token:`dex::client:CurlInfoId`. The function will return 1 on success, or 0 on failure.
     
     :param theRequest: string parameter holding the unique identification of the request for you want to retrieve info items
     :param stringinfoId: parameter holding the id of the string-valued info item
@@ -241,7 +241,7 @@ The Data Exchange library contains collection of functions implemented using lib
 
 .. js:function::  dex::client::GetIntInfoItem
 
-    Using the function :token:`dex::client::GetStringInfoItem` you can retrieve a single integer-valued info item provided by libCurl regarding the executed request inside the :token:`callback` function specified in the :token:`dex::client::NewRequest` method. The parameter :token:`intinfoId` should hold the id corresponding to the info item taken from the parameter :token:`dex::client:CurlInfoId`. The function will return 1 on success, or 0 on failure.
+    Using the function :token:`dex::client::GetStringInfoItem` you can retrieve a single integer-valued info item provided by ``libCurl`` regarding the executed request inside the :token:`callback` function specified in the :token:`dex::client::NewRequest` method. The parameter :token:`intinfoId` should hold the id corresponding to the info item taken from the parameter :token:`dex::client:CurlInfoId`. The function will return 1 on success, or 0 on failure.
     
     :param theRequest: string parameter holding the unique identification of the request for you want to retrieve info items
     :param intinfoId: parameter holding the id of the integer-valued info item
@@ -283,7 +283,7 @@ The Data Exchange library contains collection of functions implemented using lib
     
 .. js:function::  dex::client::StopClient
 
-    This function close all outstanding requests, and un-initialize libCurl to handle any incoming responses. The function will return 1 on success, or 0 on failure.
+    This function close all outstanding requests, and uninitialize ``libCurl`` to handle any incoming responses. The function will return 1 on success, or 0 on failure.
     
 .. js:function:: dex::client::ProxyResolve
 
@@ -379,3 +379,7 @@ The following functions are available for management of the memory streams.
 	:param streamName: name of memory stream to write content from
 	:param fileName: name of the to which the content of the stream needs to be written.
 	
+
+.. spelling::
+
+    uninitialize

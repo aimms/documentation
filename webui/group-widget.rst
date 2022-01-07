@@ -68,14 +68,14 @@ On the AIMMS model side, you have:
 
     .. important:: 
 
-        Please note that the third argument FormFields of the internal procedure "webui::SetupForm" must be an explicit identifier denoting a set which is a subset of :any:`AllIdentifiers`.
+        Please note that the third argument FormFields of the internal procedure ``webui::SetupForm`` must be an explicit identifier denoting a set which is a subset of :any:`AllIdentifiers`.
 
 On the WebUI side, you have:
 
 4. Widgets:
 
-    * A legend widget called 'SelectedPersons' that will act as a means of selecting an existing person; its content is set to 'SelectedPersons'
-    * A scalar widget called 'theForm' that will be used as a form. Here the user can edit the details for the selected (or new) person. Its content is set to (the generated):
+    * A legend widget called ``SelectedPersons`` that will act as a means of selecting an existing person; its content is set to 'SelectedPersons'
+    * A scalar widget called ``theForm`` that will be used as a form. Here the user can edit the details for the selected (or new) person. Its content is set to (the generated):
 
         * :token:`webui_runtime::myform_PersonName`
         * :token:`webui_runtime::myform_PhoneNumber`

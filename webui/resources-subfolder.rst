@@ -25,9 +25,9 @@ Application-specific images should be stored in the *resources/images* subfolder
 JavaScript
 ----------
 
-Application-specific JavaScript files (e.g. `widget [addons] <own-widgets.html>`_ ) or Unit Support files should be stored in the *resources/javascript* subfolder.
+Application-specific JavaScript files (e.g. `widget [add-ons] <own-widgets.html>`_ ) or Unit Support files should be stored in the *resources/javascript* subfolder.
 
-.. note:: Please note that in your final project version you should not include in this folder any file with a "test" addition to its name, for example, like "theme-switch-addon.test.integration.js". Such files may have a negative impact on the performance of delivering the WebUI components en therefore, they should be removed when the application is being deployed. Currently, AIMMS does not skip any files; it just wraps those files with some try/catch checks in order to avoid JS errors. Please note that AIMMS may skip such files which use the word "test" in the future. 
+.. note:: Please note that in your final project version you should not include in this folder any file with a "test" addition to its name, for example, like ``theme-switch-addon.test.integration.js``. Such files may have a negative impact on the performance of delivering the WebUI components en therefore, they should be removed when the application is being deployed. Currently, AIMMS does not skip any files; it just wraps those files with some try/catch checks in order to avoid JS errors. Please note that AIMMS may skip such files which use the word "test" in the future. 
 
 CSS
 ---

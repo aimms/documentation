@@ -114,7 +114,7 @@ Next, in the attribute form of the identifier for which you want to specify some
 .. image:: images/Annotations_view3.png
     :align: center
 
-Again, the string parameter used in the item text annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier. The specified string for the item text is currently only used by the Gantt chart widget in the AIMMS WebUI. For example, in case the item text string has a value like "Selected Time Interval" for some block in a timeline Gantt chart, this text will appear on the correspoding block in the Gantt chart widget:
+Again, the string parameter used in the item text annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier. The specified string for the item text is currently only used by the Gantt chart widget in the AIMMS WebUI. For example, in case the item text string has a value like "Selected Time Interval" for some block in a timeline Gantt chart, this text will appear on the corresponding block in the Gantt chart widget:
 
 .. image:: images/Annotations_view4_Gantt_text.png
     :align: center
@@ -158,7 +158,7 @@ Such a procedures "upon change" may have any name of choice, so not necessarily 
 If an identifier X does not have the :token:`webui::UponChangeProcedure` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the :token:`UponChange_X` procedure discussed above, if this is present in the model.
 
 .. note::
-	Upon starting up a project AIMMS checks whether ther are old style annotations in your model and if so, AIMMS points them up and recommends updating to new style annotations. 
+	Upon starting up a project AIMMS checks whether there are old style annotations in your model and if so, AIMMS points them up and recommends updating to new style annotations. 
 	 
 	This is controlled through the project option *Check_for_old_style_WebUI_annotations*, which has default value 'Yes'. When this option is set to 'No', the checking step is skipped upon project startup.
 	
@@ -654,7 +654,7 @@ If no display domain has been specified for the shown identifier, then the "Sum"
 
 In case of an active display domain, the differences between the other aggregators, e.g. between "Mean" and "Total mean", between "Count" and "Total count", etc, are similar to the difference between "Sum" and "Total sum" illustrated above.
 
-By default, totals are added "at the bottom" of a sequence of (numerical) values. For example, for the parameter UnitCost(f,c) we may add two aggregators such as "min" and "max" for each of the indexes of the factories f and the distribution centers c, which results in the corresponding aggregated values being displayed at the bottom:
+By default, totals are added "at the bottom" of a sequence of (numerical) values. For example, for the parameter ``UnitCost(f,c)`` we may add two aggregators such as "min" and "max" for each of the indexes of the factories f and the distribution centers c, which results in the corresponding aggregated values being displayed at the bottom:
 
 .. image:: images/Totals_onTop_view0.png
     :align: center
@@ -665,14 +665,14 @@ In this case the Advanced option :token:`Contents.totals` has as value the follo
 
     literal:[{"indexName":"c","operators":["min_only_visible","max_only_visible"]},{"indexName":"f","operators":["min_only_visible","max_only_visible"]}]
 
-However, it seems more natural to move one aggretator, for instance "min", "on top" of the shown sequence of values. For now, this possibility is provided through editing the Advanced option above.
+However, it seems more natural to move one aggregator, for instance "min", "on top" of the shown sequence of values. For now, this possibility is provided through editing the Advanced option above.
 More specifically, one may append the postfix "_on_top" to any existing total specification. For example, if we edit the Advanced option :token:`Contents.totals` to read as
 
 .. code::
 
     literal:[{"indexName":"c","operators":["min_only_visible_on_top","max_only_visible"]},{"indexName":"f","operators":["min_only_visible_on_top","max_only_visible"]}]
 	
-then the "min" aggregators are rendered on top of the correspoding sequence of values:
+then the "min" aggregators are rendered on top of the corresponding sequence of values:
 
 .. image:: images/Totals_onTop_view0Top.png
     :align: center
@@ -770,10 +770,10 @@ Widget Actions can be configured by the application developer via the AIMMS mode
 
 This set has 4 elements representing widget action properties: 
 
-#. *displaytext*: Is the text/label you would like to give the action.  
-#. *icon*: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the `icon list. <../_static/aimms-icons/icons-reference.html>`_		
-#. *procedure*: The procedure you want to call when the respective action is clicked.  
-#. *state*: This is the state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
+#. ``displaytext``: Is the text/label you would like to give the action.  
+#. ``icon``: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the `icon list. <../_static/aimms-icons/icons-reference.html>`_		
+#. ``procedure``: The procedure you want to call when the respective action is clicked.  
+#. ``state``: This is the state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
 
 .. tip:: 
     If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append ``aimms-`` to the selected icon name when adding it to the model. For example: if the icon name is "calculator", then in AIMMS it needs to be ``aimms-calculator``.
@@ -826,7 +826,7 @@ Please notice the different combinations in the widget action menu.
 
 If a procedure is not defined for a certain action, clicking on the action will result in a "No action specified" error.
 
-In case you have a long displaytext for an action, the widget action menu will stretch to a width of 2 columns and ellipsis the text that does not fit. Hovering over the action will show the complete text in the tooltip.
+In case you have a long ``displaytext`` for an action, the widget action menu will stretch to a width of 2 columns and ellipsis the text that does not fit. Hovering over the action will show the complete text in the tooltip.
 
 .. image:: images/WidgetAction_LongDisplayText.png
 			:align: center 
@@ -939,7 +939,7 @@ When Item actions are configured for a widget the default right-click menu for t
 
 In the case of the table and scalar widgets, when the cell is in edit mode (the user double-clicks the cell or is entering any data in the cell) the item action menu will not be displayed. 
 
-In case you have a long displaytext for an action, the item action menu will stretch to a width of 2 columns and ellipsis the text that does not fit. Hovering over the action will show the complete text in the tooltip.
+In case you have a long ``displaytext`` for an action, the item action menu will stretch to a width of 2 columns and ellipsis the text that does not fit. Hovering over the action will show the complete text in the tooltip.
 
 .. image:: images/ItemActions_LongDisplaytext.png
 			:align: center 

@@ -29,7 +29,7 @@ New Features and Bug Fixes
 
 1.22.0.10 [30-09-2021]
 	- Added capability to clone a CDM database from on database to another (see :js:func:`cdm::CloneApplicationDatabase`)
-	- :token:`cdm::CommitTimeout` has been renamed to :token:`cdm::AsyncTimeout`, is now also used for :js:func:`cdm::CloneApplicationDatabase`. Normally, the CDM namechange file should take care of this name change.
+	- :token:`cdm::CommitTimeout` has been renamed to :token:`cdm::AsyncTimeout`, is now also used for :js:func:`cdm::CloneApplicationDatabase`. Normally, the CDM name change file should take care of this name change.
 	
 1.21.0.4 [21-09-2021]
 	- Notify server of regular client termination
@@ -132,14 +132,14 @@ NB. Because the wire and storage format for snapshots changed, all cached snapsh
     - Deleted root set elements would not be deleted properly from other sessions in all circumstances.
     - Re-order changeset handling such that all changesets are retrieved prior to handling all element space changes of all changesets prior to handling all data changes of all changesets in order to prevent root set mismatches when reading multi-dimensional data from a snapshot in some category associated with a root set from another category where the element was deleted during a revision after the snapshot revision.
     - Make rollback more robust against element parameters holding inactive values.
-    - When committing root sets adapt labelmembership of element space.
+    - When committing root sets adapt label membership of element space.
     - Check for incoming notifications after waiting for data changes to allow notifications to be handled prior to auto-committing.
-    - Function to retrieve branchname would actually try to find branch name in databases set.
+    - Function to retrieve branch name would actually try to find branch name in databases set.
     - Elements of defined root sets would not always be committed immediately the first commit after database creation.
     
 1.17.1.2 [12-02-2020]
     - Data changes for identifiers in some category associated with set elements added and removed to a root set contained in another category in a revision range loaded after a cached snapshot would lead to a runtime error, because such set elements would not be contained in this root set when loading the data. Data changes for such elements are now filtered out when loading the data in the AIMMS client.
-    - In rare occassions, CDM could try to retrieve the element name of set elements that were registered as being added at one time, but removed from the model later on, leading to faulty element names. Element names are now registered when the corresponding newly added elements are discovered by CDM.
+    - In rare occasions, CDM could try to retrieve the element name of set elements that were registered as being added at one time, but removed from the model later on, leading to faulty element names. Element names are now registered when the corresponding newly added elements are discovered by CDM.
 
 NB. This fix required a change in the format of the changesets sent over the wire, which is also the format of the cached snapshots in the CDM database. Consequently, any existing old-format snapshots stored in the CDM database will be deleted on first load, and should be re-created from within the CDM-enabled application.
 
@@ -307,3 +307,6 @@ NB. This fix required a change in the format of the changesets sent over the wir
 
 
 
+.. spelling::
+
+    performant

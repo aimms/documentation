@@ -8,7 +8,7 @@ From AIMMS 4.53.1 onwards, we offer a newly designed Page Navigation Menu. This 
 
 The Menu Bar is the primary tool for navigation through AIMMS applications. It consists of two parts: the Top Menu bar and the Bottom Menu Bar.
 
-The menu supports up to a maximum of six columns on one row (width 1024 pixels). AIMMS recommends using no more than that, but the menu does support it if needed by introducing a second row; even adding a 7th column if possible due to wider screen usage. The menu supports up to 10 menu items and five levels of hierarchy. However, AIMMS recommends using no more than three giving you a theoretical 600 pages (6x10x10). If more are needed it could be wise to reconsider the app architecture. We also provide a short `demonstration video <https://gitlab.aimms.com/public-repos/disable-ux-2.0-menu/blob/master/UX2.0-%20New%20MenuBar%20Demo.mp4>`_ of the new menu.
+The menu supports up to a maximum of six columns on one row (width 1024 pixels). AIMMS recommends using no more than that, but the menu does support it if needed by introducing a second row; even adding a 7\ :sup:`th`\  column if possible due to wider screen usage. The menu supports up to 10 menu items and five levels of hierarchy. However, AIMMS recommends using no more than three giving you a theoretical 600 pages (6x10x10). If more are needed it could be wise to reconsider the app architecture. We also provide a short `demonstration video <https://gitlab.aimms.com/public-repos/disable-ux-2.0-menu/blob/master/UX2.0-%20New%20MenuBar%20Demo.mp4>`_ of the new menu.
 
 .. image:: images/PageMenu_Example_6column.png
     :align: center
@@ -61,7 +61,7 @@ The menu is designed to fit well on a viewport of a minimum of 1024px. When the 
 Wide viewport
 -------------
 
-The menu is designed with max 6 columns in mind, however it supports up to 7 columns next to each other on viewports wider than 1024px.
+The menu is designed with max 6 columns in mind, however it supports up to 7 columns next to each other on ``viewports`` wider than 1024px.
 
 .. image:: images/PageMenu_WideViewport.png
     :align: center

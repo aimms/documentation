@@ -85,7 +85,7 @@ There is no limit for the number of steps each workflow may have. As a guideline
 
 In order to configure the steps for the other workflows, one may just select the respective value for :any:`webui::indexWorkflowOrder` at the top in the Data page.
 
-For instance, 3 steps may be configured for the 2nd workflow Inventory Management as follows:
+For instance, 3 steps may be configured for the 2\ :sup:`nd`\  workflow Inventory Management as follows:
 
 .. image:: images/Workflow_MyWorkflowStepsParameter_2.png
     :align: center
@@ -269,8 +269,8 @@ Some applications have multiple user types, which each have their own goal and f
 
 *Above: example of the Workflow panel in S&OP Navigator.*
 
-Do's and don'ts
----------------
+Do's and do not's
+-----------------
 
 ✅ Do  
 
@@ -289,3 +289,8 @@ Steps should be self sufficient, meaning that users don’t need to navigate to 
 🚫 Don’t  
 
 You should not require users to exit and re-enter the workflow in order to complete it.
+
+.. spelling::
+
+    workflowPageState
+    pageDataState

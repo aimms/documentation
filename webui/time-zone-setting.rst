@@ -19,8 +19,8 @@ To activate the Time Zone Panel, toggle the switch for the "Time Zone Setting" o
 
 To create a multi-timezone application, the Timezone Support section has been added to the AIMMS WebUI Library. The next few sections describe some of the sets, identifiers, and procedures which you need to know and which will help you when building your multi-timezone application.
 
-webui::DisplayTimeZones Set
-+++++++++++++++++++++++++++
+``webui::DisplayTimeZones`` Set
++++++++++++++++++++++++++++++++
 
 The dropdown in the time zone panel gets the values from the ``webui::DisplayTimeZones`` set. This set contains all the time zones available in AIMMS that are displayed with the UTC offset and region. This makes it easy for the user to identify and select the desired time zone. The user can also search for a time zone by typing the city name:
 
@@ -36,15 +36,15 @@ then the users will see only those three options in the list:
 .. image:: images/TimeZone_ThreeTimeZones.png
     :align: center
 
-webui::DisplayTimeZone
-++++++++++++++++++++++
+``webui::DisplayTimeZone``
+++++++++++++++++++++++++++
 
 ``webui::DisplayTimeZone`` is an element parameter ranged over the ``webui::DisplayTimeZones`` set. This element parameter holds the value of the selected application time zone in the time zone panel.
 
 By default, ``webui::DisplayTimeZone`` does not hold any value. ``webui::DisplayTimeZone`` can also be initialized when the application is loaded. The application time zone will be set to the time zone that has been initialized. When the user changes the application time zone from the time zone panel, the corresponding value is set to ``webui::DisplayTimeZone``.
 
-webui::WebApplicationTimeZone
-+++++++++++++++++++++++++++++
+``webui::WebApplicationTimeZone``
++++++++++++++++++++++++++++++++++
 
 ``webui::WebApplicationTimeZone`` is an element parameter ranged over ``webui::AllTimeZones`` that is used in the model when configuring a calendar. ``webui::WebApplicationTimeZone`` should be used in defining the Timeslot format for a calendar, as illustrated below.
 
@@ -55,8 +55,8 @@ webui::WebApplicationTimeZone
 
 When ``webui::WebApplicationTimeZone`` is used in the display formats, the date and time change according to the time zone that is selected in the time zone panel. 
 
-webui::IgnoreDST
-++++++++++++++++
+``webui::IgnoreDST``
+++++++++++++++++++++
 
 ``webui::IgnoreDST`` is a binary parameter used to decide whether daylight savings time should be considered or not. By default ``webui::IgnoreDST`` is set to 0, which infers that the application will consider daylight saving time. If the value is set to 1, the application will not consider daylight saving time. 
 
@@ -74,8 +74,8 @@ If you want to display "DST" at the end of the date and/or time based on dayligh
         }
     }
 
-webui::ApplicationHourlyTimeSlotFormat and webui::ApplicationMinuteTimeSlotFormat
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+``webui::ApplicationHourlyTimeSlotFormat`` and ``webui::ApplicationMinuteTimeSlotFormat``
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ``webui::ApplicationHourlyTimeSlotFormat`` and ``webui::ApplicationMinuteTimeSlotFormat`` are string parameters already defined in the AIMMS WebUI library that can be used in the Timeslot format for calendar. These can be used as references to create custom formats as well.
 
@@ -99,13 +99,13 @@ webui::ApplicationHourlyTimeSlotFormat and webui::ApplicationMinuteTimeSlotForma
         "%c%y-%m-%d %H:%M %TZ(webui::WebApplicationTimeZone)|\"\"|\" DST\"|"
     endif;
 
-webui::TimeZoneChangeHook
-+++++++++++++++++++++++++
+``webui::TimeZoneChangeHook``
++++++++++++++++++++++++++++++
 
 ``webui::TimeZoneChangeHook`` is an element parameter that is ranged over ``AllProcedures``. This can be used to invoke any procedure when ``webui::DisplayTimeZone`` or ``webui::IgnoreDST`` is changed.
 
-Configuring Calendars with webui::WebApplicationTimeZone 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configuring Calendars with ``webui::WebApplicationTimeZone``
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 When using a calendar, the data in the calendar are set in the 'Local' time zone, typically where the application is hosted. When configuring multi-user time zone applications, the Timeslot format for the calendar should contain ``%TZ (webui::WebApplicationTimeZone)`` with the specified format, as defined below: 
 
@@ -143,7 +143,7 @@ When designing a multi-timezone application we recommend following some best pra
 
 #. In the database, when representing a field as a date, please assign the datatype as datetime.
 
-#. Use the DST format in the timeformat for the conventions in order to indicate daylight saving time in the WebUI. For example: 
+#. Use the DST format in the time format for the conventions in order to indicate daylight saving time in the WebUI. For example: 
 
         ``"%c%y-%m-%d %H:%M %TZ(webui::WebApplicationTimeZone)|\"\"|\" DST\"|"``
 

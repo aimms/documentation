@@ -45,7 +45,7 @@ Widget development tutorial
 
 To get you up-and-running with minimal effort, in the first few tutorials will try to minimize background information and only explain the essentials. Later tutorials will then provide means of explaining the underlying design decisions.
 
-It is important that you have done some of the End-user and App-dev tutorials prior to starting these tutorials. Or, that you have otherwise familiarized yourself with the AIMMS WebUI. You are also required to have some experience in HTML5 (i.e. JavaScript, CSS, HTML, ...).
+It is important that you have done some of the End-user and App-developer tutorials prior to starting these tutorials. Or, that you have otherwise familiarized yourself with the AIMMS WebUI. You are also required to have some experience in HTML5 (i.e. JavaScript, CSS, HTML, ...).
 
 .. toctree::
 

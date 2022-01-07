@@ -92,7 +92,7 @@ WebUI app (in development mode), as we think this is the most convenient way (bu
 works for you). The WebUI app that we will be using for this, is the NetworkData app from the WebUI-Examples
 repository on GitHub.com.
 
-First, we will set up the NetworkDataApp. If you already have the NetworkData app on your filesystem, you
+First, we will set up the NetworkDataApp. If you already have the NetworkData app on your file system, you
 can skip this step. If you do not, then you will have to retrieve it from the WebUI-Examples repository
 on GitHub. There are two ways to do this: by using Git, or as a zip-file. To keep it simple we'll just
 download as zip.

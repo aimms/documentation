@@ -79,7 +79,7 @@ Identifier Settings
 In the Identifier Settings tab of the widget's options editor, one can apply a display domain or some slicing to the data identifier(s).
 
 In the "Set display domain" section, a constant or a model identifier may be specified. The bar chart will then only display data points for which the display condition is evaluated as true.
-In our example, when Transport(f,c) is specified as display domain for UnitCost(f,c), then the bar chart only display the unit costs for the (f,c) combination for which the Transport(f,c) is
+In our example, when Transport(f,c) is specified as display domain for ``UnitCost(f,c)``, then the bar chart only display the unit costs for the (f,c) combination for which the Transport(f,c) is
 not 0, as illustrated below:
 
 .. image:: images/BarChart-ViewDispDom.png

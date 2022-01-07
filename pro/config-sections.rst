@@ -131,8 +131,8 @@ A list of settings for the servers that can be used by the AIMMS PRO server to d
 For each node you can change the following settings:
 
 * Capacity: the number of parallel sessions that this node can handle at a time.
-* Internal URI: The host to which AIMMS PRO web server will connect to the backend server. The value entered here should have a matching 'ports to listen' configuration. Format: *://:* (e.g. tcp://myhost:19340).
-* Web URI: The host (without schema or port) by which AIMMS PRO web server will be available in user's browser. Usually, the default value is correct. Change this if the PRO host has a different hostname on the external network (the one that users are on). Format: *://:* (e.g. myhost).
+* Internal URI: The host to which AIMMS PRO web server will connect to the backend server. The value entered here should have a matching 'ports to listen' configuration. Format: *://:* (e.g. ``tcp://myhost:19340``).
+* Web URI: The host (without schema or port) by which AIMMS PRO web server will be available in user's browser. Usually, the default value is correct. Change this if the PRO host has a different hostname on the external network (the one that users are on). Format: *://:* (e.g. ``myhost``).
 
 
 .. note::
@@ -231,3 +231,7 @@ You may select several backups and delete them if needed. You may not restore an
 .. note::
     
     This backup section provides only possibility to backup AIMMS PRO database and its configuration files (that are located in **%AIMMS_PRO_DATA%\Config** folder, e.g. C:\\ProgramData\\AimmsPRO\\Config\\). PRO administrator needs to backup the **storage folder** using some external tools if that is needed (for example, `this way <https://technet.microsoft.com/en-us/library/dd851825.aspx>`_). There are lot of tools available for incremental backups.
+
+.. spelling::
+
+    cron

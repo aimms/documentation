@@ -180,9 +180,9 @@ The data change handler in this tutorial is implemented as follows:
 Error handling
 --------------
 
-The *onDone* method has a *status* object as its argument. Any *status code* other than
+The ``onDone`` method has a *status* object as its argument. Any *status code* other than
 the number 200 indicates an error. In case of an error, the *status description* contains a description
-of the error. The following *onDone* handler will, in case of an error, show a dialog box with the error code 
+of the error. The following ``onDone`` handler will, in case of an error, show a dialog box with the error code 
 and description. In addition, the *value* attribute of the cell will be restored to its original value
 (which is still in scope) and the jQuery *blur* method will be called to remove the focus from the
 cell element.
@@ -199,7 +199,7 @@ cell element.
     });
 
 
-Having added the above *onDone* handler, the widget will come up with an pop-up whenever you try to enter
+Having added the above ``onDone`` handler, the widget will come up with an pop-up whenever you try to enter
 the string "A" as a new value (figure 2).
 
 .. image:: images/error-400.png

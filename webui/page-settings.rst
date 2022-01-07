@@ -39,13 +39,13 @@ The  procedure should have three arguments, in the exact order below:
 
 Please note that the arguments should have the exact names as stated, as they are treated in a special way in the underlying procedure call mechanism.
 
-The requestId and statusCode arguments should be filled as follows:
+The ``requestId`` and ``statusCode`` arguments should be filled as follows:
 
-:token:`requestId := webui::OpenDialogPage or webui::RequestPerformWebUIDialog`
+``requestId := webui::OpenDialogPage or webui::RequestPerformWebUIDialog``
 
 :token:`statusCode := webui::ReturnStatusCode('OK');`  
 
-The requestId helps in identifying if a Dialog page or Message Dialog is open. This allows interaction when the user is not allowed to leave that page. 
+The ``requestId`` helps in identifying if a Dialog page or Message Dialog is open. This allows interaction when the user is not allowed to leave that page. 
 
 The pre-defined function :token:`webui::ReturnStatusCode` has a number of possible arguments (OK, CREATED, BAD_REQUEST, UNAUTHORIZED, CONFLICT and ERROR). Because your procedure is expected to handle the navigation, the status OK is expected if the user is allowed to navigate to the next page successfully. You can use one of the other status codes to signal that the user still needs to stay on the same page. The preferred statuses are OK and ERROR.
 
@@ -94,12 +94,12 @@ For illustration, we have a binary parameter PageChange_Flag which determines if
     	requestId := webui::RequestPerformWebUIDialog("Error on Page", "There is an error on page and you can't navigate to the next page.",MyActions,'Procedure_Actions');
     endif;
 
-When the PageChange_Flag is 0, the statusCode returned is ERROR, which keeps the user on the same page. Then the message dialog opens to display the message. When the PageChange_Flag is 1, the user can navigate to the respective page.
+When the PageChange_Flag is 0, the ``statusCode`` returned is ERROR, which keeps the user on the same page. Then the message dialog opens to display the message. When the PageChange_Flag is 1, the user can navigate to the respective page.
 
 Maximum Number of Columns
 =========================
 
-You may find that when you change your window size, the widgets re-arrange too often. A simple way to prevent this is to limit the maximum number of columns. You can do this via the 'page settings' icon |cog-grey| on the app menu bar. At the *miscellaneous* tab |page-misc| of the page settings you can edit the maxcolumns value (the maximum value that this setting may have is 14 columns):
+You may find that when you change your window size, the widgets re-arrange too often. A simple way to prevent this is to limit the maximum number of columns. You can do this via the 'page settings' icon |cog-grey| on the app menu bar. At the *miscellaneous* tab |page-misc| of the page settings you can edit the ``maxcolumns`` value (the maximum value that this setting may have is 14 columns):
 
 .. image:: images/PageSettings_snap4.png
     :align: center    

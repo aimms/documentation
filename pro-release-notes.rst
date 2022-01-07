@@ -11,7 +11,7 @@ On September 28, 2021, we released AIMMS PRO 2.39.1 (2.39.1.1).
 
 **Improvements**
 
--  **Cloud:** Extended AIMMS PRO Library with *pro::management::RetrieveAccountInfo* which allows you to retrieve your AIMMS Cloud Platform Account characteristics (i.e. DNS_NAME, CONCURRENT_SOLVES, CONCURRENT_USERS, CUSTOMIZATION_PROFILE, SOLVER_LICENSES). Please note that this does require an **AIMMS Version 4.82** or higher.
+-  **Cloud:** Extended AIMMS PRO Library with ``pro::management::RetrieveAccountInfo`` which allows you to retrieve your AIMMS Cloud Platform Account characteristics (i.e. DNS_NAME, CONCURRENT_SOLVES, CONCURRENT_USERS, CUSTOMIZATION_PROFILE, SOLVER_LICENSES). Please note that this does require an **AIMMS Version 4.82** or higher.
 
 **Resolved Issues**
 
@@ -52,7 +52,7 @@ On March 23, 2021, we released AIMMS PRO 2.37.2 (2.37.2.2).
 
 **Improvements**
 
--  Updated AIMMS PRO AppLauncher with the recent .NET verion 4.7 such that it can support the servers which uses TLS 1.3.
+-  Updated AIMMS PRO AppLauncher with the recent .NET version 4.7 such that it can support the servers which uses TLS 1.3.
 -  **Cloud:** Added validation for a 'Company CIDR' such that it validates the specified network range while adding a VPN connection for a cloud application database.
 -  **Cloud:** Added validation for a database 'Username' while creating a cloud application database.
 
@@ -83,7 +83,7 @@ On January 7, 2021, we released AIMMS PRO 2.36.3 (build 2.36.3.5).
 **Resolved Issues**
 
 - When the Applauncher fails to download a complete file this file will now be removed, causing next launch to re-attempt to download that file, instead of using the leftover corrupt file.
-- Fixed an issue where it always require to authenticate again during SAML/ADFS authentication for the users who use Microsoft Azure AD as a SAML/ADFS indentity provider.
+- Fixed an issue where it always require to authenticate again during SAML/ADFS authentication for the users who use Microsoft Azure AD as a SAML/ADFS identity provider.
 -  **Cloud:** The update to TLS v1.3 caused incompatibilities with he MS SQL Server ODBC driver, resulting in crash. This has been fixed.
 -  **Cloud:** Fixed a rare issue with computing the current license usage.
 
@@ -108,8 +108,8 @@ On September 15, 2020, we released AIMMS PRO 2.36.1 (2.36.1.1).
 
 **Improvements**
 
--  We have extended logging for AimmsPROAppLauncher with more infomation in the ProWebLink logfile and the error dialog to the user.
--  When the AimmsPROAppLauncher.exe is installed using elevated rights, AimmsPROAppLauncher logfile(ProWebLink.log) will be written to ``%HOMEDRIVE%%HOMEPATH%/ProWebLink.log`` allowing the normal users to write to the logfile. (For normal installation it will still write to ``%LOCALAPPDATA%/AIMMS/PRO/AppLauncher/<version>/ProWebLink.log``)
+-  We have extended logging for AimmsPROAppLauncher with more information in the ``ProWebLink`` log file and the error dialog to the user.
+-  When the AimmsPROAppLauncher.exe is installed using elevated rights, AimmsPROAppLauncher log file(``ProWebLink.log``) will be written to ``%HOMEDRIVE%%HOMEPATH%/ProWebLink.log`` allowing the normal users to write to the log file. (For normal installation it will still write to ``%LOCALAPPDATA%/AIMMS/PRO/AppLauncher/<version>/ProWebLink.log``)
 
 
 **Resolved Issues**
@@ -183,9 +183,9 @@ On February 7, 2020, we released AIMMS PRO 2.34.2(2.34.2.1).
 
 -  **On-Premise:** Meaningful naming for AIMMS PRO Session logs, which
    now includes AppName, AppVersion, startupMode and timeStamp in the
-   logfile name. (Please note that once you upgrade your PRO to 2.34.2,
+   log file name. (Please note that once you upgrade your PRO to 2.34.2,
    please do 'Restore all to defaults' and 'Save Settings' from Portal's
-   Configuration >> Log Management Menu then only Session logfile name
+   Configuration >> Log Management Menu then only Session log file name
    can have these attributes)
 
 **Resolved Issues**
@@ -234,7 +234,7 @@ On October 18, 2019, we released AIMMS PRO 2.33.2(2.33.2.2).
 
 -  **On-Premise:** Fixed an issue where upon connection loss between
    solver session and the backend the solver session would run the
-   optimization procedure a 2nd time.
+   optimization procedure a 2\ :sup:`nd`\  time.
 -  **AIMMS Cloud Platform:** Space (' ') character is no longer allowed
    for passwords when creating the Cloud Application Database.
 -  **AIMMS Cloud Platform:** On the Apps page, the tip to first
@@ -263,8 +263,8 @@ On September 24, 2019, we released AIMMS PRO 2.33.1(2.33.1.1).
 
 **Improvements**
 
--  Extended AIMMS PRO Library with *pro::storage::ExistsBucket* and
-   *pro::storage::ExistsObject* which allows you to check whether
+-  Extended AIMMS PRO Library with ``pro::storage::ExistsBucket`` and
+   ``pro::storage::ExistsObject`` which allows you to check whether
    Directories or Files exist in the AIMMS PRO Storage. For details,
    please see the
    `documentation <https://manual.aimms.com/pro/pro-data-man.html#checking-folders-or-files-exists-in-the-pro-storage>`__.
@@ -464,8 +464,8 @@ On February 15, 2019, we released AIMMS PRO 2.30.1 (2.30.1.3).
 **Improvements**
 
 -  Extended AIMMS PRO Library with
-   *pro::messaging::GetQueueAuthorization* and
-   *pro::messaging::UpdateQueueAuthorization* to have more control on
+   ``pro::messaging::GetQueueAuthorization`` and
+   ``pro::messaging::UpdateQueueAuthorization`` to have more control on
    the Queue Authorization. For details, please see the
    `documentation <https://manual.aimms.com/pro/pro-messaging.html>`__.
    (This does require an AIMMS Version 4.63 or higher).
@@ -600,7 +600,7 @@ On September 25, 2018, we released AIMMS PRO 2.27.0 (2.27.0.4).  
 
 **Improvements**
 
--  Metering service (which stores memory and cpu usage of the PRO
+-  Metering service (which stores memory and CPU usage of the PRO
    session to database) is refactored for internal improvement.
 -  Increased default timeout for WinUI session from 1 minute to 15
    minutes.
@@ -643,10 +643,10 @@ Feature Release.
    or 'Security' window in the 'Application details' of the selected
    Project could lead to a crash.
 -  Fixed an issue with the AIMMS PRO API where it displayed incorrect
-   fatal log message immidiately after closing the server connection
+   fatal log message immediately after closing the server connection
    without any actual error.
 -  Fixed an issue with the AIMMS PRO API where
-   *server.downloadStorageFileToLocalFile* could not create the file in
+   ``server.downloadStorageFileToLocalFile`` could not create the file in
    specified directory and could create 0 kb file when downloading
    non-existing file from storage.
 -  Fixed an issue with the PRO Case Manager where it could take long
@@ -675,7 +675,7 @@ On July 20, 2018, we released AIMMS PRO 2.25.0 (2.25.0.476).
    DelegateToServer. For details, see the
    `documentation <https://manual.aimms.com/pro/solver-lease.html>`__.
    This does require an AIMMS Version 4.57 or higher.
--  AIMMS PRO Sessions are now logged to a seperate file per session
+-  AIMMS PRO Sessions are now logged to a separate file per session
    under log/Sessions folder of the Server. This also fixes the issue
    where session could fail when two sessions writing to Session.log at
    the same time.
@@ -764,7 +764,7 @@ On June 26, 2018, we released AIMMS PRO 2.24.0 (2.24.0.437).
 
 -  Improved error message when user cannot access the AIMMS PRO data
    folder while opening WinUI app.
--  **On-premise**: Metering service (which stores memory and cpu usage
+-  **On-premise**: Metering service (which stores memory and CPU usage
    of the PRO session to database) is adjusted such that it no longer
    submits telemetry by default.
 
@@ -805,7 +805,7 @@ this release are listed below.
 -  Fixed an issue where retrieving PRO environments/users could fail
    within AIMMS PRO API.
 -  Fixed an issue where data could not be loaded in WebUI session when
-   you interrupt/cancle solve.
+   you interrupt/cancel solve.
 -  AIMMS Cloud Platform: Fixed an issue where it was no longer possible
    to add 'IP Ranges' for more than 5 cloud accounts in US region.
 -  AIMMS Cloud Platform: Fixed an issue where AIMMS PRO portal could not
@@ -937,7 +937,7 @@ On February 16, 2018, we released AIMMS PRO 2.21.0 (2.21.0.325).
 
 **Resolved Issues**
 
--  Fixed an issue where pro::PROUserFullname and pro::PROUserEmail could
+-  Fixed an issue where ``pro::PROUserFullname`` and ``pro::PROUserEmail`` could
    be blank when used in Desktop/WebUI Applications. This does require a
    new AIMMS version >= 4.50.
 
@@ -1367,9 +1367,9 @@ AIMMS PRO 2.13.4 Release
 
                   **Resolved Issues**
 
-                  -  Fixed an issue with displaying non-latin characters
+                  -  Fixed an issue with displaying non-Latin characters
                      in WebUI applications.
-                  -  Fixed an issue with presence of non-latin
+                  -  Fixed an issue with presence of non-Latin
                      characters in resources of WebUI applications.
                   -  Fixed an issue with upload files functionality in
                      WebUI applications.
@@ -1576,7 +1576,7 @@ AIMMS PRO 2.12.2 Release
                   **Resolved Issues**
 
                   -  Fixed an issue where
-                     pro::RetrieveFileFromCentralStorage did not return
+                     ``pro::RetrieveFileFromCentralStorage`` did not return
                      1 on a successful file retrieval.
                   -  Fixed an issue where uploading a file through
                      UploadWidget in WebUI applications resulted in
@@ -1597,7 +1597,7 @@ AIMMS PRO 2.12.1 Release
                   **Improvements**
 
                   -  Added new parameter 'ReconnectToRunningSessions'
-                     under pro::session in AIMMS PRO Library, which will
+                     under ``pro::session`` in AIMMS PRO Library, which will
                      allow not to reconnect to status updates when set
                      to 0.
 
@@ -1605,12 +1605,12 @@ AIMMS PRO 2.12.1 Release
 
                      **Resolved Issues**
 
-                     -  Added pro::NormalizeStoragePath and
-                        pro::SplitStoragePath to the interface of the
+                     -  Added ``pro::NormalizeStoragePath`` and
+                        ``pro::SplitStoragePath`` to the interface of the
                         AIMMS PRO Library, hence it’s available from
                         outside the PRO Library.
-                     -  Fixed an issue where licenseName argument of
-                        pro::DelegatetoServer was not taken into
+                     -  Fixed an issue where ``licenseName`` argument of
+                        ``pro::DelegatetoServer`` was not taken into
                         account.
 
 .. _aimms-pro-2.12-release:
@@ -1628,7 +1628,7 @@ AIMMS PRO 2.12 Release
                   **Improvements**
 
                   -  Extended **AIMMS PRO API** with a new method
-                     ‘Server.deleteFileFromStorage’ which deletes a file
+                     ``Server.deleteFileFromStorage`` which deletes a file
                      from AIMMS PRO storage. For details, see `the
                      documentation <https://documentation.aimms.com/pro/api.html>`__.
 
@@ -1698,7 +1698,7 @@ AIMMS PRO 2.10.6 Release
 
                      -  When a fatal application error occurs on a
                         solver or data session a dump file is now
-                        generated in %AIMMSPRO_DATADIR%\ErrorReports.
+                        generated in ``%AIMMSPRO_DATADIR%\ErrorReports``.
                      -  Fixed an issue with saving the last WebUI
                         data-session state (case file) when large
                         amounts of data were involved.
@@ -1734,7 +1734,7 @@ AIMMS PRO 2.10 Release
                      when it has a very long name with character ‘_’
                      (underscore).
                   -  Fixed an issue where user could be redirected to
-                     adLogin login page due to browser’s adblocker
+                     adLogin login page due to browser’s ad-blocker
                      setting of users.
                   -  Fixed an issue where AIMMS PRO was creating many
                      JVM mini dump files on the PRO server.
@@ -1838,7 +1838,7 @@ AIMMS PRO 2.9.6 Release
                      minute to 1 hour in AIMMS PRO API.
                   -  AIMMS PRO Portal now gives message when files are
                      not downloaded correctly to the client and it
-                     deletes files from %localappdata%\Aimms\PRO\\
+                     deletes files from ``%localappdata%\Aimms\PRO\\``
                      folder so that it can be downloaded again
                      successfully.
 
@@ -2017,8 +2017,8 @@ AIMMS PRO 2.8 Release
                   **New Feature**
 
                   -  Extended **AIMMS PRO API** with two new methods
-                     ‘Server.downloadStorageFileToLocalFile’ and
-                     ‘Server.uploadLocalFileToStorage’ which allows to
+                     ``Server.downloadStorageFileToLocalFile`` and
+                     ``Server.uploadLocalFileToStorage`` which allows to
                      put and get files in/from the AIMMS PRO Storage so
                      that the AIMMS models can work get data from
                      externally generated input files and output results
@@ -2073,11 +2073,11 @@ AIMMS PRO 2.7 Release
 
                   -  Fixed an issue causing the AIMMS PRO desktop client
                      not to start for users that have
-                     non-utf7-characters in their Windows login name
+                     non-UTF7-characters in their Windows login name
                      (i.e. äbc, ééms).
                   -  Fixed an issue causing message-processing to stop
                      under certain conditions when invoking
-                     pro::messaging::WaitForMessages.
+                     ``pro::messaging::WaitForMessages``.
                   -  Fixed an issue where AIMMS PRO Desktop client was
                      not able to reconnect to active solver session by
                      using request manager’s progress window option when
@@ -2142,9 +2142,9 @@ AIMMS PRO 2.6.2.324 Release
                      users from another environments that belong to a
                      group from his/her group.
                   -  Fixed an issue that caused the AIMMS PRO Desktop
-                     client not to start correctly when the solvers.slv
+                     client not to start correctly when the ``solvers.slv``
                      file was present inside the published aimmspack.
-                  -  AIMMS PRO portal now supports .gif  for Login page
+                  -  AIMMS PRO portal now supports ``.gif``  for Login page
                      background image and for Company logo.
 
                   
@@ -2279,7 +2279,7 @@ AIMMS PRO 2.4.2 Release
                   have been made in this release:
 
                   -  Fixed an issue with opening a model with the
-                     ‘&’-sign in the namesolved.
+                     ‘&’-sign in the ``namesolved``.
                   -  Fixed an issue with deleting some apps that were
                      published in earlier versions of AIMMS PRO.
                   -  Fixed an issue with migration from PRO 1.0
@@ -2366,7 +2366,7 @@ AIMMS PRO 2.3.2.136 Release
                      (C:\ProgramData\AimmsPRO\Data\storage\) and the
                      publishing folder
                      (C:\ProgramData\AimmsPRO\Data\publishing\).
-                     – After installing this hotfix your publishing
+                     – After installing this Hotfix your publishing
                      folder will be automatically cleaned up from all
                      obsolete data
                      – If you upgrade from AimmsPRO-2.3.1.108 or lower,
@@ -2422,7 +2422,7 @@ AIMMS PRO 2.3.1 Release
                   been made in this release:
 
                   -  There were some problems with the
-                     pro::authentication::GetEntityList function.
+                     ``pro::authentication::GetEntityList`` function.
                   -  The ‘revert to user default layout ‘ functionality
                      for WebUI applications didn’t always work
                      correctly.
@@ -2564,3 +2564,14 @@ AIMMS PRO 2.1 Release
                         2.1 to use AIMMS 4.4. You need to republish all
                         existing PRO desktop apps if you want to benefit
                         from the ‘one firewall port’ feature.
+
+.. spelling::
+
+    startupMode
+    timeStamp
+    iFrame
+    vcredist
+    dlls
+    adLogin
+    äbc
+    ééms

@@ -3,7 +3,7 @@ AIMMS Release Notes
 
 .. topic:: Hotfix Releases
 
-   We release hotfixes for severe bugs as soon as possible after internal testing. For less severe bugs, we may combine several fixes into a single release.
+   We release Hotfixes for severe bugs as soon as possible after internal testing. For less severe bugs, we may combine several fixes into a single release.
 
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
@@ -145,10 +145,10 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  In rare cases, opening a model could yield an incorrect "range violation" warning.
--  Reading a runtime identifier from a case file using the case-dot notation (like in caseIndex.runtimeLibPrefix::runtimeIdentifier) did not result in any data being read from the case file.
+-  Reading a runtime identifier from a case file using the case-dot notation (like in ``caseIndex.runtimeLibPrefix::runtimeIdentifier``) did not result in any data being read from the case file.
 -  The data of runtime identifiers is now always included in a case file, unless this is explicitly disabled via the property 'NoSave'. When reading back such a case these runtime identifiers should be present, otherwise the corresponding data in the case file is just ignored.
--  Although it is not used that often, a scalar identifier can have a domain condition (specified like this: " | myCondition "). This condition was not always applied correctly during execution.
--  For procedures with a large number of arguments (like pro::sessionmanager::ListSessionsSinceDate) the tooltip text was not displayed correctly.
+-  Although it is not used that often, a scalar identifier can have a domain condition (specified like this: " | ``myCondition`` "). This condition was not always applied correctly during execution.
+-  For procedures with a large number of arguments (like :any:``pro::sessionmanager::ListSessionsSinceDate``) the tooltip text was not displayed correctly.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
@@ -169,7 +169,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  The function :any:`Round` when handled by the new compiler and engine had a small difference compared to the implementation in the old engine. In some rare situations where both implementations were used next to each other this could lead to wrong results. Now both the new and the old engine use the exact same implementation to do the rounding.
--  The intrinsic functions :any:`Character` and :any:`CharacterNumber` now also support the unicode characters in the range U+10000 to U+1FFFF.
+-  The intrinsic functions :any:`Character` and :any:`CharacterNumber` now also support the Unicode characters in the range U+10000 to U+1FFFF.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
@@ -212,8 +212,8 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  In AIMMS 4.82 and above, you could get an incorrect error message about a cyclic definition when introducing a set definition equal to the union of some subsets (parentSet = subSet1 + subSet2). This happened only in the same session where you edited the set's definition attribute, so the error was not there after re-opening the model. 
--  If a set has a definition equal to the union of some subsets (parentSet = subset1 + subset2) then the content of that set can be changed by changing the content of either of these subsets. If this definition was removed then it was sometimes still possible to change the set via its subsets.
+-  In AIMMS 4.82 and above, you could get an incorrect error message about a cyclic definition when introducing a set definition equal to the union of some subsets (``parentSet = subSet1 + subSet2``). This happened only in the same session where you edited the set's definition attribute, so the error was not there after re-opening the model. 
+-  If a set has a definition equal to the union of some subsets (``parentSet = subset1 + subset2``) then the content of that set can be changed by changing the content of either of these subsets. If this definition was removed then it was sometimes still possible to change the set via its subsets.
 -  The AIMMS API could not deal with data defined over non-existing elements provided by CDM in particular situations.
 -  If the solve of a MIP problem was interrupted inside a time callback then the solve of the postsolve problem (if any) would also be interrupted.
 
@@ -222,7 +222,7 @@ Resolved WebUI Issues
 
 -  Ignoring the 'special values in WebUI are not supported warning' could lead to loads of these warnings being sent at the same time, which could eventually lead to a crash.
 -  There were some issues with editing group widgets: they could not be edited anymore and buttons in edit mode of group widgets displayed erratically.
--  We addressed an unexpected warning message about "webui::ClientBrowserName" that users occasionally encountered when opening an empty WebUI page.
+-  We addressed an unexpected warning message about ``webui::ClientBrowserName`` that users occasionally encountered when opening an empty WebUI page.
 
 --------------
 
@@ -237,7 +237,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  The procedure attribute 'Uses runtime libs' (introduced in AIMMS 4.82.1) has been included in the set :any:`AllAttributeNames`.
--  The statement 'Empty myDatabaseTable;' did not first update any of the attributes of the Database table. This could lead to the situation that for example the string parameter holding the data source name was still empty.
+-  The statement ``Empty myDatabaseTable;`` did not first update any of the attributes of the Database table. This could lead to the situation that for example the string parameter holding the data source name was still empty.
 -  When deleting a definition of a parameter or set it could happen that you got errors that the identifier seemed to still have a definition.
 
 Resolved WebUI Issues
@@ -261,7 +261,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  If an identifier has a unit specification containing an expression over an indexed unit parameter (as in: [m]/myUnitParam(i)), you now get a warning when you try to display this identifier in the WebUI. The reason for this is that the unit analysis implementation in AIMMS is not yet capable to deal with the multi-threaded way that WebUI retrieves the data, resulting in internal errors. To work around this limitation, you can create a new unit parameter: myUnitParam2(i) with the definition [m]/myUnitParam(i), and then use this new unit parameter as the unit of the identifier that you want to display in the WebUI. If you ignore this new warning, the data will now be displayed as if no unit was specified.
+-  If an identifier has a unit specification containing an expression over an indexed unit parameter (as in: ``[m]/myUnitParam(i)``), you now get a warning when you try to display this identifier in the WebUI. The reason for this is that the unit analysis implementation in AIMMS is not yet capable to deal with the multi-threaded way that WebUI retrieves the data, resulting in internal errors. To work around this limitation, you can create a new unit parameter: ``myUnitParam2(i)`` with the definition ``[m]/myUnitParam(i)``, and then use this new unit parameter as the unit of the identifier that you want to display in the WebUI. If you ignore this new warning, the data will now be displayed as if no unit was specified.
 -  AIMMS cannot handle constraints that contain conditions (using $ or | operators) that have references to stochastic identifiers. When such a condition was used inside the iterative operator SUM, no error message was given but it did not work as expected. Now you do get the error message when the condition in a SUM contains stochastic references.
 
 Resolved WebUI Issues
@@ -283,7 +283,7 @@ AIMMS Improvements
 +++++++++++++++++++++++++
 
 -  Procedures now have an additional attribute: 'Uses runtime libs'. A procedure with this attribute specified can use identifiers of the indicated runtime libraries, as long as they exist when the procedure is called. Model editing procedures are prohibited within procedures that use this feature. More information can be found `here <https://documentation.aimms.com/language-reference/advanced-language-components/model-structure-and-modules/runtime-libraries-and-the-model-edit-functions.html#rubric-runtime-usesruntimelibs>`__.
--  An optional argument, called feasTol, was added to the procedure :any:`GMP::Solution::Check`. This argument is used to determine the feasibility tolerance used by this procedure. If a constraint violation is smaller than this tolerance then it will be ignored. If this argument is not passed, or if it is set to a negative value, the option 'Constraint Listing Feasibility Tolerance' is used as the feasibility tolerance.
+-  An optional argument, called ``feasTol``, was added to the procedure :any:`GMP::Solution::Check`. This argument is used to determine the feasibility tolerance used by this procedure. If a constraint violation is smaller than this tolerance then it will be ignored. If this argument is not passed, or if it is set to a negative value, the option 'Constraint Listing Feasibility Tolerance' is used as the feasibility tolerance.
 -  The function :any:`GMP::Instance::GenerateStochasticProgram` now generates stochastic rows for all scenarios (instead of only for the representative scenarios), if the generation mode equals 'CreateNonAnticipativityConstraints'.
 -  The analysis of using non-initialized identifiers inside a definition evaluation has been improved. This may lead to some new warnings in existing models. 
 -  You now get an error on parameters with a definition where the property Stochastic is irrelevant, because the definition is not referring to any other stochastic identifier.
@@ -380,7 +380,7 @@ Resolved AIMMS Issues
 
 -  There is a new option 'case_save_defined_identifiers'. If you set this option to 'Off' you easily exclude all identifiers with a definition from a case during saving. When you only create cases for standard save and load sequences and not use any of the multiple case comparison features in the language or WebUI, this option may help to decrease both the time to write a case file and the size of a case file.
 -  When saving a case, any identifier that (indirectly) depends on the pre-defined set :any:`AllDataFiles` or :any:`AllCases` will no longer be included in the case. Besides that this gave unexpected errors during the save operation, it seems rather useless to store data of other cases inside a case and it is not really defined how this data will be read back. If you encounter problems with this new behavior, please let us know.
--  The optional argument 'evalInline' has been added to the procedures :any:`GMP::Solution::SendToModel` and :any:`GMP::Solution::SendToModelSelection`. It can be used to disable the evaluation of inline variables (if any).
+-  The optional argument ``evalInline`` has been added to the procedures :any:`GMP::Solution::SendToModel` and :any:`GMP::Solution::SendToModelSelection`. It can be used to disable the evaluation of inline variables (if any).
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
@@ -401,7 +401,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  If you assign a fixed height widget like the button, compact scalar, label, etc. to a grid with "``gridAutoFlow``": "``row``" and when the visibility of the widget is toggled from visible to hidden, other widgets assigned to the respective grid will not be distributed correctly. Until this matter is addressed in future software versions, the usage of hidden widgets in this specific scenario is not recommended for the time being.
--  Removed/resolved some un-initialized data warnings for some runtime identifiers that are created when you use WebUI Forms.
+-  Removed/resolved some uninitialized data warnings for some runtime identifiers that are created when you use WebUI Forms.
 -  The side panel tab will stay open when the ``displayText``, ``tooltip``, ``icon``, or ``iconcolor`` are changed/updated. Only when the ``pageId`` or ``state`` are changed/updated an open side panel will collapse.
 -  The side panels now listen to the ``state`` property that determines the visibility of the side panel tab. ``Active`` (displayed and clickable) and ``Hidden`` (not displayed).
 
@@ -440,7 +440,7 @@ Resolved WebUI Issues
     
     </strike>
 
-.. note:: The release notes have been updated. The last bullet point will be part of the next hotfix release and is not present in this hotfix release.
+.. note:: The release notes have been updated. The last bullet point will be part of the next Hotfix release and is not present in this Hotfix release.
 
 --------------
 
@@ -519,7 +519,7 @@ Resolved WebUI Issues
 -  The progress message, which is displayed when the WebUI is busy, now shows an ellipsis in the end when the message is too long.
 -  A new widget with a name consisting of only numbers was not displayed on the WebUI when being added. There were also console errors.
 -  The selection box did not display the value that was selected for a calendar element parameter with element text.
--  Item actions did not appear when a Barline chart was resized or made fullscreen.
+-  Item actions did not appear when a Barline chart was resized or made full-screen.
 -  Gantt chart jobs could sometimes extend beyond their designated area.
 
 
@@ -587,8 +587,8 @@ AIMMS Improvements
 
   more info on logging can be found `here <https://how-to.aimms.com/Articles/329/329-more-logging.html>`__.
 
--  In order to activate the logging configuration (LoggerConfig.xml), in addition to using the `--logcfg` command line option there is now another possibility. When AIMMS is started directly with a project name (for example, double-clicking on a .aimms project file) and there is a LoggerConfig.xml file in the same folder with the project file, then this LoggerConfig.xml file will be picked up automatically and no `--logcfg` option is needed anymore.   
--  When exporting an end-user version (creating an .aimmspack) if your application uses libraries from the online library repository, you can now choose to include the sources of these libraries in the .aimmspack. This was already possible for the Windows part but not for the Linux part. So now, also when running on the (Linux) cloud, the sources don't need to be downloaded during startup.
+-  In order to activate the logging configuration (LoggerConfig.xml), in addition to using the `--logcfg` command line option there is now another possibility. When AIMMS is started directly with a project name (for example, double-clicking on a ``.aimms`` project file) and there is a LoggerConfig.xml file in the same folder with the project file, then this LoggerConfig.xml file will be picked up automatically and no `--logcfg` option is needed anymore.   
+-  When exporting an end-user version (creating an ``.aimmspack``) if your application uses libraries from the online library repository, you can now choose to include the sources of these libraries in the ``.aimmspack``. This was already possible for the Windows part but not for the Linux part. So now, also when running on the (Linux) cloud, the sources don't need to be downloaded during startup.
 -  The time needed to read or write a case file has been improved. This has been achieved by a slightly different case format for which you can select the character encoding to be used to store strings and element names. Especially on Linux this leads to a much a faster read. To use this you should set the option `case_compatibility` to `AIMMS_4_80` and specify the most suitable value for option `case_string_character_set`.
 
 Resolved AIMMS Issues
@@ -607,7 +607,7 @@ WebUI Improvements
 -  Now the Dialog and Side Panel page types can also be designed using the Grid Layout Experimental Feature.
 -  We introduced custom sizing for the Dialog page.
 -  The tabs on a Side Panel can now have a colored icon on it for easier identification.
--  We introduced the 'selectionbox-v2' widget as an experimental feature. The widget uses a new technology stack and should use less resources and support a large number of items (more than tens of thousands) in the selectionbox dropdown. We also foresee a significant page load performance increase on pages with a lot of selectionboxes. Please note: a selectionbox-v2 requires the page to use the Grid Layout.
+-  We introduced the 'selectionbox-v2' widget as an experimental feature. The widget uses a new technology stack and should use less resources and support a large number of items (more than tens of thousands) in the selectionbox dropdown. We also foresee a significant page load performance increase on pages with a lot of ``selectionboxes``. Please note: a selectionbox-v2 requires the page to use the Grid Layout.
 -  The animation that occurs when navigating between WebUI pages has been changed to be more agreeable and to have less impact for more users.
 -  We improved the performance of opening the option dialog of a widget.
 
@@ -712,13 +712,13 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  Creating an .aimmspack file could go wrong if the project folders contained empty files.
+-  Creating an ``.aimmspack`` file could go wrong if the project folders contained empty files.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  If you were combining Grid Layout pages with Side Panels and you were also specifying a layout that called for a vertical scroll bar on that page, you were often faced with the Side panel tabs overlapping the scroll bar, making it nearly inaccessible. This should no longer occur.
--  The use of formatted numbers in tables, scalars and some other locations did not always result in a correct number being shown. Formatting is now slightly faster, correct up to at least 20 decimal/fraction digits and supports more locales and non-latin characters.
+-  The use of formatted numbers in tables, scalars and some other locations did not always result in a correct number being shown. Formatting is now slightly faster, correct up to at least 20 decimal/fraction digits and supports more locales and non-Latin characters.
 
 
 --------------
@@ -736,7 +736,7 @@ Resolved WebUI Issues
 
 -  We added scroll support to the row and column headers in the Table widget.
 -  There was a performance problem in the Barline chart.
--  On a page with many selectionboxes (more than 25, either visible or hidden), it could happen that they did not show any content anymore. Only the text 'Empty Selectionbox' would be displayed and the selectionboxes could not be used. This problem was introduced in AIMMS 4.78.4.
+-  On a page with many ``selectionboxes`` (more than 25, either visible or hidden), it could happen that they did not show any content anymore. Only the text 'Empty Selectionbox' would be displayed and the ``selectionboxes`` could not be used. This problem was introduced in AIMMS 4.78.4.
 
 
 --------------
@@ -766,7 +766,7 @@ Resolved AIMMS Issues
 -  Changing the type of an identifier (for example from numeric to element valued) was not correctly registered when re-compiling the model afterwards.
 -  Handling of license related Gurobi errors has been improved.
 -  Using Checking directives in a Read statement where the database table itself is indexed, could lead to wrong index mappings and thus incorrect behavior and/or incorrect error messages.
--  An expression like Ord(elemparam(i) $ expr(i)) could lead to a crash when either elemparam or expr was empty. This could also happen when the $ condition was added automatically because of a domain condition on the element parameter.
+-  An expression like ``Ord(elemparam(i) $ expr(i))`` could lead to a crash when either ``elemparam`` or ``expr`` was empty. This could also happen when the $ condition was added automatically because of a domain condition on the element parameter.
 -  The result of the function NonDefault was not numerical if the argument was a string parameter or an element parameter. Now it always returns either 1 or 0.
 -  In case of `list expressions <https://documentation.aimms.com/language-reference/non-procedural-language-components/numerical-and-logical-expressions/numerical-expressions.html#list-expressions>`__, the tuple size of the list expression should exactly match the number of running indices on the left hand side. For example, `Parameter(i, 'elem1') := data { ('i01', 'elem1') : 1.0 };` is not accepted anymore, and should become `Parameter(i, 'elem1') := data { ('i01') : 1.0 };` because the second index is fixed.
 -  Multi-line attribute windows could show too much indentation if the .ams file had been edited outside AIMMS.
@@ -774,7 +774,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  The performance of WebUI tables that show indentifiers with a large index domain in combination with annotations and totals has been improved.
+-  The performance of WebUI tables that show identifiers with a large index domain in combination with annotations and totals has been improved.
 -  The performance of WebUI tables (with large identifiers that use (complex) domain conditions to restrict the number of non-default entries) has been improved.
 -  Empty WebUI translations (entries like Identifier = '') in a `properties` file were ignored since AIMMS 4.78.
 
@@ -819,7 +819,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Local identifiers in a procedure or function were not always correctly emptied when calling the procedure or function multiple times.
--  Local copies of repository libraries included in an .aimmspack file could not be loaded if their path on Windows after extraction exceeded 200 characters.
+-  Local copies of repository libraries included in an ``.aimmspack`` file could not be loaded if their path on Windows after extraction exceeded 200 characters.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
@@ -875,7 +875,7 @@ Resolved AIMMS Issues
 
 -  There was a problem preventing a checkbox in the WinUI to be displayed if the size of the object was a bit too small.
 -  Setting a breakpoint on a Definition could lead to various errors because, while being on this breakpoint, the IDE was still able to evaluate other definitions (or even the same one again). In this new version of AIMMS, while being on a definition breakpoint, no other definitions will be evaluated.
--  Runtime libraries will not be stored in a case anymore, see also `this community post <https://community.aimms.com/product-updates-roadmap-36/cases-and-runtime-libraries-834>`__. A warning will be logged to the logfile if a runtime library is encountered at reading a case.
+-  Runtime libraries will not be stored in a case anymore, see also `this community post <https://community.aimms.com/product-updates-roadmap-36/cases-and-runtime-libraries-834>`__. A warning will be logged to the log file if a runtime library is encountered at reading a case.
 -  The terms and conditions dialog for the Academic License and Community Editions are now only shown once a day.
 
 
@@ -1010,7 +1010,7 @@ Resolved AIMMS Issues
 -  ODH-CPLEX could hang if a callback procedure was installed.
 -  The ODH-CPLEX option 'Solution improvement heuristic mode strategy' was missing a value.
 -  Case files that do not include all defined identifiers (which is the default for communication with solver sessions under PRO) were not always read correctly. Especially when sets were subsets of sets with a definition.
--  The objectVersionId of the uploaded messages.log wasn't correctly stored for non-interrupted solver sessions, resulting in not being able to download the messages.log for finished sessions.
+-  The ``objectVersionId`` of the uploaded ``messages.log`` wasn't correctly stored for non-interrupted solver sessions, resulting in not being able to download the messages.log for finished sessions.
 -  No solution was passed back to AIMMS if BARON found a solution before hitting a time limit.
 -  In rare cases a GMP::Row routine could fail if a row number was passed in the 'row' argument.
 -  The message of a compile error on an if-then-else operator was too generic: now the :any:`else` and :any:`then` operands are mentioned in the message.
@@ -1073,7 +1073,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  Uploading a file using the :doc:`webui/upload-widget` in the WebUI to a folder that contained special unicode characters did not work on Windows.
+-  Uploading a file using the :doc:`webui/upload-widget` in the WebUI to a folder that contained special Unicode characters did not work on Windows.
 
 
 --------------
@@ -1157,7 +1157,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  The experimental 'webui state support' feature will now also work for pages using :doc:`the new Grid Layout <webui/webui-grid-pages>` (but some limitations to setting it up correctly will still apply).
--  In some rare situations (in which you use similar totals in tables on more than one WebUI page), you could receive errors like 'Some of the attributes of runtime parameter "webui_runtime::Exprxxx" are not yet successfully compiled.'.
+-  In some rare situations (in which you use similar totals in tables on more than one WebUI page), you could receive errors like 'Some of the attributes of runtime parameter ``webui_runtime::Exprxxx`` are not yet successfully compiled.'.
 -  Editing or changing a latitude or longitude identifier using the identifier selector from `the Map widget options <https://documentation.aimms.com/webui/map-widget.html#adding-node-sets>`__ used to clear any previously made selection.
 
 
@@ -1197,7 +1197,7 @@ Resolved AIMMS Issues
 -  Reading data into a subset of a calendar, using the AimmsXLLibrary, could give incorrect errors.
 -  A procedure with an output argument of type Set was incorrectly handling the argument as an ``InOut`` argument. This resulted in that the set was not empty at the start of the procedure body.
 -  Subtracting two elements in (a :ref:`SubsetOf <attr:set.subset-of>`) :any:`Integers` did not always listen to the properties ElementsAreNumerical or ElementsAreLabels. For ElementAreNumerical an expression ``(int1-int2)`` should be evaluated as ``(Val(int1)-Val(int2))``, and for ElementsAreLabels it should be evaluated as ``(Ord(int1)-Ord(int2))``.
--  The AimmsAPI function ``AimmsAttributeGetUnit`` was not working correctly when the output string was not consisting of unicode characters.
+-  The AimmsAPI function ``AimmsAttributeGetUnit`` was not working correctly when the output string was not consisting of Unicode characters.
 -  This AIMMS version has added support for connecting to servers that use TLS v1.3 HTTPS encryption.
 
 --------------
@@ -1283,9 +1283,9 @@ Resolved WebUI Issues
 -  Table filtering did not work correctly on translated element headers.
 -  Widget options for Side Panels and Dialog Pages were not showing up after creation, preventing the user from changing their height/width and positioning.
 -  System messages at the 'info' level will now show with the same icon as 'debug' messages (an 'i' within a solid circle), instead of having no icon at all.
--  The ``webui::AnnotationsIdentifier and the ``webui::TooltipsIdentifier`` annotations are now also taken into account when in case comparison mode.
--  Data being displayed in 'compase case mode' (in WebUI) now correctly uses the annotations and tooltips of the original identifier.
--  Layout 9, part of our experimental Grid Layout feature released with 4.75, was inadvertently lacking the 'full screen' feature that the layout was originally created for. We added that property (called "runIntoGridgap"), for grid areas. It is also available for use in your custom layouts.
+-  The ``webui::AnnotationsIdentifier`` and the ``webui::TooltipsIdentifier`` annotations are now also taken into account when in case comparison mode.
+-  Data being displayed in 'compare case mode' (in WebUI) now correctly uses the annotations and tooltips of the original identifier.
+-  Layout 9, part of our experimental Grid Layout feature released with 4.75, was inadvertently lacking the 'full screen' feature that the layout was originally created for. We added that property (called ``runIntoGridgap``), for grid areas. It is also available for use in your custom layouts.
 
 
 --------------
@@ -1348,7 +1348,7 @@ Resolved AIMMS Issues
 
 -  Options that are given nondefault values to new models automatically, were not always saved. This applies especially to the option to use UTC times in reference dates introduced in 4.74. 
 
-    .. important:: If your model uses time, check that the option "Use UTC forcaseandstartenddate" is on. Altering it once is enough to avoid the bug, but be aware: this changes the meaning of calenders.
+    .. important:: If your model uses time, check that the option "Use UTC ``forcaseandstartenddate``" is on. Altering it once is enough to avoid the bug, but be aware: this changes the meaning of calenders.
 
 -  Finding an element in a quarterly calendar, using :any:`StringToElement`, did not work sometimes.
 -  Specifying :ref:`the OrderBy attribute <set.order_by>` on a runtime set, could lead to an unexpected error in recent AIMMS versions.
@@ -1357,7 +1357,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  Making a namechange to an identifier that was being used as a display-domain identifier in WebUI could result in the display-domain not being active anymore.
+-  Making a name change to an identifier that was being used as a display-domain identifier in WebUI could result in the display-domain not being active anymore.
 -  'ElementsAreNumerical' was added as property to the ``webui::ExtensionOrder`` set, in order to prevent a (harmless) warning being displayed.
 -  When using the Grid Layout experimental feature, the option to create a Group widget will be hidden (since the Grid Layout removes the need for having Group widgets).
 
@@ -1375,7 +1375,7 @@ AIMMS Improvements
 +++++++++++++++++++++++++
 -  Multi procedures have been added to the `GMP::Column <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_column-procedures-and-functions/index.html>`_ and `GMP::Row <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_row-procedures-and-functions/index.html>`_ namespaces. These procedures can be used to efficiently modify a group of columns or rows, belonging to one variable or constraint respectively.
 -  Knitro 12.2 has been successfully linked to AIMMS. 
--  The list of recent projects to choose from on the start page or in the File menu now shows the title of the project next to the .aimms file name.
+-  The list of recent projects to choose from on the start page or in the File menu now shows the title of the project next to the ``.aimms`` file name.
 
 
 Resolved AIMMS Issues
@@ -1431,7 +1431,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  On slower internet connections, WebUI apps were not always able to start properly. This was due to an internal timeout of 15 seconds. Therefore we introduced a new WebUI option called 'webui.webuiserver.max-session-idle-seconds', which now defaults to 5 minutes. You can specify this setting in the file 'MainProject\\WebUI\\settings\\webui-options.conf'.
+-  On slower internet connections, WebUI apps were not always able to start properly. This was due to an internal timeout of 15 seconds. Therefore we introduced a new WebUI option called ``webui.webuiserver.max-session-idle-seconds``, which now defaults to 5 minutes. You can specify this setting in the file ``MainProject\\WebUI\\settings\\webui-options.conf``.
 
 
 --------------
@@ -1449,7 +1449,7 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  When the value of the attribute `datasource` of the databasetable was very long, AIMMS crashed without a message after usage of some of the wizards of the database table.
+-  When the value of the attribute `datasource` of the database table was very long, AIMMS crashed without a message after usage of some of the wizards of the database table.
 -  When an ODBC driver throws an exception when retrieving structural information about the database (table), AIMMS could crash instead of reporting the issue as an error.
 
 
@@ -1548,7 +1548,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  In specific cases publishing an AIMMS model on PRO yielded a 'unable to publish model' error.
--  For some datatypes, Unicode characters were not sent correctly to the database.
+-  For some data types, Unicode characters were not sent correctly to the database.
 -  When a Halt statement was executed, in a next definition evaluation that uses a procedure, only the first statement in that defining procedure was executed.
 
 Resolved WebUI Issues
@@ -1572,7 +1572,7 @@ AIMMS Improvements
 .. important::  When the .ams file is written to disk, AIMMS itself now uses tabs instead of 4 spaces. This reduces the size of the .ams file up to 30%. Because AIMMS versions before `AIMMS 4.73`_ do not expect tabs as indentation, models saved in `AIMMS 4.74`_ may introduce unexpected issues when opening them in versions older than 4.73. You can prevent this by first opening and saving the model in 4.73. After that, the model will be compatible with older versions again. When the .ams file is managed by a versioning system (such as git), .ams files will have changes on all lines.
 
 -  The CPLEX, Gurobi and ODH-CPLEX options related to heuristics have been placed in the new MIP Heuristic category.
--  The math program suffix BestBound and the GMP functions for retrieving the best bound can now also be used to obtain the best bound for a continuous problem (NLP, QP or QCP) solved with BARON and for non-convex quadratic problems solved with CPLEX or Gurobi.
+-  The math program suffix ``BestBound`` and the GMP functions for retrieving the best bound can now also be used to obtain the best bound for a continuous problem (NLP, QP or QCP) solved with BARON and for non-convex quadratic problems solved with CPLEX or Gurobi.
 -  The solver ODH-CPLEX 5.0 is now available. ODH-CPLEX 5.0 uses CPLEX 12.10 underneath. Whereas, ODH-CPLEX 4.0 uses CPLEX 12.8. Therefore, the new options for ODH-CPLEX 5.0 stem from the CPLEX part. For some MIP cases, the results obtained by ODH-CPLEX 4.0 are not deterministic. This behavior is fixed in the ODH-CPLEX 5.0.
 -  A scaling tool has been added to the Math Program Inspector. It can be used to scale linear optimization models by selecting the Scale Model action. The tool will determine scaling factors for all (symbolic) variables and constraints which can be viewed in the Scaling Factors tab. By selecting the Resolve action in the Math Program Inspector you can resolve the model which will then automatically use the new scaling factors.
 -  The logical iterative operators Atleast, Atmost, Exactly are now handled by the new compiler and execution engine. AIMMS took the opportunity to make their behavior more consistent: their second argument now has a restriction to be a non-negative integer (there were no restrictions before). An error will be issued if this is not the case. Furthermore, when the Atleast and Exactly operators have an empty domain as their first argument and zero as their second, the return value is 1 (this was not the case before, which was incorrect).
@@ -1588,13 +1588,13 @@ AIMMS Improvements
 
 	Why this change:
 	Until now, the meaning of times changed when the model was opened in another timezone. 2 o'clock in the US was still shown as 2 o'clock in China. When building a multi timezone/multi user application in Aimms, this is probably not what you want. This may already occur when running Aimms in the cloud, as the server may be in a different timezone, and thus lead to unexpected results even if the model is to be used for only one location.
-	Though the convertReferenceDate function can be used to work around this problem within the model, times in cases were also stored in local time. Any attempt to load a case created in another timezone would lead to incorrect data when trying to work with nonlocal timezones.  
+	Though the :any:`ConvertReferenceDate` function can be used to work around this problem within the model, times in cases were also stored in local time. Any attempt to load a case created in another timezone would lead to incorrect data when trying to work with nonlocal timezones.  
 
 	Notes:
 	
 	-  This change is only applied to new models: Since the meaning of strings signifying reference dates is changed, automatic conversion of old models is not possible 
-	-  In timeslot formats, always using a timezone explicitly is advisable. Even if display in every user's local time is intended, DST should be taken into account, and thus 'localDST' should be used. Timeslot formats that do not specify a timezone are still using 'local' time. 
-	-  When using an hourly calendar, specifying minutes in the timeslot formats is advisable. It is uncertain if at some point the calendar will be shifted off the full hour, esp. when timeszones get to be used in timeslot formats.
+	-  In timeslot formats, always using a timezone explicitly is advisable. Even if display in every user's local time is intended, DST should be taken into account, and thus ``localDST`` should be used. Timeslot formats that do not specify a timezone are still using 'local' time. 
+	-  When using an hourly calendar, specifying minutes in the timeslot formats is advisable. It is uncertain if at some point the calendar will be shifted off the full hour, esp. when times zones get to be used in timeslot formats.
 
 
 Resolved AIMMS Issues
@@ -1650,7 +1650,7 @@ Resolved AIMMS Issues
 -  When re-compiling the entire project, initial data of sets was reinitialized, while it should have happened only for sets where the initial data attribute was actually edited.
 -  If a multi-dimensional identifier only contained one very small value (smaller than 1e-8), its data was not correctly stored in a case file.
 -  Using a color scheme in the WinUI 2D Chart did not work correctly if the scheme was linked to a subset of AllColors with a definition.
--  We made some changes to the function axll::FillList: (1) The argument DataRange is no longer optional, (2) the default values in the tooltip were not correct, and (3) the comment referred to the wrong function.
+-  We made some changes to the function :any:`axll::FillList`: (1) The argument DataRange is no longer optional, (2) the default values in the tooltip were not correct, and (3) the comment referred to the wrong function.
 -  From various similar crash reports that were sent in recently, we did improve a weak spot in the code of version 4.73. Most reported crashes occurred during the saving of a case.
 
 Resolved Security Issues
@@ -1677,7 +1677,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  The ``webui::FlagsIdentifier`` annotation was not always taken correctly into account in widgets with multiple identifiers, some of which having indices that were used during aggregation.
--  In rare situations, the webui.json could miss a specific line. If so, not all WebUI pages were available for navigation using the ``webui::OpenPage`` procedure.
+-  In rare situations, the ``webui.json`` could miss a specific line. If so, not all WebUI pages were available for navigation using the ``webui::OpenPage`` procedure.
 -  'Totals on top' were moved to the bottom when a Table column (or row) was sorted. Now, they correctly stick to the top.
 -  Item actions work on touch devices as well now.
 
@@ -1748,8 +1748,8 @@ AIMMS Improvements
 -  The mechanism to determine when a definition should be re-evaluated has been completely replaced. This has been done to better support the new compiler but also to clear the path for some upcoming new features. Because of these changes you may notice some differences in your model, listed below. We tested the new version thoroughly, but it can still be that something in your model is not working correctly because of this change. Please let us know as soon as possible.
 
   -  definitions are sometimes evaluated in a different order than before.
-  -  certain uses of the orderBy attribute are now detected as a 'cyclic dependency'.
-  -  the ordering of elements in a set that does not have an orderBy attribute specified can be different.
+  -  certain uses of the ``orderBy`` attribute are now detected as a 'cyclic dependency'.
+  -  the ordering of elements in a set that does not have an ``orderBy`` attribute specified can be different.
 
 -  AIMMS now reads its timezone names from a supplied JSON file, generated from the static time zone information of Windows during deployment of the AIMMS release. Making this list independent of locale, OS and time-of-use should increase stability when using time zones explicitly in calendars. As a consequence, time zone names are now always in English. If really needed, the file can be adapted to match locale or changed policies.
 
@@ -1840,7 +1840,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  Removing the 'webui::AnnotationsIdentifier' from a set did not have any effect on an open WebUI page. Now it does.
+-  Removing the ``webui::AnnotationsIdentifier`` from a set did not have any effect on an open WebUI page. Now it does.
 -  The ``pro::sessionmanager::FinishSession()`` procedure will no longer produce the connection.txt dialog with logging information as this info has become obsolete and the dialog is a nuisance when executing this function. Now the ``pro::sessionmanager::FinishSession()`` procedure will gracefully close the App and release the seat (in case you have no other Apps open).
 -  After selecting the check box for customization of the table widget, it was not always possible to move it to a new position within the WebUI window.
 
@@ -1885,7 +1885,7 @@ WebUI Improvements
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  The wizard to add new widgets has been improved wrt. validity checking. Furthermore, some annoying behavior has been addressed, such as losing changes already made when clicking OK before having entered a widget name.
+-  The wizard to add new widgets has been improved with regards to validity checking. Furthermore, some annoying behavior has been addressed, such as losing changes already made when clicking OK before having entered a widget name.
 -  In some cases, the 'Busy' message was not being displayed in the WebUI when the WebUI/AIMMS was actually busy, possibly leading to confusion for the user. For example, widgets could (still) show as empty.
 -  WebUI will show a busy veil whenever AIMMS does not respond for whatever reason (e.g. a dialog being open, some procedure run being triggered from outside WebUI).
 -  There is now an explicit message in the WebUI that Internet Explorer 11 was deprecated.
@@ -2088,7 +2088,7 @@ AIMMS 4.70.4 Release
 AIMMS Improvements
 ++++++++++++++++++++
 
--  Four new functions have been added to the AIMMSXLLibrary to determine the boundaries of the data in a sheet: FirstUsedRowNumber, LastUsedRowNumber, FirstUsedColumnNumber and LastUsedColumnNumber.
+-  Four new functions have been added to the AIMMSXLLibrary to determine the boundaries of the data in a sheet: ``FirstUsedRowNumber``, ``LastUsedRowNumber``, ``FirstUsedColumnNumber`` and ``LastUsedColumnNumber``.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -2104,7 +2104,7 @@ Resolved WebUI Issues
 -  In AIMMS 4.70, changes in element parameters were sometimes not shown in the WebUI.
 -  When using a display domain in a widget, such that the display domain depends on identifiers present in the same widget, did not update the display domain immediately when it should, leading to unexpected behavior.
 -  Single-clicking on the drop down arrow icon on element-valued cells in Table or Scalar widgets did not work as expected anymore: it incorrectly required a double-click.
--  It was not possible to add/change widgets to/on pages with hidden visibility due to internal webui.json validation.
+-  It was not possible to add/change widgets to/on pages with hidden visibility due to internal ``webui.json`` validation.
 -  When having a Totals column in a WebUI table (by using the Totals section in the table's options editor), it was impossible to change the width of this column.
 -  While updating/redrawing secondary page actions, the page actions menu was flickering.
 -  The WebUI would not start up when running the x86 (i.e. Windows 32-bit) version of AIMMS.
@@ -2153,7 +2153,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++
 
 -  Sometimes the WebUI displayed (unexpectedly) empty selection widgets.
--  In some cases, when changing WebUI options, you could get an error about not being able to write the webui.json file.
+-  In some cases, when changing WebUI options, you could get an error about not being able to write the ``webui.json`` file.
 -  There were some tooltip alignment issues in the Scalar widget.
 
 
@@ -2224,7 +2224,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  Widget and Page entries in the webui.json file are now internally sorted, which results in a much lower chance of merge conflicts arising when having your WebUI project under version control.
+-  Widget and Page entries in the ``webui.json`` file are now internally sorted, which results in a much lower chance of merge conflicts arising when having your WebUI project under version control.
 -  On the identifier selection dialog (used for the Map widget, for example), the details from the 'your selection' section could only be reached by using a scroll bar.
 
 
@@ -2262,9 +2262,9 @@ In previous versions this seemed to work okay, but it could lead to serious cras
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  When a widget is displayed in fullscreen mode, it occupies the full screen, even if the maximum column size has a non-default setting for the current page.
+-  When a widget is displayed in full-screen mode, it occupies the full screen, even if the maximum column size has a non-default setting for the current page.
 -  The Upload and the Download widget did not respect the translation file (i.e. the text(s) on these widgets was non-alterable).
--  The label text in Gantt Charts is now also visible when there is whitespace before or after the text.
+-  The label text in Gantt Charts is now also visible when there is white space before or after the text.
 -  It was possible that by clicking slightly outside of the primary action button, the primary action was triggered.
 -  Some transitions between widget types resulted in an empty 'Pivot' section of the options editor of the widget.
 
@@ -2347,7 +2347,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++
 
 -  Due to browser storage problems, it could happen that WebUI apps only showed an empty WebUI on specific browsers.
--  (Very) old WebUI projects sometimes failed to open, because their internal structure was not perfectly converted into the new webui.json file. We have improved the backward compatibility.
+-  (Very) old WebUI projects sometimes failed to open, because their internal structure was not perfectly converted into the new ``webui.json`` file. We have improved the backward compatibility.
 
 
 
@@ -2392,22 +2392,22 @@ AIMMS Improvements
 - The math program suffix *.CallbackNewIncumbent* has been renamed to *.CallbackIncumbent*. The procedure :any:`GMP::Instance::SetCallbackIncumbent` has been renamed to :any:`GMP::Instance::SetCallbackCandidate`, and the procedure ``GMP::Instance::SetCallbackNewIncumbent`` has been renamed to :any:`GMP::Instance::SetCallbackIncumbent`. (The math program suffix *.CallbackNewIncumbent* and the procedure ``GMP::Instance::SetCallbackNewIncumbent`` are now hidden.)
 - In rare cases, CPLEX 12.9 could incorrectly return a zero-solution inside an incumbent callback procedure (previously known as new incumbent; see the previous note) if the CPLEX option `Use generic callbacks` was at its default setting.
 - During the execution of certain statements, AIMMS now responds quicker on an attempt to interrupt the execution via the AIMMS interrupt tool.
-- AIMMS is gradually replacing its compiler by a new version. In the old compiler, the precedence of the $-operator was not always consistent and in many cases different from what the language reference says. In the new compiler the precedence of the dollar operator is always as stated in the language reference, taking precedence over all other binary operators. This can cause a different interpretation of your expressionm, and therefor a warning is now reported when the new compiler encounters an expression in which this may be an issue: The precedence of the $ operator has in some situations changed in the new compiler. Use parentheses to make your intention clear. In some cases, the changed interpretation can lead to compile errors, which may be puzzling. In other situations, the result may be different. To correct these warnings there are multiple solutions:
+- AIMMS is gradually replacing its compiler by a new version. In the old compiler, the precedence of the $-operator was not always consistent and in many cases different from what the language reference says. In the new compiler the precedence of the dollar operator is always as stated in the language reference, taking precedence over all other binary operators. This can cause a different interpretation of your expression, and therefor a warning is now reported when the new compiler encounters an expression in which this may be an issue: The precedence of the $ operator has in some situations changed in the new compiler. Use parentheses to make your intention clear. In some cases, the changed interpretation can lead to compile errors, which may be puzzling. In other situations, the result may be different. To correct these warnings there are multiple solutions:
 
-	-  add the parentheses around the operands of the in-operator in an expression: P $ i IN setI -> P $ (i IN setI)
-	-  replace the $-operator by a \|-operator for a domain condition: sum( i $ i <> EP, P(i)) -> sum( i | i <> EP, P)
-	-  remove the 1 $ for expressions that are already binary valued: 1 $ P(i) > 7 -> P(i) > 7
+	-  add the parentheses around the operands of the in-operator in an expression: ``P $ i IN setI`` -> ``P $ (i IN setI)``
+	-  replace the $-operator by a \|-operator for a domain condition: ``sum( i $ i <> EP, P(i))`` -> ``sum( i | i <> EP, P)``
+	-  remove the 1 $ for expressions that are already binary valued: ``1 $ P(i) > 7`` -> ``P(i) > 7``
 
-	Please note that the 'onlyif' operator is also treated as a $-operator.
+	Please note that the ``onlyif`` operator is also treated as a $-operator.
 
--  During the creation of an .aimmspack file, you can now indicate that you want to include a copy of each repository library that is part of your project. The end user can then run the project without the need to have access to the on-line library repository.
--  It is no longer allowed to assign a set with only one element to a non-scalar element valued parameter. For example: myElemPar(i) := { i }; This has never been part of the official AIMMS syntax and should now be rewritten as myElemPar(i) := i;
+-  During the creation of an ``.aimmspack`` file, you can now indicate that you want to include a copy of each repository library that is part of your project. The end user can then run the project without the need to have access to the on-line library repository.
+-  It is no longer allowed to assign a set with only one element to a non-scalar element valued parameter. For example: ``myElemPar(i) := { i };`` This has never been part of the official AIMMS syntax and should now be rewritten as ``myElemPar(i) := i;``
 -  The Intrinsic Database Functions TestDataSource, TestTable and TestColumn now set the CurrentErrorMessage with the available information if they return 0.
 
 WebUI Improvements
 ++++++++++++++++++++
 
--  Visible licenseinfo text above Menu and Settings (LicenseInfo, sessions.default.id, sessions.default.id.private, widget.visibility.greyout) on the Miscellaneous tab under Application Settings are now hidden so users can't (easily) use it. They are still present under the Advanced tab, though.
+-  Visible license info text above Menu and Settings (``LicenseInfo``, ``sessions.default.id``, ``sessions.default.id.private``, ``widget.visibility.greyout``) on the Miscellaneous tab under Application Settings are now hidden so users can't (easily) use it. They are still present under the Advanced tab, though.
 -  When opening a WebUI model containing a Map V1 widget or Page Actions V1 functionality, you now get a deprecation warning. The dialog contains a link explaining why this is and what you can do to make your WebUI future-proof in this respect.
 -  App developers now have the control to hide/show the download CSV data button in a table widget with the option "Hide Download data" in the Table widget settings.
 -  When UI Editable is set to false, the end user now cannot change the values for showing/hiding the data manager in the Application settings and for showing/hiding the CSV download button in Table widgets.
@@ -2485,7 +2485,7 @@ Resolved WebUI Issues
 -  In the Bubble Chart widget, the Pivot options editor did not work correctly.
 -  Read-only flags were not always immediately updated in the WebUI upon changing.
 -  Tooltips were sometimes shown outside the intended area.
--  Single-page WebUI apps were converted to the new webui.json format incorrectly in AIMMS 4.68.
+-  Single-page WebUI apps were converted to the new ``webui.json`` format incorrectly in AIMMS 4.68.
 
 
 
@@ -2577,13 +2577,13 @@ AIMMS Improvements
 
 -  The new procedure ProfilerCollectAllData allows you to retrieve the profiling measurements of statements that are executed on the server and thus display this data in the WebUI.
 -  Knitro 12.0 has been added.
--  The AIMMSXLLibrary has a new option axll::TrimLeadingAndTrailingSpaces. If you set this option to 1, any leading or trailing spaces in a cell value will be removed before passing it to AIMMS.
+-  The AIMMSXLLibrary has a new option :any:`axll::TrimLeadingAndTrailingSpaces`. If you set this option to 1, any leading or trailing spaces in a cell value will be removed before passing it to AIMMS.
 
 WebUI Improvements
 ++++++++++++++++++++
 
 -  The WebUI now supports name changes in the AIMMS model. Before this version, using identifiers in the WebUI that had their name changed in the AIMMS model, required you to re-select the changed identifier(s) where used in the WebUI. From now on, model name changes are propagated to the WebUI.
--  AIMMS has been extended with a procedure 'webui::SetProgressMessage' which allows you to replace the text of the 'busy' message in the WebUI with something more suitable to your specific situation. You can update/change this message multiple times during execution. For details, see `the documentation <https://manual.aimms.com/webui/library.html#setprogressmessage>`__.
+-  AIMMS has been extended with a procedure :any:`webui::SetProgressMessage` which allows you to replace the text of the 'busy' message in the WebUI with something more suitable to your specific situation. You can update/change this message multiple times during execution. For details, see `the documentation <https://manual.aimms.com/webui/library.html#setprogressmessage>`__.
 -  We added Page Actions to the WebUI, which help your users to get quick access to actions that are needed often, while at the same time reducing unnecessary clutter on their WebUI pages. For details, see `the documentation <https://manual.aimms.com/webui/page-settings.html#page-actions>`__.
 -  WebUI now offers, similar to the Page Open Procedure, a Page Leave procedure, which is called upon leaving the page for which it is specified. For details, see `the documentation <https://manual.aimms.com/webui/page-settings.html#procedure-for-restricting-page-navigation>`__.
 -  We are currently working on our Workflow support feature in the WebUI. For more details and information on how to get access to this experimental feature, see the `AIMMS New Features Page <https://www.aimms.com/support/new-features/>`__.
@@ -2608,7 +2608,7 @@ Resolved WebUI Issues
 -  When having a Table widget of which the data depends on another widget and selecting a value in that Table, this could lead to the Table data jumping to its first row again after making a change in the widget on which it depended, thus losing the highlight on the value that you previously selected.
 -  Sorting a Table widget did not work when the Table was displayed on a Dialog Page.
 -  Widget actions will now close when the focus is lost(i.e. the user clicked on an other widget).
--  On a WebUI page that has a PageLeaveProcedure with a requestid, executing a WebUI::OpenPage procedure would throw a "WebUI cannot run nested dialogs" message.
+-  On a WebUI page that has a PageLeaveProcedure with a ``requestid``, executing a WebUI::OpenPage procedure would throw a "WebUI cannot run nested dialogs" message.
 -  Text inside Gantt Chart bars on pages with multiple Gantt Charts are now shown properly.
 -  Not all buttons were visible when placed in a Group Widget.
 -  When running under PRO/Cloud, the value of the project option `WebUI_maximum_number_of_entries_in_widget` was not correctly initialized.
@@ -2630,7 +2630,7 @@ AIMMS 4.67.8 Release (July 4, 2019)
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  A For-loop using Loopcount and an additional check, would only work correctly on every second run.
+-  A For-loop using ``loopcount`` and an additional check, would only work correctly on every second run.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -2680,7 +2680,7 @@ Resolved AIMMS Issues
 
 -  On Linux, the function CurrentToString was incorrectly taking daylight saving time into account when local time was set to UTC.
 -  Moving a set with a definition to a local set did not always properly clean up the definition.
--  A statement like sD := { IndexIdentifiers in mySection } would not result in the right results (i.e. only the identifiers that are defined in the section called mySection).
+-  A statement like ``sD := { IndexIdentifiers in mySection }`` would not result in the right results (i.e. only the identifiers that are defined in the section called ``mySection``).
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -2784,7 +2784,7 @@ AIMMS Improvements
 WebUI Improvements
 ++++++++++++++++++++
 
--  We made a fundamental change in the storage of WebUI pages and widgets. For details, see the `New Features page <https://www.aimms.com/support/new-features/#SingleJSON>`__. **IMPORTANT:** if you plan to publish your existing AIMMS app(s) using AIMMS 4.67, you first need to re-export your model using AIMMS 4.67. This step creates the expected webui.json file. If you omit this step, you will get an error message upon publishing.
+-  We made a fundamental change in the storage of WebUI pages and widgets. For details, see the `New Features page <https://www.aimms.com/support/new-features/#SingleJSON>`__. **IMPORTANT:** if you plan to publish your existing AIMMS app(s) using AIMMS 4.67, you first need to re-export your model using AIMMS 4.67. This step creates the expected ``webui.json`` file. If you omit this step, you will get an error message upon publishing.
 -  Minimum and Maximum Resource Height have been introduced for the Gantt Chart. The Minimum Resource Height option adjusts the resource height such that when the height of all resources exceeds the height of the Gantt Chart widget, a vertical scroll bar appears on the right and the user can scroll down in order to see the resources below. When a batch is dragged down, the chart automatically scrolls to reveal the resources below. The Maximum Resource Height option will condense the resources to the set value such that the batches are not spread to fit the size of the Gantt Chart.
 -  As of this release, Gantt Chart jobs can now also be resized from the left side in case the duration of the job is editable (i.e. changing the start time while keeping the end time the same). A special cursor will appear if you hover on the sides of the job to signal that you can adjust its duration.
 -  There is a new option that allows developers to automatically open the WebUI upon project startup. It can be found in the AIMMS Options dialog in the category Project - Startup & Authorization, and is called Open_WebUI_on_startup.
@@ -2792,11 +2792,11 @@ WebUI Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  In a statement like MySet += myElementParameter, the set MySet could incorrectly be modified if myElementParameter contained inactive data. This could happen if myElementParameter had been assigned a certain element but that same element was later removed from the range set of myElementParameter. When using such an element parameter with inactive data in any expression, the element parameter should behave as if it is empty.
+-  In a statement like ``MySet += myElementParameter``, the set ``MySet`` could incorrectly be modified if ``myElementParameter`` contained inactive data. This could happen if ``myElementParameter`` had been assigned a certain element but that same element was later removed from the range set of ``myElementParameter``. When using such an element parameter with inactive data in any expression, the element parameter should behave as if it is empty.
 -  When running a procedure from the WinUI that ended in a Halt statement, a strange empty error message dialog box popped up.
 -  CPLEX errors could be generated if the model contained indicator constraints and the CPLEX option `Check solution` was switched on.
 -  AIMMS crashed if the ShadowPriceRange property was specified for a constraint in a multi-objective optimization model. (Note: sensitivity information is not available for multi-objective optimization models.)
--  The (deprecated) Math Program suffices modelstat and solverstat were no longer updated.
+-  The (deprecated) Math Program suffices ``modelstat`` and ``solverstat`` were no longer updated.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -2823,7 +2823,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++
 
 -  Sometimes an incorrect unit analysis warning was triggered, when the units involved unit parameters.
--  Using the loopcount in the condition of a For statement could lead to a severe compilation error.
+-  Using the ``loopcount`` in the condition of a For statement could lead to a severe compilation error.
 -  The specification ">t8i" in the FormatString caused an error when the actual value to display was equal to 0.
 -  When a multi-dimensional identifier was written without parentheses where that was not expected, AIMMS would sometimes crash instead of raising a compilation error.
 -  In rare cases, when the WebUI was open, AIMMS would hang during compilation (showing the 'Scanning' status).
@@ -2871,23 +2871,23 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++
 
 -  The names of the branching variables displayed in the CPLEX status file could be incorrect. (Branching variables are displayed if the CPLEX option `MIP display` is set to 'Display each nth node', the CPLEX option `MIP Search Strategy` to 'Apply branch-and-cut' and the Solvers General option Solver Listing Messages to 'All'.)
--  We fixed an error where the iterative operators First and Last weres accepted by the compiler when having two arguments, like in First(i, condition(i)). The compiler did not raise an error and the second argument was just ignored. The correct way to write this is: First(i | condition(i)). If your model now gives an error on this, please correct the syntax and be aware that the expression was never evaluated in the way you probably intended.
+-  We fixed an error where the iterative operators First and Last were accepted by the compiler when having two arguments, like in First(i, condition(i)). The compiler did not raise an error and the second argument was just ignored. The correct way to write this is: First(i | condition(i)). If your model now gives an error on this, please correct the syntax and be aware that the expression was never evaluated in the way you probably intended.
 -  In very specific circumstances, the current working folder that AIMMS works with could change unexpectedly, leading to error messages about files not being found. Now the proper working folder is re-initialized more often, minimizing the chance that this problem shows up.
 -  An unexpected message like 'The local set local set "S" is passed implicitly and therefore it cannot be modified' could occur when running a procedure.
 -  Since Aimms 4.63, index expressions at the left hand side of an assignment statement were not always handled correctly.
 -  In certain circumstances, publishing Apps using the R-link on the cloud could fail.
--  The function pro::management::_IsRunningOnCloud now returns a correct value in all situations.
+-  The function ``pro::management::_IsRunningOnCloud`` now returns a correct value in all situations.
 -  AIMMS showed an incorrect error about an index mismatch for a runtime identifier that was generated by the WebUI.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  When using HTML tooptips, the 'normal' tooltip would flash on the screen for a split-second before actually showing the HTML tooltip.
+-  When using HTML tooltips, the 'normal' tooltip would flash on the screen for a split-second before actually showing the HTML tooltip.
 -  The positioning of tooltips has improved for all chart types. Previously, tooltips could be positioned too far to the top of the screen to be read properly, for example.
 -  After calling the OpenExternalURL procedure In IE 11 and Edge browsers, calling another OpenExternalURL would result in an error.
 -  There could be problems with not displaying inactive AIMMS data in widgets.
 -  The custom HTML tooltip for the Bubble Chart widget with a data element with a size of 0 was not displaying correctly.
--  The filtering of widgets, using the filter tab of a widget, did not always work correctly. Since we introduced slicing on identifiers in the WebUI quite a while ago, which is the preferred way of filtering, we decided to remove the filter tab from th widgets. If you have apps which rely on this functionality, they will continue to run as they did. Only if you want to make changes to the filtering, you should do so by either using the advanced options or by opening the model with an older AIMMS version which still has the filter tabs. We do recommend to consider using slicing on identifiers, though.
+-  The filtering of widgets, using the filter tab of a widget, did not always work correctly. Since we introduced slicing on identifiers in the WebUI quite a while ago, which is the preferred way of filtering, we decided to remove the filter tab from the widgets. If you have apps which rely on this functionality, they will continue to run as they did. Only if you want to make changes to the filtering, you should do so by either using the advanced options or by opening the model with an older AIMMS version which still has the filter tabs. We do recommend to consider using slicing on identifiers, though.
 -  When using the WebUI in the Chrome browser, on a touch-enabled device, sometimes the widget options icon on the widgets would not show.
 -  Some Table widgets would show empty columns in the row header area, with just a dash ('-') as their header.
 
@@ -2910,7 +2910,7 @@ AIMMS Improvements
 -  CPLEX 12.9 has been added. CPLEX 12.9 comes with performance improvements and with support for multi-objective optimization. CPLEX 12.9 is only available for 64-bit Windows (VS2017) and Linux.
 -  AIMMS now supports multi-objective optimization which deals with mathematical optimization problems involving more than one objective function that have to be optimized simultaneously. Solving multi-objective optimization problems requires the usage of GMP functionality, in particular the new procedure :any:`GMP::Column::SetAsMultiObjective`. Multi-objective optimization problems can be solved with CPLEX 12.9.
 -  (See also the release note about the iterative operators mentioned for the 4.64.1 release). This version of AIMMS handles some of the First and Last expressions with the new compiler. These expressions can be interpreted as iterative operators (see the Language Reference, section 5.2.2) or intrinsic functions (see the Function Reference, chapter 2). The new compiler is more strict in the usage of '$' versus '|': Only '|' can be used to define a domain. If you have used the iterative operators 'First' or 'Last' in combination with a '$' to indicate a domain, this can now lead to a confusing compilation error, because the compiler does not recognize it as an iterative operator anymore. For example: First( t $ t in Set_T) will now result in the compilation error: The scope of index "t" has not been specified. You can easily resolve this compilation error by changing the '$' into a '|': First( t | t in Set_T) The compiler will recognize this as the intended iterative operator and no compilation error will be issued as a result.
--  The functions axll::FillList and axll::FillTable now have a new optional argument: clearExistingContent. If set to 0, the function will not clear the existing content of a cell if there is no data for it in the AIMMS identifier. This argument is ignored if the optional argument WriteZeros is set to 1.
+-  The functions :any:`axll::FillList` and :any:`axll::FillTable` now have a new optional argument: ``clearExistingContent``. If set to 0, the function will not clear the existing content of a cell if there is no data for it in the AIMMS identifier. This argument is ignored if the optional argument WriteZeros is set to 1.
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -2925,7 +2925,7 @@ Resolved AIMMS Issues
 -  Writing in dense mode was never supported for writing to files (only to databases), but did not give a compile error and it could have unexpected results. Using this construction now this gives a compile error. The Language Reference is also more explicit on this than before.
 -  Running Knitro's multistart algorithm or multi-algorithm could result in a solver failure or a crash if parallel threads were used. This issue has been fixed for Knitro version 11.0 and higher.
 -  The AIMMS Language Reference file was damaged in version 4.64.4.
--  The tooltip for string manipulation intrinsic functions (like FindString) was corrected. The caseSensitive optional argument default value is displayed in the tooltip (which depends on the 'case_sensitive_string_comparison' project option).
+-  The tooltip for string manipulation intrinsic functions (like FindString) was corrected. The ``caseSensitive`` optional argument default value is displayed in the tooltip (which depends on the 'case_sensitive_string_comparison' project option).
 -  There was a problem when using an indexed function with an ordered set as the result.
 -  The Linux version of AIMMS would do many needless calls to a memory function, which in some cases had a negative impact on the performance.
 
@@ -3009,7 +3009,7 @@ Resolved WebUI Issues
 -  In some situations, pivoting a line chart did not show the intended result.
 -  When pressing the DEL key, data in a Table cell was not reverted to the default value anymore.
 -  When using dots in the names of Table widgets, editing values in such a Table would not be propagated to AIMMS.
--  The WebUI library function 'requestPerformWebUIDialog' required you to close your project when you specified an empty set for the 'actions' argument. Now you get a proper error message to prevent this situation.
+-  The WebUI library function ``webui::requestPerformWebUIDialog`` required you to close your project when you specified an empty set for the 'actions' argument. Now you get a proper error message to prevent this situation.
 -  The first page of a Wizard would always be displayed as a blank page, even if it contained widgets.
 
 
@@ -3061,8 +3061,8 @@ In this release the implementation of the error handling system as described in 
 
 -  An error in constraint evaluations during a solve did not stop the execution.
 -  An Assertion with a specified Action attribute that does not contain a Halt statement, triggered a Halt anyway. This implicit Halt should only occur when the Action attribute is empty.
--  Changes in the legacy function handling (see Language Reference 8.4.3). The described options intrinsice_procedure_error_handling and external_procedure_error_handling now only have an effect on the errors for which the procedure sets the CurrentErrorMessage. If the procedure (also) uses the more modern style of raising warnings and errors then these raised warnings and errors will just be handled like any other warning or error that is raised during execution.
--  If a new error is raised during the handling of warnings and errors in a local error handler (like in the OnError clause of the Block statement, or inside the global_erroror_handler procedure) then the handling of the remaining warnings and errors is skipped and these warnings and errors are marked as handled.
+-  Changes in the legacy function handling (see Language Reference 8.4.3). The described options ``intrinsice_procedure_error_handling`` and ``external_procedure_error_handling`` now only have an effect on the errors for which the procedure sets the ``CurrentErrorMessage``. If the procedure (also) uses the more modern style of raising warnings and errors then these raised warnings and errors will just be handled like any other warning or error that is raised during execution.
+-  If a new error is raised during the handling of warnings and errors in a local error handler (like in the ``OnError`` clause of the Block statement, or inside the ``global_erroror_handler`` procedure) then the handling of the remaining warnings and errors is skipped and these warnings and errors are marked as handled.
 -  If an external procedure (like for example the axll:: spreadsheet procedures) only raises warnings, these warnings are now correctly reported. In previous AIMMS versions these warnings sometimes just disappeared.
 -  The WebUI now only displays errors and warnings that are not handled by any local or global error handler. Besides that, the various warning control options (like 'communicate warnings to end users') now also have an effect on the warnings shown in the WebUI. In general, this change will lead to a lot less warnings being displayed.
 
@@ -3076,7 +3076,7 @@ WebUI Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  In the AIMMSXLLibrary the functions axll::WriteTable, axll::WriteTableQuick and axll::WriteCompositeTable now write the row and column headers according to the specified ordering of the underlying set(s).
+-  In the AIMMSXLLibrary the functions :any:`axll::WriteTable`, :any:`axll::WriteTableQuick` and :any:`axll::WriteCompositeTable` now write the row and column headers according to the specified ordering of the underlying set(s).
 -  Indicator constraints were not always generated correctly in stochastic models
 -  Sometimes, opening the start page of AIMMS showed a dialog with a (harmless) error. This is corrected, but it could be that you need to clear your Internet Explorer cache in order not to experience it anymore. This is because the start page internally relies on Internet Explorer.
 
@@ -3084,7 +3084,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++
 
 -  In the Contents tab of the widget options editor, it was not possible anymore to use the scroll bar in case a long list of identifiers was present.
--  Not all possible pages were being shown in the PageLink dropdown in the action option editor and in the drop down to select pages in the Wizard creator addon.
+-  Not all possible pages were being shown in the PageLink dropdown in the action option editor and in the drop down to select pages in the Wizard creator add-on.
 -  The default index order (in a widget) now reflects the order of the indices that were used to declare the identifier. This problem could, for example, lead to arrows in the Map widget being drawn the wrong way around.
 
 
@@ -3194,7 +3194,7 @@ WebUI Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  Unhandled errors in a block-onerror are now re-raised at the end of the block statement. This means that any statement after such a block without a call to errh::MarkAsHandhled are not executed anymore.
+-  Unhandled errors in a ``block-onerror`` are now re-raised at the end of the block statement. This means that any statement after such a block without a call to :any:`errh::MarkAsHandled` are not executed anymore.
 -  Identifiers with a domain restriction could lead to strange errors when an identifier with the same name existed in another namespace.
 
 Resolved WebUI Issues
@@ -3336,7 +3336,7 @@ AIMMS Improvements
 
 A number of changes have been made to the **FormatString** function:
 
--  Passing a quoted element to the %e specifier is no longer allowed (example: FormatString("element %e", 'myLabel')). This is because the new compiler cannot determine to which set 'myLabel' belongs and thus it is treated as just a string. A valid alternative is to use the %s specifier. Of course, you can argue why to use FormatString for this at all. A much more efficient way of writing this is just "element myLabel" without a call to FormatString.
+-  Passing a quoted element to the %e specifier is no longer allowed (example: ``FormatString("element %e", 'myLabel')``). This is because the new compiler cannot determine to which set ``myLabel`` belongs and thus it is treated as just a string. A valid alternative is to use the %s specifier. Of course, you can argue why to use FormatString for this at all. A much more efficient way of writing this is just ``element myLabel`` without a call to FormatString.
 -  The new implementation is more strict in the order in which the modification flags are specified. They must appear in the order as described in the Language Reference, so this is the correct order: FormatString("%<>+0t12.3f",val) or FormatString("%<> 0t12.3f",val).
 -  The new implementation will give warnings on invalid combinations of flags and format specifiers.
 -  The conversion specifier %l is no longer available, it should be replaced by %e.
@@ -3354,7 +3354,7 @@ Resolved AIMMS Issues
 
 -  There was an issue introduced in 4.59 where a statement with a complex scalar subexpression crashed upon first execution. This has now been addressed.
 -  If the argument types of FormatString do not match with the conversion specifiers (for example a string valued argument is passed to a %f specifier) the error is now triggered at compile time (instead of run time).
--  In a subexpression binding an index with the IN operator, no indexed expression was expected within an indexed set. The following gave a syntax error on the '(' after ep: A(i IN setJ(ep(k))). Now it does not anymore.
+-  In a subexpression binding an index with the IN operator, no indexed expression was expected within an indexed set. The following gave a syntax error on the '(' after ``ep: A(i IN setJ(ep(k)))``. Now it does not anymore.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -3391,8 +3391,8 @@ Resolved WebUI Issues
 -  Opening WebUI pages generally goes faster, because of addressing an inefficiency in the underlying code.
 -  The line which allows you to resize the row header columns in the Table widget was only displayed when hovering over the row headers themselves. Now it is also activated when hovering over the identifier headers on top of the row headers.
 -  Having a set element named 'aggregated' displayed as a column or row header in the Table widget, automatically translated this to 'totals'.
--  The WebUI library has been slightly changed to prevent unintentionally emptying data which is needed for the proper displaying of dialogs using the requestPerformWebUIDialog function.
--  In some cases, WebUI pop-up dialogs were not displayed and the WebUI freezed when pages got reloaded as a result.
+-  The WebUI library has been slightly changed to prevent unintentionally emptying data which is needed for the proper displaying of dialogs using the ``webui::requestPerformWebUIDialog`` function.
+-  In some cases, WebUI pop-up dialogs were not displayed and the WebUI froze when pages got reloaded as a result.
 -  In some cases, read-only element parameters in a Scalar widget were displayed blue instead of grey.
 -  In the Pie chart widget, the percentage displayed when hovering over an inner wedge of the chart was only the percentage of the first of its direct outer wedges. Now the percentage is the sum of all its direct outer wedges, as it should be.
 
@@ -3420,9 +3420,9 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  When specifying the annotation webui::ElementTextIdentifier for a subset in your model, it is now allowed that the specified identifier is declared over a superset.
+-  When specifying the annotation ``webui::ElementTextIdentifier`` for a subset in your model, it is now allowed that the specified identifier is declared over a superset.
 -  Changing the column sizes of a Table widget did not always work anymore.
--  When pivotting a Table widget containing identifiers that have an associated WebUI annotation, such that the identfier ends up in the Totals area, you could get an incorrect error message. Now this is allowed.
+-  When pivoting a Table widget containing identifiers that have an associated WebUI annotation, such that the identifier ends up in the Totals area, you could get an incorrect error message. Now this is allowed.
 -  Annotations did not work in combination with the Pie chart widget.
 -  AIMMS procedures with output arguments, when called (implicitly) from the WebUI, for example using the wizard mechanism, did not reset their output arguments. So, if you did not explicitly assign a value to them, they passed their previously known value instead of an empty value. In the aforementioned wizard example, this could lead to a previously valid status message, which was no longer valid.
 -  In the Table widget, the width of the dropdown list for element parameter values was too small sometimes.
@@ -3458,7 +3458,7 @@ Build 4.60.1.2
 AIMMS Improvements
 ++++++++++++++++++++
 
--  The axll::WriteSet Excel function has been extended with the option to allow range overflows.
+-  The :any:`axll::WriteSet` Excel function has been extended with the option to allow range overflows.
 -  The IDE in AIMMS has been extended with 'Find All' functionality. It allows you to look for a text in the whole model and getting an overview of all the locations where it was found.
 -  The IDE now also allows you to create so-called Bookmarks in your model, to allow for quick navigation to certain places in the model when developing.
 
@@ -3601,7 +3601,7 @@ Resolved AIMMS Issues
 -  The Spreadsheet::SetOption function has been documented.
 -  A Find in the model text could lead to a crash when a very long line was being searched.
 -  Before writing to a database, the foreign key information was always retrieved, once per table per session. For some databases this is an expensive action. Now this is skipped when writing in insert mode.
--  Indicator constraints were not handled correctly if the binary variable in the activating condition was not generated (e.g., because it was fixed using the .NonVar suffix).
+-  Indicator constraints were not handled correctly if the binary variable in the activating condition was not generated (e.g., because it was fixed using the ``.NonVar`` suffix).
 -  The bulk update functionality of the AIMMS API could generate high fragmentation within the AIMMS memory manager.
 
 WebUI Improvements
@@ -3613,7 +3613,7 @@ WebUI Improvements
 -  The Map-V2 widget (which is still behind a feature toggle) now offers Store Focus support.
 -  The new option ``Save webUI state`` controls whether the WebUI state is saved when run under PRO. See the help in the options dialog in AIMMS for details.
 -  When hovering over one of the chart widgets in the WebUI, the hovered over item is now displayed more prominently and the other elements are rendered more light, in order to add even more focus on the current one.
--  When using the spacebar or a mouse-click to change the value of a checkbox in a Table widget, the focus is not set to the cell below anymore.
+-  When using the space bar or a mouse-click to change the value of a checkbox in a Table widget, the focus is not set to the cell below anymore.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -3662,8 +3662,8 @@ AIMMS 4.58.2 Release (August 24, 2018)
 AIMMS Improvements
 ++++++++++++++++++++
 
--  There is a new option axll::KeepExistingCellFormats in the AIMMSXLLibrary. When you set this option to 1 prior to calling any write method, the existing formats in your spreadsheet will remain unchanged.
--  The function Axll::ReadSet has been extended with a new value for the ExtendSuperSets argument: -1. It means that elements which are not in the parent set are skipped.
+-  There is a new option :any:`axll::KeepExistingCellFormats` in the AIMMSXLLibrary. When you set this option to 1 prior to calling any write method, the existing formats in your spreadsheet will remain unchanged.
+-  The function :any:`axll::ReadSet` has been extended with a new value for the ExtendSuperSets argument: -1. It means that elements which are not in the parent set are skipped.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -3710,9 +3710,9 @@ WebUI Improvements
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  The new UponChange feature did not work correctly in case you specified the 'hasChanged' argument (i.e. the first argument of the UponChange procedure) to have the binary range.
+-  The new UponChange feature did not work correctly in case you specified the `hasChanged` argument (i.e. the first argument of the UponChange procedure) to have the binary range.
 -  The Store Focus functionality in the Gantt chart has been made more robust in combination with making changes to jobs.
--  An error could occure while scrolling in a sorted table for which totals had been specified on some index other than the first index in a part.
+-  An error could occur while scrolling in a sorted table for which totals had been specified on some index other than the first index in a part.
 -  An execution error in ``webui::DataChangeMonitorUpdate`` has been fixed.
 
 
@@ -3863,7 +3863,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  In some cases, you could get an error message about 'awf.persistence' upon opening a WebUI page.
+-  In some cases, you could get an error message about ``awf.persistence`` upon opening a WebUI page.
 -  When the OpenStreetMap map service, which underlies the WebUI Map widget, is not functioning well, you see big pink tiles in your Map widget. Now the WebUI shows a message telling your users what is wrong.
 -  The font used in the Option Editors was more blurry than the one in previous releases. This has been corrected.
 -  If a Table cell still had the focus when using a scalar widget to cause a structural change in the Table, the Table would not update automatically.
@@ -3897,7 +3897,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  On non-touchscreen devices, element parameters with a definition were coloured blue, as if they were editable.
+-  On non-touchscreen devices, element parameters with a definition were colored blue, as if they were editable.
 -  Dragged bars did not get their Stored Focus element parameters set as expected. Instead, they remained set to the last job that was clicked on.
 -  The Table widget was not showing data if a parameter had domain conditions containing an element parameter.
 -  Doing a lot of moves from one row to another in the Gantt Chart widget, could lead to an unresponsive AIMMS in combination with an UponChange procedure.
@@ -3930,7 +3930,7 @@ WebUI Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  In some cases, explicit element values were incorrectly matched with the set instead of the rootset and treated as empty when outside the set. E.g. the expression "ep = 'rootsetelement'" might return true if ep was empty.
+-  In some cases, explicit element values were incorrectly matched with the set instead of the rootset and treated as empty when outside the set. E.g. the expression ``ep = 'rootsetelement'`` might return true if ``ep`` was empty.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -3968,7 +3968,7 @@ Resolved WebUI Issues
 -  Overlapping nodes in a zoomed-out Map widget, with the Store Focus specified, did not always put the right value in the element parameter specified when clicking them.
 -  The text description of an element parameter was not applied in a scalar widget and with the text description, the legend did not highlight the value.
 -  When dragging a bar in the Gantt Chart widget, this bar was not put in the Store Focus identifier.
--  The default tooltip for cells in the Table widget did only show text until the first whitespace character of a string value. Now it will show the entire content.
+-  The default tooltip for cells in the Table widget did only show text until the first white space character of a string value. Now it will show the entire content.
 -  The scroll bar in the Contents section in the options editor of the Table Widget did not work correctly anymore.
 
 
@@ -3992,7 +3992,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++
 
 -  An empty element in a subset of Integers was displayed as '0' in the WebUI, instead of as the empty element.
--  Element names that contain spaces will always result in a single annotation in WebUI. For example, the element 'the hague' will result in the 'annotation-the-hague' class being present on the corresponding DOM element in your browser.
+-  Element names that contain spaces will always result in a single annotation in WebUI. For example, the element 'the Hague' will result in the 'annotation-the-Hague' class being present on the corresponding DOM element in your browser.
 
 
 
@@ -4041,11 +4041,11 @@ Resolved AIMMS Issues
 -  In the AIMMSXLLibrary, values were not checked against the binary range of a parameter.
 -  When moving a task vertically in the WinUI Gantt chart, the corresponding procedure upon change was not always triggered.
 -  Opening the PRO Progress Window (through the request manager) just after a solve started could result in the solve being aborted.
--  axll::WriteTable did not change the cell format to a numeric format when writing numeric values.
+-  :any:`axll::WriteTable` did not change the cell format to a numeric format when writing numeric values.
 -  An empty element as the default value of an element parameter in a subset of integers could give an incorrect compilation error.
 -  Removing previously specified attributes of an identifier did not always completely empty the attribute text in the Attribute window or the written .ams file.
 -  The compiler could give an incorrect warning on 'inefficient directly nested for statements' when the FOR and the DO were not on the same line.
--  Running axll::CreateNewWorkBook on Linux or in the cloud could result in a crash.
+-  Running :any:`axll::CreateNewWorkBook` on Linux or in the cloud could result in a crash.
 -  Using SQLCreateConnectionString without a username or password could result in a crash since version 4.52.2.
 
 Resolved WebUI Issues
@@ -4188,7 +4188,7 @@ Resolved WebUI Issues
 -  In the AIMMS debugger, after pressing 'Finish (ignoring breakpoints)' breakpoints were no longer hit when running other procedures via the WebUI.
 -  Sometimes, the scroll bar in a Table widget could be moved a bit outside of the Table widget.
 -  The Gantt Chart widget always displayed bars based on numerical set elements first, irrespective of any specified sort order.
--  As a result of the abovementioned Gantt Chart bug, trying to move jobs from one resource into another could also fail.
+-  As a result of the above-mentioned Gantt Chart bug, trying to move jobs from one resource into another could also fail.
 -  When having an UponChange procedure connected to a parameter in your WebUI, and changing that same parameter in the UponChange procedure, this was not reflected in the WebUI.
 -  In certain circumstances, an UponChange procedure in the AIMMS model could be triggered twice instead of once, leading to unexpected results.
 -  Instead of a human readable date label on the X-axis of WebUI charts (like "Month" or "Year"), a label like "!_gen_lab_Year_Month" could erroneously be displayed.
@@ -4231,11 +4231,11 @@ Resolved WebUI Issues
 +++++++++++++++++++++++
 
 -  Sometimes, there would be an infinite spinner displayed in Selectionbox widgets.
--  Using dropdowns in a Scalar widget sometimes led to the actual dropdown menu to display in the top left of the page, sometimes with an empty list of choices.
--  When drawing a Map widget with varying node sizes and/or node colours, the Map was first briefly displayed with equal node sizes and/or colours. Now the Map immediately renders correctly.
+-  Using drop-downs in a Scalar widget sometimes led to the actual dropdown menu to display in the top left of the page, sometimes with an empty list of choices.
+-  When drawing a Map widget with varying node sizes and/or node colors, the Map was first briefly displayed with equal node sizes and/or colors. Now the Map immediately renders correctly.
 -  Using links in a Text widget could lead to a "Page Not Found" message.
 -  When zooming in or out in a Map widget, the value that was set for Store Focus was not retained.
--  The scalar widget is designed to show individual numbers, including 0's. This is why the data selection behaviour has changed from sparse to dense for the scalar widget, thus now also showing by default the individual numbers with value 0. Note that this data selection behaviour can be overriden in the display domain property of the identifier at hand in the scalar widget.
+-  The scalar widget is designed to show individual numbers, including 0's. This is why the data selection behaviour has changed from sparse to dense for the scalar widget, thus now also showing by default the individual numbers with value 0. Note that this data selection behaviour can be overridden in the display domain property of the identifier at hand in the scalar widget.
 
 
 
@@ -4317,7 +4317,7 @@ Resolved AIMMS Issues
 
 -  When reading data statements with '+=' from a file, in case of string- and element parameters there was an issue which resulted in strange values or errors.
 -  A potential crash in the Pivot Table object was fixed.
--  axll::WriteSet, axll::ClearActiveSheet and axll::ClearRange did not mark the workbook as dirty, so changes were not saved.
+-  :any:`axll::WriteSet`, :any:`axll::ClearActiveSheet` and :any:`axll::ClearRange` did not mark the workbook as dirty, so changes were not saved.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -4339,7 +4339,7 @@ AIMMS 4.50.1 Release (February 16, 2018 Build 4.50.1.1234)
 WebUI Improvements
 ++++++++++++++++++++
 
--  To add annotations to your WebUI, it is no longer needed to create an '_annotations' suffix to the relevant model identifiers. Instead, you can use the annotations attribute of them now and specify a 'webui::AnnotationsIdentifier' annotations attribute.
+-  To add annotations to your WebUI, it is no longer needed to create an '_annotations' suffix to the relevant model identifiers. Instead, you can use the annotations attribute of them now and specify a ``webui::AnnotationsIdentifier`` annotations attribute.
 -  The above also means that you can now annotate the nodes in your Map widgets, by specifying an annotation on the set that defines the nodes.
 -  The arcs in a Map widget can now dynamically show the relative sizes of the flows they represent by drawing the arcs thinner or fatter.
 -  The Map widget now also offers reverse links/focus support.
@@ -4347,7 +4347,7 @@ WebUI Improvements
 AIMMS Improvements
 ++++++++++++++++++++
 
--  The function axll::WriteCompositeTable now supports parameters with an integer or binary range.
+-  The function :any:`axll::WriteCompositeTable` now supports parameters with an integer or binary range.
 -  Several optional arguments have been added to the procedure :any:`GMP::Solver::InitializeEnvironment`.
 -  The performance of the saving and loading of cases when having published AIMMS models on the PRO environment, was improved.
 
@@ -4474,7 +4474,7 @@ AIMMS 4.46.4 Release (January 11, 2018 Build 4.46.4.1201)
 AIMMS Improvements
 ++++++++++++++++++++
 
--  The argument ModeForUnknownElements in both axll::ReadTable and axll::ReadList has a new allowed value of 3, which skips unknown elements but does produce a warning on it.
+-  The argument ModeForUnknownElements in both :any:`axll::ReadTable` and :any:`axll::ReadList` has a new allowed value of 3, which skips unknown elements but does produce a warning on it.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4484,7 +4484,7 @@ Resolved AIMMS Issues
 -  Gurobi 7.5 has been upgraded to version 7.5.2.
 -  When closing and re-opening a project (without exiting AIMMS), name change information was parsed incorrectly.
 -  A crash could occur in the AIMMSXLLibrary when warning_duplicate_elements was set to 'Error'.
--  The AIMMSXLLibrary inadvertedly changed the format of cells to Text.
+-  The AIMMSXLLibrary inadvertently changed the format of cells to Text.
 
 
 
@@ -4500,7 +4500,7 @@ AIMMS 4.46.3 Release (January 8, 2018 Build 4.46.3.1197)
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  The timestamp of entries in the .nch (name change) files were not read back correctly, possibly leading to problems in your model.
+-  The timestamp of entries in the ``.nch`` (name change) files were not read back correctly, possibly leading to problems in your model.
 -  In the Pivot Table of the WinUI, the calculated column width was sometimes too wide.
 -  Fixed a crash that could occur when creating (and deleting) a large amount of runtime identifiers that have the unit attribute specified.
 
@@ -4586,7 +4586,7 @@ AIMMS 4.45.5 Release (December 11, 2017 Build 4.45.5.1175)
 AIMMS Improvements
 ++++++++++++++++++++
 
--  The Excel functions axll::WriteTable and axll::WriteTableQuick now have optional arguments to include empty rows and/or empty columns separately.
+-  The Excel functions :any:`axll::WriteTable` and :any:`axll::WriteTableQuick` now have optional arguments to include empty rows and/or empty columns separately.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -4640,7 +4640,7 @@ AIMMS 4.45.3 Release (November 29, 2017 Build 4.45.3.1161)
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  In the past, checking or unchecking the WebUI folder when creating an .aimmspack file determined whether a project was published as WebUI or WinUI. In the last few AIMMS versions, this did not work anymore. Now it does again.
+-  In the past, checking or unchecking the WebUI folder when creating an ``.aimmspack`` file determined whether a project was published as WebUI or WinUI. In the last few AIMMS versions, this did not work anymore. Now it does again.
 -  Sometimes, opening the search box in a scalar selection box widget, led to an infinite spinner being displayed.
 -  Sometimes, a selection box widget with an element parameter as its contents, incorrectly showed 'Empty Selectionbox'.
 -  Pressing 'Cancel' in the 'Busy/Cancel' area when running a more time-consuming AIMMS procedure, did not always cancel the run.
@@ -4682,8 +4682,8 @@ AIMMS Improvements
 ++++++++++++++++++++
 
 -  A library repository browser was added to the Library Manager that will allow AIMMS to make extra libraries available that can easily be included in projects (note that libraries with a version number starting with 0 are for internal testing and should not be used it in any serious project).
--  The Excel functions axll::WriteTable and axll::WriteTableQuick have a new optional argument called IncludeEmptyRowsColumns. It allows you to write a one or two dimensional identifier in 'dense' mode, writing also the rows and columns that only have values equal to 0.
--  The Excel function axll::WriteTable can now be used also to write an identifier in a list format, where all indices appear in the row header and there is only one column with values. This makes it possible to also write a one-dimensional identifier using axll::WriteTable.
+-  The Excel functions :any:`axll::WriteTable` and :any:`axll::WriteTableQuick` have a new optional argument called IncludeEmptyRowsColumns. It allows you to write a one or two dimensional identifier in 'dense' mode, writing also the rows and columns that only have values equal to 0.
+-  The Excel function :any:`axll::WriteTable` can now be used also to write an identifier in a list format, where all indices appear in the row header and there is only one column with values. This makes it possible to also write a one-dimensional identifier using :any:`axll::WriteTable`.
 -  The AIMMS DataLink library was added. This is a library that allows different types of data sources to read and write data from and into AIMMS, using a common interface.
 
 WebUI Improvements
@@ -4707,7 +4707,7 @@ Resolved WebUI Issues
 -  Sometimes, the scroll bar in a Table widget was displayed outside of the widget boundary.
 -  When using a .properties file for translations in your WebUI, any library prefixes were not taken into account. This has been addressed, but has the side-effect that if you use library identifiers in your widgets, this prefix is now also visible. You might want to use a .properties file, or adjust your existing one to include any library prefixes, in order to correct this.
 -  When displaying element parameters defined over a subset of Integers in a Table widget and sorting them, they used to be interpreted as string values rather than numerical values. This led to, for example, the value 20 preceding the value 3. Now such element parameters are interpreted as numerical values.
--  If you combined a Sum (or Count, etc.) column/row in a Table widget with an indexed mentioned in an 'elementText.js' file, the word 'Sum' (or 'Count', etc.) was not displayed in the header.
+-  If you combined a Sum (or Count, etc.) column/row in a Table widget with an indexed mentioned in an ``elementText.js`` file, the word 'Sum' (or 'Count', etc.) was not displayed in the header.
 -  Using Totals in widgets for identifiers that were defined in a library, did not work properly.
 -  Checkboxes in the Table widget, for boolean values, already changed value when clicking anywhere in the table cell, instead of on the checkbox itself.
 -  Using units of measurement in your WebUI could in some specific cases cause the browser to crash.
@@ -4762,7 +4762,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++
 
 -  When running a procedure that resulted in an error, the WebUI turned into a 'Busy' status which did not disappear anymore.
--  Sometimes, using the requestPerformWebUIDialog function, you could get duplicate dialogs popping up unexpectedly.
+-  Sometimes, using the ``webui::requestPerformWebUIDialog`` function, you could get duplicate dialogs popping up unexpectedly.
 
 
 
@@ -4845,11 +4845,11 @@ Resolved WebUI Issues
 +++++++++++++++++++++++
 
 -  An UponChange procedure on an element parameter was incorrectly run twice (once for the empty element, once for the actual value).
--  The WebUI incorrectly showed the message "awf.data.aimms.session: MainExecution:Identifier does not contain data. (status code: 400)" when adding a procedure name to a Button widget upon creating the widget.
+-  The WebUI incorrectly showed the message "``awf.data.aimms.session``: MainExecution:Identifier does not contain data. (status code: 400)" when adding a procedure name to a Button widget upon creating the widget.
 -  In the Identifier Settings options editor, long identifier names were not fully readable. A tooltip has been added now.
 -  When having hidden widgets on a WebUI page and scrolling in one of the visible widgets, the visible widget would move around.
 -  Sometimes the dropdown dialog (for Selectionbox widgets) incorrectly opened in the top left corner of the WebUI page.
--  Sometimes, when typing really quickly in a Multi-line Scalar widget, especially on slow network connections, some keypresses were not registered correctly, leading to missing characters in your typed text.
+-  Sometimes, when typing really quickly in a Multi-line Scalar widget, especially on slow network connections, some key presses were not registered correctly, leading to missing characters in your typed text.
 
 
 
@@ -4897,9 +4897,9 @@ Resolved AIMMS Issues
 
 -  When creating a new project, accessing the Page Manager could result in a crash.
 -  Using ordered sets could sometimes lead to a crash.
--  Creating an end user project (.aimmspack) with a library located in a parent folder, did not work correctly.
+-  Creating an end user project (``.aimmspack``) with a library located in a parent folder, did not work correctly.
 -  The file name specified for the Application Help File was not always found.
--  References to library projects were not stored correctly in the .aimms file.
+-  References to library projects were not stored correctly in the ``.aimms`` file.
 
 
 
@@ -4953,7 +4953,7 @@ AIMMS Improvements
 ++++++++++++++++++++
 
 -  Both sets of functions to write to Excel (the spreadsheet:: functions and the axll:: functions) now have an option to write calendar dates as strings (instead of dates).
--  Two new conversion functions to translate columns from name to sequence number and vice versa have been added to the Excel library. They are called axll::ColumnName and axll::ColumnNumber.
+-  Two new conversion functions to translate columns from name to sequence number and vice versa have been added to the Excel library. They are called :any:`axll::ColumnName` and :any:`axll::ColumnNumber`.
 -  When writing to Excel you now have the option to write the value INF as the string "INF" (instead of using the underlying numerical value of 1E+150).
 
 Resolved AIMMS Issues
@@ -5015,7 +5015,7 @@ Resolved AIMMS Issues
 
 -  If a calendar has a unit larger than 'day', writing the calendar to a spreadsheet resulted in incorrect dates being written.
 -  A crash could occur while AIMMS created an error message during a call to :any:`GMP::Column::FreezeMulti` or :any:`GMP::Column::UnfreezeMulti` because a column was not in the model.
--  If in the WinUI Gantt chart multiple tasks were located exaclty at the same position, navigating between these tasks using the arrow keys sometimes did not work correctly.
+-  If in the WinUI Gantt chart multiple tasks were located exactly at the same position, navigating between these tasks using the arrow keys sometimes did not work correctly.
 -  Using iterative operators like sum, exists, count, ... in a definition could lead to very slow performance in some cases.
 
 
@@ -5050,7 +5050,7 @@ Resolved AIMMS Issues
 -  WebUI will now start even if a 'pro_arguments.txt' file (with reference to an invalid local PRO server) is present.
 -  The error message for 'The maximum of execution errors reached' was not properly constructed.
 -  When an error occurred in the definition of a variable, the error location was not properly determined.
--  The function libxl::WriteCompositeTable now always writes identifier values according to the specified units.
+-  The function ``libxl::WriteCompositeTable`` now always writes identifier values according to the specified units.
 -  In rare cases passing a model to BARON could fail.
 
 
@@ -5093,7 +5093,7 @@ AIMMS 4.38.2 Release (July 21, 2017 Build 4.38.2.1041)
 AIMMS Improvements
 ++++++++++++++++++++
 
--  The function ReadRawValues has been added to the AimmsXLLibrary. This function allows you to read values from a spreadsheet wihout an explicit mapping to domain elements.
+-  The function ReadRawValues has been added to the AimmsXLLibrary. This function allows you to read values from a spreadsheet without an explicit mapping to domain elements.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -5156,7 +5156,7 @@ AIMMS 4.37.4 Release (July 12, 2017 Build 4.37.4.1024)
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  The procedure :any:`webui::RequestPerformWebUIDialog` did not work properly anymore. When called, it displayed an error message about the index webui::rq not being present.
+-  The procedure :any:`webui::RequestPerformWebUIDialog` did not work properly anymore. When called, it displayed an error message about the index ``webui::rq`` not being present.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -5188,7 +5188,7 @@ Resolved WebUI Issues
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  In the Pivot Table, a combination of artifical indices and multiple cases did not always show all the relevant data present in the cases.
+-  In the Pivot Table, a combination of artificial indices and multiple cases did not always show all the relevant data present in the cases.
 -  Cuts inside a cut or lazy constraint callback procedure could be generated incorrectly which could result in a crash.
 
 
@@ -5210,7 +5210,7 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  In the previous AIMMS version, a bug was introduced which resulted in the expression elemParam(i) = '' not being evaluated correctly anymore.
+-  In the previous AIMMS version, a bug was introduced which resulted in the expression ``elemParam(i) = ''`` not being evaluated correctly anymore.
 
 
 
@@ -5359,12 +5359,12 @@ AIMMS 4.34.7 Release (May 16, 2017 Build 4.34.7.955)
 AIMMS Improvements
 ++++++++++++++++++++
 
--  The AimmsXLLibrary axll::WriteCompositeTable procedure now has a new optional argument: WriteIndexNames. If set to 1, the index names will appear in the top-left area of the written table.
+-  The AimmsXLLibrary :any:`axll::WriteCompositeTable` procedure now has a new optional argument: WriteIndexNames. If set to 1, the index names will appear in the top-left area of the written table.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  The axll::WriteCompositeTable procedure did not handle empty identifiers correctly.
+-  The :any:`axll::WriteCompositeTable` procedure did not handle empty identifiers correctly.
 -  Indexed unit parameters without a specific Quantity set, could lead to a crash during a case load.
 -  A run with CPLEX that used multiple threads and callback procedures could deadlock when AIMMS was called from an external program.
 
@@ -5389,7 +5389,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++
 
 -  Predeclared AIMMS identifiers are now accessible from the WebUI.
--  When setting the statusDescription output argument of the procedure specified in a Download widget to the string "OK", this raised an error message.
+-  When setting the ``statusDescription`` output argument of the procedure specified in a Download widget to the string "OK", this raised an error message.
 -  The SelectionBox widget did not always update the elements to select after a data change. This could result in an eternal "Searching..." message in the widget.
 
 
@@ -5406,7 +5406,7 @@ AIMMS 4.34.5 Release (May 3, 2017 Build 4.34.5.938)
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  The function axll::WriteCompositeTable gave unexpected errors on identifiers that do not contain any data.
+-  The function :any:`axll::WriteCompositeTable` gave unexpected errors on identifiers that do not contain any data.
 
 
 
@@ -5528,7 +5528,7 @@ Resolved AIMMS Issues
 
 -  AIMMS now gives a compilation error if the parameter that is used as the Violation Penalty of a Mathematical Program has a default value other than 0.
 -  In the WinUI, when specifying a unit parameter as alternative unit of a displayed identifier, sometimes some values were not expressed in that unit.
--  When writing a multi-dimensional string value using axll::WriteTable, the written strings were cut off unexpectedly.
+-  When writing a multi-dimensional string value using :any:`axll::WriteTable`, the written strings were cut off unexpectedly.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -5557,7 +5557,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++
 
 -  When displaying long element names in a scalar widget, the element names were not abbreviated anymore (with '...'), leading to a horizontal scroll bar in the widget. This made it harder to have a quick overview of the data displayed in the widget.
--  Sometimes, when changing data in a WebUI form, a message about cubeview version mismatches could pop up.
+-  Sometimes, when changing data in a WebUI form, a message about Cubeview version mismatches could pop up.
 -  The order of the entries on the Contents tab of widgets was not retained correctly after you changed it.
 -  Calendar elements that are displayed in the WebUI use the format as specified in the model.
 -  Sometimes, when changing values in the Table widget, the data in the table would scroll upwards at irregular intervals.
@@ -5601,7 +5601,7 @@ AIMMS 4.32.5 Release (March 10, 2017 Build 4.32.5.881)
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  When using the tunnelling functionality on PRO, sometimes, during long data transfers, the connection would be lost, resulting in a non-responsive AIMMS.
+-  When using the tunneling functionality on PRO, sometimes, during long data transfers, the connection would be lost, resulting in a non-responsive AIMMS.
 
 
 
@@ -5689,13 +5689,13 @@ AIMMS Improvements
 WebUI Improvements
 ++++++++++++++++++++
 
--  There is a new option for all widgets, with which you can control the sparsity domain of the identfier(s) displayed in the widgets.
+-  There is a new option for all widgets, with which you can control the sparsity domain of the identifier(s) displayed in the widgets.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
 -  The wizard for specifying the Body Call attribute of an external procedure or external function could lead to a crash.
--  The method axll::WorkBookIsOpen did not return the correct result in Linux.
+-  The method :any:`axll::WorkBookIsOpen` did not return the correct result in Linux.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -5747,12 +5747,12 @@ AIMMS 4.31.3 Release (February 10, 2017 Build 4.31.3.841)
 AIMMS Improvements
 ++++++++++++++++++++
 
--  If you have many missing semicolons in your model, AIMMS can now try to insert them automatically. You get the option to do this when you do a 'goto error' on any of the warnings about missing semicolons in the error window.
+-  If you have many missing semicolons in your model, AIMMS can now try to insert them automatically. You get the option to do this when you do a 'go to error' on any of the warnings about missing semicolons in the error window.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  The Excel function axll::WorkBookIsOpen did not return the correct result in Linux.
+-  The Excel function :any:`axll::WorkBookIsOpen` did not return the correct result in Linux.
 -  When deleting Project User Files from a subfolder in the dialog box, the files were not really deleted after re-opening the project.
 
 Resolved WebUI Issues
@@ -5784,7 +5784,7 @@ Resolved AIMMS Issues
 -  In the WinUI Pivot Table, the unit was sometimes not visible in the column header.
 -  The function :any:`FindReplaceStrings` now handles situations better, where the search string has overlapping occurrences of the string that must be replaced.
 -  If you switch between apps while AIMMS is starting up, it could lead to a situation where the AIMMS window is not displayed at all. This fix tries to recognize this situation and restores the window to a normal state.
--  When opening a .aimmspack file, solver options changed in the Option Tree were not set correctly.
+-  When opening a ``.aimmspack`` file, solver options changed in the Option Tree were not set correctly.
 
 
 
@@ -5797,7 +5797,7 @@ AIMMS 4.31.1.825 Release (The AIMMS 4.31.1.825 Release was released on January 2
 
  
 
-**PLEASE NOTE:** From this version onwards, it is not possible anymore to open encrypted projects or .aimmspack files using a developer license of AIMMS. The reason is that encrypted projects or .aimmspack files are aimed at model deployment, while development licenses are not for that purpose. Those projects/files can still be opened using deployment licenses.
+**PLEASE NOTE:** From this version onwards, it is not possible anymore to open encrypted projects or ``.aimmspack`` files using a developer license of AIMMS. The reason is that encrypted projects or ``.aimmspack`` files are aimed at model deployment, while development licenses are not for that purpose. Those projects/files can still be opened using deployment licenses.
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -5885,7 +5885,7 @@ Resolved AIMMS Issues
 
 -  The AimmsXLLibrary was improved with respect to recognizing empty cells in a spreadsheet. This addresses the problem of an unexpected "No numerical content" error.
 -  If the unit of measurement of the Gantt chart is not the same as the (time) unit of the underlying identifier, a unit conversion is applied now.
--  The command line option --export-to did not work anymore because of the locking of the .aimms file itself.
+-  The command line option --export-to did not work anymore because of the locking of the ``.aimms`` file itself.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -6079,7 +6079,7 @@ Resolved WebUI Issues
 
 -  Binary variables are now displayed as checkboxes in the Table widget.
 -  Totals over a binary parameter were displayed as a checkbox instead of a number in the Table widget.
--  The Table widget sometimes displayed 'half overlapping' rows, epecially when using the zoom functionality of your browser.
+-  The Table widget sometimes displayed 'half overlapping' rows, especially when using the zoom functionality of your browser.
 
 AIMMS Improvements
 ++++++++++++++++++++
@@ -6087,7 +6087,7 @@ AIMMS Improvements
 -  We have made improvements in some advanced methods for nonlinear programs, namely the multistart algorithm and the AIMMS Presolver.
 -  The options 'OBBT' and 'Scale Model' have been added for the AIMMS Presolver. The first option can be used to activate optimization-based bound tightening while the second option controls automatic scaling of a model.
 -  Two new functions have been added: PrinterSetupDialog and PrinterGetCurrentName.
--  Gurobi 7.0 has been added. Gurobi 7.0 comes with significant performance improvements across MIP, LP, SOCP, MIQP and MIQCP problem types. Gurobi 7.0 supports indicator constraints and a solution pool for MIP problems. Please note that the interface dll for Gurobi 7.0 is named libgrb70.dll (previous versions used libgurobiXX.dll).
+-  Gurobi 7.0 has been added. Gurobi 7.0 comes with significant performance improvements across MIP, LP, SOCP, MIQP and MIQCP problem types. Gurobi 7.0 supports indicator constraints and a solution pool for MIP problems. Please note that the interface dll for Gurobi 7.0 is named ``libgrb70.dll`` (previous versions used ``libgurobiXX.dll``).
 -  Knitro 10.1 has been upgraded to version 10.1.2.
 -  Several new optional arguments have been added to the procedure :any:`GMP::Instance::FindApproximatelyFeasibleSolution` including an argument for specifying a time limit. The performance of this procedure has been improved drastically.
 -  A new argument has been added to the procedure :any:`GMP::Solution::Check` to retrieve the maximum infeasibility. If you were using this procedure in your project then you need to modify your project by adding this argument.
@@ -6163,8 +6163,9 @@ Resolved AIMMS Issues
 
 -  When emptying the text in the Complement attribute of a complementarity variable, the attribute could disappear.
 -  A call to the PageGetActive function from within a scheduled procedure now works correctly.
--  In the AIMMSXLLibrary, the function fillList now recognizes a request to write the header and the data values horizontally, based upon the width and height of the data range.
--  A memory leak occured when evaluating a function with a specified index domain.
+-  In the AIMMSXLLibrary, the function ``fillList`` now recognizes a request to write the header and the data values horizontally, based upon the width and height of the data range.
+-  In the AIMMSXLLibrary, the function ``fillList`` now recognizes a request to write the header and the data values horizontally, based upon the width and height of the data range.
+-  A memory leak occurred when evaluating a function with a specified index domain.
 
 
 
@@ -6591,15 +6592,15 @@ Resolved WebUI Issues
 -  The Download widget didn't accept file names with spaces in it.
 -  When displaying strings containing backslashes in the WebUI, they were not displayed properly.
 
-**PLEASE NOTE:** In this AIMMS version, the internal format of the file `hermes-log.json` (in the `config` subfolder in your model folder of the AIMMS model) has changed. This has the effect that AIMMS generates strange 'one-letter files' in the WebUI folder. The remedy to this problem is:
+**PLEASE NOTE:** In this AIMMS version, the internal format of the file ``hermes-log.json`` (in the `config` subfolder in your model folder of the AIMMS model) has changed. This has the effect that AIMMS generates strange 'one-letter files' in the WebUI folder. The remedy to this problem is:
 
 -  Exit AIMMS.
 -  Delete the one-letter files.
--  Delete the mentioned `hermes-log.json` file too.
+-  Delete the mentioned ``hermes-log.json`` file too.
 
-Upon re-opening the AIMMS model and starting the WebUI, the (updated!) `hermes-log.json` will be re-generated. So, this is a one time action. The one-letter files will not return anymore.
+Upon re-opening the AIMMS model and starting the WebUI, the (updated!) ``hermes-log.json`` will be re-generated. So, this is a one time action. The one-letter files will not return anymore.
 
-Should you open your AIMMS 4.20.6 model in an older version of AIMMS, you may find that you get a timeout message when trying to startup the WebUI. In this case you should also delete the 'hermes-log.json' file.
+Should you open your AIMMS 4.20.6 model in an older version of AIMMS, you may find that you get a timeout message when trying to startup the WebUI. In this case you should also delete the ``hermes-log.json`` file.
 
 
 
@@ -6690,7 +6691,7 @@ Resolved WebUI Issues
 
 -  Scrolling to the top of a table widget on a scrolled down page sometimes resulted in an empty table.
 -  If you added a new widget to a page which had been renamed in the past, it was not saved properly.
--  The webui::GetIOFilePath function has been adapted to work under Linux as well.
+-  The ``webui::GetIOFilePath`` function has been adapted to work under Linux as well.
 
 
 
@@ -6965,12 +6966,12 @@ Resolved AIMMS Issues
 
 -  The `Used Identifers` dialog box on a page sometimes showed `random` identifier names.
 -  For an identifier with a unit via an indexed unit parameter and INF as the default value, the Pivot Table option `Show default values` did not work correctly.
--  In the AIMMS Forecasting system library, there was a problem in the forecasting::WeightedMovingAverage function. The matching between weights and coefficients is now in forward mode, instead of backward. In addition, the forecasting component uses more advanced exception handling now.
+-  In the AIMMS Forecasting system library, there was a problem in the :any:`forecasting::WeightedMovingAverage` function. The matching between weights and coefficients is now in forward mode, instead of backward. In addition, the forecasting component uses more advanced exception handling now.
 
 WebUI Improvements
 ++++++++++++++++++++
 
--  The WebUI has been extended with an Upload widget, which allows you to send a local file to your AIMMS model through the WebUI and automatially call a procedure in AIMMS to process the file.
+-  The WebUI has been extended with an Upload widget, which allows you to send a local file to your AIMMS model through the WebUI and automatically call a procedure in AIMMS to process the file.
 -  On a touch device, you can now toggle between touch input and mouse input, with a newly added button.
 
 Resolved WebUI Issues
@@ -7014,7 +7015,7 @@ AIMMS 4.15.1.321 Release (The AIMMS 4.15.1.321 Release was released on February 
 AIMMS Improvements
 ++++++++++++++++++++
 
--  A new callback procedure has been added which can be called by a solver with a specified time interval (in elapsed seconds). This callback procedure can be installed using either the mathematical programming suffix .CallbackTime or the procedure :any:`GMP::Instance::SetCallbackTime`. This callback procedure is supported by all linear solvers (CPLEX, Gurobi, CBC and XA).
+-  A new callback procedure has been added which can be called by a solver with a specified time interval (in elapsed seconds). This callback procedure can be installed using either the mathematical programming suffix ``.CallbackTime`` or the procedure :any:`GMP::Instance::SetCallbackTime`. This callback procedure is supported by all linear solvers (CPLEX, Gurobi, CBC and XA).
 -  Two new functions have been added to AIMMS: LoadDatabaseStructure and SaveDatabaseStructure. They can be used to Load/Save all currently available table structure information for the currently open database connections to a file. Using these functions, you can speed up the initialization process when accessing database tables for the first time during an AIMMS session.
 
 WebUI Improvements
@@ -7093,7 +7094,7 @@ WebUI Improvements
 
 -  If you create a new button widget, the name that you provide for the widget will be put on the button by default. Previously, this was the name of the AIMMS procedure, which usually is less human-readable.
 -  The widget formerly known as `Textwidget` is now called `Text`, which is more consistent with the naming of the other widgets. As a consequence, you cannot run WebUI apps developed with AIMMS 4.14 or higher using AIMMS versions 4.13 or lower.
--  In the multiselect widget, you can now use shift-click to (un)select multiple items at once.
+-  In the multiselect widget, you can now use shift-click to select/unselect multiple items at once.
 -  Any PRO user that is a member of the group `WebUI_Cannot_Change_UI` will be prevented from changing widget options (see documentation).
 
 Resolved AIMMS Issues
@@ -7101,7 +7102,7 @@ Resolved AIMMS Issues
 
 -  A database table mapping with library prefixes could not be parsed by the database table wizard, leading to nothing being displayed in this wizard when opening it.
 -  The option Ignored Aggregators of a Pivot Table identifier did not work correctly when values of multiple identifiers were aggregated of which some had the ignore option set.
--  Pages with non-ASCII characters in their name could not be opened from an exported .aimmspack file.
+-  Pages with non-ASCII characters in their name could not be opened from an exported ``.aimmspack`` file.
 -  When a Pivot Table displays calendar values, the alphabetical sort is no longer used. Instead, the date/time value is taken into account, as you would expect.
 -  Values in a page object were not always updated when the parameterized unit of an identifier was changed.
 -  In rare cases, AIMMS could generate very large negative coefficients or constants for a math program that used a parameter to which the special value of `zero` was assigned.
@@ -7109,7 +7110,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  In the linechart widget of the WebUI, the maximum value of the Y-value displayed was never lower than 10, possibly leading to lots of whitespace at the top of such a chart when only very small values were involved.
+-  In the linechart widget of the WebUI, the maximum value of the Y-value displayed was never lower than 10, possibly leading to lots of white space at the top of such a chart when only very small values were involved.
 -  The colors in the Legend widget did not always correspond well to the colors in the Line chart and Bar chart widgets.
 -  Parameters present in AllPublicIdentifiers were not visible in the Scalar widget, when some of the parameters in the widget were not present in that set.
 -  Some drag-and-drop problems in the contents editor of a widget have been addressed.
@@ -7161,7 +7162,7 @@ Resolved issues
 
 -  Sometimes, when evaluating a parameter definition, AIMMS could raise a severe internal error.
 -  The attribute `Activating Condition` of a constraint is now only used when the property `Indicator Constraint` is set as well.
--  When some menus in a menubar were hidden, enabling other menus in the same menubar did not work correctly.
+-  When some menus in a ``menubar`` were hidden, enabling other menus in the same ``menubar`` did not work correctly.
 -  Running an Excel macro with multiple string valued arguments did not work correctly.
 -  In the WebUI, images in Text widgets are now also displayed properly when running under PRO.
 
@@ -7298,8 +7299,8 @@ AIMMS 4.10.2 Release (October 14, 2015 Build 4.10.2.130)
 
  
 
-**End of .aim/.amb (AIMMS 3 Project Files) Support** 
-From AIMMS 4.10 onwards, we have stopped the support for .aim/.amb files in our AIMMS versions. In practice, this means that if you have projects that contain files in either of these formats (typically projects that started its development in AIMMS 3 or older), you will need an AIMMS 4 version that is released before AIMMS 4.10 (i.e. 4.0   4.9) to convert the project for you into .ams files. After that, you can continue working with your project in AIMMS 4.10 and higher. If you have any questions or concerns about this upgrade, please do not hesitate to contact us via `support@aimms.com <mailto:support@aimms.com>`__.
+**End of ``.aim``/``.amb`` (AIMMS 3 Project Files) Support** 
+From AIMMS 4.10 onwards, we have stopped the support for ``.aim``/``.amb`` files in our AIMMS versions. In practice, this means that if you have projects that contain files in either of these formats (typically projects that started its development in AIMMS 3 or older), you will need an AIMMS 4 version that is released before AIMMS 4.10 (i.e. 4.0   4.9) to convert the project for you into .ams files. After that, you can continue working with your project in AIMMS 4.10 and higher. If you have any questions or concerns about this upgrade, please do not hesitate to contact us via `support@aimms.com <mailto:support@aimms.com>`__.
 
 Improvements
 +++++++++++++++++++
@@ -7307,7 +7308,7 @@ Improvements
 
 -  BARON 15 has been upgraded to version 15.9.
 -  The behavior of the setting `Automatic` of the BARON 15 option `NLP Solver` has changed. BARON will now use combinations of the available NLP solvers.
--  To speed up reading multiple Excel files, the Excel interface functions will open new workbooks in an already existing Excel process, instead of spawning a new Excel process for each new workbook. When closing the last open workbook, the Excel process will exit. As a consequence, the function spreadsheet::SetVisible will now make all open workbooks visible.
+-  To speed up reading multiple Excel files, the Excel interface functions will open new workbooks in an already existing Excel process, instead of spawning a new Excel process for each new workbook. When closing the last open workbook, the Excel process will exit. As a consequence, the function ``spreadsheet::SetVisible`` will now make all open workbooks visible.
 
 Resolved issues
 +++++++++++++++++++
@@ -7391,7 +7392,7 @@ Resolved issues
 -  Empty composite tables were not printed when first occurring on a page other than the first page.
 -  The Gurobi logging messages were never printed in the Messages window, even if the option `Solver Window Messages` was set to `All`.
 -  When importing a section that contains the declaration of an index, as well as a parameter that uses it, AIMMS would generate an incorrect error like `The undeclared "(name)" is not an index`.
--  Starting AIMMS 4.9 could fail if AIMMS could not find atl100.dll on your system.
+-  Starting AIMMS 4.9 could fail if AIMMS could not find ``atl100.dll`` on your system.
 
 
 
@@ -7446,7 +7447,7 @@ Resolved issues
 -  In rare cases, the GMP version of AOA could stop due to evaluation errors while evaluating inline variables.
 -  The function :any:`GMP::Solution::SendToModel` did not set the objective value to NA if the model status was infeasible.
 -  When an index is duplicated in the index attribute of a set, AIMMS now issues an error instead of a warning and provides better internal memory management.
--  If your model had nested source files in sections or modules and were moved around in the model tree, having relative paths in the source file attribute of the sections or modules didn't lead to the actual files being copied. As a result, upon reopening your model, these files could not be found anymore (because the relative paths weren't correct anymore). Now, if you try to move such sections or modules, you are asked whether you want to move the actual files, or to adapt the relative paths.
+-  If your model had nested source files in sections or modules and were moved around in the model tree, having relative paths in the source file attribute of the sections or modules didn't lead to the actual files being copied. As a result, upon reopening your model, these files could not be found anymore (because the relative paths were not correct anymore). Now, if you try to move such sections or modules, you are asked whether you want to move the actual files, or to adapt the relative paths.
 -  The ElementCast function did not work correctly on calendars with a non-fixed format.
 -  The last focus position was not retained in a Pivot Table object if the table did not have focus at the time its data changed.
 
@@ -7492,7 +7493,7 @@ Resolved issues
 -  The function Delay() accepted negative values as argument, making AIMMS hang.
 -  Multiple case objects had difficulty with `index in Set` notation inside an identifier reference.
 -  If the domain of a composite table cannot be read from the xml (source) file, AIMMS crashed when reading any of the following explicit identifiers.
--  In the previous AIMMS release, the order in which identifiers in a web-ui widget were displayed, matched the order in which they were specified in the Contents option. Unfortunately, it turned out that in combination with a filter, changing the order could lead to disappearing identifiers. Therefore, in the current release, we disabled the feature to ensure that the display order matches the specified order. We expect to resolve this issue soon in one of our upcoming releases.
+-  In the previous AIMMS release, the order in which identifiers in a webui widget were displayed, matched the order in which they were specified in the Contents option. Unfortunately, it turned out that in combination with a filter, changing the order could lead to disappearing identifiers. Therefore, in the current release, we disabled the feature to ensure that the display order matches the specified order. We expect to resolve this issue soon in one of our upcoming releases.
 
 
 
@@ -7520,7 +7521,7 @@ Resolved issues
 -  An error was incorrectly issued when importing a new identifier under a namespace with the same name as an existing identifier.
 -  Selecting a range on a calendar object on a tabbed page, and switching back and forth between the tabbed pages, incorrectly cleared your selected date range when it laid in the past.
 -  Keyboard shortcuts for menu items on dockable pages didn't work correctly.
--  AIMMS didn't launch at all from the commandline if one of its commandline arguments was too long.
+-  AIMMS didn't launch at all from the command line if one of its command line arguments was too long.
 -  AIMMS could crash if you tried to use index names that were over 32 characters long.
 -  Reading an element parameter with a compound set as its range from a text file, led to spurious error messages.
 
@@ -7542,14 +7543,14 @@ Improvements
 
 
 -  Tooltips for page objects can now have any length. Previously, they were cut off at 255 characters.
--  Namechange files (.nch) files are now always sorted consistently. This has the benefit that they don't show as much `changes` when you compare them with older versions if your project is under a source control system.
+-  Namechange files (``.nch``) files are now always sorted consistently. This has the benefit that they don't show as much `changes` when you compare them with older versions if your project is under a source control system.
 -  There is a new version of CPLEX, namely CPLEX 12.6.2. The settings `Barrier - Primal crossover` and `Barrier - Dual crossover` of the option `LP method` have been removed. Crossover is now controlled by the new option `Solution type`.
 
 Resolved issues
 +++++++++++++++++++
 
 
--  Variables with a strictly positive lowerbound and present in violation penalties could erroneously be assigned a non-zero value when violated.
+-  Variables with a strictly positive lower bound and present in violation penalties could erroneously be assigned a non-zero value when violated.
 -  Sometimes, a crash occurred during a search (CTRL+F) operation in the model tree.
 -  A memory leak sometimes occurred during case management.
 
@@ -7637,7 +7638,7 @@ Improvements
 -  Selections made with the WebUI multi-select widget are passed on to the model and vice versa. This enables app developers to add more interaction between user and calculations. (This same functionality will soon also be available for the other two selection widgets.)
 -  The column width for the WebUI widget grid has been halved to 120 pixels, offering the app developer a more finely grained layout control.
 -  As a first step to make model selections in the WebUI available to the end-user, the multi-select widget now also accepts a one-dimensional parameter (with a default value other than 0 or 1) as its contents. The selected items in the multi-select widget will be kept in sync with the value of the parameter in your model.
--  A new `tutorial <https://www.aimms.com/english/developers/product-info/aimms-web-ui/>`__ in the WebUI dev series has been published. This tutorial explains how to create your own widget that displays multi-dimensional data from AIMMS.
+-  A new `tutorial <https://www.aimms.com/english/developers/product-info/aimms-web-ui/>`__ in the WebUI developer series has been published. This tutorial explains how to create your own widget that displays multi-dimensional data from AIMMS.
 
 Resolved issues
 +++++++++++++++++++
@@ -7683,7 +7684,7 @@ Resolved issues
 -  The Gantt chart object lost its non-default color scheme after changing the contents property.
 -  Switching between a bitmap button and a non-bitmap button (if the bitmap file was not found, or empty) was not handled correctly.
 -  A focus change to the Error Window, during the sliding of Slider object, could lead to a crash when executing a procedure associated with the slider object.
--  If your license does not match the range of licenses of an encrypted .aimmspack file, you now get a more detailed error message.
+-  If your license does not match the range of licenses of an encrypted ``.aimmspack`` file, you now get a more detailed error message.
 -  The intrinsic function TimezoneOffset now (optionally) takes daylight saving time into account.
 -  Numbers in the listing file were displayed incorrectly if the option `Listing number precision` is set to 0.
 -  There was a problem with always displaying tooltips at the correct moment. This has been improved.
@@ -7757,7 +7758,7 @@ Improvements
 -  Various new operators have been adapted to operate in parallel mode. These add to our ongoing effort of parallelizing the AIMMS engine for improving the overall performance.
 -  There is a new version of KNITRO, i.e. KNITRO 9.1, which introduces a new Sequential Quadratic Programming (SQP) algorithm for continuous problems. This new SQP algorithm is primarily designed for small problems, where the computational cost is dominated by function/derivative evaluations.
 -  There is a new version of BARON, i.e. BARON 15, which can use parallel threads for solving problems with integer variables. Also the COIN-OR solver FilterSD can now be selected as the NLP solver.
--  The suffix .BestBound of a math program now contains the lower bound, as shown in the progress window, for a minimization problem solved with BARON. The suffix .Objective already contained the upper bound for a minimization problem. Note that both suffices are only updated after the solve as BARON does not support callback procedures.
+-  The suffix ``.BestBound`` of a math program now contains the lower bound, as shown in the progress window, for a minimization problem solved with BARON. The suffix .Objective already contained the upper bound for a minimization problem. Note that both suffices are only updated after the solve as BARON does not support callback procedures.
 -  It is now possible to specify option settings for each of the concurrent MIP runs using Gurobi 6.0. To do so you have to switch on the option `Read parameter file` and specify a Gurobi parameter file for each of the concurrent MIP instances. See the help of the Gurobi options `Concurrent MIP` and `Read parameter file` for more information.
 -  Wizard buttons have been added for the `Property` attribute of sections, modules, libraries and named declaration sections.
 -  It is now possible to use a range of an element parameter as a filtering set. So, if EP is an Element Parameter mapped to a column of a database db, with set R as range, "read from db filtering R" will now select only the values that already exist in R.
@@ -7768,9 +7769,9 @@ Resolved issues
 
 -  In an End User project created in AIMMS 4, the developer state file of a library was not read in.
 -  When you add a new sheet to an Excel or OpenOffice-workbook with the function SpreadSheet::AddNewSheet, but the sheet name used already exists, the function didn't set this sheet as the active sheet if the user specified so.
--  Consider a library myLib with prefix ml and interface myPublicSection, where myPublicSection is a section in the library. When adding a procedure myProc or identifier myId to the section myPublicSection, ml::myProc and ml::myId were not immediately added to the identifiers that are accessible from outside the library myLib.
+-  Consider a library ``myLib`` with prefix ``ml`` and interface ``myPublicSection``, where ``myPublicSection`` is a section in the library. When adding a procedure ``myProc`` or identifier ``myId`` to the section ``myPublicSection``, ``ml::myProc`` and ``ml::myId`` were not immediately added to the identifiers that are accessible from outside the library ``myLib``.
 -  The option `API accesses all identifiers`, with range { `on`, `off` } (default value `off`) has been added to the option category `Backward compatibility`. When this option is switched on, the AIMMS API function AimmsIdentifierHandleCreate has access to all identifiers in a library, instead of just those mentioned in the interface.
--  A number of operators was added to the set of operators that can be executed in parallel: the if-else-endif expressions and a number of mathematical unary operators (like Factorial, Sin, Cos, Log, etc.).
+-  A number of operators was added to the set of operators that can be executed in parallel: the ``if-else-endif`` expressions and a number of mathematical unary operators (like ``Factorial``, ``Sin``, ``Cos``, ``Log``, etc.).
 -  The AIMMS Launcher now creates an icon on your desktop to start it with.
 -  If the CPLEX option `Check solution` was switched on then AIMMS would attempt to check the solution even if no solution existed, for example, if the model was infeasible. This could result in CPLEX errors being printed in the log files.
 -  At the end of a successful conversion from an old-style data management file to separate files on disk, an error dialog appeared which has now changed into a normal message dialog.
@@ -7782,7 +7783,7 @@ Resolved issues
 -  When using scalar objects with the `Single Line Edit Field` checkbox checked, setting focus to the object using the tab key on your keyboard, did not make the value editable at once. You first has to manually select it before being able to edit it.
 -  The Case Load and Save dialog boxes now also show the hidden folders.
 -  On pages with more than one transparent button on it, sometimes clicking on one of them not only triggered the dotted rectangle box around that button, but also on another (random) button.
--  Putting a .cmdargs file next to the location of the project file only worked for a project with the .prj extension. Now it also works for .aimms and .aimmspack extensions.
+-  Putting a ``.cmdargs`` file next to the location of the project file only worked for a project with the ``.prj`` extension. Now it also works for ``.aimms`` and ``.aimmspack`` extensions.
 -  The definitions of sets to filter or check read/write statements are now updated before the statement is executed.
 -  Opened attribute windows of runtime identifiers that were already deleted could cause an endless loop in AIMMS.
 -  The data of X.violation was not emptied after an Empty X; statement.
@@ -7891,7 +7892,7 @@ Improvements
 
 -  There is a new version of the Gurobi solver: Gurobi 6.0. This version offers improved performance.
 -  AIMMS is now able to handle (far) more than 32.000 identifiers in a single model.
--  The option to put an expiry date on an exported .aimmspack file has been re-introduced, including a warning period option.
+-  The option to put an expiry date on an exported ``.aimmspack`` file has been re-introduced, including a warning period option.
 -  A technique to make small data changes faster can now be disabled. This option is introduced since in some cases it turned out to decrease performance significantly. Setting the tuning option: "small data updates strategy" to "off" might increase performance of the statements following this option switch.
 
 Resolved issues
@@ -7941,7 +7942,7 @@ Resolved issues
 -  Dialog pages with `Save last position` set to true did not work correctly when they had a template page.
 -  The possibility to change the application name during a conversion from an AIMMS 3 project to an AIMMS 4 project has been removed.
 -  The progress window was not updated during a solve if BARON was used.
--  When creating a .aimmspack file of your project, and opening the resulting .aimmspack file, the saved page layout could sometimes not be respected.
+-  When creating a ``.aimmspack`` file of your project, and opening the resulting ``.aimmspack`` file, the saved page layout could sometimes not be respected.
 -  Constraints with empty quadratic data were considered quadratic instead of linear, resulting in an incorrect automatically determined model type (e.g., MIQP instead of MIP).
 -  A severe internal error could be caused by compiling a unit attribute referencing a deleted identifier.
 -  When trying to read empty strings from MySQL, or strings just containing newline characters (`n`), this didn't work correctly.
@@ -7974,7 +7975,7 @@ Resolved issues
 -  There was a performance glitch with inline variables with a complicated index domain expanded in high dimensional variables. This could lead to an unnecessary re-evaluation of the index domain while generating the high dimensional constraint.
 -  Empty index sets could lead DisAggregate with a locus set to interpolation into an infinite amount of memory allocated.
 -  Getting the Text Representation of a declaration node resulted in a crash if the section was unnamed. Otherwise, it did not show the identifiers.
--  The best bound, accessible through the math program suffix .BestBound or by using GMP functions like :any:`GMP::Solution::GetBestBound`, was not updated for MIQP and MIQCP problems.
+-  The best bound, accessible through the math program suffix ``.BestBound`` or by using GMP functions like :any:`GMP::Solution::GetBestBound`, was not updated for MIQP and MIQCP problems.
 -  The option `Warning no transactions supported` was not taken into account. Instead, this warning was always given if the connected datasource did not offer transaction support.
 
 
@@ -8006,17 +8007,17 @@ Resolved issues
 
 
 -  In some cases, you could see a dialog from ComponentOne (the 3rd party supplier of the ActiveX charts in AIMMS) popping up unexpectedly during startup of AIMMS.
--  If two different pages had the same user defined menubar, but a different toolbar, the keyboard shortcuts in the menubar would disappear.
+-  If two different pages had the same user defined ``menubar``, but a different toolbar, the keyboard shortcuts in the ``menubar`` would disappear.
 -  The text in the dialog to convert a Data Manager file (menu command File-Open-Data File) has been simplified.
 -  In a multiple case view of a page object, the names of the displayed cases are now equal to only the base name of the underlying .data file. In other words: the folder path and the extension ".data" are removed. This only applies to data management style "Using disk files and folders".
 -  The Pivot Table object could not set a reverse link to an identifier in a library, because of its prefix.
 -  AIMMS sometimes produced a severe internal error after the error "The limit of 32700 identifiers is exceeded" was issued.
--  A statement like: Write anIndexedSet to file filtering i in someSubSet; would ignore the filtering.
+-  A statement like: ``Write anIndexedSet to file filtering i in someSubSet;`` would ignore the filtering.
 -  Committing a local numeric parameter with non-atomic unit after initial compilation could result in a erroneous scaling of the initial value.
 -  When two or more defined parameters and sets were referencing each other, AIMMS could go into an infinite loop trying to determine whether or not these definitions were constant.
 -  Name changes were not picked up by the Pivot Table and ActiveX objects, and some properties of the Network object.
 -  We recommend not to use the Linux ODBC driver for SQL Server. It doesn't work well in combination with AIMMS, because some functions that AIMMS requires are not supported by this particular driver.
--  In encrypted creating enduser .aimmspack files, the convention attribute was inadvertently not accepted by the compiler.
+-  In encrypted creating end-user ``.aimmspack`` files, the convention attribute was inadvertently not accepted by the compiler.
 
 A high level overview can be found at the `AIMMS 4.1 New Features Page <https://www.aimms.com/support/new-features/>`__.
 
@@ -8072,7 +8073,7 @@ Resolved issues
 -  Flatfile reader was considerably slower in Unicode-only AIMMS versions 3.14 and 4.0.
 -  Compiling converted AIMMS 3.x models in AIMMS 4.0 took considerably longer than compiling the original AIMMS 3.x model.
 -  Menu shortcuts could temporarily disappear under special circumstances in AIMMS 3.13+.
--  AIMMS could freeze when importing an encrypted .amb file.
+-  AIMMS could freeze when importing an encrypted ``.amb`` file.
 -  The AIMMS memory manager failed when allocating >4GB memory blocks in a single request.
 -  When compiling an AIMMS 4.0 model, model files with non-standard characters in the absolute file path would not be read under special circumstances.
 
@@ -8146,3 +8147,24 @@ Improvements
 
  
 
+
+.. spelling::
+
+    presolved
+    iODBC
+    linux
+    keypress
+    keypresses
+    unassigning
+    unclickable
+    nonlocal
+    storable
+    updatability
+    awf
+    misrenderings
+    parameterized
+    dockable
+    unary
+    parallelization
+    unixODBC
+    gridlines

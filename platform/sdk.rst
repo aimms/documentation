@@ -35,7 +35,7 @@ Release history
 Version 1.4.2
 ++++++++++++++
 
-If a call to a procedure using the java and c# frontend took over a minute to return, the session was killed.
+If a call to a procedure using the java and c# front end took over a minute to return, the session was killed.
 The host application chosen for VS2017 versions of AIMMS  for windows could not start up.
  
 
@@ -109,3 +109,7 @@ We added an option to the IConfig to pass command line options to the host.
   From this version on, the SDK on Windows requires AIMMS 4.3 or newer.
 
 Version 1.1.2.8, contained json.net version 8.0.1 for the .net front end.
+
+.. spelling::
+
+    gcc

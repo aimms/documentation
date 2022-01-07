@@ -16,9 +16,9 @@ If you want to introduce a message bus into your application, the following step
 Creating a Queue
 ++++++++++++++++
 
-You can create a queue by calling the function pro::messaging::CreateQueue
+You can create a queue by calling the function ``pro::messaging::CreateQueue``
 
-When creating a queue, you can specify a queue authorization, determining which users can listen and send messages to the queue. You can create the correct authorization string through the PRO *Authorization Editor*, which you can invoke by calling the procedure progui::EditAuthorization.
+When creating a queue, you can specify a queue authorization, determining which users can listen and send messages to the queue. You can create the correct authorization string through the PRO *Authorization Editor*, which you can invoke by calling the procedure ``progui::EditAuthorization``.
 
 Starting with **AIMMS PRO 2.30** and **AIMMS 4.63**, it is possible to retrieve and/or modify the authorization string of a queue. You can achieve this by calling the functions,
 
@@ -31,7 +31,7 @@ Starting with **AIMMS PRO 2.30** and **AIMMS 4.63**, it is possible to retrieve 
 Connecting to a Queue
 +++++++++++++++++++++
 
-Given a queueID of the queue you just created, you can listen to incoming messages on this queue by attaching it to the connection your application already has with the AIMMS PRO server.
+Given a ``queueID`` of the queue you just created, you can listen to incoming messages on this queue by attaching it to the connection your application already has with the AIMMS PRO server.
 
 .. code::
 

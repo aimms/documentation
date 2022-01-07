@@ -5,7 +5,7 @@ Link to Active Directory for AD Member Servers
 
     This section of the AIMMS PRO documentation does *not* apply to the `AIMMS Cloud Platform <../cloud/index.html>`_. AD integration into the AIMMS Cloud Platform always need to follow the `Active Directory integration for non-AD member servers <ad-man-non-member.html>`_.
 
-If your PRO server is a member server of your Active Directory domain, setting up the link is straightforward: push the link icon on the right side of the environment box in the users tab of the AIMMS PRO Portal. This will open a dialog in which you must specify the Netbios name of the Active Directory (For example MYDOMAIN, not a dns name like mydomain.somewhere.com). 
+If your PRO server is a member server of your Active Directory domain, setting up the link is straightforward: push the link icon on the right side of the environment box in the users tab of the AIMMS PRO Portal. This will open a dialog in which you must specify the Netbios name of the Active Directory (For example MYDOMAIN, not a DNS name like mydomain.somewhere.com). 
 
 Browser configuration
 +++++++++++++++++++++
@@ -61,3 +61,7 @@ In order for a user to be allowed to publish AIMMS projects, the user needs to b
 
 
 Following the same steps, but only dragging the user into the *AimmsPublishers* group will give AIMMS version publishing rights to the Active Directory user.
+
+.. spelling::
+
+    mydomain

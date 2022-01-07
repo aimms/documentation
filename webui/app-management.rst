@@ -41,7 +41,7 @@ Suppose we would like to place all the widgets related to input data on the newl
 
 .. important:: Widgets can only be dragged and dropped from the source page's "Widgets on page" section to the destination page's "Widgets on page" section.
 
-.. note:: Note that the drop location during the **drag-and-drop** operation is marked by a coloured line in the tree. The starting poing of such a line (at its left side) indicates the intended location in the tree structure. A red line (see above) indicates that the intended drop location is not allowed, whereas a blue line (see above) indicates that the location is allowed and the node may be dropped there. 
+.. note:: Note that the drop location during the **drag-and-drop** operation is marked by a colored line in the tree. The starting point of such a line (at its left side) indicates the intended location in the tree structure. A red line (see above) indicates that the intended drop location is not allowed, whereas a blue line (see above) indicates that the location is allowed and the node may be dropped there. 
 
 With the introduction of application management features, this way of working not only applies to widget nodes in the tree, but also to page nodes in the tree and it complements the drag-and-drop feature described in the section `Moving a Page <webui-classic-pages.html#moving-a-page>`_. 
 
@@ -73,7 +73,7 @@ Of course, it is equally possible to **cut-and-paste** a widget in one go as ill
 .. image:: images/AppManag_CutAndPaste_1.png
     :align: center
 
-The **cut-and-paste** operation can be repeated for each widget which should be moved to a different page in the tree. In our example, after performing **cut-and-paste** also for the widgets UnitCostData, InitializeInput, and ModifyUnitCost (and maybe renaming the pasted widgets), the page tree would like in the following picture:
+The **cut-and-paste** operation can be repeated for each widget which should be moved to a different page in the tree. In our example, after performing **cut-and-paste** also for the widgets ``UnitCostData``, ``InitializeInput``, and ``ModifyUnitCost`` (and maybe renaming the pasted widgets), the page tree would like in the following picture:
 
 .. image:: images/AppManag_PM_30.jpg
     :align: center
@@ -89,7 +89,7 @@ When we additionally move the Page Actions from the Home Page to the Input Data 
           * for the `WebUI classic pages <webui-classic-pages.html>`_, the order of widgets on the page is the one given by the `Widget Manager <widget-manager.html>`_
           * for the `WebUI grid pages <webui-grid-pages.html>`_, the positioning of the widgets on the page is the one given by the corresponding **Page tab** of the `Page Manager with Grid Pages <webui-grid-pages.html#page-manager-with-grid-pages>`_. In this case, the copy-pasted or cut-pasted widgets are placed in the Unssigned area of the destination page.
 
-In this example at hand, we can use similar actions as those illustrated above in order to create two new page, say Optimization and Output Data, and move the correspoding widgets from the Home page to these newly created pages, such that the page tree looks like in the following picture:
+In this example at hand, we can use similar actions as those illustrated above in order to create two new page, say Optimization and Output Data, and move the corresponding widgets from the Home page to these newly created pages, such that the page tree looks like in the following picture:
 
 .. image:: images/AppManag_PM_40.jpg
    :align: center

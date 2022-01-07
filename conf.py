@@ -37,12 +37,13 @@ if os.name == 'nt':
 extensions = ['sphinx.ext.doctest',
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
-	  'sphinx.builders.linkcheck',
+    'sphinx.builders.linkcheck',
     'sphinx.ext.intersphinx',
-    'sphinx_aimms_theme']
+    'sphinx_aimms_theme',
+    'sphinxcontrib.spelling']
 
 intersphinx_mapping = {'functionreference': ('https://documentation.aimms.com/functionreference/',
-                                  (None,'objects-functionreference.inv')),
+                                  None),
                         'lr': ('https://documentation.aimms.com/language-reference/', None),
                         'howto': ('https://how-to.aimms.com/', None),
                         'ug': ('https://documentation.aimms.com/user-guide/', None),

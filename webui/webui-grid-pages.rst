@@ -38,7 +38,7 @@ This section describes various tasks related to WebUI grid pages.
 
 	When running an AIMMS project which was created with AIMMS 4.80 (or with a newer version) and that has Dialog Grid Pages or Side Panel Grid Pages added, in AIMMS 4.79.3 (or an older version) you might face an invalid schema error. Please contact support if you face such issues.
 
-Grid pages introduce in AIMMS WebUI the CSS Grid concept of visualization based on page layouts, which is currently a widely used standard in webdesign. For more information on CSS Grid in general please see websites such as:
+Grid pages introduce in AIMMS WebUI the CSS Grid concept of visualization based on page layouts, which is currently a widely used standard in web design. For more information on CSS Grid in general please see websites such as:
 
     * `MDN Web Docs <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout>`_
     * `w3schools.com <https://www.w3schools.com/css/css_grid.asp>`_
@@ -186,13 +186,13 @@ This section provides more details about creating (custom) grid layouts using th
 
 A layout is a technical description of a specific component (Grid), its properties and the items (sub-components) which live within that component. We currently (only) support Grid as the main component and WidgetArea as the sub-components.
 
-The properties of the Grid component are closely related to how CSS Grid works (see websites links in the beginning of this section). In AIMMS WebUI we currentlty support grid-template-rows, grid-template-columns and grid-template-areas. By combining these you get virtually all of the power of CSS grids, using your choice of fractions, fixed pixel sizes or percentages. The gridTemplateAreas then serves to tell how your areas are supposed to overlap with the positions you made available as rows and columns.
+The properties of the Grid component are closely related to how CSS Grid works (see websites links in the beginning of this section). In AIMMS WebUI we currently support grid-template-rows, grid-template-columns and grid-template-areas. By combining these you get virtually all of the power of CSS grids, using your choice of fractions, fixed pixel sizes or percentages. The ``gridTemplateAreas`` then serves to tell how your areas are supposed to overlap with the positions you made available as rows and columns.
 
-Please note that the format you see in the layout editor will serve to create real CSS. This is also the reason why the gridTemplateAreas need to contain the quotes in their escaped version. The output of that needs to be a set of row definitions, grouped between quotes, while the property itself is also a string in quotes (the outer ones).
+Please note that the format you see in the layout editor will serve to create real CSS. This is also the reason why the ``gridTemplateAreas`` need to contain the quotes in their escaped version. The output of that needs to be a set of row definitions, grouped between quotes, while the property itself is also a string in quotes (the outer ones).
 
 .. warning::
 
-	The names you give to your areas should re-appear as WidgetAreas components below the items of the Grid. The "gridArea" properties of it should be the same as of one of the defined areas in "gridTemplateAreas" of the Grid. Failure to do so may lead to unexpected results.
+	The names you give to your areas should re-appear as WidgetAreas components below the items of the Grid. The ``gridArea`` properties of it should be the same as of one of the defined areas in ``gridTemplateAreas`` of the Grid. Failure to do so may lead to unexpected results.
 
 	If you change the area name in the ``gridArea`` property and if any widgets were earlier assigned to that area, the widgets will get unassigned. To avoid this you could only change the area name in the ``name`` property.
 
@@ -200,11 +200,11 @@ Only the areas that you define as sub-components will end up in the Page Configu
 
 WidgetArea components support a number of properties:
 
--	gridArea: the CSS name you also used in the definition of gridTemplateAreas for the parent Grid component,
--	name: the display name you will see in the Page Configurator (which can contain whitespace and 'odd' characters, unlike the gridArea names; see the CSS grid specification),
--	gridAutoFlow: either "row" or "column". It defaults to "column", if not specified. When multiple widgets are placed in this area, this property determines whether the widget either shares space vertically (=row, so stacked widgets) or horizontally (=column, so distribute width).Note that when widgets are stacked, certain widgets will never increase their height beyond their inherent size. For example: buttons, up/download widgets, scalar widgets.
--	runIntoGridGap: true or false. It defaults to false. This property will make an area 'expand' into its gridgap/margins in all directions, so probably best used in combination with one single area. The adjacent areas which are also running into their grid gap will simply overlap.
--	separateFixedHeightWidgets: true or false. It defaults to false. This property triggers different sizing and ordering behavior for the fixed-side widget mentioned above. Those widgets will be grouped together and placed at either the far right (column based flow) or bottom (row based flow) of all widgets. This is slightly different from just grouping your widgets yourself, especially for the column-based flow where you can have a group of vertically stacked buttons on the far right without having to create a new area for that.
+-	``gridArea``: the CSS name you also used in the definition of ``gridTemplateAreas`` for the parent Grid component,
+-	name: the display name you will see in the Page Configurator (which can contain white space and 'odd' characters, unlike the ``gridArea`` names; see the CSS grid specification),
+-	``gridAutoFlow``: either "row" or "column". It defaults to "column", if not specified. When multiple widgets are placed in this area, this property determines whether the widget either shares space vertically (=row, so stacked widgets) or horizontally (=column, so distribute width).Note that when widgets are stacked, certain widgets will never increase their height beyond their inherent size. For example: buttons, up/download widgets, scalar widgets.
+-	``runIntoGridGap``: true or false. It defaults to false. This property will make an area 'expand' into its ``gridgap/margins`` in all directions, so probably best used in combination with one single area. The adjacent areas which are also running into their grid gap will simply overlap.
+-	``separateFixedHeightWidgets``: true or false. It defaults to false. This property triggers different sizing and ordering behavior for the fixed-side widget mentioned above. Those widgets will be grouped together and placed at either the far right (column based flow) or bottom (row based flow) of all widgets. This is slightly different from just grouping your widgets yourself, especially for the column-based flow where you can have a group of vertically stacked buttons on the far right without having to create a new area for that.
 
 We also support most other css-grid-spec properties for either Grid or WidgetAreas, like grid-gap, dir, z-index and several alignment properties, but do note that our own styling will either heavily influence or overrule these. Therefore, please consider their usage as experimental.
 
@@ -215,9 +215,9 @@ The previous explained the general framework for creating custom layouts. The fo
 
 This is useful when you either require a vertical scroll bar or in some cases a horizontal scroll bar, or if you do not want to use the full height or width of your viewport.
 
-To control the height of your application either to a fixed height or to introduce a vertical scroll bar you need to customize the values in `gridTemplateRows` i.e. for the rows. 
+To control the height of your application either to a fixed height or to introduce a vertical scroll bar you need to customize the values in ``gridTemplateRows`` i.e. for the rows. 
 
-To control the width of your application either to a fixed width or to introduce a horizontal scroll bar you need to customize the values in `gridTemplateColumns` i.e. for the columns. 
+To control the width of your application either to a fixed width or to introduce a horizontal scroll bar you need to customize the values in ``gridTemplateColumns`` i.e. for the columns. 
 
 Using pixels (px)
 +++++++++++++++++
@@ -236,7 +236,7 @@ When you use the Workflow Panel and the Side Panels, your viewport size is sligh
 
 Once you know the height of the viewport, if you want to fix the height of your application to half of your viewport's size, for example, just divide the values such that the sum of the values defining the height of the rows is half of the height of the viewport.
 
-To illustrate the above example, let's consider that the height of the browser viewport is 1000px. In this case, the specification of the `gridTemplateRows` could be, for instance, as follows: 
+To illustrate the above example, let's consider that the height of the browser viewport is 1000px. In this case, the specification of the ``gridTemplateRows`` could be, for instance, as follows: 
 
 .. code-block:: json
 
@@ -408,14 +408,14 @@ Troubleshooting
 
 If you are not able to get your desired output you might want to check a few aspects for troubleshooting: 
 
-* Check if you have defined all the areas that you used in "gridTemplateAreas".
+* Check if you have defined all the areas that you used in ``gridTemplateAreas``.
 * Check if your division matches the rows and columns and if the grouping is correct.
-* Check if the values in "gridArea" used to define each area has the correct case sensitive names.
-* Check if there are no spaces in "gridTemplateColumns": "1fr", and "gridTemplateRows": "1fr 1fr", between the numeric and measure of proportion.
+* Check if the values in ``gridArea`` used to define each area has the correct case sensitive names.
+* Check if there are no spaces in ``gridTemplateColumns``: ``1fr``, and ``gridTemplateRows``: ``1fr 1fr``, between the numeric and measure of proportion.
 * Check for errors in the JSON using a JSON Parser. You can use the links `here <https://jsonparseronline.com/>`_.
 
 
-  
+
 
 
 

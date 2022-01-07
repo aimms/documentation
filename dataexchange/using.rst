@@ -7,7 +7,7 @@ In the mapping file you specify how repetitive structure in the tree-based data 
 
 Typically a tree-based data format can consists of several types of nodes:
 
-* structural nodes, which can hold multiple structurally different named childnodes,
+*  structural nodes, which can hold children that are structured differently,
 * repetitive nodes, which can hold multiple (named or unnamed) child nodes of the same type and structure, and
 * value-holding leaf nodes, which hold the actual labels of bound indices or values of multi-dimensional identifiers.
 
@@ -161,3 +161,6 @@ Look at the following mapping for a Excel file with a single sheet with a table:
 
 This mapping will create the same table as in the CSV example, but will now output the table to an Excel workbook with a sheet called :token:`Table1`. A single Excel mapping can contain mappings for multiple sheets.
 
+.. spelling::
+
+    geocoding

@@ -97,7 +97,7 @@ New Features and Bug Fixes
     - Added a DLL that was missing in the PROClient IFA on Windows, causing WinUI PRO sessions to fail
 
 1.2.0.0 [17-05-2021]
-    - Add a completely asynchronous Curl-based HTTP client to the DataExchange library, supporting all string- and integer-valued options provided by libCurl.
+    - Add a completely asynchronous Curl-based HTTP client to the DataExchange library, supporting all string- and integer-valued options provided by ``libCurl``.
     - Add a REST API server to the DataExchange library, allowing model procedures to become available through a REST API via simple model annotations.
     - Allow generic ``RowMapping`` and ``ColumnMapping`` names to be used in row-based formats such as CSV, Excel, and row- and column-oriented JSON mappings next to the mapping type-specific names available before. This allows for easier switching between various mapping types.
     - Allow string values up to 8 kB during data transfer with string parameters in the model. The default max string size is 1 kB, which can be changed via the ``max-string-size`` attribute for particular string-valued nodes mapped onto AIMMS identifiers.
@@ -115,7 +115,7 @@ New Features and Bug Fixes
     - The library could crash when writing to a workbook with a duplicate sheet name.
 
 1.1.0.18 [12-08-2020]
-    - The library could crash because of using a different version of the libxl.dll (used to actually read and write to Excel files) than the AimmsXLLibrary.
+    - The library could crash because of using a different version of the ``libxl.dll`` (used to actually read and write to Excel files) than the AimmsXLLibrary.
 
 1.1.0.12 [06-10-2020]
     - Added support for reading from and writing to tables in sheets in Excel workbooks
