@@ -310,3 +310,4 @@ NB. This fix required a change in the format of the changesets sent over the wir
 .. spelling::
 
     performant
+    unhandled

@@ -141,7 +141,7 @@ When designing a multi-timezone application we recommend following some best pra
 
 #. When defining the attributes for the calendar, please use a 15-minute granularity or a minute granularity since you will have time zones which will be +15, +30 or +45 minutes away from their offsets. For example, ``Indian standard Time`` has the offset UTC+5:30.
 
-#. In the database, when representing a field as a date, please assign the datatype as datetime.
+#. In the database, when representing a field as a date, please assign the data type as datetime.
 
 #. Use the DST format in the time format for the conventions in order to indicate daylight saving time in the WebUI. For example: 
 

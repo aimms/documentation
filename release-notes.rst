@@ -1963,7 +1963,7 @@ AIMMS 4.71.6 Release (February 28, 2020)
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  On the cloud, the newest MS SQL ODBC Driver is used and this new version introduces a new underlying datatype for the TIME datatype that was not yet supported.
+-  On the cloud, the newest MS SQL ODBC Driver is used and this new version introduces a new underlying data type for the TIME data type that was not yet supported.
 -  Using SetElementAdd within a procedure was no longer working correctly when the passed set was part of a pure union set. A pure union set is a set that is defined as the union of a number of subsets.
 -  When applying the suffix .unit on an index of AllIdentifiers sometimes the unit parameter was returned instead of the actual unit value.
 -  When reading multiple cases in sequence, the time to read a case sometimes became unexpectedly long. AIMMS now uses a different memory allocation algorithm during the case read and this can drastically improve the performance.
@@ -2971,7 +2971,7 @@ Resolved WebUI Issues
 -  A 'Cubeview mismatch' error could occur when running your WebUI app on the cloud sometimes.
 -  The refreshing of widgets, when then updatability of contents identifiers changes, has been improved.
 -  The rendering of the Map widget has been made more efficient in terms of performance.
--  Combining a filter widget with a Table widget using slicing could lead to a freezing app when deselecting all items in the filter widget.
+-  Combining a filter widget with a Table widget using slicing could lead to a freezing app when unselecting all items in the filter widget.
 -  Tooltips on widgets were displayed immediately after hovering a data item with your mouse. This could be annoying, so we now leave a short delay before a tooltip appears.
 
 
@@ -3220,7 +3220,7 @@ AIMMS Improvements
 WebUI Improvements
 ++++++++++++++++++++
 
--  The Scalar widget and the Table widget now support custom HTML tooltips. The user can override the default tooltip on these widgets to achieve the same effect as those on the charts. Please note that n characters should be replaced by the 'br' tag, and t by using HTML tables. **IMPORTANT:** In order to implement this change, we had to rename the former 'title' attribute to 'data-old-title'. This can result in custom CSS not behaving as expected, if it targets this attribute. In such cases, please do the same rename in your CSS code.
+-  The Scalar widget and the Table widget now support custom HTML tooltips. The user can override the default tooltip on these widgets to achieve the same effect as those on the charts. Please note that n characters should be replaced by the ``br`` tag, and t by using HTML tables. **IMPORTANT:** In order to implement this change, we had to rename the former 'title' attribute to 'data-old-title'. This can result in custom CSS not behaving as expected, if it targets this attribute. In such cases, please do the same rename in your CSS code.
 -  The Gantt chart now has support lines/backdrop OR indicators when a job is being dragged or resized. This will be a default feature for the Gantt chart. When you drag or resize a job, there will be a background that helps the user drag the job with reference to other jobs. This makes it easier for the user to either line up jobs from different tasks/resources, or schedule jobs one after the other.
 -  The Gantt chart now offers an indication using Today and Now lines, that helps the user identify the exact day and time on the Gantt chart.
 -  In addition to the identifier slicing that is common through all of AIMMS and the WebUI, you can now also expand indices in the WebUI. So, in addition to slicing an index to (for example) a subset, you can now also expand it to a SUPERset. This allows you to match indexes of different identifiers displayed in the same widget. For example, you can make the displaying of related identifiers in a Table much more concise and intuitive. For details and examples, please refer to the `documentation <https://manual.aimms.com/webui/widget-options.html#identifier-settings>`__.
@@ -4846,7 +4846,7 @@ WebUI Improvements
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  When 3 or more users of your WebUI app on PRO would execute long(er) running AIMMS procedures at the same time, PRO would conclude after a while that the sessions were dead, leading to PRO actually killing the sessions.
+-  When 3 or more users of your WebUI app on PRO would execute long/longer running AIMMS procedures at the same time, PRO would conclude after a while that the sessions were dead, leading to PRO actually killing the sessions.
 -  When having a Table widget with a scroll bar and dragging it, there were times that the widget duplicated itself resulting in 2 displayed instances of the same widget.
 
 
@@ -4956,7 +4956,7 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  If the base unit of a Quantity was the euro symbol, writing a case file could result in an error.
+-  If the base unit of a Quantity was the Euro symbol, writing a case file could result in an error.
 -  A statement with a Lag or Lead operator could result in a crash if the element parameter on the left-hand side did not contain data.
 -  Using compound aggregators in the WinUI Pivot Table did not show any results.
 -  A warning was added on the usage of the Lag or Lead operator on a subset of Integers. This may give results other than expected.
@@ -6862,7 +6862,7 @@ WebUI Improvements
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  After changing something in the table widget, the widget position always moved back to the top again. This made it hard to (de)select the next item, because you needed to scroll down again.
+-  After changing something in the table widget, the widget position always moved back to the top again. This made it hard to select/unselect the next item, because you needed to scroll down again.
 -  The icons in the menu editor of the WebUI were hidden sometimes.
 -  Displaying long strings in the multi-select widget could cause misrenderings.
 
@@ -6943,7 +6943,7 @@ Three possible reasons for a superfluous \**** infeasibility warning in the cons
 
 -  .begin, .end columns corresponding to non-present activities.
 -  zero length activities might be erroneously marked as successor in sequential resources, thus causing superfluous infeasibility mark.
--  cp::alternative, might be marked infeasible.
+-  ``cp::alternative``, might be marked infeasible.
 
 Setting the environment variable AIMMSUSERDLL didn't have the expected effect of influencing the DLL search path.
 Opening a large listing file in AIMMS could take a long time and consume a lot of memory.
@@ -8145,7 +8145,7 @@ Resolved issues
 -  After converting an AIMMS 3 project to AIMMS 4, user bitmaps in the menu  Builder were not correctly read from Menu Builder.xml.
 -  The procedure SpreadSheet::RetrieveTable might not work properly when its arguments involved local sets.
 -  Exporting project options in AIMMS 4 did not use the correct extension in the suggested file name.
--  Scalar object with multiline edit field would show default popup menu if a user popup menu is defined.
+-  Scalar object with multiline edit field would show default pop-up menu if a user pop-up menu is defined.
 
 
 
@@ -8203,3 +8203,4 @@ Improvements
     unixODBC
     gridlines
     unicode
+    uninstalling

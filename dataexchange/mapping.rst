@@ -244,3 +244,7 @@ The message here is that an JSON, XML, CSV or Excel sheet tree is generated sole
 Thus, for instance, to generate a JSON array containing only all element names of a set in your model, you must combine a :token:`binds-to` attribute, together with a :token:`force-dense` attribute consisting an identifier over the index you want to generate the elements for, holding a value of 1 for every element you want to be contained in the array.
 
 If a node in the mapping contains an included mapping, all externally bound indices bound to the values of bound indices in the outer mapping, will be carried over to the included mapping, resulting in the Data Exchange library to use the identifier slices corresponding to the externally bound indices to generate the node contents.
+
+.. spelling::
+
+    regex
