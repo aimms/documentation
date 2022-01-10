@@ -9,7 +9,7 @@ before_script:
   - sudo apt-get install software-properties-common -y
   - sudo add-apt-repository ppa:deadsnakes/ppa -y
   - sudo apt-get update -y
-  - sudo apt-get install python3.10.1 python3.10.1-dev python3.10.1-venv python3-pip python3-venv python-enchant -y
+  - sudo apt-get install python3.10 python3.10-dev python3.10-venv python3-pip python3-venv python-enchant -y
   - python3.10 -mvenv ../myenv
   - source ../myenv/bin/activate
   - python3.10 -mpip install --upgrade  pip
