@@ -9,12 +9,12 @@ before_script:
   - sudo apt-get install software-properties-common -y
   - sudo add-apt-repository ppa:deadsnakes/ppa -y
   - sudo apt-get update -y
-  - sudo apt-get install python3.8 python3.8-dev python3.8-venv python3-pip python3-venv python-enchant -y
-  - python3.8 -mvenv ../myenv
+  - sudo apt-get install python3.10.1 python3.10.1-dev python3.10.1-venv python3-pip python3-venv python-enchant -y
+  - python3.10 -mvenv ../myenv
   - source ../myenv/bin/activate
-  - python3.8 -mpip install --upgrade  pip
-  - python3.8 -mpip install -U sphinx sphinx-sitemap sphinx-last-updated-by-git sphinxcontrib-bibtex sphinxcontrib-spelling
-  - python3.8 -mpip install -U --force-reinstall sphinx-aimms-theme
+  - python3.10 -mpip install --upgrade  pip
+  - python3.10 -mpip install -U sphinx sphinx-sitemap sphinx-last-updated-by-git sphinxcontrib-bibtex sphinxcontrib-spelling
+  - python3.10 -mpip install -U --force-reinstall sphinx-aimms-theme
 
 linkcheck:
   stage: test
@@ -28,6 +28,8 @@ linkcheck:
 spellcheck:
   stage: test
   script:
+  - python3 --version
+  - pip freeze
   - python3 -msphinx -W --keep-going -b spelling . _build/spelling
   allow_failure: true
   tags: 
