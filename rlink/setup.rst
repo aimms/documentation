@@ -305,3 +305,5 @@ R-packages on the AIMMS cloud
     xts
     yaml
     zeallot
+    ps
+    ep

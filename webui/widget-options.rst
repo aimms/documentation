@@ -199,7 +199,7 @@ In this case the tooltip for a cell in the table looks like in the following pic
 
 .. note::
    **Using HTML format:** 
-   Where in a simple text-based tooltip you used \\n to move to a new line, in a HTML-based tooltip this needs to be replaced by <br>, see example above.
+   Where in a simple text-based tooltip you used \\n to move to a new line, in a HTML-based tooltip this needs to be replaced by ``<br>``, see example above.
    Similarly, the usage of \\t in text-based tooltips should be replaced by HTML tables, see further below.
 
 Next, suppose that the data of a 1-dimensional parameter TotalCostPerIsland(i) is rendered in a barchart widget. A HTML-based tooltip may be added to the :token:`webui::TooltipIdentifier` annotation attribute of this parameter by using an auxiliary string parameter, say TotalCostPerIslandInfo(i), defined in the AIMMS model as
@@ -273,8 +273,8 @@ where for each element p of the set Planes, PlaneImageURL(p) is a string paramet
 .. image:: images/Tooltip_Bubblechart_1.png
     :align: center
 
-Finally, suppose that in a Gantt chart widget we show some schedule data for several activities performed by a few people, with the duration given by the data of a parameter JobDuration(pe,j),
-where "pe" is the index of the set Persons and j is the index of the set Jobs. When using the default tooltip, the info for a block in the chart is rendered as:
+Finally, suppose that in a Gantt chart widget we show some schedule data for several activities performed by a few people, with the duration given by the data of a parameter ``JobDuration(pe,j)``,
+where ``pe`` is the index of the set Persons and j is the index of the set Jobs. When using the default tooltip, the info for a block in the chart is rendered as:
 
 .. image:: images/Tooltip_Ganttchart_0.png
     :align: center
@@ -551,7 +551,7 @@ The transport table is sliced to show the transport from a single selected facto
 .. image:: images/slicingexample-elementparameter.png
     :align: center
 
-The transport table is sliced to show the transport from all distribution locations (subset with index distr) to the fixed location (fixed element) 'Breda'.
+The transport table is sliced to show the transport from all distribution locations (subset with index ``distr``) to the fixed location (fixed element) 'Breda'.
     
 .. image:: images/slicingexample-subset-fixedelement_v1.png
     :align: center
