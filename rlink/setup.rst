@@ -307,3 +307,4 @@ R-packages on the AIMMS cloud
     zeallot
     sp
     ep
+    ps
