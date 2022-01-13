@@ -41,13 +41,14 @@ Current list of Experimental Features
    Skip Combining CSS/JS Files, "Activate this option to load the CSS and JS files separately. This is unlike the other experimental features. This option will eventually be removed and the new setup will be applied. `Read more about the improvements here <https://community.aimms.com/product-updates-roadmap-36/smarter-delivery-of-webui-for-improved-performance-838>`_. This option is merely here such that you can use the old setup in case you face issues with the new setup. Please note, you will have to close the project, reopen the project and launch the WebUI each time this option is toggled.", 4.78 - Feature Standby, TBD
 
 
-Development Stages:
+Development Stages
+*********************
 
-* Feature Standby - An option that allows you to use the earlier version of a General Availability feature that is recently introduced. This option is removed after a period of time that allows models to be updated and adjusted to the new feature.
-* Feature Candidate - The feature is available to be used and tested, but might have a change in implementation. There could be a chance that we replace this feature with an alternate improved feature as well.
-* Beta - The feature is available to be used and tested. We collect feedback and suggestions for further improvement that may or may not be implemented before General Availability.
-* Release Candidate - The feature is stable and ready to be released unless significant bugs emerge. 
-* General Availability - The feature is officially released and supported as part of SLA. 
+* **Feature Standby** - An option that allows you to use the earlier version of a General Availability feature that is recently introduced. This option is removed after a period of time that allows models to be updated and adjusted to the new feature.
+* **Feature Candidate** - The feature is available to be used and tested, but might have a change in implementation. There could be a chance that we replace this feature with an alternate improved feature as well.
+* **Beta** - The feature is available to be used and tested. We collect feedback and suggestions for further improvement that may or may not be implemented before General Availability.
+* **Release Candidate** - The feature is stable and ready to be released unless significant bugs emerge. 
+* **General Availability** - The feature is officially released and supported as part of SLA. 
 
 .. note ::
     The development stages and General Availability versions for the experimental features can change based on certain conditions.
