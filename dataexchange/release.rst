@@ -19,6 +19,10 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.0.25 [13-01-2022]
+	- Add support for the OAuth Authorization Code flow for WebUI applications on the PRO/CLoud platform (requires AIMMS 3.84 and PRO/Cloud 2.42)
+	- Introduce :token:`alt-name` and :token:`name-regex-from` attributes for mapping files.
+	
 1.3.0.22 [02-01-2022]
 	- Refresh token could exceed length of 1024 characters, leading to failed OAuth2 refresh token flow.
 	- Added scope to token request.

@@ -55,10 +55,12 @@ The attributes of the elements in a Data Exchange mapping are shared among the d
 
 The available mapping attributes are:
 
-* name              
+* name
+* alt-name              
 * binds-to          
 * name-binds-to     
-* name-regex    
+* name-regex
+* name-regex-from    
 * name-regex-prefix    
 * name-regex-postfix    
 * iterative-binds-to
@@ -81,9 +83,9 @@ The available mapping attributes are:
 * read-normalize
 * write-normalize
 
-The name attribute
-------------------
-The :token:`name` attribute specifies the name of the mapped element in a JSON, XML, CSV or Excel format. Not every element needs a name, for instance to root value in a JSON file, or the child mapping of a JSON array.
+The name and alt-name attributes
+--------------------------------
+The :token:`name` attribute specifies the name of the mapped element in a JSON, XML, CSV or Excel format. Not every element needs a name, for instance to root value in a JSON file, or the child mapping of a JSON array. With the :token:`alt-name` attribute you can indicate an alternative name for the mapping element when reading a JSON, XML, CSV or Excel file, e.g. when the name has been recently altered, and there are still data files that use the old name. When writing, the Data Exchange library will always use the :token:`name` attribute.
 
 The binds-to attribute
 ----------------------
@@ -95,7 +97,7 @@ The name-binds-to attribute
 
 The :token:`name-binds-to` attribute provides a way of binding the name of an element in a JSON or XML file to an index in your AIMMS model. You would typically use this if a JSON or XML file holds elements with different names but with the same structure. Rather than creating a mapping for each of the elements you can create a mapping where the element names serves as an extra index in the binding of the multi-dimensional identifiers mapped to the values contained in each of the elements.
 
-The :token:`name-regex` attribute should be used in conjuction with a :token:`name-binds-to` attribute, to specify a regular expression to restrict the element to which the :token:`name-binds-to` attribute should be applied. 
+The :token:`name-regex` attribute should be used in conjuction with a :token:`name-binds-to` attribute, to specify a regular expression to restrict the element to which the :token:`name-binds-to` attribute should be applied. Alternatively, you can use the :token:`name-regex-from` attribute to let the Data Exchange library dynamically create a regular expression for you, *when you call* :token:`dex::AddMapping` *for the given mapping*, that exactly matches all elements from a simple set or index in your model that you can specify through this attribute.
 
 With the :token:`name-regex-prefix` attribute you can specify a prefix that is used in the JSON, XML, CSV or Excel file, but which should not be included in the element names in the model. Note that the value of the :token:`name-regex-prefix` attribute is automatically prepended to the regular expression specified in the :token:`name-regex` attribute, and subsequently removed from the match if a match has been found.
 
