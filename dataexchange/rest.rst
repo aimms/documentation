@@ -109,21 +109,20 @@ The following example shows the Authorization Code flow specification required f
 			tokenEndpoint : "https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token", 
 			clientId : "<client-id>", 
 			clientSecret : "*******************************", 
-			scope: "offline_access https://graph.microsoft.com/User.Read https://graph.microsoft.com/Group.Read.All",
-			redirectPath : "oauth2/"
+			scope: "offline_access https://graph.microsoft.com/User.Read https://graph.microsoft.com/Group.Read.All"
 		};
 
 .. note::
 
 	To get a refresh token for Azure AD, you should add the :token:`offline_access` scope.
 	
-When running the AIMMS application locally on your desktop, AIMMS will instantiate a fixed redirect URL :token:`http://localhost/oauth2/`. You need to provide this redirect URL to the API administrator to allow the application to be authorized when run from the desktop. 
+When running the AIMMS application locally on your desktop, AIMMS will instantiate a fixed redirect URL :token:`http://localhost/oauth2/`. For an on-premise PRO server, or for the AIMMS Cloud Platform, the redirect URL will be the fixed URL :token:`https://<pro-server-dns-name>/extensions/<app-name>/oauth2/`. You need to provide this redirect URL to the API administrator to allow the application to be authorized when run from the desktop. If the published name of your application on the on-premise PRO server or the AIMMS Cloud Platform contains spaces, you should `URL-encode <https://www.urlencoder.org/>`_ the application name before registering it with the identity platform. 
 
 With these settings, you can again call the function :js:func:`dex::oauth::AddBearerToken` to add a Bearer token to your API request. In this case, however, the end-user will need to authenticate herself with the identity platform through a brower session that will be initiated by AIMMS on the first call, and optionally on additional calls when a previous Bearer token has expired and cannot be refreshed.
 
 .. note::
 	
-	At this point AIMMS only offers OAuth2 Authorization Code flow support for AIMMS sessions running locally on the desktop. For offering this authorization flow also via the WebUI session running in the cloud, additional changes are necessary to the AIMMS WebUI and Cloud platform to allow the redirects from the identity platfom to arrive in the data session that initiated the Authorization Code flow. 
+	The OAuth2 Authorization Code flow support will work for AIMMS sessions running locally on the desktop for all AIMMS versions. For WebUI session running from an on-premise PRO server or from the AIMMS Cloud Platform, AIMMS version 4.84 and PRO version 2.41 are required to support the redirect URLs to be routed back to the AIMMS session backing your WebUI session. Also, the use of OAuth requires the use of HTTPS on your on-premise PRO server. 
 
 Debugging client requests
 -------------------------
@@ -139,7 +138,7 @@ When you experience trouble invoking a URL using `dex::client` requests, here ar
 		intOptions(dex::client::intopt) := { 'HTTPPROXYTUNNEL' : 1, 'SSL_OPTIONS' : 2, 'FOLLOWLOCATION' : 1, 'MAXREDIRS' : 10 };
 		dex::client::SetDefaultOptions(intOptions, stringOptions);
 
-The procedure :js:func:`dex::client::DetermineProxyServer` will set these defaults options for. 
+The procedure :js:func:`dex::client::DetermineProxyServer` will set these defaults options for you. 
 
 * If your request contains a request body, the HTTP client will deduce the content type of the request body from the file extension containing the body, or if it cannot deduce it, set it to `application/octetstream`. You may need to set the `Content-Type` header to a proper value to make the request succeed, specifically when you do a POST request with url-encoded parameters, as follows
 

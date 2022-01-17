@@ -19,7 +19,7 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
-1.3.0.28 [14-01-2022]
+1.3.0.30 [17-01-2022]
 	- Add support for the OAuth Authorization Code flow for WebUI applications on the PRO/CLoud platform (requires AIMMS 3.84 and PRO/Cloud 2.42)
 	- Introduce :token:`alt-name` and :token:`name-regex-from` attributes for mapping files.
 	
