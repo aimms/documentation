@@ -140,7 +140,7 @@ When you experience trouble invoking a URL using `dex::client` requests, here ar
 
 The procedure :any:`dex::client::DetermineProxyServer` will set these defaults options for you. 
 
-* If your request contains a request body, the HTTP client will deduce the content type of the request body from the file extension containing the body, or if it cannot deduce it, set it to `application/octetstream`. You may need to set the `Content-Type` header to a proper value to make the request succeed, specifically when you do a POST request with url-encoded parameters, as follows
+* If your request contains a request body, the HTTP client will deduce the content type of the request body from the file extension containing the body, or if it cannot deduce it, set it to `application/octetstream`. You may need to set the `Content-Type` header to a proper value to make the request succeed, specifically when you do a POST request with URL-encoded parameters, as follows
 	.. code-block:: aimms
 	
 		dex::client::AddRequestHeader(reqId, "Content-Type", "application/x-www-form-urlencoded"); 
