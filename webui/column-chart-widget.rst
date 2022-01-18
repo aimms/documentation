@@ -2,22 +2,71 @@ Column Chart Widget
 ===================
 
 The Column Chart is a particular instance of the Combination Chart which represents data as vertical bars, also called columns. In this section we refer to a combination chart widget which uses only columns as a column chart widget. 
+Note, however, that the formal widget type used for adding it to a page is still "combinationchart".
 
 A column chart widget can render data in your model by using an X/Y-plane and display a column for each data point. The height of a column in the chart equals the value of the corresponding data point.
-In this section we discuss and illustrate the features and options of the column chart. The chart's options may be set and accessed through the options editor. 
+In this section we discuss and illustrate the features and options of the column chart. The chart's options may be set and accessed through the options editor which open upon clicking on the Settings cog-wheel in the widget header:
+
+.. image:: images/ColumnChart-Settings-1.png
+   :align: center
+
+| 
+	
 Besides literal values, most options may also be specified using identifiers declared in the AIMMS model. 
 For example, in the TransNet application, the demand for products of every distribution center may be represented using a column chart widget. 
 Similarly, the unit transport costs for every combination (factory, center) may be rendered in a column chart. 
-We use such examples in the sequel in order to illustrated the usage of the chart. 
+We use such examples, as will become clearer in the sequel, in order to illustrate the concrete usage of the various chart features. 
 
-Contents and Pivoting
----------------------
+Contents 
+--------
 
-A data identifier to be rendered in the column chart has to be first specified in the Contents tab of the widget's options editor by using the "+" functionality at the bottom:
+Firstly, a data identifier to be rendered in the column chart has to be specified in the Contents tab of the widget's options editor. An identifier may be added to the contents by using the "+" functionality at the bottom:
 
-.. image:: images/BarChart-Contents.png
-    :align: center
-	
+.. image:: images/ColumnChart-Contents-1.png
+   :align: center
+
+| 
+
+For each identifier added to the Contents tab the following settings can be specified: the indentifier name (as declared in the AIMMS model), its display domain, the number of decimals, and the indicator for showing/hidding the units of measurement. 
+These values may be literal or given through identifiers present in the AIMMS model, as shown below:
+
+.. image:: images/ColumnChart-Identifier-Settings-1.png
+   :align: center  
+
+An AIMMS model identifier may be selected by using the icon on the right side of each option field:
+
+.. image:: images/ColumnChart-Select-Identifier-1.png
+   :align: center  
+
+Clicking on this icon opens an option dialog which allows to select the identifier itself as well as to specify some slicing which is to be applied to the identifier indexes:
+
+.. image:: images/ColumnChart-Identifier-Slicing-1.png
+   :align: center  
+
+In the "Display Domain" field of the idetifier settings, a constant or a model identifier may be specified as well. The column chart will then only display data points for which the display condition is evaluated as true.
+In our example, if the indexed (binary) parameter p_IsSomeCenter(c) is specified as the display domain for Demand(c), then the column chart only displays the demand values of the distribution centers c for which the parameter p_IsSomeCenter(c) is
+not 0. We can visualize this effect, for instance, by showing the values of p_IsSomeCenter(c) in a selection widget of type "multiselect" next to the column chart which shows Demand(c):
+
+.. image:: images/ColumnChart-DisplayDomain-1.png
+   :align: center
+   :scale: 82%
+
+.. image:: images/ColumnChart-DisplayDomain-2.png
+   :align: center
+   :scale: 81%
+
+In the "Set slicing per index" section it is possible to slice one index to another index of a subset, to an element parameter or to a fixed element in the corresponding set.
+For instance, we can slice our factory index f to the fixed element 'Hamburg' in the Factories set, resulting in the bar chart view as shown here: 
+
+.. image:: images/BarChart-ViewSlice.png
+    :align: center 
+
+Similarly, one could slice the index f to an element parameter CurrentFactory having the declared range the set Factories (where the value of CurrentFactory may be determined from within the model
+or by a choice made through another widget in the user interface). 
+
+Pivoting
+--------
+
 Next, in the Pivot tab of the options editor, one can specify how the data dimensions are to be organized in the chart. 
 For example, if both the factory index f and the center index c are specified in the X-axis section and the <IDENTIFIER-SET> in the Totals section then the resulting bar chart looks like 
 in the picture below on the right:
@@ -34,56 +83,16 @@ Similarly, one may move some data indexes in the Stacked section of the Pivot ta
 
 .. image:: images/BarChart-View3.png
     :align: center
-	
-Change Type
---------------
 
-In the Change Type tab of the widget's options editor, one can switch from the bar chart type to some other representation type. 
-In the example at hand, one can switch e.g.. from the bar chart to the table, resulting in the tabular view of the same data values:
 
-.. image:: images/BarChart-ViewTable.png
-    :align: center
-
-Barchart Settings
-----------------------
+Column Chart Settings
+---------------------
 
 In the Barchart Settings tab of the widget's options editor, a minimum and a maximum bound for the Y-axis may be specified, either as constants or as scalar identifiers from the model.
 Additionally, one may also specify a step size which determines the distance between the horizontal grid lines drawn in the chart:
 
 .. image:: images/BarChart-ViewSettings.png
     :align: center	
-	
-
-Totals
----------
-
-In the Totals tab of the widget's options editor, aggregated values such as sum, mean, count, min, or max computed over one of the data indexes my be added to the chart. 
-For example, when we add the sum over the centers c to our example bar chart, three additional (gray) bars representing the aggregated values become visible in the chart 
-and the Y-axis is re-scaled accordingly: 
-
-.. image:: images/BarChart-ViewTotals.png
-    :align: center
-
-Identifier Settings
------------------------
-
-In the Identifier Settings tab of the widget's options editor, one can apply a display domain or some slicing to the data identifier(s).
-
-In the "Set display domain" section, a constant or a model identifier may be specified. The bar chart will then only display data points for which the display condition is evaluated as true.
-In our example, when Transport(f,c) is specified as display domain for UnitCost(f,c), then the bar chart only display the unit costs for the (f,c) combination for which the Transport(f,c) is
-not 0, as illustrated below:
-
-.. image:: images/BarChart-ViewDispDom.png
-    :align: center
-
-In the "Set slicing per index" section it is possible to slice one index to another index of a subset, to an element parameter or to a fixed element in the corresponding set.
-For instance, we can slice our factory index f to the fixed element 'Hamburg' in the Factories set, resulting in the bar chart view as shown here: 
-
-.. image:: images/BarChart-ViewSlice.png
-    :align: center 
-
-Similarly, one could slice the index f to an element parameter CurrentFactory having the declared range the set Factories (where the value of CurrentFactory may be determined from within the model
-or by a choice made through another widget in the user interface). 
 
 Store Focus, Hover and Select
 --------------------------------
