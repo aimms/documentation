@@ -1,22 +1,19 @@
 Column Chart Widget
 ===================
 
-The Column Chart widget represents data as vertical bars, also called columns. An example is shown below:
+The Column Chart is a particular instance of the Combination Chart which represents data as vertical bars, also called columns. In this section we refer to a combination chart widget which uses only columns as a column chart widget. 
 
-.. image:: images/BarChart-1dimEx.png
-    :align: center
-
-A bar chart widget offers the possibility to display multi-dimensional data in your model by using an X/Y-plane to display a bar 
-for each data point. The height of a bar provides information about the value of the corresponding data point. 
-For example, in the TransNet application, the unit transport costs for every combination (factory, center) may be represented using a bar chart widget 
-like illustrated in more details in the sequel. More specifically, we discuss and illustrate below one-by-one the tabs in the bar chart's options editor 
-which may be accessed through the Settings wheel as shown in the picture above.
+A column chart widget can render data in your model by using an X/Y-plane and display a column for each data point. The height of a column in the chart equals the value of the corresponding data point.
+In this section we discuss and illustrate the features and options of the column chart. The chart's options may be set and accessed through the options editor. 
+Besides literal values, most options may also be specified using identifiers declared in the AIMMS model. 
+For example, in the TransNet application, the demand for products of every distribution center may be represented using a column chart widget. 
+Similarly, the unit transport costs for every combination (factory, center) may be rendered in a column chart. 
+We use such examples in the sequel in order to illustrated the usage of the chart. 
 
 Contents and Pivoting
-----------------------------
+---------------------
 
-In order to determine the information to be rendered by a bar chart, first one has to specify the data identifier(s) in the Contents tab of the widget's options editor, where one may search 
-for the available model data using the corresponding functionality at the bottom:
+A data identifier to be rendered in the column chart has to be first specified in the Contents tab of the widget's options editor by using the "+" functionality at the bottom:
 
 .. image:: images/BarChart-Contents.png
     :align: center
