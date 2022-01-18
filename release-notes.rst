@@ -57,7 +57,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  The outlines/strokes, or the actual line, of a Line-, Bar-, Bar-Line-, Gant- and Pie-chart could remain invisible if no annotations were applied to the graph's data.
--  If you were using a custom stylesheet to customize the colors of lines in the Line or Bar-Line chart and if the used CSS classes were not only targeting the stroke but also the fill (probably for re-use for other chart types with the same annotations) then your line would also receive an unexpected area fill. We changed (back) our own internal styling of those charts to specifically prevent this, without you having to change your custom stylesheet.
+-  If you were using a custom style sheet to customize the colors of lines in the Line or Bar-Line chart and if the used CSS classes were not only targeting the stroke but also the fill (probably for re-use for other chart types with the same annotations) then your line would also receive an unexpected area fill. We changed (back) our own internal styling of those charts to specifically prevent this, without you having to change your custom style sheet.
 
 --------------
 
@@ -8255,3 +8255,4 @@ Improvements
     gridlines
     unicode
     uninstalling
+    namechanges
