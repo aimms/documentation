@@ -12,6 +12,27 @@ AIMMS 4.83
 #############
 
 
+AIMMS 4.83.9 Release (January 18, 2022 - build 4.83.9.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When reading new elements into a set via a database read, the elements did not always have the correct casing. If an element already existed in another set, but with different casing, it would just use that existing name.
+-  When a database procedure was called, not all its dependencies were updated.
+-  Attempting to connect to a data source without a name did not report an error but silently stopped execution of the remainder of the running procedure.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We did a minor tweak to the readability of some input and search fields by creating a higher contrast between text and background colors.
+
+--------------
+
+
+
 AIMMS 4.83.8 Release (January 6, 2022 - build 4.83.8.2).
 ------------------------------------------------------------------------------------------
 
