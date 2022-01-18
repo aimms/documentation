@@ -138,7 +138,7 @@ When you experience trouble invoking a URL using `dex::client` requests, here ar
 		intOptions(dex::client::intopt) := { 'HTTPPROXYTUNNEL' : 1, 'SSL_OPTIONS' : 2, 'FOLLOWLOCATION' : 1, 'MAXREDIRS' : 10 };
 		dex::client::SetDefaultOptions(intOptions, stringOptions);
 
-The procedure :any:func:`dex::client::DetermineProxyServer` will set these defaults options for you. 
+The procedure :any:`dex::client::DetermineProxyServer` will set these defaults options for you. 
 
 * If your request contains a request body, the HTTP client will deduce the content type of the request body from the file extension containing the body, or if it cannot deduce it, set it to `application/octetstream`. You may need to set the `Content-Type` header to a proper value to make the request succeed, specifically when you do a POST request with url-encoded parameters, as follows
 	.. code-block:: aimms
