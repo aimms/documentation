@@ -99,6 +99,8 @@ The :token:`name-binds-to` attribute provides a way of binding the name of an el
 
 The :token:`name-regex` attribute should be used in conjuction with a :token:`name-binds-to` attribute, to specify a regular expression to restrict the element to which the :token:`name-binds-to` attribute should be applied. Alternatively, you can use the :token:`name-regex-from` attribute to let the Data Exchange library dynamically create a regular expression for you, *when you call* :token:`dex::AddMapping` *for the given mapping*, that exactly matches all elements from a simple set or index in your model that you can specify through this attribute.
 
+As the name suggests, you can use any accepted `regular expression <https://regex101.com/>`_ within these attributes' definitions. For example, using ``name-regex=".*"`` in your ColumnMapping will accept *any* column name, which makes it a very useful expression if you're iterating over data with different column names binding to the same index.
+
 With the :token:`name-regex-prefix` attribute you can specify a prefix that is used in the JSON, XML, CSV or Excel file, but which should not be included in the element names in the model. Note that the value of the :token:`name-regex-prefix` attribute is automatically prepended to the regular expression specified in the :token:`name-regex` attribute, and subsequently removed from the match if a match has been found.
 
 The iterative-binds-to attribute
