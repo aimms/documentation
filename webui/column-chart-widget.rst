@@ -43,7 +43,13 @@ Clicking on this icon opens an option dialog which allows to select the identifi
 .. image:: images/ColumnChart-Identifier-Slicing-1.png
    :align: center  
 
-In the "Display Domain" field of the idetifier settings, a constant or a model identifier may be specified as well. The column chart will then only display data points for which the display condition is evaluated as true.
+In the "Configuration" section of the option dialog shown above it is possible to slice one index to another index of a subset, to an element parameter, or to a fixed element in the corresponding set.
+For instance, we can slice our center index c to the fixed element 'Amsterdam' in the Centers set. Similarly, one could slice the index c to an element parameter CurrentCenter having the declared range the set Centers 
+(where the value of CurrentCenter may be determined from within the model or by a choice made through another widget in the user interface). 
+Clearly, each slicing specification will result in a different data view in the chart showing only the data points corresponding to those tuples (set element combinations) which are still valid according to current slicing. 
+For detailed explanation, please refer to `Widget Options > Indentifier Settings > Slicing <widget-options.html#id6>`__ .
+
+Moving on, in the "Display Domain" field of the identifier settings, a constant or a model identifier may be specified as well. The column chart will then only display data points for which the display condition is evaluated as true.
 In our example, if the indexed (binary) parameter p_IsSomeCenter(c) is specified as the display domain for Demand(c), then the column chart only displays the demand values of the distribution centers c for which the parameter p_IsSomeCenter(c) is
 not 0. We can visualize this effect, for instance, by showing the values of p_IsSomeCenter(c) in a selection widget of type "multiselect" next to the column chart which shows Demand(c):
 
@@ -55,40 +61,54 @@ not 0. We can visualize this effect, for instance, by showing the values of p_Is
    :align: center
    :scale: 81%
 
-In the "Set slicing per index" section it is possible to slice one index to another index of a subset, to an element parameter or to a fixed element in the corresponding set.
-For instance, we can slice our factory index f to the fixed element 'Hamburg' in the Factories set, resulting in the bar chart view as shown here: 
+| 
 
-.. image:: images/BarChart-ViewSlice.png
-    :align: center 
+Next, the number of decimals and the indicator for showing/hidding the units of measurement may be specified in the corresponding fields of the identifier settings, as already shown above. 
+These "per identifier" options will be then reflected in the chart view provided that the data labels are toggled on (see more info about toggling labels in the `Chart Settings <column-chart-widget.html#column-chart-settings>`__ section below):
 
-Similarly, one could slice the index f to an element parameter CurrentFactory having the declared range the set Factories (where the value of CurrentFactory may be determined from within the model
-or by a choice made through another widget in the user interface). 
+.. image:: images/ColumnChart-NumDec-ShowUnits-1.png
+   :align: center  
+
+|
+
+Note, that if the number of decimals and/or the indicator for showing/hidding the units of measurement are not specified for a certain indentifier, then the values from the Defaults section will be inherited and applied to that identifier:
+
+.. image:: images/ColumnChart-NumDec-ShowUnits-2.png
+   :align: center  
+
+|
 
 Pivoting
 --------
 
-Next, in the Pivot tab of the options editor, one can specify how the data dimensions are to be organized in the chart. 
-For example, if both the factory index f and the center index c are specified in the X-axis section and the <IDENTIFIER-SET> in the Totals section then the resulting bar chart looks like 
-in the picture below on the right:
+In the Pivot tab of the chart options editor, one can specify how the data dimensions are to be organized in the chart. 
 
-.. image:: images/BarChart-View1.png
+For example, if the <IDENTIFIER-SET> index in the X-axis section and the center index c is moved to the Grouped section, then the resulting column chart looks like in the picture below on the left:
+
+.. image:: images/ColumnChart-Pivot-1.png
     :align: center
 
-One may move some data indexes in the Grouped section of the Pivot tab. In our example, moving the center index c to the Grouped section results in the following bar chart view:
+Similarly, one may move some data indexes in the Stacked section of the Pivot tab. In our example, moving the center index c to the Stacked section results in a column chart view as follows:
 
-.. image:: images/BarChart-View2.png
+.. image:: images/ColumnChart-Pivot-2.png
     :align: center
 
-Similarly, one may move some data indexes in the Stacked section of the Pivot tab. In our example, moving the center index c to the Stacked section results in a bar chart view like below:
-
-.. image:: images/BarChart-View3.png
-    :align: center
-
+|
 
 Column Chart Settings
 ---------------------
 
-In the Barchart Settings tab of the widget's options editor, a minimum and a maximum bound for the Y-axis may be specified, either as constants or as scalar identifiers from the model.
+In the Chart Settings tab of the widget options editor there are several groups of options which may be specified: 
+
+.. image:: images/ColumnChart-ChartSettings-0.png
+    :align: center
+
+Next, we discuss each of these option groups in turn.
+
+X-Axis
+++++++
+
+a minimum and a maximum bound for the Y-axis may be specified, either as constants or as scalar identifiers from the model.
 Additionally, one may also specify a step size which determines the distance between the horizontal grid lines drawn in the chart:
 
 .. image:: images/BarChart-ViewSettings.png
