@@ -1,7 +1,7 @@
 Consuming and providing REST APIs using the Data Exchange library
 =================================================================
 
-In addition to reading from and writing data to JSON, CSV, XML and Excel files, the Data Exchange library also supports sending HTTP client requests to an HTTP (REST) service, as well as exposing procedures in your model through a built-in HTTP service component. This makes it the one-stop solution for communicating JSON, CSV, XML and Excel data with external REST APIs, as well as exposing your model through a REST API, accepting JSON, CSV, XML or Excel data.
+In addition to reading from and writing data to JSON, CSV, XML, Excel and Parquet files, the Data Exchange library also supports sending HTTP client requests to an HTTP (REST) service, as well as exposing procedures in your model through a built-in HTTP service component. This makes it the one-stop solution for communicating JSON, CSV, XML and Excel data with external REST APIs, as well as exposing your model through a REST API, accepting JSON, CSV, XML, Excel or Parquet data.
 
 Consuming REST APIs
 -------------------
