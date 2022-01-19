@@ -47,7 +47,7 @@ In the "Configuration" section of the option dialog shown above it is possible t
 For instance, we can slice our center index c to the fixed element 'Amsterdam' in the Centers set. Similarly, one could slice the index c to an element parameter CurrentCenter having the declared range the set Centers 
 (where the value of CurrentCenter may be determined from within the model or by a choice made through another widget in the user interface). 
 Clearly, each slicing specification will result in a different data view in the chart showing only the data points corresponding to those tuples (set element combinations) which are still valid according to current slicing. 
-For detailed explanation, please refer to `Widget Options > Indentifier Settings > Slicing <widget-options.html#id6>`__ .
+For detailed explanation, please refer to `Widget Options > Indentifier Settings > Slicing <widget-options.html#id6>`__.
 
 Moving on, in the "Display Domain" field of the identifier settings, a constant or a model identifier may be specified as well. The column chart will then only display data points for which the display condition is evaluated as true.
 In our example, if the indexed (binary) parameter p_IsSomeCenter(c) is specified as the display domain for Demand(c), then the column chart only displays the demand values of the distribution centers c for which the parameter p_IsSomeCenter(c) is
@@ -108,43 +108,145 @@ Next, we discuss each of these option groups in turn.
 X-Axis
 ++++++
 
-a minimum and a maximum bound for the Y-axis may be specified, either as constants or as scalar identifiers from the model.
-Additionally, one may also specify a step size which determines the distance between the horizontal grid lines drawn in the chart:
+In the X-Axis group it is possible to specify the Label for the X-axis and the so-called "Maximum Number of Categories in the Viewport":
 
-.. image:: images/BarChart-ViewSettings.png
-    :align: center	
-
-Store Focus, Hover and Select
---------------------------------
-
-In the Store Focus tab of the widget's options editor, for each index it is possible to specify an element parameter in the same set which will store the corresponding value when the user sets the
-focus on a specific bar in the chart. For example, we can specify SelectedFactory for the index f and SelectedCenter for the index c, where SelectedFactory and SelectedCenter are element parameters 
-in our application at hand with ranges Factories and Centers, respectively. The values of SelectedFactory and SelectedCenter may be displayed for inspection in some other widgets outside the bar chart.
-When the user sets the focus on a specific bar, the corresponding factory and center values are stored in SelectedFactory and SelectedCenter, respectively. In this case, the selected bar is highlighted, 
-while the other bars are faded away. The picture below depicts this situation:
-
-.. image:: images/BarChart-ViewStoreFocus.png
+.. image:: images/ColumnChart-XAxis-Options-1.png
     :align: center
 
-When a bar has been selected, the user may still hover over another bar and inspect the tooltip information, in the same way as the hovering works when no bar has been selected 
-(remark: a selected bar may be unselected by clicking again on it):
+In order to illustrate the effect of these settings, assume for the time being that the Pivoting is adjusted as follows: 
 
-.. image:: images/BarChart-ViewHover.png
+.. image:: images/ColumnChart-XAxis-Pivot-0.png
     :align: center
+
+The Label value add the corresponding text as label of the X-axis. 
+The value of the "Maximum Number of Categories in the Viewport" specifies the maximum number of data tuples from the X-axis in the Pivot tab which are shown at a time in the chart.
+If there are more data points than this maximum number in viewport, then a horizontal scroll bar appears along the X-axis such that the user can scroll through all points.
+These are illustrated in the following picture:
+
+.. image:: images/ColumnChart-XAxis-1.png
+    :align: center
+
+| 
+
+Y-Axis
+++++++
+
+In the Y-Axis group it is possible to specify the Label for the Y-axis, a minimum and a maximum bound for the Y-axis, and a step size which determines the distance between the horizontal grid lines drawn in the chart 
+(these all may be constant literals or given by model identifiers):
+
+.. image:: images/ColumnChart-YAxis-1.png
+    :align: center
+
+Note that the situation shown here corresponds again to the first instance of pivoting the indexes as discussed in the Pivoting section above.
+
+Legend
+++++++
+
+In the Legend group it is possible to specify an indicator whether to show or to hide the legend provided by the chart:
+
+.. image:: images/ColumnChart-Legend-Option-1.png
+    :align: center
+
+When the Legend is turned on, then it is displayed at the bottom of the chart, as illustrated below:
+
+.. image:: images/ColumnChart-Legend-1.png
+    :align: center
+
+When the Legend option is not specified by a model identifier, but by the literal (binary) indicator, then the option of toggling the Legend on/off is also available through a dedicated icon on the widget header:
+
+.. image:: images/ColumnChart-Legend-2.png
+    :align: center
+
+Labels
+++++++
+
+In the Labels group it is possible to specify an indicator whether to show or to hide the text labels of the columns in the chart:
+
+.. image:: images/ColumnChart-Labels-1.png
+    :align: center
+
+|  
+
+Others
+++++++
+
+In the Others group it is possible to specify the Chart Title which will be shown on the top of the chart:
+
+.. image:: images/ColumnChart-ChartTitle-1.png
+    :align: center
+
+|  
+
+Index Settings, Select, and Store Focus
+---------------------------------------
+
+In the Index Settings tab of the widget options editor, for each index it is possible to specify an element parameter in the same set which will store the corresponding value when the user selects a specific column in the chart (by clicking on it, in which case the color of the column turns grey). 
+For example, we can specify en element parameter ep_Center for the index c and en element parameter ep_Focusidentifier for the <IDENTIFIER-SET> index, where ep_Center and ep_Focusidentifier are element parameters 
+in our application at hand with the sets Centers and AllIdentifiers, respectively, as ranges. The values of ep_Center and ep_Focusidentifier may be displayed for inspection in some other widgets outside the column chart:
+
+.. image:: images/ColumnChart-IndexSettings-1.png
+    :align: center
+
+|  
+
+Select, Hover, and Tooltips
+---------------------------
+
+When the user selects a specific column, the corresponding center value is stored in the element parameter ep_Center as shown above. When the user hovers with the mouse cursor over a column (for example, before selecting it), then that column is highlighted, 
+while the other columns are faded away. In this case, also a tooltip is shown, either a default tooltip or a custom tooltip specified using a webui::TooltipIdentifier annotation, see the section `Identifier Annotations <widget-options.html#identifier-annotations>`__.
+The picture below depicts this situation:
+
+.. image:: images/ColumnChart-Hover-Tooltip-1.png
+    :align: center
+
+|  
+
+When a column has been selected, the user may still hover over another column and inspect the tooltip information, in the same way as the hovering works when no column has been selected 
+(remark: a selected column may be unselected by clicking again on it):
+
+.. image:: images/ColumnChart-Hover-Tooltip-2.png
+    :align: center
+
+|  
+
+Custom Styling
+--------------
+
+By specifying a webui::AnnotationsIdentifier as explain in the section `Identifier Annotations <widget-options.html#identifier-annotations>`__ and by using it subsequently for custom styling as explained in the section `Custom Styling <css-styling.html#css-styling>`__, 
+it is possible to apply a custom styling to a column chart as well.
+For instance, in our example application at hand one could style differently those columns in the chart which have a demand value greater than a certain threshhold value given by a scalar parameter called p_Demand_HighValue. 
+This situation is depicted in the following picture:
+
+.. image:: images/ColumnChart-CustomStyling-1.png
+    :align: center
+
+|  
 
 Widget Extensions
 -----------------
 
-In the Widget Extensions tab, it is possible to add the string parameters configured for the `Widget Actions <widget-options.html#widget-actions>`_ and the `Item Actions <widget-options.html#item-actions>`_ for the widget.
+In the Widget Extensions tab of the widget options editor, it is possible to add the string parameters configured for the `Widget Actions <widget-options.html#widget-actions>`_ and the `Item Actions <widget-options.html#item-actions>`_ for the widget.
+When these parameters are configured, then the widget actions may be accessed using the corresponding icon on the widget header or the item actions (for a selected column) may be called using the right-mouse click:
 
-.. image:: images/WidgetActions_BarChart.png
+.. image:: images/ColumnChart-Actions-1.png
     :align: center
 
-.. image:: images/ItemActions_BarChart.png
-    :align: center    
+|  
 
 Miscellaneous
 ----------------
 
-In the Miscellaneous tab of the bar chart's options editor, other options may be set such as the title of the widget, whether or not the widget is visible (this may be determined by a model parameter)
-or the number of decimals for the values displayed in the chart.
+In the Miscellaneous tab of the column chart options editor, other options may be set such as the title of the widget and the indicator whether or not the widget is visible on the page (besides literals, both may be specified through model identifiers as well):
+
+.. image:: images/ColumnChart-Miscellaneous-Options-1.png
+    :align: center
+
+|  
+
+The specified chart title is reflected on the widget header:
+
+.. image:: images/ColumnChart-Miscellaneous-1.png
+    :align: center
+
+
+
