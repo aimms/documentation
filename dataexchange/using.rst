@@ -124,7 +124,7 @@ Look at the following mapping for a CSV format:
 
 It describes a repetitive table node, i.e. a repetitive structure consisting of multiple rows, each consisting of multiple named column leaf-nodes either being bound to the indices :token:`i` and :token:`j`, or to multi-dimensional identifiers over these two indices. A CSV file associated with this mapping could look like:
 
-.. code-block:: 
+.. code-block:: xml
     
     set1,set2,d1,d2,de,ds,di
     arr-1,a-2,0.0,0.0,,,51
@@ -161,3 +161,53 @@ Look at the following mapping for a Excel file with a single sheet with a table:
 
 This mapping will create the same table as in the CSV example, but will now output the table to an Excel workbook with a sheet called :token:`Table1`. A single Excel mapping can contain mappings for multiple sheets.
 
+Example: Parquet mapping
+------------------------
+
+Look at the following mapping for a Parquet format:
+
+.. code-block:: xml
+
+    <AimmsParquetMapping>
+        <RowMapping name="table1">
+            <ColumnMapping name="set1" binds-to="i"/>
+            <ColumnMapping name="set2" binds-to="j"/>
+            <ColumnMapping name="d1" maps-to="d1(i,j)"/>
+            <ColumnMapping name="d2" maps-to="d2(i,j)"/>
+            <ColumnMapping name="de" maps-to="de(i,j)"/>
+            <ColumnMapping name="ds" maps-to="ds(i,j)"/>
+            <ColumnMapping name="di" maps-to="di(i,j)"/>
+        </RowMapping>
+    </AimmsParquetMapping>
+
+Just like the CSV format the Parquet format describes a repetitive table node i.e. a repetitive structure of multiple rows, each consisting of multiple named column leaf-nodes. The only difference with the CSV mapping is the root node of the mapping.
+
+The parquet format is popular in python where it is used to save and load pandas dataframes. Suppose the above mapping was used to write data into file *filefromdex.parquet*. Then we could print it in python (with *pyarrow* and *pandas* installed) using the code below. 
+
+.. code-block:: python
+
+    import pandas as pd
+    import pyarrow.parquet as pq
+
+    table = pq.read_table("filefromdex.parquet")
+    df = table.to_pandas()
+    print(df)
+
+This could then print:
+
+.. code-block:: xml
+
+            set1  set2       d1       d2 de           ds   di 
+    0      arr-1   a-2  0.00000  0.00000                   51 
+    1      arr-1   a-4  0.00000  0.00000  8                90 
+    2      arr-1   a-5  0.00000  0.00000                   87 
+    3      arr-1   a-7  0.00000  0.00000                   90 
+    4      arr-1  a-10  0.00000  0.00000  9                66 
+    ..       ...   ...      ...      ... ..          ...  ... 
+    978  arr-100   a-6  0.48890  0.00000                  100 
+    979  arr-100   a-7  0.00000  1.25346  7  string ,"0   88
+    980  arr-100   a-8  0.30000  1.55780     string ,"7   83
+    981  arr-100   a-9  0.38500  0.00000  2                26 
+    982  arr-100  a-10  0.01854  0.00000                    0 
+
+Here we see in the top row the names from the ``ColumnMapping`` of the mapping. In the left column are the row numbers added by python. The other columns are data read from file *filefromdex.parquet*.
