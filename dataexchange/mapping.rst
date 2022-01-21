@@ -1,10 +1,10 @@
 Data Exchange Mappings
 **********************
 
-Each Data Exchange mapping is an XML file describing the structure of the JSON, XML or CSV format being mapped. Below you find the elements specific for each of the mapping types. The attributes that you can specify for each element are shared 
+Each Data Exchange mapping is an XML file describing the structure of the JSON, XML, CSV, Excel of Parquet format being mapped. Below you find the elements specific for each of the mapping types. The attributes that you can specify for each element are shared 
 
 JSON Mapping elements
-======================
+=====================
 
 The following are the elements allowed in a JSON mapping
 
@@ -20,7 +20,7 @@ The following are the elements allowed in a JSON mapping
 The represent row-oriented data, the :token:`RowMapping` and :token:`ColumnMapping` will provide the most compact JSON representations and will execute the fastest.
 
 XML Mapping elements
-======================
+====================
 
 The following are the elements allowed in a XML mapping
 
@@ -30,7 +30,7 @@ The following are the elements allowed in a XML mapping
 * the :token:`AttributeMapping` element, a mapping element used to map the value of an attribute of an XML element
 
 CSV Mapping elements
-======================
+====================
 
 The following are the elements allowed in a CSV mapping
 
@@ -41,15 +41,25 @@ The following are the elements allowed in a CSV mapping
 Excel Mapping elements
 ======================
 
-The following are the elements allowed in a CSV mapping
+The following are the elements allowed in a Excel mapping
 
 * the :token:`AimmsExcelMapping` element, the mandatory root of an Excel mapping. It can contain multiple :token:`ExcelSheetMapping` elements.
 * the :token:`ExcelSheetMapping` element, a mapping element used to map an Excel sheet
 * the :token:`RowMapping` element, a mapping element used to map a row in an Excel sheet
 * the :token:`ColumnMapping` element, a mapping element used to map the value of a column in an Excel sheet
 
+Parquet Mapping elements
+========================
+
+The following are the elements allowed in a Parquet mapping
+
+* the :token:`AimmsParquetMapping` element, the mandatory root of a Parquet mapping
+* the :token:`RowMapping` element, a single mapping element used to map rows of a Parquet table
+* the :token:`ColumnMapping` element, a mapping element used to map the value of a column in a Parquet table
+
+
 Mapping attributes
-======================
+==================
 
 The attributes of the elements in a Data Exchange mapping are shared among the different types of mappings, although not all attributes are supported by every type of mapping element.
 
@@ -85,7 +95,7 @@ The available mapping attributes are:
 
 The name and alt-name attributes
 --------------------------------
-The :token:`name` attribute specifies the name of the mapped element in a JSON, XML, CSV or Excel format. Not every element needs a name, for instance to root value in a JSON file, or the child mapping of a JSON array. With the :token:`alt-name` attribute you can indicate an alternative name for the mapping element when reading a JSON, XML, CSV or Excel file, e.g. when the name has been recently altered, and there are still data files that use the old name. When writing, the Data Exchange library will always use the :token:`name` attribute.
+The :token:`name` attribute specifies the name of the mapped element in a JSON, XML, CSV, Excel Parquet format. Not every element needs a name, for instance to root value in a JSON file, or the child mapping of a JSON array. With the :token:`alt-name` attribute you can indicate an alternative name for the mapping element when reading a JSON, XML, CSV, Excel or Parquet file, e.g. when the name has been recently altered, and there are still data files that use the old name. When writing, the Data Exchange library will always use the :token:`name` attribute.
 
 The binds-to attribute
 ----------------------
@@ -99,7 +109,9 @@ The :token:`name-binds-to` attribute provides a way of binding the name of an el
 
 The :token:`name-regex` attribute should be used in conjunction with a :token:`name-binds-to` attribute, to specify a regular expression to restrict the element to which the :token:`name-binds-to` attribute should be applied. Alternatively, you can use the :token:`name-regex-from` attribute to let the Data Exchange library dynamically create a regular expression for you, *when you call* :token:`dex::AddMapping` *for the given mapping*, that exactly matches all elements from a simple set or index in your model that you can specify through this attribute.
 
-With the :token:`name-regex-prefix` attribute you can specify a prefix that is used in the JSON, XML, CSV or Excel file, but which should not be included in the element names in the model. Note that the value of the :token:`name-regex-prefix` attribute is automatically prepended to the regular expression specified in the :token:`name-regex` attribute, and subsequently removed from the match if a match has been found.
+As the name suggests, you can use any accepted `regular expression <https://regex101.com/>`_ within these attributes' definitions. For example, using ``name-regex=".*"`` in your ColumnMapping will accept *any* column name, which makes it a very useful expression if you're iterating over data with different column names binding to the same index.
+
+With the ``name-regex-prefix`` attribute you can specify a prefix that is used in the JSON, XML, CSV, Excel or Parquet file, but which should not be included in the element names in the model. Note that the value of the :token:`name-regex-prefix` attribute is automatically prepended to the regular expression specified in the ``name-regex`` attribute, and subsequently removed from the match if a match has been found.
 
 The iterative-binds-to attribute
 --------------------------------
@@ -158,7 +170,7 @@ The force-dense attribute
 The :token:`force-dense` attribute should also contain a reference to an identifier plus bound indices as for the :token:`maps-to` attribute. Through
  this attribute you can force a specific density pattern by specifying a domain for which nodes *should* be generated, regardless of whether non-default data is present to fill such nodes, e.g. because the identifier specified in the :token:`maps-to` attribute of the node itself, or any of its sub-nodes, holds no non-default data. Note that a density pattern enforced through the :token:`force-dense` attribute is still subject to a write filter specified in a :token:`write-filter` attribute.
 
-Enforcing a density pattern may be important when the bound indices are generated through the :token:`iterative-binds-to` attribute, and not explicitly represented through data-holding node bound to a regular :token:`binds-to` attribute. In such cases, not writing nodes that hold no non-default data, may lead to inconsistent numbering of generated elements when reading the generated JSON or XML files back in. *When reading a JSON, XML, CSV or Excel file, the library will assign a value of 1 for the identifier specified in the* :token:`force-dense` *attribute to any tuple encountered, such that the same file will be generated when writing back the file using the same mapping based on the data just read in.* 
+Enforcing a density pattern may be important when the bound indices are generated through the :token:`iterative-binds-to` attribute, and not explicitly represented through data-holding node bound to a regular :token:`binds-to` attribute. In such cases, not writing nodes that hold no non-default data, may lead to inconsistent numbering of generated elements when reading the generated JSON or XML files back in. *When reading a JSON, XML, CSV, Excel or Parquet file, the library will assign a value of 1 for the identifier specified in the* :token:`force-dense` *attribute to any tuple encountered, such that the same file will be generated when writing back the file using the same mapping based on the data just read in.* 
 
 .. note::
     
@@ -169,7 +181,7 @@ Enforcing a density pattern may be important when the bound indices are generate
 The dense-children attribute
 ----------------------------
 
-With the :token:`dense-children` you can indicate that when a node will be written, because of the density pattern of all of its children, all direct *value-holding* child elements with the same bound indices as the parent node, will be written in a dense manner. For example, with this attribute you can cause all columns in a table row to be written to a CSV or Excel file, whenever at least one of the columns holds a non-default value.
+With the :token:`dense-children` you can indicate that when a node will be written, because of the density pattern of all of its children, all direct *value-holding* child elements with the same bound indices as the parent node, will be written in a dense manner. For example, with this attribute you can cause all columns in a table row to be written to a CSV, Excel or Parquet file, whenever at least one of the columns holds a non-default value.
 
 With this attribute you cannot cause an array to be written in a dense manner, as the array elements need to bind an additional index. To enforce writing an array in a dense manner, you have to use the :token:`force-dense` attribute.
 
@@ -222,7 +234,7 @@ In this section we will explain how the Data Exchange library uses the mapping t
 During read
 -----------
 
-When reading a JSON, XML, CSV or Excel file using a specified mapping, the Data Exchange library will iterate over the entire tree. 
+When reading a JSON, XML, CSV, Excel or Parquet file using a specified mapping, the Data Exchange library will iterate over the entire tree. 
 
 If reading a particular node in the data file, it will first try to bind any indices specified 
 
@@ -239,7 +251,8 @@ If a node in the mapping contains an included mapping, all externally bound indi
 During write
 ------------
 
-When generating a JSON, XML, CSV or Excel file for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes through either the :token:`maps-to`, :token:`write-filter` or :token:`force-dense` attributes, and will try to find the lowest sub-tuple associated with all these identifiers, for all indices bound at this level (through the :token:`binds-to`, :token:`name-binds-to`, :token:`iterative-binds-to`, or :token:`implicit-binds-to` attributes) while fixing the indices already found at a previous level. If such a sub-tuple can be found, the new indices at this level will be stored, and any mapped value-holding nodes at this level will be written the associated values of any multi-dimensional identifiers matching with the value of the currently bound indices, and the Data Exchange library will iterate over all any structural or iterative child nodes recursively. If no further multi-dimensional data can be found for a particular node, the Data Exchange library will track back to the parent node, and try to progress there. 
+When generating a JSON, XML, CSV, Excel or Parquet file for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes through either the :token:`maps-to`, :token:`write-filter` or :token:`force-dense` attributes, and will try to find the lowest sub-tuple associated with all these identifiers, for all indices bound at this level (through the :token:`binds-to`, :token:`name-binds-to`, :token:`iterative-binds-to`, or :token:`implicit-binds-to` attributes) while fixing the indices already found at a previous level. If such a sub-tuple can be found, the new indices at this level will be stored, and any mappped value-holding nodes at this level will be written the associated values of any multi-dimensional identifiers matching with the value of the currently bound indices, and the Data Exchange library will iterate over all any structural or iterative child nodes recursively. If no further multi-dimensional data can be found for a particular node, the Data Exchange library will track back to the parent node, and try to progress there. 
+
 
 The message here is that an JSON, XML, CSV or Excel sheet tree is generated solely on the basis of multi-dimensional identifiers in the mapping, and *never* on the basis of any of the :token:`binds-to` attributes. Such nodes will be generated based on indices bound by iterating over multi-dimensional data.
 

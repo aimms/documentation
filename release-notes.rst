@@ -12,6 +12,26 @@ AIMMS 4.83
 #############
 
 
+AIMMS 4.83.10 Release (January 19, 2022 - build 4.83.10.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Functions like :any:`Round`/:any:`Ceil`/:any:`Floor` could have quite unexpected results if the argument involves unit analysis, but the resulting unit is commensurate with the unitless unit [-]. In such situations these functions now behave as if the argument has no unit at all.
+-  A strange incorrect error popped up during compilation (which was gone again after recompiling). This no longer happens.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  If you were trying to edit the content of Text Widget in narrow widget areas, like in a Side panel, the editor's toolbar on top was overlapping (top of) the content. Moreover, any content shown in Text Widgets within Side panels will now have some padding to achieve a more pleasing alignment with other elements. Please note that this will of course reduce the amount of content shown without scrollbars inside the widget.
+
+--------------
+
+
+
 AIMMS 4.83.9 Release (January 18, 2022 - build 4.83.9.4).
 ------------------------------------------------------------------------------------------
 

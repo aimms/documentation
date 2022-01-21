@@ -10,7 +10,6 @@ Data Exchange Roadmap
 
 The DataExchange library is under active development. The following new features are on the roadmap of the DataExchange library:
 
-- Adding `parquet <https://parquet.apache.org/documentation/latest/>`_ as a new support data format
 - Creation of OpenAPI specifications for model-based REST APIs
 - Automated creation of client code for a given REST API from its OpenAPI specification
 - Automated creation of application databases based on the ``dex::Dataset`` and ``dex::TableName`` annotations. 
@@ -19,6 +18,12 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.0.40 [20-01-2022]
+	- Add support for Parquet file format
+	- When constructing a regular expression from the elements retrieved from :token:`name-regex-from`, special regex characters will be escaped.
+	- Regex search for :token:`name-binds-to` attributes will take place in a case-insensitive fashion, as set elements in AIMMS are also case-insensitive.
+	- Field names offered for regex search for a :token:`name-binds-to` attribute will first be right trimmed. 
+
 1.3.0.30 [17-01-2022]
 	- Add support for the OAuth Authorization Code flow for WebUI applications on the PRO/CLoud platform (requires AIMMS 3.84 and PRO/Cloud 2.42)
 	- Introduce :token:`alt-name` and :token:`name-regex-from` attributes for mapping files.
