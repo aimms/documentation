@@ -18,6 +18,11 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.0.45 [21-01-2022]
+	- Empty cells in Excel sheet will read to default value, instead of skipping
+	- Empty cells on the first row in Excel sheet will now be skipped, instead of terminating the column range being read
+	- All labels will be right trimmed before adding the a set during read
+
 1.3.0.40 [20-01-2022]
 	- Add support for Parquet file format
 	- When constructing a regular expression from the elements retrieved from :token:`name-regex-from`, special regex characters will be escaped.
