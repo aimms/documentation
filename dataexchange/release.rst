@@ -30,7 +30,7 @@ New Features and Bug Fixes
 	- Field names offered for regex search for a :token:`name-binds-to` attribute will first be right trimmed. 
 
 1.3.0.30 [17-01-2022]
-	- Add support for the OAuth Authorization Code flow for WebUI applications on the PRO/CLoud platform (requires AIMMS 3.84 and PRO/Cloud 2.42)
+	- Add support for the OAuth Authorization Code flow for WebUI applications on the PRO/CLoud platform (requires AIMMS 4.84 and PRO/Cloud 2.42)
 	- Introduce :token:`alt-name` and :token:`name-regex-from` attributes for mapping files.
 	
 1.3.0.22 [02-01-2022]
