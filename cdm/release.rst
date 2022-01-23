@@ -7,8 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
-1.23.0.8 [23-01-2022]
+1.23.0.9 [23-01-2022]
 	- Use of generated action procedure to determine data differences gave rise to extreme memory usage in particular situations
+	- Warnings for unmapped labels are only reported 5 times.
 
 1.23.0.6 [25-11-2021]
 	- Add additional logging to facilitate better tracing of on-demand CDM service connection failures
