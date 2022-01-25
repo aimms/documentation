@@ -64,7 +64,7 @@ of your data.
    :align: center
    :scale: 81%
 
-| 
+|
 
 Next, the number of decimals and the indicator for showing/hidding the units of measurement may be specified in the corresponding fields of the identifier settings, as already shown above. 
 Please realize that both options need to be resolved to a scalar, so you cannot specify an identifier like p_NumDecimals(c) for the number of decimals. This means that you cannot show a different number of decimals for data that belongs to the same identifier.
