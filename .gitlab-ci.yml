@@ -6,9 +6,9 @@ stages:
   - build-and-deploy
 
 before_script:
-  - sudo curl -s https://packages.gitlab.com/gpg.key | sudo apt-key add -
-  - sudo curl -s https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  - sudo  apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com
+  - curl "https://packages.gitlab.com/gpg.key" -o /tmp/omnibus_gitlab_gpg.key
+  - sudo apt-key add /tmp/omnibus_gitlab_gpg.key
+  - sudo rpm --import /tmp/omnibus_gitlab_gpg.key
   - sudo apt-get install software-properties-common -y
   - sudo add-apt-repository ppa:deadsnakes/ppa -y
   - sudo apt-get update -y
