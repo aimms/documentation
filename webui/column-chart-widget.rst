@@ -53,8 +53,7 @@ Moving on, in the "Display Domain" field of the identifier settings, a constant 
 In our example, if the indexed (binary) parameter p_IsSomeCenter(c) is specified as the display domain for Demand(c), then the column chart only displays the demand values of the distribution centers c for which the parameter p_IsSomeCenter(c) is
 not 0. We can visualize this effect, for instance, by showing the values of p_IsSomeCenter(c) in a selection widget of type "multiselect" next to the column chart which shows Demand(c).
 
-.. note:: Please realize that entering the number ‘1’ as the display domain will result in a dense view
-of your data.
+.. note:: Please realize that entering the number ‘1’ as the display domain will result in a dense view of your data.
 
 .. image:: images/ColumnChart-DisplayDomain-1.png
    :align: center
