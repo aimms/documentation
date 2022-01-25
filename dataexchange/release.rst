@@ -18,6 +18,11 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.0.48 [25-01-2022]
+	- Introduced new mapping attribute write-defaults to determine whether for name-binds-to fields, default values will be explicitly written or omitted
+	- Prevent an Excel sheet to be written when it contains no data
+	- Allow write-filter on Excel sheets
+
 1.3.0.45 [21-01-2022]
 	- Empty cells in Excel sheet will read to default value, instead of skipping
 	- Empty cells on the first row in Excel sheet will now be skipped, instead of terminating the column range being read

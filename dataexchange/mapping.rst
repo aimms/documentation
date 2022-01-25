@@ -83,7 +83,8 @@ The available mapping attributes are:
 * maps-to
 * max-string-size    
 * range-existing
-* value           
+* value
+* write-defaults           
 * write-filter      
 * force-dense
 * dense-children     
@@ -112,6 +113,10 @@ The :token:`name-regex` attribute should be used in conjuction with a :token:`na
 As the name suggests, you can use any accepted `regular expression <https://regex101.com/>`_ within these attributes' definitions. For example, using ``name-regex=".*"`` in your ColumnMapping will accept *any* column name, which makes it a very useful expression if you're iterating over data with different column names binding to the same index.
 
 With the :token:`name-regex-prefix` attribute you can specify a prefix that is used in the JSON, XML, CSV, Excel or Parquet file, but which should not be included in the element names in the model. Note that the value of the :token:`name-regex-prefix` attribute is automatically prepended to the regular expression specified in the :token:`name-regex` attribute, and subsequently removed from the match if a match has been found.
+
+By default, when writing CSV files, Excel sheets and Parquet files, AIMMS will first generate columns generated on the basis of the current contents associated with the :token:`name-binds-to` index. Subsequently, it will fill individual fields, on a row-per-row basis, based on the presence of data in the :token:`maps-to` identifier. If that identifier contains data for tuples which do not currently lie in the set associated with the :token:`name-binds-to` index, such data will not be written, and may potentially lead to rows without any data. 
+
+Cells under control of a :token:`name-binds-to` index, for which no data is present in the :token:`maps-to` identifier will normally be left empty. With the :token:`write-defaults` attribute you can indicate that you want the default value of that identifier to be written to such cells instead. 
 
 The iterative-binds-to attribute
 --------------------------------
@@ -253,7 +258,7 @@ During write
 
 When generating a JSON, XML, CSV, Excel or Parquet file for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes through either the :token:`maps-to`, :token:`write-filter` or :token:`force-dense` attributes, and will try to find the lowest subtuple associated with all these identifiers, for all indices bound at this level (through the :token:`binds-to`, :token:`name-binds-to`, :token:`iterative-binds-to`, or :token:`implicit-binds-to` attributes) while fixing the indices already found at a previous level. If such a subtuple can be found, the new indices at this level will be stored, and any mappped value-holding nodes at this level will be written the associated values of any multi-dimensional identifiers matching with the value of the currently bound indices, and the Data Exchange library will iterate over all any structural or iterative child nodes recursively. If no further multi-dimensional data can be found for a particular node, the Data Exchange library will track back to the parent node, and try to progress there. 
 
-The message here is that an JSON, XML, CSV or Excel sheet tree is generated solely on the basis of multi-dimensional identifiers in the mapping, and *never* on the basis of any of the :token:`binds-to` attributes. Such nodes will be generated based on indices bound by iterating over multi-dimensional data.
+The message here is that an JSON, XML, CSV, Excel sheet or Parquet file tree is generated solely on the basis of multi-dimensional identifiers in the mapping, and *never* on the basis of any of the :token:`binds-to` attributes. Such nodes will be generated based on indices bound by iterating over multi-dimensional data.
 
 Thus, for instance, to generate a JSON array containing only all element names of a set in your model, you must combine a :token:`binds-to` attribute, together with a :token:`force-dense` attribute consisting an identifier over the index you want to generate the elements for, holding a value of 1 for every element you want to be contained in the array.
 
