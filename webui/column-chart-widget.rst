@@ -1,7 +1,7 @@
 Column Chart Widget
 ===================
 
-The Column Chart is a particular instance of the Combination Chart which represents data as vertical bars, also called columns. In this section we refer to a combination chart widget which uses only columns as a column chart widget. 
+The Column Chart is a particular instance of the Combination Chart which represents data as vertical bars, also called columns. In this section we refer to a Combination Chart Widget which uses only columns as a column chart widget. 
 Note, however, that the formal widget type used for adding it to a page is still "combinationchart".
 
 A column chart widget can render data in your model by using an X/Y-plane and display a column for each data point. The height of a column in the chart equals the value of the corresponding data point.
@@ -51,7 +51,10 @@ For detailed explanation, please refer to `Widget Options > Indentifier Settings
 
 Moving on, in the "Display Domain" field of the identifier settings, a constant or a model identifier may be specified as well. The column chart will then only display data points for which the display condition is evaluated as true.
 In our example, if the indexed (binary) parameter p_IsSomeCenter(c) is specified as the display domain for Demand(c), then the column chart only displays the demand values of the distribution centers c for which the parameter p_IsSomeCenter(c) is
-not 0. We can visualize this effect, for instance, by showing the values of p_IsSomeCenter(c) in a selection widget of type "multiselect" next to the column chart which shows Demand(c):
+not 0. We can visualize this effect, for instance, by showing the values of p_IsSomeCenter(c) in a selection widget of type "multiselect" next to the column chart which shows Demand(c).
+
+.. note:: Please realize that entering the number ‘1’ as the display domain will result in a dense view
+of your data.
 
 .. image:: images/ColumnChart-DisplayDomain-1.png
    :align: center
@@ -64,6 +67,7 @@ not 0. We can visualize this effect, for instance, by showing the values of p_Is
 | 
 
 Next, the number of decimals and the indicator for showing/hidding the units of measurement may be specified in the corresponding fields of the identifier settings, as already shown above. 
+Please realize that both options need to be resolved to a scalar, so you cannot specify an identifier like p_NumDecimals(c) for the number of decimals. This means that you cannot show a different number of decimals for data that belongs to the same identifier.
 These "per identifier" options will be then reflected in the chart view provided that the data labels are toggled on (see more info about toggling labels in the `Chart Settings <column-chart-widget.html#column-chart-settings>`__ section below):
 
 .. image:: images/ColumnChart-NumDec-ShowUnits-1.png

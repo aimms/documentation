@@ -16,7 +16,6 @@ More details on each widget are included in one of the corresponding sections be
    bar-line-chart-widget
    bubble-chart-widget
    button-widget
-   column-chart-widget
    combination-chart-widget
    download-widget
    gantt-chart-widget
