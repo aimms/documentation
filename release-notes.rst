@@ -12,6 +12,25 @@ AIMMS 4.83
 #############
 
 
+AIMMS 4.83.11 Release (January 26, 2022 - build 4.83.11.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Some edit operations on the annotations in the model editor were not correctly saved, especially in combination with the usage of the Source File attribute.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The performance of the Map widget, when displaying a huge number of nodes (tens of thousands), has been improved.
+
+--------------
+
+
+
 AIMMS 4.83.10 Release (January 19, 2022 - build 4.83.10.2).
 ------------------------------------------------------------------------------------------
 
