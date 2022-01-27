@@ -21,7 +21,7 @@ New Features and Bug Fixes
 1.3.0.49 [27-01-2022]
 	- Limit Excel sheet names to 32 characters
 	- Allow tables of scalars in AIMMS-generated data sets
-	- Add support for auto-generating tables names in AIMMS-generated data sets, based on index occurrence
+	- Add support, through the :token:`dex::AutoTablePrefix`, for auto-generating tables names in AIMMS-generated data sets, based on index occurrence
 
 1.3.0.48 [25-01-2022]
 	- Introduced new mapping attribute write-defaults to determine whether for name-binds-to fields, default values will be explicitly written or omitted
