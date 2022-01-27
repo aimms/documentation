@@ -18,6 +18,11 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.0.49 [27-01-2022]
+	- Limit Excel sheet names to 32 characters
+	- Allow tables of scalars in AIMMS-generated data sets
+	- Add support for auto-generating tables names in AIMMS-generated data sets, based on index occurrence
+
 1.3.0.48 [25-01-2022]
 	- Introduced new mapping attribute write-defaults to determine whether for name-binds-to fields, default values will be explicitly written or omitted
 	- Prevent an Excel sheet to be written when it contains no data
