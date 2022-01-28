@@ -18,6 +18,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.0.50 [28-01-2022]
+	- Runtime errors within a webservice request handler would propagate to a controlling :token:`dex::api::Yield` loop. 
+	
 1.3.0.49 [27-01-2022]
 	- Limit Excel sheet names to 32 characters
 	- Allow tables of scalars in AIMMS-generated data sets
