@@ -66,8 +66,9 @@ not 0. We can visualize this effect, for instance, by showing the values of p_Is
 |
 
 Next, the number of decimals and the indicator for showing/hidding the units of measurement may be specified in the corresponding fields of the identifier settings, as already shown above. 
-Please realize that both options need to be resolved to a scalar, so you cannot specify an identifier like p_NumDecimals(c) for the number of decimals. This means that you cannot show a different number of decimals for data that belongs to the same identifier.
-These "per identifier" options will be then reflected in the chart view provided that the data labels are toggled on (see more info about toggling labels in the `Chart Settings <column-chart-widget.html#column-chart-settings>`__ section below):
+Please note that either option needs to be resolved to a scalar value. So, in particular, it is not possible to specify an indexed identifier like p_NumDecimals(c) for the number of decimals. 
+This means that you cannot show a different number of decimals for different data values which belong to the same identifier.
+These "per identifier" options are then reflected in the chart view provided that the data labels are toggled on (see more info about toggling labels in the `Chart Settings <column-chart-widget.html#column-chart-settings>`__ section below):
 
 .. image:: images/ColumnChart-NumDec-ShowUnits-1.png
    :align: center  
@@ -80,6 +81,10 @@ Note, that if the number of decimals and/or the indicator for showing/hidding th
    :align: center  
 
 |
+
+More specifically, in the example above the number of decimals is not explicitly set for the identifier Demand(c) and therefore, this option value '2' is automatically inherited from the number of decimals specified in the Defaults section of the Contents tab.
+Similarly, the value '1' (or "on") of the the indicator for showing/hidding the units of measurement for the identifier Demand(c) is not specified explicitly in the corresponding identifier field, but it is inherited from the indicator value from the Defaults.
+Either option can be specified per identifier or inherited from Defaults independently from the other option. 
 
 Pivoting
 --------
@@ -250,6 +255,8 @@ The specified chart title is reflected on the widget header:
 
 .. image:: images/ColumnChart-Miscellaneous-1.png
     :align: center
+
+|  
 
 
 
