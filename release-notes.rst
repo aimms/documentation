@@ -12,6 +12,29 @@ AIMMS 4.83
 #############
 
 
+AIMMS 4.84.1 Release (January 31, 2022 - build 4.84.1.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The predefined set AllSolvers could contain more solvers than the solver configuration (besides NETSOL).
+-  Switching on the option 'Linear presolve' did not always enable the AIMMS Presolver for linear models.
+-  A case-dot expression now executes much faster if the order of the running indices is not such that the case index is the first index. This could happen quite easily when the case index was used as an iterative index, like in:  maxPinCases(i,j) := max(IndexCases, IndexCases.P(i,j)).
+-  The AIMMS Presolve will now apply dual reductions by default, as controlled by the new option 'Presolve Dual Reductions'. Dual reductions remove feasible or even optimal solutions while guaranteeing that at least one optimal solution remains.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Grid Layout Dialog pages (the default dialog type) received new positioning and sizing logic that no longer allows them to go partially off-screen.
+-  We added support for OAuth2 Authorization Code flow in WebUI applications running on the PRO/Cloud platform (this requires PRO/Cloud platform version 2.41+, DEX 1.3.0.24+).
+
+--------------
+
+
+
 AIMMS 4.83.11 Release (January 26, 2022 - build 4.83.11.3).
 ------------------------------------------------------------------------------------------
 
