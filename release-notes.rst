@@ -32,7 +32,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We added a new widget type as an experimental feature: the Combination Chart. It allows the displaying of several chart types in one single chart. The fist version is restricted to the Column Chart type, but it also offers cool features such as a clear legend which can be easily toggled on or off and to display/hide data points, zooming in on your data and many more.
+-  We added a new widget type as an experimental feature: the Combination Chart. It allows the displaying of several chart types in one single chart. The first version is restricted to the Column Chart type, but it also offers cool features such as a clear legend which can be easily toggled on or off and to display/hide data points, zooming in on your data and many more.
 -  We added support for OAuth2 Authorization Code flow in WebUI applications running on the PRO/Cloud platform (this requires PRO/Cloud platform version 2.41+, DEX 1.3.0.24+).
 
 
