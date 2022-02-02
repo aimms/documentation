@@ -1,6 +1,18 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.40
+########
+
+AIMMS PRO 2.40.1 Release
+------------------------
+
+On December 14, 2021, we released AIMMS PRO 2.40.1 (2.40.1.1). 
+
+**Improvements**
+
+-  **Cloud:** AIMMS PRO end user's App launch link will no longer result in 'cannot find the project' error when the new(latest) version of the App is available instead it will provide you with the link which points to the latest version.
+
 PRO 2.39
 ########
 
