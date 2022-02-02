@@ -18,6 +18,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.0.51 [02-02-2022]
+	- The maximum line length for CSV files is increased to 64KB.
+
 1.3.0.50 [28-01-2022]
 	- Runtime errors within a webservice request handler would propagate to a controlling :token:`dex::api::Yield` loop. 
 	
