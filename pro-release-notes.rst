@@ -1,6 +1,22 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.41
+########
+
+AIMMS PRO 2.41.1 Release
+------------------------
+
+On February 8, 2022, we released AIMMS PRO 2.41.1 (2.41.1.1). 
+
+**Improvements**
+
+-  **Cloud:** On AIMMS Cloud Platform we have stopped supporting TLS 1.1/1.2 and we only support **TLS 1.2**.
+
+**Resolved Issues**
+
+- Relaxed the domain names restrictions in user's e-mail when creating users in PRO such that it accepts domain name like *.one, .mail, .cloud* etc.
+
 PRO 2.40
 ########
 
