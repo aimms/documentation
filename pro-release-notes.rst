@@ -11,7 +11,7 @@ On February 8, 2022, we released AIMMS PRO 2.41.1 (2.41.1.1).
 
 **Improvements**
 
--  **Cloud:** On AIMMS Cloud Platform we have stopped supporting TLS 1.1/1.2 and we only support **TLS 1.2**.
+-  **Cloud:** On AIMMS Cloud Platform we have stopped supporting TLS 1.0/1.1 and we only support **TLS 1.2**.
 
 **Resolved Issues**
 
