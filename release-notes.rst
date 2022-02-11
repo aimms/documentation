@@ -12,6 +12,28 @@ AIMMS 4.84
 #############
 
 
+AIMMS 4.84.2 Release (February 11, 2022 - build 4.84.2.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In some cases valid UTF-32 characters were wrongly rejected by the any:`character` intrinsic function.
+-  In the Find All dialog box you can now use the name completion feature on identifier names.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When toggling the 'Hide Labels' option in a Map widget, hidden or inactive Arcs could be displayed.
+-  Widget titles can now occupy the whole available width of the toolbar. The icons on the right of the toolbar are now hidden per default. Only when the widget is hovered over, they will become visible and the title is shortened to make space for them.
+-  Combination Chart elements could get cut off on the right side when used on a workflow page.
+
+--------------
+
+
+
 AIMMS 4.84.1 Release (January 31, 2022 - build 4.84.1.5).
 ------------------------------------------------------------------------------------------
 
