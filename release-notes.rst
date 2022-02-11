@@ -20,7 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  In some cases valid UTF-32 characters were wrongly rejected by the any:`character` intrinsic function.
+-  In some cases valid UTF-32 characters were wrongly rejected by the :any:`character` intrinsic function.
 -  In the Find All dialog box you can now use the name completion feature on identifier names.
 
 Resolved WebUI Issues
