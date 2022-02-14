@@ -20,13 +20,13 @@ New Features and Bug Fixes
 --------------------------
 1.3.0.40 [20-01-2022]
 	- Add support for Parquet file format
-	- When constructing a regular expression from the elements retrieved from :token:`name-regex-from`, special regex characters will be escaped.
-	- Regex search for :token:`name-binds-to` attributes will take place in a case-insensitive fashion, as set elements in AIMMS are also case-insensitive.
-	- Field names offered for regex search for a :token:`name-binds-to` attribute will first be right trimmed. 
+	- When constructing a regular expression from the elements retrieved from ``name-regex-from``, special Regex characters will be escaped.
+	- Regex search for ``name-binds-to`` attributes will take place in a case-insensitive fashion, as set elements in AIMMS are also case-insensitive.
+	- Field names offered for Regex search for a ``name-binds-to`` attribute will first be right trimmed. 
 
 1.3.0.30 [17-01-2022]
 	- Add support for the OAuth Authorization Code flow for WebUI applications on the PRO/CLoud platform (requires AIMMS 3.84 and PRO/Cloud 2.42)
-	- Introduce :token:`alt-name` and :token:`name-regex-from` attributes for mapping files.
+	- Introduce :token:`alt-name` and ``name-regex-from`` attributes for mapping files.
 	
 1.3.0.22 [02-01-2022]
 	- Refresh token could exceed length of 1024 characters, leading to failed OAuth2 refresh token flow.
@@ -137,7 +137,7 @@ New Features and Bug Fixes
     
 1.0.0.24 [27-07-2020]
     - Name attributes used at mapping locations where no name is needed for a child element are now warned against when reading a mapping
-    - Name-regex attributes used at mapping locations where no name is needed for a child element now result in an error
+    - ``Name-regex`` attributes used at mapping locations where no name is needed for a child element now result in an error
     - Boolean values in a JSON file are now correctly mapped onto integer, double and string parameters. During a write the value will be output according to the AIMMS storage type.
 
 1.0.0.22 [23-07-2020]
