@@ -77,7 +77,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  The outlines/strokes, or the actual line, of a Line-, Bar-, Bar-Line-, Gant- and Pie-chart could remain invisible if no annotations were applied to the graph's data.
--  If you were using a custom style sheet to customize the colors of lines in the Line or Bar-Line chart and if the used CSS classes were not only targeting the stroke but also the fill (probably for re-use for other chart types with the same annotations) then your line would also receive an unexpected area fill. We changed (back) our own internal styling of those charts to specifically prevent this, without you having to change your custom style sheet.
+-  If you were using a custom stylesheet to customize the colors of lines in the Line or Bar-Line chart and if the used CSS classes were not only targeting the stroke but also the fill (probably for re-use for other chart types with the same annotations) then your line would also receive an unexpected area fill. We changed (back) our own internal styling of those charts to specifically prevent this, without you having to change your custom stylesheet.
 
 --------------
 
@@ -1699,7 +1699,7 @@ AIMMS Improvements
 	
 	-  This change is only applied to new models: Since the meaning of strings signifying reference dates is changed, automatic conversion of old models is not possible 
 	-  In timeslot formats, always using a timezone explicitly is advisable. Even if display in every user's local time is intended, DST should be taken into account, and thus ``localDST`` should be used. Timeslot formats that do not specify a timezone are still using 'local' time. 
-	-  When using an hourly calendar, specifying minutes in the timeslot formats is advisable. It is uncertain if at some point the calendar will be shifted off the full hour, esp. when times zones get to be used in timeslot formats.
+	-  When using an hourly calendar, specifying minutes in the timeslot formats is advisable. It is uncertain if at some point the calendar will be shifted off the full hour, esp. when time zones get to be used in timeslot formats.
 
 
 Resolved AIMMS Issues
@@ -1990,7 +1990,7 @@ WebUI Improvements
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  The wizard to add new widgets has been improved with regards to validity checking. Furthermore, some annoying behavior has been addressed, such as losing changes already made when clicking OK before having entered a widget name.
+-  The wizard to add new widgets has been improved with regard to validity checking. Furthermore, some annoying behavior has been addressed, such as losing changes already made when clicking OK before having entered a widget name.
 -  In some cases, the 'Busy' message was not being displayed in the WebUI when the WebUI/AIMMS was actually busy, possibly leading to confusion for the user. For example, widgets could (still) show as empty.
 -  WebUI will show a busy veil whenever AIMMS does not respond for whatever reason (e.g. a dialog being open, some procedure run being triggered from outside WebUI).
 -  There is now an explicit message in the WebUI that Internet Explorer 11 was deprecated.
@@ -2369,7 +2369,7 @@ Resolved WebUI Issues
 
 -  When a widget is displayed in full-screen mode, it occupies the full screen, even if the maximum column size has a non-default setting for the current page.
 -  The Upload and the Download widget did not respect the translation file (i.e. the text(s) on these widgets was non-alterable).
--  The label text in Gantt Charts is now also visible when there is white space before or after the text.
+-  The label text in Gantt Charts is now also visible when there is whitespace before or after the text.
 -  It was possible that by clicking slightly outside of the primary action button, the primary action was triggered.
 -  Some transitions between widget types resulted in an empty 'Pivot' section of the options editor of the widget.
 
@@ -4073,7 +4073,7 @@ Resolved WebUI Issues
 -  Overlapping nodes in a zoomed-out Map widget, with the Store Focus specified, did not always put the right value in the element parameter specified when clicking them.
 -  The text description of an element parameter was not applied in a scalar widget and with the text description, the legend did not highlight the value.
 -  When dragging a bar in the Gantt Chart widget, this bar was not put in the Store Focus identifier.
--  The default tooltip for cells in the Table widget did only show text until the first white space character of a string value. Now it will show the entire content.
+-  The default tooltip for cells in the Table widget did only show text until the first whitespace character of a string value. Now it will show the entire content.
 -  The scroll bar in the Contents section in the options editor of the Table Widget did not work correctly anymore.
 
 
@@ -7215,7 +7215,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++
 
--  In the linechart widget of the WebUI, the maximum value of the Y-value displayed was never lower than 10, possibly leading to lots of white space at the top of such a chart when only very small values were involved.
+-  In the linechart widget of the WebUI, the maximum value of the Y-value displayed was never lower than 10, possibly leading to lots of whitespace at the top of such a chart when only very small values were involved.
 -  The colors in the Legend widget did not always correspond well to the colors in the Line chart and Bar chart widgets.
 -  Parameters present in AllPublicIdentifiers were not visible in the Scalar widget, when some of the parameters in the widget were not present in that set.
 -  Some drag-and-drop problems in the contents editor of a widget have been addressed.
@@ -8276,3 +8276,5 @@ Improvements
     unicode
     uninstalling
     namechanges
+    stylesheet
+    whitespace
