@@ -25,7 +25,7 @@ New Features and Bug Fixes
 	- The maximum line length for CSV files is increased to 64KB.
 
 1.3.0.50 [28-01-2022]
-	- Runtime errors within a webservice request handler would propagate to a controlling :token:`dex::api::Yield` loop. 
+	- Runtime errors within a web service request handler would propagate to a controlling :token:`dex::api::Yield` loop. 
 	
 1.3.0.49 [27-01-2022]
 	- Limit Excel sheet names to 32 characters

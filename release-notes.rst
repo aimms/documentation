@@ -42,7 +42,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  A case-dot expression now executes much faster if the order of the running indices is not such that the case index is the first index. This could happen quite easily when the case index was used as an iterative index, like in:  maxPinCases(i,j) := max(IndexCases, IndexCases.P(i,j)).
+-  A case-dot expression now executes much faster if the order of the running indices is not such that the case index is the first index. This could happen quite easily when the case index was used as an iterative index, like in:  ``maxPinCases(i,j) := max(IndexCases, IndexCases.P(i,j))``.
 -  The AIMMS Presolve will now apply dual reductions by default, as controlled by the new option 'Presolve Dual Reductions'. Dual reductions remove feasible or even optimal solutions while guaranteeing that at least one optimal solution remains.
 
 Resolved AIMMS Issues
