@@ -73,7 +73,7 @@ Requirements for the portable Intel Linux AIMMS component release:
 +------------+-------------------------------------------------------------+
 | Attribute  | Requirement                                                 |
 +============+=============================================================+
-| OS         | Centos 6, Red Hat 6, or Ubuntu 12.04 Linux operating system |
+| OS         | Red Hat 7, or Ubuntu 16.04 or higher Linux operating system |
 +------------+-------------------------------------------------------------+
 | Processor  | Intel x64 compatible system                                 |
 +------------+-------------------------------------------------------------+

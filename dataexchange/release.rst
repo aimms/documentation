@@ -18,6 +18,30 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.0.53 [07-02-2022]
+	- Respect the ordering of :token:`name-binds-to` index when writing.
+
+1.3.0.51 [02-02-2022]
+	- The maximum line length for CSV files is increased to 64KB.
+
+1.3.0.50 [28-01-2022]
+	- Runtime errors within a webservice request handler would propagate to a controlling :token:`dex::api::Yield` loop. 
+	
+1.3.0.49 [27-01-2022]
+	- Limit Excel sheet names to 32 characters
+	- Allow tables of scalars in AIMMS-generated data sets
+	- Add support, through the :token:`dex::AutoTablePrefix`, for auto-generating tables names in AIMMS-generated data sets, based on index occurrence
+
+1.3.0.48 [25-01-2022]
+	- Introduced new mapping attribute write-defaults to determine whether for name-binds-to fields, default values will be explicitly written or omitted
+	- Prevent an Excel sheet to be written when it contains no data
+	- Allow write-filter on Excel sheets
+
+1.3.0.45 [21-01-2022]
+	- Empty cells in Excel sheet will read to default value, instead of skipping
+	- Empty cells on the first row in Excel sheet will now be skipped, instead of terminating the column range being read
+	- All labels will be right trimmed before adding the a set during read
+
 1.3.0.40 [20-01-2022]
 	- Add support for Parquet file format
 	- When constructing a regular expression from the elements retrieved from ``name-regex-from``, special Regex characters will be escaped.
@@ -25,8 +49,8 @@ New Features and Bug Fixes
 	- Field names offered for Regex search for a ``name-binds-to`` attribute will first be right trimmed. 
 
 1.3.0.30 [17-01-2022]
-	- Add support for the OAuth Authorization Code flow for WebUI applications on the PRO/CLoud platform (requires AIMMS 3.84 and PRO/Cloud 2.42)
-	- Introduce :token:`alt-name` and ``name-regex-from`` attributes for mapping files.
+	- Add support for the OAuth Authorization Code flow for WebUI applications on the PRO/CLoud platform (requires AIMMS 4.84 and PRO/Cloud 2.42)
+	- Introduce :token:`alt-name` and :token:`name-regex-from` attributes for mapping files.
 	
 1.3.0.22 [02-01-2022]
 	- Refresh token could exceed length of 1024 characters, leading to failed OAuth2 refresh token flow.

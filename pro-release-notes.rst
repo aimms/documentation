@@ -1,6 +1,35 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.41
+########
+
+AIMMS PRO 2.41.1 Release
+------------------------
+
+On February 8, 2022, we released AIMMS PRO 2.41.1 (2.41.1.1). 
+
+**Improvements**
+
+-  Added support for the OAuth Authorization Code flow for WebUI applications running on PRO.
+-  **Cloud:** On AIMMS Cloud Platform we have stopped supporting TLS 1.0/1.1 and we only support **TLS 1.2**.
+
+**Resolved Issues**
+
+- Relaxed the domain names restrictions in user's e-mail when creating users in PRO such that it accepts domain name like *.one, .mail, .cloud* etc.
+
+PRO 2.40
+########
+
+AIMMS PRO 2.40.1 Release
+------------------------
+
+On December 14, 2021, we released AIMMS PRO 2.40.1 (2.40.1.1). 
+
+**Improvements**
+
+-  **Cloud:** AIMMS PRO end user's App launch link will no longer result in 'cannot find the project' error when the new(latest) version of the App is available instead it will provide you with the link which points to the latest version.
+
 PRO 2.39
 ########
 

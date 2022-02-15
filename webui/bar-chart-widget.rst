@@ -7,7 +7,7 @@ Bar Chart Widget
 
 .. |barchart-layout1| image:: images/BarChart-Layout1.png
 
-The Bar Chart widget represents data as vertical bars. An example is shown below
+The Bar Chart widget represents data as vertical bars. An example is shown below:
 
 .. image:: images/BarChart-1dimEx.png
     :align: center
