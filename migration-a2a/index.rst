@@ -10,7 +10,7 @@ What will change?
 Almost everything will remain the same for you. We will transfer your published models/apps, your suers and their roles, your files in PRO storage and, if applicable, the content of your application database. Two things that will change are: 
 
 * The URL to access the cloud. Where this is currently https://cloud-name.cloud.aimms.com, after migration this will be https://cloud-name.aimms.cloud. This might require small changes, like adjusting bookmarks. 
-* The application database master password + username will also change, so keep that in mind if you have used it somewhere hardcoded or if you are using the credentials for accessing the database from an external source. We strongly recommend not using the master username and password for these purposes.
+* The application database master password + username will also change, so keep that in mind if you have used it somewhere hard coded or if you are using the credentials for accessing the database from an external source. We strongly recommend not using the master username and password for these purposes.
 
 
 What will be the impact of the migration?

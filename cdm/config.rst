@@ -110,7 +110,7 @@ Initializing CDM support in your model
 
 After you have identified the functional categories that you want CDM to work with, and assigned all identifiers you want to store in each category, the main procedure for actually creating and activating the categories is :token:`cdm::ConnectToApplicationDB`.
 
-Based upon the categories you defined, The CDM library will determine the actual contents of these categories, the order in which categories themselves and all identifiers in each category need to be read in, based on their interdependencies. The determination of this order is determined within the procedure :token:`cdm::ProcessAnnotations`, and you can debug the process using the AIMMS debugger, if the need arises. You can inspect the final resulting order through the parameters :token:`cdm::CategoryOrder` and :token:`cdm::IdentifierOrder`, where identifiers with a higher (absolute) order value depend on identifiers with a lower (absolute) order value, and the order value of defined identifiers is negated. 
+Based upon the categories you defined, The CDM library will determine the actual contents of these categories, the order in which categories themselves and all identifiers in each category need to be read in, based on their inter-dependencies. The determination of this order is determined within the procedure :token:`cdm::ProcessAnnotations`, and you can debug the process using the AIMMS debugger, if the need arises. You can inspect the final resulting order through the parameters :token:`cdm::CategoryOrder` and :token:`cdm::IdentifierOrder`, where identifiers with a higher (absolute) order value depend on identifiers with a lower (absolute) order value, and the order value of defined identifiers is negated. 
 
 Subsequently, the call to :token:`cdm::ConnectToApplicationDB` will create the :token:`CDMRuntime` runtime library, which will hold a number of shadow identifiers for each identifier managed by CDM. These shadow identifiers are used by the CDM library to track state and individual changes to the CDM-managed identifiers in your model during various stages of its operation.
 
@@ -131,7 +131,7 @@ The service will connect to the MySQL database specified by
   
   Typically, these would point to the hostname and credentials of the MySQL application database that you can order with the AIMMS Cloud Platform.
 
-  .. warning:: Please make sure the that database password you use for on-demand CDM services only consists of alphanumeric characters. Because of the way these passwords are currently injected into the docker container running the on-demand service, using non-alpanumeric may cause the connection to the backing database to fail unexpectedly. 
+  .. warning:: Please make sure the that database password you use for on-demand CDM services only consists of alphanumeric characters. Because of the way these passwords are currently injected into the docker container running the on-demand service, using non-alphanumeric may cause the connection to the backing database to fail unexpectedly. 
 
 * If the application is deployed from an on-premise PRO server and :token:`cdm::TunnelContext` is set, the CDM library will set up a PRO tunnel to the given tunnel context name. Such PRO tunnels can be configured by the PRO administrator in the PRO portal, and allow the client application to connect to an endpoint behind a firewall through the tunnel. In this case, the configured endpoint would be the service URI of a PRO service running behind the data center firewall.
 

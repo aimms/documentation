@@ -43,7 +43,7 @@ Side panels can be used for various purposes, such as filters, displaying KPIs, 
 
 Side panels give developers the possibility to add extra widgets to a page that are always easily accessible in a collapsible panel on the right. In this vein, a side panel is a good place for filters or help text, for example.
 
-Please avoid adding core functionalities on side panels; e.g. steps to achieve (initial) output on the page. Also, using buttons on side panels should be limited as buttons are usualy a key function for a regular page. Moreover, widget-specific procedures may be put in `widget actions <widget-options.html#widget-actions>`_. 
+Please avoid adding core functionalities on side panels; e.g. steps to achieve (initial) output on the page. Also, using buttons on side panels should be limited as buttons are usually a key function for a regular page. Moreover, widget-specific procedures may be put in `widget actions <widget-options.html#widget-actions>`_. 
 
 .. image:: images/SidePanel_Examples.png
 			:align: center
@@ -175,20 +175,20 @@ Step 3: Since the side panel itself has a confined width, we advise you to confi
 			]
 		}
 
-You can also change the ``"gridTemplateColumns"`` property in order to add more columns, but please be aware that the columns will be adjusted in the space which is available in the fixed width of the side panel itself, as illustrated below:
+You can also change the ``gridTemplateColumns`` property in order to add more columns, but please be aware that the columns will be adjusted in the space which is available in the fixed width of the side panel itself, as illustrated below:
 
 .. image:: images/SPGL_TwoColumns.png
 			:align: center
 
 .. note::
-   This latter situation should be avoided whenever possible. Please use as much as possible only one column in the property ``"gridTemplateColumns"`` of the custom grid.
+   This latter situation should be avoided whenever possible. Please use as much as possible only one column in the property ``gridTemplateColumns`` of the custom grid.
 
 Step 4: Once created, the custom grid layout can be applied to a side panel and the desired widgets can be assigned to the available grid areas as required.
 
 .. image:: images/SPGL_CustomAssigned.png
 			:align: center
 
-If you need more information about defining custom layouts, please read more on `Creating Grid Definitions <webui-grid-pages.html#creating-grid-definitions>`_. All layout properties described there apply to side panels as well. One exception is that using the property 'runIntoGridGap' of a GridArea may lead to undesired visual side-effects in case of side panels. The grid layout property 'runIntoGridGap' was designed to make full-screen-like pages (like for a map) which need to overlap the natural internal padding any page has. For side panels the padding inside the 'page' (which the sidepanel actually is) has been taken away. So, if you define an area to 'run into the padding' (which is not there) then you end up outside the page or below the edge. Therefore, using the property 'runIntoGridGap' of a GridArea should be avoided for side panels with grid layout.
+If you need more information about defining custom layouts, please read more on `Creating Grid Definitions <webui-grid-pages.html#creating-grid-definitions>`_. All layout properties described there apply to side panels as well. One exception is that using the property ``runIntoGridGap`` of a ``GridArea`` may lead to undesired visual side-effects in case of side panels. The grid layout property ``runIntoGridGap`` was designed to make full-screen-like pages (like for a map) which need to overlap the natural internal padding any page has. For side panels the padding inside the 'page' (which the sidepanel actually is) has been taken away. So, if you define an area to 'run into the padding' (which is not there) then you end up outside the page or below the edge. Therefore, using the property ``runIntoGridGap`` of a ``GridArea`` should be avoided for side panels with grid layout.
 
 In case the widgets being assigned require more space, you can introduce a vertical scroll by dividing the areas `using percentages <webui-grid-pages.html#using-percentages>`_, the sum of which should exceed 100%.
 
@@ -206,7 +206,7 @@ A new declaration for configuring side panels has been added to the AimmsWebUI l
 This set has the following elements representing side panels properties: 
 
 #.  ``displayText``: This is the text/label you would like the side panel tab to have and it is an optional field. If left empty, no text will be displayed on the tab.
-#.  ``pageId``: When a page or side panel is created it is has a unique pageId. You can find all the side panel pageId's in the set AllSidePanelPages. This is a required field.
+#.  ``pageId``: When a page or side panel is created it is has a unique page Id. You can find all the side panel page Id's in the set :any:`webui::AllSidePanelPages`. This is a required field.
 
 	.. image:: images/Allsidepanelpagesdata.png
 			:align: center
@@ -216,7 +216,7 @@ This set has the following elements representing side panels properties:
 			
 #. ``tooltip``: The text specified here is displayed when the user hovers over that respective side panel tab. This is an optional field and if left empty, no tooltip is displayed.
 #. ``icon``: This is the icon you want to display on the side panel tab. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. Moreover, `custom icons <webui-folder.html#custom-icon-sets>`_ can also be used, if required. This is an optional field and if left empty, no icon will be displayed.
-#. ``iconcolor``: This is the color you want to display for the configured icon, eg: 'blue', 'red', etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. You can also use Hex codes eg: #FF0000 for Red. This is an optional field; if left empty, the icon will be blue when the tab is collapsed. The icon color changes to white when the side panel tab is expanded since the tab's color becomes blue and most of the other colors blend in making it difficult to view the icon.
+#. ``iconcolor``: This is the color you want to display for the configured icon, e.g., 'blue', 'red', etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. You can also use Hex codes e.g., #FF0000 for Red. This is an optional field; if left empty, the icon will be blue when the tab is collapsed. The icon color changes to white when the side panel tab is expanded since the tab's color becomes blue and most of the other colors blend in making it difficult to view the icon.
 #. ``state``: The state determines the visibility of the side panel tab, i.e ``Active`` (displayed and clickable) and ``Hidden`` (not displayed). This is an optional field, but we suggest you specify one of the values. However, if not specified the default is considered as ``Active``.
 
 .. note:: 
@@ -264,7 +264,7 @@ Note that in the above example data we have defined both the icon and its color 
 .. note:: 
 
 	* Side panels appear in the same order from top to bottom as they appear in the data of the string parameter.
-	* If you enter an incorrect pageId, then the corresponding side panel tab will not be shown.
+	* If you enter an incorrect ``pageId``, then the corresponding side panel tab will not be shown.
 	* When a side panel tab is open in the WebUI and if the ``displayText``, ``tooltip``, ``icon``, or ``iconcolor`` are changed/updated the side panel does not collapse in the WebUI. Only when the ``pageId`` or ``state`` are changed/updated an open side panel will collapse.
 	
 Configuring the string parameter on regular pages
@@ -288,7 +288,7 @@ Once you have added the string parameter, the respective side panel tabs will ap
 Similarly, you can create some (other) string parameters for other pages and configure them using the same steps. You can configure as many side panels as you need in your application. 
 
 .. note::
-	Please note that, since there is limited screen space, **AIMMS WebUI only displays the first 6 side panel tabs on each (regular) page**. So, eventhough the string parameter used for configuring the side panel may have data for 7 or more tabs, only the first 6 valid tabs will become visible. For consistency, the size of the tabs is always the same, i.e. 1/6th of the available height, no matter how many tabs are shown or how long the title text of a tab is.
+	Please note that, since there is limited screen space, **AIMMS WebUI only displays the first 6 side panel tabs on each (regular) page**. So, even though the string parameter used for configuring the side panel may have data for 7 or more tabs, only the first 6 valid tabs will become visible. For consistency, the size of the tabs is always the same, i.e. 1/6\ :sup:`th`\  of the available height, no matter how many tabs are shown or how long the title text of a tab is.
 
 Interacting with side panels
 ----------------------------
@@ -303,3 +303,7 @@ Clicking on a tab highlights that tab and slides it open with the widgets which 
 
 .. image:: images/SidePanel_TabInteraction_Open.png
 			:align: center
+
+.. spelling::
+
+    flyout

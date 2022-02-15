@@ -47,7 +47,7 @@ StatusBarSpecification - This set is used to configure messages in the Status Ba
 
 * :token:`header` - The Header/Title text you want to display for the status message. This is an optional field. If left empty, no value is displayed.
 * :token:`icon` - The icon you want to associate with the message. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required. This is an optional field and if left empty, no icon will be displayed.
-* :token:`color` - The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes eg: #FF0000 for Red.
+* :token:`color` - The color you want to display for the icon configured, e.g., Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes e.g., #FF0000 for Red.
 * :token:`text` - The text you want to display for the status message. This is a required field.
 * :token:`tooltip` - The text to be displayed when the user hovers over the status message. This is an optional field and if left empty, no tooltip is displayed.
 * :token:`procedure` - The procedure you want to execute when the respective status message is clicked. This is an optional field.
@@ -104,7 +104,7 @@ by indexing the string parameter ``sp_MyStatusBar`` over the index of the :any:`
   
 
 5. You may now define, for each page, the data to be displayed. You’ll have to explicitly define every page you want each message to appear. 
-   All the pages that weren’t explicitly defined in the string parameter will not display any message on the Status Bar.
+   All the pages that were not explicitly defined in the string parameter will not display any message on the Status Bar.
 
 Some best practices on using icons/colors
 -----------------------------------------
@@ -113,7 +113,7 @@ Icons can be given a color, but if no color is given icons will be dark grey (#8
 
 * Using many different colors for icons can make the Status Bar to busy and increase cognitive load.
 * It’s not advisable to use icons as an illustration of what is already written. For example, when the header says “Transport” using an icon of a truck. This doubles information without delivering extra value to users.
-*  Colors can communicate meaning, like green for OK and red for error. One of the most common forms of color blindness is red-green color blindness. It is therefore good practice to not rely on color only to communicate meaning, but shape as well like a checkmark or warning-triangle.
+*  Colors can communicate meaning, like green for OK and red for error. One of the most common forms of color blindness is red-green color blindness. It is therefore good practice to not rely on color only to communicate meaning, but shape as well like a check mark or warning-triangle.
 * Avoid using colors with not enough contrast. This makes it hard to see for users, especially when using a lower-quality screen or a projector.
 * When using different colors for icons, try to use a harmonious set of colors with matching lightness/saturation. This makes the interface calmer and helps users feel in control. `This website <https://flatuicolors.com/>`_ has useful sets of colors that work together.
 

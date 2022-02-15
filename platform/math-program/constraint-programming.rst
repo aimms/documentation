@@ -1,6 +1,6 @@
 Constraint Programming
 =======================
-Constraint Programming (CP) is the process of solving a system of constraints of various types over a set of unknown discrete variables possibly along with an objective function to be maximized or minimized.  Part of the attraction of Constraint Programming is that it enables the capturing of many structures observed in reality in a very natural manner using e.g. ‘AllDifferent’ and ‘Sequence’ constraints, element valued variables and the Resource and Activity concepts.
+Constraint Programming (CP) is the process of solving a system of constraints of various types over a set of unknown discrete variables possibly along with an objective function to be maximized or minimized.  Part of the attraction of Constraint Programming is that it enables the capturing of many structures observed in reality in a very natural manner using e.g. ‘All Different’ and ‘Sequence’ constraints, element valued variables and the Resource and Activity concepts.
 
 AIMMS for Constraint Programming
 ----------------------------------------------------

@@ -6,7 +6,7 @@ AIMMS Application Management
 Publishing Applications
 -----------------------
 
-Any PRO-enabled AIMMS project can be published onto an AIMMS PRO Server. PRO-enabled projects must be made available in the form of a .aimmspack file (In AIMMS developer using menu **File** then **Export End User Project...** ), and can be published through the **Apps** area of the portal. All members of the admin and the *AppPublishers* groups will have a **publish** button available in the **Apps** area, through which they can publish PRO-enabled .aimmspack files. After selecting a .aimmspack file and an (optional) application icon to be used in the portal, you have to provide some additional information about the application:
+Any PRO-enabled AIMMS project can be published onto an AIMMS PRO Server. PRO-enabled projects must be made available in the form of a ``.aimmspack`` file (In AIMMS developer using menu **File** then **Export End User Project...** ), and can be published through the **Apps** area of the portal. All members of the admin and the *AppPublishers* groups will have a **publish** button available in the **Apps** area, through which they can publish PRO-enabled ``.aimmspack`` files. After selecting a ``.aimmspack`` file and an (optional) application icon to be used in the portal, you have to provide some additional information about the application:
  
 * Application name: the name by which the application will be identified within the AIMMS PRO Framework.
 * Application version: the application version. The combination of the name and version should be unique.
@@ -34,7 +34,7 @@ By default it will open default start page of an App. It is also possible to ope
 
 .. note::
 
-	This URL is case sensitive. i.e. MainProject(folder name), pagename specified in the link should match in case sensitive manner with the folder name, pagename inside your App for AIMMS PRO to recognize it correctly.
+	This URL is case sensitive. i.e. MainProject(folder name), ``pagename`` specified in the link should match in case sensitive manner with the folder name, ``pagename`` inside your App for AIMMS PRO to recognize it correctly.
 
 You can get this direct app link by right clicking the App icon or 'Launch App' and use options like Copy link address, add to favorites etc. Once you have bookmarked this link or created a desktop shortcut then you can directly open an app. This means AD/SAML users can start an AIMMS application in a single click (as login would be automatic for them) and other users will be first redirected to login page and after successful login it will directly load that particular app. 
 
@@ -54,7 +54,7 @@ Starting from **AIMMS PRO 2.24**, if you have write access to the application, y
 
 .. note::
 
-	This URL is case sensitive. i.e. MainProject(folder name), pagename specified in the link should match in case sensitive manner with the folder name, pagename inside your App for AIMMS PRO to recognize it correctly. 
+	This URL is case sensitive. i.e. MainProject(folder name), ``pagename`` specified in the link should match in case sensitive manner with the folder name, ``pagename`` inside your App for AIMMS PRO to recognize it correctly. 
 
 .. image:: images/tag-latest.png
     :align: center
@@ -99,7 +99,7 @@ After you have published the application, you can always change the access right
 Update and Delete Applications
 ------------------------------
 
-If you have write and execute access to the application, you may also update and delete the application. When updating an application, after uploading a new .aimmspack file, the AIMMS PRO server will already copy all the settings and access rights of the application version you wish to upgrade, allowing you to change only those values that really need to be changed. You have the option to keep or to hide the previous version of the application. If you hide it, it will become invisible to all users, except those with global administrative privileges, but existing queued jobs will still be able to access it. If you delete an application, queued jobs may fail altogether. You are therefore strongly advised to select the option to hide the previous version, and only delete it after all queued requests have been completed successfully.
+If you have write and execute access to the application, you may also update and delete the application. When updating an application, after uploading a new ``.aimmspack`` file, the AIMMS PRO server will already copy all the settings and access rights of the application version you wish to upgrade, allowing you to change only those values that really need to be changed. You have the option to keep or to hide the previous version of the application. If you hide it, it will become invisible to all users, except those with global administrative privileges, but existing queued jobs will still be able to access it. If you delete an application, queued jobs may fail altogether. You are therefore strongly advised to select the option to hide the previous version, and only delete it after all queued requests have been completed successfully.
 
 Starting from PRO 2.16, you can delete multiple Apps together by using 'Delete selected' button. This will also delete the application from PRO storage. 
 

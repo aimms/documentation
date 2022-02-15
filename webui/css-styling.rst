@@ -32,7 +32,7 @@ In combination with the following CSS rule
 
 will show all cells in tables (because of the :token:`.td` class), where the annotation has the value :token:`invalid-value` with a red background color. Note that the :token:`DangerValuesOfX` shows a combination of two annotations: :token:`invalid-value` as well as :token:`danger`, but only the former is used in the example above.
 
-By default, all core WebUI plugins (including widgets) will prefix user annotations with :token:`annotation-` and replace whitespace characters, like spaces or tabs, with a hyphen (-). It is recommended that app developers use this as well. For more information: see `AWF.Util.getAsCSSClasses <#applying- annotations-or-flags>`_.
+By default, all core WebUI plugins (including widgets) will prefix user annotations with :token:`annotation-` and replace white space characters, like spaces or tabs, with a hyphen (-). It is recommended that app developers use this as well. For more information: see `AWF.Util.getAsCSSClasses <#applying- annotations-or-flags>`_.
 
 .. note:: 
      Please note that in AIMMS versions prior to 4.49, you had to define a string parameter called :token:`X_annotations(i,j)` (with the domain of this '_annotations identifier' being a valid subdomain of the original identifier) in order to achieve the same result. This had the disadvantage that when you renamed the original identifier, the '_annotations identifier' was not automatically renamed with it, possibly leading to unexpected effects in the WebUI front-end.
@@ -48,12 +48,12 @@ By default, all core WebUI plugins (including widgets) will prefix user annotati
         :align: center
 
 
-The WebUI uses flags to indicate whether a certain DOM element corresponds to a *readOnly* value or not. DOM elements that correspond to editable values are annotated with a :token:`flag-editable` CSS class while read-only DOM elements are annotated with a :token:`flag-readOnly` class. It is possible to make the data which is editable from a model perspective appear as read-only in the WebUI by using user-flags. One can achieve this as follows: define a new string parameter in the model, say FlagsOfX(i,j), add a :token:`webui::FlagsIdentifier` annotation to the attribute form of the original identifier X, and fill in the new string FlagsOfX(i,j) as the contents of this annotation: 
+The WebUI uses flags to indicate whether a certain DOM element corresponds to a ``readOnly`` value or not. DOM elements that correspond to editable values are annotated with a :token:`flag-editable` CSS class while read-only DOM elements are annotated with a ``flag-readOnly`` class. It is possible to make the data which is editable from a model perspective appear as read-only in the WebUI by using user-flags. One can achieve this as follows: define a new string parameter in the model, say FlagsOfX(i,j), add a :token:`webui::FlagsIdentifier` annotation to the attribute form of the original identifier X, and fill in the new string FlagsOfX(i,j) as the contents of this annotation: 
 
 .. image:: images/Annotations_view2.png
     :align: center
 
-Finally, one can assign the value "readOnly" to FlagsOfX(i,j) for the (updatable) values of X(i,j) which should appear as read-only in the front-end.
+Finally, one can assign the value ``readOnly`` to ``FlagsOfX(i,j)`` for the (updatable) values of X(i,j) which should appear as read-only in the front-end.
 
 .. note:: 
      Please note that in AIMMS versions prior to 4.71, you had to define a string parameter called :token:`X_flags(i,j)` (with the domain of this '_flags identifier' being a valid subdomain of the original identifier) in order to achieve the same result. This had the disadvantage that when you renamed the original identifier, the '_flags identifier' was not automatically renamed with it, possibly leading to unexpected effects in the WebUI front-end.
@@ -206,7 +206,7 @@ This would result in an annotation :token:`annotation-exceeds-time-limit` on the
 
 to color the bar red.
 
-You are of course not restriced to highlight just a single cell. You could also write something like:
+You are of course not restricted to highlight just a single cell. You could also write something like:
 
 .. code::
 
@@ -225,7 +225,7 @@ Annotations or Flags in Custom Plugins
 Applying annotations or flags
 +++++++++++++++++++++++++++++
 
-Core plugins (widgets, addons, etc.) now prefix all model annotations and flags with e.g. :token:`annotation-` or :token:`flag-` when these are used in HTML element attributes. Additionally, to ensure valid values, all sequences of whitespace are converted into single hyphens: for example, the annotation :token:`some model info` becomes :token:`annotation-some-model-info`.
+Core plugins (widgets, addons, etc.) now prefix all model annotations and flags with e.g. :token:`annotation-` or :token:`flag-` when these are used in HTML element attributes. Additionally, to ensure valid values, all sequences of white space are converted into single hyphens: for example, the annotation :token:`some model info` becomes :token:`annotation-some-model-info`.
 
 Core styling has also been updated to adopt this pattern.
 
@@ -279,8 +279,8 @@ Example JavaScript:
         .addClass("my-widget")
     ;
 
-Example 2: Using the annotation or flag in a stylesheet
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 2: Using the annotation or flag in a style sheet
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The prefixed annotation or flag should still be properly escaped for use in a selector, although in these examples it is not strictly necessary. Example CSS:
 
@@ -322,4 +322,8 @@ For example, the ``icofont.css`` may have classes defined for each icon as illus
         content: "\e898";
     }
 
-You need to pick the name of the desired icon class and assign it to the icon field in the model specification. eg: :token:`icofont-brand-adidas` 
+You need to pick the name of the desired icon class and assign it to the icon field in the model specification. e.g., :token:`icofont-brand-adidas` 
+
+.. spelling::
+
+    addons

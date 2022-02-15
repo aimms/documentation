@@ -10,21 +10,21 @@ New Features and Bug Fixes
     - Relax strictness for URL query
 
 1.2.0.41 [14-05-2021]
-    - Prevent double url_encoding for parts of the URL
+    - Prevent double ``url_encoding`` for parts of the URL
     - Protect web::base64_decode for invalid input
     - Handle double equal signs in URL query differently
 
 1.2.0.36 [04-03-2021]
-    - Fix threading issue in web::request_invoke_async method
-    - Added  web::setConfig method
+    - Fix threading issue in :any:`web::request_invoke_async` method
+    - Added  :any:`web::setConfig` method
 
 1.2.0.6 [19-01-2021]
     - Fix hanging issue on connection error
 
 1.2.0.1 [18-12-2020]
-    - Added  web::request_invoke_async method
-    - Added  web::wait_for_response method
-    - Added  web::wait_for_the_response method
+    - Added  :any:`web::request_invoke_async` method
+    - Added  :any:`web::wait_for_response` method
+    - Added  :any:`web::wait_for_the_response` method
 
 1.1.0.8 [18-12-2020]
     - Fix empty response header issue
@@ -37,7 +37,7 @@ New Features and Bug Fixes
 
 1.0.2.179 [05-10-2020]
     - Fix chunked encoding issue
-    - Fix url percent encoding bug
+    - Fix URL percent encoding bug
 
 1.0.2.175 [30-09-2020]
     - Major rewrite of implementation

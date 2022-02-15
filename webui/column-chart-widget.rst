@@ -27,7 +27,7 @@ Firstly, a data identifier to be rendered in the column chart has to be specifie
 
 | 
 
-For each identifier added to the Contents tab the following settings can be specified: the indentifier name (as declared in the AIMMS model), its display domain, the number of decimals, and the indicator for showing/hidding the units of measurement. 
+For each identifier added to the Contents tab the following settings can be specified: the identifier name (as declared in the AIMMS model), its display domain, the number of decimals, and the indicator for showing/hiding the units of measurement. 
 These values may be literal or given through identifiers present in the AIMMS model, as shown below:
 
 .. image:: images/ColumnChart-Identifier-Settings-1.png
@@ -50,8 +50,8 @@ Clearly, each slicing specification will result in a different data view in the 
 For detailed explanation, please refer to `Widget Options > Indentifier Settings > Slicing <widget-options.html#id6>`__.
 
 Moving on, in the "Display Domain" field of the identifier settings, a constant or a model identifier may be specified as well. The column chart will then only display data points for which the display condition is evaluated as true.
-In our example, if the indexed (binary) parameter p_IsSomeCenter(c) is specified as the display domain for Demand(c), then the column chart only displays the demand values of the distribution centers c for which the parameter p_IsSomeCenter(c) is
-not 0. We can visualize this effect, for instance, by showing the values of p_IsSomeCenter(c) in a selection widget of type "multiselect" next to the column chart which shows Demand(c).
+In our example, if the indexed (binary) parameter ``p_IsSomeCenter(c)`` is specified as the display domain for ``Demand(c)``, then the column chart only displays the demand values of the distribution centers c for which the parameter ``p_IsSomeCenter(c)`` is
+not 0. We can visualize this effect, for instance, by showing the values of ``p_IsSomeCenter(c)`` in a selection widget of type "multiselect" next to the column chart which shows ``Demand(c)``.
 
 .. note:: Please realize that entering the number ‘1’ as the display domain will result in a dense view of your data.
 
@@ -65,8 +65,8 @@ not 0. We can visualize this effect, for instance, by showing the values of p_Is
 
 |
 
-Next, the number of decimals and the indicator for showing/hidding the units of measurement may be specified in the corresponding fields of the identifier settings, as already shown above. 
-Please note that either option needs to be resolved to a scalar value. So, in particular, it is not possible to specify an indexed identifier like p_NumDecimals(c) for the number of decimals. 
+Next, the number of decimals and the indicator for showing/hiding the units of measurement may be specified in the corresponding fields of the identifier settings, as already shown above. 
+Please note that either option needs to be resolved to a scalar value. So, in particular, it is not possible to specify an indexed identifier like ``p_NumDecimals(c)`` for the number of decimals. 
 This means that you cannot show a different number of decimals for different data values which belong to the same identifier.
 These "per identifier" options are then reflected in the chart view provided that the data labels are toggled on (see more info about toggling labels in the `Chart Settings <column-chart-widget.html#column-chart-settings>`__ section below):
 
@@ -75,15 +75,15 @@ These "per identifier" options are then reflected in the chart view provided tha
 
 |
 
-Note, that if the number of decimals and/or the indicator for showing/hidding the units of measurement are not specified for a certain indentifier, then the values from the Defaults section will be inherited and applied to that identifier:
+Note, that if the number of decimals and/or the indicator for showing/hiding the units of measurement are not specified for a certain identifier, then the values from the Defaults section will be inherited and applied to that identifier:
 
 .. image:: images/ColumnChart-NumDec-ShowUnits-2.png
    :align: center  
 
 |
 
-More specifically, in the example above the number of decimals is not explicitly set for the identifier Demand(c) and therefore, this option value '2' is automatically inherited from the number of decimals specified in the Defaults section of the Contents tab.
-Similarly, the value '1' (or "on") of the the indicator for showing/hidding the units of measurement for the identifier Demand(c) is not specified explicitly in the corresponding identifier field, but it is inherited from the indicator value from the Defaults.
+More specifically, in the example above the number of decimals is not explicitly set for the identifier ``Demand(c)`` and therefore, this option value '2' is automatically inherited from the number of decimals specified in the Defaults section of the Contents tab.
+Similarly, the value '1' (or "on") of the the indicator for showing/hiding the units of measurement for the identifier ``Demand(c)`` is not specified explicitly in the corresponding identifier field, but it is inherited from the indicator value from the Defaults.
 Either option can be specified per identifier or inherited from Defaults independently from the other option. 
 
 Pivoting
@@ -189,8 +189,8 @@ Index Settings, Select, and Store Focus
 ---------------------------------------
 
 In the Index Settings tab of the widget options editor, for each index it is possible to specify an element parameter in the same set which will store the corresponding value when the user selects a specific column in the chart (by clicking on it, in which case the color of the column turns grey). 
-For example, we can specify en element parameter ep_Center for the index c and en element parameter ep_Focusidentifier for the <IDENTIFIER-SET> index, where ep_Center and ep_Focusidentifier are element parameters 
-in our application at hand with the sets Centers and AllIdentifiers, respectively, as ranges. The values of ep_Center and ep_Focusidentifier may be displayed for inspection in some other widgets outside the column chart:
+For example, we can specify en element parameter ``ep_Center`` for the index ``c`` and en element parameter ``ep_Focusidentifier`` for the ``<IDENTIFIER-SET>`` index, where ``ep_Center`` and ``ep_Focusidentifier`` are element parameters 
+in our application at hand with the sets ``Centers`` and ``AllIdentifiers``, respectively, as ranges. The values of ``ep_Center`` and ``ep_Focusidentifier`` may be displayed for inspection in some other widgets outside the column chart:
 
 .. image:: images/ColumnChart-IndexSettings-1.png
     :align: center
@@ -200,8 +200,8 @@ in our application at hand with the sets Centers and AllIdentifiers, respectivel
 Select, Hover, and Tooltips
 ---------------------------
 
-When the user selects a specific column, the corresponding center value is stored in the element parameter ep_Center as shown above. When the user hovers with the mouse cursor over a column (for example, before selecting it), then that column is highlighted, 
-while the other columns are faded away. In this case, also a tooltip is shown, either a default tooltip or a custom tooltip specified using a webui::TooltipIdentifier annotation, see the section `Identifier Annotations <widget-options.html#identifier-annotations>`__.
+When the user selects a specific column, the corresponding center value is stored in the element parameter ``ep_Center`` as shown above. When the user hovers with the mouse cursor over a column (for example, before selecting it), then that column is highlighted, 
+while the other columns are faded away. In this case, also a tooltip is shown, either a default tooltip or a custom tooltip specified using a ``webui::TooltipIdentifier`` annotation, see the section `Identifier Annotations <widget-options.html#identifier-annotations>`__.
 The picture below depicts this situation:
 
 .. image:: images/ColumnChart-Hover-Tooltip-1.png
@@ -220,9 +220,9 @@ When a column has been selected, the user may still hover over another column an
 Custom Styling
 --------------
 
-By specifying a webui::AnnotationsIdentifier as explain in the section `Identifier Annotations <widget-options.html#identifier-annotations>`__ and by using it subsequently for custom styling as explained in the section `Custom Styling <css-styling.html#css-styling>`__, 
+By specifying a ``webui::AnnotationsIdentifier`` as explain in the section `Identifier Annotations <widget-options.html#identifier-annotations>`__ and by using it subsequently for custom styling as explained in the section `Custom Styling <css-styling.html#css-styling>`__, 
 it is possible to apply a custom styling to a column chart as well.
-For instance, in our example application at hand one could style differently those columns in the chart which have a demand value greater than a certain threshhold value given by a scalar parameter called p_Demand_HighValue. 
+For instance, in our example application at hand one could style differently those columns in the chart which have a demand value greater than a certain threshold value given by a scalar parameter called ``p_Demand_HighValue``.
 This situation is depicted in the following picture:
 
 .. image:: images/ColumnChart-CustomStyling-1.png
@@ -260,3 +260,6 @@ The specified chart title is reflected on the widget header:
 
 
 
+.. spelling::
+
+    combinationchart

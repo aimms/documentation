@@ -20,7 +20,7 @@ The libraries are made available in through the AIMMS library repository, and ca
 The use of DataLink always takes two steps:
 
 * **Step 1** is the configuration. The provider has to be specified and also the mapping of identifiers to column names has to be specified. Optionally extra column and table attributes can be set depending of the kind of provider.
-* **Step 2** is the call to DataRead or DataWrite. This is when the data is transfered between AIMMS and the data source.
+* **Step 2** is the call to DataRead or DataWrite. This is when the data is transferred between AIMMS and the data source.
 
 All providers have a string identifier called :token:`DataLink` containing the location of the binary file (the code) that has to run to transfer the data. All we have to do to specify a provider is to pass this string as attribute 'Provider' to DataLink. DataLink then can call this code to do the actual reading and writing.
 

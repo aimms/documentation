@@ -7,7 +7,7 @@ In the mapping file you specify how repetitive structure in the tree-based data 
 
 Typically a tree-based data format can consists of several types of nodes:
 
-* structural nodes, which can hold multiple structurally different named childnodes,
+*  structural nodes, which can hold children that are structured differently,
 * repetitive nodes, which can hold multiple (named or unnamed) child nodes of the same type and structure, and
 * value-holding leaf nodes, which hold the actual labels of bound indices or values of multi-dimensional identifiers.
 
@@ -211,3 +211,8 @@ This could then print:
     982  arr-100  a-10  0.01854  0.00000                    0 
 
 Here we see in the top row the names from the ``ColumnMapping`` of the mapping. In the left column are the row numbers added by python. The other columns are data read from file *filefromdex.parquet*.
+
+.. spelling::
+
+    geocoding
+    dataframes

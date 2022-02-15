@@ -49,9 +49,9 @@ Authority
         
     - ``www.example.com`` is the host
         
-    - ``john.doe`` is the userinfo
+    - ``john.doe`` is the user info
         
-    The host is essential. It tells which server to use. Optionally we can specify a specific port number. This is an number from 0 to 65535 following the ``:`` after the host. The userinfo is rarely used.
+    The host is essential. It tells which server to use. Optionally we can specify a specific port number. This is an number from 0 to 65535 following the ``:`` after the host. The user info is rarely used.
 
 Scheme
     ``https``

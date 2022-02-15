@@ -248,7 +248,7 @@ Commit and Pull Functions
 
    :param category: specifies the category for which o 
    :param resolved: specifies an output argument, which indicates whether any conflicts were successfully resolved.
-   :param revto: an optional argument, indicating to pull all changes upto which revision. In the absence of this argument, CDM will pull upto the head to the current branch.
+   :param revto: an optional argument, indicating to pull all changes up to which revision. In the absence of this argument, CDM will pull up to the head to the current branch.
 
 .. js:function::  cdm::CherryPickChanges(category,branch,revfrom,revto,resolved)
    
@@ -403,7 +403,7 @@ Combine Category Revisions Functions
    
    :param db: specifies the database for which to finalize combining category revisions
    :param branch: specifies the branch from which to finalize combining category revisions
-   :param endRevision: specifies the highest possible end revision on the branch at which tofinalize combining category revisions
+   :param endRevision: specifies the highest possible end revision on the branch at which to finalize combining category revisions
    
 Embedded Server Functions
 =========================

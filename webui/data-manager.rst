@@ -45,7 +45,7 @@ In this mode, all data-showing widgets (such as tables and charts) will show an 
 
 Any editable data from the active case will be shown in blue in the table, whereas all other data will be read-only and shown in black. Removing the last case from the case comparison will automatically switch the WebUI to the regular mode of showing the data from the active case.
 
-Next to using the data management pane to add cases to the list of "compared cases", you can also do this from within AIMMS. In the AimmsWebUI library, there is the webui::CompareCaseBool identifier. This identifier is set to 'true' when a case is added to the list of "compared cases" and false when it is removed from the list. If you want to add or remove cases to/from the list of "compared cases" from within a procedure in AIMMS, you can update this webui::CompareCaseBool identifier.
+Next to using the data management pane to add cases to the list of "compared cases", you can also do this from within AIMMS. In the AimmsWebUI library, there is the ``webui::CompareCaseBool`` identifier. This identifier is set to 'true' when a case is added to the list of "compared cases" and false when it is removed from the list. If you want to add or remove cases to/from the list of "compared cases" from within a procedure in AIMMS, you can update this ``webui::CompareCaseBool`` identifier.
 
 Private vs. shared cases
 ------------------------

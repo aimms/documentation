@@ -1,7 +1,7 @@
 Debugging PRO-enabled Projects
 ==============================
 
-When you start an application via the portal, the AIMMS PRO AppLauncher will download the .aimmspack file from the server, extract the contents, and start the installation-free PRO client version of AIMMS with an end-user license obtained from the AIMMS PRO server. Because a PRO client uses an end-user license, you are not able to use any of the AIMMS debugging tools to see what is going on in the client-side of the project in case of problems. To debug a PRO-enabled AIMMS project, you should start using the development version of your project, using the AIMMS developer version.
+When you start an application via the portal, the AIMMS PRO AppLauncher will download the ``.aimmspack`` file from the server, extract the contents, and start the installation-free PRO client version of AIMMS with an end-user license obtained from the AIMMS PRO server. Because a PRO client uses an end-user license, you are not able to use any of the AIMMS debugging tools to see what is going on in the client-side of the project in case of problems. To debug a PRO-enabled AIMMS project, you should start using the development version of your project, using the AIMMS developer version.
 
 Connecting With the PRO Server
 ------------------------------

@@ -95,7 +95,7 @@ In the use case at hand, there are 3 factories (Hamburg, London, and Zurich) and
         }
     }
 
-The *Supply* and *Demand* parameters may be initialized e.g., by using some random draws from uniform distributions, while the parameter *UnitCost* may be initialized e.g., based on the (straight line) distance between two locations (see further below).
+The *Supply* and *Demand* parameters may be initialized e.g., by using some random draws from uniform distributions, while the parameter ``UnitCost`` may be initialized e.g., based on the (straight line) distance between two locations (see further below).
 
 Creating an empty WebUI
 -----------------------
@@ -128,7 +128,7 @@ Next one can add a map widget with 4 columns and 3 rows (title Transport Network
 .. image:: images/transnet-joint-3_v470.png
     :align: center
 
-As shown in the snapshots above, two types of nodes have been added explicitly to the network in the map widget: one type for the factories f and one other type for the distribution centers c. Please note that for specifying the Latitude, the Longitude and the NodeSize correspoding to each of the indexes f and c, the slicing functionality (as described in the `Slicing section <widget-options.html#id8>`_) can be used. 
+As shown in the snapshots above, two types of nodes have been added explicitly to the network in the map widget: one type for the factories f and one other type for the distribution centers c. Please note that for specifying the Latitude, the Longitude and the NodeSize corresponding to each of the indexes f and c, the slicing functionality (as described in the `Slicing section <widget-options.html#id8>`_) can be used. 
 	
 Another table widget with 5 columns and 1 row (title Unit Costs) may be added for showing the unit transport costs between a factory and a distribution center. The widget tile may be added in the same way as above, while the splitting of indexes of this parameter between the row area and the  column area may be configured in the Pivot section of the Settings window as illustrated below:
 
@@ -377,7 +377,7 @@ After pushing again the input initialization button and the optimization button,
 Performing What-If analysis 
 ---------------------------
 
-One can perform a "What-If" type of analysis by changing values for Supply, Demand, or UnitCosts, and subsequently re-solving the model. When input data changes, it may be handy to empty right away the output data resulted from the previous runs. This can be achieved by declaring procedures with names starting with "UponChange\_" followed by the name of the identifier which incurs a change, similar to the ones below:
+One can perform a "What-If" type of analysis by changing values for Supply, Demand, or ``UnitCosts``, and subsequently re-solving the model. When input data changes, it may be handy to empty right away the output data resulted from the previous runs. This can be achieved by declaring procedures with names starting with "UponChange\_" followed by the name of the identifier which incurs a change, similar to the ones below:
 
 .. code::
 
@@ -420,7 +420,7 @@ Of course, one may experiment with several scenarios by altering (also simultane
 Saving and comparing cases
 --------------------------
 
-Any such scenario (as discussed above) may be saved as a data case using the Data Manager. For example, one may re-initialize input, then optimize, and then save the correspoding scenario as Case_Scenario_1. Similarly, one may modify input, then optimize, and then save the resulting scenario as Case_Scenario_2 in the Data Manager:
+Any such scenario (as discussed above) may be saved as a data case using the Data Manager. For example, one may re-initialize input, then optimize, and then save the corresponding scenario as Case_Scenario_1. Similarly, one may modify input, then optimize, and then save the resulting scenario as Case_Scenario_2 in the Data Manager:
 
 .. image:: images/transnet-savecases_v470.png 
     :align: center
@@ -435,8 +435,8 @@ Once a case has been loaded as active, another saved case may be compared to the
 .. image:: images/transnet-compcase_v470.png 
     :align: center
 	
-When comparing cases, some widgets show the data of both cases at the same time and therefore, the available vizualization area of the widget may become insufficient for all these data to be shown without scrolling. 
-In this case one may maximize the vizualization area by using the "Toggle FullScreen" functionality of the widget, such that the data may be inspected more easily:
+When comparing cases, some widgets show the data of both cases at the same time and therefore, the available visualization area of the widget may become insufficient for all these data to be shown without scrolling. 
+In this case one may maximize the visualization area by using the "Toggle FullScreen" functionality of the widget, such that the data may be inspected more easily:
 
 .. image:: images/transnet-unitcosts-max-view_v470.png 
     :align: center
@@ -456,7 +456,7 @@ Using widget actions and page actions
 
 The same actions performed above using buttons may also be executed using the WebUI functionalities for widget actions or page actions.
 
-For example, for the UnitCostsData widget the action for modifying unit costs may be configured by specifying an appropriate string parameter UnitCostsWidgetAction in the Widget Actions section of the widget Settings:
+For example, for the ``UnitCostsData`` widget the action for modifying unit costs may be configured by specifying an appropriate string parameter ``UnitCostsWidgetAction`` in the Widget Actions section of the widget Settings:
 
 .. image:: images/transnet-widgetaction-setting_v470.png
     :align: center

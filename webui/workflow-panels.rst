@@ -83,9 +83,9 @@ The data entered in the above illustration is for the 1st Workflow which was con
 
 There is no limit for the number of steps each workflow may have. As a guideline, AIMMS recommends no more than 10 steps per workflow. If more than 10 steps are required, then please try to breakdown the workflow into smaller workflows, if possible.
 
-In order to configure the steps for the other workflows, one may just select the respective value for indexWorkflowOrder at the top in the Data page.
+In order to configure the steps for the other workflows, one may just select the respective value for :any:`webui::indexWorkflowOrder` at the top in the Data page.
 
-For instance, 3 steps may be configured for the 2nd workflow Inventory Management as follows:
+For instance, 3 steps may be configured for the 2\ :sup:`nd`\  workflow Inventory Management as follows:
 
 .. image:: images/Workflow_MyWorkflowStepsParameter_2.png
     :align: center
@@ -121,8 +121,8 @@ These states can be changed dynamically, as required, and as the user progresses
 .. Note:: 
     To make changes on the page please ensure the workflowPageState is Active. Or, before configuring the workflow steps, first make changes to the respective pages and then configure the workflow steps. When the workflowPageState is Inactive or Hidden you will not be able to access the respective page. 
 
-redirectPageId
---------------
+``redirectPageId``
+--------------------
 
 In the case of an invalid ``pageId`` or when the ``workflowPageState`` for a certain step is Inactive or Hidden, the workflow will be redirected to the page indicated by the ``redirectPageId``. This is a fallback scenario for the situation in which a user tries to access a page in a workflow, via the Menu or by an OpenPage procedure defined somewhere in the application, but the page is not made available to the workflow yet. The ``redirectPageId`` is typically a page which is part of the same workflow. This ensures that the user stays in the workflow and learns that a previous step needs to be completed before accessing other steps of the workflow.
 
@@ -133,45 +133,45 @@ Combinations and Scenarios
 
 The below table represents the different combinations that can arise when creating a workflow and the result of each scenario.
 
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-| S.No |``pageId``|``workflowPageState``|``redirectPageId``| Result                                                                  |
-+======+==========+=====================+==================+=========================================================================+
-|1     | Valid    |      Active         |      Valid       | Go to workflow step                                                     |
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-|2     | Valid    |      Active         |     Invalid      | Go to workflow step AND display redirectPageId warning                  |
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-|3     | Valid    |      Active         |    Undefined     | Go to workflow step                                                     |
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-|4     | Valid    |  Inactive/Hidden    |      Valid       | Redirect user to the redirectPageId                                     |
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-|5     | Valid    |  Inactive/Hidden    |     Invalid      | Display Error 1 AND redirectPageId warning                              |
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-|6     | Valid    |  Inactive/Hidden    |    Undefined     | Display Error 1                                                         |
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-|7     | Invalid  |      Active         |      Valid       | Display Error 2                                                         |
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-|8     | Invalid  |      Active         |     Invalid      | Display Error 2 AND redirectPageId warning                              |
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-|9     |Undefined |      Active         |      Valid       | Display Error 2                                                         |
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-|10    | Invalid  |  Inactive/Hidden    |      Valid       | Display Error 3                                                         |
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-|11    | Invalid  |  Inactive/Hidden    |     Invalid      | Display Error 3                                                         |
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-|12    |Undefined |  Inactive/Hidden    |      Valid       | Display Error 3                                                         |
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
-|13    | Valid    |  Inactive/Hidden    |Invalid/Undefined |Redirect user to Main Project, Display Error 1 and redirectPageId warning|
-+------+----------+---------------------+------------------+-------------------------------------------------------------------------+
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+| S.No |``pageId``|``workflowPageState``|``redirectPageId``| Result                                                                      |
++======+==========+=====================+==================+=============================================================================+
+|1     | Valid    |      Active         |      Valid       | Go to workflow step                                                         |
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+|2     | Valid    |      Active         |     Invalid      | Go to workflow step AND display ``redirectPageId`` warning                  |
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+|3     | Valid    |      Active         |    Undefined     | Go to workflow step                                                         |
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+|4     | Valid    |  Inactive/Hidden    |      Valid       | Redirect user to the ``redirectPageId``                                     |
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+|5     | Valid    |  Inactive/Hidden    |     Invalid      | Display Error 1 AND ``redirectPageId`` warning                              |
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+|6     | Valid    |  Inactive/Hidden    |    Undefined     | Display Error 1                                                             |
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+|7     | Invalid  |      Active         |      Valid       | Display Error 2                                                             |
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+|8     | Invalid  |      Active         |     Invalid      | Display Error 2 AND ``redirectPageId`` warning                              |
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+|9     |Undefined |      Active         |      Valid       | Display Error 2                                                             |
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+|10    | Invalid  |  Inactive/Hidden    |      Valid       | Display Error 3                                                             |
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+|11    | Invalid  |  Inactive/Hidden    |     Invalid      | Display Error 3                                                             |
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+|12    |Undefined |  Inactive/Hidden    |      Valid       | Display Error 3                                                             |
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
+|13    | Valid    |  Inactive/Hidden    |Invalid/Undefined |Redirect user to Main Project, Display Error 1 and ``redirectPageId`` warning|
++------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
 
-+------------------------+--------------------------------------------------------------------------------------------+
-| Error 1                | Workflow: The page you tried to access is part of a workflow and currently not accessible. |
-+------------------------+--------------------------------------------------------------------------------------------+
-| Error 2                | Workflow: Page not found.                                                                  |
-+------------------------+--------------------------------------------------------------------------------------------+
-| Error 3                | Page: Page not found.                                                                      |
-+------------------------+--------------------------------------------------------------------------------------------+
-| redirectPageId warning | Workflow: The redirect page for the step is not found.                                     |
-+------------------------+--------------------------------------------------------------------------------------------+
++----------------------------+--------------------------------------------------------------------------------------------+
+| Error 1                    | Workflow: The page you tried to access is part of a workflow and currently not accessible. |
++----------------------------+--------------------------------------------------------------------------------------------+
+| Error 2                    | Workflow: Page not found.                                                                  |
++----------------------------+--------------------------------------------------------------------------------------------+
+| Error 3                    | Page: Page not found.                                                                      |
++----------------------------+--------------------------------------------------------------------------------------------+
+| ``redirectPageId`` warning | Workflow: The redirect page for the step is not found.                                     |
++----------------------------+--------------------------------------------------------------------------------------------+
 
 Changing states
 ---------------
@@ -212,7 +212,7 @@ Once the string parameters are added in their respective fields, the Workflow Pa
 Configuring a ``pageId`` in multiple workflows
 ----------------------------------------------
 
-Most of the times, configuring a page only in one workflow could suffice for the application at hand. However, the Workflow functionality is flexible enough such that one page may be configured in multiple workflows, if necessary. Although the page will be shown as a step in each of those workflow, there will be one workflow with the highest rank (ie, the smallest order number) referencing the page and this workflow will be the one shown on the page when the page is opened. So, whenever you click on that step (in any workflow) you will be taken to the corresponding step in the first workflow where the ``pageId`` is referenced. Here "first workflow" is meant in the order of the workflows as defined by the MyWorkflows string parameter. 
+Most of the times, configuring a page only in one workflow could suffice for the application at hand. However, the Workflow functionality is flexible enough such that one page may be configured in multiple workflows, if necessary. Although the page will be shown as a step in each of those workflow, there will be one workflow with the highest rank (i.e., the smallest order number) referencing the page and this workflow will be the one shown on the page when the page is opened. So, whenever you click on that step (in any workflow) you will be taken to the corresponding step in the first workflow where the ``pageId`` is referenced. Here "first workflow" is meant in the order of the workflows as defined by the MyWorkflows string parameter. 
 
 For example, if a page 'Results' with ``pageId = results_1`` is configured for two workflows "Route Optimization" and "Inventory Management", then the page Results will appear in both workflows, but will redirect the user to step in Route Optimization workflow when accessed, as illustrated below.
 
@@ -269,8 +269,8 @@ Some applications have multiple user types, which each have their own goal and f
 
 *Above: example of the Workflow panel in S&OP Navigator.*
 
-Do's and don'ts
----------------
+Do's and do not's
+-----------------
 
 ✅ Do  
 
@@ -289,3 +289,8 @@ Steps should be self sufficient, meaning that users don’t need to navigate to 
 🚫 Don’t  
 
 You should not require users to exit and re-enter the workflow in order to complete it.
+
+.. spelling::
+
+    workflowPageState
+    pageDataState

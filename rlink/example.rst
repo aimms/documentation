@@ -86,7 +86,7 @@ Now we can reset and associate the data map with map name "*ShowIris*".
                dl::DependEmpty, dl::TableAttributesEmpty, dl::ColAttributeEmpty );
     empty SampleID, Species, SepalLength, SepalWidth, PetalLength, PetalWidth;
 
-Before we can use package nnet we have to "load" it into R using the function library.
+Before we can use package ``nnet`` we have to "load" it into R using the function library.
 
 .. code::
 
@@ -130,7 +130,7 @@ Replace the old data map with the new one and clear set :token:`KindOfSpecies`.
     dl::AddDataSourceMapping(MapName,DataMap,dl::DependEmpty,dl::TableAttributesEmpty,dl::ColAttributeEmpty);
     empty KindOfSpecies;
 
-Now we can create a data frame :token:`dfnames` with the levels from column :token:`Species` of :token:`dfiris` and give the colum name :token:`KindOfSpecies`.
+Now we can create a data frame :token:`dfnames` with the levels from column :token:`Species` of :token:`dfiris` and give the column name :token:`KindOfSpecies`.
 
 .. code::
 
@@ -151,7 +151,7 @@ We will now train a network with the data set and show the resulting weights. Th
 Script trainnn.r
 ----------------
 
-In this example we will create a network nn. The network has parameters called weights that will be tuned during training by presenting some examples from the iris data set. The network has 3 outputs corresponding to the three species with values ranging from 0 to 1. This output represents the likelihood of this species given the input values, which are the sepal and petal lengths and widths. The output with the highest value (so the most likely) determines the predicted species.
+In this example we will create a network ``nn``. The network has parameters called weights that will be tuned during training by presenting some examples from the iris data set. The network has 3 outputs corresponding to the three species with values ranging from 0 to 1. This output represents the likelihood of this species given the input values, which are the sepal and petal lengths and widths. The output with the highest value (so the most likely) determines the predicted species.
 
 Let's look at R code in file :token:`trainnn.r`:
 
@@ -393,10 +393,10 @@ We use two image widgets in the WebUI, one to show a plot of sepal length and wi
       InitialData: "PetalA.png";
     }
 
-If this path and the file names are passed to script :token:`plotresult.r` it can create those plots where the image widget can find it. 
+If this path and the file names are passed to script ``plotresult.r`` it can create those plots where the image widget can find it. 
 
-Script plotresult.r
--------------------
+Script ``plotresult.r``
+-----------------------
 
 We can simply do:
 
@@ -457,8 +457,8 @@ Now we only have to open a :token:`png` device and pass the concatenation of :to
     dev.off()
 
 
-Call plotresult.r in AIMMS
---------------------------
+Call ``plotresult.r`` in AIMMS
+------------------------------
 
 In AIMMS we do the following:
 
@@ -486,7 +486,7 @@ In AIMMS we do the following:
     dl::ExecScript("source('r/plotresult.r')",MapName,XA);
  
 
-Now we have a function that can be called to generate the test plots. If we make a procedure in AIMMS that first calls :token:`trainnn.r` and then :token:`plotresult.r` we can make a button in the WebUI that will train a network and show the plots of the results. We can then simply make an interactive WebUI application that allows us to choose the input arguments, press the button and show the result.
+Now we have a function that can be called to generate the test plots. If we make a procedure in AIMMS that first calls :token:`trainnn.r` and then ``plotresult.r`` we can make a button in the WebUI that will train a network and show the plots of the results. We can then simply make an interactive WebUI application that allows us to choose the input arguments, press the button and show the result.
 
 .. image:: images/webuismall.png
     :align: center
@@ -496,3 +496,8 @@ Now we have a function that can be called to generate the test plots. If we make
 
     In our example application the image folder should start empty because first the R code has to run and generate the images. When making an  :token:`aimmspack` it is possible that the image folder is not included because it is empty and then the :token:`png` device will fail in creating the images. You can place an empty :token:`do_not_delete.txt` file in the image folder to make sure that the folder will not be accidentally excluded from the :token:`aimmspack`.
 
+
+.. spelling::
+
+    trainnn
+    multinomial

@@ -256,7 +256,7 @@ In the Widget Extensions tab, it is possible to add the string parameters config
     :align: center    
 
 .. note:: 
-    When configuring the string parameter for the Item Actions, the actions should be added to the identifer that is used as the Duration property in the Gantt chart settings in the Add Gantt Layer section.
+    When configuring the string parameter for the Item Actions, the actions should be added to the identifier that is used as the Duration property in the Gantt chart settings in the Add Gantt Layer section.
 	
 Adding, deleting and modifying tasks
 ------------------------------------
@@ -323,7 +323,7 @@ When you want the user to be able to adjust some task property that cannot be ch
 Task update handler
 """""""""""""""""""
 
-The *task update handler* is called when the form is saved by the user (through calling the *SaveForm* procedure that is created in the *AIMMSWebUIRuntime* library by the call to :token:`webui::SetupForm`). This handler is responsible for
+The *task update handler* is called when the form is saved by the user (through calling the *SaveForm* procedure that is created in the *AIMMSWebUIRuntime* library by the call to ``webui::SetupForm``). This handler is responsible for
 
 * creating a new task element (in case a new item is created)
 * initializing (in case of a new item) or updating model data reflecting the changes that have been made

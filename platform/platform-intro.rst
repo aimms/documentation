@@ -134,7 +134,7 @@ AIMMS supports reading and writing XML files in almost every conceivable format.
 
 **General mapping and REST APIs**
 
-The :doc:`/dataexchange/index` is built as a mean to configure a generic mapping between your AIMMS identifiers and most of your datasources. 
+The :doc:`/dataexchange/index` is built as a mean to configure a generic mapping between your AIMMS identifiers and most of your data sources. 
 This library can be use to consume and provide REST APIs. 
 
 Solvers
@@ -197,3 +197,7 @@ AIMMS PRO can be hosted by the AIMMS Cloud or on your own servers with an on-pre
 The AIMMS Cloud Platform is a fully managed AIMMS PRO environment. It is secure, reliable and up-to- date, and provides all the IT capacity you need within the limits of your license subscription. All you have to do is develop and publish your apps, and we take care of the rest.
 
 More details can be found in the :doc:`AIMMS Cloud platform documentation </cloud/index>`.
+
+.. spelling::
+
+    ons
