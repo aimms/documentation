@@ -31,7 +31,6 @@ spellcheck:
   - python3 --version
   - pip freeze
   - python3 -msphinx -W --keep-going -b spelling . _build/spelling
-  allow_failure: true
   tags: 
     - ubuntu
 
