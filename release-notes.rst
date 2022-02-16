@@ -105,7 +105,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  If you were trying to edit the content of Text Widget in narrow widget areas, like in a Side panel, the editor's toolbar on top was overlapping (top of) the content. Moreover, any content shown in Text Widgets within Side panels will now have some padding to achieve a more pleasing alignment with other elements. Please note that this will of course reduce the amount of content shown without scrollbars inside the widget.
+-  If you were trying to edit the content of Text Widget in narrow widget areas, like in a Side panel, the editor's toolbar on top was overlapping (top of) the content. Moreover, any content shown in Text Widgets within Side panels will now have some padding to achieve a more pleasing alignment with other elements. Please note that this will of course reduce the amount of content shown without scroll bars inside the widget.
 
 --------------
 
