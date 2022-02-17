@@ -111,7 +111,7 @@ Either option can be specified per identifier or inherited from Defaults indepen
 Pivoting
 --------
 
-In the Pivot tab of the chart options editor, one can specify how the data dimensions are to be organized in the chart. 
+In the Pivot tab of the chart options editor, one can specify how the data dimensions are to be organized in the chart. The dimensions shown correspond to the union of the domain indices of the model identifiers that have been specified on the contents tab.
 
 For example, if the <IDENTIFIER-SET> index in the X-axis section and the center index c is moved to the Grouped section, then the resulting column chart looks like in the picture below on the left:
 
@@ -123,9 +123,11 @@ Similarly, one may move some data indexes in the Stacked section of the Pivot ta
 .. image:: images/ColumnChart-Pivot-2.png
     :align: center
 
-<add some comments on best practices, for example think twice before adding two identifiers with different units in the same chart> @Koos
+Typically, the identifiers that are put in a single chart will share the same (or at least have a very similar) index domain, but this is not necessary. In case some index (that is present on the Pivot tab) is not present in the index domain of a certain contents identifier, the corresponding *missing index* is denatoted with a dash ('-') character.
 
-<explain that the chart types cannot be used if the identifier index is in the 'header' or 'totals' group (as the identifier cannot uniquely be determined anymore>  @Koos
+The combination chart widget allows you to specify a chart type **per identifier**. In case you want to make use of different chart types, the dimensions should be pivoted in such a way that, for each sequence of data points in the chart, the corresponding identifier can be uniquely determined. This means, that, in case you want to mix different chart chart, the <IDENTIFIER-SET> index should not be put in the Header or Totals section. 
+
+When the <IDENTIFIER-SET> index is put in the Header section, the differents data point in a single data series, may correspond to different chart types. When, the <IDENTIFIER-SET> index is put in the Header section, each single data point is a total over multiple identifiers, each with their own chart type. In bot of these case, the chart type of the first identifier will be used.
 
 Column Chart Settings
 ---------------------
@@ -199,6 +201,52 @@ In the Labels group it is possible to specify an indicator whether to show or to
 
 <are labels only valid for the 'column' chart-type?>  @Ovidiu
 
+Color Index
++++++++++++
+
+One of the indices can be specified as Color Index. This means that all data points will be colored based on the set element corresponding to the Color Index. For example, consider a chart that displays data for the identifier UnitCost(f,c). When specifying the *f* index as the Color Index, the chart element (e.g. the column) corresponding to UnitCost('London','Liege') will be colored with the second color out of a 19 color palette as 'London' is the second element in the (root set of the) set Factories. Note that a modulo 19 operation will be applied to determine the color. As a result, the twentieth factory will have a similar color as the first. Similarlt, when specifying the *c* index as the Color Index, the chart element will use the sixth color out of the color palette as 'Liege' is the sixth element in the 'Centers' set.
+
+If not specified explicitly, the combination chart will use the last index in the Grouped section as a Color Index. If there is no such index, the last index in the Stacked section will be used and if bot the Grouped and Stacked sections are empty, the last index in the Header section is used as the Color Index.
+
+In most cases, it makes sense to select an index in the Stacked or Grouped section as the color index, as indices in the Header section are already explictly displayed in the chart (meaning there already is a way to visualyy distinguis between them).
+
+Consider a column chart with a single identifier UnitCost(f,c) in which the <IDENTIFIER-SET> index is in the Header group, the f index is in the Stacked group and the c index is in the Grouped group. 
+
+If you would specify the c index as the *Color Index*
+
+.. image:: images/ColumnChart-ColorIndex-Option.png
+    :align: center
+
+|
+
+in the resulting chart all Centers c will each have their own color:
+
+.. image:: images/ColumnChart-ColorIndex-1.png
+    :align: center
+
+|
+
+On the other hand, if in the same chart, you would specify the index f to be the Color Index, all (stacked) factories will each have their own color.
+
+.. image:: images/ColumnChart-ColorIndex-2.png
+    :align: center
+
+|
+
+Selecting a Color Index will allow you (as an app developer) will help your end users view the data from the viewpoint of a specific dimension. 
+
+Transparency Index
+++++++++++++++++++
+
+Only one of the indices in your chart will be used as the Color Index. In case your chart contains multiple indices, you may end up with duplication of colors for different elements. For example, in the example (from the previous section) in which the c index was specified as the color index, you that that all three factories (that are stacked upon each other) have the same color. By specifying the f index as the *Transparency Index*, a transparency/shading pattern will be applied to each color depending on the ordinal number of the set element in the (root set of the) Factories set. The hard-coded transparency palette that is currently being used distinguishes 5 different levels of transparency. The resulting chart now looks like
+ 
+.. image:: images/ColumnChart-TransparencyIndex.png
+    :align: center
+
+|
+
+To be able to see differences between colors in combination with transparency, it works best if the colors in the color palette are well distinguishable from each other. You might want to create a special custom color palette (and provide it as an application specific resource) to be used in charts were also a Transparency Index has been specified.
+
 Others
 ++++++
 
@@ -208,19 +256,6 @@ In the Others group it is possible to specify the Chart Title which will be show
     :align: center
 
 |  
-
-add Color Index
-
-<explain color index> @Koos
-
-add Transparency Index
-
-<explain transparency index> @Koos
-
-<we might need to extend the example here (to have more indices here): I propose to extend the demand date with a period index> - another chart with unitcost or transport @Koos
-
-<add some best practices (on color palette) when using both the color and transparency index> @Koos
-
 
 Index Settings, Select, and Store Focus
 ---------------------------------------
@@ -267,7 +302,20 @@ This situation is depicted in the following picture:
 
 |  
 
-<Add some example on using custom CSS to specify an custom color palette> @Koos
+In case you want to use a custom color palette for your application, you can create a new CSS file, place the file in the ``MainProject\WebUI\resources\css`` folder, and populate it with something like
+
+.. code-block::
+
+	:root {
+		--color_data-palette-19_1: red;
+		--color_data-palette-19_2: orange;
+		--color_data-palette-19_3: yellow;
+		--color_data-palette-19_4: green;
+		--color_data-palette-19_5: blue;
+		...
+		--color_data-palette-19_19: #964B00;
+	}
+
 
 Widget Extensions
 -----------------
