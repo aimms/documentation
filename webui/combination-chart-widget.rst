@@ -12,6 +12,29 @@ In the near future, the Combination Chart widget in AIMMS WebUI will be extended
 
 For the time being, please refer to the supported features described below...
 
+Converting Existing Widgets to a Combination Chart Widget 
+---------------------------------------------------------
+
+Since the Combination Chart widget offers more flexibility and options than the original Bar, Line and BarLine chart widgets, we can imagine that you would like to replace your existing widgets with the new type. The WebUI offers you this possibility. Do the following steps to do so:
+
+1. Open the options editor of the existing widget that you wish to convert;
+2. On the 'Change Type' tab, you will notice a 'Convert Type' section at the bottom, with 'combinationchart' as an option to choose:
+
+.. image:: images/convert-to-combination-chart.jpg
+   :align: center
+
+3. Click on 'combinationchart';
+4. This will bring up a dialog that tells you what is about to happen. Click on 'Continue'.
+
+After these steps, your existing widget will have been replaced by a Combination Chart widget, complete with all the options from the existing widget that could be converted. The Combination Chart widget is present at the original position of the existing widget, with a numerical suffix in its name, because two widgets with the same name are not possible. 
+
+As not all options have an equivalent in the Combination Chart, we have made sure that you have not lost your old widget. It is still present, with its original name, in the 'Unassigned widgets' area of your WebUI page. If you need to compare both, you can simply drag it onto an active area on your page to do so. If you are sure that the new widget is fully OK, you can delete the original one.
+
+Please note that it is only possible to convert widgets of type Bar, Line and BarLine chart, so only those offer the option on the 'Change Type' tab.
+
+The Column Chart
+----------------
+
 The Column Chart is a particular instance of the Combination Chart which represents data as vertical bars, also called columns. In this section we refer to a Combination Chart Widget which uses only columns as a column chart widget. 
 Note, however, that the formal widget type used for adding it to a page is still "combinationchart".
 
