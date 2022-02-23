@@ -12,6 +12,27 @@ AIMMS 4.84
 #############
 
 
+AIMMS 4.84.3 Release (February 23, 2022 - build 4.84.3.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The model information in the progress window was not always correct if the math program was scaled after activating the Solvers General option 'Scale model'.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Due to small changes in the CSS, screenshots of pages with scrolled contents were clipped.
+-  AIMMS could crash when displaying a domain for a multidimensional identifier with (a specific type of) an expression used in an index domain condition.
+-  Public identifiers in modules were not accessible/selectable from within WebUI widgets.
+
+--------------
+
+
+
 AIMMS 4.84.2 Release (February 11, 2022 - build 4.84.2.6).
 ------------------------------------------------------------------------------------------
 
