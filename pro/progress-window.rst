@@ -14,7 +14,7 @@ Unlike for the regular progress window, you have to slightly modify your model f
     MyModel.CallbackProcedure := 'guipro::progress::UpdateCallback';
     MyModel.CallbackIterations := 1000;
 
-prior to calling the SOLVE statement. It tells AIMMS that every 1000 iterations (or whatever number of iterations makes sense for your project) the predefined callback procedure :token:`guipro::progress::UpdateCallback` is called during a solve. When instructed by the AIMMS PRO client application, this callback will collect various characteristics of the model being optimized, and send these back to the client.
+prior to calling the SOLVE statement. It tells AIMMS that every 1000 iterations (or whatever number of iterations makes sense for your project) the predefined callback procedure ``guipro::progress::UpdateCallback`` is called during a solve. When instructed by the AIMMS PRO client application, this callback will collect various characteristics of the model being optimized, and send these back to the client.
 
 From AIMMS 4.15 onwards you can also base progress information on elapsed time. To do so you need to set
 

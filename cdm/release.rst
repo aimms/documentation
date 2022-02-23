@@ -23,7 +23,7 @@ New Features and Bug Fixes
 	- CDM service erroneously was set to stopping state while it was actually still waiting for new connections
 
 1.23.0.1 [29-10-2021]
-	- Set default character set for MySQL to utf8mb4 for new CDM schemas to allow for 4-byte UTF-8 characters, and set up the MySQL client for transport of 4-byte UTF-8 characters. For existing schema, you can replace the character set for the *columns* in identifier tables that hold values with 4-byte UTF-8 characters to utf8mb4, in combination with using CDM version >= 1.23.
+	- Set default character set for MySQL to ``utf8mb4`` for new CDM schemas to allow for 4-byte UTF-8 characters, and set up the MySQL client for transport of 4-byte UTF-8 characters. For existing schema, you can replace the character set for the *columns* in identifier tables that hold values with 4-byte UTF-8 characters to ``utf8mb4``, in combination with using CDM version >= 1.23.
 
 1.22.0.15 [09-10-2021]
 	- :js:func:`cdm::CheckoutSnapshot` will now skip non-existing elements when assigning data to model identifiers, instead of producing an error, but only when used with AIMMS versions >= 4.82.4. Such non-existing elements could occur when checking out multiple categories which consisted of a cached snapshot in conjunction with a pull changeset, where the element was deleted in a pull changeset of one category, and some data for that element was changed in another category.
@@ -33,11 +33,11 @@ New Features and Bug Fixes
 
 1.22.0.10 [30-09-2021]
 	- Added capability to clone a CDM database from on database to another (see :js:func:`cdm::CloneApplicationDatabase`)
-	- :token:`cdm::CommitTimeout` has been renamed to :token:`cdm::AsyncTimeout`, is now also used for :js:func:`cdm::CloneApplicationDatabase`. Normally, the CDM namechange file should take care of this name change.
+	- :token:`cdm::CommitTimeout` has been renamed to :token:`cdm::AsyncTimeout`, is now also used for :js:func:`cdm::CloneApplicationDatabase`. Normally, the CDM name change file should take care of this name change.
 	
 1.21.0.4 [21-09-2021]
 	- Notify server of regular client termination
-	- Decrease hardbeat timings to allow for quicker shutdown of on-demand service
+	- Decrease heartbeat timings to allow for quicker shutdown of on-demand service
 	- Serialize access to list of clients in service to prevent potential race condition in shutdown of on-demand service
 	
 1.20.0.6 [12-08-2021]
@@ -68,7 +68,7 @@ New Features and Bug Fixes
 
 1.19.0.6 [20-11-2020]
     - Snapshot updating mechanism could end up in an infinite loop performing a check every millisecond.
-    - Reduce autotermination period by 1 minute.
+    - Reduce auto-termination period by 1 minute.
 
 1.19.0.4 [11-09-2020]
     - Evaluation of :token:`cdm::RevisionBranch` would result in dense execution, taking excessively long for a large number of revisions.
@@ -109,7 +109,7 @@ New Features and Bug Fixes
     - Unitialized local variable could cause crash on Linux.
     
 1.18.0.11 [01-07-2020]
-    - Fixed missing symbol in libcdm.so on Linux
+    - Fixed missing symbol in ``libcdm.so`` on Linux
 
 1.18.0.9 [24-06-2020]
     - Changesets are now compressed during transport to reduce transmission time and in database cache to reduce stored snapshot size.
@@ -125,7 +125,7 @@ NB. Because the wire and storage format for snapshots changed, all cached snapsh
     
 1.17.1.12 [25-02-2020]
     - CDM runtime identifiers for identifiers with defaults and a derived unit, would inadvertently get a default in the base unit, leading to unnecessary commits to the CDM database.
-    - Identifier-specific commit cardinalities could fail the cdm::GetRevisions function for identifiers that no longer exist in the model
+    - Identifier-specific commit cardinalities could fail the ``cdm::GetRevisions`` function for identifiers that no longer exist in the model
     - The CDM runtime could fail when retrieving branch data for branch- and revision-related identifiers in the CDM library with different internal AIMMS storage types.
 
 1.17.1.9 [17-02-2020]
@@ -136,14 +136,14 @@ NB. Because the wire and storage format for snapshots changed, all cached snapsh
     - Deleted root set elements would not be deleted properly from other sessions in all circumstances.
     - Re-order changeset handling such that all changesets are retrieved prior to handling all element space changes of all changesets prior to handling all data changes of all changesets in order to prevent root set mismatches when reading multi-dimensional data from a snapshot in some category associated with a root set from another category where the element was deleted during a revision after the snapshot revision.
     - Make rollback more robust against element parameters holding inactive values.
-    - When committing root sets adapt labelmembership of element space.
+    - When committing root sets adapt label membership of element space.
     - Check for incoming notifications after waiting for data changes to allow notifications to be handled prior to auto-committing.
-    - Function to retrieve branchname would actually try to find branch name in databases set.
+    - Function to retrieve branch name would actually try to find branch name in databases set.
     - Elements of defined root sets would not always be committed immediately the first commit after database creation.
     
 1.17.1.2 [12-02-2020]
     - Data changes for identifiers in some category associated with set elements added and removed to a root set contained in another category in a revision range loaded after a cached snapshot would lead to a runtime error, because such set elements would not be contained in this root set when loading the data. Data changes for such elements are now filtered out when loading the data in the AIMMS client.
-    - In rare occassions, CDM could try to retrieve the element name of set elements that were registered as being added at one time, but removed from the model later on, leading to faulty element names. Element names are now registered when the corresponding newly added elements are discovered by CDM.
+    - In rare occasions, CDM could try to retrieve the element name of set elements that were registered as being added at one time, but removed from the model later on, leading to faulty element names. Element names are now registered when the corresponding newly added elements are discovered by CDM.
 
 NB. This fix required a change in the format of the changesets sent over the wire, which is also the format of the cached snapshots in the CDM database. Consequently, any existing old-format snapshots stored in the CDM database will be deleted on first load, and should be re-created from within the CDM-enabled application.
 
@@ -253,7 +253,7 @@ NB. This fix required a change in the format of the changesets sent over the wir
     - Added support for release notes
 
 1.10.0.3 [11-05-2019]
-    - Improve performance by not unnecessarily pulling category data upon new commit notifications when categories were already at the latest revision. Note that the commit notification procedures   have gotten a new optional 4th argument, which is required for this performance improvement to work. If you have implemented a custom commit notification procedure, then you should add the 4th argument and re-visit :js:func:`cdm::DefaultCommitInfoNotification` to investigate what further changes to your custom commit notification procedure are required.
+    - Improve performance by not unnecessarily pulling category data upon new commit notifications when categories were already at the latest revision. Note that the commit notification procedures   have gotten a new optional 4:superscript:`th` argument, which is required for this performance improvement to work. If you have implemented a custom commit notification procedure, then you should add the 4:superscript:`th` argument and re-visit :js:func:`cdm::DefaultCommitInfoNotification` to investigate what further changes to your custom commit notification procedure are required.
 
 1.9.0.12 [25-04-2019]
     - On-demand CDM service in AIMMS cloud could hang on exit, leading to new clients not being serviced properly
@@ -311,3 +311,7 @@ NB. This fix required a change in the format of the changesets sent over the wir
 
 
 
+.. spelling::
+
+    performant
+    unhandled

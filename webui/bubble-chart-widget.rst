@@ -83,7 +83,7 @@ In the Widget Extensions tab, it is possible to add the string parameters config
     :align: center    
 
 .. note:: 
-    When configuring the string parameter for the Item Actions, the actions should be added to the identifer that is used as the Size property in the Bubble chart settings.
+    When configuring the string parameter for the Item Actions, the actions should be added to the identifier that is used as the Size property in the Bubble chart settings.
 
 Additional Remarks
 ------------------

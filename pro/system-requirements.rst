@@ -55,10 +55,14 @@ Please note that most AIMMS apps are intended to serve as *decision support* app
 Concurrent Connections
 ----------------------
 
-By default AIMMS PRO allows 50 concurrent connections, that means it's possible to run 25 desktop applications(solver sessions) or 50 WebUI applications(data sessions) at the same time. Please note that any desktop application requires 2 connections and any WebUI application requires 1 connection. If you really want to make 50 concurrent connection then you should increase the memory limits for AimmsPROWebService. (Go to C:\\Program Files\\AimmsPRO 2.0\\AimmsPROWebService.cfg. Inside this config file you can find "-Xms256m","-Xmx512m" parameters under '"jvmOptions" section. Change these parameters to "-Xms512m","-Xmx1024m").
+By default AIMMS PRO allows 50 concurrent connections, that means it's possible to run 25 desktop applications(solver sessions) or 50 WebUI applications(data sessions) at the same time. Please note that any desktop application requires 2 connections and any WebUI application requires 1 connection. If you really want to make 50 concurrent connection then you should increase the memory limits for ``AimmsPROWebService``. (Go to ``C:\\Program Files\\AimmsPRO 2.0\\AimmsPROWebService.cfg``. Inside this config file you can find ``-Xms256m``,``-Xmx512m`` parameters under ``jvmOptions`` section. Change these parameters to ``-Xms512m``,``-Xmx1024m``).
 
 License Session Count
 ---------------------
 
 Starting from *AIMMS PRO 2.13.3* and *AIMMS License Server 4.0.0.50*, Client license sessions are now counted per user/device combination, instead of per session. Which means one user can now run multiple apps whilst only occupying one session.
 
+
+.. spelling::
+
+    Xmx

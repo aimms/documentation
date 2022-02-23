@@ -71,8 +71,8 @@ The results of your unit tests reported back by the AIMMS Unit Test framework ar
     By default, when a test procedure raises a runtime error, the test runner will catch the error and report it as a failed test. Through the :token:`aimmsunit::AssertThrow` evaluator you indicate to the AIMMS Unit Test framework that the test is supposed to give rise to an AIMMS runtime error. Through the optional :token:`errorcode` and :token:`errormessage` you can test for specific error codes and error messages in the recorded runtime error. If either or both are specified, and are non-matching, the assertion will fail. 
     
     :param desc: description to be displayed when the function does not throw
-    :param errorcode: optional argument to specify the expected errorcode
-    :param errormessage: optional argument to specify the expected errormessage
+    :param errorcode: optional argument to specify the expected ``errorcode``
+    :param errormessage: optional argument to specify the expected ``errormessage``
 
     For example, the test
 

@@ -66,7 +66,7 @@ Files with the similar names but with the date appended contain logs from previo
 Log Configuration
 -----------------
 
-All log configuration files are located in the *dataDir* Config directory. AIMMS PRO 2.0 uses the following log configuration files:
+All log configuration files are located in the ``dataDir`` Config directory. AIMMS PRO 2.0 uses the following log configuration files:
 
 * *AimmsPROServerLog.xml* - AIMMS PRO 2 Server logging
 * *AimmsPROSessionLog.xml* - Server-side sessions logging

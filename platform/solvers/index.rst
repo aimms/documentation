@@ -1,7 +1,7 @@
 Solvers
 ==================================
 
-Here you can find detailed information about the solvers availabile with the AIMMS Development & Deployment Platform.
+Here you can find detailed information about the solvers available with the AIMMS Development & Deployment Platform.
 
 .. toctree::
 

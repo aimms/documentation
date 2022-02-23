@@ -5,14 +5,14 @@ Link to Active Directory for AD Member Servers
 
     This section of the AIMMS PRO documentation does *not* apply to the `AIMMS Cloud Platform <../cloud/index.html>`_. AD integration into the AIMMS Cloud Platform always need to follow the `Active Directory integration for non-AD member servers <ad-man-non-member.html>`_.
 
-If your PRO server is a member server of your Active Directory domain, setting up the link is straightforward: push the link icon on the right side of the environment box in the users tab of the AIMMS PRO Portal. This will open a dialog in which you must specify the Netbios name of the Active Directory (For example MYDOMAIN, not a dns name like mydomain.somewhere.com). 
+If your PRO server is a member server of your Active Directory domain, setting up the link is straightforward: push the link icon on the right side of the environment box in the users tab of the AIMMS PRO Portal. This will open a dialog in which you must specify the Netbios name of the Active Directory (For example MYDOMAIN, not a DNS name like mydomain.somewhere.com). 
 
 Browser configuration
 +++++++++++++++++++++
 
 Below, you can find the configuration that needs to be done to the browsers of the AIMMS PRO users. You will need to go through these steps for HTTP as well as for HTTPS.
 
-* IE: Add example.com to the "Local intranet" zone. For this, click the Settings Gear in IE->Internet Options->Security->Local intranet->Sites->Advanced. Then add the url of the AIMMS PRO Portal (example: "http://example.com").
+* IE: Add example.com to the "Local intranet" zone. For this, click the Settings Gear in IE->Internet Options->Security->Local intranet->Sites->Advanced. Then add the URL of the AIMMS PRO Portal (example: "http://example.com").
 * Google Chrome uses the IE configuration steps above.
 * Firefox: go to ``about:config``, "say you'll be careful", change the value for `network.negotiate-auth.trusted-uris` into ``https://,http://example.com`` and the value for `network.negotiate-auth.delegation-uris` into ``http://example.com``
 
@@ -61,3 +61,7 @@ In order for a user to be allowed to publish AIMMS projects, the user needs to b
 
 
 Following the same steps, but only dragging the user into the *AimmsPublishers* group will give AIMMS version publishing rights to the Active Directory user.
+
+.. spelling::
+
+    mydomain

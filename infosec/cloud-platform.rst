@@ -37,7 +37,7 @@ Staff access
 ---------------
 * AIMMS staff cannot sign into customer accounts and/or access customer projects and data, unless the customer provides us with access credentials. 
 * AIMMS staff does have access to all log files, which contain activity logs. 
-* AIMMS staff can only access the AWS consol via a VPN connection, using MFA. In case of employing contractors, these are only given access to the development account for the duration of the assignment, with the  *least privileges* principle applied. Only AIMMS staff have access to the production environments. 
+* AIMMS staff can only access the AWS console via a VPN connection, using MFA. In case of employing contractors, these are only given access to the development account for the duration of the assignment, with the  *least privileges* principle applied. Only AIMMS staff have access to the production environments. 
 
 System security
 ---------------------

@@ -89,7 +89,7 @@ Validation rules
 The validation rules for the tunnel configuration are the following:
 
 * URI context is unique. Please not that context paths “backend” and “license” are used internally by AIMMS PRO so those paths are reserved.
-* Socket address should be in the form ipAddress:port (e.g. 127.0.0.1:1433) or host:port (e.g. localhost:1433).
+* Socket address should be in the form ``ipAddress:port`` (e.g. 127.0.0.1:1433) or host:port (e.g. localhost:1433).
 * User Groups and Environments should be present in the list of user groups and environments that can be viewed/configured on PRO Portal.
 
 Security
@@ -163,7 +163,7 @@ AIMMS PRO Configurator logs all changes to PRO configuration at debug level. In 
 
 As mentioned above only one user – admin@ROOT may access the Configurator so you always know the user who changed the configuration.
 
-You may change logging settings for com.aimms.pro.configurator.service.config.ConfigServiceImpl  so that it outputs log to a separate file (or a database). Please refer to `logback documentation <http://logback.qos.ch/documentation.html>`_ for further details.
+You may change logging settings for ``com.aimms.pro.configurator.service.config.ConfigServiceImpl`` so that it outputs log to a separate file (or a database). Please refer to `logback documentation <http://logback.qos.ch/documentation.html>`_ for further details.
 
 Changes to AIMMS model
 ----------------------
@@ -192,7 +192,7 @@ Use the following AIMMS PRO Library procedure:
 
     tunnel::TunnelStart( contextPath : string )
 
-Calling the start procedure will effectively connect to *ws://myProSHost:8080/ws-proxy/* and open up a listen socket on the localhost and return the portNumber. Under the hood, the server will verify ticket validity, etc. and potentially raise an error to indicate starting the tunnel failed. 
+Calling the start procedure will effectively connect to *ws://myProSHost:8080/ws-proxy/* and open up a listen socket on the localhost and return the ``portNumber``. Under the hood, the server will verify ticket validity, etc. and potentially raise an error to indicate starting the tunnel failed. 
 
 Change the target server endpoint
 +++++++++++++++++++++++++++++++++

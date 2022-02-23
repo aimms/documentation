@@ -60,9 +60,9 @@ The simple behavior of the search box is to just enter some text (or numbers). A
 
 A step further is to use so-called regular expressions in your search terms. Regular expressions offer a lot of possibilities (a good quick start is offered `here <http://www.regular-expressions.info/quickstart.html>`_. Some of the more useful features are listed below:
 
-* The '|' character functions as an 'or' operator. So, searching for 'aap|noot' will result in all strings that contain the substring 'aap' or 'noot'.
+* The '|' character functions as an 'or' operator. So, searching for ``aap|noot`` will result in all strings that contain the substring ``aap`` or ``noot``.
 * The '[]' characters function as a 'whichever one of these' operator. So, searching for 'l[ae]g' will result in all strings that contain the substrings 'lag' or 'leg'.
-* The '.' character acts as a 'one character wildcard'. So, searching for 'b.t' will result in all strings that contain the substrings 'bit', 'bat', 'bet', 'bqt', 'b#t', etc.
+* The '.' character acts as a 'one character wildcard'. So, searching for 'b.t' will result in all strings that contain the substrings 'bit', 'bat', 'bet',  'b#t', etc.
 * The '^' character marks the start of a string. So, searching for '^a', will result in all strings that start with the letter 'a'.
 * The '$' character marks the end of a string. So, searching for 'a$' (note the position of the '$'), will result in all strings ending with the letter 'a'. Combining the latter two special characters enable you to look for a specific word: searching for '^hello$' will only find the string 'hello', not all strings which contain 'hello' as a substring.
 
@@ -78,4 +78,6 @@ By default, all users of a published WebUI application on a PRO server can edit 
 Locking the editors will still allow the 'locked' users to change data and to create/compare cases, but they won't be able to change the application's UI structure. Furthermore, this option only affects published WebUI apps on PRO: when developing your WebUI locally, this setting does not affect the options editors, so you can just continue to make changes to your widgets when you are still developing the app.
 
 
+.. spelling::
 
+    ae

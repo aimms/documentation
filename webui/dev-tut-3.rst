@@ -94,7 +94,7 @@ a (JSON/JavaScript) string literal. It has the following syntax:
       * :token:`literal:"Hello AIMMS!"`
       * :token:`aimms:{"contents": ["MyIdentifierA", "MyIdentifierB"]}`
 
-    * In AWF databinding, small simple type-coercion³ is performed when possible. This means that a number will
+    * In AWF data binding, small simple type-coercion³ is performed when possible. This means that a number will
       be resolved to a string if the option *type* is a string, even when the input is a numerical value, and,
       vice versa (restrictions apply).
     * For the literal data-provider, the resolved value is typically obtained by stripping the *literal*

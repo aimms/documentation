@@ -132,11 +132,11 @@ Public Workflow Support Declarations
 
   * ``displayText`` - The label you want to give to the workflow step
   * ``icon`` - The icon you want to associate with the step. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <css-styling.html#custom-icon-sets>`_ can also be used if required.
-  * ``pageId`` - The pageId of the Page this step should be associated with. Ideally, every page in a workflow is a step in the Workflow Panel. The pageIds can be referred from the pre-declared ``AllRegularPages`` set. Using pageIds of Side Panel or Dialog page will result in unwanted behaviour. **This is a required field.**
+  * ``pageId`` - The page Id of the Page this step should be associated with. Ideally, every page in a workflow is a step in the Workflow Panel. The page Ids can be referred from the pre-declared ``AllRegularPages`` set. Using page Ids of Side Panel or Dialog page will result in unwanted behaviour. **This is a required field.**
   * ``tooltip`` - The text to be displayed when the user hovers over the step
   * ``workflowPageState`` - The workflow state of the page, which may be Active (displayed and clickable), Inactive (displayed and not clickable) or Hidden (not visible). If not defined, by default the state is Hidden. 
   * ``pageDataState`` - The data state of the page, which may be Complete, Incomplete or Error. The specification of this state is optional. If not defined, by default it has an Empty state.
-  * ``redirectPageId`` - The pageId of the page the user should be redirected to when the ``workflowPageState`` is Inactive or Hidden. When the user tries to navigate to an Inactive or Hidden workflow step they are redirected to this page. The pageId's can be referred from the elements of the pre-declared set ``AllRegularPages``.
+  * ``redirectPageId`` - The page Id of the page the user should be redirected to when the ``workflowPageState`` is Inactive or Hidden. When the user tries to navigate to an Inactive or Hidden workflow step they are redirected to this page. The page Id's can be referred from the elements of the pre-declared set ``AllRegularPages``.
 
 .. _extensionorder:
 
@@ -186,7 +186,7 @@ Public List Support Declarations
   This set is used to `configure the list items <list-widget.html#configuring-items-for-lists>`_ in a specific list group. You will need to create a string parameter indexed over this set. The elements of this set (defining list group items) are the following:
 
   * ``icon`` - The icon you want to display for the respective list item. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <css-styling.html#custom-icon-sets>`_ can also be used if required.
-  * ``color`` - The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around 140 color names. This is an optional field. You can also use Hex codes eg: #FF0000 for Red.
+  * ``color`` - The color you want to display for the icon configured, e.g., Blue, Red, etc. Browsers support around 140 color names. This is an optional field. You can also use Hex codes e.g., #FF0000 for Red.
   * ``text`` - The text you want to display for the list item. This is a required field.
   * ``tooltip`` - Tooltip to be displayed when the user hovers over the respective list item.
   * ``procedure`` - The procedure you want to call when the respective list item is clicked.
@@ -206,7 +206,7 @@ Public Pages Support Procedures
 
 .. aimms:procedure:: OpenSidePanel(pageId) 
 
-	This procedure is used to open side panels via the model with respective pageIds as the argument. 
+	This procedure is used to open side panels via the model with respective ``pageIds`` as the argument. 
 
 .. aimms:procedure:: OpenPage(pageId) 
 
@@ -218,11 +218,11 @@ Public Pages Support Procedures
 
 .. aimms:procedure:: ResetRequestQueue 
 
-	This procedure empties the RequestQueue and the Requests set in the Request Queue Declarations.
+	This procedure empties the ``RequestQueue`` and the Requests set in the Request Queue Declarations.
   
 .. aimms:procedure:: SetProgressMessage(message) 
 
-  This procedure allows one to overwrite the "Busy" message in the top left corner of the Menu bar by a customized message, which can better inform the user in case the AIMMS session is in "working/busy" state (ie, some code execution is going on in the background). 
+  This procedure allows one to overwrite the "Busy" message in the top left corner of the Menu bar by a customized message, which can better inform the user in case the AIMMS session is in "working/busy" state (i.e., some code execution is going on in the background). 
   
   See `SetProgressMessage`_ below.
 
@@ -276,10 +276,11 @@ Remark
 
 Note that when the procedure :any:`SetProgressMessage` is called with an empty string argument, then the displayed message will be set back to the default "Busy" message.
 
+
 RequestPerformWebUIDialog
 =========================
 
-You can call the procedure :any:`RequestPerformWebUIDialog` to display a message dialog in a WebUI page. Along with the message you can also display buttons which you can bind to custom actions.
+You can call the procedure :any:`webui::RequestPerformWebUIDialog` to display a message dialog in a WebUI page. Along with the message you can also display buttons which you can bind to custom actions.
 
 Arguments
 ---------
@@ -289,7 +290,7 @@ This procedure has the following arguments:
 * ``title``: A string parameter which contains the text to be displayed as the title of the dialog box.
 * ``message``: A string parameter which contains the message to be displayed in the dialog box.
 * ``actions``: A set containing custom actions. The elements of this set are represented as buttons in the message dialog and their text is the same as the action names. When an action is selected (i.e. its corresponding button is clicked), it invokes the ``onDone`` procedure with the corresponding action as an argument.
-* ``onDone``: A reference to a procedure in the predeclared set :any:`AllProcedures`. The procedure should have a single input string parameter as argument. When a user selects an action, the onDone procedure is invoked with the action name as its argument.
+* ``onDone``: A reference to a procedure in the predeclared set :any:`AllProcedures`. The procedure should have a single input string parameter as argument. When a user selects an action, the ``onDone`` procedure is invoked with the action name as its argument.
 
 Example
 -------
@@ -325,8 +326,8 @@ This procedure has the following arguments:
 
 * ``pageId``: An element parameter(with range :any:`AllDialogPages`) which should contain the ``pageId`` of the dialog page you want to open. When a dialog page is created, an entry is added to the set :any:`AllDialogPages` under the `Public Pages Support Declarations`_ with a unique ``pageId`` in the `Pages and Dialog Support section`_.   
 * ``title``: A string parameter which contains the text to be displayed as the title of the dialog box. If this is left blank, i.e "", it will display the dialog page name given during creation by default.
-* ``actions``: A set of custom actions. The elements of this set are represented as buttons in the message dialog and their text is the same as the action names. When an action is selected (button is clicked), it invokes the onDone procedure with the corresponding action as an argument. If this set is empty, the buttons will have "Cancel" and "OK" by default respectively. 
-* ``onDone``: A reference to a procedure in the set AllProcedures. The procedure should have a single input string parameter as argument. When a user selects an action, the onDone procedure is invoked with the action name as its argument.
+* ``actions``: A set of custom actions. The elements of this set are represented as buttons in the message dialog and their text is the same as the action names. When an action is selected (button is clicked), it invokes the ``onDone`` procedure with the corresponding action as an argument. If this set is empty, the buttons will have "Cancel" and "OK" by default respectively. 
+* ``onDone``: A reference to a procedure in the set AllProcedures. The procedure should have a single input string parameter as argument. When a user selects an action, the ``onDone`` procedure is invoked with the action name as its argument.
 
 
 Example

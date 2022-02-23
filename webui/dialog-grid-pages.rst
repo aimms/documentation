@@ -37,7 +37,7 @@ This section describes various tasks related to the WebUI Dialog Grid Pages.
 	 When running an AIMMS project which was created with AIMMS 4.80 (or with a newer version) and that has Dialog Grid Pages added, in AIMMS 4.79.3 (or an older version) you might face an invalid schema error. Please contact support if you face such issues.
 
 .. note::
-	 When running an AIMMS project which was created with AIMMS 4.80 (or with a newer version) by using AIMMS 4.79 (or an older version), the dialog grid pages created in AIMMS 4.80 may be treated as regular pages in AIMMS 4.79, because dialog grid pages are not avaialble in AIMMS 4.79 or in older AIMMS versions. Before upgrading your AIMMS project to a new AIMMS version, please create a backup of your project which may still be run with the older AIMMS versions.
+	 When running an AIMMS project which was created with AIMMS 4.80 (or with a newer version) by using AIMMS 4.79 (or an older version), the dialog grid pages created in AIMMS 4.80 may be treated as regular pages in AIMMS 4.79, because dialog grid pages are not available in AIMMS 4.79 or in older AIMMS versions. Before upgrading your AIMMS project to a new AIMMS version, please create a backup of your project which may still be run with the older AIMMS versions.
 
 	 Currently, it is a known limitation that hidden widgets do not always work as expected on grid pages and that you will notice a performance slowness in the page load for pages with hidden widgets, majorly on the number of hidden widgets. Until this matter is addressed in future software versions, the usage of hidden widgets on grid pages is not recommended for the time being.
 
@@ -84,16 +84,16 @@ For a dialog grid page you can choose a standard size from the three options - S
 	.. image:: images/dpG_new_large_2.jpg
 				:align: center
 
-Besides the option for one of the three predefined sizes above, a dialog grid page also has the option for a customized page size. In this case, the height and the width may be specified respectively in the maxrows and the maxcolumns fields of the Miscellaneous section of the `Page Settings <page-settings.html>`_, which opens automatically when clicking on the Custom size button of the dialog:
+Besides the option for one of the three predefined sizes above, a dialog grid page also has the option for a customized page size. In this case, the height and the width may be specified respectively in the ``maxrows`` and the ``maxcolumns`` fields of the Miscellaneous section of the `Page Settings <page-settings.html>`_, which opens automatically when clicking on the Custom size button of the dialog:
 
 4.  Custom Size: Example: Width = 4 Columns, Height = 3 Rows  
 
 	.. image:: images/dpG_new_customsize_2.jpg
 				:align: center
 
-Values must be specified for both the maxrows and the maxcolumns fields in order to define a valid custom page size.
+Values must be specified for both the ``maxrows`` and the ``maxcolumns`` fields in order to define a valid custom page size.
 
-For a dialog grid page with custom size, the maxrows option may be set between 1 and 4, while the maxcolumns option may be set between 2 and 14. If other values are specified, then they will be rounded to the nearest integer within these intervals. For example, a maxcolums value of 1 will be rounded to 2, while a maxrows value of 5 will be rounded to 4. 
+For a dialog grid page with custom size, the ``maxrows`` option may be set between 1 and 4, while the ``maxcolumns`` option may be set between 2 and 14. If other values are specified, then they will be rounded to the nearest integer within these intervals. For example, a ``maxcolums`` value of 1 will be rounded to 2, while a ``maxrows`` value of 5 will be rounded to 4. 
 
 The pictures above show the dialog grid pages in their preview mode. In this mode, the title and the action buttons shown are just placeholders in order to depict how the actual dialog grid page will look like when summoned. This preview also gives an idea of the usable area for adding widgets in the dialog grid page. In the same way as for regular dialog pages, the title and the action buttons applied on a dialog grid page which is summoned can be configured via the model, see further below. 
 
@@ -126,7 +126,7 @@ As it may be noticed in the last picture above, when a widget has more data than
 
 The dialog grid pages themselves do not have a scroll bar. Therefore, it is advisable to pick a suitable size and layout for the dialog grid page, depending on the widgets you want to place on it. You can change the size of the dialog grid page any number of times when in developer mode. However, the sizing options are not available to end users, so the sizes can no longer be changed after the application has been published.
 
-For instance, suppose that on the Dialog_Medium page we would like to show two tables rendering the numerical values of the unit costs and the transportation amounts for a selection of factories. In this case, we can select the standard Layout 4 and add the widgets  "unitcost_table", "selected_factories", and "transport_table" to Area A, Area B, and Area C, respectively, as illustrated in the following picture:
+For instance, suppose that on the Dialog_Medium page we would like to show two tables rendering the numerical values of the unit costs and the transportation amounts for a selection of factories. In this case, we can select the standard Layout 4 and add the widgets  ``unitcost_table``, ``selected_factories``, and ``transport_table`` to Area A, Area B, and Area C, respectively, as illustrated in the following picture:
 
 .. image:: images/dpG_widget_assigned_22.jpg
 			:align: center
@@ -204,6 +204,8 @@ When a dialog grid page is open (invoked), the user can only interact with the w
 
 .. note::
 
-	For a dialog grid page with custom size, where the maxrows and maxcolumns page options are specified through scalar model parameters, it is possible to put these parameters in a widget placed on the dialog itself and attempt to change the size of the dialog dynamically, after the dialog is invoked. This works fine as long as the dialog is not moved around on the invoking page. However, if the dialog is moved around and then resized dynamically by changing the values of the maxrows and maxcolumns parameters, then some scroll bars may become visible. This latter situation should be avoided. 
+	For a dialog grid page with custom size, where the ``maxrows`` and ``maxcolumns`` page options are specified through scalar model parameters, it is possible to put these parameters in a widget placed on the dialog itself and attempt to change the size of the dialog dynamically, after the dialog is invoked. This works fine as long as the dialog is not moved around on the invoking page. However, if the dialog is moved around and then resized dynamically by changing the values of the ``maxrows`` and ``maxcolumns`` parameters, then some scroll bars may become visible. This latter situation should be avoided. 
   
- 
+.. spelling::
+
+    th

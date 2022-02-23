@@ -5,7 +5,7 @@ Using Solver leases instead of DelegateToServer
 
 	This feature is ONLY available on the AIMMS Cloud Platform starting with AIMMS 4.57 or higher for WebUI applications.
 
-On the AIMMS Cloud platform it takes several seconds (typically about 5-8 seconds) to spin up a solver session at the server. The solve itself might however take only 2 or 3 seconds or even less. Obviously the overhead involved with starting a new solver session is way bigger then actual solve time. In order to solve this problem we introduced the notion of temporarily leasing a solver license in your running WebUI session to execute the solving inside that WebUI session. This removes the overhead of starting a solve session and the involved case-io.
+On the AIMMS Cloud platform it takes several seconds (typically about 5-8 seconds) to spin up a solver session at the server. The solve itself might however take only 2 or 3 seconds or even less. Obviously the overhead involved with starting a new solver session is way bigger then actual solve time. In order to solve this problem we introduced the notion of temporarily leasing a solver license in your running WebUI session to execute the solving inside that WebUI session. This removes the overhead of starting a solve session and the involved case I/O.
 
 However, beware that using the solver lease is not a general replacement for using DelegateToServer calls. The most important difference with the DelegateToServer call is that leasing a solver can fail because there are no licenses available at that moment. With DelegateToServer your job would then queued and executed whenever the appropriate resources become available. With the solver lease model, the solve would just fail immediately. Another difference with DelegateToServer is that running the leased solver is a blocking call, i.e. the user-interface will not be updated when that solve is running.
 
@@ -14,7 +14,7 @@ Solver lease concepts
 
 In general the way solver leasing works is:
 
-1. Try to acquire a solver lease within a specified amount of time (acquireTimeout) for a certain amount of time (leaseMaxDuration).
+1. Try to acquire a solver lease within a specified amount of time (``acquireTimeout``) for a certain amount of time (``leaseMaxDuration``).
 2. Run the solve. 
 3. Release the lease.
 
@@ -32,10 +32,10 @@ When the leased solve is running, it is also visible in the PRO portal at the Jo
 Limits and best practice
 ++++++++++++++++++++++++++++++++++++++++++++
 
-Currently both the *acquireTimeout* and *leaseMaxDuration* must have a value in the range [1,60] seconds and the *jobDescription* (see below) cannot be longer then 255 characters. These timeout values are intended to be so (relatively) low indicating the typical use case for using solver leases instead of DelegateToServer. 
+Currently both the ``acquireTimeout`` and ``leaseMaxDuration`` must have a value in the range [1,60] seconds and the ``jobDescription`` (see below) cannot be longer then 255 characters. These timeout values are intended to be so (relatively) low indicating the typical use case for using solver leases instead of DelegateToServer. 
 
 +--------------------+-------------------------------+---------------+
-| Argument           | Limitation                    | Best practise |
+| Argument           | Limitation                    | Best practice |
 +--------------------+-------------------------------+---------------+
 | *acquireTimeout*   | in the range [1,60] (seconds) | 1             |
 +--------------------+-------------------------------+---------------+
@@ -58,7 +58,7 @@ If you do want to provide feedback on progress to the end user during the solve 
 Specifying the solve using solver leases
 ++++++++++++++++++++++++++++++++++++++++++++
 
-In the AIMMS PRO Library we provide a wrapper procedure called 'pro::solverlease::solveModel' that neatly wraps the underlying solver-lease primitives, solving and error handling in one go. As an example, you could use it like this:
+In the AIMMS PRO Library we provide a wrapper procedure called ``pro::solverlease::solveModel`` that neatly wraps the underlying solver-lease primitives, solving and error handling in one go. As an example, you could use it like this:
 
 .. code:: 
 
@@ -70,7 +70,7 @@ In the AIMMS PRO Library we provide a wrapper procedure called 'pro::solverlease
         leaseMaxDuration               :  10, 
         jobDescription                 :  "MyDescription");
         
-where all arguments are optional except the mathematicalProgrammingProblem argument. 
+where all arguments are optional except the ``mathematicalProgrammingProblem`` argument. 
 The ``solveMode`` and ``selecteSolver`` are the only options that need to be specified 
 in :doc:`optimization-modeling-components/solving-mathematical-programs/the-solve-statement` explicitly for AIMMS to pick up. Other options can be set using the BLOCK statement:
 
@@ -87,3 +87,9 @@ in :doc:`optimization-modeling-components/solving-mathematical-programs/the-solv
             jobDescription                 :  "MyDescription");
         
     endblock;
+
+.. spelling::
+
+    acquireTimeout
+    leaseMaxDuration
+    jobDescription

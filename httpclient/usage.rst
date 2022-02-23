@@ -45,7 +45,7 @@ One issue with the ``request_invoke`` call is that the round trip to the server 
 
 To overcome this we can cut the request in two:
 
-1. Send the request using ``request_invoke_async``
+1. Send the request using :any:`web::request_invoke_async`
 2. Process the response using a user defined callback procedure.
 
 
@@ -91,7 +91,7 @@ In this callback function we use the ``responseCode`` to check if the server sen
 The wait functions
 ^^^^^^^^^^^^^^^^^^
 
-The purpose of ``request_invoke_async`` is to allow AIMMS do something else instead of waiting for the response. This can create the situation that AIMMS is too busy to call the callbacks. For this reason also two waiter functions have been introduced.
+The purpose of :any:`web::request_invoke_async` is to allow AIMMS do something else instead of waiting for the response. This can create the situation that AIMMS is too busy to call the callbacks. For this reason also two waiter functions have been introduced.
 
 wait_for_response
     This waiter has as argument a timeout in seconds. It will return immediately with value 1 if it handles at least one callback. If it does timeout without handling any callbacks it will return 0. 
@@ -115,7 +115,7 @@ and
     MyCallBack(sp_requestId, statusCode);   
 
 
-This also shows that it is very easy to turn synchronous calls into asynchronous calls. First clean up the response handling into a "callback" procedure. Then change the second situation into the first. Finally we can squeeze other things between ``request_invoke_async`` and ``wait_for_the_response`` to make good use of the "waiting time".
+This also shows that it is very easy to turn synchronous calls into asynchronous calls. First clean up the response handling into a "callback" procedure. Then change the second situation into the first. Finally we can squeeze other things between :any:`web::request_invoke_async` and ``wait_for_the_response`` to make good use of the "waiting time".
 
 
 .. _LinkConfigReqPoolSize:
@@ -123,9 +123,9 @@ This also shows that it is very easy to turn synchronous calls into asynchronous
 Configuration
 ^^^^^^^^^^^^^
 
-The number of asynchronous requests that can run simultaneously is limited by the request pool size. When the request pool is full all subsequent calls to ``request_invoke_async`` will be placed in a queue. As soon as a slot is free in the request pool, the next request from the queue is placed in the pool and called.
+The number of asynchronous requests that can run simultaneously is limited by the request pool size. When the request pool is full all subsequent calls to :any:`web::request_invoke_async` will be placed in a queue. As soon as a slot is free in the request pool, the next request from the queue is placed in the pool and called.
 
-For example, if ``ReqPoolSize`` is 4 and one does 10 async requests, only the first 4 are invoked immediately and the other 6 are queued. These 6 will be picked up when a thread has completed the request, until all requests are done.
+For example, if ``ReqPoolSize`` is 4 and one does 10 asynchronous requests, only the first 4 are invoked immediately and the other 6 are queued. These 6 will be picked up when a thread has completed the request, until all requests are done.
 
 The default value of the request pool size is 4. The value can be changed using ``web::setConfig`` :
 
@@ -145,8 +145,8 @@ The URL
 -------
 
 The most important setter from :ref:`Request Getters and Setters <HTTPClient_API_RequestGettersAndSetters>` is the function ``request_setURL``. Without it the request cannot be invoked. 
-The second argument of this function is the url string.
-Because of its importance, this url string will be cleaned and corrected to always end up with a valid URL. If that is not possible the url string is rejected and the URL stays unspecified.   
+The second argument of this function is the URL string.
+Because of its importance, this URL string will be cleaned and corrected to always end up with a valid URL. If that is not possible the URL string is rejected and the URL stays unspecified.   
 
 Cleaning
     Redundant elements are removed.
@@ -155,7 +155,7 @@ Example:
 
 .. code-block:: aimms
 
-    web::request_setURL(requestId, "   http://localhost   " ); ! whitespace will be trimmed
+    web::request_setURL(requestId, "   http://localhost   " ); ! white space will be trimmed
 
 
 Correcting
@@ -175,7 +175,7 @@ In the resulting URL the missing schema ``https`` is filled in and the  erroneou
 
 
 Rejecting
-    Some errors cannot be corrected. Typically this happens when there are illegal characters in the host name. The HTTPClient cannot guess the correct name, so it will reject the url string. A warning will be given because the request cannot be invoked.
+    Some errors cannot be corrected. Typically this happens when there are illegal characters in the host name. The HTTPClient cannot guess the correct name, so it will reject the URL string. A warning will be given because the request cannot be invoked.
 
 Example:
 
@@ -287,3 +287,8 @@ SP_resHeadAfter
 .. note::
 
     When the request has a body then the ``Content-Length`` header field is automatically added. The ``Content-Type`` is not added and may have to be set using ``request_setHeaders``.
+
+.. spelling::
+
+    raison
+    d'être

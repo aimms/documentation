@@ -38,7 +38,7 @@ Firstly, a data identifier to be rendered in the column chart has to be specifie
 
 | 
 
-For each identifier added to the Contents tab the following settings can be specified: the indentifier name (as declared in the AIMMS model), the chart type to be applied to this identifier, its display domain, the number of decimals, and the indicator for showing/hidding the units of measurement. 
+For each identifier added to the Contents tab the following settings can be specified: the identifier name (as declared in the AIMMS model), the chart type to be applied to this identifier, its display domain, the number of decimals, and the indicator for showing/hiding the units of measurement. 
 These values may be literal or given through identifiers present in the AIMMS model, as shown below:
 
 .. image:: images/ColumnChart-Identifier-Settings-1.png
@@ -60,7 +60,7 @@ For instance, we can slice our center index c to the fixed element 'Amsterdam' i
 Clearly, each slicing specification will result in a different data view in the chart showing only the data points corresponding to those tuples (set element combinations) which are still valid according to current slicing. 
 For detailed explanation, please refer to `Widget Options > Indentifier Settings > Slicing <widget-options.html#id6>`__.
 
-<best practices wrt selecting identifiers with different domains, explain what happens with missing indices> @Ovidiu
+<best practices with regard to selecting identifiers with different domains, explain what happens with missing indices> @Ovidiu
 
 For each identifier, the chart type to be applied to it can be specified in the "Chart Type" field...
 
@@ -87,7 +87,7 @@ not 0. We can visualize this effect, for instance, by showing the values of p_Is
 
 |
 
-Next, the number of decimals and the indicator for showing/hidding the units of measurement may be specified in the corresponding fields of the identifier settings, as already shown above. 
+Next, the number of decimals and the indicator for showing/hiding the units of measurement may be specified in the corresponding fields of the identifier settings, as already shown above. 
 Please note that either option needs to be resolved to a scalar value. So, in particular, it is not possible to specify an indexed identifier like p_NumDecimals(c) for the number of decimals. 
 This means that you cannot show a different number of decimals for different data values which belong to the same identifier.
 These "per identifier" options are then reflected in the chart view provided that the data labels are toggled on (see more info about toggling labels in the `Chart Settings <column-chart-widget.html#column-chart-settings>`__ section below):
@@ -97,7 +97,7 @@ These "per identifier" options are then reflected in the chart view provided tha
 
 |
 
-Note, that if the number of decimals and/or the indicator for showing/hidding the units of measurement are not specified for a certain indentifier, then the values from the Defaults section will be inherited and applied to that identifier:
+Note, that if the number of decimals and/or the indicator for showing/hiding the units of measurement are not specified for a certain identifier, then the values from the Defaults section will be inherited and applied to that identifier:
 
 .. image:: images/ColumnChart-NumDec-ShowUnits-2.png
    :align: center  
@@ -105,7 +105,7 @@ Note, that if the number of decimals and/or the indicator for showing/hidding th
 |
 
 More specifically, in the example above the number of decimals is not explicitly set for the identifier Demand(c) and therefore, this option value '2' is automatically inherited from the number of decimals specified in the Defaults section of the Contents tab.
-Similarly, the value '1' (or "on") of the the indicator for showing/hidding the units of measurement for the identifier Demand(c) is not specified explicitly in the corresponding identifier field, but it is inherited from the indicator value from the Defaults.
+Similarly, the value '1' (or "on") of the the indicator for showing/hiding the units of measurement for the identifier Demand(c) is not specified explicitly in the corresponding identifier field, but it is inherited from the indicator value from the Defaults.
 Either option can be specified per identifier or inherited from Defaults independently from the other option. 
 
 Pivoting
@@ -123,11 +123,11 @@ Similarly, one may move some data indexes in the Stacked section of the Pivot ta
 .. image:: images/ColumnChart-Pivot-2.png
     :align: center
 
-Typically, the identifiers that are put in a single chart will share the same (or at least have a very similar) index domain, but this is not necessary. In case some index (that is present on the Pivot tab) is not present in the index domain of a certain contents identifier, the corresponding *missing index* is denatoted with a dash ('-') character.
+Typically, the identifiers that are put in a single chart will share the same (or at least have a very similar) index domain, but this is not necessary. In case some index (that is present on the Pivot tab) is not present in the index domain of a certain contents identifier, the corresponding *missing index* is denoted with a dash ('-') character.
 
 The combination chart widget allows you to specify a chart type **per identifier**. In case you want to make use of different chart types, the dimensions should be pivoted in such a way that, for each sequence of data points in the chart, the corresponding identifier can be uniquely determined. This means, that, in case you want to mix different chart chart, the <IDENTIFIER-SET> index should not be put in the Header or Totals section. 
 
-When the <IDENTIFIER-SET> index is put in the Header section, the differents data point in a single data series, may correspond to different chart types. When, the <IDENTIFIER-SET> index is put in the Header section, each single data point is a total over multiple identifiers, each with their own chart type. In bot of these case, the chart type of the first identifier will be used.
+When the <IDENTIFIER-SET> index is put in the Header section, the different data point in a single data series, may correspond to different chart types. When, the <IDENTIFIER-SET> index is put in the Header section, each single data point is a total over multiple identifiers, each with their own chart type. In bot of these case, the chart type of the first identifier will be used.
 
 Column Chart Settings
 ---------------------
@@ -208,7 +208,7 @@ One of the indices can be specified as Color Index. This means that all data poi
 
 If not specified explicitly, the combination chart will use the last index in the Grouped section as a Color Index. If there is no such index, the last index in the Stacked section will be used and if bot the Grouped and Stacked sections are empty, the last index in the Header section is used as the Color Index.
 
-In most cases, it makes sense to select an index in the Stacked or Grouped section as the color index, as indices in the Header section are already explictly displayed in the chart (meaning there already is a way to visualyy distinguis between them).
+In most cases, it makes sense to select an index in the Stacked or Grouped section as the color index, as indices in the Header section are already explicitly displayed in the chart (meaning there already is a way to visually distinguish between them).
 
 Consider a column chart with a single identifier UnitCost(f,c) in which the <IDENTIFIER-SET> index is in the Header group, the f index is in the Stacked group and the c index is in the Grouped group. 
 
@@ -261,7 +261,7 @@ Index Settings, Select, and Store Focus
 ---------------------------------------
 
 In the Index Settings tab of the widget options editor, for each index it is possible to specify an element parameter in the same set which will store the corresponding value when the user selects a specific column in the chart (by clicking on it, in which case the color of the column turns grey). 
-For example, we can specify en element parameter ep_Center for the index c and en element parameter ep_Focusidentifier for the <IDENTIFIER-SET> index, where ep_Center and ep_Focusidentifier are element parameters 
+For example, we can specify an element parameter ep_Center for the index c and en element parameter ep_Focusidentifier for the <IDENTIFIER-SET> index, where ep_Center and ep_Focusidentifier are element parameters 
 in our application at hand with the sets Centers and AllIdentifiers, respectively, as ranges. The values of ep_Center and ep_Focusidentifier may be displayed for inspection in some other widgets outside the column chart:
 
 .. image:: images/ColumnChart-IndexSettings-1.png
@@ -294,7 +294,7 @@ Custom Styling
 
 By specifying a webui::AnnotationsIdentifier as explain in the section `Identifier Annotations <widget-options.html#identifier-annotations>`__ and by using it subsequently for custom styling as explained in the section `Custom Styling <css-styling.html#css-styling>`__, 
 it is possible to apply a custom styling to a column chart as well.
-For instance, in our example application at hand one could style differently those columns in the chart which have a demand value greater than a certain threshhold value given by a scalar parameter called p_Demand_HighValue. 
+For instance, in our example application at hand one could style differently those columns in the chart which have a demand value greater than a certain threshold value given by a scalar parameter called p_Demand_HighValue. 
 This situation is depicted in the following picture:
 
 .. image:: images/ColumnChart-CustomStyling-1.png
@@ -347,3 +347,6 @@ The specified chart title is reflected on the widget header:
 
 
 
+.. spelling::
+
+    highcharts

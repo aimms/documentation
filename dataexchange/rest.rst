@@ -118,7 +118,7 @@ The following example shows the Authorization Code flow specification required f
 	
 When running the AIMMS application locally on your desktop, AIMMS will instantiate a fixed redirect URL :token:`http://localhost/oauth2/`. For an on-premise PRO server, or for the AIMMS Cloud Platform, the redirect URL will be the fixed URL :token:`https://<pro-server-dns-name>/extensions/<app-name>/oauth2/`. You need to provide this redirect URL to the API administrator to allow the application to be authorized when run from the desktop. If the published name of your application on the on-premise PRO server or the AIMMS Cloud Platform contains spaces, you should `URL-encode <https://www.urlencoder.org/>`_ the application name before registering it with the identity platform. 
 
-With these settings, you can again call the function :js:func:`dex::oauth::AddBearerToken` to add a Bearer token to your API request. In this case, however, the end-user will need to authenticate herself with the identity platform through a brower session that will be initiated by AIMMS on the first call, and optionally on additional calls when a previous Bearer token has expired and cannot be refreshed.
+With these settings, you can again call the function :js:func:`dex::oauth::AddBearerToken` to add a Bearer token to your API request. In this case, however, the end-user will need to authenticate herself with the identity platform through a browser session that will be initiated by AIMMS on the first call, and optionally on additional calls when a previous Bearer token has expired and cannot be refreshed.
 
 .. note::
 	
@@ -129,24 +129,23 @@ Debugging client requests
 
 When you experience trouble invoking a URL using `dex::client` requests, here are a number of guidelines that may help you tackle it:
 
-* libcurl doesn't automatically follow redirects, and is pretty strict on checking revocation lists by default. This may cause HTTP requests to fail with sometimes hard to follow error messages. In addition, the HTTP client in the Data Exchange library does not perform automatic proxy discovery, which may cause HTTP requests to fail because the proper proxy is not used during the request. The following code will sensible defaults to prevent all of these issues:
+* libCurl doesn't automatically follow redirects, and is pretty strict on checking revocation lists by default. This may cause HTTP requests to fail with sometimes hard to follow error messages. In addition, the HTTP client in the Data Exchange library does not perform automatic proxy discovery, which may cause HTTP requests to fail because the proper proxy is not used during the request. The following code will sensible defaults to prevent all of these issues:
 
 	.. code-block:: aimms
 		
-		dex::client::ProxyResolve("https://www.aimms.com", proxyURL);	! determine proxy URL, assuming the same proxy result for any url
+		dex::client::ProxyResolve("https://www.aimms.com", proxyURL);	! determine proxy URL, assuming the same proxy result for any URL
 		stringOptions(dex::client::stropt) := { 'PROXY' : proxyURL };   ! instruct libcurl to use the given proxy
 		intOptions(dex::client::intopt) := { 'HTTPPROXYTUNNEL' : 1, 'SSL_OPTIONS' : 2, 'FOLLOWLOCATION' : 1, 'MAXREDIRS' : 10 };
 		dex::client::SetDefaultOptions(intOptions, stringOptions);
 
-The procedure :js:func:`dex::client::DetermineProxyServer` will set these defaults options for you. 
+The procedure :any:`dex::client::DetermineProxyServer` will set these defaults options for you. 
 
-* If your request contains a request body, the HTTP client will deduce the content type of the request body from the file extension containing the body, or if it cannot deduce it, set it to `application/octetstream`. You may need to set the `Content-Type` header to a proper value to make the request succeed, specifically when you do a POST request with url-encoded parameters, as follows
-
+* If your request contains a request body, the HTTP client will deduce the content type of the request body from the file extension containing the body, or if it cannot deduce it, set it to `application/octetstream`. You may need to set the `Content-Type` header to a proper value to make the request succeed, specifically when you do a POST request with URL-encoded parameters, as follows
 	.. code-block:: aimms
 	
 		dex::client::AddRequestHeader(reqId, "Content-Type", "application/x-www-form-urlencoded"); 
 
-* A good way to debug HTTP requests is to enable request tracing by specifying a trace file in the :js:func:`dex::client::NewRequest` function. The resulting file will contain all available tracing information made available by libcurl, including all verbatim request and response headers and bodies.
+* A good way to debug HTTP requests is to enable request tracing by specifying a trace file in the :js:func:`dex::client::NewRequest` function. The resulting file will contain all available tracing information made available by libCurl, including all verbatim request and response headers and bodies.
 
 Providing REST APIs
 -------------------
@@ -157,7 +156,7 @@ With each procedure in your model, you can associate a :token:`dex::ServiceName`
 
 * :token:`/api/v1/tasks/{service-name}`
     
-    * :token:`POST`: accepts any JSON/XML/CSV/Excel/... data as the request body. The REST API Service hander built into the Data Exchange library will queue the request, and call the procedure in your model corresponding to :token:`{service-name}`.
+    * :token:`POST`: accepts any JSON/XML/CSV/Excel/... data as the request body. The REST API Service handler built into the Data Exchange library will queue the request, and call the procedure in your model corresponding to :token:`{service-name}`.
       Within the procedure handling the request, the string parameter :token:`dex::api::RequestAttribute` will provide you with access to the 
 
       * :token:`id`: the id assigned to the request by the Data Exchange library
@@ -224,11 +223,11 @@ With each procedure in your model, you can associate a :token:`dex::ServiceName`
     
 * :token:`/api/v1/tasks/{id}/response`
     
-    * :token:`GET`: will return a :token:`404 Not found` if there is no taks with the given id, or :token:`200 OK` with the final response body stored as stored in the file :token:`dex::api::RequestAttribute('response-data-path')` by the service handler procedure.
+    * :token:`GET`: will return a :token:`404 Not found` if there is no task with the given id, or :token:`200 OK` with the final response body stored as stored in the file :token:`dex::api::RequestAttribute('response-data-path')` by the service handler procedure.
     
 * :token:`/api/v1/tasks/{id}/status`
     
-    * :token:`GET`: will return a :token:`404 Not found` if there is no taks with the given id, or :token:`200 OK` with an intermediate status response body stored as stored in the file :token:`dex::api::RequestAttribute('status-data-path')` by the service handler procedure.
+    * :token:`GET`: will return a :token:`404 Not found` if there is no task with the given id, or :token:`200 OK` with an intermediate status response body stored as stored in the file :token:`dex::api::RequestAttribute('status-data-path')` by the service handler procedure.
    
 Activating the REST service
 ---------------------------
@@ -251,3 +250,6 @@ Yielding time to the API service to handle requests
 
 Within the execution of an AIMMS procedure, you can call the function `dex::api::Yield` to yield time to the API service to handle requests. You can use this functionality for instance, to implement tests in a project providing REST services using the `dex::client` functions to call the service endpoints exposed by your model. 
 
+... spelling::
+
+    libCurl

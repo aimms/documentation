@@ -55,7 +55,7 @@ Create the second string parameter, let's call it
     
     MyListGroupItems(webui::indexListGroupOrder,webui::indexNoOfListItems,webui::indexListGroupItemsSpec)
 
-indexed over both indices of the `ExtensionOrder <library.html#extensionorder>`_ set and over the index of the `ListGroupItemsSpecification <library.html#listgroupitemsspecification>`_ set. This string parameter is used to define the items for each list group which has been defined in the MyListsGroups string parameter.
+indexed over both indices of the `ExtensionOrder <library.html#extensionorder>`_ set and over the index of the `ListGroupItemsSpecification <library.html#listgroupitemsspecification>`_ set. This string parameter is used to define the items for each list group which has been defined in the ``MyListsGroups`` string parameter.
 
 .. image:: images/List_ListGroupItemsDeclaration.png
     :align: center
@@ -75,11 +75,11 @@ In order to inspect the values, right click on the MyListGroupItems string param
 .. image:: images/List_TodayDeclaration.png
     :align: center
 
-The data entered in the above illustration is for the 1st List Group which was configured in “MyListsGroups” string parameter, that is, the "Today" list group (with 5 items defined).
+The data entered in the above illustration is for the 1st List Group which was configured in ``MyListsGroups`` string parameter, that is, the "Today" list group (with 5 items defined).
 
-In order to configure the items for the other list groups, one may just select the respective value for indexListGroupOrder at the top in the Data page.
+In order to configure the items for the other list groups, one may just select the respective value for ``indexListGroupOrder`` at the top in the Data page.
 
-For instance, 3 items may be configured for the 2nd list group "Next Week" as follows:
+For instance, 3 items may be configured for the 2\ :sup:`nd`\  list group "Next Week" as follows:
 
 .. image:: images/List_NextWeekDeclaration.png
     :align: center
@@ -124,7 +124,7 @@ Slicing the List Group and List Group Items
 
 You can also create lists for different users and then slice the data based on the current user. You can simply extend the string parameter with an additional index of the Users set. Then slice the data based on the element parameter for the selected user.
 
-Lets say we have a set :token:`Users` with the index :token:`indexUsers`. You can add this index to the :token:`MyListsGroups` and :token:`MyListGroupItems` string parameters as illustrated below.
+Lets say we have a set :token:`Users` with the index :token:`indexUsers`. You can add this index to the ``MyListsGroups`` and :token:`MyListGroupItems` string parameters as illustrated below.
 
 .. code::
 
@@ -168,7 +168,7 @@ To easily understand this information, users need a good legend. This is an impo
 .. image:: images/List_DistributionNetwork-1.png
     :align: center
 
-Doing a legend for icons is straightforward: just use the appropriate icon and text. Making a legend for colors can be done by using a circle icon (aimms-circle2) and give it the right color.
+Doing a legend for icons is straightforward: just use the appropriate icon and text. Making a legend for colors can be done by using a circle icon (``aimms-circle2``) and give it the right color.
 
 .. image:: images/List_Legend.png
     :align: center
@@ -187,6 +187,6 @@ A few best practices on using icons/colors
 * Using many different colors for icons can make the List Widget to busy and increase cognitive load.
 * Be sparse with colors: consider if it is needed to give an icon a different color. When in doubt, it’s probably wise to remember the saying “less is more” and keep colors the same.
 * Colors can be used to create categories, for example to-do items with an action required are blue and read only or action required outside of the application are dark green. The number of colors that work well on screens and can easily be differentiated by users is limited however. With more than about ten colors the differences become hard to distinguish.
-* Colors can communicate meaning, like green for OK and red for error. One of the most common forms of color blindness is red-green color blindness. It is therefore good practice to not rely on color only to communicate meaning, but shape as well like a checkmark or warning-triangle.
+* Colors can communicate meaning, like green for OK and red for error. One of the most common forms of color blindness is red-green color blindness. It is therefore good practice to not rely on color only to communicate meaning, but shape as well like a check mark or warning-triangle.
 * Avoid using colors with not enough contrast. This makes it hard to see for users, especially when using a lower-quality screen or a projector.
 * When using different colors for icons, try to use a harmonious set of colors with matching lightness/saturation. This makes the interface calmer and helps users feel in control. `This website <https://flatuicolors.com/>`_ has useful sets of colors that work together.
