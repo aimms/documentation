@@ -58,7 +58,7 @@ ApplicationDB Functions
 
 .. js:function:: cdm::RemoveElementsFromDatabase(dbName, setName)
 
-	 Clean up the given application dabatase ``dbName`` by removing all references to elements from the set ``setName`` from all tables. This function will remove all elements from the corresponding name space table, and remove all rows of all datatables where its elements are referenced in either the tuple or in value of element parameters.
+	 Clean up the given application database ``dbName`` by removing all references to elements from the set ``setName`` from all tables. This function will remove all elements from the corresponding namespace table, and remove all rows of all data tables where its elements are referenced in either the tuple or in value of element parameters.
 	 
 	 :param dbName: specifies the name of the application database to clean up.
 	 :param setName: specifies the set from with all references to its elements need to be removed from the database.
