@@ -16,20 +16,20 @@ Generic CDM database structure
 
 When you create a CDM database for an AIMMS app for the first time, the CDM service will generic CDM database schema containing tables that define
 
-* the defined categories and their contents in terms of AIMMS identifiers (:token:`cat` and :token:`catmap` tables)
-* the authorization profiles and their underlying permissions (:token:`auth` and :token:`permission` tables)
-* general key-value pairs used to identify the particular CDM database (:token:`kvtable` table)
-* all branches and the ensuing tree of revisions (:token:`rev`, :token:`revbranchmap` and :token:`currentbranch` tables)
-* the (versioned) table definitions related with all AIMMS identifiers stored in the particular CDM database (:token:`revdatadef` table)
-* the mapping declaring for which identifiers data is stored in which revisions (:token:`revdatamap` table)
+* the defined categories and their contents in terms of AIMMS identifiers (``cat`` and ``catmap`` tables)
+* the authorization profiles and their underlying permissions (``auth`` and ``permission`` tables)
+* general key-value pairs used to identify the particular CDM database (``kvtable`` table)
+* all branches and the ensuing tree of revisions (``rev``, ``revbranchmap`` and ``currentbranch`` tables)
+* the (versioned) table definitions related with all AIMMS identifiers stored in the particular CDM database (``revdatadef`` table)
+* the mapping declaring for which identifiers data is stored in which revisions (``revdatamap`` table)
 
 App-specific database structure
 -------------------------------
 
 Next to that, when you actually create the categories, the CDM service will create app-specific tables to store
 
-* element names and their global CDM numbering for all root sets (:token:`ns_<setname>` tables)
-* the actual version-specific root set membership changes and data changes for scalar multi-dimensional identifiers (:token:`data_<identifiername>_<version>` tables)
+* element names and their global CDM numbering for all root sets (``ns_<setname>`` tables)
+* the actual version-specific root set membership changes and data changes for scalar multi-dimensional identifiers (``data_<identifiername>_<version>`` tables)
 
 CDM element spaces
 ==================
@@ -70,7 +70,7 @@ When checking out data at, or pulling changes for, a specific (set of) revisions
 Dealing with inactive data
 ==========================
 
-By default, :js:func:`cdm::CheckoutSnapshot` will not download inactive data, i.e., data for elements in root sets for which there is still historic parametric data, but which are not any longer part of the root sets at the selected revision. Downloading inactive data may result in data unexpectedly appearing again in identifiers when deleted set elements are re-added to the set again. This may also happen when the added set element is committed to the CDM database, and the data is checked out again. You can prevent this behavior when `more carefully deleting <config.html#deleting-elements>`_ the parametric data for elements to be deleted.
+By default, :any:`cdm::CheckoutSnapshot` will not download inactive data, i.e., data for elements in root sets for which there is still historic parametric data, but which are not any longer part of the root sets at the selected revision. Downloading inactive data may result in data unexpectedly appearing again in identifiers when deleted set elements are re-added to the set again. This may also happen when the added set element is committed to the CDM database, and the data is checked out again. You can prevent this behavior when `more carefully deleting <config.html#deleting-elements>`_ the parametric data for elements to be deleted.
 
 Filtering out inactive data
 ---------------------------
@@ -80,16 +80,16 @@ When checking out data, the CDM service will create temporary tables for all roo
 Shadow identifiers
 ==================
 
-When adding CDM support to your model through the call to :token:`cdm::ConnectToApplicationDB`, the CDM library will various *shadow identifiers* for every identifier in your model managed through CDM. 
+When adding CDM support to your model through the call to ``cdm::ConnectToApplicationDB``, the CDM library will various *shadow identifiers* for every identifier in your model managed through CDM. 
 
-All shadow identifiers created by the CDM library are part of the :token:`CDMRuntime` library, which uses the :token:`cdmrt::` suffix. Within the :token:`CDMRuntime` libraries various types of shadow identifiers are created, all grouped by CDM category. The various types of shadow identifiers, defined in the runtime library, are
+All shadow identifiers created by the CDM library are part of the ``CDMRuntime`` library, which uses the ``cdmrt::`` suffix. Within the ``CDMRuntime`` libraries various types of shadow identifiers are created, all grouped by CDM category. The various types of shadow identifiers, defined in the runtime library, are
 
-* :token:`CommittedIdentifiers` and :token:`CommittedRevisionIdentifiers` (:token:`cdmrt::ci::` and :token:`cdmrt::cri::` prefixes)
-* :token:`DeltaOutIdentifiers` and :token:`DeltaOutRevisionIdentifiers` (:token:`cdmrt::doi::` and :token:`cdmrt::dori::` prefixes)
-* :token:`DeltaInIdentifiers` and :token:`DeltaInRevisionIdentifiers` (:token:`cdmrt::dii::` and :token:`cdmrt::diri::` prefixes)
-* :token:`ConflictResolutionIdentifiers` (:token:`cdmrt::cri::` prefix)
-* :token:`ValueLogIdentifiers` and :token:`ValueLogDomainIdentifiers` (:token:`cdmrt::vli::` and :token:`cdmrt::vldi::` prefixes)
-* :token:`BranchComparisonIdentifiers` (:token:`cdmrt::bci::` prefix)
+* ``CommittedIdentifiers`` and ``CommittedRevisionIdentifiers`` (``cdmrt::ci::`` and ``cdmrt::cri::`` prefixes)
+* ``DeltaOutIdentifiers`` and ``DeltaOutRevisionIdentifiers`` (``cdmrt::doi::`` and ``cdmrt::dori::`` prefixes)
+* ``DeltaInIdentifiers`` and ``DeltaInRevisionIdentifiers`` (``cdmrt::dii::`` and ``cdmrt::diri::`` prefixes)
+* ``ConflictResolutionIdentifiers`` (``cdmrt::cri::`` prefix)
+* ``ValueLogIdentifiers`` and ``ValueLogDomainIdentifiers`` (``cdmrt::vli::`` and ``cdmrt::vldi::`` prefixes)
+* ``BranchComparisonIdentifiers`` (``cdmrt::bci::`` prefix)
 
 Shadow identifier domains and ranges
 ------------------------------------
@@ -130,19 +130,19 @@ Because the domain and range sets of the delta in identifiers are always defined
 Conflict Resolution values
 --------------------------
 
-The conflict resolution identifiers are defined color parameters that are used by the `conflict resolution UI <dtd.html#merging-branches-and-resolving-conflicts>`_ to indicate particular tuples and values have conflicts in the conflict resolution page. Conflict resolution identifiers and the functionality for custom conflict resolution in CDM will be only be available if the pre-defined parameter :token:`cdm::EnableCustomConflictResolution` is set to 1 (default). 
+The conflict resolution identifiers are defined color parameters that are used by the `conflict resolution UI <dtd.html#merging-branches-and-resolving-conflicts>`_ to indicate particular tuples and values have conflicts in the conflict resolution page. Conflict resolution identifiers and the functionality for custom conflict resolution in CDM will be only be available if the pre-defined parameter ``cdm::EnableCustomConflictResolution`` is set to 1 (default). 
 
 Value Log identifiers
 ---------------------
 
-The value log and value log domain identifiers are used by the CDM library to hold the collection of historic values retrieved from the CDM database when calling the function :js:func:`cdm::GetValuesLog`. Compared to the actual identifiers all value log identifiers hold one extra dimension, namely the :token:`cdm::rev` index, to allow these identifiers to hold the values for several revisions, as requested in the call to :js:func:`cdm::GetValuesLog`. These identifiers are primarily intended to be used directly in the end-user UI to display the historic values of an actual value also displayed in the same end-user UI. Value log identifiers and the functions to retrieve the value log will only be available if the pre-defined parameter :token:`cdm::EnableValuesLog` is set to 1 (default).
+The value log and value log domain identifiers are used by the CDM library to hold the collection of historic values retrieved from the CDM database when calling the function :any:`cdm::GetValuesLog`. Compared to the actual identifiers all value log identifiers hold one extra dimension, namely the ``cdm::rev`` index, to allow these identifiers to hold the values for several revisions, as requested in the call to :any:`cdm::GetValuesLog`. These identifiers are primarily intended to be used directly in the end-user UI to display the historic values of an actual value also displayed in the same end-user UI. Value log identifiers and the functions to retrieve the value log will only be available if the pre-defined parameter ``cdm::EnableValuesLog`` is set to 1 (default).
 
 Branch Comparison identifiers
 -----------------------------
 
 The branch comparison identifiers are used by the CDM library to hold the identifier values of multiple branches in order to be able to compare multiple scenarios stored in branches.  
-Compared to the actual identifiers all branch comparison identifiers hold one extra dimension, namely the :token:`cdm::branch` index, to allow these identifiers to hold the values for several branches.
-Through the call :js:func:`cdm::AddBranchToCompareSnapshot` the data for a new branch can be added to the branch comparison identifiers. Branch comparison identifiers and the functions to retrieve to add and delete branch data to these identifiers will only be available if the pre-defined parameter :token:`cdm::EnableBranchComparison` is set to 1 (default).
+Compared to the actual identifiers all branch comparison identifiers hold one extra dimension, namely the ``cdm::branch`` index, to allow these identifiers to hold the values for several branches.
+Through the call :any:`cdm::AddBranchToCompareSnapshots` the data for a new branch can be added to the branch comparison identifiers. Branch comparison identifiers and the functions to retrieve to add and delete branch data to these identifiers will only be available if the pre-defined parameter ``cdm::EnableBranchComparison`` is set to 1 (default).
 
 Data read sequence
 ==================
@@ -163,7 +163,7 @@ When checking out a revision or pulling changes, the CDM service and library wil
 
   * store the changes between these two in the *delta-out* shadow identifiers
   * detect whether there are conflicts in the values stored in *delta-in* and *delta-out* identifiers
-  * if so, apply the conflict resolution method identified by :token:`cdm::SelectedConflictResolutionMethod` to resolve the conflicts. This will lead to a *sub-collection* of the original tuples in the *delta-in-revision* identifiers still having a non-zero value, these tuples represent the tuples for which the conflict resolution method indicated that the remote change should prevail over the local change. If there was no data conflict, this will be true for all tuples passed from the CDM service.
+  * if so, apply the conflict resolution method identified by ``cdm::SelectedConflictResolutionMethod`` to resolve the conflicts. This will lead to a *sub-collection* of the original tuples in the *delta-in-revision* identifiers still having a non-zero value, these tuples represent the tuples for which the conflict resolution method indicated that the remote change should prevail over the local change. If there was no data conflict, this will be true for all tuples passed from the CDM service.
 * Finally, set all actual values to the value stored in the *delta-in* identifiers for all tuples for which the *delta-in-revision* identifier holds a non-zero value. 
 
 As a result, the actual identifiers will still hold the local changes for all tuples where the conflict resolution method selected decided to let the local changes prevail over the remote changes.
