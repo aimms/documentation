@@ -26,7 +26,7 @@ Since the Combination Chart widget offers more flexibility and options than the 
 3. Click on 'combinationchart';
 4. This will bring up a dialog that tells you what is about to happen. Click on 'Continue'.
 
-After these steps, your existing widget will have been replaced by a Combination Chart widget, complete with all the options from the existing widget that could be converted. The Combination Chart widget is present at the original position of the existing widget, with a numerical suffix in its name, because two widgets with the same name are not possible. 
+After these steps, your existing widget will have been replaced by a Combination Chart widget, complete with all the options from the existing widget that could be converted. Currently, only a non-binary display domain cannot be converted yet. The Combination Chart widget is present at the original position of the existing widget, with a numerical suffix in its name, because two widgets with the same name are not possible. 
 
 As not all options have an equivalent in the Combination Chart, we have made sure that you have not lost your old widget. It is still present, with its original name, in the 'Unassigned widgets' area of your WebUI page. If you need to compare both, you can simply drag it onto an active area on your page to do so. If you are sure that the new widget is fully OK, you can delete the original one.
 
