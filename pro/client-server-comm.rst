@@ -13,7 +13,7 @@ AIMMS PRO allows two sessions to communicate in a bidirectional, asynchronous wa
 One or Multiple Peers
 ^^^^^^^^^^^^^^^^^^^^^
 
-You can use :token:`pro::DelegateToPeer` in procedures for which you want to delegate the execution to another session in exactly the same manner as :token:`pro::DelegateToServer`, where the requestQueue must be a queue to which you know the peer session is listening. If multiple sessions are listening to this queue, each of these sessions will execute the delegated procedure call.
+You can use :token:`pro::DelegateToPeer` in procedures for which you want to delegate the execution to another session in exactly the same manner as :token:`pro::DelegateToServer`, where the ``requestQueue`` must be a queue to which you know the peer session is listening. If multiple sessions are listening to this queue, each of these sessions will execute the delegated procedure call.
 
 Specializations
 ^^^^^^^^^^^^^^^
@@ -64,7 +64,7 @@ You can explicitly wait for incoming procedure calls, through the procedure
 
     pro::messaging::WaitForHandledMessages(queueID,flags,timeOut)
     
-This procedure will wait for a given *timeOut* time for messages that are sent to the specific *queueID* and with the indicated *flags* set. Any messages that satisfy the given criteria will be handled before the procedure returns, that is, delegated procedure calls encoded in the message will be executed. The procedure will return the number of handled messages, or 0 if no messages satisfying the given criteria arrived within the given *timeOut*. If you do not specify a *queueID*, the procedure will listen on all queues. If you do not specify *flags*, the procedure will handle all incoming messages.
+This procedure will wait for a given ``timeOut`` time for messages that are sent to the specific ``queueID`` and with the indicated *flags* set. Any messages that satisfy the given criteria will be handled before the procedure returns, that is, delegated procedure calls encoded in the message will be executed. The procedure will return the number of handled messages, or 0 if no messages satisfying the given criteria arrived within the given ``timeOut``. If you do not specify a ``queueID``, the procedure will listen on all queues. If you do not specify *flags*, the procedure will handle all incoming messages.
 
 Synchronous Workflows
 ^^^^^^^^^^^^^^^^^^^^^

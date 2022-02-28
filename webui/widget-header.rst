@@ -43,9 +43,9 @@ This option allows users to save a snapshot of the widget to their disk.
 
 Download Image is available for `Table <table-widget.html>`_, `Map <map-widget.html>`_, `Bar Chart <bar-chart-widget.html>`_, `Line Chart <line-chart-widget.html>`_, `Bar-Line Chart <bar-line-chart-widget.html>`_, `Gantt Chart <gantt-chart-widget.html>`_, `Bubble Chart <bubble-chart-widget.html>`_, `Pie Chart <pie-chart-widget.html>`_, `TreeMap <tree-map-widget.html>`_, and also for the Full Page.
 
-In order to save an image for the full page which is currently active you neeed to click the |download-image| in the Application Menu Bar.
+In order to save an image for the full page which is currently active you need to click the |download-image| in the Application Menu Bar.
 
-When downloading the image, the widget title is taken as the filename. In the case that no title is specified for the widget, then the filename is the chart type (eg. barchart.png).
+When downloading the image, the widget title is taken as the filename. In the case that no title is specified for the widget, then the filename is the chart type (example barchart.png).
 
 This option is also available when the widget is toggled to the full-screen mode.
 

@@ -22,7 +22,7 @@ This will open a screen in which you can select and install available libraries.
    :scale: 50
    :align: center
 
-If you are replacing an existing version of the library you will be asked for confirmation. If any co-dependent libraries are necessary, these will automatically be installed. Always try to keep your libraries up to date by regularly checking if newer versions are available.
+If you are replacing an existing version of the library you will be asked for confirmation. If any codependent libraries are necessary, these will automatically be installed. Always try to keep your libraries up to date by regularly checking if newer versions are available.
 
 After clicking 'Ok' for confirmation you will get a notification that all currently opened pages, cases and/or editors will be closed.
 

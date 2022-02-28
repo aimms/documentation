@@ -22,7 +22,7 @@ To successfully run the script, you should have the following software installed
 * Python requests module installed (install via :token:`pip install requests`)
 * 7-zip (Windows only, installed in :token:`C:\\Program Files\\7-zip\\7z.exe`
 
-Example - we practise what we preach
+Example - we practice what we preach
 =======================================
 
 When checking in a new version of the AIMMS Unit Test library into our internal *Gitlab* repository, a build script will automatically be run to

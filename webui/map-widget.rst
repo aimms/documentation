@@ -8,7 +8,7 @@ Map Widget
 .. |widgetactionicon| image:: images/Icon_WidgetActions.png
 .. |advicon| image:: images/Icon_Advanced.png
 
-.. important:: This section applies to the new style Map widget, i.e. the map widget available in software versions from AIMMS 4.73 onwards. Most of this section also applies to the map widget available in software versions from AIMMS 4.61 upto 4.72. Maximum Relative Size, Icons for Nodes, Store Focus with hover and select for arcs, Heatmap and Custom HTML Tooltips for nodes and arcs are available only from version 4.73 onwards.    
+.. important:: This section applies to the new style Map widget, i.e. the map widget available in software versions from AIMMS 4.73 onwards. Most of this section also applies to the map widget available in software versions from AIMMS 4.61 up to 4.72. Maximum Relative Size, Icons for Nodes, Store Focus with hover and select for arcs, Heatmap and Custom HTML Tooltips for nodes and arcs are available only from version 4.73 onwards.    
 
 The Map widget allows you to display a map in the background and show a network with nodes and arcs on top of the map.
 A simple situation is for example when a transport identifier indexed over factories f and centers c in the TransNet application 
@@ -155,7 +155,7 @@ This also allows you to relatively size nodes from different node sets with the 
 Icons for nodes
 ^^^^^^^^^^^^^^^
 
-You can add icons within nodes to represent a node set, eg: Factories or Centers. To configure icons for a node set, create a string parameter that is indexed by the index of the respective node set. Define an icon name that you selected from the list of icons available, as illustrated below.   
+You can add icons within nodes to represent a node set, e.g., Factories or Centers. To configure icons for a node set, create a string parameter that is indexed by the index of the respective node set. Define an icon name that you selected from the list of icons available, as illustrated below.   
 
 .. image:: images/MapV3_FactoryIcon.png
     :align: center
@@ -180,9 +180,9 @@ To view icons you might have to also configure the Size identifier. The icons ar
 Custom Tooltips and Annotations for nodes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When a user hovers over a node a tooltip displays the name of the node. It is also possible to override the defalut tooltips for these node by adding the :token:`webui::TooltipIdentifier` annotation attribute to the identifier that was specified as the "Size" for the respective node set. You can find further details in `Tooltips for nodes section <map-widget.html#tooltips-for-nodes>`__ on this page.
+When a user hovers over a node a tooltip displays the name of the node. It is also possible to override the default tooltips for these node by adding the :token:`webui::TooltipIdentifier` annotation attribute to the identifier that was specified as the "Size" for the respective node set. You can find further details in `Tooltips for nodes section <map-widget.html#tooltips-for-nodes>`__ on this page.
 
-It is also possible to add user-annotations in your AIMMS model which will be used to style the corresponding node styles with CSS. This can be achieved by adding the :token:`webui::AnnotationsIdentifier` annotation attribute to either the Set that the nodes are indexed over or the Size identifier. We suggest adding the :token:`webui::AnnotationsIdentifier` annotation attribute to the Size identifier, and if the size is not speficied to add it to the Set. You can find more details with the supported CSS properties in the `CSS properties supported for annotations section <css-styling.html#widgets-and-css-properties-supported-for-annotations>`_.
+It is also possible to add user-annotations in your AIMMS model which will be used to style the corresponding node styles with CSS. This can be achieved by adding the :token:`webui::AnnotationsIdentifier` annotation attribute to either the Set that the nodes are indexed over or the Size identifier. We suggest adding the :token:`webui::AnnotationsIdentifier` annotation attribute to the Size identifier, and if the size is not specified to add it to the Set. You can find more details with the supported CSS properties in the `CSS properties supported for annotations section <css-styling.html#widgets-and-css-properties-supported-for-annotations>`_.
 
 
 Store Focus, Hover and Select for nodes
@@ -374,7 +374,7 @@ The order of nodes sets determines which node sets should be drawn on top of oth
 Heatmap
 -------
 
-The heatmap is a type of data visualization that shows the magnitude of data as a color value on a map. This gives users an easy way to see the geographical distribution of a phenomenon. The heatmap visualizes data values on grid of lat-lon coordinates and blurs the colors in between. This means that a heatmap is more for getting an overview of how data is clustered and varies than for exact values. Heatmaps make it easy to visualize complex data in a simple manner and understand it in a glance.
+The heatmap is a type of data visualization that shows the magnitude of data as a color value on a map. This gives users an easy way to see the geographical distribution of a phenomenon. The heatmap visualizes data values on grid of latitude longitude coordinates and blurs the colors in between. This means that a heatmap is more for getting an overview of how data is clustered and varies than for exact values. Heatmaps make it easy to visualize complex data in a simple manner and understand it in a glance.
 
 .. image:: images/Heatmap_Example.png
     :align: center
@@ -433,7 +433,7 @@ Similar to how `identifiers are added to node option fields <map-widget.html#add
 .. image:: images/Heatmap_OptionsAdded.png
     :align: center
 
-A legend is also displayed inside the map widget. The legend shows the identifier name that was speficied as the Data for the heatmap as the title. It also displays the minimum value (on the left) and maximum value (on the right) of the data set and how the gradient is spread betwen those values, as illustrated in the above example.
+A legend is also displayed inside the map widget. The legend shows the identifier name that was specified as the Data for the heatmap as the title. It also displays the minimum value (on the left) and maximum value (on the right) of the data set and how the gradient is spread between those values, as illustrated in the above example.
 
 You can configure only one heatmap for a map widget.
 

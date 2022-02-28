@@ -27,3 +27,5 @@ The following sections explain the Data Exchange library in more detail.
    api
    release
 
+.. spelling::
+    libCurl

@@ -15,3 +15,6 @@ For the time being, please refer to the supported features described in the sect
 
    column-chart-widget
 
+.. spelling::
+
+    highcharts

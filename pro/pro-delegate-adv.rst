@@ -40,7 +40,7 @@ By providing a callback procedure to the :token:`pro::DelegateToServer` function
         return 1 ;
     endif ;
 
-will save a case of the current state, send it to the server, and instruct the server to load the input case and execute the same procedure on the server. After the server is finished, a message is sent back by the server to the client, notifying the client that the server is finished. This notification triggers the AIMMS PRO library to call the procedure you provided as the completionCallback argument.
+will save a case of the current state, send it to the server, and instruct the server to load the input case and execute the same procedure on the server. After the server is finished, a message is sent back by the server to the client, notifying the client that the server is finished. This notification triggers the AIMMS PRO library to call the procedure you provided as the ``completionCallback`` argument.
 
 Predefined Callbacks
 ^^^^^^^^^^^^^^^^^^^^
@@ -83,12 +83,12 @@ By setting the ``waitForCompletion`` argument to 1, the call to :token:`pro::Del
 Using a Shared Input Case
 +++++++++++++++++++++++++
 
-By default, AIMMS PRO will save your application state prior to every request. This is a fine approach if each request operates on different input data. However, if you want to use PRO, for instance, to run a large number of scenarios all based on the same input data, saving the same application state for every scenario is unnecessary and will introduce considerable overhead in space and time to schedule and execute all requests. In such cases, you can pass a shared input case file reference to be used for all execution requests through the inputCase argument, and indicate which scenario based on this input case to execute through the arguments of the procedure call to be run within the server-side session.
+By default, AIMMS PRO will save your application state prior to every request. This is a fine approach if each request operates on different input data. However, if you want to use PRO, for instance, to run a large number of scenarios all based on the same input data, saving the same application state for every scenario is unnecessary and will introduce considerable overhead in space and time to schedule and execute all requests. In such cases, you can pass a shared input case file reference to be used for all execution requests through the ``inputCase`` argument, and indicate which scenario based on this input case to execute through the arguments of the procedure call to be run within the server-side session.
 
 Accepted Values
 ^^^^^^^^^^^^^^^
 
-The inputCase argument accepts the following values:
+The ``inputCase`` argument accepts the following values:
  
 * the URL of an existing case stored in the PRO Central Storage area.
 * the id of an input case that was created as the result of a previous call to :token:`pro::DelegateToServer`.
@@ -118,7 +118,7 @@ By specifying values > 0, you can enforce that :token:`pro::DelegateToServer` wi
 Overriding the License Profile
 ++++++++++++++++++++++++++++++
 
-Through the ``licenseName`` argument you can override the default license profile that has been associated with the published project you are running. If ``licenseName`` refers to an existing license profile, that license profile will be used by the server-side session. If licenseName does not refer to an existing license profile, the default license profile will be used.
+Through the ``licenseName`` argument you can override the default license profile that has been associated with the published project you are running. If ``licenseName`` refers to an existing license profile, that license profile will be used by the server-side session. If ``licenseName`` does not refer to an existing license profile, the default license profile will be used.
 
 .. note::
 

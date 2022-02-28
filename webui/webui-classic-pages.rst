@@ -157,7 +157,7 @@ or Start wizard/Finish wizard in case of the first/last page.
 Example
 +++++++
 
-To illustrate what a *wizard* could look like, let's look at this example: Processing your shopping cart in a webshop. After having added some items to your shopping cart, you can access your Shopping Cart wizard. By clicking on it, you'll get:
+To illustrate what a *wizard* could look like, let's look at this example: Processing your shopping cart in a web shop. After having added some items to your shopping cart, you can access your Shopping Cart wizard. By clicking on it, you'll get:
 
 * an overview of the items in your shopping cart that you can still change (start page), click 'start wizard',
 * an option to login or register as new user and provide the necessary information (page 2), click 'next',
@@ -243,4 +243,4 @@ or
     statusDescription := "OK.";
     statusCode := webui::ReturnStatusCode('OK');
 
-The statusCode value at the end of the end/cancel procedure will decide whether or not to continue. This means that in case the statusCode is *not* 200 ('OK'), the user will remain on the current page. The WebUI will display the statusDescription string to provide the user with extra information. In case the statusCode *is* 200 ('OK'), the user will continue to either the next page (in case of an end procedure) or the wizard will be canceled (in case of the cancel procedure). The statusDescription in such a case will only be displayed when it is not equal to "OK" or "". 
+The ``statusCode`` value at the end of the end/cancel procedure will decide whether or not to continue. This means that in case the ``statusCode`` is *not* 200 ('OK'), the user will remain on the current page. The WebUI will display the ``statusDescription`` string to provide the user with extra information. In case the ``statusCode`` *is* 200 ('OK'), the user will continue to either the next page (in case of an end procedure) or the wizard will be canceled (in case of the cancel procedure). The ``statusDescription`` in such a case will only be displayed when it is not equal to "OK" or "". 

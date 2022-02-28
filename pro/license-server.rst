@@ -30,12 +30,12 @@ Setting up License Profiles
 
 By default, the AIMMS PRO Server assumes that you make
 
-* the AIMMS PRO server license available using the *license profile* name “ProLicense”, and
+* the AIMMS PRO server license available using the *license profile* name ``ProLicense``, and
 * the client-side AIMMS session license(s) available using the *license profile* name “Client”, and
 * the server-side AIMMS session license(s) available using the *license profile* name “Server”.
 
 
-Please note that you can change the names of these license profiles. If you use non-default names, however, you should also change the AIMMS PRO configuration accordingly. You may want to use non-default names for the client and especially the server licenses to prevent unauthorized use of these licenses. Note that if you change the name of the server-side AIMMS session license(s), all the applications that depend on that workerProfile will stop working. Exact details on how to add and/or rename license profiles can be found in the documentation of the AIMMS Network License Server.
+Please note that you can change the names of these license profiles. If you use non-default names, however, you should also change the AIMMS PRO configuration accordingly. You may want to use non-default names for the client and especially the server licenses to prevent unauthorized use of these licenses. Note that if you change the name of the server-side AIMMS session license(s), all the applications that depend on that ``workerProfile`` will stop working. Exact details on how to add and/or rename license profiles can be found in the documentation of the AIMMS Network License Server.
 
 License Server Maintenance
 --------------------------

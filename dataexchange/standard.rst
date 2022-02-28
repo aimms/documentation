@@ -73,7 +73,7 @@ Uses of the row-based format
 
 The standard Data Exchange format discussed above is flexible enough to support a range of scenarios for integrating an AIMMS model into the wider IT landscape:
 
-* The format allows a standardized approach from calling external APIs from within an AIMMS model using the `HTTP Client library <../htppclient/index.html>`_. When calling web services to call Python or R scripts, e.g., to apply ML/AI algorithms to data passed from the model, or to retrieve results from applying ML/AI algorithms to external data retrieved from these scripts, the format can be easily read into, or generated from, Pandas in Python or dataframes in R. 
+* The format allows a standardized approach from calling external APIs from within an AIMMS model using the `HTTP Client library <../htppclient/index.html>`_. When calling web services to call Python or R scripts, e.g., to apply ML/AI algorithms to data passed from the model, or to retrieve results from applying ML/AI algorithms to external data retrieved from these scripts, the format can be easily read into, or generated from, Pandas in Python or Dataframes in R. 
 * The format would be the natural candidate to call AIMMS models through a REST API, as it can be readily generated from any environment.
 * Based on the concepts of datasets and tables, it easy to generate an application database from the model annotations, and to create a web service that allows data exchange with such an application database using the standard format.
 
@@ -90,7 +90,7 @@ To create the mapping between multi-dimensional identifiers and datasets, tables
 * :token:`dex::ExtraAttributeList`
 * :token:`dex::RowFilter`
 
-Through the :token:`dex::TableName` annotation you can indicate for multi-dimensional identifiers and/or sections of multi-dimensional identifiers, to which table they should belong. The Data Exchange library will verify that all identifiers share a common index domain, and return an error if this is not the case. You can use the :token:`dex::ColumnName` annotation to indicate a columnname for multi-dimensional identifiers and indices. If you don't specify an explicit column name, the Data Exchange library will use the identifier name as the implicit column name. Instead of using annotations, you can also directly set the column name for specific identifiers via the identifier :token:`dex::ColumnName`.
+Through the :token:`dex::TableName` annotation you can indicate for multi-dimensional identifiers and/or sections of multi-dimensional identifiers, to which table they should belong. The Data Exchange library will verify that all identifiers share a common index domain, and return an error if this is not the case. You can use the :token:`dex::ColumnName` annotation to indicate a column name for multi-dimensional identifiers and indices. If you don't specify an explicit column name, the Data Exchange library will use the identifier name as the implicit column name. Instead of using annotations, you can also directly set the column name for specific identifiers via the identifier :token:`dex::ColumnName`.
 
 Alternatively to creating table names yourself through the :token:`dex::TableName` annotation, you can also let the Data Exchange library create tables names by specifying the :token:`dex::AutoTablePrefix` annotation. For every identifier, with this annotation set, for which you didn't specify an explicit table name, the Data Exchange library will auto-generate a table name, by starting with the :token:`dex::AutoTablePrefix`, followed by all indices in the declaration of the identifier, separated by underscores. This will create tables where all identifiers with the same collection of indices will end up in the same table. All scalar identifiers will be assigned to the table :token:`dex::AutoTablePrefix` followed by :token:`_scalar`.
 
@@ -104,7 +104,7 @@ Through the :token:`dex::SuffixList` annotation you can specify the extra suffic
     
 If you do not explicitly specify column names in the semi-colon-separated list of suffices, the column names will be :token:`<identifier>.<suffix>`. 
 
-With the :token:`dex::ExtraAttributeList` annotation you can specifiy any additional mapping attributes that you want to have added to the mapping generated for a specific identifier. The value of the :token:`dex::ExtraAttributeList` annotation is a semi-colon-separated list
+With the :token:`dex::ExtraAttributeList` annotation you can specify any additional mapping attributes that you want to have added to the mapping generated for a specific identifier. The value of the :token:`dex::ExtraAttributeList` annotation is a semi-colon-separated list
 
 .. code-block::
     
@@ -112,7 +112,7 @@ With the :token:`dex::ExtraAttributeList` annotation you can specifiy any additi
 
 where :token:`<value>` is the literal text that you want assign to the annotation :token:`<annotation>`.
 
-You can use the annotation :token:`dex::RowFilter` to specify an identifier that should serve as a :token:`write-filter` attribute for the rows being generated in the mapping. The identifier should have the same indices as all identifiers in the table. The :token:`RowFilter` annotation should be the same for all identifiers in a specific table. If all identifiers in a table are contained in a single section in your model, you can best add the annation to that section, in which case all identifiers in the section will inherit it. With the row filter you can limit the number of rows being generated when writing a file using the mapping.
+You can use the annotation :token:`dex::RowFilter` to specify an identifier that should serve as a :token:`write-filter` attribute for the rows being generated in the mapping. The identifier should have the same indices as all identifiers in the table. The :token:`RowFilter` annotation should be the same for all identifiers in a specific table. If all identifiers in a table are contained in a single section in your model, you can best add the annotation to that section, in which case all identifiers in the section will inherit it. With the row filter you can limit the number of rows being generated when writing a file using the mapping.
 
 To generate all annotation-based mapping, you can call the procedure :js:func:`dex::GenerateDatasetMappings`.
 This will generate Data Exchange mappings in the subfolder :token:`Mappings/Generated` in the main project folder. The following mappings will become available for every :token:`<dataset>`  and :token:`<table>`:

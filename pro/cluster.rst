@@ -11,7 +11,7 @@ Step 1. Connecting all Nodes to the Same Database
 
 All your nodes need to be connected to the same database. This can be a database on one of the nodes (AIMMS PRO comes with a bundled PostgreSQL database) or a PostgreSQL database running on a dedicated server.
 
-Before proceeding to connect all the nodes to the database, make sure that your PostgreSQL server settings allow non-local connections. Stop your ``Aimms PRO Postgresql-x64-9.3`` Windows service, modify *pg_hba.conf* (located in "*dataDir*\\pgsql\\data\\", by default that would be "C:\\ProgramData\\AimmsPRO 2.0\\pgsql\\data\\"). The comments in the file will tell you what you need to do.
+Before proceeding to connect all the nodes to the database, make sure that your PostgreSQL server settings allow non-local connections. Stop your ``Aimms PRO Postgresql-x64-9.3`` Windows service, modify *pg_hba.conf* (located in ``*dataDir*\\pgsql\\data\\``, by default that would be ``C:\\ProgramData\\AimmsPRO 2.0\\pgsql\\data\\``). The comments in the file will tell you what you need to do.
 For example, to enable all incoming IPv4 connections (this is a security risk), add the following line in the IPv4 local connections section:
 
 .. code-block:: none
@@ -46,7 +46,7 @@ In a cluster, all AIMMS PRO nodes should be using the same ActiveMQ connection. 
 
 The simplest setup means that nodes are using single ActiveMQ server on one of the nodes. In AIMMS PRO Configurator change value of URL of the JMS broker from localhost to the proper hostname of a node that runs ActiveMQ server. If you want a failover configuration, use this `link <http://activemq.apache.org/failover-transport-reference.html>`_ to set it up.
 
-Please note that you may change port and host on which ActiveMQ server runs. Modify *dataDir*\\Config\\jms-broker.properties, change *listen.uri* value there or leave it empty if you want to turn bundled ActiveMQ off and use your own JMS server or use a server on another cluster node:
+Please note that you may change port and host on which ActiveMQ server runs. Modify ``dataDir\\Config\\jms-broker.properties``, change ``listen.uri`` value there or leave it empty if you want to turn bundled ActiveMQ off and use your own JMS server or use a server on another cluster node:
 
 .. code-block:: none
 
@@ -70,7 +70,7 @@ The formula is: 16*N + 2*S, where N is the number of nodes in the cluster, S is 
 
 You will see a warning message in the `Start/stop services <config-sections.html#start-stop-services>`_ section of the AIMMS PRO Configurator if your database server allows less connections than the number required.
 
-By default, the bundled PostgreSQL server that comes with your AIMMS PRO installation is configured to allow a maximum of 128 connections. If that is not enough, you will need to stop the ``Aimms PRO Postgresql-x64-9.3`` Windows service, modify the *postgresql.conf* file (located in "*dataDir*\\pgsql\\data\\"; by default that would be "C:\\ProgramData\\AimmsPRO 2.0\\pgsql\\data\\") and start the Windows service again. The setting you need to modify is called *max_connections*.
+By default, the bundled PostgreSQL server that comes with your AIMMS PRO installation is configured to allow a maximum of 128 connections. If that is not enough, you will need to stop the ``Aimms PRO Postgresql-x64-9.3`` Windows service, modify the *postgresql.conf* file (located in ``dataDir\\pgsql\\data\\``; by default that would be ``C:\\ProgramData\\AimmsPRO 2.0\\pgsql\\data\\``) and start the Windows service again. The setting you need to modify is called *max_connections*.
 
 
 Other prerequisites
@@ -86,5 +86,5 @@ When running in a cluster, all the servers will have a fully functional AIMMS PR
 Moving from a single node configuration
 ---------------------------------------
 
-A likely scenario is that you have used AIMMS PRO in a single node configuration and now you are switching to a multiple node configuration (cluster). If you have already published AIMMS versions and AIMMS applications, they have been stored on the local machine storage. Now that you have configured the Shared storage to be a network folder, you will need to manually move those files from the local storage folder to the network folder. This folder is located at *dataDir*\\Data\\Storage. By default, you can find this folder in *C:\\ProgramData\\AimmsPRO\\Data\\Storage.*
+A likely scenario is that you have used AIMMS PRO in a single node configuration and now you are switching to a multiple node configuration (cluster). If you have already published AIMMS versions and AIMMS applications, they have been stored on the local machine storage. Now that you have configured the Shared storage to be a network folder, you will need to manually move those files from the local storage folder to the network folder. This folder is located at ``dataDir\\Data\\Storage``. By default, you can find this folder in ``C:\\ProgramData\\AimmsPRO\\Data\\Storage``.
 

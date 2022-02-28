@@ -18,6 +18,7 @@
 #
 import os
 import sys
+import sphinx_aimms_theme
 if os.name == 'nt':
 	import ssl
 	import urllib
@@ -36,12 +37,13 @@ if os.name == 'nt':
 extensions = ['sphinx.ext.doctest',
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
-	  'sphinx.builders.linkcheck',
+    'sphinx.builders.linkcheck',
     'sphinx.ext.intersphinx',
-    'sphinx_aimms_theme']
+    'sphinx_aimms_theme',
+    'sphinxcontrib.spelling']
 
 intersphinx_mapping = {'functionreference': ('https://documentation.aimms.com/functionreference/',
-                                  (None,'objects-functionreference.inv')),
+                                  None),
                         'lr': ('https://documentation.aimms.com/language-reference/', None),
                         'howto': ('https://how-to.aimms.com/', None),
                         'ug': ('https://documentation.aimms.com/user-guide/', None),
@@ -55,10 +57,16 @@ if os.name != 'nt':
 
 # A list of regular expressions that match URIs that should not be checked when doing a linkcheck build.   
 linkcheck_ignore = [r'http://localhost:\d+/?', r'http://0\.0\.0\.0[:/]\d+/?', r'\b[\w-]+\.html', r'\.\..+\.html#?\w*', 
-r'_downloads/\w+\.pdf', r'http://your-server-name:\d+', r'http://example.com/?.*', r'https://yourproportal/?.*',r'https://your.*', r'https://icomoon.io/#preview-ultimate']
+r'_downloads/\w+\.pdf', r'http://your-server-name:\d+', r'http://example.com/?.*', r'https://yourproportal/?.*',r'https://your.*', r'https://icomoon.io/#preview-ultimate', r'https://cloud-name\.aimms\.cloud', r'https://cloud-name\.cloud\.aimms\.com']
     
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
+
+# Getting the spelling word list from the sphinx-aimms-theme
+spelling_word_list_filename = [os.path.join(os.path.dirname(sphinx_aimms_theme.__file__),"spelling_wordlist.txt"),"spelling_wordlist.txt"]
+
+# Getting spelling filters from sphinxcontrib.spelling extension and the sphinx-aimms-theme
+spelling_filters = ['enchant.tokenize.URLFilter','sphinx_aimms_theme.AIMMSspellingFilters.ProperNounsFilter']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -257,4 +265,6 @@ texinfo_documents = [
 
 
 highlight_language = 'aimms'
+
+spelling_lang='en_US'
 

@@ -11,7 +11,7 @@ In order to enable SAML authentication, you need to configure few things,
 AIMMS PRO Configuration
 -----------------------
 
-Setting up the link is straightforward: Click on the 'Link to SAML' 2nd icon on the right side of the environment box in the users tab of the AIMMS PRO Portal. This will open a dialog in which you must specify the SAML metadata URL. For example, ``https://saml.adfs/federationmetadata/2007-06/federationmetadata.xml``. Leave the URL blank to remove the association.
+Setting up the link is straightforward: Click on the 'Link to SAML' 2\ :sup:`nd`\  icon on the right side of the environment box in the users tab of the AIMMS PRO Portal. This will open a dialog in which you must specify the SAML metadata URL. For example, ``https://saml.adfs/federationmetadata/2007-06/federationmetadata.xml``. Leave the URL blank to remove the association.
 
 .. warning:: Please make sure that the server serving the SAML metadata sends its certificate chain along with its actual SSL certificate. Failure to do so, may result in a failed retrieval of the metadata, which in its turn will result in single-sign-on via SAML to fail.
 

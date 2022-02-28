@@ -107,7 +107,7 @@ A new declaration has been added to the AimmsWebUI library called Public Page an
 This set has the following elements representing side panels properties: 
 
 #.  ``displayText``: Is the text/label you would like the side panel tab to have. This is an optional field. If left empty, no text will be displayed on the tab.
-#.  ``pageId``: When a page or side panel is created it is has a unique pageId.  You can find all the side panel pageIds in the set AllSidePanelPages. This is a required field.
+#.  ``pageId``: When a page or side panel is created it is has a unique page Id.  You can find all the side panel page Ids in the set AllSidePanelPages. This is a required field.
 
 	.. image:: images/Allsidepanelpagesdata.png
 			:align: center
@@ -117,7 +117,7 @@ This set has the following elements representing side panels properties:
 			
 #. ``tooltip``: The text here would be displayed when the user hovers over that respective side panel tab. This is an optional field and if left empty, no tooltip is displayed.
 #. ``icon``: The icon you want to display on the side panel tab. You can select from a list of 1600+ icons, the reference can be found in the `icon list <../_static/aimms-icons/icons-reference.html>`_. `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required. This is an optional field and if left empty, no icon will be displayed.
-#. ``iconcolor``: The color you want to display for the icon configured, eg: Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes eg: #FF0000 for Red. This is an optional field; if left empty, the icon will be blue when the tab is collapsed. The icon color changes to white when the side panel tab is expanded since the tab's color becomes blue and most of the other colors blend in making it difficult to view the icon.
+#. ``iconcolor``: The color you want to display for the icon configured, e.g., Blue, Red, etc. Browsers support around `140 color names <https://www.w3schools.com/colors/colors_names.asp>`_. This is an optional field. You can also use Hex codes e.g., #FF0000 for Red. This is an optional field; if left empty, the icon will be blue when the tab is collapsed. The icon color changes to white when the side panel tab is expanded since the tab's color becomes blue and most of the other colors blend in making it difficult to view the icon.
 #. ``state``: The state determines the visibility of the side panel tab, i.e ``Active`` (displayed and clickable) and ``Hidden`` (not displayed). This is an optional field, but we suggest you specify one of the values. However, if not specified the default is considered as ``Active``.
 
 .. note:: 
@@ -165,7 +165,7 @@ In the above data we have not defined values for the color of the icon for the F
 .. note:: 
 
 	* Side panels appear in the same order from top to bottom as they appear in the data of the string parameter.
-	* If you enter an incorrect pageId, then the corresponding side panel tab will not be shown.
+	* If you enter an incorrect ``pageId``, then the corresponding side panel tab will not be shown.
 	* When a side panel tab is open in the WebUI and if the ``displayText``, ``tooltip``, ``icon``, or ``iconcolor`` are changed/updated the side panel does not collapse in the WebUI. Only when the ``pageId`` or ``state`` are changed/updated an open side panel will collapse.
 	
 Configuring the string parameter on respective pages

@@ -18,18 +18,22 @@ Build Locally the HTML documentation
 **Requirements:**
  - [Python 3.X](https://www.python.org/downloads/)
  - [Sphinx package](http://www.sphinx-doc.org/en/master/) (run `python3 -m pip install sphinx`)
+ - [Sphinx Spelling package](https://sphinxcontrib-spelling.readthedocs.io/en/latest/) (run `python3 -m pip install sphinxcontrib.spelling`)
  - [Sphinx AIMMS theme](https://gitlab.com/ArthurdHerbemont/sphinx-aimms-theme) (run `python3 -m pip install sphinx-aimms-theme`)
  - [AIMMS code blocks for PDF](https://gitlab.com/ArthurdHerbemont/aimms-pygments-style) (run `python3 -m pip install aimms-pygments-style`) 
+ 
+Depending on previous installations of python, the above command may be `py` or `python`, instead of `python3`.
 
 After installing all the above requirements, please go to the location of your previously cloned documentation folder:
- * Open a console prompt from this location, using ``ATL+D`` and typing ``cmd`` in the URL of your file explorer (awesome)
- * run ``make html`` (the first time, this may take some time, like 20 secs. progress is shown in your console)
+ * Open a console prompt from this location, using ``ATL+D`` and typing ``cmd`` in the URL of your file explorer (Windows)
+ * run ``make html`` (the first time, it may take some time, around 20 secs. progress is shown in your console)
  > 💡 You may also run `python3 -msphinx . _build/html` (to be sure to use a specific python version). [More docs](https://www.sphinx-doc.org/en/master/man/sphinx-build.html)
 
 <details>
 <summary>
 <b>Click me to show more info on console output 👇</b>
-</summary>) 
+</summary>
+
 
 * As you may see at the bottom of the wonderfully colored prompt, **your html pages are in `_build\html` folder**, located in the current working directory (the same as always). You may check the build by opening any of those.
 * The red text are warnings (any error would actually break the building process, as in AIMMS): **Those warnings should be avoided**. Most of the time, this is due to a misuse of sphinx. You may correct them yourself, because your are awesome. Or let them be because your don't understand them. In any case, through your development please mind that **you should avoid to create any new warnings** (ask around if you don't understand)
@@ -44,6 +48,27 @@ After installing all the above requirements, please go to the location of your p
 
 > **⚠️3:** If any warning is raised on gitlab, **the pipeline fails**
 
+Run spell checking locally
+--------------------------------------
+
+After installing all the above requirements, please go to the location of your previously cloned documentation folder:
+ * Open a console prompt from this location, using ``ATL+D`` and typing ``cmd`` in the URL of your file explorer (Windows)
+ * run `python3 -msphinx -b spelling . _build/spelling` (depending on you python this could be just `py` or `python` instead of `python3`; the first time, it may take some time, around 20 secs. progress is shown in your console).
+
+<details>
+<summary>
+<b>Click me to show more info on console output 👇</b>
+</summary>
+
+* The console will log information on processing the spell checks. If any errors were encountered, you will find the `WARNING: Found X misspelled words` line at the end of the log (where X is the number of errors encountered).
+* Scroll through the console until you find a line similar to `[..]\aimms-how-to\Articles\12\12-generate-random-numbers.rst:10: Spell check: disribution:  [..] disribution [..]`
+* This identifies the files with errors (in the example above 12-generate-random-numbers.rst), the line with the error (in the example above line 10) and the spell error (in the example above disribution)
+* Sphinx will also create files with information on the spelling errors in the _build/spelling folder. Each failed rst file will have a corresponding spelling file.
+* Be aware that CI/CD will only allow deploy if the spelling presents no errors/warnings.
+* For reasons unkown, the spellcheck in gitlab (Linux environment) and on your local environment (probably Windwos) differs. In this case, you could get a clean check locally but not in the deploy process.
+
+</details>
+
 
 The Pipeline
 -
@@ -55,8 +80,8 @@ Every push to gitlab remote will run a pipeline. This pipeline first "Test" stag
 | job name | description | condition |
 | ------ | ------ | ----- |
 | ``build`` | builds the docs using the latest sphinx version | ❌ If any warning is raised, the job and pipeline fails |
-| ``linkcheck`` | checks every external link **and** anchor | ❌ If any link **or** anchor is broken, the job and pipeline fails |
-| ``spellcheck`` | checks the spelling of every word | ⚠️ If any spelling is broken, the job fails, but this job is **allowed to fail** |
+| ``linkcheck`` | checks every external link **and** anchor | ⚠️ If any link **or** anchor is broken, the job fails, but this job is **allowed to fail** |
+| ``spellcheck`` | checks the spelling of every word |  ❌ If any spelling is broken the job and pipeline fails |
 
 <details>
 <summary>
@@ -86,9 +111,23 @@ Every push to gitlab remote will run a pipeline. This pipeline first "Test" stag
 ```
 </details>
 
-**If ``spellcheck`` fails, what should I do ?**
+<details>
+<summary>
+<b>If <code>spellcheck</code> fails on gitlab, what should I do ? 👇</b>
+</summary>
 
-- Don't bother ☺️
+1. look at the error/warning in the pipeline
+   1. fix your spelling errors
+1. upgrade your sphinx version, sphinx spelling and sphinx-aimms-theme version (`python -mpip --upgrade sphinx sphinxcontrib.spelling sphinx-aimms-theme`)
+1. If there is a word you want to **ignore**, include the following directive in your article
+
+```
+.. spelling::
+
+    word1
+	word2
+```
+</details>
 
 **When pushing to the master branch**
 

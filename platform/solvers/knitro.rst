@@ -4,7 +4,7 @@ The Free Academic License does not contain a Knitro license. A special academic 
 
 Knitro Solver for (Mixed Integer) Nonlinear Programming
 ----------------------------------------------------------
-Knitro from Artelys is a solver for :doc:`Nonlinear Programming (NLP) <../math-program/nonlinear-programming>` problems, including problems with complementarity constraints (MPCC, MCP), equality and inequality constraints (both convex and nonconvex), and bound constraints. Special handling is provided for LPs, QPs, systems of nonlinear equations, and nonlinear least squares problems. Knitro can also be used to solve :doc:`Mixed Integer Nonlinear Programming (MINLP) <../math-program/mixed-integer-nonlinear-programming>` problems.
+Knitro from Artelys is a solver for :doc:`Nonlinear Programming (NLP) <../math-program/nonlinear-programming>` problems, including problems with complementarity constraints (MPCC, MCP), equality and inequality constraints (both convex and non-convex), and bound constraints. Special handling is provided for LPs, QPs, systems of nonlinear equations, and nonlinear least squares problems. Knitro can also be used to solve :doc:`Mixed Integer Nonlinear Programming (MINLP) <../math-program/mixed-integer-nonlinear-programming>` problems.
 
 Nonlinear Programming
 ^^^^^^^^^^^^^^^^^^^^^^^

@@ -5,6 +5,12 @@ The first public release of DataLink was version 1.0.0.106, release date January
 
 New Features and Bug Fixes
 --------------------------
+1.1.1.43 [21-02-2022]
+    - Fix error message crash when string is too long
+
+1.1.1.40 [29-09-2021]
+    - Fix double rows issue
+
 1.1.1.27 [26-01-2021]
     - Fix empty parameter crash issue
 

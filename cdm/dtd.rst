@@ -3,7 +3,7 @@ Day-to-day CDM operations
 
 While the previous chapter focused on adding support for CDM in your model, and adapting your model to using CDM, we will now focus on all aspects of the day-to-day use of a CDM-enabled application by the end-users of your model. 
 
-Most CDM functionality is implemented in a white-box implementation in the section :token:`Branch and Revision Overview Support` of the :token:`AimmsCDM` library, with some low-level functionality like determining and dealing with individual differences of identifiers at the tuple level, as well as all interaction with CDM service implemented through external functions in the CDM DLL. This approach allows you to inspect most of the inner workings of CDM, and, together with inspecting the `log files <config.html#logging-cdm-actions>`_ produced by CDM, will help analyze any problems there may with your CDM setup.
+Most CDM functionality is implemented in a white-box implementation in the section ``Branch and Revision Overview Support`` of the ``AimmsCDM`` library, with some low-level functionality like determining and dealing with individual differences of identifiers at the tuple level, as well as all interaction with CDM service implemented through external functions in the CDM DLL. This approach allows you to inspect most of the inner workings of CDM, and, together with inspecting the `log files <config.html#logging-cdm-actions>`_ produced by CDM, will help analyze any problems there may with your CDM setup.
 
 General concepts
 ================
@@ -13,17 +13,17 @@ Before diving in deeper into day-to-day operations you will need to learn some m
 Branches and revisions
 ----------------------
 
-All data in a CDM data repository is organized in one or more *branches*. When a new CDM application database is created, it will start with two standard branches, the :token:`system` branch and the :token:`master` branch. 
+All data in a CDM data repository is organized in one or more *branches*. When a new CDM application database is created, it will start with two standard branches, the ``system`` branch and the ``master`` branch. 
 
-The :token:`system` branch is not used to record any data changes, but solely to record administrative events as discussed `here <auth.html#the-system-branch>`_. 
+The ``system`` branch is not used to record any data changes, but solely to record administrative events as discussed `here <auth.html#the-system-branch>`_. 
 
-The :token:`master` branch is the initial branch used to store data changes to the data of identifiers in any CDM category of the application at hand. Any commit to a branch will lead to the creation of a new *revision* on that branch, based on a parent revision. The parent revision represents the state of the application data just prior to the changes being made to the application's data, that were committed to constitute the new revision. The CDM library will always maintain the state of the application data corresponding to a given revision in the CDM data repository, and thus is able to determine the individual changes of all identifiers in a particular CDM category compared to the state of that revision, and commit the collective of all individual changes to the CDM data repository as a new revision, with the given revision as its parent.
+The ``master`` branch is the initial branch used to store data changes to the data of identifiers in any CDM category of the application at hand. Any commit to a branch will lead to the creation of a new *revision* on that branch, based on a parent revision. The parent revision represents the state of the application data just prior to the changes being made to the application's data, that were committed to constitute the new revision. The CDM library will always maintain the state of the application data corresponding to a given revision in the CDM data repository, and thus is able to determine the individual changes of all identifiers in a particular CDM category compared to the state of that revision, and commit the collective of all individual changes to the CDM data repository as a new revision, with the given revision as its parent.
 
 When checking out the data for a CDM category from a given branch in the CDM data repository, the CDM service will collect the latest values for all changes committed to all revisions on that branch for all stored tuples of every identifier in the category, and pass the collective of these latest stored values on to the client requesting the checkout, allowing the client to restore the exact application state at the latest revision on the given branch.
 
-The initial revision on the :token:`master` branch represents the *empty* state, i.e. the state where no application data whatsoever has been stored yet. New branches can be created based on any revision in the data repository. The initial state of any branch equals the state of the revision on which it is based.
+The initial revision on the ``master`` branch represents the *empty* state, i.e. the state where no application data whatsoever has been stored yet. New branches can be created based on any revision in the data repository. The initial state of any branch equals the state of the revision on which it is based.
 
-All branches created in the CDM data repository, as well as the revisions on all branches, can be inspected visually on the :token:`Branch and Revision Overview` page of the CDM library, as shown below. From this page, one can also execute the most common version control operations via the context menus of the Category and Revision lists.
+All branches created in the CDM data repository, as well as the revisions on all branches, can be inspected visually on the ``Branch and Revision Overview`` page of the CDM library, as shown below. From this page, one can also execute the most common version control operations via the context menus of the Category and Revision lists.
 
 .. image:: images/revisions.png
     :align: center
@@ -36,17 +36,17 @@ For day-to-day use the CDM library provides two APIs.
 High-level API
 ++++++++++++++
 
-The high-level API is used through right-mouse menus from within the :token:`Branch and Revision Overview` page in the CDM library to perform the most common version control actions on the data in your model. 
+The high-level API is used through right-mouse menus from within the ``Branch and Revision Overview`` page in the CDM library to perform the most common version control actions on the data in your model. 
 
 .. image:: images/revisions.png
     :align: center
 
 This high-level API is data driven, i.e. it operates on application databases, categories, branches and revisions set through the element parameters 
 
-* :token:`cdm::SelectedDB`
-* :token:`cdm::SelectedCategory`
-* :token:`cdm::SelectedBranch`
-* :token:`cdm::SelectedRevision`
+* ``cdm::SelectedDB``
+* ``cdm::SelectedCategory``
+* ``cdm::SelectedBranch``
+* ``cdm::SelectedRevision``
 
 The functions in the high-level API use the low-level API to combine various version control actions to implement their requested actions. If the high-level behavior is what you are looking for, you can use this API within your own code as well, by setting the above element parameters as appropriate and calling the high-level functions. 
 
@@ -63,7 +63,7 @@ Whichever API you use, make sure to check the return values of the CDM methods y
 Low-level API error handling
 ++++++++++++++++++++++++++++
 
-The low-level API functions, will all return 1 if successful, or 0 otherwise. If you use the low-level API functions, you have to carefully check the return codes, and take appropriate action when a call fails. When a low-level API functions fails, it will call the procedure :token:`cdm::SetError`, which registers all occurring errors and their stack locations in the :token:`cdm::ErrorMessage` and :token:`cdm::StackProcedure` parameters, which can be checked programmatically, or viewed from the :token:`List of Errors` page in the CDM library.  
+The low-level API functions, will all return 1 if successful, or 0 otherwise. If you use the low-level API functions, you have to carefully check the return codes, and take appropriate action when a call fails. When a low-level API functions fails, it will call the procedure ``cdm::SetError``, which registers all occurring errors and their stack locations in the ``cdm::ErrorMessage`` and ``cdm::StackProcedure`` parameters, which can be checked programmatically, or viewed from the ``List of Errors`` page in the CDM library.  
 
 .. image:: images/listoferrors.png
     :align: center
@@ -73,14 +73,14 @@ When checking the return code, you can also use these messages to report the err
 On-error hooks
 ++++++++++++++
 
-In addition, :token:`cdm::SetError` will call the procedure pointed to by the element parameter :token:`cdm::OnErrorProcedureHook`. By default it calls the empty procedure :token:`cdm::EmptyErrorProcedureHook`, which you can replace by your own implementation. You can use such a hook to report errors back to the user, or, for instance, to automatically raise an error, that you can catch in an :token:`onerror` block in your own procedures that call low- or high-level API, if you happen to like an exception-based error handling approach. 
+In addition, ``cdm::SetError`` will call the procedure pointed to by the element parameter ``cdm::OnErrorProcedureHook``. By default it calls the empty procedure ``cdm::EmptyErrorProcedureHook``, which you can replace by your own implementation. You can use such a hook to report errors back to the user, or, for instance, to automatically raise an error, that you can catch in an ``onerror`` block in your own procedures that call low- or high-level API, if you happen to like an exception-based error handling approach. 
 
 If you do not provide an on-error hook yourself, you should still check the return values returned by the low- or high-level API methods.
 
 High-level API error handling
 +++++++++++++++++++++++++++++
 
-The high-level API will check the low-level API error codes, and return on failure. If you have set a :token:`cdm::OnErrorProcedureHook` that raises an error when called, you can catch the errors that occur both during low- and high-level API methods from within an on-error block in your code or through the global AIMMS error handler. In all other cases, you should carefully check the return values of the high-level API methods.
+The high-level API will check the low-level API error codes, and return on failure. If you have set a ``cdm::OnErrorProcedureHook`` that raises an error when called, you can catch the errors that occur both during low- and high-level API methods from within an on-error block in your code or through the global AIMMS error handler. In all other cases, you should carefully check the return values of the high-level API methods.
 
 Basic actions
 =============
@@ -92,10 +92,10 @@ Checking out data
 
 By checking out data you are replacing the current contents of the CDM-controlled identifiers in your model by a data snapshot represented by a particular revision in a given branch. By checking out a snapshot, all local changes to the data of the identifiers of the category you are checking out will get lost. There are several flavors of checking out data:
 
-* The high-level API function :token:`cdm::CheckoutCategoriesSelectedBranch` will checkout *all* categories to the latest revision of the branch pointed to by :token:`cdm::SelectedBranch`
-* The high-level API function :token:`cdm::CheckoutCategoriesSelectedRevision` will checkout *all* categories to the revision pointed to by :token:`cdm::SelectedRevision` on :token:`cdm::SelectedBranch`
-* The high-level API function :token:`cdm::CheckoutSelectedCategory` will only checkout the category pointed to by :token:`cdm::SelectedCategory` to the latest revision of :token:`cdm::SelectedBranch`.
-* The low-level API function :token:`cdm::CheckoutSnapshot` will checkout the specified category, branch and revision. Through the optional arguments :token:`labelsOnly` and :token:`skipInactive` you can indicate whether you only want to retrieve the `label translation <impl.html#cdm-element-spaces>`_ for all relevant element spaces, or that you also want to retrieve `inactive data <impl.html#dealing-with-inactive-data>`_.
+* The high-level API function ``cdm::CheckoutCategoriesSelectedBranch`` will checkout *all* categories to the latest revision of the branch pointed to by ``cdm::SelectedBranch``
+* The high-level API function ``cdm::CheckoutCategoriesSelectedRevision`` will checkout *all* categories to the revision pointed to by ``cdm::SelectedRevision`` on ``cdm::SelectedBranch``
+* The high-level API function ``cdm::CheckoutSelectedCategory`` will only checkout the category pointed to by ``cdm::SelectedCategory`` to the latest revision of ``cdm::SelectedBranch``.
+* The low-level API function ``cdm::CheckoutSnapshot`` will checkout the specified category, branch and revision. Through the optional arguments ``labelsOnly`` and ``skipInactive`` you can indicate whether you only want to retrieve the `label translation <impl.html#cdm-element-spaces>`_ for all relevant element spaces, or that you also want to retrieve `inactive data <impl.html#dealing-with-inactive-data>`_.
 
 For long-lived repositories with a long history, you may want to consider using the `retire <dtd.html#retiring-intermediate-branch-data>`_ and `snapshot <dtd.html#checkout-snapshots>`_ functionality provided by CDM to speed-up the checkout times. You can either completely retire old data on branches in your database, or store checkout snapshots in the database, which will be automatically updated to always allow users to quickly retrieve a recent snapshot updated with a pull request for the remaining commits on the specified branch of the given category.
 
@@ -104,9 +104,9 @@ Committing data
 
 When some data in your app has changed compared to the state of the latest stored revision on the current branch, you can commit the local changes to the CDM database.
 
-The high-level procedure :token:`cdm::CommitSelectedCategory` performs the commit on the current branch of the category pointed to by :token:`cdm::SelectedCategory`, and subsequently updates all other categories on the same branch to the committed revision. This will make sure that further commits to such categories will not fail because of being out-of-date compared to the latest branch of the selected category you just committed to.
+The high-level procedure ``cdm::CommitSelectedCategory`` performs the commit on the current branch of the category pointed to by ``cdm::SelectedCategory``, and subsequently updates all other categories on the same branch to the committed revision. This will make sure that further commits to such categories will not fail because of being out-of-date compared to the latest branch of the selected category you just committed to.
 
-The low-level method to commit data is :js:func:`cdm::CommitChanges` which will only commit the changes for the selected category provided to through the provided procedure argument.
+The low-level method to commit data is :any:`cdm::CommitChanges` which will only commit the changes for the selected category provided to through the provided procedure argument.
 
 Being up-to-date
 ++++++++++++++++
@@ -118,7 +118,7 @@ Specifying a commit comment
 
 With version control, it is a common practice to specify a *commit comment* in which you can describe, to some extent, which changes you made why in this commit. Along with the commit *author* and *date* , both of which are already added by the CDM library, this will allow you to inspect the list of changes made by multiple users of your application later on, and where necessary `revert <dtd.html#reverting-changes>`_ or `re-apply <dtd.html#cherry-picking-changes>`_ change sets from the list.
 
-The default way to specify a commit comment is through the string parameter :token:`cdm::CommitComment`, or at a lower-level by specifying a custom :token:`commitInfoProcedure` callback function to the low-level API function :token:`cdm::CommitChanges`
+The default way to specify a commit comment is through the string parameter ``cdm::CommitComment``, or at a lower-level by specifying a custom ``commitInfoProcedure`` callback function to the low-level API function ``cdm::CommitChanges``
 
 Pulling changes
 ---------------
@@ -129,9 +129,9 @@ When you have made local changes to the identifier data of a category, pulling i
 
 To pull changes the following functions are available:
 
-* the high-level API function :token:`cdm::PullCategoriesSelectedBranch` pulls in changes for all categories that are on the branch pointed to by :token:`cdm::SelectedBranch`, to bring them to the latest revision of that branch.
-* the high-level API function :token:`cdm::PullSelectedCategory` pulls in changes for the category pointed to by :token:`cdm::SelectedCategory`.
-* the low-level API function :js:func:`cdm::PullChanges` pulls in changes for the given category, to bring them to the latest revision of the current branch of that category. The output argument :token:`resolved` indicates whether there are any unresolved conflicts after pulling in changes.
+* the high-level API function ``cdm::PullCategoriesSelectedBranch`` pulls in changes for all categories that are on the branch pointed to by ``cdm::SelectedBranch``, to bring them to the latest revision of that branch.
+* the high-level API function ``cdm::PullSelectedCategory`` pulls in changes for the category pointed to by ``cdm::SelectedCategory``.
+* the low-level API function :any:`cdm::PullChanges` pulls in changes for the given category, to bring them to the latest revision of the current branch of that category. The output argument ``resolved`` indicates whether there are any unresolved conflicts after pulling in changes.
 
 Corrective actions
 ==================
@@ -141,20 +141,20 @@ This section discusses how you can undo changes, or selectively (re-)apply chang
 Rolling back changes
 --------------------
 
-As long as you do not have yet committed the local changes you have made to the identifier data of a CDM category, you can undo such changes by *rolling back* all identifier data to the state of the revision of the branch that you have currently checked out. As AIMMS will have this state stored in `shadow identifiers <impl.html#shadow-identifiers>`_ in the :token:`CDMRuntime` library, rolling back is just a local action, i.e., it does not require the CDM library to connect to the CDM service to perform the rollback.
+As long as you do not have yet committed the local changes you have made to the identifier data of a CDM category, you can undo such changes by *rolling back* all identifier data to the state of the revision of the branch that you have currently checked out. As AIMMS will have this state stored in `shadow identifiers <impl.html#shadow-identifiers>`_ in the ``CDMRuntime`` library, rolling back is just a local action, i.e., it does not require the CDM library to connect to the CDM service to perform the rollback.
 
 To perform a rollback you can:
 
-* call the high-level API method :token:`cdm::RollbackSelectedCategory` which will roll back the category stored in :token:`cdm::SelectedCategory`
-* call the low-level API procedure :js:func:`cdm::RollbackChanges` which will roll back the category provided through its arguments.
+* call the high-level API method ``cdm::RollbackSelectedCategory`` which will roll back the category stored in ``cdm::SelectedCategory``
+* call the low-level API procedure :any:`cdm::RollbackChanges` which will roll back the category provided through its arguments.
 
 Reverting changes
 -----------------
 
 Even when you have committed local changes to the CDM database in one or more commits, you can still roll back changes, in this case accomplished by reverting the state of you local data back to the state of a previous revision as retrieved from the CDM database.
 
-* The high-level API function :token:`cdm::RevertCategoriesSelectedRevision` will revert the content of *all* categories to the state at :token:`cdm::SelectedRevision` on :token:`cdm::SelectedBranch`. 
-* The low-level API function :js:func:`cdm::RevertToSnapshot` will revert the content of only the category indicated to the branch and revision passed through its argument list.
+* The high-level API function ``cdm::RevertCategoriesSelectedRevision`` will revert the content of *all* categories to the state at ``cdm::SelectedRevision`` on ``cdm::SelectedBranch``. 
+* The low-level API function :any:`cdm::RevertToSnapshot` will revert the content of only the category indicated to the branch and revision passed through its argument list.
 
 After reverting the state of the local data to the indicated revision, it's up to you to commit these changes to the CDM database if you so wish, either by explicitly `committing <dtd.html#committing-data>`_ the changes to your current branch, or, when `*auto-commit* <dtd.html#auto-committing-and-auto-pulling-changes>`_ has been set for one or more categories, the CDM library will automatically commit the changes caused by reverting the selected branch. 
 
@@ -169,9 +169,9 @@ Cherry picking can be a convenient tool when you have reverted your branch to th
 
 To perform a cherry pick you can use:
 
-* the high-level API method :token:`cdm::CherryPickSelectedRevisions` which will cherry pick *all* revision in order set in the identifier :token:`cdm::RevisionsSelected` for :token:`cdm::SelectedDB` and :token:`cdm::SelectedBranch` for the category :token:`cdm::SelectedCategory` into your current branch. You would typically use this method after selecting the revisions to cherry pick in the :token:`Branch and Revision Overview` page of the CDM Library. 
+* the high-level API method ``cdm::CherryPickSelectedRevisions`` which will cherry pick *all* revision in order set in the identifier ``cdm::RevisionsSelected`` for ``cdm::SelectedDB`` and ``cdm::SelectedBranch`` for the category ``cdm::SelectedCategory`` into your current branch. You would typically use this method after selecting the revisions to cherry pick in the ``Branch and Revision Overview`` page of the CDM Library. 
 
-* the low-level API method :js:func:`cdm::CherryPickChanges` method will cherry pick a range of revisions from the indicated branch of the indicated category into the current branch of that category. The output argument :token:`resolved` indicates whether conflicts with any local changes in the category data have been `resolved <dtd.html#merging-branches-and-resolving-conflicts>`_ successfully.
+* the low-level API method :any:`cdm::CherryPickChanges` method will cherry pick a range of revisions from the indicated branch of the indicated category into the current branch of that category. The output argument ``resolved`` indicates whether conflicts with any local changes in the category data have been `resolved <dtd.html#merging-branches-and-resolving-conflicts>`_ successfully.
 
 Working with branches
 =====================
@@ -187,7 +187,7 @@ Reasons to create branches
 Independent data sets
 +++++++++++++++++++++
 
-You can use branches to create completely independent data sets. This is particular true of you branch off revision 2 of the :token:`master` branch, which represents the empty data set in *any* CDM database. However, you can also create independent data sets by branching off a revision that already holds data that is common to all the independent data sets you want to create. You can switch between the various data sets created in this manner, by checking out the corresponding branches.
+You can use branches to create completely independent data sets. This is particular true of you branch off revision 2 of the ``master`` branch, which represents the empty data set in *any* CDM database. However, you can also create independent data sets by branching off a revision that already holds data that is common to all the independent data sets you want to create. You can switch between the various data sets created in this manner, by checking out the corresponding branches.
 
 Creating multiple scenarios
 +++++++++++++++++++++++++++
@@ -201,33 +201,33 @@ Creating branches
 
 To create a branch you can
 
-* call the high-level API function :token:`cdm::CreateBranchSelectedRevision` which will 
+* call the high-level API function ``cdm::CreateBranchSelectedRevision`` which will 
 
   * present a dialog to provide the name of the name branch and a comment about the reason for the new branch
-  * call the low-level API function :js:func:`cdm::CreateBranch` to create the branch off the revision pointed at by :token:`cdm::SelectedRevision` on :token:`cdm::SelectedBranch`
+  * call the low-level API function :any:`cdm::CreateBranch` to create the branch off the revision pointed at by ``cdm::SelectedRevision`` on ``cdm::SelectedBranch``
 
-* call the low-level API function :js:func:`cdm::CreateBranch` to create the branch as specified through its arguments. 
+* call the low-level API function :any:`cdm::CreateBranch` to create the branch as specified through its arguments. 
 
 Switching to the newly created branch
 +++++++++++++++++++++++++++++++++++++
 
-Notice, that creating a branch will *not* check out your local session to the newly created branch. If you branched off the revision currently checked out in your local session, you can simply change the revision to the initial revision of the newly created branch using the low-level API function :js:func:`cdm::SetRevision` (as both revision actually hold the same data). To obtain the *head* revision of the newly created branch you can call function :js:func:`cdm::EnumerateBranches`, after which you can obtain the head revision from the identifier :token:`cdm::BranchHead`.
+Notice, that creating a branch will *not* check out your local session to the newly created branch. If you branched off the revision currently checked out in your local session, you can simply change the revision to the initial revision of the newly created branch using the low-level API function :any:`cdm::SetRevision` (as both revision actually hold the same data). To obtain the *head* revision of the newly created branch you can call function :any:`cdm::EnumerateBranches`, after which you can obtain the head revision from the identifier ``cdm::BranchHead``.
 
 If the data in newly created branch differs from the data in your local session, you should perform a full `check out <dtd.html#checking-out-data>`_ to the newly created branch. If you do not check out the newly created branch, but instead try to only set the revision to the head revision of the newly created branch, you will leave the internal data state of your client session in an inconsistent state, which will lead to possibly incorrect commits being performed when you want to commit local changes on the new branch.
 
 Deleting branches
 ----------------- 
 
-AIMMS CDM also allows you to delete branches from your repository. This is an inherently dangerous operation, as deleting a branch will not only delete the branch itself, but also all branches that are derived from the branch that you delete, and all data on these branches. You cannot delete the protected branches :token:`system` and :token:`master`.
+AIMMS CDM also allows you to delete branches from your repository. This is an inherently dangerous operation, as deleting a branch will not only delete the branch itself, but also all branches that are derived from the branch that you delete, and all data on these branches. You cannot delete the protected branches ``system`` and ``master``.
 
 To delete a branch you can
 
-* call the high-level API function :token:`cdm::DeleteSelectedBranch` which will 
+* call the high-level API function ``cdm::DeleteSelectedBranch`` which will 
 
-  * call the low-level API function :js:func:`cdm::DeleteBranch` to delete the branch pointed at by :token:`cdm::SelectedBranch`
-  * update the set :token:`cdm::Branches` and :token:`cdm::Revisions` to remove the all branches and revisions deleted from the CDM database.
+  * call the low-level API function :any:`cdm::DeleteBranch` to delete the branch pointed at by ``cdm::SelectedBranch``
+  * update the set ``cdm::Branches`` and ``cdm::Revisions`` to remove the all branches and revisions deleted from the CDM database.
   
-* call the low-level API function :js:func:`cdm::DeleteBranch` to delete the branch as specified through its arguments.
+* call the low-level API function :any:`cdm::DeleteBranch` to delete the branch as specified through its arguments.
 
 Comparing multiple branches
 ---------------------------
@@ -236,8 +236,8 @@ In the `branch comparison identifiers <impl.html#branch-comparison-identifiers>`
 
 To add and remove the identifier data of a particular branch you can
 
-* call the low-level API function :js:func:`cdm::AddBranchToCompareSnapshots` to add branch data
-* call the low-level API function :js:func:`cdm::RemoveBranchFromCompareSnapshots` to remove branch data
+* call the low-level API function :any:`cdm::AddBranchToCompareSnapshots` to add branch data
+* call the low-level API function :any:`cdm::RemoveBranchFromCompareSnapshots` to remove branch data
 
 Please note that these functions will add elements to the domain sets in the actual model, i.e., corresponding to the content of the *current branch*, if the data of held in the branches being added to the branch comparison identifiers are not present in the current branch. Without adding such elements, the branch data cannot be added to the branch comparison identifiers. Therefore, if you want to use the branch comparison functionality, you are advised to temporarily disable `auto-commit <#auto-committing-changes>`_ functionality if applicable, and `revert <dtd.html#reverting-changes>`_ the data of the current branch when you are done comparing scenarios before committing to the current branch.
  
@@ -252,52 +252,59 @@ Reducing database execution and data transmission
 Retiring intermediate branch data
 ---------------------------------
 
-After you have been working with a given branch for a longer time, most probably only the most recent commits make sense to retain, as individual data changes in the past may have become obsolete, and may lead to longer checkout times, as the current branch data must be reconstructed from a larger amount of commits. Through the function :token:`cdm::RetireBranchData`, you can replace the cumulative changes for all categories from the root of a particular branch up and until a given revision by a single snapshot containing the same change set. 
+After you have been working with a given branch for a longer time, most probably only the most recent commits make sense to retain, as individual data changes in the past may have become obsolete, and may lead to longer checkout times, as the current branch data must be reconstructed from a larger amount of commits. Through the function ``cdm::RetireBranchData``, you can replace the cumulative changes for all categories from the root of a particular branch up and until a given revision by a single snapshot containing the same change set. 
 
-You can retire commits of all branches except the :token:`system` branch. The function operates on the branch proper up and until the specified :token:`endRevision`, it leaves data on parent branches alone. On the branch proper it will delete all direct child branches and derived branches thereof, and will collect the latest changes over all tuples and will combine those changes at the last revision on the given :token:`branch` lower than :token:`endRevision`. If there is no such revision, than no data will be combined into such a revision. If there is no data on parent branches, you may set the optional argument :token:`removeDefaults` to 1, which will remove all default values from the newly combined commit. Finally, all intermediate commits on the branch proper and on dependent branches will be deleted and the per-identifier cardinalities will be adapted.
+You can retire commits of all branches except the ``system`` branch. The function operates on the branch proper up and until the specified ``endRevision``, it leaves data on parent branches alone. On the branch proper it will delete all direct child branches and derived branches thereof, and will collect the latest changes over all tuples and will combine those changes at the last revision on the given ``branch`` lower than ``endRevision``. If there is no such revision, than no data will be combined into such a revision. If there is no data on parent branches, you may set the optional argument ``removeDefaults`` to 1, which will remove all default values from the newly combined commit. Finally, all intermediate commits on the branch proper and on dependent branches will be deleted and the per-identifier cardinalities will be adapted.
+
+Cleaning up databases by removing element references
+----------------------------------------------------
+
+Another approach for reducing the size of a CDM database and the time it takes to checkout data, you can instruct CDM to remove all references to a set of elements from all data tables in a CDM database, by removing all rows where these elements occur in the tuples or values (of element parameters). After you have collected changes for such elements for a period of time, the data for such elements may have become obsolete. Although you can remove the elements from it corresponding root set, they will remain stored in the CDM database, and thus unnecessarily increase the size database and the checkout times of categories. 
+
+If you are certain that you will never need these elements and their corresponding data, you can call the function :any:`cdm::RemoveElementsFromDatabase` to let CDM remove all references to such elements from all data tables. Please make sure that during this action no other clients are connected to the CDM service, or that all clients checkout the data of all categories again, to finally remove the data for these elements from their sessions.
 
 Cached Checkout snapshots
 -------------------------
 
 Besides completely retiring all old commits on a given branch, CDM also allows you to create cached checkout snapshots for a given revision of a specified category-branch combination. Cached checkout snapshots are ready-to-send packages stored in the database in a compressed manner, that can serve a client virtually no database access other than retrieving the cached snapshot.
 
-You can create checkout snapshot by calling the function :js:func:`cdm::CreateSnapshot`, which will create the snapshot server-side in the background. The :token:`cacheUpdate` arguments indicates the interval in seconds with which you want the checkout snapshot to be automatically updated by the CDM service to contain the latests data for the given category-branch combination. When checking out, the CDM server will first check whether there is a checkout available for the given category on the specified branch. If so, it will return the snapshot, combined with the result of a pull requests for the changes of the revisions not yet cached. Typically this will drastically reduce the time involved when checking out data on branches with a long history. When searching for a snapshot, the CDM service will consider any snapshot on the path from the head of the specified branch to the root of the revision tree.
+You can create checkout snapshot by calling the function :any:`cdm::CreateSnapshot`, which will create the snapshot server-side in the background. The ``cacheUpdate`` arguments indicates the interval in seconds with which you want the checkout snapshot to be automatically updated by the CDM service to contain the latest data for the given category-branch combination. When checking out, the CDM server will first check whether there is a checkout available for the given category on the specified branch. If so, it will return the snapshot, combined with the result of a pull requests for the changes of the revisions not yet cached. Typically this will drastically reduce the time involved when checking out data on branches with a long history. When searching for a snapshot, the CDM service will consider any snapshot on the path from the head of the specified branch to the root of the revision tree.
 
-If you specify the value of 0 for the :token:`cacheUpdate` argument, the CDM service will cache a snapshot, but will never update it. You can use such cached snapshots, for instance, to speed up the retrieval of data on branches that branch off the given branch posterior to the cached revision. If you store multiple snapshots with a positive :token:`cacheUpdate` value on a given category-branch combination, the CDM service will remove all but the youngest cache entry. Through the functions :js:func:`cdm::GetSnapshotCache` and :js:func:`cdm::DeleteSnapshot` you can retrieve a list of all snapshots currently in the cache, and manually delete snapshot that are no longer of interest to you. 
+If you specify the value of 0 for the ``cacheUpdate`` argument, the CDM service will cache a snapshot, but will never update it. You can use such cached snapshots, for instance, to speed up the retrieval of data on branches that branch off the given branch posterior to the cached revision. If you store multiple snapshots with a positive ``cacheUpdate`` value on a given category-branch combination, the CDM service will remove all but the youngest cache entry. Through the functions :any:`cdm::GetSnapshotCache` and :any:`cdm::DeleteSnapshot` you can retrieve a list of all snapshots currently in the cache, and manually delete snapshot that are no longer of interest to you. 
 
 .. note::
 
-    For CDM backends backed by a MySQL database, you may need to increase the value of the MySQL option :token:`max_allowed_packet` for categories containing a lot of data. If packet size is not big enough to contain the entire snapshot, the connection to the database will be lost when the CDM service tries to store the snapshot. 
+    For CDM backends backed by a MySQL database, you may need to increase the value of the MySQL option ``max_allowed_packet`` for categories containing a lot of data. If packet size is not big enough to contain the entire snapshot, the connection to the database will be lost when the CDM service tries to store the snapshot. 
 
 Interactive merge
 +++++++++++++++++
 
-You can interactively merge two branches from within the :token:`Branch and Revision Overview` page, by selecting a revision on a branch, and selecting the :token:`Merge Selected into...` action from the right-mouse menu. While in interactive mode, you will get the opportunity to provide a merge comment interactively, and to set the conflict resolution algorithm to choose. CDM will resolve conflicts according to one of the following options
+You can interactively merge two branches from within the ``Branch and Revision Overview`` page, by selecting a revision on a branch, and selecting the ``Merge Selected into...`` action from the right-mouse menu. While in interactive mode, you will get the opportunity to provide a merge comment interactively, and to set the conflict resolution algorithm to choose. CDM will resolve conflicts according to one of the following options
 
-* :token:`AlwaysUsingRemote` (default): always let remote changes prevail over local changes (i.e. changes from the merged branch will prevail over changes in the branch to merge into)
-* :token:`AlwaysUsingLocal`: always let local changes prevail over remote changes
-* :token:`Interactive`: let the end-user resolve all individual conflicts *interactively*
-* :token:`WebUI`: not implemented, for now the same as :token:`Interactive`
-* :token:`Custom`: use a `custom procedure <callback.html#custom-handling-of-conflict-resolution>`_ to resolve conflicts.
+* ``AlwaysUsingRemote`` (default): always let remote changes prevail over local changes (i.e. changes from the merged branch will prevail over changes in the branch to merge into)
+* ``AlwaysUsingLocal``: always let local changes prevail over remote changes
+* ``Interactive``: let the end-user resolve all individual conflicts *interactively*
+* ``WebUI``: not implemented, for now the same as ``Interactive``
+* ``Custom``: use a `custom procedure <callback.html#custom-handling-of-conflict-resolution>`_ to resolve conflicts.
 
-By default, the interactive conflict resolution mode consists of a very generic dialog using identifier names to present the individual conflicts. Before you can start using the interactive conflict resolution mode, you have to `generate <dtd.html#generating-the-conflict-resolution-differencing-ui>`_ the identifier-specific pages used to present the conflicts to the end-user. You can make more clear to your end-user what the actual conflicts are about in their terms by providing values to the string parameter :token:`cdm::UserIdentifierText` for all relevant identifiers. If you provide a descriptive string here, it will be used in the conflict resolution or differencing page, otherwise the identifier name will be used. 
+By default, the interactive conflict resolution mode consists of a very generic dialog using identifier names to present the individual conflicts. Before you can start using the interactive conflict resolution mode, you have to `generate <dtd.html#generating-the-conflict-resolution-differencing-ui>`_ the identifier-specific pages used to present the conflicts to the end-user. You can make more clear to your end-user what the actual conflicts are about in their terms by providing values to the string parameter ``cdm::UserIdentifierText`` for all relevant identifiers. If you provide a descriptive string here, it will be used in the conflict resolution or differencing page, otherwise the identifier name will be used. 
 
 .. image:: images/conflictresolutiondialog.png
     :align: center
 
-The generic conflict resolution dialog may be overwhelming for end-users. We therefore advise to select either the :token:`AlwaysUsingRemote` or :token:`AlwaysUsingLocal` modes to let CDM resolve conflicts automatically, unless you really see a need for your end-users to resolve conflicts visually. In the latter case, you should at least provide descriptive text for each possible identifier that makes clear to your end-users what part of the regular UI the conflicts are actually about. 
+The generic conflict resolution dialog may be overwhelming for end-users. We therefore advise to select either the ``AlwaysUsingRemote`` or ``AlwaysUsingLocal`` modes to let CDM resolve conflicts automatically, unless you really see a need for your end-users to resolve conflicts visually. In the latter case, you should at least provide descriptive text for each possible identifier that makes clear to your end-users what part of the regular UI the conflicts are actually about. 
 
 Non-interactive merge
 +++++++++++++++++++++
 
-The interactive merge uses the the non-interactive merge facility in CDM which you can call through the procedure :token:`cdm::MergeBranches`. It will merge the data for :token:`cdm::SelectedCategory` for the revision pointed by the :token:`cdm::SelectedRevision` on :token:`cdm::SelectedBranch` into the *current branch* for :token:`cdm::SelectedCategory`. 
+The interactive merge uses the the non-interactive merge facility in CDM which you can call through the procedure ``cdm::MergeBranches``. It will merge the data for ``cdm::SelectedCategory`` for the revision pointed by the ``cdm::SelectedRevision`` on ``cdm::SelectedBranch`` into the *current branch* for ``cdm::SelectedCategory``. 
 
 In the non-interactive merge mode, you can 
 
-* set the actual merge comment through the string parameter :token:`cdm::MergeComment`, and 
-* select the conflict resolution methods to use when merging, through the element parameter :token:`cdm::SelectedConflictResolutionMethod`. 
+* set the actual merge comment through the string parameter ``cdm::MergeComment``, and 
+* select the conflict resolution methods to use when merging, through the element parameter ``cdm::SelectedConflictResolutionMethod``. 
 
-If all conflicts are resolved successfully, then the result of the merge will be committed as a new revision on the current branch for :token:`cdm::SelectedCategory`, and :token:`cdm::MergeBranches` will return 1. If the conflicts could not be resolved successfully, your repository may be in an undefined state as a result of the failed merge, and you are advised to checkout the category :token:`cdm::SelectedCategory` to the head of its current branch again.
+If all conflicts are resolved successfully, then the result of the merge will be committed as a new revision on the current branch for ``cdm::SelectedCategory``, and ``cdm::MergeBranches`` will return 1. If the conflicts could not be resolved successfully, your repository may be in an undefined state as a result of the failed merge, and you are advised to checkout the category ``cdm::SelectedCategory`` to the head of its current branch again.
 
 Visually viewing differences
 ----------------------------
@@ -310,15 +317,15 @@ Generating the conflict resolution/differencing UI
 
 For any project containing the CDM library, you can create a generic UI for visually resolving merge conflicts and viewing differences between revisions as follows.
 
-* Add a new, empty, library to your project called :token:`AimmsCDMUI`
-* Run the procedure :token:`cdm::CreatePageManagerFile` to add a page manager file to this library listing a new page for all identifiers in all CDM categories
-* Run the procedure :token:`cdm::CreateIdentifierPages` to create the individual difference/conflict resolution pages for all identifiers in all CDM categories
+* Add a new, empty, library to your project called ``AimmsCDMUI``
+* Run the procedure ``cdm::CreatePageManagerFile`` to add a page manager file to this library listing a new page for all identifiers in all CDM categories
+* Run the procedure ``cdm::CreateIdentifierPages`` to create the individual difference/conflict resolution pages for all identifiers in all CDM categories
 
 
 Providing clearly understandable end-user text
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-By default,  the pages thus created will be shown in the conflict resolution dialog or the data difference page by their identifier name, which may be confusing the end-users of your application. You can change the text displayed for each identifier by specifying the identifier text you want to display through the string parameter :token:`cdm::UserIdentifierText`. 
+By default,  the pages thus created will be shown in the conflict resolution dialog or the data difference page by their identifier name, which may be confusing the end-users of your application. You can change the text displayed for each identifier by specifying the identifier text you want to display through the string parameter ``cdm::UserIdentifierText``. 
 
 Adding to source control
 ++++++++++++++++++++++++
@@ -340,29 +347,29 @@ When your application becomes more operational, however, your end-users will mos
 Auto-pulling changes
 --------------------
 
-Whenever a user commits a change set for a given CDM category to a particular branch in the CDM database, all other users connected to the same category will get a notification from the CDM service that a revision has been committed for the given category and branch. You can instruct CDM to automatically pull in such changes by setting the parameter :token:`cdm::AutoPull` to 1 for the category at hand. CDM will then pull in any commits for that category which take place on your current branch. It will skip all commits on other branches. 
+Whenever a user commits a change set for a given CDM category to a particular branch in the CDM database, all other users connected to the same category will get a notification from the CDM service that a revision has been committed for the given category and branch. You can instruct CDM to automatically pull in such changes by setting the parameter ``cdm::AutoPull`` to 1 for the category at hand. CDM will then pull in any commits for that category which take place on your current branch. It will skip all commits on other branches. 
 
-By setting :token:`cdm::AutoPull` you make sure that your client session is always up-to-date with the CDM database, and with all other clients who use this setting as well, regardless of the manner of how local changes are committed.
+By setting ``cdm::AutoPull`` you make sure that your client session is always up-to-date with the CDM database, and with all other clients who use this setting as well, regardless of the manner of how local changes are committed.
 
 Auto-committing changes
 -----------------------
 
 You can also make the CDM library listen to your local data changes, and automatically commit changes to the CDM database. To accomplish this, you need to execute the following two steps:
 
-* Call the procedure :js:func:`cdm::StartListeningToDataChanges` to instruct the CDM library to react to data change notifications of the AIMMS engine. Whenever this procedure has been called, the CDM library will examine all identifiers in all categories upon a data change notification by the AIMMS engine, and register any change in any CDM category.
-* If the parameter :token:`cdm::AutoCommit` has been set for a category, then the CDM library will automatically commit the changes to such a category as soon as they are detected.
+* Call the procedure :any:`cdm::StartListeningToDataChanges` to instruct the CDM library to react to data change notifications of the AIMMS engine. Whenever this procedure has been called, the CDM library will examine all identifiers in all categories upon a data change notification by the AIMMS engine, and register any change in any CDM category.
+* If the parameter ``cdm::AutoCommit`` has been set for a category, then the CDM library will automatically commit the changes to such a category as soon as they are detected.
 
-By setting :token:`cdm::AutoCommit` you increase the concurrency of your app even more. With these settings, you make sure that other client sessions will always be up-to-date with any changes you make as soon as they occur. 
+By setting ``cdm::AutoCommit`` you increase the concurrency of your app even more. With these settings, you make sure that other client sessions will always be up-to-date with any changes you make as soon as they occur. 
 
 Customizing behavior
 --------------------
 
-The behavior described above is actually implemented through the procedures :token:`cdm::DefaultCommitInfoNotification` and :token:`cdm::DataChangeProcedure` passed as the defaults of the (optional) arguments :token:`notificationProcedure` and :token:`datachangeProcedure` to the procedure :js:func:`cdm::CreateCategory`. By specifying other procedures with the same prototypes you can further customize the behavior of your app with respect to incoming commit notifications and detected local data changes, if the need arises.
+The behavior described above is actually implemented through the procedures ``cdm::DefaultCommitInfoNotification`` and ``cdm::DataChangeProcedure`` passed as the defaults of the (optional) arguments ``notificationProcedure`` and ``datachangeProcedure`` to the procedure :any:`cdm::CreateCategory`. By specifying other procedures with the same prototypes you can further customize the behavior of your app with respect to incoming commit notifications and detected local data changes, if the need arises.
 
 Obtaining identifier history
 ============================
 
-Through the function :js:func:`cdm::GetValuesLog` you can obtain the history of a given parameter *reference* on the current branch, from a given revision. The history is stored in the `shadow parameter <impl.html#shadow-identifiers>`_ corresponding to the given parameter reference in the :token:`ValueLogIdentifiers` and :token:`ValueLogDomainIdentifiers` modules of the :token:`CDMRuntime` library. 
+Through the function :any:`cdm::GetValuesLog` you can obtain the history of a given parameter *reference* on the current branch, from a given revision. The history is stored in the `shadow parameter <impl.html#shadow-identifiers>`_ corresponding to the given parameter reference in the ``ValueLogIdentifiers`` and ``ValueLogDomainIdentifiers`` modules of the ``CDMRuntime`` library. 
 
 As the full history may be very large, and retrieving it may be very time-consuming, the procedure accepts only a reference to a *single* parameter slice, and only for this slice the history will be retrieved. This allow use cases, where you are able to retrieve and display the history of a single field in the UI of an AIMMS app at very low cost, or to retrieve and cache the history of a larger slice at higher costs, and display a sub-slice directly from the shadow identifiers.
 

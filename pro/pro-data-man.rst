@@ -4,7 +4,7 @@ AIMMS PRO and Data Management
 Where to Locate Data
 --------------------
 
-You can read data from files that are contained in the same directory as the published model, or in any of its subdirectories, if such files are exported as part of the .aimmspack file as well. You should, however, never write persistent data to such files, as a next session may be run from a different location, or even on a different server. If you need to write persistent data to disk, you should locate such files on e.g. a network share that can be reached from any server on which your server sessions are running.
+You can read data from files that are contained in the same directory as the published model, or in any of its subdirectories, if such files are exported as part of the ``.aimmspack`` file as well. You should, however, never write persistent data to such files, as a next session may be run from a different location, or even on a different server. If you need to write persistent data to disk, you should locate such files on e.g. a network share that can be reached from any server on which your server sessions are running.
 
 PRO Central Data Management
 ---------------------------
@@ -51,7 +51,7 @@ Checking folders or files exists in the PRO Storage
     
 * :token:`pro::storage::ExistsObject(path, objectExists)` -  checks whether a file exists in the PRO Storage, where :token:`path` is input string parameter and :token:`objectExists` is output parameter, which determines the status whether object(File) exists(1) or not(0).
 
-You must not include the prefixe "PRO:" in the input path for these functions. The prefix is needed only when using :any:`CaseFileSave` or :any:`CaseFileLoad`. You can use ``pro::NormalizeStoragePath`` to remove the prefix from a path. In the below example, `pObjectExists1` will return 0 but `pObjectExists2` will return 1 as we normalized the string before searching for the object::
+You must not include the prefix "PRO:" in the input path for these functions. The prefix is needed only when using :any:`CaseFileSave` or :any:`CaseFileLoad`. You can use ``pro::NormalizeStoragePath`` to remove the prefix from a path. In the below example, `pObjectExists1` will return 0 but `pObjectExists2` will return 1 as we normalized the string before searching for the object::
 
     !save a case file CentralFile.data in the user's central storage
     spCasename := FormatString("PRO:/UserData/%s/%s/Cases/%s/CentralFile.data", spEnvironment, spUserN, spModel); 
@@ -103,7 +103,7 @@ The functions :token:`pro::SaveFileToCentralStorage` and :token:`pro::CreateCent
 Specifying Access Rights
 ------------------------
 
-To select which users and/or groups should have which access rights, you can call the function :token:`progui::EditAuthorization` which is part of the PRO GUI library. This function will open the Authorization Manager dialog, through which you can modify a new or existing permissions string. You can then pass this string as the permissions argument to the functions above.
+To select which users and/or groups should have which access rights, you can call the function ``progui::EditAuthorization`` which is part of the PRO GUI library. This function will open the Authorization Manager dialog, through which you can modify a new or existing permissions string. You can then pass this string as the permissions argument to the functions above.
 
 Using a Database
 ----------------

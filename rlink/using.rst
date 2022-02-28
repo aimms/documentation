@@ -115,7 +115,7 @@ The columns in a data frame have a name. These names are important because they 
 SetData and GetData
 -------------------
 
-RLink is a DataLink provider but it operates differently. It still uses a data map to specify the mapping between identifiers in AIMMS and names of tables and columns in the source. The difference is that it allows the R code to decide when data is being read or written. For this calls can be made in R using the functions :token:`aimms::SetData` and :token:`aimms::GetData` from the aimms package.
+RLink is a DataLink provider but it operates differently. It still uses a data map to specify the mapping between identifiers in AIMMS and names of tables and columns in the source. The difference is that it allows the R code to decide when data is being read or written. For this calls can be made in R using the functions :token:`aimms::SetData` and :token:`aimms::GetData` from the AIMMS package.
 
 Data can be send from R to AIMMS using:
 
@@ -160,7 +160,7 @@ To associate the data map with a map name do:
     dl::AddDataSourceMapping( MapName, DataMap,
         dl::DependEmpty,dl::TableAttributesEmpty,dl::ColAttributeEmpty);
  
-To read the data from data frame df in R into AIMMS_name and AIMMS_age, we can do:  
+To read the data from data frame ``df`` in R into AIMMS_name and AIMMS_age, we can do:  
 
 .. code::
 

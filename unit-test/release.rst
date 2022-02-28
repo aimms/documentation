@@ -20,7 +20,7 @@ New Features and Bug Fixes
     
 1.0.0.105 [08-02-2021]
     - Reduce memory requirements by using smaller data transfer buffers
-    - Allow 8KB scalar strings, 2KB strings for 1-dimensional parameters and 1KB strings for 2+-dimensional string parameters to be transfered from/to cloned datasets.
+    - Allow 8KB scalar strings, 2KB strings for 1-dimensional parameters and 1KB strings for 2+-dimensional string parameters to be transferred from/to cloned datasets.
     
 1.0.0.101 [08-10-2020]
     - Added source location for failing tests in AimmsUnit.xml
@@ -34,7 +34,7 @@ New Features and Bug Fixes
     
 1.0.0.76 [23-04-2020]
     - Added support for cloning and comparing cloned datasets
-    - Adapted AIMMSUnitTest.py for python 3 compatability
+    - Adapted AIMMSUnitTest.py for python 3 compatibility
     
 1.0.0.69 [23-05-2019]
     - Added capability to duplicate existing test suite to allow for testing multiple scenarios of the same test suite

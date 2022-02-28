@@ -52,7 +52,7 @@ You can specify the action to be taken after a case is loaded client or server s
 
     pro::session::PostLoadResultCaseHook := 'postProcessComputedResults' ;
 
-the procedure postProcessComputedResults will be executed by the :token:`pro::delegateToServer` completion callback procedures that load the result case, and by the load results button in the "Managed Requests" dialog. The element assigned to :token:`pro::session::PostLoadResultCaseHook` should reference a procedure without arguments.
+the procedure ``postProcessComputedResults`` will be executed by the :token:`pro::delegateToServer` completion callback procedures that load the result case, and by the load results button in the "Managed Requests" dialog. The element assigned to :token:`pro::session::PostLoadResultCaseHook` should reference a procedure without arguments.
 
 Similarly, the :token:`pro::session::PostLoadInputCaseHook` can reference a procedure to be executed in a server session after loading the input case.
 
