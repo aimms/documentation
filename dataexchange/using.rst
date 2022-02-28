@@ -12,3 +12,7 @@ Typically a tree-based data format can consists of several types of nodes:
 * value-holding leaf nodes, which hold the actual labels of bound indices or values of multi-dimensional identifiers.
 
 `This How-To article <https://how-to.aimms.com/Articles/534/534-dealing-with-the-different-data-types.html>`__ provides some simple examples to demonstrate basic uses of the Data Exchange library for JSON, XML, CSV and Parquet formats. Next to these examples, you can also download our internal :download:`unit test project<downloads/DataExchangeTest.zip>` for the Data Exchange library, which will provide you with more example mappings demonstrating various capabilities of the Data Exchange library. It also contains the mappings and corresponding collections of AIMMS identifiers for reading and writing the JSON formats for geocoding and distance service from Google and GraphHopper.
+
+.. spelling::
+
+    geocoding
