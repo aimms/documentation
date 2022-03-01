@@ -12,7 +12,7 @@ On February 8, 2022, we released AIMMS PRO 2.41.1 (2.41.1.1).
 **Improvements**
 
 -  Added support for the OAuth Authorization Code flow for WebUI applications running on PRO.
--  **Cloud:** On AIMMS Cloud Platform we have stopped supporting TLS 1.0/1.1 and we only support **TLS 1.2**.
+-  **Cloud:** On AIMMS Cloud Platform we have stopped supporting TLS 1.0/1.1 and we only support **TLS 1.2**. (Note: Please download and install a new AppLauncher which supports TLS 1.2)
 
 **Resolved Issues**
 
