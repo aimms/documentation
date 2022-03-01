@@ -230,7 +230,7 @@ You can edit values and use the table normally after the data is filtered. If yo
 To add filter rules to columns/row headers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Similarly, you can also add filters to the column or row headers. For headers, only four :ref:`string operators <string-operators>` are available; "is", "is not", "contains", and "does not contain".
+Similarly, you can also add filters to the column or row headers. For headers, only five :ref:`string operators <string-operators>` are available; "is", "is not", "contains", "does not contain" and "matches regexp".
 
 The "is" and "is not" operators allow you to select one or more elements from the dropdown list. In our example, we will filter the row header "Centers". Here we select 2 elements: Copenhagen and Frankfurt. 
 
@@ -358,6 +358,13 @@ When adding rules to numeric operators, characters cannot be entered. The field 
 +------------------------------+-------------------------------------------------------------------------------------------+
 | ends with                    | All data that end with the entered characters are displayed                               |
 +------------------------------+-------------------------------------------------------------------------------------------+
+| matches regexp               | All data that match the specified regular expression are displayed (see below)            |
++------------------------------+-------------------------------------------------------------------------------------------+
+
+Regular Expressions
+^^^^^^^^^^^^^^^^^^^
+
+The last String/Elt Operator mentioned in the tables above ('matches regexp') needs some more explanation. It allows you to use regular expressions in your filtering, providing additional flexibility over the other String/Elt Operators. The regular expressions that are accepted are those that are accepted in all search boxes in the WebUI. For details and examples on which expression you can use and on how to use them, please refer to the `documentation of the search boxes <widget-manager.html#using-the-search-boxes>`_.
 
 Best Practices
 ^^^^^^^^^^^^^^
