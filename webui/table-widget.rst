@@ -230,7 +230,7 @@ You can edit values and use the table normally after the data is filtered. If yo
 To add filter rules to columns/row headers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Similarly, you can also add filters to the column or row headers. For headers, only five :ref:`string operators <string-operators>` are available; "is", "is not", "contains", "does not contain" and "matches regexp".
+Similarly, you can also add filters to the column or row headers. For headers, only five :ref:`string operators <string-operators>` are available; "is", "is not", "contains", "does not contain" and ":ref:`matches regexp<RegExp>`".
 
 The "is" and "is not" operators allow you to select one or more elements from the dropdown list. In our example, we will filter the row header "Centers". Here we select 2 elements: Copenhagen and Frankfurt. 
 
@@ -360,6 +360,8 @@ When adding rules to numeric operators, characters cannot be entered. The field 
 +------------------------------+-------------------------------------------------------------------------------------------+
 | matches regexp               | All data that match the specified regular expression are displayed (see below)            |
 +------------------------------+-------------------------------------------------------------------------------------------+
+
+.. _RegExp:
 
 Regular Expressions
 ^^^^^^^^^^^^^^^^^^^
