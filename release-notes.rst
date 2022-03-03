@@ -12,6 +12,22 @@ AIMMS 4.84
 #############
 
 
+AIMMS 4.84.4 Release (March 3, 2022 - build 4.84.4.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In recent AIMMS versions, the custom theme switcher (the :token:`theme-switcher-addon.js`) was removed. Now we have added the "Custom Theme Classes" option to the WebUI application properties. Customers with the old :token:`theme-switcher-addon.js` in their apps can remove it, as this no longer works: the same functionality should now be specified through the new option.
+-  Some symbols, like '|', were not giving the expected behavior when used in strings specified in a WebUI Table filtering rule, because they were not treated as normal string characters, but as special symbols in a regular expression. We have now changed the behavior of the string filtering: in all existing string filtering rule types (like "contains", "starts with", ...) characters are treated as their literal string value. On top of that, we added an extra string filtering rule type: "matches regex". This rule allows you to explicitly specify regular expressions, just like in any other search box within the WebUI.
+-  In later AIMMS versions (4.83 and higher), it could happen that WebUI Gantt Charts were empty, whereas they displayed normally in AIMMS 4.82.
+
+--------------
+
+
+
 AIMMS 4.84.3 Release (February 23, 2022 - build 4.84.3.4).
 ------------------------------------------------------------------------------------------
 
