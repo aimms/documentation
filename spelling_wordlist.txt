@@ -44,3 +44,4 @@ hyperlinks
 unselecting
 extendable
 hashtag
+regex
