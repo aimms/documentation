@@ -11,7 +11,7 @@ Setting up WebUI theming is quite straightforward. It requires just one :token:`
 
 :token:`MainProject/WebUI/resources/css/`
 
-subfolder. You can name this file as you like. It should contain a series of *themable properties*, which you can assign your own values. These properties are listed in logical groups in THIS (PROVIDE DOWNLOAD LINK) file, which you can use as a base for your work. Each group and property is commented, to give you an idea for which part of the WebUI you can influence the appearance by changing its value. The values assigned in this file are the values that are used by default in the WebUI AIMMS theme.
+subfolder. You can name this file as you like. It should contain a series of *themable properties*, which you can assign your own values. These properties are listed in logical groups in THIS (PROVIDE DOWNLOAD LINK) file, which you can use as a base for your work. Each group and property is commented, to give you an idea for which part of the WebUI you can influence the appearance by changing its value. The values assigned in this file are the values that are used by default in the WebUI AIMMS theme. Please note that in your :token:`.css` file, you do not have to specify properties from the base file which you do not want to change. This will also make sure that you will profit from the effect of potential future updates to the default values in the base file.
 
 
 An Example
