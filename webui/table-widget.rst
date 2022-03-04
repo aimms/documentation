@@ -358,7 +358,7 @@ When adding rules to numeric operators, characters cannot be entered. The field 
 +------------------------------+-------------------------------------------------------------------------------------------+
 | ends with                    | All data that end with the entered characters are displayed                               |
 +------------------------------+-------------------------------------------------------------------------------------------+
-| matches regex               | All data that match the specified regular expression are displayed (see below)            |
+| matches regex                | All data that match the specified regular expression are displayed (see below)            |
 +------------------------------+-------------------------------------------------------------------------------------------+
 
 .. _RegExp:
