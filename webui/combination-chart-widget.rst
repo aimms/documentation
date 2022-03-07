@@ -1,21 +1,18 @@
 Combination Chart Widget
 ========================
 
-The Combination Chart widget is an example of a widget based on the so-called highcharts offered by https://www.highcharts.com/ and further supported in the AIMMS WebUI.
+The Combination Chart widget supported in the AIMMS WebUI is based on the so-called Highcharts offered by Highsoft AS, see https://www.highcharts.com/.
 
-The Combination Chart widget can combine several chart types in a single chart widget. More specifically, it has been built upon the combination chart presented at https://www.highcharts.com/docs/chart-and-series-types/combining-chart-types.
+The Combination Chart widget can combine several chart types in a single chart widget (which explains the name of this widget). 
+More specifically, it has been built upon the combination chart presented by Highcharts at https://www.highcharts.com/docs/chart-and-series-types/combining-chart-types.
+The formal widget type used for adding it to a page is "combinationchart".
 
-Currently, The Combination Chart widget only supports the 'column' chart type, resulting in a Column Chart, see also https://www.highcharts.com/docs/chart-and-series-types/column-chart. 
-In the near future, the Combination Chart widget in AIMMS WebUI will be extended with other chart types like ‘line’ and ‘area’ and you will be able to specify a chart type per identifier. 
+The Combination Chart widget supports the folowing chart types: Area, Area Spline, Column, Line, Scatter, Spline. The user may specify one chart type from this collection for each identifier added to the widget contents. 
 
-<name is explained by the fact that you can combine different chart types in a single chart> @Ovidiu
+Converting other widget types to Combination Chart
+--------------------------------------------------
 
-For the time being, please refer to the supported features described below...
-
-Converting Existing Widgets to a Combination Chart Widget 
----------------------------------------------------------
-
-Since the Combination Chart widget offers more flexibility and options than the original Bar, Line and BarLine chart widgets, we can imagine that you would like to replace your existing widgets with the new type. The WebUI offers you this possibility. Do the following steps to do so:
+Since the Combination Chart widget offers more flexibility and options than the existing Bar, Line and BarLine chart widgets, we can imagine that you would like to replace your existing widgets with the new type. The WebUI offers you this possibility. Do the following steps to do so:
 
 1. Open the options editor of the existing widget that you wish to convert;
 2. On the 'Change Type' tab, you will notice a 'Convert Type' section at the bottom, with 'combinationchart' as an option to choose:
@@ -32,14 +29,18 @@ As not all options have an equivalent in the Combination Chart, we have made sur
 
 Please note that it is only possible to convert widgets of type Bar, Line and BarLine chart, so only those offer the option on the 'Change Type' tab.
 
-The Column Chart
-----------------
+The Combination Chart
+---------------------
 
-The Column Chart is a particular instance of the Combination Chart which represents data as vertical bars, also called columns. In this section we refer to a Combination Chart Widget which uses only columns as a column chart widget. 
-Note, however, that the formal widget type used for adding it to a page is still "combinationchart".
+A combination chart can render data in your model by using a X/Y-plane and by displaying a dot or a column (vertical bar) on the Y-axis for each data point on the X-axis. 
+The height of a column or a dot on the Y-axis equals the value of the rendered identifier for the corresponding data point.
 
-A column chart widget can render data in your model by using an X/Y-plane and display a column for each data point. The height of a column in the chart equals the value of the corresponding data point.
-In this section we discuss and illustrate the features and options of the column chart. The chart's options may be set and accessed through the options editor which open upon clicking on the Settings cog-wheel in the widget header:
+The plain characteristics of the various chart types supported by the combination chart can be summarized as follows.
+The Column chart type represents data as vertical bars, also called columns. The Scatter chart type renders data as dots which are not connected to each other. 
+By contrary, the Line chart type shows dots connected by straight line segments, while the Spline chart type connects all the dots by one smooth (curved) line function. 
+When the chart also shows the area underneath the line or the spline, the corresponding chart type is called Area or Area Spline, respectively.
+
+In this section we discuss and illustrate the features and options of the combination chart. The chart's options may be set and accessed through the options editor which opens upon clicking on the Settings cog-wheel in the widget header:
 
 .. image:: images/ColumnChart-Settings-1.png
    :align: center
@@ -47,14 +48,14 @@ In this section we discuss and illustrate the features and options of the column
 | 
 	
 Besides literal values, most options may also be specified using identifiers declared in the AIMMS model. 
-For example, in the TransNet application, the demand for products of every distribution center may be represented using a column chart widget. 
-Similarly, the unit transport costs for every combination (factory, center) may be rendered in a column chart. 
-We use such examples, as will become clearer in the sequel, in order to illustrate the concrete usage of the various chart features. 
+For example, in the TransNet application, the demand for products of every distribution center may be represented using any of the chart types. 
+Similarly, the unit transport costs for every combination (factory, center) may be rendered using any of the chart types as well. 
+As will become clearer in the sequel, we use such concrete examples in order to illustrate the usage of the various chart features. 
 
 Contents 
 --------
 
-Firstly, a data identifier to be rendered in the column chart has to be specified in the Contents tab of the widget's options editor. An identifier may be added to the contents by using the "+" functionality at the bottom:
+Firstly, a data identifier to be rendered in the combination chart has to be specified in the Contents tab of the widget's options editor. An identifier may be added to the contents by using the "+" functionality at the bottom:
 
 .. image:: images/ColumnChart-Contents-1.png
    :align: center
