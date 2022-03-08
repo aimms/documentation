@@ -63,7 +63,9 @@ will result in the following WebUI theme:
     .. image:: images/Theming-gradient.jpg
         :align: center
 
-Or, by adding a specific border value like this:
+Obviously, using a function like :token:`linear-gradient()`, it needs to make sense. That means that it can only be applied to background coloring options, but not to, say, foreground coloring options. 
+
+For borders, for example, by adding a specific border value like this:
 
 .. code-block:: CSS
 
@@ -87,4 +89,13 @@ Since WebUI theming is based on CSS, it is also possible to use inheritance of p
 .. code-block:: CSS
 
   --color_bg_widget-header: var(--color_text_default);
+
+Next to this kind of inheritance, it is also possible to 'inherit' from the standard AIMMS color palette. In the :token:`webui/resources/scss/theming/_aimms-global-css-custom-props` file, these colors are listed. So, for example:
+
+.. code-block:: CSS
+
+ --color_bg_widget-header: var(--COLOR_AIMMS-YELLOW-DARK);
+
+Would display the background of your widget headers in the standard AIMMS dark yellow color.
+
 
