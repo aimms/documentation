@@ -12,7 +12,7 @@ AIMMS 4.84
 #############
 
 
-AIMMS 4.84.5 Release (March 8, 2022 - build 4.84.5.0).
+AIMMS 4.84.5 Release (March 8, 2022 - build 4.84.5.1).
 ------------------------------------------------------------------------------------------
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
