@@ -12,6 +12,20 @@ AIMMS 4.84
 #############
 
 
+AIMMS 4.84.5 Release (March 8, 2022 - build 4.84.5.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Widgets could not always be placed on dialog pages and dialog pages were sometimes displayed far smaller than their prescribed size.
+
+--------------
+
+
+
 AIMMS 4.84.4 Release (March 3, 2022 - build 4.84.4.4).
 ------------------------------------------------------------------------------------------
 
