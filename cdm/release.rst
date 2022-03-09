@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.24.1.8 [09-03-2022]
+	- The function :any:`cdm::GetValuesLog` did not function properly for identifier slices.
+
 1.24.1.6 [24-02-2022]
 	- Add :any:`cdm::RemoveElementsFromDatabase` to cleanup backing CDM database by removing all data associated with a subset of an element space
 	- :any:`cdm::RollbackElementsInCategory`, :any:`cdm::EmptyElementsInCategory` and :any:`cdm::CommitElementsInCategory` now operate on a subset of elements instead of on a single element
