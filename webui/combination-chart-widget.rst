@@ -1,16 +1,15 @@
 Combination Chart Widget
 ========================
 
-The Combination Chart widget supported in the AIMMS WebUI is based on the so-called Highcharts offered by Highsoft AS, see https://www.highcharts.com/.
+The Combination Chart widget supported in the AIMMS WebUI is a rich and flexible widget based on the so-called Highcharts offered by the Highsoft AS company, see https://www.highcharts.com/.
 
-The Combination Chart widget can combine several chart types in a single chart widget (which explains the name of this widget). 
-More specifically, it has been built upon the combination chart presented by Highcharts at https://www.highcharts.com/docs/chart-and-series-types/combining-chart-types.
-The formal widget type used for adding it to a page is "combinationchart".
+The Combination Chart widget can combine several chart types in a single chart widget, which explains the name of this widget and provides its power and flexibility. 
+More specifically, this widget has been built upon the combination chart presented by the Highcharts platform at https://www.highcharts.com/docs/chart-and-series-types/combining-chart-types.
 
-The Combination Chart widget supports the folowing chart types: Area, Area Spline, Column, Line, Scatter, Spline. The user may specify one chart type from this collection for each identifier added to the widget contents. 
+The formal widget type used for adding it to a WebUI page is called "combinationchart".
 
-Converting other widget types to Combination Chart
---------------------------------------------------
+Converting other widget types to Combination Chart Widget
+---------------------------------------------------------
 
 Since the Combination Chart widget offers more flexibility and options than the existing Bar, Line and BarLine chart widgets, we can imagine that you would like to replace your existing widgets with the new type. The WebUI offers you this possibility. Do the following steps to do so:
 
@@ -27,7 +26,7 @@ After these steps, your existing widget will have been replaced by a Combination
 
 As not all options have an equivalent in the Combination Chart, we have made sure that you have not lost your old widget. It is still present, with its original name, in the 'Unassigned widgets' area of your WebUI page. If you need to compare both, you can simply drag it onto an active area on your page to do so. If you are sure that the new widget is fully OK, you can delete the original one.
 
-Please note that it is only possible to convert widgets of type Bar, Line and BarLine chart, so only those offer the option on the 'Change Type' tab.
+Please note that it is only possible to convert widgets of type Bar, Line and BarLine chart, so only these offer the option 'Convert Type' on the 'Change Type' tab.
 
 The Combination Chart
 ---------------------
@@ -35,10 +34,19 @@ The Combination Chart
 A combination chart can render data in your model by using a X/Y-plane and by displaying a dot or a column (vertical bar) on the Y-axis for each data point on the X-axis. 
 The height of a column or a dot on the Y-axis equals the value of the rendered identifier for the corresponding data point.
 
+The Combination Chart widget supports the folowing chart types: Area, Area Spline, Column, Line, Scatter, Spline. The user may specify one chart type from this collection for each identifier added to the widget contents. 
+
 The plain characteristics of the various chart types supported by the combination chart can be summarized as follows.
 The Column chart type represents data as vertical bars, also called columns. The Scatter chart type renders data as dots which are not connected to each other. 
 By contrary, the Line chart type shows dots connected by straight line segments, while the Spline chart type connects all the dots by one smooth (curved) line function. 
 When the chart also shows the area underneath the line or the spline, the corresponding chart type is called Area or Area Spline, respectively.
+
+Below you can already find a glimpse of the chart types supported by the combination chart widget:
+
+.. image:: images/CombiChart-Types-1.png
+   :align: center
+
+| 
 
 In this section we discuss and illustrate the features and options of the combination chart. The chart's options may be set and accessed through the options editor which opens upon clicking on the Settings cog-wheel in the widget header:
 
@@ -47,9 +55,12 @@ In this section we discuss and illustrate the features and options of the combin
 
 | 
 	
-Besides literal values, most options may also be specified using identifiers declared in the AIMMS model. 
-For example, in the TransNet application, the demand for products of every distribution center may be represented using any of the chart types. 
-Similarly, the unit transport costs for every combination (factory, center) may be rendered using any of the chart types as well. 
+Besides literal (constant) values, most options may also be specified using identifiers declared in the AIMMS model. 
+For example, in the TransNet application, the demand for products of every distribution center may be represented using any of the chart types, as already illustrated in the glimpse above.
+Similarly, the unit transport costs or the actual transport for every combination (factory, center) may be rendered using any of the chart types as well. 
+
+In this vein, note that the combination chart widget can now also be used to create a bar-line chart directly, for example, by assigning the chart type 'Column' to one identifier and the chart type 'Line' to another identifier.
+
 As will become clearer in the sequel, we use such concrete examples in order to illustrate the usage of the various chart features. 
 
 Contents 
@@ -62,10 +73,10 @@ Firstly, a data identifier to be rendered in the combination chart has to be spe
 
 | 
 
-For each identifier added to the Contents tab the following settings can be specified: the identifier name (as declared in the AIMMS model), the chart type to be applied to this identifier, its display domain, the number of decimals, and the indicator for showing/hiding the units of measurement. 
+For each identifier added to the Contents tab the following settings can be specified: the identifier name (as declared in the AIMMS model), its display domain, the chart type to be applied to this identifier, the number of decimals, and the indicator for showing/hiding the units of measurement. 
 These values may be literal or given through identifiers present in the AIMMS model, as shown below:
 
-.. image:: images/ColumnChart-Identifier-Settings-1.png
+.. image:: images/CombiChart-Identifier-Settings-1.png
    :align: center  
 
 An AIMMS model identifier may be selected by using the icon on the right side of each option field:
@@ -78,28 +89,28 @@ Clicking on this icon opens an option dialog which allows to select the identifi
 .. image:: images/ColumnChart-Identifier-Slicing-1.png
    :align: center  
 
+| 
+
 In the "Configuration" section of the option dialog shown above it is possible to slice one index to another index of a subset, to an element parameter, or to a fixed element in the corresponding set.
 For instance, we can slice our center index c to the fixed element 'Amsterdam' in the Centers set. Similarly, one could slice the index c to an element parameter CurrentCenter having the declared range the set Centers 
 (where the value of CurrentCenter may be determined from within the model or by a choice made through another widget in the user interface). 
 Clearly, each slicing specification will result in a different data view in the chart showing only the data points corresponding to those tuples (set element combinations) which are still valid according to current slicing. 
-For detailed explanation, please refer to `Widget Options > Indentifier Settings > Slicing <widget-options.html#id6>`__.
+For a more detailed explanation, please refer to `Widget Options > Indentifier Settings > Slicing <widget-options.html#id6>`__.
 
-<best practices with regard to selecting identifiers with different domains, explain what happens with missing indices> @Ovidiu
+For each identifier in Contents, the chart type to be applied to it can be specified in the "Chart Type" field of the identifier settings by choosing one type from the drop-down list:
 
-For each identifier, the chart type to be applied to it can be specified in the "Chart Type" field...
+.. image:: images/CombiChart-Select-ChartType-1.png
+   :align: center  
 
-<add section on chart types, for each chart type add a small description and example screenshot>
-<update screenshot's, should we wait for the order of the options to change?> @Ovidiu
+| 
 
-<please be aware that a lot of examples in this section use the 'column' chart type as an example. However, the info is also valid for other chart types> @Ovidiu
+.. note::    Many examples in this section use the 'Column' chart type for illustration. However, the explanatory information is also valid for the other chart types, unless specifically mentioned otherwise.
 
-<add comment to say that the combination chart widget can now also be used to create a bar-line chart> @Ovidiu
+<best practices with regard to selecting identifiers with different domains, explain what happens with missing indices>
 
-Moving on, in the "Display Domain" field of the identifier settings, a constant or a model identifier may be specified as well. The column chart will then only display data points for which the display condition is evaluated as true.
-In our example, if the indexed (binary) parameter p_IsSomeCenter(c) is specified as the display domain for Demand(c), then the column chart only displays the demand values of the distribution centers c for which the parameter p_IsSomeCenter(c) is
-not 0. We can visualize this effect, for instance, by showing the values of p_IsSomeCenter(c) in a selection widget of type "multiselect" next to the column chart which shows Demand(c).
-
-.. note:: Please realize that entering the number ‘1’ as the display domain will result in a dense view of your data.
+Moving on, in the "Display Domain" field of the identifier settings a constant or a model identifier may be specified as well. The combination chart will then only display data points for which the display condition is evaluated as true.
+In our example, if the indexed (binary) parameter p_IsSomeCenter(c) is specified as the display domain for Demand(c), then the combination chart only displays the demand values of the distribution centers c for which the parameter p_IsSomeCenter(c) is
+not 0. We can visualize this effect, for instance, by showing the values of p_IsSomeCenter(c) in a selection widget of type "multiselect" next to the combination chart which shows Demand(c) as columns:
 
 .. image:: images/ColumnChart-DisplayDomain-1.png
    :align: center
@@ -109,19 +120,20 @@ not 0. We can visualize this effect, for instance, by showing the values of p_Is
    :align: center
    :scale: 81%
 
-|
+.. note:: 
+   Please realize that entering the constant value '1' as the display domain will result in a dense view of your data.
 
 Next, the number of decimals and the indicator for showing/hiding the units of measurement may be specified in the corresponding fields of the identifier settings, as already shown above. 
 Please note that either option needs to be resolved to a scalar value. So, in particular, it is not possible to specify an indexed identifier like p_NumDecimals(c) for the number of decimals. 
 This means that you cannot show a different number of decimals for different data values which belong to the same identifier.
-These "per identifier" options are then reflected in the chart view provided that the data labels are toggled on (see more info about toggling labels in the `Chart Settings <column-chart-widget.html#column-chart-settings>`__ section below):
+These "per identifier" options are then reflected in the chart view provided that the data labels are toggled on (see more info about toggling labels in the `Chart Settings <combination-chart-widget.html#chart-settings>`__ section below):
 
 .. image:: images/ColumnChart-NumDec-ShowUnits-1.png
    :align: center  
 
 |
 
-Note, that if the number of decimals and/or the indicator for showing/hiding the units of measurement are not specified for a certain identifier, then the values from the Defaults section will be inherited and applied to that identifier:
+Note that, if the number of decimals and/or the indicator for showing/hiding the units of measurement are not specified for a certain identifier, then the values from the Defaults section will be inherited and applied to that identifier:
 
 .. image:: images/ColumnChart-NumDec-ShowUnits-2.png
    :align: center  
@@ -147,14 +159,16 @@ Similarly, one may move some data indexes in the Stacked section of the Pivot ta
 .. image:: images/ColumnChart-Pivot-2.png
     :align: center
 
-Typically, the identifiers that are put in a single chart will share the same (or at least have a very similar) index domain, but this is not necessary. In case some index (that is present on the Pivot tab) is not present in the index domain of a certain contents identifier, the corresponding *missing index* is denoted with a dash ('-') character.
+|
 
-The combination chart widget allows you to specify a chart type **per identifier**. In case you want to make use of different chart types, the dimensions should be pivoted in such a way that, for each sequence of data points in the chart, the corresponding identifier can be uniquely determined. This means, that, in case you want to mix different chart chart, the <IDENTIFIER-SET> index should not be put in the Header or Totals section. 
+Typically, the identifiers that are put in a single chart will share the same (or at least have a very similar) index domain, but this is not mandatory. In case some index (that is present on the Pivot tab) is not present in the index domain of a certain contents identifier, the corresponding *missing index* is denoted with a dash ('-') character.
+
+As already mentioned, the combination chart widget allows you to specify a chart type **per identifier**. In case you want to use several different chart types, the dimensions should be pivoted in such a way that, for each sequence of data points in the chart, the corresponding identifier can be uniquely determined. This means, that, in case you want to mix different chart chart, the <IDENTIFIER-SET> index should not be put in the Header or Totals section. 
 
 When the <IDENTIFIER-SET> index is put in the Header section, the different data point in a single data series, may correspond to different chart types. When, the <IDENTIFIER-SET> index is put in the Header section, each single data point is a total over multiple identifiers, each with their own chart type. In bot of these case, the chart type of the first identifier will be used.
 
-Column Chart Settings
----------------------
+Chart Settings
+--------------
 
 In the Chart Settings tab of the widget options editor there are several groups of options which may be specified: 
 
@@ -223,10 +237,12 @@ In the Labels group it is possible to specify an indicator whether to show or to
 .. image:: images/ColumnChart-Labels-1.png
     :align: center
 
-<are labels only valid for the 'column' chart-type?>  @Ovidiu
+|
 
-Color Index
-+++++++++++
+Data Coloring
++++++++++++++
+
+The Data Coloring section in the Chart Settings offers support for Color Index and for Transparency Index. 
 
 One of the indices can be specified as Color Index. This means that all data points will be colored based on the set element corresponding to the Color Index. For example, consider a chart that displays data for the identifier UnitCost(f,c). When specifying the *f* index as the Color Index, the chart element (e.g. the column) corresponding to UnitCost('London','Liege') will be colored with the second color out of a 19 color palette as 'London' is the second element in the (root set of the) set Factories. Note that a modulo 19 operation will be applied to determine the color. As a result, the twentieth factory will have a similar color as the first. Similarlt, when specifying the *c* index as the Color Index, the chart element will use the sixth color out of the color palette as 'Liege' is the sixth element in the 'Centers' set.
 
@@ -259,9 +275,6 @@ On the other hand, if in the same chart, you would specify the index f to be the
 
 Selecting a Color Index will allow you (as an app developer) will help your end users view the data from the viewpoint of a specific dimension. 
 
-Transparency Index
-++++++++++++++++++
-
 Only one of the indices in your chart will be used as the Color Index. In case your chart contains multiple indices, you may end up with duplication of colors for different elements. For example, in the example (from the previous section) in which the c index was specified as the color index, you that that all three factories (that are stacked upon each other) have the same color. By specifying the f index as the *Transparency Index*, a transparency/shading pattern will be applied to each color depending on the ordinal number of the set element in the (root set of the) Factories set. The hard-coded transparency palette that is currently being used distinguishes 5 different levels of transparency. The resulting chart now looks like
  
 .. image:: images/ColumnChart-TransparencyIndex.png
@@ -269,7 +282,7 @@ Only one of the indices in your chart will be used as the Color Index. In case y
 
 |
 
-To be able to see differences between colors in combination with transparency, it works best if the colors in the color palette are well distinguishable from each other. You might want to create a special custom color palette (and provide it as an application specific resource) to be used in charts were also a Transparency Index has been specified.
+To be able to see differences between colors in combination with transparency, it works best if the colors in the color palette are well distinguishable from each other. You might want to create a special custom color palette (and provide it as an application specific resource) to be used in charts where also a Transparency Index has been specified.
 
 Others
 ++++++
