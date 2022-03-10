@@ -12,6 +12,20 @@ AIMMS 4.84
 #############
 
 
+AIMMS 4.84.6 Release (March 10, 2022 - build 4.84.6.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  After editing AIMMS project files outside of the IDE and then opening the project in AIMMS Developer mode, duplicate procedure names could be erroneously accepted by AIMMS.
+
+--------------
+
+
+
 AIMMS 4.84.5 Release (March 8, 2022 - build 4.84.5.1).
 ------------------------------------------------------------------------------------------
 
