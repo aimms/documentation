@@ -4,6 +4,16 @@ AIMMS PRO Release Notes
 PRO 2.41
 ########
 
+AIMMS PRO 2.41.2 Release
+------------------------
+
+On March 4, 2022, we released AIMMS PRO 2.41.2 (2.41.2.5). 
+
+**Improvements**
+
+-  **Cloud:** We added more clear and meaningful error message when there are no more licenses available and a user could no longer launch an application due to that.
+-  **Cloud:** Some internal fixes for getting ready for Azure Cloud Migration.
+
 AIMMS PRO 2.41.1 Release
 ------------------------
 
