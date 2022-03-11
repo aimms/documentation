@@ -106,7 +106,7 @@ For each identifier in Contents, the chart type to be applied to it can be speci
 
 .. note::    Many examples in this section use the 'Column' chart type for illustration. However, the explanatory information is also valid for the other chart types, unless specifically mentioned otherwise.
 
-<best practices with regard to selecting identifiers with different domains, explain what happens with missing indices>
+< Add best practices regarding to use of identifiers with different domains, explain what happens with missing indices. >
 
 Moving on, in the "Display Domain" field of the identifier settings a constant or a model identifier may be specified as well. The combination chart will then only display data points for which the display condition is evaluated as true.
 In our example, if the indexed (binary) parameter p_IsSomeCenter(c) is specified as the display domain for Demand(c), then the combination chart only displays the demand values of the distribution centers c for which the parameter p_IsSomeCenter(c) is
