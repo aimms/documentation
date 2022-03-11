@@ -11,7 +11,11 @@ Setting up WebUI theming is quite straightforward. It requires just one :token:`
 
 :token:`MainProject/WebUI/resources/css/`
 
-subfolder. You can name this file as you like. It should contain a series of *themable properties*, which you can assign your own values. These properties are listed in logical groups in THIS (PROVIDE DOWNLOAD LINK) file, which you can use as a base for your work. Each group and property is commented, to give you an idea for which part of the WebUI you can influence the appearance by changing its value. The values assigned in this file are the values that are used by default in the WebUI AIMMS theme. Please note that in your :token:`.css` file, you do not have to specify properties from the base file which you do not want to change. This will also make sure that you will profit from the effect of potential future updates to the default values in the base file.
+subfolder of your AIMMS project. You can name this file as you like. It should contain a series of *themable properties*, which you can assign your own values. These properties are listed in logical groups in the :token:`base-theme-<AIMMS version>.css` file, which you can use as a base for your work. It is located in a subfolder of the AIMMS installation folder:
+
+:token:`C:\\Users\\<your name>\\AppData\\Local\\AIMMS\\IFA\\Aimms\\<your AIMMS version>\\WebUIDev\\www\\resources\\css`
+
+Each group and property is commented, to give you an idea for which part of the WebUI you can influence the appearance by changing its value. The values assigned in this base file are the values that are used by default in the WebUI AIMMS theme. Please note that in your :token:`.css` file, you do not have to specify properties from the base file which you do not want to change. This will also make sure that you will benefit from the effect of potential future updates to the default values in the base file.
 
 
 An Example
@@ -63,7 +67,7 @@ will result in the following WebUI theme:
     .. image:: images/Theming-gradient.jpg
         :align: center
 
-Obviously, using a function like :token:`linear-gradient()`, it needs to make sense. That means that it can only be applied to background coloring options, but not to, say, foreground coloring options. 
+Obviously, using a function like :token:`linear-gradient()`, it needs to make sense. That means that it can only be applied to background coloring options, but not to, say, text coloring options. 
 
 For borders, for example, by adding a specific border value like this:
 
@@ -78,7 +82,7 @@ the example above will change into the following:
 
 
 
-Obviously it is a matter of taste whether you deem these last two examples beautiful, but it does illustrate that with changing just a handful of theming property settings, you can achieve far-going effects.
+Obviously it is a matter of taste whether you deem these last two examples beautiful, but it does illustrate that with changing just a handful of theming property settings, you can achieve far-reaching effects.
 
 
 Value Inheritance
