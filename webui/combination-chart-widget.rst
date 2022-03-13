@@ -149,7 +149,14 @@ Pivoting
 
 In the Pivot tab of the chart options editor, one can specify how the data dimensions are to be organized in the chart. The dimensions shown correspond to the union of the domain indices of the model identifiers that have been specified on the contents tab.
 
-For example, if the <IDENTIFIER-SET> index in the X-axis section and the center index c is moved to the Grouped section, then the resulting column chart looks like in the picture below on the left:
+A common pivoting situation is when the indexes of an identifier appear in the X-axis section as shown below for a chart with 'Line' type:
+
+.. image:: images/CombiChart-Pivot-1.png
+    :align: center
+
+|
+
+However, depending on the chart type and the identifiers to be shown, other pivoting may be chosen as well. For instance, if the <IDENTIFIER-SET> index is placed in the X-axis section while the center index c is moved to the Grouped section, then the resulting combination chart with 'Column' type looks like in the picture below on the left:
 
 .. image:: images/ColumnChart-Pivot-1.png
     :align: center
