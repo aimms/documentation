@@ -104,31 +104,31 @@ For each identifier in Contents, the chart type to be applied to it can be speci
 
 | 
 
-.. note::    Many examples in this section use the 'Column' chart type for illustration. However, the explanatory information is also valid for the other chart types, unless specifically mentioned otherwise.
-
-< Add best practices regarding to use of identifiers with different domains, explain what happens with missing indices. >
+.. note::    Many examples in this section use the 'Column' or the 'Line' chart type for illustration. However, the explanatory information is also valid for the other chart types, unless specifically mentioned otherwise.
 
 Moving on, in the "Display Domain" field of the identifier settings a constant or a model identifier may be specified as well. The combination chart will then only display data points for which the display condition is evaluated as true.
 In our example, if the indexed (binary) parameter p_IsSomeCenter(c) is specified as the display domain for Demand(c), then the combination chart only displays the demand values of the distribution centers c for which the parameter p_IsSomeCenter(c) is
-not 0. We can visualize this effect, for instance, by showing the values of p_IsSomeCenter(c) in a selection widget of type "multiselect" next to the combination chart which shows Demand(c) as columns:
+not 0. We can visualize this effect, for instance, by showing the values of p_IsSomeCenter(c) in a selection widget of type "multiselect" next to the combination chart which shows Demand(c) using 'Column' or 'Line' type:
 
-.. image:: images/ColumnChart-DisplayDomain-1.png
+.. image:: images/CombiChart-DisplayDomain-1.png
    :align: center
    :scale: 82%
 
-.. image:: images/ColumnChart-DisplayDomain-2.png
+.. image:: images/CombiChart-DisplayDomain-2.png
    :align: center
-   :scale: 81%
+   :scale: 83%
+
+|
 
 .. note:: 
-   Please realize that entering the constant value '1' as the display domain will result in a dense view of your data.
+   Please note that entering the constant value 1 as the display domain will result in a dense view of your data in the chart.
 
 Next, the number of decimals and the indicator for showing/hiding the units of measurement may be specified in the corresponding fields of the identifier settings, as already shown above. 
 Please note that either option needs to be resolved to a scalar value. So, in particular, it is not possible to specify an indexed identifier like p_NumDecimals(c) for the number of decimals. 
 This means that you cannot show a different number of decimals for different data values which belong to the same identifier.
 These "per identifier" options are then reflected in the chart view provided that the data labels are toggled on (see more info about toggling labels in the `Chart Settings <combination-chart-widget.html#chart-settings>`__ section below):
 
-.. image:: images/ColumnChart-NumDec-ShowUnits-1.png
+.. image:: images/CombiChart-NumDec-ShowUnits-1.png
    :align: center  
 
 |
