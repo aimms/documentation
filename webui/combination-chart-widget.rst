@@ -34,7 +34,7 @@ The Combination Chart
 A combination chart can render data in your model by using a X/Y-plane and by displaying a dot or a column (vertical bar) on the Y-axis for each data point on the X-axis. 
 The height of a column or a dot on the Y-axis equals the value of the rendered identifier for the corresponding data point.
 
-The Combination Chart widget supports the folowing chart types: Area, Area Spline, Column, Line, Scatter, Spline. The user may specify one chart type from this collection for each identifier added to the widget contents. 
+The Combination Chart widget supports the following chart types: Area, Area Spline, Column, Line, Scatter, Spline. The user may specify one chart type from this collection for each identifier added to the widget contents. 
 
 The plain characteristics of the various chart types supported by the combination chart can be summarized as follows.
 The Column chart type represents data as vertical bars, also called columns. The Scatter chart type renders data as dots which are not connected to each other. 
