@@ -103,3 +103,7 @@ Next to this kind of inheritance, it is also possible to 'inherit' from the stan
 Would display the background of your widget headers in the standard AIMMS dark yellow color.
 
 
+Moving From Custom CSS/Theming
+------------------------------
+
+Many clients have their apps styled using custom CSS. We advise you to move over to the new AIMMS Theming, since it offers better maintainability and probably also backward compatibility. The best way to migrate is to put aside all your existing custom CSS files by moving them somewhere outside your project folder, to keep as backup. From this 'clean' state, start theming your app as explained above. If, after that, you are not fully satisfied with the result, you can re-visit your previous custom CSS to see whether selected parts of it can be re-used to fill the gap.
