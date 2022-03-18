@@ -4,6 +4,16 @@ AIMMS PRO Release Notes
 PRO 2.41
 ########
 
+AIMMS PRO 2.41.2 Release
+------------------------
+
+On March 4, 2022, we released AIMMS PRO 2.41.2 (2.41.2.5). 
+
+**Improvements**
+
+-  **Cloud:** We added more clear and meaningful error message when there are no more licenses available and a user could no longer launch an application due to that.
+-  **Cloud:** Some internal fixes for getting ready for Azure Cloud Migration.
+
 AIMMS PRO 2.41.1 Release
 ------------------------
 
@@ -12,7 +22,10 @@ On February 8, 2022, we released AIMMS PRO 2.41.1 (2.41.1.1).
 **Improvements**
 
 -  Added support for the OAuth Authorization Code flow for WebUI applications running on PRO.
--  **Cloud:** On AIMMS Cloud Platform we have stopped supporting TLS 1.0/1.1 and we only support **TLS 1.2**.
+-  **Cloud:** On AIMMS Cloud Platform we have stopped supporting the outdated TLS versions 1.0/1.1, henceforth we only support **TLS 1.2**. 
+   
+	 - If you are running WinUI PRO applications, you may need to download and install a new AimmsPROAppLauncher from the AIMMS PRO portal which supports TLS 1.2. 
+	 - If you are using the .NET PRO API, please make sure that you are compiling your application using .NET 4.7+ which supports TLS 1.2. 
 
 **Resolved Issues**
 

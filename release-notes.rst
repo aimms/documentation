@@ -12,6 +12,71 @@ AIMMS 4.84
 #############
 
 
+AIMMS 4.84.6 Release (March 10, 2022 - build 4.84.6.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  After editing AIMMS project files outside of the IDE and then opening the project in AIMMS Developer mode, duplicate procedure names could be erroneously accepted by AIMMS.
+
+--------------
+
+
+
+AIMMS 4.84.5 Release (March 8, 2022 - build 4.84.5.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Widgets could not always be placed on dialog pages and dialog pages were sometimes displayed far smaller than their prescribed size.
+
+--------------
+
+
+
+AIMMS 4.84.4 Release (March 3, 2022 - build 4.84.4.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In recent AIMMS versions, the custom theme switcher (the :token:`theme-switcher-addon.js`) was removed. Now we have added the "Custom Theme Classes" option to the WebUI application properties. Customers with the old :token:`theme-switcher-addon.js` in their apps can remove it, as this no longer works: the same functionality should now be specified through the new option.
+-  Some symbols, like '|', were not giving the expected behavior when used in strings specified in a WebUI Table filtering rule, because they were not treated as normal string characters, but as special symbols in a regular expression. We have now changed the behavior of the string filtering: in all existing string filtering rule types (like "contains", "starts with", ...) characters are treated as their literal string value. On top of that, we added an extra string filtering rule type: "matches regex". This rule allows you to explicitly specify regular expressions, just like in any other search box within the WebUI.
+-  In later AIMMS versions (4.83 and higher), it could happen that WebUI Gantt Charts were empty, whereas they displayed normally in AIMMS 4.82.
+
+--------------
+
+
+
+AIMMS 4.84.3 Release (February 23, 2022 - build 4.84.3.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The model information in the progress window was not always correct if the math program was scaled after activating the Solvers General option 'Scale model'.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Due to small changes in the CSS, screenshots of pages with scrolled contents were clipped.
+-  AIMMS could crash when displaying a domain for a multidimensional identifier with (a specific type of) an expression used in an index domain condition.
+-  Public identifiers in modules were not accessible/selectable from within WebUI widgets.
+
+--------------
+
+
+
 AIMMS 4.84.2 Release (February 11, 2022 - build 4.84.2.6).
 ------------------------------------------------------------------------------------------
 
