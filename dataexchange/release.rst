@@ -18,6 +18,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.1.3 [24-03-2023]
+	- Sets in document mappings did ignore dex::FieldName annotations
+
 1.3.1.2 [23-03-2023]
 	- Labels were right trimmed, but not trimmed from the left.
 	
