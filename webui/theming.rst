@@ -85,6 +85,26 @@ the example above will change into the following:
 Obviously it is a matter of taste whether you deem these last two examples beautiful, but it does illustrate that with changing just a handful of theming property settings, you can achieve far-reaching effects.
 
 
+A Special Case: the Application Logo
+-------------------------------------
+
+Theming offers you the possibility to easily specify a logo for your application. It will be displayed to the left of the application name in the menu bar. It has a special 'rule' for specifying the location of the image that you want to use as a logo. As an example, take this specification:
+
+.. code-block:: CSS
+
+  --bg_app-logo: 8px 50% / 35px 35px no-repeat url("/app-resources/resources/images/icon.gif");
+
+Aside from the values which define the size and positioning here, the :token:`url` part requires some explanation. Obviously, the image that is referred to is called :token:`icon.gif` in this example. The path, however, is perhaps less intuitive. If you want to refer to an image file somewhere in your project folder structure, you must include the :token:`/app-resources/` part. In terms of your project folder structure, this points to the :token:`MainProject/WebUI` subfolder. Anything after this should follow the sub-path in your project folder. So, in the case of the example above, the image file is located in the :token:`MainProject/WebUI/resources/images` folder of the AIMMS project.
+
+Next to using a location relative to your project folder, it is also possible to use an image that resides somewhere on the web. In that case, you can simply specify the precise URL of its location in the :token:`url`. So, for example:
+
+.. code-block:: CSS
+
+  --bg_app-logo: 8px 50% / 35px 35px no-repeat url("https://www.aimms.com/wp-content/themes/aimms/images/logo-aimms.svg");
+
+Will show the AIMMS logo which is displayed on our website.
+
+
 Value Inheritance
 ----------------------
 
