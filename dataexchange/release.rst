@@ -18,6 +18,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.1.5 [31-03-2022]
+	- Conversion errors from string to int/double and int to binary are now passed on to the model instead of skipped.
+
 1.3.1.3 [24-03-2022]
 	- Sets in document mappings did ignore ``dex::FieldName`` annotations
 
