@@ -92,7 +92,7 @@ Theming offers you the possibility to easily specify a logo for your application
 
 .. code-block:: CSS
 
-  --bg_app-logo: 8px 50% / 35px 35px no-repeat url("/app-resources/resources/images/icon.gif");
+  --bg_app-logo: 8px 50% / 35px 35px no-repeat url(/app-resources/resources/images/icon.gif);
 
 Aside from the values which define the size and positioning here, the :token:`url` part requires some explanation. Obviously, the image that is referred to is called :token:`icon.gif` in this example. The path, however, is perhaps less intuitive. If you want to refer to an image file somewhere in your project folder structure, you must include the :token:`/app-resources/` part. In terms of your project folder structure, this points to the :token:`MainProject\\WebUI` subfolder. Anything after this should follow the sub-path in your project folder. So, in the case of the example above, the image file is located in the :token:`MainProject\\WebUI\\resources\\images` folder of the AIMMS project.
 
@@ -100,7 +100,7 @@ Next to using a location relative to your project folder, it is also possible to
 
 .. code-block:: CSS
 
-  --bg_app-logo: 8px 50% / 35px 35px no-repeat url("https://www.aimms.com/wp-content/themes/aimms/images/logo-aimms.svg");
+  --bg_app-logo: 8px 50% / 35px 35px no-repeat url(https://www.aimms.com/wp-content/themes/aimms/images/logo-aimms.svg);
 
 Will show the AIMMS logo which is displayed on our website.
 
