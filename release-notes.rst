@@ -12,6 +12,25 @@ AIMMS 4.84
 #############
 
 
+AIMMS 4.84.7 Release (April 1, 2022 - build 4.84.7.8).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When saving a case file to a location on a network drive, AIMMS did not give any error message if the location did not exist or if it was not writable.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We removed the (harmless) 'data not initialized (default values are used)' warnings when opening a WebUI project.
+
+--------------
+
+
+
 AIMMS 4.84.6 Release (March 10, 2022 - build 4.84.6.2).
 ------------------------------------------------------------------------------------------
 
