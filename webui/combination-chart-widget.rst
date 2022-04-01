@@ -6,7 +6,10 @@ The Combination Chart widget supported in the AIMMS WebUI is a rich and flexible
 The Combination Chart widget can combine several chart types in a single chart widget, which explains the name of this widget and provides its power and flexibility. 
 More specifically, this widget has been built upon the combination chart presented by the Highcharts platform at https://www.highcharts.com/docs/chart-and-series-types/combining-chart-types.
 
-The formal widget type used for adding it to a WebUI page is called "combinationchart".
+The formal widget type used for adding it to a WebUI page is called "combinationchart". This type is only available in the Add Widget dialog on a page with a grid layout.
+
+.. note:: 
+   The Combination Chart widget is supported only on the Grid pages and it is incompatible with the Classic pages. When a combination chart ends up on a page with classic layout (for instance, by copy and paste), then the widget becomes no longer usable and shows an incompatibility message. In order to use a combination chart, the page must be applied a grid layout.  
 
 Converting other widget types to Combination Chart Widget
 ---------------------------------------------------------
@@ -26,7 +29,8 @@ After these steps, your existing widget will have been replaced by a Combination
 
 As not all options have an equivalent in the Combination Chart, we have made sure that you have not lost your old widget. It is still present, with its original name, in the 'Unassigned widgets' area of your WebUI page. If you need to compare both, you can simply drag it onto an active area on your page to do so. If you are sure that the new widget is fully OK, you can delete the original one.
 
-Please note that it is only possible to convert widgets of type Bar, Line and BarLine chart, so only these offer the option 'Convert Type' on the 'Change Type' tab.
+.. note:: 
+   It is only possible to convert widgets of type Bar, Line and BarLine chart, so only these widgets offer the option 'Convert Type' on the 'Change Type' tab. Also, the widgets must reside on a page with a grid layout in order to allow for conversion to a combination chart.
 
 The Combination Chart
 ---------------------
