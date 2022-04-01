@@ -22,7 +22,7 @@ Since the Combination Chart widget offers more flexibility and options than the 
 3. Click on 'combinationchart';
 4. This will bring up a dialog that tells you what is about to happen. Click on 'Continue'.
 
-After these steps, your existing widget will have been replaced by a Combination Chart widget, complete with all the options from the existing widget that could be converted. Currently, only a non-binary display domain cannot be converted yet. The Combination Chart widget is present at the original position of the existing widget, with a numerical suffix in its name, because two widgets with the same name are not possible. 
+After these steps, your existing widget will have been replaced by a Combination Chart widget, complete with all the options from the existing widget that could be converted. Currently, a non-binary display domain cannot be converted yet and neither can be aggregators (because these do not exist in the Combination Chart). The Combination Chart widget is present at the original position of the existing widget, with a numerical suffix in its name, because two widgets with the same name are not possible. 
 
 As not all options have an equivalent in the Combination Chart, we have made sure that you have not lost your old widget. It is still present, with its original name, in the 'Unassigned widgets' area of your WebUI page. If you need to compare both, you can simply drag it onto an active area on your page to do so. If you are sure that the new widget is fully OK, you can delete the original one.
 
@@ -104,7 +104,8 @@ For each identifier in Contents, the chart type to be applied to it can be speci
 
 | 
 
-.. note::    Many examples in this section use the 'Column' or the 'Line' chart type for illustration. However, the explanatory information is also valid for the other chart types, unless specifically mentioned otherwise.
+.. note:: 
+   Many examples in this section use the 'Column' or the 'Line' chart type for illustration. However, the explanatory information is also valid for the other chart types, unless specifically mentioned otherwise.
 
 Moving on, in the "Display Domain" field of the identifier settings a constant or a model identifier may be specified as well. The combination chart will then only display data points for which the display condition is evaluated as true.
 In our example, if the indexed (binary) parameter p_IsSomeCenter(c) is specified as the display domain for Demand(c), then the combination chart only displays the demand values of the distribution centers c for which the parameter p_IsSomeCenter(c) is
@@ -170,9 +171,9 @@ Similarly, one may move some data indexes in the Stacked section of the Pivot ta
 
 Typically, the identifiers that are put in a single chart will share the same (or at least have a very similar) index domain, but this is not mandatory. In case some index (that is present on the Pivot tab) is not present in the index domain of a certain contents identifier, the corresponding *missing index* is denoted with a dash ('-') character.
 
-As already mentioned, the combination chart widget allows you to specify a chart type **per identifier**. In case you want to use several different chart types, the dimensions should be pivoted in such a way that, for each sequence of data points in the chart, the corresponding identifier can be uniquely determined. This means, that, in case you want to mix different chart chart, the <IDENTIFIER-SET> index should not be put in the Header or Totals section. 
+As already mentioned, the combination chart widget allows you to specify a chart type **per identifier**. In case you want to use several different chart types, the dimensions should be pivoted in such a way that, for each sequence of data points in the chart, the corresponding identifier can be uniquely determined. This means that, in case you want to mix different chart types, the <IDENTIFIER-SET> index should not be put in the Header or Totals section. 
 
-When the <IDENTIFIER-SET> index is put in the Header section, the different data point in a single data series, may correspond to different chart types. When, the <IDENTIFIER-SET> index is put in the Header section, each single data point is a total over multiple identifiers, each with their own chart type. In bot of these case, the chart type of the first identifier will be used.
+When the <IDENTIFIER-SET> index is put in the Header section, the different data points in a single data series, may correspond to different chart types. When the <IDENTIFIER-SET> index is put in the Header section, each single data point is a total over multiple identifiers, each with their own chart type. In both of these cases, the chart type of the first identifier will be used.
 
 Chart Settings
 --------------
@@ -217,6 +218,29 @@ In the Y-Axis group it is possible to specify the Label for the Y-axis, a minimu
     :align: center
 
 Note that the situation shown here corresponds again to the first instance of pivoting the indexes as discussed in the Pivoting section above.
+
+Y-Axis (Secondary)
+++++++++++++++++++
+
+Next to the Y-axis, it is possible to display a secondary Y-axis in your charts. This can be tremendously helpful in situations where the identifiers that you display are using a different order of magnitude in their values, and/or even completely unrelated units. A typical example of the latter case is a climate chart, which displays precipitation levels (usually expressed in millimeters) and temperatures (expressed in either degrees Celcius or Fahrenheit).
+
+The secondary Y-axis has the same properties as the primary Y-axis has: Label, Min, Max and Step Size. For an example, see this climate chart:
+
+.. image:: images/ClimateData1.jpg
+    :align: center
+
+|
+
+In this chart, the line represents the temperature, as can be seen in the legend, and it follows the scaling of the secondary Y-axis.
+
+In this climate data example, it is rather obvious which identifier should be interpreted based on the values of which Y-axis. Imagine, however, a situation where you display more than two identifiers in the same chart. There is no third Y-axis. For scenarios like this, we let you specify against which Y-axis the values of each identifier should be interpreted. This can be done with the :token:`Y-axis` option, available for each identifier on the Contents tab. Possible values for the option are 'Primary' (for the left axis) and 'Secondary' (for the right axis). If we would change the option for the temperature identifier in the previous example to 'Primary', this would be the result:
+
+.. image:: images/ClimateData2.jpg
+    :align: center
+    
+|
+
+As you can see, the line is rendered lower than in the first chart, to plot the values against the primary Y-axis. This gives you a good idea about the effect of setting this Y-axis option, but, as mentioned, it is more useful in situations when displaying three or more identifier in the same chart.
 
 Legend
 ++++++
