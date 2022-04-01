@@ -1,6 +1,22 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.42
+########
+
+AIMMS PRO 2.42.1 Release
+------------------------
+
+On March 31, 2022, we released AIMMS PRO 2.42.1 (2.42.1.1). 
+
+**Improvements**
+
+-  **Cloud:** Some internal improvements for getting ready for Azure Cloud Migration.
+
+**Resolved Issues**
+
+- **Cloud:** Fixed an issue where user could no longer login to AIMMS PRO Portal via SAML Authentication when user's e-mail contained uppercase characters.
+
 PRO 2.41
 ########
 
