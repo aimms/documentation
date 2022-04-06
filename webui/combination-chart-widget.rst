@@ -223,6 +223,7 @@ In the Y-Axis group it is possible to specify the Label for the Y-axis, a minimu
 
 Note that the situation shown here corresponds again to the first instance of pivoting the indexes as discussed in the Pivoting section above.
 
+
 Y-Axis (Secondary)
 ++++++++++++++++++
 
@@ -241,10 +242,13 @@ In this climate data example, it is rather obvious which identifier should be in
 
 .. image:: images/ClimateData2.jpg
     :align: center
-    
+
 |
 
 As you can see, the line is rendered lower than in the first chart, to plot the values against the primary Y-axis. This gives you a good idea about the effect of setting this Y-axis option, but, as mentioned, it is more useful in situations when displaying three or more identifier in the same chart.
+
+For the secondary Y-axis, the remarks above on the pivoting of indexes also apply.
+
 
 Legend
 ++++++
