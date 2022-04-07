@@ -183,7 +183,7 @@ Similarly, one may move some data indexes in the Stacked section of the Pivot ta
 
 |
 
-Typically, the identifiers that are put in a single chart will share the same (or at least have a very similar) index domain, but this is not mandatory. 
+Typically, the identifiers which are put in a single chart will share the same (or at least have a very similar) index domain, but this is not mandatory. 
 In case some index (that is present on the Pivot tab) is not present in the index domain of a certain contents identifier, the corresponding *missing index* is denoted with a dash ('-') character.
 
 As already mentioned, the combination chart widget allows you to specify a chart type **per identifier**. In case you want to use several different chart types, the dimensions should be pivoted in such a way that, 
