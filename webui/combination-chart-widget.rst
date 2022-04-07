@@ -239,7 +239,7 @@ In the Y-Axis group it is possible to specify values for the following options:
 
 These all may be constant literals or given by model identifiers:
 
-.. image:: images/CombiChart-YAxis-View.png
+.. image:: images/CombiChart-YAxis-ApplyOptions.png
     :align: center
 
 |
