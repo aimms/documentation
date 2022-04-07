@@ -222,7 +222,7 @@ If there are more data points than this maximum number in viewport, then a horiz
 The value of the "Step Size" specifies for which data points are the labels shown on the X axis. For example, if this option is 2, then the label is shown for the first data point and then for every second data point in the sequence.
 These effects are illustrated in the following picture:
 
-.. image:: images/CombiChart-XAxis-View-1.PNG
+.. image:: images/CombiChart-XAxis-View-1.png
     :align: center
 
 | 
@@ -239,7 +239,7 @@ In the Y-Axis group it is possible to specify values for the following options:
 
 These all may be constant literals or given by model identifiers:
 
-.. image:: images/CombiChart-YAxis-View-1.png
+.. image:: images/CombiChart-YAxis-View.png
     :align: center
 
 |
