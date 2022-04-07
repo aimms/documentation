@@ -9,7 +9,7 @@ More specifically, this widget has been built upon the combination chart present
 The formal widget type used for adding it to a WebUI page is called "combinationchart". This type is only available in the Add Widget dialog on a page with a grid layout.
 
 .. note:: 
-   The Combination Chart widget is supported only on the Grid pages and it is incompatible with the Classic pages. When a combination chart ends up on a page with classic layout (for instance, by copy and paste), then the widget becomes no longer usable and shows an incompatibility message. In order to use a combination chart, the page must be applied a grid layout.  
+   The Combination Chart widget is supported only on the Grid pages and it is incompatible with the Classic pages. When a combination chart ends up on a page with classic layout (for instance, by copy and paste), then the widget becomes no longer usable and shows an incompatibility message. In order to use a combination chart, the page must first have a grid layout applied on it.  
 
 Converting other widget types to Combination Chart Widget
 ---------------------------------------------------------
@@ -27,10 +27,10 @@ Since the Combination Chart widget offers more flexibility and options than the 
 
 After these steps, your existing widget will have been replaced by a Combination Chart widget, complete with all the options from the existing widget that could be converted. Currently, a non-binary display domain cannot be converted yet and neither can be aggregators (because these do not exist in the Combination Chart). The Combination Chart widget is present at the original position of the existing widget, with a numerical suffix in its name, because two widgets with the same name are not possible. 
 
-As not all options have an equivalent in the Combination Chart, we have made sure that you have not lost your old widget. It is still present, with its original name, in the 'Unassigned widgets' area of your WebUI page. If you need to compare both, you can simply drag it onto an active area on your page to do so. If you are sure that the new widget is fully OK, you can delete the original one.
+As not all options have an equivalent in the Combination Chart, we have made sure that you have not lost your old widget. It is still present, with its original name, in the 'Unassigned widgets' area of your WebUI page. If you need to compare both, you can simply drag it onto an active area on your grid page to do so. If you are sure that the new widget is fully functional, you can delete the original one.
 
 .. note:: 
-   It is only possible to convert widgets of type Bar, Line and BarLine chart, so only these widgets offer the option 'Convert Type' on the 'Change Type' tab. Also, the widgets must reside on a page with a grid layout in order to allow for conversion to a combination chart.
+   It is only possible to convert widgets of type Bar, Line and BarLine chart, so only these widgets offer the option 'Convert Type' on the 'Change Type' tab. Also, the widgets must reside on a page with a grid layout in order to allow for conversion to a combination chart (otherwise, on a classic page, the 'Convert Type' option is greyed out and not applicable).
 
 The Combination Chart
 ---------------------
@@ -77,7 +77,15 @@ Firstly, a data identifier to be rendered in the combination chart has to be spe
 
 | 
 
-For each identifier added to the Contents tab the following settings can be specified: the identifier name (as declared in the AIMMS model), its display domain, the chart type to be applied to this identifier, the number of decimals, and the indicator for showing/hiding the units of measurement. 
+For each identifier added to the Contents tab the following settings can be specified: 
+
+* the identifier name (as declared in the AIMMS model), 
+* its display domain, 
+* the chart type to be applied to this identifier, 
+* the Y-axis (Primary or Secondary) to be applied to it,
+* the number of decimal places to be shown, 
+* and the indicator for showing or hiding its units of measurement. 
+
 These values may be literal or given through identifiers present in the AIMMS model, as shown below:
 
 .. image:: images/CombiChart-Identifier-Settings-1.png
@@ -101,16 +109,6 @@ For instance, we can slice our center index c to the fixed element 'Amsterdam' i
 Clearly, each slicing specification will result in a different data view in the chart showing only the data points corresponding to those tuples (set element combinations) which are still valid according to current slicing. 
 For a more detailed explanation, please refer to `Widget Options > Indentifier Settings > Slicing <widget-options.html#id6>`__.
 
-For each identifier in Contents, the chart type to be applied to it can be specified in the "Chart Type" field of the identifier settings by choosing one type from the drop-down list:
-
-.. image:: images/CombiChart-Select-ChartType-1.png
-   :align: center  
-
-| 
-
-.. note:: 
-   Many examples in this section use the 'Column' or the 'Line' chart type for illustration. However, the explanatory information is also valid for the other chart types, unless specifically mentioned otherwise.
-
 Moving on, in the "Display Domain" field of the identifier settings a constant or a model identifier may be specified as well. The combination chart will then only display data points for which the display condition is evaluated as true.
 In our example, if the indexed (binary) parameter p_IsSomeCenter(c) is specified as the display domain for Demand(c), then the combination chart only displays the demand values of the distribution centers c for which the parameter p_IsSomeCenter(c) is
 not 0. We can visualize this effect, for instance, by showing the values of p_IsSomeCenter(c) in a selection widget of type "multiselect" next to the combination chart which shows Demand(c) using 'Column' or 'Line' type:
@@ -128,7 +126,20 @@ not 0. We can visualize this effect, for instance, by showing the values of p_Is
 .. note:: 
    Please note that entering the constant value 1 as the display domain will result in a dense view of your data in the chart.
 
-Next, the number of decimals and the indicator for showing/hiding the units of measurement may be specified in the corresponding fields of the identifier settings, as already shown above. 
+For each identifier in the Contents, the chart type to be applied to it can be specified in the "Chart Type" field of the identifier settings by choosing one type from the drop-down list:
+
+.. image:: images/CombiChart-Select-ChartType-1.png
+   :align: center  
+
+| 
+
+.. note:: 
+   Many examples in this section use the 'Column' or the 'Line' chart type for illustration. However, the explanatory information is also valid for the other chart types, unless explicitly mentioned otherwise.
+
+Next, in the "Y Axis" field under the identifier options one can select from the drop down list either the Primary Axis or the Secondary Axis as the Y axis on which the identifier values are rendered 
+(for more info about the primary Y axis and the secondary Y axis please see the `Chart Settings <combination-chart-widget.html#chart-settings>`__ section below).
+
+Finally, the number of decimal places and the indicator for showing/hiding the units of measurement may be specified in the corresponding fields of the identifier settings, as already shown above. 
 Please note that either option needs to be resolved to a scalar value. So, in particular, it is not possible to specify an indexed identifier like p_NumDecimals(c) for the number of decimals. 
 This means that you cannot show a different number of decimals for different data values which belong to the same identifier.
 These "per identifier" options are then reflected in the chart view provided that the data labels are toggled on (see more info about toggling labels in the `Chart Settings <combination-chart-widget.html#chart-settings>`__ section below):
@@ -138,16 +149,15 @@ These "per identifier" options are then reflected in the chart view provided tha
 
 |
 
-Note that, if the number of decimals and/or the indicator for showing/hiding the units of measurement are not specified for a certain identifier, then the values from the Defaults section will be inherited and applied to that identifier:
+Note that, if the chart type, the Y axis, the number of decimal places and/or the indicator for showing/hiding the units of measurement are not specified for a certain identifier, then the corresponding values from the Defaults section 
+of the Contents tab will be inherited and applied to that identifier:
 
-.. image:: images/ColumnChart-NumDec-ShowUnits-2.png
+.. image:: images/CombiChart-ContentsDefaults-View-1.png
    :align: center  
 
 |
 
-More specifically, in the example above the number of decimals is not explicitly set for the identifier Demand(c) and therefore, this option value '2' is automatically inherited from the number of decimals specified in the Defaults section of the Contents tab.
-Similarly, the value '1' (or "on") of the the indicator for showing/hiding the units of measurement for the identifier Demand(c) is not specified explicitly in the corresponding identifier field, but it is inherited from the indicator value from the Defaults.
-Either option can be specified per identifier or inherited from Defaults independently from the other option. 
+Each of these options can be specified explicitly per identifier or can inherited from the Defaults section independently from the other options. 
 
 Pivoting
 --------
@@ -173,18 +183,22 @@ Similarly, one may move some data indexes in the Stacked section of the Pivot ta
 
 |
 
-Typically, the identifiers that are put in a single chart will share the same (or at least have a very similar) index domain, but this is not mandatory. In case some index (that is present on the Pivot tab) is not present in the index domain of a certain contents identifier, the corresponding *missing index* is denoted with a dash ('-') character.
+Typically, the identifiers that are put in a single chart will share the same (or at least have a very similar) index domain, but this is not mandatory. 
+In case some index (that is present on the Pivot tab) is not present in the index domain of a certain contents identifier, the corresponding *missing index* is denoted with a dash ('-') character.
 
-As already mentioned, the combination chart widget allows you to specify a chart type **per identifier**. In case you want to use several different chart types, the dimensions should be pivoted in such a way that, for each sequence of data points in the chart, the corresponding identifier can be uniquely determined. This means that, in case you want to mix different chart types, the <IDENTIFIER-SET> index should not be put in the Header or Totals section. 
+As already mentioned, the combination chart widget allows you to specify a chart type **per identifier**. In case you want to use several different chart types, the dimensions should be pivoted in such a way that, 
+for each sequence of data points in the chart, the corresponding identifier can be uniquely determined. This means that, in case you want to mix different chart types, the <IDENTIFIER-SET> index should **not** be pivoted in the X-Axis or in the Totals section. 
 
-When the <IDENTIFIER-SET> index is put in the Header section, the different data points in a single data series, may correspond to different chart types. When the <IDENTIFIER-SET> index is put in the Header section, each single data point is a total over multiple identifiers, each with their own chart type. In both of these cases, the chart type of the first identifier will be used.
+When the <IDENTIFIER-SET> index is put in the X-Axis section, the different data points in a single data series may correspond to different chart types. 
+When the <IDENTIFIER-SET> index is put in the Totals section, each single data point is a total over multiple identifiers, each with their own chart type. 
+In both cases, the chart type of the first identifier will be used.
 
 Chart Settings
 --------------
 
 In the Chart Settings tab of the widget options editor there are several groups of options which may be specified: 
 
-.. image:: images/ColumnChart-ChartSettings-0.png
+.. image:: images/CombiChart-ChartSettings-0.PNG
     :align: center
 
 Next, we discuss each of these option groups in turn.
@@ -192,9 +206,9 @@ Next, we discuss each of these option groups in turn.
 X-Axis
 ++++++
 
-In the X-Axis group it is possible to specify the Label for the X-axis and the so-called "Maximum Number of Categories in the Viewport":
+In the X-Axis group it is possible to specify the Label for the X-axis, the so-called "Maximum Number of Categories in Viewport" and the so-called "Step Size":
 
-.. image:: images/ColumnChart-XAxis-Options-1.png
+.. image:: images/CombiChart-XAxis-Options-1.png
     :align: center
 
 In order to illustrate the effect of these settings, assume for the time being that the Pivoting is adjusted as follows: 
@@ -202,12 +216,13 @@ In order to illustrate the effect of these settings, assume for the time being t
 .. image:: images/ColumnChart-XAxis-Pivot-0.png
     :align: center
 
-The Label value add the corresponding text as label of the X-axis. 
+The Label value adds the corresponding text as label of the X-axis. 
 The value of the "Maximum Number of Categories in the Viewport" specifies the maximum number of data tuples from the X-axis in the Pivot tab which are shown at a time in the chart.
 If there are more data points than this maximum number in viewport, then a horizontal scroll bar appears along the X-axis such that the user can scroll through all points.
-These are illustrated in the following picture:
+The value of the "Step Size" specifies for which data points are the labels shown on the X axis. For example, if this option is 2, then the label is shown for the first data point and then for every second data point in the sequence.
+These effects are illustrated in the following picture:
 
-.. image:: images/ColumnChart-XAxis-1.png
+.. image:: images/CombiChart-XAxis-View-1.PNG
     :align: center
 
 | 
@@ -215,13 +230,19 @@ These are illustrated in the following picture:
 Y-Axis
 ++++++
 
-In the Y-Axis group it is possible to specify the Label for the Y-axis, a minimum and a maximum bound for the Y-axis, and a step size which determines the distance between the horizontal grid lines drawn in the chart 
-(these all may be constant literals or given by model identifiers):
+In the Y-Axis group it is possible to specify values for the following options:
 
-.. image:: images/ColumnChart-YAxis-1.png
+* the Label for the Y-axis itself, 
+* a minimum bound for the Y-axis,
+* a maximum bound for the Y-axis, 
+* and a step size which determines the distance between the horizontal grid lines drawn in the chart. 
+
+These all may be constant literals or given by model identifiers:
+
+.. image:: images/CombiChart-YAxis-View-1.png
     :align: center
 
-Note that the situation shown here corresponds again to the first instance of pivoting the indexes as discussed in the Pivoting section above.
+|
 
 
 Y-Axis (Secondary)
@@ -255,7 +276,7 @@ Legend
 
 In the Legend group it is possible to specify an indicator whether to show or to hide the legend provided by the chart:
 
-.. image:: images/ColumnChart-Legend-Option-1.png
+.. image:: images/CombiChart-Legend-Option-1.png
     :align: center
 
 When the Legend is turned on, then it is displayed at the bottom of the chart, as illustrated below:
@@ -263,9 +284,9 @@ When the Legend is turned on, then it is displayed at the bottom of the chart, a
 .. image:: images/ColumnChart-Legend-1.png
     :align: center
 
-When the Legend option is not specified by a model identifier, but by the literal (binary) indicator, then the option of toggling the Legend on/off is also available through a dedicated icon on the widget header:
+When the Legend option is not specified by a model identifier, but by the literal (binary) indicator instead, then the option of toggling the Legend on/off is also available through a dedicated icon on the widget header:
 
-.. image:: images/ColumnChart-Legend-2.png
+.. image:: images/CombiChart-Legend-2.png
     :align: center
 
 Labels
@@ -273,7 +294,7 @@ Labels
 
 In the Labels group it is possible to specify an indicator whether to show or to hide the text labels of the columns in the chart:
 
-.. image:: images/ColumnChart-Labels-1.png
+.. image:: images/CombiChart-Labels-1.png
     :align: center
 
 |
@@ -293,7 +314,7 @@ Consider a column chart with a single identifier UnitCost(f,c) in which the <IDE
 
 If you would specify the c index as the *Color Index*
 
-.. image:: images/ColumnChart-ColorIndex-Option.png
+.. image:: images/CombiChart-ColorIndex-1.png
     :align: center
 
 |
