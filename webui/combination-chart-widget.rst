@@ -237,8 +237,12 @@ In the Y-Axis group it is possible to specify values for the following options:
 * a maximum bound for the Y-axis, 
 * and a step size which determines the distance between the horizontal grid lines drawn in the chart. 
 
-These all may be constant literals or given by model identifiers:
+These all may be constant literals or given by model identifiers, herewith an illustration:
 
+.. image:: images/CombiChart-YAxis-Settings.png
+    :align: center
+
+|
 
 Y-Axis (Secondary)
 ++++++++++++++++++
