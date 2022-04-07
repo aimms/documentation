@@ -256,9 +256,11 @@ The secondary Y-axis has the same properties as the primary Y-axis has: Label, M
 
 |
 
-In this chart, the line represents the temperature, as can be seen in the legend, and it follows the scaling of the secondary Y-axis.
+In this chart the line represents the temperature, as can be seen in the legend, and it follows the scaling of the secondary Y-axis.
 
-In this climate data example, it is rather obvious which identifier should be interpreted based on the values of which Y-axis. Imagine, however, a situation where you display more than two identifiers in the same chart. There is no third Y-axis. For scenarios like this, we let you specify against which Y-axis the values of each identifier should be interpreted. This can be done with the :token:`Y-axis` option, available for each identifier on the Contents tab. Possible values for the option are 'Primary' (for the left axis) and 'Secondary' (for the right axis). If we would change the option for the temperature identifier in the previous example to 'Primary', this would be the result:
+In this climate data example it is rather obvious which identifier should be interpreted based on the values of which Y-axis. Imagine, however, a situation where you display more than two identifiers in the same chart. There is no third Y-axis. 
+For scenarios like this, we let you specify against which Y-axis the values of each identifier should be interpreted. This can be done with the :token:`Y-axis` option, available for each identifier on the Contents tab. 
+Possible values for the option are 'Primary' (for the left axis) and 'Secondary' (for the right axis). If we would change the option for the temperature identifier in the previous example to 'Primary', this would be the result:
 
 .. image:: images/ClimateData2.jpg
     :align: center
@@ -288,10 +290,12 @@ When the Legend option is not specified by a model identifier, but by the litera
 .. image:: images/CombiChart-Legend-2.png
     :align: center
 
+|
+
 Labels
 ++++++
 
-In the Labels group it is possible to specify an indicator whether to show or to hide the text labels of the columns in the chart:
+In the Labels section of the chart settings it is possible to specify an indicator whether to show or to hide the text labels of the rendered data values (columns or dots) in the chart :
 
 .. image:: images/CombiChart-Labels-1.png
     :align: center
@@ -440,8 +444,6 @@ The specified chart title is reflected on the widget header:
     :align: center
 
 |  
-
-
 
 .. spelling::
 
