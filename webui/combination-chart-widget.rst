@@ -25,7 +25,7 @@ Since the Combination Chart widget offers more flexibility and options than the 
 3. Click on 'combinationchart';
 4. This will bring up a dialog that tells you what is about to happen. Click on 'Continue'.
 
-After these steps, your existing widget will have been replaced by a Combination Chart widget, complete with all the options from the existing widget which could be converted. Currently, a non-binary display domain cannot be converted yet and neither can be aggregators (because these do not exist in the Combination Chart). The Combination Chart widget is present at the original position of the existing widget, with a numerical suffix in its name, because two widgets with the same name are not possible. 
+After these steps, your existing widget will have been replaced by a Combination Chart widget, complete with all the options from the existing widget which could be converted. Currently, a non-binary display domain cannot be converted yet and neither can aggregators (because these do not exist in the Combination Chart). The Combination Chart widget is present at the original position of the existing widget, with a numerical suffix in its name, because two widgets with the same name are not possible. 
 
 As not all options have an equivalent in the Combination Chart, we have made sure that you have not lost your old widget. It is still present, with its original name, in the 'Unassigned widgets' area of your WebUI page. If you need to compare both, you can simply drag it onto an active area on your grid page to do so. If you are sure that the new widget is fully functional, you can delete the original one.
 
@@ -65,7 +65,7 @@ Similarly, the unit transport costs or the actual transport for every combinatio
 
 In this vein, note that the combination chart widget can now also be used to create a bar-line chart directly, for example, by assigning the chart type 'Column' to one identifier and the chart type 'Line' to another identifier.
 
-As will become clearer in the sequel, we use such concrete examples in order to illustrate the usage of the various chart features. 
+As will become clearer below, we use such concrete examples in order to illustrate the usage of the various chart features. 
 
 Contents 
 --------
@@ -157,7 +157,7 @@ of the Contents tab will be inherited and applied to that identifier:
 
 |
 
-Each of these options can be specified explicitly per identifier or can inherited from the Defaults section independently from the other options. 
+Each of these options can be specified explicitly per identifier or can be inherited from the Defaults section independently from the other options. 
 
 Pivoting
 --------
@@ -219,7 +219,7 @@ In order to illustrate the effect of these settings, assume for the time being t
 The Label value adds the corresponding text as label of the X-axis. 
 The value of the "Maximum Number of Categories in the Viewport" specifies the maximum number of data tuples from the X-axis in the Pivot tab which are shown at a time in the chart.
 If there are more data points than this maximum number in viewport, then a horizontal scroll bar appears along the X-axis such that the user can scroll through all points.
-The value of the "Step Size" specifies for which data points are the labels shown on the X axis. For example, if this option is 2, then the label is shown for the first data point and then for every second data point in the sequence.
+The value of the "Step Size" specifies for which data points the labels are shown on the X axis. For example, if this option is 2, then the label is shown for the first data point and then for every second data point in the sequence.
 These effects are illustrated in the following picture:
 
 .. image:: images/CombiChart-XAxis-View-1.png
@@ -237,7 +237,7 @@ In the Y-Axis group it is possible to specify values for the following options:
 * a maximum bound for the Y-axis, 
 * and a step size which determines the distance between the horizontal grid lines drawn in the chart. 
 
-These all may be constant literals or given by model identifiers, herewith an illustration:
+These all may be constant literals or given by model identifiers, as illustrated here:
 
 .. image:: images/CombiChart-YAxis-Settings.png
     :align: center
@@ -267,7 +267,7 @@ Possible values for the option are 'Primary' (for the left axis) and 'Secondary'
 
 |
 
-As you can see, the line is rendered lower than in the first chart, to plot the values against the primary Y-axis. This gives you a good idea about the effect of setting this Y-axis option, but, as mentioned, it is more useful in situations when displaying three or more identifier in the same chart.
+As you can see, the line is rendered lower than in the first chart, to plot the values against the primary Y-axis. This gives you a good idea about the effect of setting this Y-axis option, but, as mentioned, it is more useful in situations when displaying three or more identifiers in the same chart.
 
 For the secondary Y-axis, the remarks above on the pivoting of indexes also apply.
 
@@ -307,9 +307,9 @@ Data Coloring
 
 The Data Coloring section in the Chart Settings offers support for Color Index and for Transparency Index. 
 
-One of the indices can be specified as Color Index. This means that all data points will be colored based on the set element corresponding to the Color Index. For example, consider a chart that displays data for the identifier UnitCost(f,c). When specifying the *f* index as the Color Index, the chart element (e.g. the column) corresponding to UnitCost('London','Liege') will be colored with the second color out of a 19 color palette as 'London' is the second element in the (root set of the) set Factories. Note that a modulo 19 operation will be applied to determine the color. As a result, the twentieth factory will have a similar color as the first. Similarlt, when specifying the *c* index as the Color Index, the chart element will use the sixth color out of the color palette as 'Liege' is the sixth element in the 'Centers' set.
+One of the indices can be specified as Color Index. This means that all data points will be colored based on the set element corresponding to the Color Index. For example, consider a chart that displays data for the identifier UnitCost(f,c). When specifying the *f* index as the Color Index, the chart element (e.g. the column) corresponding to UnitCost('London','Liege') will be colored with the second color out of a 19 color palette as 'London' is the second element in the (root set of the) set Factories. Note that a modulo 19 operation will be applied to determine the color. As a result, the twentieth factory will have a the same color as the first. Similarly, when specifying the *c* index as the Color Index, the chart element will use the sixth color out of the color palette as 'Liege' is the sixth element in the 'Centers' set.
 
-If not specified explicitly, the combination chart will use the last index in the Grouped section as a Color Index. If there is no such index, the last index in the Stacked section will be used and if bot the Grouped and Stacked sections are empty, the last index in the Header section is used as the Color Index.
+If not specified explicitly, the combination chart will use the last index in the Grouped section as a Color Index. If there is no such index, the last index in the Stacked section will be used and if both the Grouped and Stacked sections are empty, the last index in the Header section is used as the Color Index.
 
 In most cases, it makes sense to select an index in the Stacked or Grouped section as the color index, as indices in the Header section are already explicitly displayed in the chart (meaning there already is a way to visually distinguish between them).
 
@@ -336,9 +336,9 @@ On the other hand, if in the same chart, you would specify the index f to be the
 
 |
 
-Selecting a Color Index will allow you (as an app developer) will help your end users view the data from the viewpoint of a specific dimension. 
+Selecting a Color Index will allow you (as an app developer) to help your end users view the data from the viewpoint of a specific dimension. 
 
-Only one of the indices in your chart will be used as the Color Index. In case your chart contains multiple indices, you may end up with duplication of colors for different elements. For example, in the example (from the previous section) in which the c index was specified as the color index, you that that all three factories (that are stacked upon each other) have the same color. By specifying the f index as the *Transparency Index*, a transparency/shading pattern will be applied to each color depending on the ordinal number of the set element in the (root set of the) Factories set. The hard-coded transparency palette that is currently being used distinguishes 5 different levels of transparency. The resulting chart now looks like
+Only one of the indices in your chart will be used as the Color Index. In case your chart contains multiple indices, you may end up with duplication of colors for different elements. For example, in the example (from the previous section) in which the c index was specified as the color index, you see that all three factories (that are stacked upon each other) have the same color. By specifying the f index as the *Transparency Index*, a transparency/shading pattern will be applied to each color depending on the ordinal number of the set element in the (root set of the) Factories set. The hard-coded transparency palette that is currently being used distinguishes 5 different levels of transparency. The resulting chart now looks like this:
  
 .. image:: images/ColumnChart-TransparencyIndex.png
     :align: center
