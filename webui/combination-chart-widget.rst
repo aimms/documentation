@@ -406,7 +406,7 @@ The picture below depicts this situation:
 |  
 
 When a column has been selected, the user may still hover over another column and inspect the tooltip information, in the same way as the hovering works when no column has been selected 
-(remark: a selected column may be unselected by clicking again on it):
+(remark: a selected column may be unselected by clicking on it again):
 
 .. image:: images/ColumnChart-Hover-Tooltip-2.png
     :align: center
