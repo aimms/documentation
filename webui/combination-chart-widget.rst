@@ -25,7 +25,9 @@ Since the Combination Chart widget offers more flexibility and options than the 
 3. Click on 'combinationchart';
 4. This will bring up a dialog that tells you what is about to happen. Click on 'Continue'.
 
-After these steps, your existing widget will have been replaced by a Combination Chart widget, complete with all the options from the existing widget which could be converted. Currently, a non-binary display domain cannot be converted yet and neither can aggregators (because these do not exist in the Combination Chart). The Combination Chart widget is present at the original position of the existing widget, with a numerical suffix in its name, because two widgets with the same name are not possible. 
+After these steps, your existing widget will have been replaced by a Combination Chart widget, complete with all the options from the existing widget which could be converted. 
+Currently, a non-binary display domain cannot be converted yet and neither can aggregators (because these do not exist in the Combination Chart). 
+The Combination Chart widget is present at the original position of the existing widget, with a numerical suffix in its name (because two different widgets may not have the same name). 
 
 As not all options have an equivalent in the Combination Chart, we have made sure that you have not lost your old widget. It is still present, with its original name, in the 'Unassigned widgets' area of your WebUI page. If you need to compare both, you can simply drag it onto an active area on your grid page to do so. If you are sure that the new widget is fully functional, you can delete the original one.
 
@@ -162,7 +164,7 @@ Each of these options can be specified explicitly per identifier or can be inher
 Pivoting
 --------
 
-In the Pivot tab of the chart options editor, one can specify how the data dimensions are to be organized in the chart. The dimensions shown correspond to the union of the domain indices of the model identifiers that have been specified on the contents tab.
+In the Pivot tab of the chart options editor, one can specify how the data dimensions are to be organized in the chart. The dimensions shown correspond to the union of the domain indices of the model identifiers that have been specified on the Contents tab.
 
 A common pivoting situation is when the indexes of an identifier appear in the X-axis section as shown below for a chart with 'Line' type:
 
@@ -187,7 +189,7 @@ Typically, the identifiers which are put in a single chart will share the same (
 In case some index (that is present on the Pivot tab) is not present in the index domain of a certain contents identifier, the corresponding *missing index* is denoted with a dash ('-') character.
 
 As already mentioned, the combination chart widget allows you to specify a chart type **per identifier**. In case you want to use several different chart types, the dimensions should be pivoted in such a way that, 
-for each sequence of data points in the chart, the corresponding identifier can be uniquely determined. This means that, in case you want to mix different chart types, the <IDENTIFIER-SET> index should **not** be pivoted in the X-Axis or in the Totals section. 
+for each sequence of data points in the chart, **the corresponding identifier can be uniquely determined**. This means that, in case you want to mix different chart types, the <IDENTIFIER-SET> index should **not** be pivoted in the X-Axis or in the Totals section. 
 
 When the <IDENTIFIER-SET> index is put in the X-Axis section, the different data points in a single data series may correspond to different chart types. 
 When the <IDENTIFIER-SET> index is put in the Totals section, each single data point is a total over multiple identifiers, each with their own chart type. 
@@ -307,9 +309,13 @@ Data Coloring
 
 The Data Coloring section in the Chart Settings offers support for Color Index and for Transparency Index. 
 
-One of the indices can be specified as Color Index. This means that all data points will be colored based on the set element corresponding to the Color Index. For example, consider a chart that displays data for the identifier UnitCost(f,c). When specifying the *f* index as the Color Index, the chart element (e.g. the column) corresponding to UnitCost('London','Liege') will be colored with the second color out of a 19 color palette as 'London' is the second element in the (root set of the) set Factories. Note that a modulo 19 operation will be applied to determine the color. As a result, the twentieth factory will have a the same color as the first. Similarly, when specifying the *c* index as the Color Index, the chart element will use the sixth color out of the color palette as 'Liege' is the sixth element in the 'Centers' set.
+One of the indices can be specified as Color Index. This means that all data points will be colored based on the set element corresponding to the Color Index. For example, consider a chart that displays data for the identifier UnitCost(f,c). 
+When specifying the *f* index as the Color Index, the chart element (e.g. the column) corresponding to UnitCost('London','Liege') will be colored with the second color out of a 19 color palette as 'London' is the second element 
+in the (root set of the) set Factories. Note that a modulo 19 operation will be applied to determine the color. As a result, the twentieth factory will have the same color as the first. 
+Similarly, when specifying the *c* index as the Color Index, the chart element will use the sixth color out of the color palette as 'Liege' is the sixth element in the 'Centers' set.
 
-If not specified explicitly, the combination chart will use the last index in the Grouped section as a Color Index. If there is no such index, the last index in the Stacked section will be used and if both the Grouped and Stacked sections are empty, the last index in the Header section is used as the Color Index.
+If not specified explicitly, the combination chart will use the last index in the Grouped section as a Color Index. If there is no such index, the last index in the Stacked section will be used and if both the Grouped and Stacked sections are empty, 
+the last index in the Header section is used as the Color Index.
 
 In most cases, it makes sense to select an index in the Stacked or Grouped section as the color index, as indices in the Header section are already explicitly displayed in the chart (meaning there already is a way to visually distinguish between them).
 
@@ -338,14 +344,18 @@ On the other hand, if in the same chart, you would specify the index f to be the
 
 Selecting a Color Index will allow you (as an app developer) to help your end users view the data from the viewpoint of a specific dimension. 
 
-Only one of the indices in your chart will be used as the Color Index. In case your chart contains multiple indices, you may end up with duplication of colors for different elements. For example, in the example (from the previous section) in which the c index was specified as the color index, you see that all three factories (that are stacked upon each other) have the same color. By specifying the f index as the *Transparency Index*, a transparency/shading pattern will be applied to each color depending on the ordinal number of the set element in the (root set of the) Factories set. The hard-coded transparency palette that is currently being used distinguishes 5 different levels of transparency. The resulting chart now looks like this:
+Only one of the indices in your chart will be used as the Color Index. In case your chart contains multiple indices, you may end up with duplication of colors for different elements. 
+For instance, in the example (from the previous section) in which the c index was specified as the color index, you see that all three factories (which are stacked upon each other) have the same color. 
+By specifying the f index as the *Transparency Index*, a transparency/shading pattern will be applied to each color depending on the ordinal number of the set element in the (root set of the) Factories set. 
+The hard-coded transparency palette that is currently being used distinguishes 5 different levels of transparency. The resulting chart now looks like this:
  
 .. image:: images/ColumnChart-TransparencyIndex.png
     :align: center
 
 |
 
-To be able to see differences between colors in combination with transparency, it works best if the colors in the color palette are well distinguishable from each other. You might want to create a special custom color palette (and provide it as an application specific resource) to be used in charts where also a Transparency Index has been specified.
+To be able to see differences between colors in combination with transparency, it works best if the colors in the color palette are well distinguishable from each other. 
+Therefore, you may want to create a special custom color palette (and provide it as an application specific resource) to be used in charts where also a Transparency Index has been specified.
 
 Others
 ++++++
@@ -356,7 +366,7 @@ In the Others group it is possible to specify the Chart Title which will be show
     :align: center
 
 The illustration above also shows the possibility to specify a binary indicator value for turning on or off the so-called "Data Interpolate" option.
-This option is only applicable to the Line chart and the meaning of it can be easily explained by the following example.
+This option is only applicable to the Line and Spline chart types and the meaning of it can be easily explained by the following example.
 
 Suppose that we want to show the values of both Demand and Supply in the same chart using as common index domain on the X-axis the root set Locations with index l:
 
@@ -369,17 +379,19 @@ If we showed these in the chart with the option "Data Interpolate" turned off, t
 .. image:: images/CombiChart-DataInterpolate-Off.png
     :align: center
 
-As can be seen in this picture, by default, the highcharts with type Line do not connect two consecutive value dots (that is, corresponding to two consecutive data points on the X-axis) if they do not represent data in the series of the same identifier 
+As can be seen in this picture, by default, the highcharts with type Line or Spline do not connect two consecutive value dots (that is, corresponding to two consecutive data points on the X-axis) if they do not represent data in the series of the same identifier 
 (in this example, all identifiers are in the Grouped section of the Pivot tab, see above).
 This behavior may result in some discontinuity in the line chart for some identifiers, as it is obviously the case here for both Demand and Supply.
-Such a discontinuous graph may look unexpected and not consistent with the initial intention of showing several identifiers in the same combination chart with Line type.
+Such a discontinuous graph may look unexpected and not consistent with the initial intention of showing several identifiers in the same combination chart with Line or Spline type.
 In order to draw a continuous graph for each identifier, the option "Data Interpolate" may be turned on. In this case, the dots representing data in the series of one identifier are connected one by one through a continuous line, 
-skipping dots in between which do not belong to that identifier:
+skipping the dots in between which do not belong to that identifier:
 
 .. image:: images/CombiChart-DataInterpolate-On.png
     :align: center
 
-So, the option "Data Interpolate" may be literally "connecting the dots" for the same identifier when that identifier is missing data for some of the points on the X-axis.   
+So, the option "Data Interpolate" may be literally "connecting the dots" for the same identifier when that identifier is missing data for some of the points on the X-axis. 
+In this vein, another example of a possible use case for this chart option is when the set elements on the X-axis are timeslots in a calendar or have some other intrinsic ordering based on time, 
+but some identifiers to be shown in the chart do not have data for all those time moments. 
 
 Index Settings, Select, and Store Focus
 ---------------------------------------
@@ -396,8 +408,8 @@ in our application at hand with the sets Centers and AllIdentifiers, respectivel
 Select, Hover, and Tooltips
 ---------------------------
 
-When the user selects a specific column, the corresponding center value is stored in the element parameter ep_Center as shown above. When the user hovers with the mouse cursor over a column (for example, before selecting it), then that column is highlighted, 
-while the other columns are faded away. In this case, also a tooltip is shown, either a default tooltip or a custom tooltip specified using a webui::TooltipIdentifier annotation, see the section `Identifier Annotations <widget-options.html#identifier-annotations>`__.
+When the user selects a specific column or dot value, the corresponding center value is stored in the element parameter ep_Center as shown above. When the user hovers with the mouse cursor over a column or a dot (for example, before selecting it), then that column or dot is highlighted, 
+while the other columns or dots are faded away. In this case, also a tooltip is shown, either a default tooltip or a custom tooltip specified using a webui::TooltipIdentifier annotation, see the section `Identifier Annotations <widget-options.html#identifier-annotations>`__.
 The picture below depicts this situation:
 
 .. image:: images/ColumnChart-Hover-Tooltip-1.png
@@ -405,13 +417,14 @@ The picture below depicts this situation:
 
 |  
 
-When a column has been selected, the user may still hover over another column and inspect the tooltip information, in the same way as the hovering works when no column has been selected 
-(remark: a selected column may be unselected by clicking on it again):
+When a column or a dot has been selected, the user may still hover over another column or dot and inspect the tooltip information, in the same way as the hovering works when no column or no dot has been selected:
 
 .. image:: images/ColumnChart-Hover-Tooltip-2.png
     :align: center
 
 |  
+
+As an additional remark, note that a selected column or dot may be unselected by clicking on it again. In this case, the stored value is not cleared off or emptied, only the highlighting is removed.
 
 Custom Styling
 --------------
