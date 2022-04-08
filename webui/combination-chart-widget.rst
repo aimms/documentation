@@ -352,10 +352,34 @@ Others
 
 In the Others group it is possible to specify the Chart Title which will be shown on the top of the chart:
 
-.. image:: images/ColumnChart-ChartTitle-1.png
+.. image:: images/CombiChart-Others-1.png
     :align: center
 
-|  
+The illustration above also shows the possibility to specify a binary indicator value for turning on or off the so-called "Data Interpolate" option.
+This option is only applicable to the Line chart and the meaning of it can be easily explained by the following example.
+
+Suppose that we want to show the values of both Demand and Supply in the same chart using as common index domain on the X-axis the root set Locations with index l:
+
+.. image:: images/CombiChart-DataInterpolate-0.png
+    :align: center
+
+However, Supply only has values for the elements in the subset Factories (with index f), while Demand only has values for the elements in the subset Centers (with index c).
+If we showed these in the chart with the option "Data Interpolate" turned off, then the rendered values would look as follows:
+
+.. image:: images/CombiChart-DataInterpolate-Off.png
+    :align: center
+
+As can be seen in this picture, by default, the highcharts with type Line do not connect two consecutive value dots (that is, corresponding to two consecutive data points on the X-axis) if they do not represent data in the series of the same identifier 
+(in this example, all identifiers are in the Grouped section of the Pivot tab, see above).
+This behavior may result in some discontinuity in the line chart for some identifiers, as it is obviously the case here for both Demand and Supply.
+Such a discontinuous graph may look unexpected and not consistent with the initial intention of showing several identifiers in the same combination chart with Line type.
+In order to draw a continuous graph for each identifier, the option "Data Interpolate" may be turned on. In this case, the dots representing data in the series of one identifier are connected one by one through a continuous line, 
+skipping dots in between which do not belong to that identifier:
+
+.. image:: images/CombiChart-DataInterpolate-On.png
+    :align: center
+
+So, the option "Data Interpolate" may be literally "connecting the dots" for the same identifier when that identifier is missing data for some of the points on the X-axis.   
 
 Index Settings, Select, and Store Focus
 ---------------------------------------
@@ -393,7 +417,7 @@ Custom Styling
 --------------
 
 By specifying a webui::AnnotationsIdentifier as explain in the section `Identifier Annotations <widget-options.html#identifier-annotations>`__ and by using it subsequently for custom styling as explained in the section `Custom Styling <css-styling.html#css-styling>`__, 
-it is possible to apply a custom styling to a column chart as well.
+it is possible to apply a custom styling to a combination chart as well.
 For instance, in our example application at hand one could style differently those columns in the chart which have a demand value greater than a certain threshold value given by a scalar parameter called p_Demand_HighValue. 
 This situation is depicted in the following picture:
 
@@ -431,14 +455,14 @@ When these parameters are configured, then the widget actions may be accessed us
 Miscellaneous
 ----------------
 
-In the Miscellaneous tab of the column chart options editor, other options may be set such as the title of the widget and the indicator whether or not the widget is visible on the page (besides literals, both may be specified through model identifiers as well):
+In the Miscellaneous tab of the combination chart options editor, other options may be set such as the title of the widget and a binary indicator whether or not the widget is visible on the page (besides literals, both may be specified using model identifiers as well):
 
 .. image:: images/ColumnChart-Miscellaneous-Options-1.png
     :align: center
 
 |  
 
-The specified chart title is reflected on the widget header:
+The specified chart title is then reflected on the widget header:
 
 .. image:: images/ColumnChart-Miscellaneous-1.png
     :align: center
