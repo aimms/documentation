@@ -12,6 +12,25 @@ AIMMS 4.84
 #############
 
 
+AIMMS 4.84.8 Release (April 8, 2022 - build 4.84.8.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  It was possible to add elements to the set AllTimeZones. This led to errors when trying to access the (nonexistent) underlying time-zone information. Adding elements to this set is not allowed anymore.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The dropdown of a scalar widget value that called for a selection box will no longer become misplaced in the upper-left corner when the widget is refreshing while the dropdown contents is still loading. This could happen if you clicked fast enough to open the dropdown while the page and model were still resolving.
+
+--------------
+
+
+
 AIMMS 4.84.7 Release (April 1, 2022 - build 4.84.7.8).
 ------------------------------------------------------------------------------------------
 
