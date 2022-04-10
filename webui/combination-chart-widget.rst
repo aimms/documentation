@@ -66,8 +66,9 @@ For example, in the TransNet application, the demand for products of every distr
 Similarly, the unit transport costs or the actual transport for every combination (factory, center) may be rendered using any of the chart types as well. 
 
 In this vein, note that the combination chart widget can now also be used to create a bar-line chart directly, for example, by assigning the chart type 'Column' to one identifier and the chart type 'Line' to another identifier.
+The sub-section `Y-axis (Secondary) <combination-chart-widget.html#y-axis-secondary>`__ below presents such an example in more detail. 
 
-As will become clearer below, we use such concrete examples in order to illustrate the usage of the various chart features. 
+As will become clearer below, we use such concrete examples in many places of this section in order to illustrate as intuitively as possible the usage of the various chart features. 
 
 Contents 
 --------
@@ -294,6 +295,10 @@ When the Legend option is not specified by a model identifier, but by the litera
 
 |
 
+The Legend also offers the functionality to show or to hide some of the data values in the chart. More specifically, if you click on a legend label, you can hide the data values associated with that label and the label itself becomes greyed out. 
+When clicking on it again, the label will be shown again with its own color and the data values will reappear in the chart. Note that one label may correspond to a single data value or to several data values (for example, all data values for one identifier),
+depending on the chosen pivoting of the indexes, as explained above. 
+
 Labels
 ++++++
 
@@ -396,14 +401,18 @@ but some identifiers to be shown in the chart do not have data for all those tim
 Index Settings, Select, and Store Focus
 ---------------------------------------
 
-In the Index Settings tab of the widget options editor, for each index it is possible to specify an element parameter in the same set which will store the corresponding value when the user selects a specific column in the chart (by clicking on it, in which case the color of the column turns grey). 
+In the Index Settings tab of the widget options editor, for each index it is possible to specify an element parameter in the same set which will store the corresponding value when the user selects a specific column or dot in the chart 
+(by clicking on it, in which case the color of the column or dot turns grey). 
 For example, we can specify an element parameter ep_Center for the index c and en element parameter ep_Focusidentifier for the <IDENTIFIER-SET> index, where ep_Center and ep_Focusidentifier are element parameters 
-in our application at hand with the sets Centers and AllIdentifiers, respectively, as ranges. The values of ep_Center and ep_Focusidentifier may be displayed for inspection in some other widgets outside the column chart:
+in our application at hand with ranges the sets Centers and AllIdentifiers, respectively. The values of ep_Center and ep_Focusidentifier may be displayed for inspection in some other widgets outside the column chart:
 
-.. image:: images/ColumnChart-IndexSettings-1.png
+.. image:: images/CombiChart-IndexSettings.png
     :align: center
 
-|  
+|
+
+As can be noticed in the picture above, for each index it is also possible to specify an option whether to show or hide that index in the chart. If this option is set to the value 'Hide', then the corresponding index is not shown anywhere in the chart. 
+More specifically, that index will be hidden in the labels, in the legend, and in the default tooltips. 
 
 Select, Hover, and Tooltips
 ---------------------------
