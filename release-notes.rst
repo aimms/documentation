@@ -47,10 +47,12 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  Existing Bar Chart, Line Chart and BarLine Chart widgets can now automatically be converted into the new Combination Chart widget. Please see `the documentation <https://documentation.aimms.com/webui/combination-chart-widget.html>`__ for details.
 -  WebUI now offers a fully new and simpler way of theming your application. For details, see `the documentation <https://documentation.aimms.com/webui/theming.html>`__.
+-  The Combination Chart widget has been greatly extended. In the previous release, just the Column chart was supported. Now it also supports the Area, Area Spline, Line, Scatter and Spline chart types.
+-  Existing Bar Chart, Line Chart and BarLine Chart widgets can now automatically be converted into the new Combination Chart widget. Please see `the documentation <https://documentation.aimms.com/webui/combination-chart-widget.html>`__ for details.
 -  In the Combination Chart widget, it is now possible to hide specific indexes from being displayed.
 -  In the Combination Chart widget, it is now possible to specify an interval for the X-axis label.
+-  In the Combination Chart widget, there are better coloring options by using the coloring index and the transparency index.
 -  Combination Chart Widget now supports a secondary y-axis.
 -  Tooltips are now also supported on the Selectionbox, Multiselect and Legend widgets, by using a Tooltip Identifier for the relevant identifier(s) in your model.
 
