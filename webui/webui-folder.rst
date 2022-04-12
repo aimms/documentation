@@ -13,6 +13,7 @@ The description of the various topics related to the WebUI folder can be accesse
    webui-json
    resources-subfolder
    css-styling
+   theming
    units-support
    multi-language
 

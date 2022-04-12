@@ -9,25 +9,31 @@ This section outlines the various elements in the WebUI and what features each o
 The table below maps the features available for data widgets.
 
 .. csv-table:: 
-   :header: "Features","`Bar Chart <bar-chart-widget.html>`_","`Bar-Line Chart  <bar-line-chart-widget.html>`_","`Bubble Chart <bubble-chart-widget.html>`_","`Gantt Chart <gantt-chart-widget.html>`_","`Line Chart <line-chart-widget.html>`_","`Pie Chart <pie-chart-widget.html>`_","`Tree Map Chart <tree-map-widget.html>`_","`Table <table-widget.html>`_","`Scalar <scalar-widget.html>`_","`Map - Nodes <map-widget.html#adding-node-sets>`_","`Map - Arcs <map-widget.html#adding-arc-sets>`_"
+   :header: "Features","`Combination Chart <combination-chart-widget.html>`_","`Bar Chart <bar-chart-widget.html>`_","`Bar-Line Chart  <bar-line-chart-widget.html>`_","`Bubble Chart <bubble-chart-widget.html>`_","`Gantt Chart <gantt-chart-widget.html>`_","`Line Chart <line-chart-widget.html>`_","`Pie Chart <pie-chart-widget.html>`_","`Tree Map Chart <tree-map-widget.html>`_","`Table <table-widget.html>`_","`Scalar <scalar-widget.html>`_","`Map - Nodes <map-widget.html#adding-node-sets>`_","`Map - Arcs <map-widget.html#adding-arc-sets>`_"
 
-    `Pivot <widget-options.html#pivot>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
-    `Store Focus <widget-options.html#store-focus>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,|tickmark|,|tickmark|
-    Hover Identification,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,,|tickmark|,|tickmark|
-    `Totals <widget-options.html#totals>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
-    `Slicing Support <widget-options.html#id6>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
-    `Annotations <css-styling.html#data-dependent-styling>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|
-    `Tooltips <widget-options.html#html-tooltips>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|
-    `Widget Actions <widget-options.html#widget-actions>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|
-    `Item Actions <widget-options.html#item-actions>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|
-    Y-Axis Min & Max Bounds and Step,|tickmark|,|tickmark|,,,|tickmark|,,,,,,
-    Lower/Upper Threshold,,,,,,,,|tickmark|,,,
-    `Highlight <css-styling.html#highlighting-experimental>`_ (Experimental),,,,|tickmark|,,,,|tickmark|,,,
-    `Icons <../_static/aimms-icons/icons-reference.html>`_,,,,,,,,,,|tickmark|,
-    `Inline text <widget-options.html#additional-identifier-properties>`_,,,,|tickmark|,,,,,,,
-    Labels,,,,,,,,,,,|tickmark|
-    `Filtering <table-widget.html#data-filtering-on-the-table>`_,,,,,,,,|tickmark|,,,
-    `Download Image <widget-header.html#download-image-png-download-image>`_ (Experimental),|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,,
+    `Pivot <widget-options.html#pivot>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
+    `Store Focus <widget-options.html#store-focus>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,|tickmark|,|tickmark|
+    Hover Identification,,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,,|tickmark|,|tickmark|
+    `Totals <widget-options.html#totals>`_,,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
+    `Slicing Support <widget-options.html#id6>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,
+    `Annotations <css-styling.html#data-dependent-styling>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|
+    `Tooltips <widget-options.html#html-tooltips>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|
+    `Widget Actions <widget-options.html#widget-actions>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|
+    `Item Actions <widget-options.html#item-actions>`_,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|
+    Y-Axis Min & Max Bounds and Step,|tickmark|,|tickmark|,|tickmark|,,,|tickmark|,,,,,,
+    Lower/Upper Threshold,,,,,,,,,|tickmark|,,,
+    `Highlight <css-styling.html#highlighting-experimental>`_ (Experimental),,,,,|tickmark|,,,,|tickmark|,,,
+    `Icons <../_static/aimms-icons/icons-reference.html>`_,,,,,,,,,,,|tickmark|,
+    `Inline text <widget-options.html#additional-identifier-properties>`_,,,,,|tickmark|,,,,,,,
+    Labels,|tickmark|,,,,,,,,,,,|tickmark|
+    `Filtering <table-widget.html#data-filtering-on-the-table>`_,,,,,,,,,|tickmark|,,,
+    `Download Image <widget-header.html#download-image-png-download-image>`_ ,,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,|tickmark|,,,
+    Inline Legend,|tickmark|,,,,,,,,,,,
+    Secondary Y-Axis,|tickmark|,,,,,,,,,,,
+    Inline Horizontal Scroll,|tickmark|,,,,,,,,,,,
+    Control Decimal Places and Show Units per Identifier,|tickmark|,,,,,,,,,,,
+    Hide Indices,|tickmark|,,,,,,,,,,,
+    Data Coloring,|tickmark|,,,,,,,,,,,
 
 
 The table below maps the features available for supporting widgets.
