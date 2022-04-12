@@ -47,11 +47,12 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  Tooltips are now also supported on the Selectionbox, Multiselect and Legend widgets, by using a Tooltip Identifier for the relevant identifier(s) in your model.
--  Existing Bar Chart, Line Chart and BarLine Chart widgets can now automatically be converted into the new Combination Chart widget. Please see THE DOCUMENTATION for details.
+-  Existing Bar Chart, Line Chart and BarLine Chart widgets can now automatically be converted into the new Combination Chart widget. Please see `the documentation <https://documentation.aimms.com/webui/combination-chart-widget.html>`__ for details.
+-  WebUI now offers a fully new and simpler way of theming your application. For details, see `the documentation <https://documentation.aimms.com/webui/theming.html>`__.
 -  In the Combination Chart widget, it is now possible to hide specific indexes from being displayed.
 -  In the Combination Chart widget, it is now possible to specify an interval for the X-axis label.
 -  Combination Chart Widget now supports a secondary y-axis.
+-  Tooltips are now also supported on the Selectionbox, Multiselect and Legend widgets, by using a Tooltip Identifier for the relevant identifier(s) in your model.
 
 --------------
 
