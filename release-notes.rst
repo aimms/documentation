@@ -12,6 +12,51 @@ AIMMS 4.84
 #############
 
 
+AIMMS 4.85.1 Release (April 12, 2022 - build 4.85.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The CPLEX options 'Node file size' and 'Tree memory limit' have been renamed to 'MIP tree memory limit' and 'Working memory limit' respectively. AIMMS can still read in the old option names but will use the new option names if the project is saved.
+-  The progress window information for BARON has been changed such that it is more inline with other solvers.
+-  The layout of the Math Program Inspector tool is now remembered when you close and re-open the tool. This holds for both the sizes of the sub-windows and the sizes of the columns in the various lists. This new feature can be disabled via the option MPI_Remember_Layout in the Project Options.
+-  The new global solver Octeract has been added. Octeract can be used to find a global optimal solution for NLP, MINLP and non-convex quadratic or quadratically constrained problems. Octeract can handle models with trigonometric functions. Currently Octeract is only available for Windows.
+-  If an expression contains a reference to a Macro, it can now be handled by the new compiler and execution engine.
+-  AIMMS Postsolve is now less strict on bound violations of continuous variables. The new option Postsolve Bound Tolerance specifies the allowed bound violation, and uses a default value of 1e-10. Set this option to 0 to get the old behavior.
+-  Most of the simple procedure call statements in a body of a procedure or function are now handled by the new compiler and engine. Because of that it may happen that your model produces more warnings for "uninitialized data", which are valid warnings but somehow they were not noticed before. Besides these extra warnings, there should be no difference in how a model behaves because of this change.
+-  CPLEX 22.1 has been added.
+-  CP Optimizer 22.1 has been added. CP Optimizer 22.1 comes with a new experimental local search method which works best on lightly constrained problems. It is activated by setting the CP Optimizer option 'Search method' to 'Neighborhood'.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The Math Program Inspector did not handle semi-continuous variables correctly.
+-  Passing MIP starts to Gurobi using the procedure GMP::Solution::SetMIPStartFlag did not work.
+-  Setting the BARON option 'Thread limit MIP' to a nondefault value did not have any effect.
+-  Using the function :any:`SubString` within a Macro definition could lead to unexpected results.
+-  Negative variable bounds and right-hand-side values were missing the minus sign if they were printed by activating the CPLEX 20.1 options 'Find fractional root solution' and 'Write cuts'.
+-  AIMMS did not print the scaling factors (in the listing file) if the Scaling Tool in the Math Program Inspector was used and the Solvers General option 'List scaling factors' was set to 'Automatic' or 'Symbolic'.
+-  A postsolve with CPLEX could take very long for large models because passing the model updates was not done efficiently. (These updates are now controlled by the existing CPLEX option 'Updates batch size'.).
+-  The deprecated solver AOA has been removed from the AIMMS installation. As a result, the math program suffix 'CallbackAOA' has been removed and the OuterApproximation module is no longer available as a system module. To solve MINLP problems using the outer approximation algorithm you should use the GMP-OA version.
+-  The OnError clause of a Block statement behaves like a loop. For every error and/or warning triggered, the statements in the OnError are executed. Because of this, it is allowed to use Skip, Break and Loopcount inside an OnError. However, using Loopcount always returned 1, no matter how many errors or warnings were iterated.
+-  Some options for our new Combination Chart widget have been renamed in the webui.json file. Existing webui.json files will be automatically updated to reflect the changes upon opening of the project. Please note: The option names as shown in the UI (i.e. the option editor) will *not* change.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  Tooltips are now also supported on the Selectionbox, Multiselect and Legend widgets, by using a :any:`webui::TooltipIdentifier` for the relevant identifier(s) in your model.
+-  Existing Bar Chart, Line Chart and BarLine Chart widgets can now automatically be converted into the new Combination Chart widget. Please see THE DOCUMENTATION for details.
+-  In the Combination Chart widget, it is now possible to hide specific indexes from being displayed.
+-  In the Combination Chart widget, it is now possible to specify an interval for the X-axis label.
+-  Combination Chart Widget now supports a secondary y-axis.
+
+--------------
+
+
+
 AIMMS 4.84.8 Release (April 8, 2022 - build 4.84.8.2).
 ------------------------------------------------------------------------------------------
 
