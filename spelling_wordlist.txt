@@ -44,6 +44,7 @@ hyperlinks
 unselecting
 extendable
 hashtag
+theming
 regex
 webui
 libs
