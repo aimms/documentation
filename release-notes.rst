@@ -8,7 +8,7 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
-AIMMS 4.84
+AIMMS 4.85
 #############
 
 
@@ -56,6 +56,9 @@ WebUI Improvements
 --------------
 
 
+#############
+AIMMS 4.84
+#############
 
 AIMMS 4.84.8 Release (April 8, 2022 - build 4.84.8.2).
 ------------------------------------------------------------------------------------------
