@@ -47,7 +47,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  Tooltips are now also supported on the Selectionbox, Multiselect and Legend widgets, by using a :any:`webui::TooltipIdentifier` for the relevant identifier(s) in your model.
+-  Tooltips are now also supported on the Selectionbox, Multiselect and Legend widgets, by using a Tooltip Identifier for the relevant identifier(s) in your model.
 -  Existing Bar Chart, Line Chart and BarLine Chart widgets can now automatically be converted into the new Combination Chart widget. Please see THE DOCUMENTATION for details.
 -  In the Combination Chart widget, it is now possible to hide specific indexes from being displayed.
 -  In the Combination Chart widget, it is now possible to specify an interval for the X-axis label.
