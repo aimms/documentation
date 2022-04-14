@@ -17,7 +17,7 @@ MINLP Solvers
 -------------
 Standard Solvers
 ^^^^^^^^^^^^^^^^
-Next to AOA, AIMMS supports :doc:`BARON <../solvers/baron>` and :doc:`Knitro <../solvers/knitro>` as solvers to solve mixed integer nonlinear optimization problems. BARON is a global optimizer while AOA and Knitro can only guarantee local optima (unless the problem is convex).
+Next to AOA, AIMMS supports :doc:`BARON <../solvers/baron>`, :doc:`Knitro <../solvers/knitro>` and :doc:`Octeract <../solvers/Octeract>` as solvers to solve mixed integer nonlinear optimization problems. BARON is a global optimizer while AOA and Knitro can only guarantee local optima (unless the problem is convex).
 
 Open Solver Interface
 ^^^^^^^^^^^^^^^^^^^^^

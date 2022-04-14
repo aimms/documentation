@@ -15,7 +15,7 @@ Linear Programming Solvers
 ------------------------------
 Standard Solvers
 ^^^^^^^^^^^^^^^^^^^^
-AIMMS supports the solvers :doc:`CPLEX <../solvers/cplex>`, :doc:`GUROBI <../solvers/gurobi>`, :doc:`CBC <../solvers/cbc>` and :doc:`XA <../solvers/xa>` to solve Linear Programming models. A comparison of the features available in these solvers can be found on our :doc:`Solvers <../solvers/solvers>` page.
+AIMMS supports the solvers :doc:`CPLEX <../solvers/cplex>`, :doc:`GUROBI <../solvers/gurobi>` and :doc:`CBC <../solvers/cbc>` to solve Linear Programming models. A comparison of the features available in these solvers can be found on our :doc:`Solvers <../solvers/solvers>` page.
 
 Open Solver Interface
 ^^^^^^^^^^^^^^^^^^^^^^^

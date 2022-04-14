@@ -11,8 +11,8 @@ Here you can find detailed information about the solvers available with the AIMM
    baron
    cbc
    conopt
-   cplex
    cp-optimizer
+   cplex
    gurobi
    ipopt
    knitro
