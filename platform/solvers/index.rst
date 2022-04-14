@@ -20,4 +20,3 @@ Here you can find detailed information about the solvers available with the AIMM
    odh-cplex
    path
    snopt
-   xa
