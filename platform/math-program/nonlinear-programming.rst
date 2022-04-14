@@ -20,7 +20,7 @@ Nonlinear Programming solvers
 --------------------------------
 Standard Nonlinear Programming Solvers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AIMMS supports the solvers :doc:`CONOPT <../solvers/conopt>`, :doc:`Knitro <../solvers/knitro>`, :doc:`IPOPT <../solvers/ipopt>`, :doc:`SNOPT <../solvers/snopt>` and :doc:`MINOS <../solvers/minos>` to solve nonlinear programming models. AIMMS also supports the global Optimization (GO) solvers :doc:`BARON <../solvers/baron>` and :doc:`Octeract <../solvers/Octeract>`, which can find global optima for a certain subset of nonlinear programming problems, while the other solvers only guarantee local optima.
+AIMMS supports the solvers :doc:`CONOPT <../solvers/conopt>`, :doc:`Knitro <../solvers/knitro>`, :doc:`IPOPT <../solvers/ipopt>`, :doc:`SNOPT <../solvers/snopt>` and :doc:`MINOS <../solvers/minos>` to solve nonlinear programming models. AIMMS also supports the global Optimization (GO) solvers :doc:`BARON <../solvers/baron>` and :doc:`Octeract <../solvers/octeract>`, which can find global optima for a certain subset of nonlinear programming problems, while the other solvers only guarantee local optima.
 
 Open Solver Interface
 ^^^^^^^^^^^^^^^^^^^^^^^^
