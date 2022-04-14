@@ -73,8 +73,8 @@ Available Solvers in AIMMS
 +-----------------+----------------------------------+------------------------------+
 | GUROBI          | High performance linear          |                              |
 |                 | programming / mixed integer      | ✔                            |
-|                 | programming solver from Gurobi   | (Gurobi Web License Service) |
-|                 | Optimization                     |                              |
+|                 | programming solver from Gurobi   | (requires Gurobi Web License |
+|                 | Optimization                     | Service)                     |
 +-----------------+----------------------------------+------------------------------+
 | IPOPT           | Open source Interior Point       |                              |
 |                 | optimizer for large-scale        | ✖                            |
