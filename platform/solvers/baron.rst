@@ -20,7 +20,7 @@ BARON is developed and supported by `The Optimization Firm, LLC <http://www.theo
 
 BARON Supported Versions
 --------------------------
-AIMMS supports BARON 19 (Windows 64-bit only).
+AIMMS supports BARON 21 (Windows 64-bit only).
 
 Academic users
 --------------

@@ -52,4 +52,4 @@ Gurobi requires that the computer’s CPU supports SSE2. Most modern computers s
 
 Gurobi Supported Versions
 ----------------------------
-AIMMS supports Gurobi 7.5 – 9.0.
+AIMMS supports Gurobi 8.1 – 9.5.
