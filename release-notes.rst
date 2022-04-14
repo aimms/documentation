@@ -42,7 +42,6 @@ Resolved AIMMS Issues
 -  A postsolve with CPLEX could take very long for large models because passing the model updates was not done efficiently. (These updates are now controlled by the existing CPLEX option 'Updates batch size'.).
 -  The deprecated solver AOA has been removed from the AIMMS installation. As a result, the math program suffix 'CallbackAOA' has been removed and the OuterApproximation module is no longer available as a system module. To solve MINLP problems using the outer approximation algorithm you should use the GMP-OA version.
 -  The OnError clause of a Block statement behaves like a loop. For every error and/or warning triggered, the statements in the OnError are executed. Because of this, it is allowed to use Skip, Break and Loopcount inside an OnError. However, using Loopcount always returned 1, no matter how many errors or warnings were iterated.
--  Some options for our new Combination Chart widget have been renamed in the webui.json file. Existing webui.json files will be automatically updated to reflect the changes upon opening of the project. Please note: The option names as shown in the UI (i.e. the option editor) will *not* change.
 
 WebUI Improvements
 +++++++++++++++++++++++++
@@ -55,6 +54,7 @@ WebUI Improvements
 -  In the Combination Chart widget, there are better coloring options by using the coloring index and the transparency index.
 -  Combination Chart Widget now supports a secondary y-axis.
 -  Tooltips are now also supported on the Selectionbox, Multiselect and Legend widgets, by using a Tooltip Identifier for the relevant identifier(s) in your model.
+-  Some options for our new Combination Chart widget have been renamed in the webui.json file. Existing webui.json files will be automatically updated to reflect the changes upon opening of the project. Please note: The option names as shown in the UI (i.e. the option editor) will *not* change.
 
 --------------
 
