@@ -114,7 +114,7 @@ Since WebUI theming is based on CSS, it is also possible to use inheritance of p
 
   --color_bg_widget-header: var(--color_text_default);
 
-Next to this kind of inheritance, it is also possible to 'inherit' from the standard AIMMS color palette. In same folder as the base theme example file, in the :token:`global-custom-prop-constants.css` file, these colors are listed for your reference. So, for example:
+Next to this kind of inheritance, it is also possible to 'inherit' from the standard AIMMS color palette. In the same folder as the base theme example file, in the :token:`global-custom-prop-constants.css` file, these colors are listed for your reference. So, for example:
 
 .. code-block:: CSS
 
