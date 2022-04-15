@@ -11,7 +11,7 @@ BARON can be used to find the k-best solutions. BARON can also handle mixed inte
 
 BARON Usage
 -----------
-BARON guarantees to provide global optima under fairly general assumptions, but cannot handle constraints that contain goniometric functions or with a reference to an external function. BARON requires that all nonlinear variables and expressions in the mathematical program are bounded from below and above.
+BARON guarantees to provide global optima under fairly general assumptions, but cannot handle constraints containing a goniometric function, an if-then-else statement or a reference to an external function. BARON requires that all nonlinear variables and expressions in the mathematical program are bounded from below and above.
 
 About BARON
 -----------

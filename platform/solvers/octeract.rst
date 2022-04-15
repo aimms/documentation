@@ -9,7 +9,7 @@ Octeract is a massively parallel deterministic global MINLP solver. It is the on
 
 Octeract Usage
 --------------
-Octeract guarantees to provide global optima under fairly general assumptions, but cannot handle constraints with a reference to an external function.
+Octeract guarantees to provide global optima under fairly general assumptions, but cannot handle constraints containing an if-then-else statement or a reference to an external function.
 
 About Octeract
 --------------
