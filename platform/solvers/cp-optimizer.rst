@@ -1,6 +1,6 @@
 CP Optimizer
 ============
-The CP Optimizer (also known as CPOPT or CPO) solver from IBM ILOG is a state-of-the-art solver for :doc:`Constraint Programming (CP) <../math-program/constraint-programming>` problems.
+The CP Optimizer solver (also known as CPOPT or CPO) from IBM ILOG is a state-of-the-art solver for :doc:`Constraint Programming (CP) <../math-program/constraint-programming>` problems.
 
 CP Optimizer Constraint Programming
 -------------------------------------
