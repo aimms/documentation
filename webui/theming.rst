@@ -102,7 +102,7 @@ Next to using a location relative to your project folder, it is also possible to
 
   --bg_app-logo: 8px 50% / 35px 35px no-repeat url(https://www.aimms.com/wp-content/themes/aimms/images/logo-aimms.svg);
 
-Will show the AIMMS logo which is displayed on our website.
+Will show the AIMMS logo which is displayed on our website. That is, if you don't forget to reserve some space for it with the :token:`--spacing_app-logo_width`.
 
 
 Value Inheritance
@@ -114,7 +114,7 @@ Since WebUI theming is based on CSS, it is also possible to use inheritance of p
 
   --color_bg_widget-header: var(--color_text_default);
 
-Next to this kind of inheritance, it is also possible to 'inherit' from the standard AIMMS color palette. In the :token:`webui/resources/scss/theming/_aimms-global-css-custom-props` file, these colors are listed. So, for example:
+Next to this kind of inheritance, it is also possible to 'inherit' from the standard AIMMS color palette. In the same folder as the base theme example file, in the :token:`global-custom-prop-constants.css` file, these colors are listed for your reference. So, for example:
 
 .. code-block:: CSS
 
@@ -126,4 +126,4 @@ Would display the background of your widget headers in the standard AIMMS dark y
 Moving From Custom CSS/Theming
 ------------------------------
 
-Many clients have their apps styled using custom CSS. We advise you to move over to the new AIMMS Theming, since it offers better maintainability and probably also backward compatibility in the future. The best way to migrate is to put aside all your existing custom CSS files by moving them somewhere outside your project folder, to keep as backup. From this 'clean' state, start theming your app as explained above. If, after that, you are not fully satisfied with the result, you can re-visit your previous custom CSS to see whether selected parts of it can be re-used to fill the gap.
+Many clients have their apps styled using custom CSS. We advise you to move to the new AIMMS Theming, since it offers better maintainability and probably also backward compatibility in the future. The best way to migrate is to put aside all your existing custom CSS files by moving them somewhere outside your project folder, to keep as backup. From this 'clean' state, start theming your app as explained above. If, after that, you are not fully satisfied with the result, you can re-visit your previous custom CSS to see whether selected parts of it can be re-used to fill the gap.
