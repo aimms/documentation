@@ -54,23 +54,24 @@ Below you can already find a glimpse of the chart types supported by the combina
 
 | 
 
-In this section we discuss and illustrate the features and options of the combination chart. The chart's options may be set and accessed through the options editor which opens upon clicking on the Settings cog-wheel in the widget header:
-
-.. image:: images/ColumnChart-Settings-1.png
-   :align: center
-
-| 
-	
-Besides literal (constant) values, most options may also be specified using identifiers declared in the AIMMS model. 
 For example, in the TransNet application, the demand for products of every distribution center may be represented using any of the chart types, as already illustrated in the glimpse above.
 Similarly, the unit transport costs or the actual transport for every combination (factory, center) may be rendered using any of the chart types as well. 
 
 In this vein, note that the combination chart widget can now also be used to create a bar-line chart directly, for example, by assigning the chart type 'Column' to one identifier and the chart type 'Line' to another identifier.
 The sub-section `Y-axis (Secondary) <combination-chart-widget.html#y-axis-secondary>`__ below presents such an example in more detail. 
 
-As will become clearer below, we use such concrete examples in many places of this section in order to illustrate as intuitively as possible the usage of the various chart features. 
+As will become clearer below, we use such concrete examples in many places of this section in order to illustrate as intuitively as possible the usage of the various chart features.
 
-Contents 
+The chart's options may be accessed and set through the options editor which opens upon clicking on the Settings cog-wheel in the widget header:
+
+.. image:: images/ColumnChart-Settings-1.png
+   :align: center
+
+| 
+	
+Besides literal (constant) values, most chart options may also be specified using identifiers declared in the AIMMS model. 
+
+Contents
 --------
 
 Firstly, a data identifier to be rendered in the combination chart has to be specified in the Contents tab of the widget's options editor. An identifier may be added to the contents by using the "+" functionality at the bottom:
