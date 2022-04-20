@@ -15,4 +15,4 @@ ODH-CPLEX is developed and supported by `Optimization Direct, Inc <http://www.op
 
 ODH-CPLEX Supported Versions
 -----------------------------
-AIMMS supports ODH-CPLEX 4.0.
+AIMMS supports ODH-CPLEX 4.0 – 5.3.

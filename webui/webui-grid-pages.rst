@@ -51,7 +51,11 @@ The CSS Grid concept features several advantages such as better responsiveness, 
 
 When a page layout is applied to a grid page, the page is divided into a number of rectangular areas and each area is to host a group of widgets. In order to become visible on a grid page, each widget on that page must be assigned to one of the areas defined by the page layout. Currently, all the standard layouts use so-called fractions for resizing. This way, the layout areas always preserve their relative size and position on the page, even when the entire browser window is being resized. However, Grid supports more options for (re)sizing like pixels, percentages or em’s, and also supports combinations of those. These options can already be used in custom layouts, please see further below in this section for more details. 
 
-.. note:: Currently, it is a known limitation that hidden widgets do not always work as expected on grid pages and that you will notice a performance slowness in the page load for pages with hidden widgets, majorly on the number of hidden widgets. Until this matter is addressed in future software versions, the usage of hidden widgets on grid pages is not recommended for the time being.
+.. note::
+
+     Currently, if you assign a fixed height widget like the button, compact scalar, label, etc. to a grid area with "``gridAutoFlow``": "``row``" and when the visibility of the widget is toggled from visible to hidden, other widgets assigned to the respective grid area will not be distributed correctly. Until this matter is addressed in future software versions, the usage of hidden widgets in this specific scenario is not recommended for the time being.
+
+     Toggling the visibility of widgets in a an area with "``gridAutoFlow``": "``column``", or when you only have widgets that do not have a fixed height in a grid area, should not lead to any problems though.
 
 The organization of a page and the widgets on the page by using page layouts is supported by dedicated functionalities in the WebUI Page Manager.
 
@@ -99,7 +103,7 @@ Initially, unassigned widgets may be moved from the "Unassigned widgets" section
 
 .. important:: 
 	 
-	 If you assign a fixed height widget like the button, compact scalar, label, etc. to a grid with "``gridAutoFlow``": "``row``" and when the visibility of the widget is toggled from visible to hidden, other widgets assigned to the respective grid will not be distributed correctly. Until this matter is addressed in future software versions, the usage of hidden widgets in this specific scenario is not recommended for the time being.
+	 If you assign a fixed height widget like the button, compact scalar, label, etc. to a grid area with "``gridAutoFlow``": "``row``" and when the visibility of the widget is toggled from visible to hidden, other widgets assigned to the respective grid area will not be distributed correctly. Until this matter is addressed in future software versions, the usage of hidden widgets in this specific scenario is not recommended for the time being.
 
 	 The deprecated group widget is not supported in the grid layout. If you had a group widget in the classic layout, the widgets that were part of the group widget will appear in the "Unassigned Area" as separate widgets. You can then assign these widgets to designated areas as required.
 

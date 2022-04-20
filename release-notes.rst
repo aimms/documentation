@@ -8,8 +8,156 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 4.85
+#############
+
+
+AIMMS 4.85.2 Release (April 20, 2022 - build 4.85.2.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In the Project Settings dialog box, options were incorrectly displayed as 'at default' because in the comparison of an option value with its default value it used the absolute and relative tolerance options.
+-  The global-custom-prop-constants.css file was not present in the AIMMS Installation folder, as described in the Theming documentation.
+
+--------------
+
+
+
+AIMMS 4.85.1 Release (April 12, 2022 - build 4.85.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The CPLEX options 'Node file size' and 'Tree memory limit' have been renamed to 'MIP tree memory limit' and 'Working memory limit' respectively. AIMMS can still read in the old option names but will use the new option names if the project is saved.
+-  The progress window information for BARON has been changed such that it is more inline with other solvers.
+-  The layout of the Math Program Inspector tool is now remembered when you close and re-open the tool. This holds for both the sizes of the sub-windows and the sizes of the columns in the various lists. This new feature can be disabled via the option MPI_Remember_Layout in the Project Options.
+-  The new global solver Octeract has been added. Octeract can be used to find a global optimal solution for NLP, MINLP and non-convex quadratic or quadratically constrained problems. Octeract can handle models with trigonometric functions. Currently Octeract is only available for Windows.
+-  If an expression contains a reference to a Macro, it can now be handled by the new compiler and execution engine.
+-  AIMMS Postsolve is now less strict on bound violations of continuous variables. The new option Postsolve Bound Tolerance specifies the allowed bound violation, and uses a default value of 1e-10. Set this option to 0 to get the old behavior.
+-  Most of the simple procedure call statements in a body of a procedure or function are now handled by the new compiler and engine. Because of that it may happen that your model produces more warnings for "uninitialized data", which are valid warnings but somehow they were not noticed before. Besides these extra warnings, there should be no difference in how a model behaves because of this change.
+-  CPLEX 22.1 has been added.
+-  CP Optimizer 22.1 has been added. CP Optimizer 22.1 comes with a new experimental local search method which works best on lightly constrained problems. It is activated by setting the CP Optimizer option 'Search method' to 'Neighborhood'.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The Math Program Inspector did not handle semi-continuous variables correctly.
+-  Passing MIP starts to Gurobi using the procedure GMP::Solution::SetMIPStartFlag did not work.
+-  Setting the BARON option 'Thread limit MIP' to a nondefault value did not have any effect.
+-  Using the function :any:`SubString` within a Macro definition could lead to unexpected results.
+-  Negative variable bounds and right-hand-side values were missing the minus sign if they were printed by activating the CPLEX 20.1 options 'Find fractional root solution' and 'Write cuts'.
+-  AIMMS did not print the scaling factors (in the listing file) if the Scaling Tool in the Math Program Inspector was used and the Solvers General option 'List scaling factors' was set to 'Automatic' or 'Symbolic'.
+-  A postsolve with CPLEX could take very long for large models because passing the model updates was not done efficiently. (These updates are now controlled by the existing CPLEX option 'Updates batch size'.).
+-  The deprecated solver AOA has been removed from the AIMMS installation. As a result, the math program suffix 'CallbackAOA' has been removed and the OuterApproximation module is no longer available as a system module. To solve MINLP problems using the outer approximation algorithm you should use the GMP-OA version.
+-  The OnError clause of a Block statement behaves like a loop. For every error and/or warning triggered, the statements in the OnError are executed. Because of this, it is allowed to use Skip, Break and Loopcount inside an OnError. However, using Loopcount always returned 1, no matter how many errors or warnings were iterated.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  WebUI now offers a fully new and simpler way of theming your application. For details, see `the documentation <https://documentation.aimms.com/webui/theming.html>`__.
+-  The Combination Chart widget has been greatly extended. In the previous release, just the Column chart was supported. Now it also supports the Area, Area Spline, Line, Scatter and Spline chart types.
+-  Existing Bar Chart, Line Chart and BarLine Chart widgets can now automatically be converted into the new Combination Chart widget. Please see `the documentation <https://documentation.aimms.com/webui/combination-chart-widget.html>`__ for details.
+-  In the Combination Chart widget, it is now possible to hide specific indexes from being displayed.
+-  In the Combination Chart widget, it is now possible to specify an interval for the X-axis label.
+-  In the Combination Chart widget, there are better coloring options by using the coloring index and the transparency index.
+-  Combination Chart Widget now supports a secondary y-axis.
+-  Tooltips are now also supported on the Selectionbox, Multiselect and Legend widgets, by using a Tooltip Identifier for the relevant identifier(s) in your model.
+-  Some options for our new Combination Chart widget have been renamed in the webui.json file. Existing webui.json files will be automatically updated to reflect the changes upon opening of the project. Please note: The option names as shown in the UI (i.e. the option editor) will *not* change.
+
+--------------
+
+
+#############
 AIMMS 4.84
 #############
+
+AIMMS 4.84.8 Release (April 8, 2022 - build 4.84.8.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  It was possible to add elements to the set AllTimeZones. This led to errors when trying to access the (nonexistent) underlying time-zone information. Adding elements to this set is not allowed anymore.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The dropdown of a scalar widget value that called for a selection box will no longer become misplaced in the upper-left corner when the widget is refreshing while the dropdown contents is still loading. This could happen if you clicked fast enough to open the dropdown while the page and model were still resolving.
+
+--------------
+
+
+
+AIMMS 4.84.7 Release (April 1, 2022 - build 4.84.7.8).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When saving a case file to a location on a network drive, AIMMS did not give any error message if the location did not exist or if it was not writable.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We removed the (harmless) 'data not initialized (default values are used)' warnings when opening a WebUI project.
+
+--------------
+
+
+
+AIMMS 4.84.6 Release (March 10, 2022 - build 4.84.6.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  After editing AIMMS project files outside of the IDE and then opening the project in AIMMS Developer mode, duplicate procedure names could be erroneously accepted by AIMMS.
+
+--------------
+
+
+
+AIMMS 4.84.5 Release (March 8, 2022 - build 4.84.5.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Widgets could not always be placed on dialog pages and dialog pages were sometimes displayed far smaller than their prescribed size.
+
+--------------
+
+
+
+AIMMS 4.84.4 Release (March 3, 2022 - build 4.84.4.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In recent AIMMS versions, the custom theme switcher (the :token:`theme-switcher-addon.js`) was removed. Now we have added the "Custom Theme Classes" option to the WebUI application properties. Customers with the old :token:`theme-switcher-addon.js` in their apps can remove it, as this no longer works: the same functionality should now be specified through the new option.
+-  Some symbols, like '|', were not giving the expected behavior when used in strings specified in a WebUI Table filtering rule, because they were not treated as normal string characters, but as special symbols in a regular expression. We have now changed the behavior of the string filtering: in all existing string filtering rule types (like "contains", "starts with", ...) characters are treated as their literal string value. On top of that, we added an extra string filtering rule type: "matches regex". This rule allows you to explicitly specify regular expressions, just like in any other search box within the WebUI.
+-  In later AIMMS versions (4.83 and higher), it could happen that WebUI Gantt Charts were empty, whereas they displayed normally in AIMMS 4.82.
+
+--------------
+
 
 
 AIMMS 4.84.3 Release (February 23, 2022 - build 4.84.3.4).

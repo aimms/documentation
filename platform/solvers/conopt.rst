@@ -14,4 +14,4 @@ CONOPT Supported Versions
 --------------------------
 Multiple versions of CONOPT are included in AIMMS. In general, the new version is faster than the old version, but there are some cases where the old version (3.14V) is faster than the new version (4.0).
 
-AIMMS supports CONOPT 3.14V and 4.0.
+AIMMS supports CONOPT 3.14V, 4.0 and 4.1.

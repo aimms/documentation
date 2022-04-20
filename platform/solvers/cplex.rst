@@ -44,4 +44,4 @@ About IBM ILOG CPLEX
 
 CPLEX Supported Versions
 -------------------------------------
-AIMMS supports CPLEX 12.8 – 12.10.
+AIMMS supports CPLEX 12.9 – 22.1.

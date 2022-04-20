@@ -158,7 +158,7 @@ You can use an :token:`ExternalBinding` node to read or write a document only fo
 The maps-to attribute
 ---------------------
 
-You can assign the :token:`maps-to`  attribute to any value-holding mapping element. Its value should be a reference to an identifier in your model, including the indices bound at this location in the mapping tree. Note that this should match the dimension of the identifier exactly, and that the root domain of the identifier should match the root domains of the indices.  
+You can assign the :token:`maps-to` attribute to any value-holding mapping element. Its value should be a reference to an identifier in your model, including the indices bound at this location in the mapping tree *in the exact order in which they are bound in the mapping, including any external bindings present*. Note that this implies that the dimension of the identifier must be matched exactly with the number of bound indices, and that the root domain of the identifier should match the root domains of the indices. Also this requirement prevents you from permuting the bound indices bound in the identifier reference specified in the :token:`maps-to` attribute.
 
 The :token:`write-filter` attribute can be specified at any node in the mapping tree, and should be a reference to an identifier in the model including the bound indices at this location as for the :token:`maps-to` attribute. For any tuple of bound indices for which the :token:`write-filter` attribute does not hold a non-default value, the corresponding part of the generate JSON, XML or CSV file will be skipped. 
 
@@ -172,8 +172,7 @@ If the identifier associated with a :token:`maps-to` attribute is an element par
 The force-dense attribute
 -------------------------
 
-The :token:`force-dense` attribute should also contain a reference to an identifier plus bound indices as for the :token:`maps-to` attribute. Through
- this attribute you can force a specific density pattern by specifying a domain for which nodes *should* be generated, regardless of whether non-default data is present to fill such nodes, e.g. because the identifier specified in the :token:`maps-to` attribute of the node itself, or any of its sub-nodes, holds no non-default data. Note that a density pattern enforced through the :token:`force-dense` attribute is still subject to a write filter specified in a :token:`write-filter` attribute.
+The :token:`force-dense` attribute should also contain a reference to an identifier plus bound indices as for the :token:`maps-to` attribute. Through this attribute you can force a specific density pattern by specifying a domain for which nodes *should* be generated, regardless of whether non-default data is present to fill such nodes, e.g. because the identifier specified in the :token:`maps-to` attribute of the node itself, or any of its sub-nodes, holds no non-default data. Note that a density pattern enforced through the :token:`force-dense` attribute is still subject to a write filter specified in a :token:`write-filter` attribute.
 
 Enforcing a density pattern may be important when the bound indices are generated through the :token:`iterative-binds-to` attribute, and not explicitly represented through data-holding node bound to a regular :token:`binds-to` attribute. In such cases, not writing nodes that hold no non-default data, may lead to inconsistent numbering of generated elements when reading the generated JSON or XML files back in. *When reading a JSON, XML, CSV, Excel or Parquet file, the library will assign a value of 1 for the identifier specified in the* :token:`force-dense` *attribute to any tuple encountered, such that the same file will be generated when writing back the file using the same mapping based on the data just read in.* 
 

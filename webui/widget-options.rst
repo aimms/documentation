@@ -633,6 +633,11 @@ At the *Store Focus* tab in the `widget options <#widget-options>`__ you will se
     
 The list of indices also includes an index referring to IDENTIFIER-SET. You can specify an element parameter over the set AllSymbols there. This allows you to also store the identifier that currently has focus in the widget. This could be relevant when you display multiple identifiers in your widget.
 
+.. important::
+    Clicking again on the currently Selected/Highlighted chart element, gets the highlighting cleared from the respective chart element. However, the value stored in the corresponding element parameter is retained and not emptied.
+    
+    This also holds for the Table widget, where you cannot explicitly deselect a cell.
+
 
 Totals
 ------

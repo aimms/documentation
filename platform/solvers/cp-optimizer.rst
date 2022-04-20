@@ -1,6 +1,6 @@
-IBM ILOG CP Optimizer Solver
-============================
-The CP Optimizer (also known as CPOPT or CPO) solver from IBM ILOG is a state-of-the-art solver for :doc:`Constraint Programming (CP) <../math-program/constraint-programming>` problems.
+CP Optimizer
+============
+The CP Optimizer solver (also known as CPOPT or CPO) from IBM ILOG is a state-of-the-art solver for :doc:`Constraint Programming (CP) <../math-program/constraint-programming>` problems.
 
 CP Optimizer Constraint Programming
 -------------------------------------
@@ -16,4 +16,4 @@ About IBM ILOG CP Optimizer
 
 CP Optimizer Supported Versions
 -------------------------------------
-AIMMS supports CP Optimizer 12.8 and 12.9.
+AIMMS supports CP Optimizer 12.9 – 22.1.

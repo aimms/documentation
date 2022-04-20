@@ -1,14 +1,13 @@
-XA
-===
-XA for Linear and Mixed Integer Programming
--------------------------------------------
-The XA solver is a :doc:`Linear Programming (LP) <../math-program/linear-programming>` and :doc:`Mixed Integer Programming (MIP) <../math-program/mixed-integer-programming>` solver. For solving LP problems you can choose between the simplex algorithm and the (efficient) barrier algorithm. The MIP solver can only use the simplex algorithm. A detailed list of all features supported by XA can be found on our :doc:`Solvers <solvers>` page.
+PATH
+======
+PATH Solver for Mixed Complementarity Programming
+----------------------------------------------------
+The PATH solver is a Newton-based solver for solving :doc:`Mixed Complementarity Programming (MCP) <../math-program/other-mp>` problems. The PATH solver is extensively used by economists for solving general equilibrium problems. PATH is a robust and efficient solver for most MCP problems.
 
-About XA
+About PATH
 -------------
-XA is developed and supported by `Sunset Software Technology, Inc <http://www.sunsetsoft.com>`_.
-
+PATH is developed and maintained by `Steven Dirkse, Michael C. Ferris and Todd Munson <http://pages.cs.wisc.edu/~ferris/path.html>`_.
 
 Supported Versions
----------------------
-AIMMS supports XA 13 – 15.
+----------------------
+AIMMS supports PATH 4.7.

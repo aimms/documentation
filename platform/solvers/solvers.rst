@@ -62,32 +62,36 @@ Available Solvers in AIMMS
 |                 | programming solver from Arki     | ✔                            |
 |                 | Consulting                       |                              |
 +-----------------+----------------------------------+------------------------------+
-| CPLEX           | High performance linear          |                              |
-|                 | programming / mixed integer      | ✔                            |
-|                 | programming solver from IBM ILOG |                              |
-+-----------------+----------------------------------+------------------------------+
 | CP Optimizer    | State-of-the-art constraint      |                              |
 |                 | programming solver from IBM ILOG | ✔                            |
 |                 |                                  |                              |
 |                 |                                  |                              |
 +-----------------+----------------------------------+------------------------------+
+| CPLEX           | High performance linear          |                              |
+|                 | programming / mixed integer      | ✔                            |
+|                 | programming solver from IBM ILOG |                              |
++-----------------+----------------------------------+------------------------------+
 | GUROBI          | High performance linear          |                              |
-|                 | programming / mixed integer      | ✖                            |
-|                 | programming solver from Gurobi   | (use CPLEX)                  |
-|                 | Optimization                     |                              |
+|                 | programming / mixed integer      | ✔                            |
+|                 | programming solver from Gurobi   | (requires Gurobi Web License |
+|                 | Optimization                     | Service)                     |
 +-----------------+----------------------------------+------------------------------+
 | IPOPT           | Open source Interior Point       |                              |
 |                 | optimizer for large-scale        | ✖                            |
-|                 | nonlinear optimization at        | (use CONOPT or KNITRO)       |
+|                 | nonlinear optimization at        | (use CONOPT or Knitro)       |
 |                 | COIN-OR                          |                              |
 +-----------------+----------------------------------+------------------------------+
-| KNITRO          | Large-scale nonlinear            |                              |
+| Knitro          | Large-scale nonlinear            |                              |
 |                 | programming solver from Artelys  | ✔                            |
 |                 |                                  |                              |
 +-----------------+----------------------------------+------------------------------+
 | MINOS           | Nonlinear programming solver     |                              |
 |                 | from Stanford University         | ✖                            |
-|                 |                                  | (use CONOPT or KNITRO)       |
+|                 |                                  | (use CONOPT or Knitro)       |
++-----------------+----------------------------------+------------------------------+
+| Octeract        | Parallel branch-and-bound solver |                              |
+|                 | for global optimization          | ✖                            |
+|                 |                                  | (on Roadmap to add)          |
 +-----------------+----------------------------------+------------------------------+
 | ODH-CPLEX       | High performance mixed integer   |                              |
 |                 | programming CPLEX solver add-on  | ✔                            |
@@ -95,7 +99,7 @@ Available Solvers in AIMMS
 +-----------------+----------------------------------+------------------------------+
 | PATH            | Newton-based solver for solving  |                              |
 |                 | mixed complementarity            | ✖                            |
-|                 | programming                      | (use KNITRO)                 |
+|                 | programming                      | (use Knitro)                 |
 +-----------------+----------------------------------+------------------------------+
 | RO              | Robust Optimization Add-on       |                              |
 |                 | (see below)                      | ✔                            |
@@ -103,7 +107,7 @@ Available Solvers in AIMMS
 +-----------------+----------------------------------+------------------------------+
 | SNOPT           | Nonlinear programming solver     |                              |
 |                 | from Stanford University         | ✖                            |
-|                 |                                  | (use CONOPT or KNITRO)       |
+|                 |                                  | (use CONOPT or Knitro)       |
 +-----------------+----------------------------------+------------------------------+
 
 .. [*] Because the AIMMS Cloud is a serviced platform we did not include all solvers that are available in an AIMMS Developer setup. At this moment, we added the most common solvers used in production setups and have a minimal requirement that a solver support team is available to handle issues that might arise (hence Open Source solvers are not part of the AIMMS Cloud setup). If you have any requests, please contact us via support@aimms.com.
@@ -169,7 +173,9 @@ existing solver license with AIMMS.
 +-------------------+-----+-----+-----+------+-----+-------+-----+-------+-----+------+-----+-----+
 | MINOS             | ✔   |     | ✔   |      |     |       | ✔   |       |     |      |     |     |
 +-------------------+-----+-----+-----+------+-----+-------+-----+-------+-----+------+-----+-----+
-| BARON^            |     | ✔   | ✔   | ✔    | ✔   | ✔     | ✔   | ✔     |     |      | ✔   |     |
+| BARON\*           |     | ✔   | ✔   | ✔    | ✔   | ✔     | ✔   | ✔     |     |      | ✔   |     |
++-------------------+-----+-----+-----+------+-----+-------+-----+-------+-----+------+-----+-----+
+| Octeract\*        |     |     | ✔   | ✔    | ✔   | ✔     | ✔   | ✔     |     |      | ✔   |     |
 +-------------------+-----+-----+-----+------+-----+-------+-----+-------+-----+------+-----+-----+
 | PATH              |     |     |     |      |     |       |     |       | ✔   |      |     |     |
 +-------------------+-----+-----+-----+------+-----+-------+-----+-------+-----+------+-----+-----+
@@ -279,7 +285,7 @@ LP and MIP Solver Features
 | Range         | ✔     | ✔      |     |
 | objective     |       |        |     |
 +---------------+-------+--------+-----+
-| Extreme/      | ✔     | ✔      |     |
+| Extreme /     | ✔     | ✔      |     |
 | unbounded     |       |        |     |
 | ray           |       |        |     |
 +---------------+-------+--------+-----+
@@ -357,6 +363,8 @@ LP and MIP Solver Features
 | RINS            | ✔     | ✔      | ✔   |
 | heuristic       |       |        |     |
 +-----------------+-------+--------+-----+
+| Display cuts    | ✔     |        |     |
++-----------------+-------+--------+-----+
 
 +---------------------+-------+--------+-----+
 | Nonlinear  Features | CPLEX | GUROBI | CBC |
@@ -369,16 +377,16 @@ LP and MIP Solver Features
 +---------------------+-------+--------+-----+
 | MIQCP               | ✔     | ✔      |     |
 +---------------------+-------+--------+-----+
-| SOCP (second        | ✔     | ✔      |     |
-| order cone)         |       |        |     |
-+---------------------+-------+--------+-----+
-| MISOCP              | ✔     | ✔      |     |
-| (integer            |       |        |     |
-| SOCP)               |       |        |     |
-+---------------------+-------+--------+-----+
 | Non-convex          | ✔     | ✔      |     |
 | QP & MIQP           |       |        |     |
 +---------------------+-------+--------+-----+
 | Non-convex          |       | ✔      |     |
 | QCP & MIQCP         |       |        |     |
++---------------------+-------+--------+-----+
+| SOCP (second        | ✔     | ✔      |     |
+| order cone)         |       |        |     |
++---------------------+-------+--------+-----+
+| MISOCP              | ✔     | ✔      |     |
+| (mixed integer      |       |        |     |
+| SOCP)               |       |        |     |
 +---------------------+-------+--------+-----+
