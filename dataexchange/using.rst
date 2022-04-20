@@ -11,8 +11,7 @@ Typically a tree-based data format can consists of several types of nodes:
 * repetitive nodes, which can hold multiple (named or unnamed) child nodes of the same type and structure, and
 * value-holding leaf nodes, which hold the actual labels of bound indices or values of multi-dimensional identifiers.
 
-The following simple examples demonstrate some basic uses of the Data Exchange library for JSON, XML and CSV formats. Next to these examples, you can also download our internal :download:`unit test project<downloads/DataExchangeTest.zip>` for the Data Exchange library, which will provide you with more example mappings demonstrating various capabilities of the Data Exchange library. It also contains the mappings and corresponding collections of AIMMS identifiers for reading and writing the JSON formats for geocoding and distance service from Google and GraphHopper.
-
+The following simple examples demonstrate some basic uses of the Data Exchange library for JSON, XML and CSV formats. `This How-To article <https://how-to.aimms.com/Articles/534/534-dealing-with-the-different-data-types.html>`__ explains the use of various mapping attributes for JSON, XML, CSV and Parquet formats in more detail. Next to these examples, you can also download our internal :download:`unit test project<downloads/DataExchangeTest.zip>` for the Data Exchange library, which will provide you with more example mappings demonstrating various capabilities of the Data Exchange library. It also contains the mappings and corresponding collections of AIMMS identifiers for reading and writing the JSON formats for geocoding and distance service from Google and GraphHopper.
 
 Example: JSON mapping
 ---------------------
@@ -215,4 +214,4 @@ Here we see in the top row the names from the ``ColumnMapping`` of the mapping. 
 .. spelling::
 
     geocoding
-    dataframes
+		dataframes
