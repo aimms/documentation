@@ -12,6 +12,21 @@ AIMMS 4.85
 #############
 
 
+AIMMS 4.85.2 Release (April 20, 2022 - build 4.85.2.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In the Project Settings dialog box, options were incorrectly displayed as 'at default' because in the comparison of an option value with its default value it used the absolute and relative tolerance options.
+-  The global-custom-prop-constants.css file was not present in the AIMMS Installation folder, as described in the Theming documentation.
+
+--------------
+
+
+
 AIMMS 4.85.1 Release (April 12, 2022 - build 4.85.1.1).
 ------------------------------------------------------------------------------------------
 
