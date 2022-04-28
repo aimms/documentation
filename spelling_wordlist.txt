@@ -60,3 +60,10 @@ AnnotationsIdentifier
 HighValue
 libs
 webui
+api
+PublishAIMMS
+PublishApp
+apps
+aimmspack
+apikey
+URL

@@ -5,6 +5,7 @@
 *.dmp
 *.dmp
 *.pyc
+*.idea
 *.vscode
 /**/.history/**/*.*
 _build
