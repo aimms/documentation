@@ -7,6 +7,11 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.25.0.2 [02-05-2022]
+	- Add :any:`cdm::RenameElement` method to change an element name *globally*, i.e. in all clients, and in the CDM database across all branches and regardless of history.
+	- This version modifies the wire format of changesets to accommodate passing element renames. As a result cached snapshots will be temporarily invalidated after upgrading the CDM service, and will be restored upon the first refresh of the snapshot cache. 
+	- After *every* commit containing an element rename, the snapshot cache will also be temporarily invalidated to prevent the old element name(s) from being passed to clients when checking out a branch. 
+	
 1.24.1.8 [09-03-2022]
 	- The function :any:`cdm::GetValuesLog` did not function properly for identifier slices.
 

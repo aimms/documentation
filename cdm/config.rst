@@ -171,7 +171,8 @@ For any root set in your model that is managed through CDM, AIMMS CDM works with
 
 The element-name/-number mapping provided through these global namespaces needs to work for *all clients* at *all times*, that is, over all data revisions stored in the database, and for all available branches. Allowing elements to be simply renamed has the potential to break this paradigm. Typically, such set element renames take place at a particular point in time at a particular branch, which raises the question what should happen to data in other branches, and in past revisions. Should clients accessing such data see the old name, or the new one, and what should happen if a set element is renamed multiple times? Because there is no real good answer to these questions, AIMMS CDM will intercept all calls to the intrinsic AIMMS function :any:`SetElementRename` in your model (as well as through the AIMMS API) and raise an execution error. 
 
-So, if renaming set elements is not an option when using CDM, what other approaches are available? 
+If an unconditional rename in the CDM database and all clients is exactly what you intended, then you can use the function :any:`cdm::RenameElement` to accomplish this. 
+If renaming set elements is not an option when using CDM, what other approaches are available? 
 
 * If the name of an element changes frequently, you may opt to use an string parameter defined over the set for displaying the element name, instead of the element itself. As the displayed element name now has become data to which different values can be assigned at different revisions and in different branches, you have complete freedom to change the display name of the element as often as you see fit. 
 

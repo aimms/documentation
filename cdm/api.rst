@@ -452,6 +452,16 @@ Utility Functions
    :param setName: specifies the set in which to clone and rollback the existing element
    :param elemName: specifies the element name of the existing element
    :param newName: specifies the element name of the new element to be cloned
+
+.. js:function::  cdm::RenameElement(setName,elemName,newName)
+
+   Globally rename a existing element in a given set. When this change is committed and pushed to the CDM server, the element will be renamed in all connected clients upon receiving the commit notification, and the element name will be changed in the CDM database, i.e. all history regarding data for the element will only be available with the new name of the element. After pushing the commit, the CDM database will contain no trace of the old name of the element, nor will you be able to trace the event that executed the rename, unless you documented this in the commit description.
+	 
+	 After a commit containing an element rename, the snapshot cache will also be temporarily invalidated to prevent the old element name(s) from being passed to clients when checking out a branch. Upon the first refresh of the snapshot cache (taking place every 5 minutes), the snapshots will be become available again with the updated element names.
+
+   :param setName: specifies the set in which to rename the existing element
+   :param elemName: specifies the element name of the existing element
+   :param newName: specifies the new element name of the element to be renamed
    
 .. js:function::  cdm::EmptyElementsInCategory(category,setName)
 
