@@ -12,6 +12,21 @@ AIMMS 4.85
 #############
 
 
+AIMMS 4.85.3 Release (May 5, 2022 - build 4.85.3.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In sets that were constructed via a collection of element parameters, which in turn were defined as a fixed element, an incorrect error about a "cyclic definition" was triggered.
+-  When a parameter had a definition using scalar element parameters, and was at the same time used in the "Order by" attribute of the set being the range of those element parameters, then this parameter could erroneously stay empty after its definition evaluation.
+
+--------------
+
+
+
 AIMMS 4.85.2 Release (April 20, 2022 - build 4.85.2.4).
 ------------------------------------------------------------------------------------------
 
