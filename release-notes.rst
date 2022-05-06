@@ -12,6 +12,20 @@ AIMMS 4.85
 #############
 
 
+AIMMS 4.85.4 Release (May 6, 2022 - build 4.85.4.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  After releasing the new AIMMS theming with 4.85.1, we accidentally changed the color of read-only table cells and scalar values into a very light color, making them look 'disabled' instead. This error has been corrected and should render lists of read-only values much more readable again.
+
+--------------
+
+
+
 AIMMS 4.85.3 Release (May 5, 2022 - build 4.85.3.2).
 ------------------------------------------------------------------------------------------
 
