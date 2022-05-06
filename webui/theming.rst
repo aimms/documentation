@@ -107,7 +107,7 @@ The reserved height for the logo is always equal to the entire height of the hea
 
 So to get the final layout right, you also need to get the values for positioning and size in :token:`bg_app-logo` right, combined with this reserved area.
 
-The property value for :token:`bg_app-logo` adheres to the `CSS specifications <https://developer.mozilla.org/en-US/docs/Web/CSS/background>`_ for :token:`background` shorthand. Which can take several orders and combinations of attributes, but a quick primer to what the example above would mean to the browser:
+The property value for :token:`bg_app-logo` adheres to the `CSS specifications <https://developer.mozilla.org/en-US/docs/Web/CSS/background>`_ for :token:`background` shorthand. It can take several orders and combinations of attributes, but here is a quick primer to what the example above would mean to the browser:
 
 * ``8px 50%`` -> within the reserved area, position the image ``8px`` from the left-hand edge, and automatically center it vertically.
 
