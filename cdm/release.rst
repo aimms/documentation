@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.25.0.4 [09-05-2022]
+	- The procedure :any:`cdm::EmptyElementsInCategory`, erroneously pointed to the non-existing DLL function ``EmtpyElementInCategory`` instead of ``EmptyElementsInCategory``
+
 1.25.0.3 [03-05-2022]
 	- Add :any:`cdm::RenameElement` method to change an element name *globally*, i.e. in all clients, and in the CDM database across all branches and regardless of history.
 	- This version modifies the wire format of changesets to accommodate passing element renames. As a result cached snapshots will be temporarily invalidated after upgrading the CDM service, and will be restored upon the first refresh of the snapshot cache. 
@@ -19,7 +22,6 @@ New Features and Bug Fixes
 	- Add :any:`cdm::RemoveElementsFromDatabase` to cleanup backing CDM database by removing all data associated with a subset of an element space
 	- :any:`cdm::RollbackElementsInCategory`, :any:`cdm::EmptyElementsInCategory` and :any:`cdm::CommitElementsInCategory` now operate on a subset of elements instead of on a single element
 	- Add ``cdm::SnapshotSize`` identifier to retrieve size of snapshots from :any:`cdm::GetSnapshotCache`.
-
 
 1.23.0.9 [23-01-2022]
 	- Use of generated action procedure to determine data differences gave rise to extreme memory usage in particular situations
