@@ -41,7 +41,7 @@ is advised to copy it ans store it securely. This key should be sent in the *api
 header for every REST call the user want to make using this key for
 authentication/authorization.
 
-Example: Using Postman to Publish and App
+Example: Using Postman to Publish an App
 -----------------------------------------
 This is an example on how to use `Postman <https://www.postman.com/>`_ in order
 to perform CRUD operations an AIMMS applications (.aimmspack) using the PRO RESt API:
