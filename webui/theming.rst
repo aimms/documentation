@@ -111,7 +111,7 @@ The property value for :token:`bg_app-logo` adheres to the `CSS specifications <
 
 * ``8px 50%`` -> within the reserved area, position the image ``8px`` from the left-hand edge, and automatically center it vertically.
 
-* ``35px 35px`` -> size the image to measure 35 by 35 pixels. If your own image has different dimensions, use them here and when scaling them, make sure to scale both height and width equally to prevent distortion. Instead, you could also specify ``contain`` or ``cover`` here, but that will make specific sizing a bit difficult. Also note that background sizing *must* come after the position, separated from it by a ``/`` .
+* ``35px 35px`` -> size the image to measure 35 by 35 pixels. The first value sets the width and the second sets the height. If your own image has different dimensions, use them here and when scaling them, make sure to scale both width and height equally (i.e. keep the aspect ratio of your image) to prevent distortion. Instead, you could also specify ``contain`` or ``cover`` here, but that will make specific sizing a bit difficult. Also note that background sizing *must* come after the position, separated from it by a ``/`` .
 
 * ``no-repeat`` -> stops the 35px x 35px image from repeating itself across the available area (50px by the height of the header, in this example).
 
