@@ -36,6 +36,8 @@ Besides this, we offer a `ClassicTheme.css file <https://gitlab.aimms.com/public
 
 When opting to use the new theme, we offer `two .css files <https://gitlab.aimms.com/public-repos/adjust-new-theme>`_, which you can use to easily add a logo to the header bar of your WebUI pages and to change the color of the horizontal line below the header bar. The `ReadMe file <https://gitlab.aimms.com/public-repos/adjust-new-theme/blob/master/README.md>`_ offers guidance on how to do this. If you indeed start using the new theme, we strongly advice you to 'start from scratch', in case you are using lots of customized css for your model. If you want a more extensive change, we suggest to connect with our support team. Please also make sure to remove any 'ClassicTheme.css' file, as described in the previous paragraph, in case you have copied it to your css folder.
 
+**Note**: The styling for the Classic Theme was removed with AIMMS 4.84. Using the Classic Theme option will present you with a warning, when using that or a more recent AIMMS version. Styling will revert to what we now call our default theme (and might not be 100% compatible with your needs and custom styling any more).
+
 UI Editable
 -----------
 

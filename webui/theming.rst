@@ -102,7 +102,18 @@ Next to the path to the logo file itself, you also need to specify the width tha
 
   --spacing_app-logo_width: 50px;
 
-Please note that if you omit this second property, no icon will be visible.
+Please note that if you omit this second property, no image will be visible(!).
+The reserved height for the logo is always equal to the entire height of the header.
+
+So to get the final layout right, you also need to get the values for positioning and size in :token:`bg_app-logo` right, combined with this reserved area.
+
+The property value for :token:`bg_app-logo` adheres to the `CSS specifications <https://developer.mozilla.org/en-US/docs/Web/CSS/background>`_ for :token:`background` shorthand. It can take several orders and combinations of attributes, but here is a quick primer to what the example above would mean to the browser:
+
+* ``8px 50%`` -> within the reserved area, position the image ``8px`` from the left-hand edge, and automatically center it vertically.
+
+* ``35px 35px`` -> size the image to measure 35 by 35 pixels. If your own image has different dimensions, use them here and when scaling them, make sure to scale both height and width equally to prevent distortion. Instead, you could also specify ``contain`` or ``cover`` here, but that will make specific sizing a bit difficult. Also note that background sizing *must* come after the position, separated from it by a ``/`` .
+
+* ``no-repeat`` -> stops the 35px x 35px image from repeating itself across the available area (50px by the height of the header, in this example).
 
 As opposed to using a location relative to your project folder, it is also possible to use an image that resides somewhere on the web. In that case, you can simply specify the precise URL of its location in the :token:`url`. So, for example:
 
