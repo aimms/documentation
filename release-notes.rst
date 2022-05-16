@@ -12,6 +12,20 @@ AIMMS 4.85
 #############
 
 
+AIMMS 4.85.5 Release (May 16, 2022 - build 4.85.5.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If a procedure in a Module is added to the public section of that Module, then using pro::DelegateToServer inside that procedure did not always work correctly.
+
+--------------
+
+
+
 AIMMS 4.85.4 Release (May 6, 2022 - build 4.85.4.1).
 ------------------------------------------------------------------------------------------
 
