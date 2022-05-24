@@ -1,6 +1,23 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.43
+########
+
+AIMMS PRO 2.43.2 Release
+------------------------
+
+On May 24, 2022, we released AIMMS PRO 2.43.2 (2.43.2.1). 
+
+**Improvements**
+
+-  **Cloud:** Some technical improvements for Azure Cloud Platform.
+
+**Resolved Issues**
+
+-  Fixed an issue where jobs scheduled in future could start before the scheduled date/time while there are queued jobs.
+-  Added more clear error message in the session log when a AIMMS PRO User could not access/read a case file from the AIMMS PRO Storage. 
+
 PRO 2.42
 ########
 
