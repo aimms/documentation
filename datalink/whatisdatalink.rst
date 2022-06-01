@@ -73,7 +73,7 @@ The solution is to split the task of importing and exporting data into two separ
     :width: 100%
     :figwidth: 50%
 
-    An overview of the dataLink solution with left the AIMMS model containing identifiers. Next to it the DataLink library containing the data maps (explained later). Then we see different types of Provider libraries.  Depending on the type of provider we see that we can choose different data sources.
+    An overview of the DataLink solution with left the AIMMS model containing identifiers. Next to it the DataLink library containing the data maps (explained later). Then we see different types of Provider libraries.  Depending on the type of provider we see that we can choose different data sources.
 
 We have to make three choices:
 
