@@ -12,6 +12,20 @@ AIMMS 4.85
 #############
 
 
+AIMMS 4.85.6 Release (June 1, 2022 - build 4.85.6.21).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The scaling algorithm, activated by switching on the option 'Scale model', could calculate incorrect scaling factors if the combination algorithm was used.
+
+--------------
+
+
+
 AIMMS 4.85.5 Release (May 16, 2022 - build 4.85.5.3).
 ------------------------------------------------------------------------------------------
 
