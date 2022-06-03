@@ -20,14 +20,27 @@ To connect a developer version of your project with the PRO server, a number of 
         _pro-environment : "ROOT",
         _pro-username : "admin",
         _pro-tmpfolder : "PROTemp",
-        _pro-endpoint : "tcp://MyPROServer.mydomain.com:19340",
+        _pro-endpoint : "wss://MyPROServer.mydomain.com:/ws-proxy/backend/",
         _pro-language : "1" } ;
         
 where the various fields should match the model name and version published on the server, with the PRO environment and user name you want to authenticate with, and with the endpoint through which your PRO server can be reached.
 
 .. tip::
     
-    Please note that debugging a project in combination with AIMMS WebUI is not supported.
+    Please note that debugging a project in combination with AIMMS WebUI is supported, but you should first publish the app as a WinUI app and launch it once. By launching the WinUI app you get two things: 
+	
+	#.  an example ``pro_arguments.txt`` file
+	
+	#.  the libraries in the folder indicated by ``_pro-dll-directory``.
+	
+.. note::
+
+    Older AIMMS PRO (on premise) systems may need to connect using TCP. 
+	
+    .. code::
+	
+	    _pro-endpoint : "tcp://MyPROServer.mydomain.com:19340",
+
 
 Opening the Project
 -------------------
