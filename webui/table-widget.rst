@@ -83,8 +83,8 @@ Please note that the .csv file is constructed within your browser environment be
 Furthermore, there is a limit on the number of rows that can be downloaded (i.e. even when having just 1 column!): this is controlled by the value of the project option *WebUI_maximum_number_of_entries_in_widget*. The default value of this option is currently 50,000.
 
 
-Download/Upload Data from/to Table to/from Excel
-------------------------------------------------
+Excel Download/Upload Support
+-----------------------------
 
 The Table Widget offers you the possibility to download its contents to an Excel workbook on your local machine, which you can use to further process your data in Excel.
 Also, the data from an Excel workbook can be uploaded directly to the Table Widget. 
