@@ -66,8 +66,8 @@ AIMMS offers support for special numbers, like inf, na, undef, etc. The WebUI ta
   * any total that contains 'inf' (as an operand) as well as '-inf' results in undefined and produces an error message in the WebUI.
 
 
-Download Table Data
---------------------------
+Download Table Data to CSV File
+-------------------------------
   
 The Table Widget offers you the possibility to download its current contents to a .csv file on your local machine, which you can use to further process your data in, for example, Excel. On the top right, left of the 'Full Screen' icon, you can find the download icon. 
 
@@ -81,7 +81,89 @@ If your table contains numerical data, the numbers will be written to the .csv f
 Please note that the .csv file is constructed within your browser environment before downloading. This means that the performance might vary over the devices that you are using. You will get a warning if your download will be too big to handle for the WebUI: this is when the total number of cells involved exceeds 500,000. We have successfully tested up to a scenario like 5,000 x 100 rows/columns, using the Chrome browser on a Windows desktop machine. When you go over the limit of 500,000 cells, the WebUI will download the CSV file, containing more or less these 500,000 values. Any additional data will not be included in the CSV file (the WebUI will display a “Data truncated” warning if this happens). For large data-sets over 500,000 cells, we suggest you create a custom CSV and use the 'download widget' to download the file. 
 
 Furthermore, there is a limit on the number of rows that can be downloaded (i.e. even when having just 1 column!): this is controlled by the value of the project option *WebUI_maximum_number_of_entries_in_widget*. The default value of this option is currently 50,000.
- 
+
+
+Download/Upload Data from/to Table to/from Excel
+------------------------------------------------
+
+The Table Widget offers you the possibility to download its contents to an Excel workbook on your local machine, which you can use to further process your data in Excel.
+Also, the data from an Excel workbook can be uploaded directly to the Table Widget. 
+More specifically, after using Excel to make edits to the data, the same sheet can be uploaded to the table and its changes will be automatically applied to the WebUI data (as if you made them through manual changes). 
+
+.. note::
+
+   These features of the Table are available from AIMMS 4.86 or higher versions.
+
+On the Table Widget header you can find the icons for the download/upload actions:
+
+.. image:: images/Table-Excel-Download-Upload-Icons.png  
+    :align: center
+
+For example, when clicking the button for downloading to Excel on the following table
+
+.. image:: images/Table-Excel-Download-ex-1.png
+    :align: center
+
+\
+
+its data is downloaded to an Excel workbook (with the same name as the name of the widget):
+
+.. image:: images/Table-Excel-Download-ex-2.png
+    :align: center
+
+\
+
+Now, if the value in the cell B2 is changed in Excel, for instance, from 5.20 to 15.80 
+
+.. image:: images/Table-Excel-Upload-ex-1.png
+    :align: center
+
+\
+
+and the new contents of the Excel workbook is uploaded to the table
+
+.. image:: images/Table-Excel-Upload-ex-2.png
+    :align: center
+
+\
+
+then the contents of the table (including the values of the corresponding identifier in the AIMMS model) are updated accordingly:
+
+.. image:: images/Table-Excel-Upload-ex-3.png
+    :align: center
+
+\
+
+Currently the following features are supported:
+
+* The downloaded Excel file is an ‘.xlsx’ file (and not an old-style ‘.xls’ file). The ‘.xlsx’ has some features which AIMMS uses when generating the Excel file, such as, the data validation for a range (to show a dropdown for element parameters). You are advised to keep the Excel file (after making some changes) as an ‘.xlsx; file.
+* You are not supposed to change the pivoting in the generated Excel sheet: we assume a constant pivoting in order to be able to read back the changes to the table.
+* The styling of the data downloaded to Excel is similar to the one in the WebUI table: editable data is shown in blue, read-only data is shown in black, row and column headers are displayed with a distinct background color. Please note that cells that are read-only in the WebUI table are still editable in your Excel sheet. However, any changes to these cells will not be taken into account during a subsequent upload.
+* Calendar data in your model is formatted using an Excel data format based on the granularity of your calendar set. Only AIMMS calendars with granularity 'day', 'hour', 'minute' or 'seconds' are supported.
+* Element parameters will show all possible elements in a dropdown list (for now, only for sets with less than 100 elements).
+* Numerical values with a binary range will show a 0-1 dropdown list.
+* The number of decimals shown in the Excel sheet follows the number of decimals as specified in the WebUI.
+* "Sticky" headers: the row and column headers are not subject to scrolling.
+* Deleting a row, a column or just a single cell in Excel is interpreted as setting all deleted values to 0 (or the empty string or the empty label).
+* You can add a row or column as long as you do not add elements which are not yet in any of the related domain sets (or range set in case of an element parameter). 
+* Filters and sort changes are ignored during the upload: WebUI just looks in the row and column headers (for every cell) to see whether there is a change for that specific tuple.
+* Totals which are being displayed in the WebUI table are not shown in the Excel sheet. This is because they are just written as a plain number (instead of a formula), making them not behave like a total when you change data in the Excel sheet anyway. In addition, these totals are (typically) not used as input data.
+* The existing 'upon change procedures' will be called when some data is changed during an upload from Excel.
+* After an upload, WebUI will report the number of data changes as an INFO message. This is a temporary way of feedback which is likely to be improved in the future.
+* In case the uploaded Excel file contains duplicate values for a specific combination of indices, only the last change (when traversing the cells from top-left to bottom-right) will be considered.
+
+.. note::
+
+   If a table contains more than one (numerical) identifier and the <IDENTIFIER-SET> index is pivotted to Totals, then the contents of the table may be downloaded, but it cannot be overwritten by an upload, because those (computed) totals have an implicit (runtime) definition in the AIMMS model.
+   
+The following aspects are not (yet) supported, but may be subject to further improvements:
+
+• No support for element text, yet (when an element text annotation has been specified in the declaration of a set involved in the table contents). 
+• No support for the display of units of measurements (in the downloaded Excel file). Only the plain values (without units) are subject to the download/upload actions.
+• There is no dedicated 'procedure upon upload'. The reason for this is that currently the upload changes are applied as if they were a sequence of manual edits. 
+• Deleting a value in a cell will not reset the correspond value in AIMMS to its default value (when the corresponding identifier has a default value specified in its declaration). For now, the value is set to 0 (or the empty string or the empty label), instead.
+
+
 Creating Read-Only Cells
 ------------------------------------
 
