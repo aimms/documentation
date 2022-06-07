@@ -154,7 +154,7 @@ Currently the following features are supported:
 
 .. note::
 
-   If a table contains more than one (numerical) identifier and the <IDENTIFIER-SET> index is pivotted to Totals, then the contents of the table may be downloaded, but it cannot be overwritten by an upload, because those (computed) totals have an implicit (runtime) definition in the AIMMS model.
+   If a table contains more than one (numerical) identifier and the <IDENTIFIER-SET> index is pivoted to Totals, then the contents of the table may be downloaded, but it cannot be overwritten by an upload, because those (computed) totals have an implicit (runtime) definition in the AIMMS model.
    
 The following aspects are not (yet) supported, but may be subject to further improvements:
 
