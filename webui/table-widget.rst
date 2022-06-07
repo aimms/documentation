@@ -92,7 +92,7 @@ More specifically, after using Excel to make edits to the data, the same sheet c
 
 .. note::
 
-   These features of the Table are available from AIMMS 4.86 or higher versions.
+   These features of the Table are available as an Experimental Feature from AIMMS 4.86 onwards.
 
 On the Table Widget header you can find the icons for the download/upload actions:
 
@@ -136,7 +136,7 @@ then the contents of the table (including the values of the corresponding identi
 
 Currently the following features are supported:
 
-* The downloaded Excel file is an ‘.xlsx’ file (and not an old-style ‘.xls’ file). The ‘.xlsx’ has some features which AIMMS uses when generating the Excel file, such as, the data validation for a range (to show a dropdown for element parameters). You are advised to keep the Excel file (after making some changes) as an ‘.xlsx; file.
+* The downloaded Excel file is an ‘.xlsx’ file (and not an old-style ‘.xls’ file). The ‘.xlsx’ has some features which AIMMS uses when generating the Excel file, such as the data validation for a range (to show a dropdown for element parameters). You are advised to keep the Excel file (after making some changes) as an ‘.xlsx’ file.
 * You are not supposed to change the pivoting in the generated Excel sheet: we assume a constant pivoting in order to be able to read back the changes to the table.
 * The styling of the data downloaded to Excel is similar to the one in the WebUI table: editable data is shown in blue, read-only data is shown in black, row and column headers are displayed with a distinct background color. Please note that cells that are read-only in the WebUI table are still editable in your Excel sheet. However, any changes to these cells will not be taken into account during a subsequent upload.
 * Calendar data in your model is formatted using an Excel data format based on the granularity of your calendar set. Only AIMMS calendars with granularity 'day', 'hour', 'minute' or 'seconds' are supported.
@@ -146,7 +146,7 @@ Currently the following features are supported:
 * "Sticky" headers: the row and column headers are not subject to scrolling.
 * Deleting a row, a column or just a single cell in Excel is interpreted as setting all deleted values to 0 (or the empty string or the empty label).
 * You can add a row or column as long as you do not add elements which are not yet in any of the related domain sets (or range set in case of an element parameter). 
-* Filters and sort changes are ignored during the upload: WebUI just looks in the row and column headers (for every cell) to see whether there is a change for that specific tuple.
+* Filters and sorting changes are ignored during the upload: WebUI just looks in the row and column headers (for every cell) to see whether there is a change for that specific tuple.
 * Totals which are being displayed in the WebUI table are not shown in the Excel sheet. This is because they are just written as a plain number (instead of a formula), making them not behave like a total when you change data in the Excel sheet anyway. In addition, these totals are (typically) not used as input data.
 * The existing 'upon change procedures' will be called when some data is changed during an upload from Excel.
 * After an upload, WebUI will report the number of data changes as an INFO message. This is a temporary way of feedback which is likely to be improved in the future.
@@ -158,8 +158,8 @@ Currently the following features are supported:
    
 The following aspects are not (yet) supported, but may be subject to further improvements:
 
-• No support for element text, yet (when an element text annotation has been specified in the declaration of a set involved in the table contents). 
-• No support for the display of units of measurements (in the downloaded Excel file). Only the plain values (without units) are subject to the download/upload actions.
+• No support for element text yet (when an element text annotation has been specified in the declaration of a set involved in the table contents). 
+• No support for the display of units of measurement (in the downloaded Excel file). Only the plain values (without units) are subject to the download/upload actions.
 • There is no dedicated 'procedure upon upload'. The reason for this is that currently the upload changes are applied as if they were a sequence of manual edits. 
 • Deleting a value in a cell will not reset the correspond value in AIMMS to its default value (when the corresponding identifier has a default value specified in its declaration). For now, the value is set to 0 (or the empty string or the empty label), instead.
 
