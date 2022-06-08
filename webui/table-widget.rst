@@ -92,7 +92,7 @@ More specifically, after using Excel to make edits to the data, the same sheet c
 
 .. note::
 
-   These features of the Table are available as an Experimental Feature from AIMMS 4.86 onwards.
+   These features of the Table are available as an Experimental Feature from AIMMS 4.86 onwards. You can switch on the feature by checking the 'Excel Upload/Download Support' box in the Experimental Features dialog.
 
 On the Table Widget header you can find the icons for the download/upload actions:
 
