@@ -52,7 +52,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  The scaling algorithm, activated by switching on the option 'Scale model', could calculate incorrect scaling factors if the combination algorithm was used.
+-  When scrolling down fast in a WebUI Table, it sometimes happened that the table cells were not aligned properly with the row header cells.
 
 --------------
 
