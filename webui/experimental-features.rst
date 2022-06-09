@@ -14,17 +14,17 @@ To access and enable/disable the list of experimental features you can follow th
 #. You need to press a three-key combination i.e ``CTRL+SHIFT+.`` (Control Key + Shift Key + Dot/Fullstop Key).
 #. Once you key in the combination you will see a new icon |experimental-features| in the Application Toolbar in the top right corner. Click on the icon.
 
-    .. image:: images/Application_Toolbar.png
+    .. image:: images/Experimental_Features_Manager.png
         :align: center
 
 #. Clicking on the icon will reveal the Experimental Features menu on the left hand side. 
 
-    .. image:: images/Experimental_FeatureList.png
+    .. image:: images/Experimental_FeatureList_09Jun2022_1.png
         :align: center
 
 #. To enable or disable a feature, just check/uncheck the checkbox for the respective feature. In this illustration, we will enable the ``webui state support`` feature. After enabling the feature either click the Reload text or refresh the page. The feature will only be active once the page is reloaded.
 
-    .. image:: images/Experimental_Reload.png
+    .. image:: images/Experimental_FeatureList_09Jun2022_2.png
         :align: center
 
 
@@ -40,6 +40,7 @@ Current list of Experimental Features
    WebUI State Support, "By enabling this feature the element parameters :any:`webui::CurrentPageId` and :any:`webui::CurrentSidePanelPageId` will be updated with the ``pageId`` of the current page the user is on and the ``pageId`` of the Side Panel page that is open, respectively.", 4.72 - Feature Candidate, TBD
    Skip Combining CSS/JS Files, "Activate this option to load the CSS and JS files separately. This is unlike the other experimental features. This option will eventually be removed and the new setup will be applied. `Read more about the improvements here <https://community.aimms.com/product-updates-roadmap-36/smarter-delivery-of-webui-for-improved-performance-838>`_. This option is merely here such that you can use the old setup in case you face issues with the new setup. Please note, you will have to close the project, reopen the project and launch the WebUI each time this option is toggled.", 4.78 - Feature Standby, TBD
    Combination Chart Widget Type, "Enable this feature to use the new `Combination Chart Widget type <combination-chart-widget.html>`_. This is a new chart widget type based on Highcharts library. This widget has exciting features like Support for Interactive Legend, Data labels, Horizontal Scroll, Abiliy to control Display Decimals and Show Units per Identifier and `many more <https://community.aimms.com/webui-features-testing-combination-chart-widget-54/feedback-wanted-new-combination-chart-widget-type-1161>`_.", 4.84 - Beta, TBD
+   Excel Upload/Download Support, "Enable this feature to use the new `Excel Upload/Download Support <table-widget.html#excel-upload-download-support>`_ feature of the Table widget.", 4.86 - Release Candidate, TBD
 
 
 Development Stages

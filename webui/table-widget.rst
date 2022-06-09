@@ -83,11 +83,11 @@ Please note that the .csv file is constructed within your browser environment be
 Furthermore, there is a limit on the number of rows that can be downloaded (i.e. even when having just 1 column!): this is controlled by the value of the project option *WebUI_maximum_number_of_entries_in_widget*. The default value of this option is currently 50,000.
 
 
-Excel Download/Upload Support
+Excel Upload/Download Support
 -----------------------------
 
 The Table Widget offers you the possibility to download its contents to an Excel workbook on your local machine, which you can use to further process your data in Excel.
-Also, the data from an Excel workbook can be uploaded directly to the Table Widget. 
+Also, the data from an Excel workbook can be uploaded directly to the Table Widget.         
 More specifically, after using Excel to make edits to the data, the same sheet can be uploaded to the table and its changes will be automatically applied to the WebUI data (as if you made them through manual changes). 
 
 .. note::
@@ -139,7 +139,7 @@ Currently the following features are supported:
 * The downloaded Excel file is an ‘.xlsx’ file (and not an old-style ‘.xls’ file). The ‘.xlsx’ has some features which AIMMS uses when generating the Excel file, such as the data validation for a range (to show a dropdown for element parameters). You are advised to keep the Excel file (after making some changes) as an ‘.xlsx’ file.
 * You are not supposed to change the pivoting in the generated Excel sheet: we assume a constant pivoting in order to be able to read back the changes to the table.
 * The styling of the data downloaded to Excel is similar to the one in the WebUI table: editable data is shown in blue, read-only data is shown in black, row and column headers are displayed with a distinct background color. Please note that cells that are read-only in the WebUI table are still editable in your Excel sheet. However, any changes to these cells will not be taken into account during a subsequent upload.
-* Calendar data in your model is formatted using an Excel data format based on the granularity of your calendar set. Only AIMMS calendars with granularity 'day', 'hour', 'minute' or 'seconds' are supported.
+* Calendar data in your model is formatted using an Excel date format based on the granularity of your calendar set. Only AIMMS calendars with granularity 'day', 'hour', 'minute' or 'seconds' are supported.
 * Element parameters will show all possible elements in a dropdown list (for now, only for sets with less than 100 elements).
 * Numerical values with a binary range will show a 0-1 dropdown list.
 * The number of decimals shown in the Excel sheet follows the number of decimals as specified in the WebUI.
@@ -148,7 +148,7 @@ Currently the following features are supported:
 * You can add a row or column as long as you do not add elements which are not yet in any of the related domain sets (or range set in case of an element parameter). 
 * Filters and sorting changes are ignored during the upload: WebUI just looks in the row and column headers (for every cell) to see whether there is a change for that specific tuple.
 * Totals which are being displayed in the WebUI table are not shown in the Excel sheet. This is because they are just written as a plain number (instead of a formula), making them not behave like a total when you change data in the Excel sheet anyway. In addition, these totals are (typically) not used as input data.
-* The existing 'upon change procedures' will be called when some data is changed during an upload from Excel.
+* After an upload, upon data change on each of the cells, their respective 'Upon Change Procedures' (if any) would be called.
 * After an upload, WebUI will report the number of data changes as an INFO message. This is a temporary way of feedback which is likely to be improved in the future.
 * In case the uploaded Excel file contains duplicate values for a specific combination of indices, only the last change (when traversing the cells from top-left to bottom-right) will be considered.
 
@@ -161,7 +161,7 @@ The following aspects are not (yet) supported, but may be subject to further imp
 • No support for element text yet (when an element text annotation has been specified in the declaration of a set involved in the table contents). 
 • No support for the display of units of measurement (in the downloaded Excel file). Only the plain values (without units) are subject to the download/upload actions.
 • There is no dedicated 'procedure upon upload'. The reason for this is that currently the upload changes are applied as if they were a sequence of manual edits. 
-• Deleting a value in a cell will not reset the correspond value in AIMMS to its default value (when the corresponding identifier has a default value specified in its declaration). For now, the value is set to 0 (or the empty string or the empty label), instead.
+• Deleting a value in a cell will not reset the corresponding value in AIMMS to its default value (when the corresponding identifier has a default value specified in its declaration). For now, the value is set to 0 (or the empty string or the empty label), instead.
 
 
 Creating Read-Only Cells
