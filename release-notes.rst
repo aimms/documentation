@@ -12,6 +12,28 @@ AIMMS 4.85
 #############
 
 
+AIMMS 4.86.1 Release (June 9, 2022 - build 4.86.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Octeract has been upgraded to version 4.3.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Models with very large finite variable bounds (in absolute sense) were sometimes handled incorrectly by the AIMMS Presolver. The new option 'Presolve numeric switch' specifies whether the AIMMS Presolver should focus on numerical accuracy. At the default setting of this option, AIMMS makes an automatic choice based on the matrix coefficients and variable bounds.
+-  The Data Management style using "single data manager file" is no longer available from this version onwards. It has been a deprecated feature for many years. If your application is still built upon this style, you should make some modifications to use the style that works on separate case files. To make these modifications it is recommended to use an earlier version of AIMMS, toggle the style to "files and folders" and make all adjustments there. After that you can switch to this latest AIMMS version.
+-  In the Debugger menu there is a new command "Break on Error". If this command is checked, then whenever an error is triggered during the execution of a statement, the debugger automatically breaks on that statement. This allows you to more easily inspect the cause of an execution error as you can look at all the data that is used in that statement. This new feature only applies when the Debugger is already enabled.
+-  When reading data from an input file, from now on range violations of variables will result in warnings as long as the option 'warning variable range violation' is not set to off.
+
+--------------
+
+
+
 AIMMS 4.85.7 Release (June 7, 2022 - build 4.85.7.2).
 ------------------------------------------------------------------------------------------
 
