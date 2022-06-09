@@ -15,8 +15,11 @@ subfolder of your AIMMS project. You can name this file as you like. It should c
 
 :token:`C:\\Users\\<your name>\\AppData\\Local\\AIMMS\\IFA\\Aimms\\<your AIMMS version>\\WebUIDev\\www\\resources\\css`
 
-Each group and property is commented, to give you an idea for which part of the WebUI you can influence the appearance by changing its value. The values assigned in this base file are the values that are used by default in the WebUI AIMMS theme. Please note that in your :token:`.css` file, you do not have to specify properties from the base file which you do not want to change. This will also make sure that you will benefit from the effect of potential future updates to the default values in the base file.
+Each group and property is commented, to give you an idea for which part of the WebUI you can influence the appearance by changing its value.
 
+On side-note: a pretty large section of that file is aimed at providing a Data Color palette for widgets that can show annotated data, like Charts. If you're interested in exploring your options there, please read `Data Coloring and Palettes <data-coloring-and-palettes.html>`_ too.
+
+The values assigned in this base file are the values that are used by default in the WebUI AIMMS theme. Please note that in your :token:`.css` file, you do not have to specify properties from the base file which you do not want to change. This will also make sure that you will benefit from the effect of potential future updates to the default values in the base file.
 
 An Example
 ----------------------
