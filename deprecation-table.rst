@@ -28,6 +28,7 @@ This is a list of (recent) deprecated features and provides an insight into its 
    :widths: 10, 10, 10, 10, 20, 20
 
     Algorithmic Capability, AOA (non-GMP), Deprecated, April 2022 , No longer available in 4.85, Use the `GMP based AOA <https://how-to.aimms.com/Articles/192/192-solve-minlp-with-outer-approximation.html>`__
+    Algorithmic Capability, NETSOL ("Pure Network" Solver) , Deprecated, 2022                , Deprecated since Oct 2018                     , Set model type to LP or Automatic and then an LP solver (like CPLEX) is used   
     Cloud, R , Deprecated, Q2 2021                , Current status is no pro-active support                     , We promote the use of the new HTTP Client Library in combination with the Data Exchange; see  `How-to <https://how-to.aimms.com/Articles/498/498-aimms-with-r.html>`__   
     Connectivity, AIMMS Com, Deprecated, n/a , AIMMS COM is considered 'old' architecture, Work with AIMMS to understand new/better ways to integrate AIMMS 
     Connectivity, SDK                       , Deprecated , not before 2023 , Currently only high priority and fixable issues                                    , Deploy via AIMMS PRO API (contact us)                                                   
