@@ -26,7 +26,7 @@ AIMMS Improvements
 
 WebUI Improvements
 +++++++++++++++++++++++++
--  The WebUI Table widget has been extended with the possibility to download the Table data to an Excel file. It is also possible to upload data from an Excel file to a WebUI Table.
+-  The WebUI Table widget has been extended with the possibility to download the Table data to an Excel file. It is also possible to upload data from an Excel file to a WebUI Table. This is currently released as an Experimental Feature.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
