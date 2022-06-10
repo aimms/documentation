@@ -21,7 +21,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  When entering numerical values in WebUI widgets, the validation is now based on the browser locale.
--  Upon starting up an AIMMS model in 4.86, three warning messages about replacing tabs with '\t' were displayed for code in the WebUI library.
+-  Upon starting up an AIMMS model in 4.86, three warning messages about replacing tabs with '\\t' were displayed for code in the WebUI library.
 
 --------------
 
