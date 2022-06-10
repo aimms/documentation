@@ -12,6 +12,21 @@ AIMMS 4.86
 #############
 
 
+AIMMS 4.86.2 Release (June 10, 2022 - build 4.86.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When entering numerical values in WebUI widgets, the validation is now based on the browser locale.
+-  Upon starting up an AIMMS model in 4.86, three warning messages about replacing tabs with '\t' were displayed for code in the WebUI library.
+
+--------------
+
+
+
 AIMMS 4.86.1 Release (June 9, 2022 - build 4.86.1.0).
 ------------------------------------------------------------------------------------------
 
