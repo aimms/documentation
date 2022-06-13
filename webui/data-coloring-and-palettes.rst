@@ -73,7 +73,7 @@ Specifying a completely different palette
 ++++++++++
 Using the above, it is perfectly possible to have a different-looking palette. With less variety of color, or a shifted hue experience. Just by changing or copying a few of the parameters used in the calculations done in the browser.
 
-If however you feel like you really just want to override the whole palette and know exactly how things turn out, you could still revert to including custom stylesheets with your application. This stylesheet should set the colors for the 16 ordinals as shown in the next example (using your own colors, of course).
+If however you feel like you really just want to override the whole palette and know exactly how things turn out, you could still revert to including custom Style Sheets with your application. This Style Sheet should set the colors for the 16 ordinals as shown in the next example (using your own colors, of course).
 
 .. code-block:: css
   .annotation-Mod16Ord1 {
@@ -124,4 +124,4 @@ This option lets you specify a single, or a space-separated array of names (clas
 * color-palette-11
 * color-palette-7
 
-These will all automatically get the 'theme-' prefix, as also documented for this application setting. Have a look at our own aimms-webui stylesheet (using the webbrowser's developer toolbar) to see those definitions again.
+These will all automatically get the 'theme-' prefix, as also documented for this application setting. Have a look at our own AIMMS-webui Style Sheet (using the webbrowser's developer toolbar) to see those definitions again.
