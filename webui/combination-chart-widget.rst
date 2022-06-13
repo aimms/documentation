@@ -1,3 +1,4 @@
+.. _combination_chart_widget:
 Combination Chart Widget
 ========================
 
