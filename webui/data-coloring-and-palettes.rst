@@ -18,14 +18,14 @@ The main target was to make sure that consecutive data elements could be disting
 
 The outcome was a palette of 16 base colors, each of which is present at 5 different levels of lightness. Creating a total of 80 colors:
 
-.. image:: images/data-color-palette1.jpg
+.. image:: images/data-color-palette-1.jpg
     :width: 80%
     :align: center
     :alt: 16-color palette with all lightness levels shown.
 
 The image also shows how the consecutive colors were then picked from that block of colors, basically using a sawtooth-like pattern. For the final order some manual alterations were done too, but all colors were still picked from these 80. This is the final sequence of 16 colors:
 
-.. image:: images/data-color-palette1b.png
+.. image:: images/data-color-palette-1b.png
     :width: 80%
     :align: center
     :alt: 16-color palette
@@ -140,6 +140,7 @@ These will all automatically get the 'theme-' prefix, as also documented for thi
     * The older palettes will eventually become End-of-Life. Product Updates and the Deprecation Table will keep you notified.
     * Using the Transparency Index data coloring feature for the Combination Chart Widget, combined with the older palettes, might have a negative impact on the performance of your page, especially when showing large amounts of data.
      Also, instead of creating different levels of lightness for each base color, modifications will also be done by altering the hue and saturation, which means that related data points might not have a directly, visually related color like you get with the 16-color palette.
+
 
 .. spelling::
 
