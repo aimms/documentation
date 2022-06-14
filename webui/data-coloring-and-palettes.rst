@@ -138,8 +138,7 @@ These will all automatically get the 'theme-' prefix, as also documented for thi
 
 .. note::
     * The older palettes will eventually become End-of-Life. Product Updates and the Deprecation Table will keep you notified.
-    * Using the Transparency Index data coloring feature for the Combination Chart Widget, combined with the older palettes, might have a negative impact on the performance of your page, especially when showing large amounts of data.
-     Also, instead of creating different levels of lightness for each base color, modifications will also be done by altering the hue and saturation, which means that related data points might not have a directly, visually related color like you get with the 16-color palette.
+    * Using the Transparency Index data coloring feature for the Combination Chart Widget, combined with the older palettes, might have a negative impact on the performance of your page, especially when showing large amounts of data. Also, instead of creating different levels of lightness for each base color, modifications will also be done by altering the hue and saturation, which means that related data points might not have a directly, visually related color like you get with the 16-color palette.
 
 
 .. spelling::
