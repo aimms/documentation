@@ -1,4 +1,4 @@
-.. _theming:
+.. _webui_theming:
 
 Theming
 ============

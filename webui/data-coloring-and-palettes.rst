@@ -18,17 +18,19 @@ The main target was to make sure that consecutive data elements could be disting
 
 The outcome was a palette of 16 base colors, each of which is present at 5 different levels of lightness. Creating a total of 80 colors:
 
-.. image:: images/data-color-palette-1.jpg
-    :width: 80%
+.. figure:: images/data-color-palette-1.jpg
+    :figwidth: 100%
     :align: center
-    :alt: 16-color palette with all lightness levels shown.
+
+    16-color palette with all lightness levels shown.
 
 The image also shows how the consecutive colors were then picked from that block of colors, basically using a sawtooth-like pattern. For the final order some manual alterations were done too, but all colors were still picked from these 80. This is the final sequence of 16 colors:
 
-.. image:: images/data-color-palette-1b.png
-    :width: 80%
+.. figure:: images/data-color-palette-1b.png
+    :figwidth: 100%
     :align: center
-    :alt: 16-color palette
+
+    16-color palette
 
 Applying a transparency index: a modified palette
 -------------------------------------------------
@@ -48,7 +50,7 @@ As always, you can customize our 16-color palette in several ways. Depending on 
 
 Modifying the default 16 colors
 +++++++++++++++++++++++++++++++
-The 16 default colors are specified as color references, part of the regular list of *themable properties* (also see :ref:`Theming <theming>`. Their specification is not done by means of the usual RGB-values, but as separate HSL-values: hue, saturation and lightness. This was done to be able to apply the calculations needed for the transparency index palette and because the origin of the original colors is also a mostly mathematical rotation of hue, saturation and lightness to achieve the goals.
+The 16 default colors are specified as color references, part of the regular list of *themable properties* (also see :ref:`Theming <webui_theming>`). Their specification is not done by means of the usual RGB-values, but as separate HSL-values: hue, saturation and lightness. This was done to be able to apply the calculations needed for the transparency index palette and because the origin of the original colors is also a mostly mathematical rotation of hue, saturation and lightness to achieve the goals.
 
 You will find 16 of the following 'triplets' (not counting the preview) for theming. Please also read the hints within the file itself.
 
@@ -61,9 +63,10 @@ You will find 16 of the following 'triplets' (not counting the preview) for them
 
 The preview is there to help you identify the outcome better when using the web browser's developer toolbar. Also know that the developer toolbar has an extensive editor that opens when you click on the small color preview rectangles. It will allow you to interactively manipulate HSL values or convert to and from RGB, without guessing.
 
-.. image:: images/data-color-palette-2.png
+.. figure:: images/data-color-palette-2.png
     :align: center
-    :alt: (Chrome) developer toolbar palette helper
+
+    (Chrome) developer toolbar palette helper
 
 Two important hints to repeat from the base theme file:
 
@@ -132,9 +135,9 @@ For that, you need to change one application setting, which is normally also use
 
 This option lets you specify a single, or a space-separated array of names (class names) that will be applied to the top level of the application. You can attach your own programmable customizations to that, but we have reserved three names for setting up the older palettes:
 
-* color-palette-19
-* color-palette-11
-* color-palette-7
+ * color-palette-19
+ * color-palette-11
+ * color-palette-7
 
 These will all automatically get the 'theme-' prefix, as also documented for this application setting. Have a look at our own AIMMS-WebUI Style Sheet (using the web browser's developer toolbar) to see those definitions again.
 
