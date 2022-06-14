@@ -48,7 +48,7 @@ As always, you can customize our 16-color palette in several ways. Depending on 
 
 Modifying the default 16 colors
 +++++++++++++++++++++++++++++++
-The 16 default colors are specified as color references, part of the regular list of *themable properties* (also see :ref:`Theming <theming>`. Their specification is not done by means of the usual RGB-values, but as separate HSL-value: hue, saturation and lightness. This was done to be able to apply the calculations needed for the transparency index palette and because the origin of the original colors is also a mostly mathematical rotation of hue, saturation and lightness to achieve the goals.
+The 16 default colors are specified as color references, part of the regular list of *themable properties* (also see :ref:`Theming <theming>`. Their specification is not done by means of the usual RGB-values, but as separate HSL-values: hue, saturation and lightness. This was done to be able to apply the calculations needed for the transparency index palette and because the origin of the original colors is also a mostly mathematical rotation of hue, saturation and lightness to achieve the goals.
 
 You will find 16 of the following 'triplets' (not counting the preview) for theming. Please also read the hints within the file itself.
 
@@ -61,13 +61,13 @@ You will find 16 of the following 'triplets' (not counting the preview) for them
 
 The preview is there to help you identify the outcome better when using the web browser's developer toolbar. Also know that the developer toolbar has an extensive editor that opens when you click on the small color preview rectangles. It will allow you to interactively manipulate HSL values or convert to and from RGB, without guessing.
 
-. image:: images/data-color-palette2.png
+.. image:: images/data-color-palette-2.png
     :align: center
     :alt: (Chrome) developer toolbar palette helper
 
 Two important hints to repeat from the base theme file:
-* odd and even colors should always be a pair of the same color, but at two different levels of lightness (about 20 to 30% apart with the dark one for the odd number), preferably chosen such that the modified versions for the transparency index do not overlap too much.
-* the lightness value of any color should remain between about 25% and 75%, or else you will certainly end up with calculated colors that are too pale or too dark.
+*  odd and even colors should always be a pair of the same color, but at two different levels of lightness (about 20 to 30% apart with the dark one for the odd number), preferably chosen such that the modified versions for the transparency index do not overlap too much.
+*  the lightness value of any color should remain between about 25% and 75%, or else you will certainly end up with calculated colors that are too pale or too dark.
 
 If you fail to reasonably stay within the above hints, the 'sawtooth selection process' explained above will result in undesirable results.
 
