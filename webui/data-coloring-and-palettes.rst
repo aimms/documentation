@@ -66,8 +66,10 @@ The preview is there to help you identify the outcome better when using the web 
     :alt: (Chrome) developer toolbar palette helper
 
 Two important hints to repeat from the base theme file:
-*  odd and even colors should always be a pair of the same color, but at two different levels of lightness (about 20 to 30% apart with the dark one for the odd number), preferably chosen such that the modified versions for the transparency index do not overlap too much.
-*  the lightness value of any color should remain between about 25% and 75%, or else you will certainly end up with calculated colors that are too pale or too dark.
+
+* odd and even colors should always be a pair of the same color, but at two different levels of lightness (about 20% to 30% apart with the dark one for the odd number), preferably chosen such that the modified versions for the transparency index do not overlap too much.
+
+* the lightness value of any color should remain between about 25% and 75%, otherwise you will certainly end up with calculated colors that are too pale or too dark.
 
 If you fail to reasonably stay within the above hints, the 'sawtooth selection process' explained above will result in undesirable results.
 
@@ -101,7 +103,7 @@ If however you feel like you really just want to override the whole palette and 
 
 Not specifying both fill, background and stroke will result in them falling back to the default palette, which could be an odd-looking combination. All three values could be different, but apart from maybe using a specific stroke color, you are better off using the same color for fill and background.
 
-If you plan on using the transparency index option of the Combination Chart, the above is not enough to have a correct palette for that. It will still show the default palette with 'transparency variations. If you want those to follow your needs too, you need a longer list of overrides that include all the modifications too:
+If you plan on using the transparency index option of the Combination Chart, the above is not enough to have a correct palette for that. It will still show the default palette with 'transparency variations'. If you want those to follow your needs too, you need a longer list of overrides that include all the modifications too:
 
 .. code-block:: css
 
@@ -124,7 +126,7 @@ If you plan on using the transparency index option of the Combination Chart, the
 
 Re-activating the older 19, 11 or 7 palette
 +++++++++++++++++++++++++++++++++++++++++++
-As per the feature deprecation table, we still support the display of the color palette that was in use before release 4.87.
+As per the feature deprecation table, we still support the display of the color palette that was in use before AIMMS 4.87.
 
 For that, you need to change one application setting, which is normally also used to apply 'custom themes' to your application: the 'Custom Theme Class' option, as found under Application/Miscellaneous.
 
@@ -134,7 +136,7 @@ This option lets you specify a single, or a space-separated array of names (clas
 * color-palette-11
 * color-palette-7
 
-These will all automatically get the 'theme-' prefix, as also documented for this application setting. Have a look at our own AIMMS-webui Style Sheet (using the web browser's developer toolbar) to see those definitions again.
+These will all automatically get the 'theme-' prefix, as also documented for this application setting. Have a look at our own AIMMS-WebUI Style Sheet (using the web browser's developer toolbar) to see those definitions again.
 
 .. note::
     * The older palettes will eventually become End-of-Life. Product Updates and the Deprecation Table will keep you notified.
