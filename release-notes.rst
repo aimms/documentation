@@ -20,7 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  Consider solving a mathematical program, say myMP, multiple times, with a variable v_X(i,j), and with the index domain condition p_dom_X(i,j) on that variable. When p_dom_X(i,j) has less elements in the second solve, some elements from the first solve in v_X(i,j) become inactive. Due to a bug, these inactive elements could incorrectly be set to 0. This is only an issue when the inactive elements are used in later computations, so when the elements of p_dom_X that were first removed, are restored again and the now active elements of v_X are needed. This is considered a rare circumstance.
+-  We fixed a bug that only appeared in a very rare instance when resolving a model. Consider solving a mathematical program, say myMP, multiple times, with a variable v_X(i,j), and with the index domain condition p_dom_X(i,j) on that variable. When p_dom_X(i,j) has less elements in the second solve, some elements from the first solve in v_X(i,j) become inactive. Due to a bug, these inactive elements could incorrectly be set to 0. This is only an issue when the inactive elements are used in later computations, so when the elements of p_dom_X that were first removed, are restored again and the now active elements of v_X are needed.
 
 --------------
 
