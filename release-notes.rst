@@ -12,6 +12,20 @@ AIMMS 4.86
 #############
 
 
+AIMMS 4.86.3 Release (June 15, 2022 - build 4.86.3.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When solving the same mathematical program again, but with fewer columns, the regeneration technology of AIMMS might set the variables of the columns no longer generated to 0.
+
+--------------
+
+
+
 AIMMS 4.86.2 Release (June 10, 2022 - build 4.86.2.3).
 ------------------------------------------------------------------------------------------
 
