@@ -226,7 +226,9 @@ To control the width of your application either to a fixed width or to introduce
 Using pixels (px)
 +++++++++++++++++
 
-In order to use pixels, you might want to first determine the height (in pixels) of the browser viewport. 
+In order to use pixels, you might want to first determine the height (in pixels) of the browser viewport.
+
+.. note:: Please understand that, when using px or %, the spacing between the grid's rows and columns ('grid gap', currently 16px) also adds to the total height or width of a Layout. Keep that in mind when summing up to a particular height/width.
 
 .. image:: images/viewport.png
     :align: center
@@ -238,7 +240,7 @@ When you use the Workflow Panel and the Side Panels, your viewport size is sligh
     :align: center
     :scale: 75
 
-Once you know the height of the viewport, if you want to fix the height of your application to half of your viewport's size, for example, just divide the values such that the sum of the values defining the height of the rows is half of the height of the viewport.
+Once you know the height of the viewport, if you want to fix the height of your application to half of your viewport's size, for example, just divide the values such that the sum of the values defining the height of the rows is half of the height of the viewport, minus 2x16=32px grid gap.
 
 To illustrate the above example, let's consider that the height of the browser viewport is 1000px. In this case, the specification of the ``gridTemplateRows`` could be, for instance, as follows: 
 
@@ -246,7 +248,7 @@ To illustrate the above example, let's consider that the height of the browser v
 
     "props": {
 		"gridTemplateColumns": "2fr 1fr 1fr",
-		"gridTemplateRows": "100px 100px 300px",
+		"gridTemplateRows": "84px 84px 300px",
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
@@ -264,12 +266,12 @@ So, assuming again that the viewport height is 1000px, if you want to introduce 
 
 Now let's consider the situation where the width of the browser viewport is 1000px.
 
-Similarly as above, for fixing the width such that the layout is half of the browser viewport, just divide the values such that the sum of the values used to divide the columns is half of the viewport's width:  
+Similarly as above, for fixing the width such that the layout is half of the browser viewport, just divide the values such that the sum of the values used to divide the columns is half of the viewport's width, minus 2x16=32px grid gap:
 
 .. code-block:: json
 
 	"props": {
-		"gridTemplateColumns": "100px 200px 200px",
+		"gridTemplateColumns": "100px 184px 184px",
 		"gridTemplateRows": "1fr 1fr 1fr",
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
@@ -290,7 +292,12 @@ Using percentages (%)
 
 Similar to the case of pixels, in order to avoid a scroll bar when using percentages the sum of the values should not exceed 100%, and if you want a scroll bar then the sum must exceed 100%.
 
-To illustrate an example where you want to avoid scroll bar or want the application to be half the size of the browser viewport, you can use a snippet such as below:
+.. note:: Please understand that the spacing between the grid's rows and columns ('grid gap', currently 16px) also adds to the total width/height of the page and that the percentages work on the total viewport width/height *without* taking grid gap(s) into account. Keep that in mind when summing up to a particular height/width, especially when you expect the total to add up to 100%. So ``50% 50%`` would add up to 100% of the viewport, *plus* 16px for the one grid gap. Leading to a scrollbar where you did not really expect that!
+
+.. warning::
+    If your row or column definition turns out to be using *only* percentages, you are probably better off converting them to 'fractions' (fr). Just replace the ``%`` with ``fr`` and the grid gaps *will* be taken into account in a much more manageable way. So the ``50% 50%`` above is better represented as ``50fr 50fr`` (which is simply equal to ``1fr 1fr``).
+
+To illustrate an example where you want to avoid scroll bar or want the application to be (about) half the size of the browser viewport, you can use a snippet such as below:
 
 .. code-block:: json
 
@@ -310,7 +317,7 @@ If you want to introduce a vertical scroll bar you can use, for instance, this s
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-Similarly, if you want to control the width of the application, to avoid a horizontal scroll bar or use only half the width of the viewport you can use the below snippet.
+Similarly, if you want to control the width of the application, to avoid a horizontal scroll bar or use only (about) half the width of the viewport you can use the below snippet.
 
 .. code-block:: json
 
@@ -330,7 +337,12 @@ If you want to introduce a horizontal scroll bar you can use a snippet such as t
 		"gridTemplateAreas": " \"Title Title Extra\" \"Data Data Data\" \"Map Output Optimize\" "
 	},
 
-However, there is one fundamental difference between using pixels and percentages: pixels are fixed width/height regardless of the browser viewport size, whereas percentages adjust according to the browser viewport size since it adapts to the percentage of the size of the browser viewport.
+However, there is one fundamental difference between using pixels and percentages/fractions: pixels are fixed width/height regardless of the browser viewport size, whereas
+
+ * percentages adjust according to the browser viewport size
+ * fractions adjust to being a size relative to the remaining available space (which depends on both viewport size and other row or column definitions).
+
+Pixels can cause trouble if your target audience is using a browser with a viewport that differs from your expectations (especially when smaller), although a single fixed-width column or row certainly has its use cases.
 
 
 Using combinations of fr, px, and %
@@ -349,8 +361,8 @@ The snippet below illustrates the use of fractions (fr) and pixels (px), where t
 	},
 
 
-.. note::
-	Fractions (fr) and percentages (%) are essentially the same since they are a measure of proportion.
+.. note:: Fractions (fr) and percentages (%) are similar since they are a measure of proportion, however they are calculated from a different base measure.
+    Fractions adjust to being a size relative to the remaining available space (which depends nicely on both viewport size and other row or column definitions and grid gaps). Percentages are derived from the viewport size (only), regardless of the other row or column definitions and gaps.
 
 
 Syntax and Semantics
