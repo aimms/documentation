@@ -1,5 +1,5 @@
-MultiSolve Library Release Notes
-**********************************
+Releases
+===============
 
 The first public release of MultiSolve was version 1.0.0.14, release date 15 June 2022. 
 
