@@ -39,3 +39,8 @@ Of course the library documentation would not be complete without the appendices
     api
     refs
     release
+
+.. spelling::
+
+    multiSolve
+    acquints
