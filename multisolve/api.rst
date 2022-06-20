@@ -14,7 +14,7 @@ MultiSolve API
         To use the ``'modify'`` callback mode, use the GMP on which modifications can be made.
         This GMP should contain a feasible solution on position 1 of its solution repository.
 
-    :param ep_onNextSessionInstance: 
+    :param ep_onProvideGMP: 
 
         Input. 
         A callback procedure which is called when a new instance of the mathematical program is constructed.
@@ -43,7 +43,7 @@ MultiSolve API
 
         *   0: if there is no more work to be started.
 
-    :param ep_onSessionInstanceCompleted: 
+    :param ep_onRetrieveSolution: 
 
         Input. 
         A callback procedure which is called when a step is solved.
