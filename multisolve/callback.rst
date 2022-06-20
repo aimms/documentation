@@ -43,12 +43,12 @@ The differences are highlighted and discussed below:
             gmp::Instance::Solve( ep_baseGMP );
             
             multiSolve::pr_multiSolve(
-                ep_onNextSessionInstance      :  'pr_modifyInstance', 
-                ep_onSessionInstanceCompleted :  'pr_retrieveSolution', 
-                ep_baseGMP                    :  ep_baseGMP, ! Using the modify call back mode. 
-                p_maxParallelGMPs             :  2,
-                p_maxThreadsPerSolve          :  1, 
-                ep_startingSolutionMethod     :  multiSolve::ep_startingSolutionMethod_last);
+                ep_onProvideGMP           :  'pr_modifyInstance', 
+                ep_onRetrieveSolution     :  'pr_retrieveSolution', 
+                ep_baseGMP                :  ep_baseGMP, ! Using the modify call back mode. 
+                p_maxParallelGMPs         :  2,
+                p_maxThreadsPerSolve      :  1, 
+                ep_startingSolutionMethod :  multiSolve::ep_startingSolutionMethod_last);
         }
         ElementParameter ep_baseGMP {
             Range: AllGeneratedMathematicalPrograms;

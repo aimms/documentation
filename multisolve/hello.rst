@@ -46,12 +46,12 @@ For the example at hand, it is called as follows:
     Procedure MainExecution {
         Body: {
             multiSolve::pr_multiSolve(
-                ep_onNextSessionInstance      :  'pr_generateInstance', 
-                ep_onSessionInstanceCompleted :  'pr_retrieveSolution', 
-                ep_baseGMP                    :  '', ! Using the Generate call back mode. 
-                p_maxParallelGMPs             :  2,
-                p_maxThreadsPerSolve          :  1, 
-                ep_startingSolutionMethod     :  multiSolve::ep_startingSolutionMethod_last);
+                ep_onProvideGMP           :  'pr_generateInstance', 
+                ep_onRetrieveSolution     :  'pr_retrieveSolution', 
+                ep_baseGMP                :  '', ! Using the Generate call back mode. 
+                p_maxParallelGMPs         :  2,
+                p_maxThreadsPerSolve      :  1, 
+                ep_startingSolutionMethod :  multiSolve::ep_startingSolutionMethod_last);
         }
     }
 
