@@ -1,20 +1,90 @@
 Assess 
 ============================================
 
-This library is most effective for batches of solving mathematical programs, whereby 
+The purpose of this chapter is to assess whether integrating the multiSolve library in your project is worth your while.
+The multiSolve library is most effective for batches of solving mathematical programs, whereby 
 
-*   there are several solves that can be executed simultaneously, 
+#.  there are several solves that can be executed simultaneously, 
 
-*   increasing the number of threads per solve does not improve significantly the time needed for that solve, and 
+#.  a solver and license are used that permit asynchronous solving,
 
-*   the solving time by the solution algorithm (solver) dominates the time needed by the AIMMS Execution Engine for other tasks to execute the batch.
+#.  increasing the number of threads per solve does not improve significantly the time needed for that solve, and
 
-This library requires access to a solver with support for `asynchronous solves <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_solversession-procedures-and-functions/gmp_solversession_asynchronousexecute.html>`_. 
+#.  the solving time by the solver of an instance dominates the time needed 
+    by the AIMMS Execution Engine for that instance.
 
-The purpose of this article is to help you predict the speedup of integrating the multi-solve library to your project.
+Admittedly, this is a significant number of requirements.
+Lets examine them in some detail.
+
+Simultaneous solving permitted.
+---------------------------------
+
+Two GMP's, say ``ep_gmpA`` and ``ep_gmpB`` can be solved simultaneously when the solution of ``ep_gmpA`` 
+does not influence the generation of ``ep_gmpB`` and visa versa.
+
+In :doc:`steps <steps>` an example is given when some GMP's depend on each other, and some are independent.
+In that case, the multiSolve library can still be of use.
+
+Solver and license permit asynchronous solving
+-----------------------------------------------
+
+The list of solvers that permit asynchronous solving can be found `here  
+<https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_solversession-procedures-and-functions/gmp_solversession_asynchronousexecute.html>`_. 
+
+A license for asynchronous solving is an extended license.
+Please contact info@aimms.com for further details.
+
+Increasing number of threads does not speedup a single solve
+----------------------------------------------------------------
+
+Some solvers make effective use of multiple logical processors to speedup the solving.
+A typical example is a MIP whereby most of the time is spent in the branch and cut phase.
+
+.. .. warning:: 
+.. 
+..     **Avoid thread starvation**: 
+..     When the number of logical processors that is set to work exceeds the number of available logical processors,
+..     then there is a high chance of thread starvation. In a situation of thread starvation, the threads spent 
+..     significant amount of time swapping in their memory when they get a timeslice on a logical processor.
+
+To avoid thread starvation, the number of threads alotted to a solve times the number of parallel solves 
+should not exceed the number of logical processors.
+
+To determine whether the mathematical programs solved by your application are benefiting from multi-threaded solving,
+you can test by setting their options for parallelization to a single thread as follows:
+
++----------+--------------------------+----------+
+| Solver   | Option                   | Setting  |
++==========+==========================+==========+
+| CPLEX    | global_thread_limit      |  1       |
++----------+--------------------------+----------+
+| Gurobi   | thread_limit             |  1       |
++----------+--------------------------+----------+
+| XA       | -                        |  -       |
++----------+--------------------------+----------+
+| CONOPT   | thread_limit             |  1       |
++----------+--------------------------+----------+
+| KNITRO   | number_of_threads        |  1       |
++----------+--------------------------+----------+
+|          | number_of_BLAS_threads   |  1       |
++----------+--------------------------+----------+
+
+When the solve time significantly increases by setting this limitation to the solver, 
+your application is automatically benefiting from the availability of multiple logical processors.
+When this is the case, there is only value to the multiSolve library when the number
+of logical processors available meets the speedup of multi-threaded solving by the 
+factor of the number of solves you want to be executed in parallel. 
+
+
+The solve time dominates the total time
+------------------------------------------
+
+The multiSolve time reduces the wait time on actual solving.  
+Therefore, if the time spent on actual solving is a small fraction of the total time,
+the integration may not be worthwhile. However, lets look at some detail here:
 
 Understanding the sub components of AIMMS relevant to multiSolve
------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Within a single AIMMS process, there is:
 
@@ -37,16 +107,16 @@ To predict the speed up of using multiSolve, it is important to know and compare
 #.  time needed to solve a GMP, dubbed SolveTime below.
 
 Knowing the EngineTime and the SolveTime
------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this section, two situations are considered:
 
 #.  Your application uses a solve statement to solve mathematical programs.
 
-#.  Your application uses GMP technology to generate mathematical programs.
+#.  Your application uses GMP technology to generate and modify GMP's.
 
 Determining the Enginetime and the SolveTime starting with a solve statement
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 A `solve statement <https://documentation.aimms.com/language-reference/optimization-modeling-components/solving-mathematical-programs/the-solve-statement.html#the-solve-statement>`_ combines the time to generate a mathematical program and the time needed to actually solve that mathematical program.
 The time needed to generate is part of the EngineTime. The time needed to actually solve, is the SolveTime.
@@ -80,9 +150,7 @@ The following techniques can be used to separate these two portions:
 #.  Check the solver log file for the time needed by the solver, and the time needed to generate is the time for the solve statement minus the time reported by the solver.
 
 Determining the Enginetime and the SolveTime when using GMP technology.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 #.  When your application is using GMP functionality to generate and/or modify Generated Mathematical Programs: 
 
@@ -90,11 +158,8 @@ Determining the Enginetime and the SolveTime when using GMP technology.
 
     #.  Callback Modify mode
 
-
-
-
 Comparing the EngineTime and the SolveTime
-------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Consider the following three situations comparing EngineTime and SolveTime:
 
@@ -110,7 +175,8 @@ Consider the following three situations comparing EngineTime and SolveTime:
     .. image:: images/cpu-load-executing-blend-with-multi-solve-generate.png
         :align: center
 
-    The olive colored top line is the CPU load of all processes during the session, the purple colored bottom is the CPU load by the entire AIMMS process (so including the solves active).
+    The olive colored top line is the CPU load of all processes during the session, 
+    the purple colored bottom is the CPU load by the entire AIMMS process (so including the solves active).
 
     To create this graph, the Blend example was solved in ``generate`` callback mode.  
     In this mode, it takes significant time to generate a new GMP, and the EngineTime time becomes comparable to SolveTime.
@@ -128,7 +194,8 @@ Consider the following three situations comparing EngineTime and SolveTime:
     .. image:: images/cpu-load-executing-blend-with-multi-solve-modify.png
         :align: center
 
-    The olive colored top line is the CPU load of all processes during the session, the purple colored bottom is the CPU load by the entire AIMMS process (so including the solves active).
+    The olive colored top line is the CPU load of all processes during the session, 
+    the purple colored bottom is the CPU load by the entire AIMMS process (so including the solves active).
 
     To create this graph, the Blend example was solved in ``modify`` callback mode.  
     In this mode, it hardly takes time for AIMMS Execution Engine to provide a new GMP based on the new objective coefficients, 
@@ -141,15 +208,7 @@ Consider the following three situations comparing EngineTime and SolveTime:
     #.  At second 38, the multi solve becomes active, first generating and then combining generation and solving. 
         Clearly, the CPU load is much higher than in the previous graph, as there are now several solves active at the same time.
 
-
-.. perfmon
-.. Saving data to %systemdrive%\PerfLogs\Admin\A2
-.. 
-.. Youtube explain on perfmon
-.. https://www.youtube.com/watch?v=wpSif29l778
-.. 
-.. https://stackoverflow.com/questions/1984186/what-is-private-bytes-virtual-bytes-working-set#:~:text=Working%20Set%20is%20the%20non,Private%20Bytes%20and%20standby%20list.
-
+In short, by switching the callback mode to ``'generate'``, the integration of the multiSolve becomes much more valuable.
 
 References
 -----------
@@ -159,10 +218,7 @@ References
 .. spelling::
 
     multiSolve
+    brainer
+    EngineTime
+    SolveTime
 
-.. items to add
-.. - purpose: make effective use of the multitude of execution threads that are available
-.. - 
-.. - uses async solve
-.. - uses solvers that are supported by async solve
-.. - 
