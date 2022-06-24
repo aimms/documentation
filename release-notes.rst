@@ -12,6 +12,29 @@ AIMMS 4.86
 #############
 
 
+AIMMS 4.86.4 Release (June 21, 2022 - build 4.86.4.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Logging for database ODBC execution was not showing correct timestamps: the logging entry on finishing will no longer appear as if it occurred before the start of the execution.
+-  Interface attribute of runtime libraries could not be set via ``me::SetAttribute`` function.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Fast navigation using the Workflow panel could result in ``A procedure is already running`` error caused by page load/leave procedures. Now, after navigating via the Workflow panel, the panel rejects clicks for a short amount of time (<2s), such that the error cannot be triggered accidentally anymore. For longer running procedures the *Busy veil* will activate (as already usual).
+-  Using the *Download Image - PNG* functionality to grab a 'screenshot' of a complete WebUI page could result in scrollbars being shown on certain widgets or areas. Since scrollbars in a static image have no use and only clutter the output, all scrollbars are now hidden in the screenshot images.
+-  When Dialogs or Dialog pages were configured with many buttons (DialogActions) or buttons with substantially long labels, those labels risked being clipped. The buttons (not the labels) are now set up to wrap to more than one row if needed.
+-  When editing binary (0-1) values in a downloaded Excel sheet (using the new upload/download WebUI feature), the Excel sheet used to issue a warning mentioning that 'the number in this cell is formatted as text'.
+
+--------------
+
+
+
 AIMMS 4.86.3 Release (June 15, 2022 - build 4.86.3.1).
 ------------------------------------------------------------------------------------------
 
