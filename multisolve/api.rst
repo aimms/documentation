@@ -9,15 +9,15 @@ API
 
         Input. The GMP to base variations on.
 
-        To use the ``'generate'`` callback mode, provide the empty element.
+        To use the ``'generate'`` provide mode, provide the empty element.
         
-        To use the ``'modify'`` callback mode, use the GMP on which modifications can be made.
+        To use the ``'modify'`` provide mode, use the GMP on which modifications can be made.
         This GMP should contain a feasible solution on position 1 of its solution repository.
 
     :param ep_onProvideGMP: 
 
         Input. 
-        A callback procedure which is called when a new instance of the mathematical program is constructed.
+        A callback procedure which is called when a new instance of the mathematical program needs to be provided.
 
         This callback procedure implements:
 
@@ -25,7 +25,7 @@ API
 
         #.  Logic to either:
 
-            *   translate these changes to changes in the base GMP (``'modify'`` callback mode), or
+            *   translate these changes to changes in the base GMP (``'modify'`` provide mode), or
 
             *   create a GMP based on the model identifiers.
 
@@ -35,7 +35,7 @@ API
 
         #.  ``ep_handle``: Output. 
             An element parameter with range :aimms:set:`Integers`.  
-            The value of this element parameter will be supplied to the callback procedure ``ep_onSessionInstanceCompleted`` when this instance is solved.
+            The value of this element parameter will be supplied to the callback procedure ``ep_onRetrieveSolution`` when this instance is solved.
 
         **Return value** This procedure returns:
 
@@ -112,19 +112,19 @@ API
         #.  Use solution of base GMP as starting solution.
 
         #.  Use values of model variables as starting solution. 
-            This starting solution method permits the ``ep_onNextSessionInstance`` callback to provide a tailored starting solution.
+            This starting solution method permits the ``ep_onProvideGMP`` callback to provide a tailored starting solution.
 
 .. js:function:: multiSolve::pr_storeSolutionInModelVariables
 
     Procedure to retrieve the solution from a finished solver session and store that solution in the model variables.
-    To be called in a ``ep_onSessionInstanceCompleted`` callback.
+    To be called in a ``ep_onRetrieveSolution`` callback.
 
     :param ep_finishedSolverSession:
 
 .. js:function:: multiSolve::pr_cleanup
 
     Procedure to cleanup a GMP and solver session prior to regenerating one.
-    To be called in a ``ep_onSessionInstanceCompleted`` callback only when the callback mode is ``'Generate'``.
+    To be called in a ``ep_onRetrieveSolution`` callback only when the provide mode is ``'Generate'``.
 
     :param ep_finishedGmp: The GMP that is no longer needed.
 

@@ -1,12 +1,7 @@
-Callback 
+Provide 
 =======================
 
-.. image:: https://img.shields.io/badge/AIMMS_4.86-ZIP:_MultiSolveModifyHello-blue
-   :target: :download:`MultiSolveModifyHello.zip <downloads/MultiSolveModifyHello.zip>`
-
-:download:`AIMMS 4.86 MultiSolveModifyHello.zip <downloads/MultiSolveModifyHello.zip>`
-
-The multiSolve library supports two modes, called callback modes:
+The multiSolve library supports two modes for providing a GMP to the solver, called provide modes:
 
 #.  **generate**
 
@@ -18,7 +13,7 @@ The multiSolve library supports two modes, called callback modes:
 
 #.  **modify**
 
-    In this mode, after updating the model sets and parameters the GMP is not generated completely. 
+    In this mode, after updating the model sets and parameters the GMP is not generated afresh. 
     Instead the last GMP is reused and the callback procedure is responsible for modifying this GMP
     to obtain a GMP that reflects the changes in the model sets and parameters.
 
@@ -37,7 +32,7 @@ The differences are highlighted and discussed below:
     :linenos:
     :emphasize-lines: 3,4,9
 
-    Procedure MainExecution {
+    Procedure pr_solveMultipleModify {
         Body: {
             ep_baseGMP := gmp::Instance::Generate( mp_transport );
             gmp::Instance::Solve( ep_baseGMP );
@@ -57,13 +52,13 @@ The differences are highlighted and discussed below:
 
 Remarks:
 
-*   Line 3,4: In modify callback mode, the multiSolve library makes modification upon modification.
+*   Line 3,4: In modify provide mode, the multiSolve library makes modification upon modification.
     As a starting point, a base GMP needs to be provided.  This is by making one call to 
     :aimms:func:`GMP::instance::Generate` and solving it.
 
-*   Line 9: To indicate the use of ``'modify'`` callback mode, the GMP is passed that is constructed on lines 3,4.
+*   Line 9: To indicate the use of ``'modify'`` provide mode, the GMP is passed that is constructed on lines 3,4.
 
-Generate the instance
+Modify the instance
 -----------------------
 
 .. code-block:: aimms 
@@ -90,7 +85,7 @@ Generate the instance
             
                 ! The GMP to be solved is a small variation of the last solved GMP
                 ! Instead of regenerating the entire GMP, only some coefficients 
-                ! are modified.  This is signiicantly faster, but can be more involved.
+                ! are modified.  This is significantly faster, but can be more involved.
                 gmp::Row::SetRightHandSideMulti(
                     GMP     :  ep_gmp, 
                     binding :  i_src, 
@@ -127,10 +122,10 @@ Remarks:
 *   Lines 22-31 replace the single call to ``gmp::instance::generate``. 
     The RHS's of two symbolic constraints need to updated to the latest values of supply and demand.
 
-.. tip:: From a software engineering point of view, it makes sense to start with the callback mode ``'generate'``; 
+.. tip:: From a software engineering point of view, it makes sense to start with the provide mode ``'generate'``; 
        this mode permits the model builder to focus on adding code to update the model identifiers only.
        If it turns out that relatively significant time is spent in the generation of GMP's, 
-       the alternative callback mode ``'modify'`` can be considered.
+       the alternative provide mode ``'modify'`` can be considered.
 
 .. spelling::
 

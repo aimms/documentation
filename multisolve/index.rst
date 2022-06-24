@@ -19,8 +19,8 @@ In so doing
 .. In AIMMS, a mathematical program instance is made concrete via a Generated Mathematical Program, GMP for short.
 
 The documentation of this library first acquints you with the library architecture via a :doc:`Hello world <hello>` example.
-Next, the two :doc:`callback modes<callback>` explain on the one hand how to make use of the library with minimal effort, 
-and on the other hand how to get the most out of the library.
+Next, the two :doc:`provide modes<provide>` explain the two modes to provide a GMP; one to make use of the library with minimal effort, 
+the other to get the most out of the library.\
 Finally, as we all know, solving an Operations Research problem may require multiple solve :doc:`steps <steps>`.
 
 .. At that point, you probably want to :doc:`assess <assess>` whether the multiSolve library is of use to your project.
@@ -35,7 +35,7 @@ Of course the library documentation would not be complete without the appendices
     :maxdepth: 1
     
     hello
-    callback
+    provide
     steps
     api
     refs

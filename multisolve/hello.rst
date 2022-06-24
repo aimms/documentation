@@ -34,6 +34,25 @@ The results are presented in the demo page.
 
 As expected, when the capacity limit on transport from ``a`` to ``d`` becomes binding, the cost increases more steeply.
 
+Structure
+---------------
+
+From the perspective of the application, there are three steps to solve:
+
+#.  Retrieving data and providing the GMP
+
+#.  Actually solving the GMP using a solution algorithm (solver for short)
+
+#.  Retrieving the solution from the GMP and storing it
+
+When there are multiple data instances, the above procedure is executed for each data instance.
+
+Note that step 2 can be executed for multiple data instances in parallel. 
+
+To facilitate parallel solving, the multiSolve library packages 
+the handling of the above steps in a single procedure call. 
+This procedure call is presented next.
+
 The call
 ----------
 
@@ -43,7 +62,7 @@ For the example at hand, it is called as follows:
 .. code-block:: aimms
     :linenos:
 
-    Procedure MainExecution {
+    Procedure pr_solveMultipleGenerate {
         Body: {
             multiSolve::pr_multiSolve(
                 ep_onProvideGMP           :  'pr_generateInstance', 
@@ -64,7 +83,7 @@ Remarks about the above code fragment:
     *   line 5 the callback for retrieving the solution.
 
     *   line 6: A base GMP is not needed for this hello world example. 
-        The use of this argument is explained in detail in :doc:`callback`.
+        The use of this argument is explained in detail in :doc:`provide`.
 
     *   line 7: ``p_maxParallelGMPs``: Up to this number of solves can be executed in parallel.
 

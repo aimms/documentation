@@ -156,9 +156,9 @@ Determining the Enginetime and the SolveTime when using GMP technology.
 
 #.  When your application is using GMP functionality to generate and/or modify Generated Mathematical Programs: 
 
-    #.  Callback Generate mode
+    #.  Provide Generate mode
 
-    #.  Callback Modify mode
+    #.  Provide Modify mode
 
 Comparing the EngineTime and the SolveTime
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -180,7 +180,7 @@ Consider the following three situations comparing EngineTime and SolveTime:
     The olive colored top line is the CPU load of all processes during the session, 
     the purple colored bottom is the CPU load by the entire AIMMS process (so including the solves active).
 
-    To create this graph, the Blend example was solved in ``generate`` callback mode.  
+    To create this graph, the Blend example was solved in ``generate`` provide mode.  
     In this mode, it takes significant time to generate a new GMP, and the EngineTime time becomes comparable to SolveTime.
     During that AIMMS Session, the Windows Utility PerfMon was used to measure the CPU load.
 
@@ -199,7 +199,7 @@ Consider the following three situations comparing EngineTime and SolveTime:
     The olive colored top line is the CPU load of all processes during the session, 
     the purple colored bottom is the CPU load by the entire AIMMS process (so including the solves active).
 
-    To create this graph, the Blend example was solved in ``modify`` callback mode.  
+    To create this graph, the Blend example was solved in ``modify`` provide mode.  
     In this mode, it hardly takes time for AIMMS Execution Engine to provide a new GMP based on the new objective coefficients, 
     enabling it to start up several  solves before the first  solve finishes.
 
@@ -210,7 +210,7 @@ Consider the following three situations comparing EngineTime and SolveTime:
     #.  At second 38, the multi solve becomes active, first generating and then combining generation and solving. 
         Clearly, the CPU load is much higher than in the previous graph, as there are now several solves active at the same time.
 
-In short, by switching the callback mode to ``'generate'``, the integration of the multiSolve becomes much more valuable.
+In short, by switching the provide mode to ``'generate'``, the integration of the multiSolve becomes much more valuable.
 
 References
 -----------
