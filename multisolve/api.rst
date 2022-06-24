@@ -1,4 +1,4 @@
-MultiSolve API
+API
 ================
 
 .. js:function:: multiSolve::pr_multiSolve
@@ -97,6 +97,8 @@ MultiSolve API
         Optional, range { 1 .. }, default 1.
 
         The maximum number of threads used to solve a single GMP.
+
+        Please ensure that ``p_maxParallelGMPs`` X ``p_maxThreadsPerSolve`` <= the number of logical cores on your computer.
 
     :param p_startingSolutionMethod: 
 
