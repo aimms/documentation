@@ -21,8 +21,10 @@ In so doing
 The documentation of this library first acquints you with the library architecture via a :doc:`Hello world <hello>` example.
 Next, the two :doc:`callback modes<callback>` explain on the one hand how to make use of the library with minimal effort, 
 and on the other hand how to get the most out of the library.
-At that point, you probably want to :doc:`assess <assess>` whether the multiSolve library is of use to your project.
 Finally, as we all know, solving an Operations Research problem may require multiple solve :doc:`steps <steps>`.
+
+.. At that point, you probably want to :doc:`assess <assess>` whether the multiSolve library is of use to your project.
+
 
 Of course the library documentation would not be complete without the appendices:
 :doc:`functional description (API) <api>`,
@@ -34,11 +36,13 @@ Of course the library documentation would not be complete without the appendices
     
     hello
     callback
-    assess
     steps
     api
     refs
     release
+
+..    assess
+
 
 .. spelling::
 

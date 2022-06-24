@@ -3,3 +3,6 @@ User-agent: *
 Sitemap: https://documentation.aimms.com/sitemap.xml
 
 Disallow: https://how-to.aimms.com/special.html
+
+Disallow: https://documentation.aimms.com/multisolve/assess.html
+Disallow: https://manual.aimms.com/multisolve/assess.html
