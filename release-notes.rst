@@ -12,6 +12,20 @@ AIMMS 4.86
 #############
 
 
+AIMMS 4.86.5 Release (June 27, 2022 - build 4.86.5.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The Excel upload/download WebUI feature has been extended with support for identifier with domain sets that use the `webui::ElementTextIdentifier` annotation: entries in the row and/or column header that have been translated using an element-text identifier are now downloaded (as they appear in the WebUI table itself). Of course, these translations are also taken into account during an upload of an Excel sheet.
+
+--------------
+
+
+
 AIMMS 4.86.4 Release (June 21, 2022 - build 4.86.4.6).
 ------------------------------------------------------------------------------------------
 
