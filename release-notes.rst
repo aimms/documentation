@@ -12,6 +12,21 @@ AIMMS 4.86
 #############
 
 
+AIMMS 4.86.6 Release (June 30, 2022 - build 4.86.6.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  For the experimental feature that allows uploading/downloading an Excel sheet to/from a WebUI table, we improved the handling of element parameter data in (a subset of) Integers: any dropdown will now correctly contain integers as numbers (instead of as string) and the error during uploading of integer data (as an element in (a subset of) Integers) was fixed.
+-  Applying a 'top-n' filter in a WebUI table that contained identifiers for which one of the domain sets was empty could result in a crash.
+
+--------------
+
+
+
 AIMMS 4.86.5 Release (June 27, 2022 - build 4.86.5.2).
 ------------------------------------------------------------------------------------------
 
