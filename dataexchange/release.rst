@@ -20,7 +20,7 @@ New Features and Bug Fixes
 --------------------------
 1.3.1.7 [01-07-2022]
 	- OAuth2 ClientCredentials flow would only work on second try.
-	- Add option ``dex::PrefixAutoTableWithDataset`` to add dataset names in auto-generated table names to prevent potential nameclashes
+	- Add option ``dex::PrefixAutoTableWithDataset`` to add dataset names in auto-generated table names to prevent potential name clashes
 	
 1.3.1.5 [31-03-2022]
 	- Conversion errors from string to int/double and int to binary are now passed on to the model instead of skipped.
