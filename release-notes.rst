@@ -12,6 +12,27 @@ AIMMS 4.86
 #############
 
 
+AIMMS 4.86.7 Release (July 5, 2022 - build 4.86.7.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  While in the debugger, the tooltip on a suffix of a math program (for example: myModel.ProgramStatus) did not give the expected information.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When running a procedure from the WebUI, an error that is triggered but handled by the global error handler procedure will no longer pop up as an error message in WebUI.
+-  Sometimes WebUI pages gave a unexpected error messages about 'AimmsMeOpenRoot()' and 'AimmsMeCLoseNode()' function calls.
+-  Deleting values in a downloaded Excel sheet and then uploading the changes back to a WebUI table (which is available as an experimental feature) now results in resetting the value to its default (instead of resetting it to 0 or to the empty string).
+
+--------------
+
+
+
 AIMMS 4.86.6 Release (June 30, 2022 - build 4.86.6.2).
 ------------------------------------------------------------------------------------------
 
