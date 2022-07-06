@@ -12,6 +12,21 @@ AIMMS 4.86
 #############
 
 
+AIMMS 4.86.8 Release (July 6, 2022 - build 4.86.8.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In case of an unknown set range of one of the identifiers' declaration domain indices, an improved error message now also displays the identifier name instead of just 'The range "" does not represent an existing set.'.
+-  Mathematical programs with violation penalties were generated incorrectly if the objective variable was not part of the set of variables.
+
+--------------
+
+
+
 AIMMS 4.86.7 Release (July 5, 2022 - build 4.86.7.5).
 ------------------------------------------------------------------------------------------
 
