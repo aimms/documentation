@@ -65,6 +65,8 @@ You are not limited to selecting a rectangular region of cells. Holding down the
 
 As a side-effect of this feature, changing a cell containing a checkbox now requires you to precisely click in the checkbox itself. In earlier versions, clicking anywhere in the cell was enough. By changing this behavior, we prevent that clicking such a cell as part of selecting multiple cells/regions would unintentionally change the boolean value of the cell.
 
+Please note that currently the selection of a block can only be done using the mouse. At a later stage, we will add support for keyboard selection as well (like, for example, **CTRL+A**).
+
 Copy/Paste
 ----------
 
@@ -74,7 +76,7 @@ In case there is not enough space below or to the right of the selected cell to 
 
 If the paste region contains read-only cells, no values will be pasted in those.
 
-Pasting is not limited to the same table as from which you copied the values of course: you can paste into different tables on the same WebUI page or on different WebUI pages. Furthermore, you can also paste to external programs, like text editors or Excel, for example.
+Pasting is not limited to the same table as from which you copied the values of course: you can paste into different tables on the same WebUI page or on different WebUI pages, even in other WebUI apps. Furthermore, you can also paste to external programs, like text editors or Excel, for example. Please note that pasting from an external source to a WebUI table is not supported.
 
 .. note::
 
