@@ -6,6 +6,9 @@ The first public release of HTTPClient was version 1.0.0.3, release date Decembe
 
 New Features and Bug Fixes
 --------------------------
+1.2.0.55 [09-07-2022]
+    - No change (internal: prepare for new build system)
+
 1.2.0.44 [17-05-2021]
     - Relax strictness for URL query
 

@@ -5,6 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+1.0.2.151 [09-07-2022]
+    - No change (internal: prepare for new build system)
+
 1.0.0.122 [12-10-2021]
 	- Cloned data sets could not contain identifiers from libraries and modules.
 	- Variables can now be part of cloned data sets.
