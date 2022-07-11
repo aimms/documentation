@@ -38,4 +38,5 @@ The description of the tools for WebUI app development and related topics can be
    application-settings
    feature-alignment
    experimental-features
+   data-coloring-and-palettes
 
