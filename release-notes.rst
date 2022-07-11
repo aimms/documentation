@@ -29,9 +29,10 @@ Resolved AIMMS Issues
 -  The encoding for the function cp::Sequence was not always correct if the CP Optimizer option 'Sequence encoding' was set to 'Partial sum'.
 -  The performance of the Cleandependents function has been greatly improved. Due to implicit use of this functionality by Aimms, this also affects some other statements. It is sometimes used as part of a solve statement, it is used when calling Empty on a set, and it is used when calling Empty on a part of an identifier (e.g. Empty myParameter(somesubsetindex)).
 
-Resolved WebUI Issues
+WebUI Improvements
 +++++++++++++++++++++++++
 
+-  The Table widget has been extended with block editing and copy/paste functionality as an Experimental Feature. For details, see `the documentation <https://documentation.aimms.com/webui/table-widget.html#block-editing>`__
 -  A new color palette, consisting of 16 well discernible colors for most users, was introduced to replace the previously default 19-color palette. It will affect all Widgets that derive the coloring of their nodes from ordinal annotations: all Charts and the Map. The new palette also works better when using the Transparency Index option to create additional color variations for the Combination Chart. Please refer to `the documentation <https://documentation.aimms.com/webui/data-coloring-and-palettes.html>`__ to learn more about the new colors, about falling back to the previous 19, 11 or 7-color palettes and how this influences any custom data coloring that might be in place.
 
 --------------
