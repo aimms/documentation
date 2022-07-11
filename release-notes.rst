@@ -8,7 +8,7 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
-AIMMS 4.86
+AIMMS 4.87
 #############
 
 
@@ -36,6 +36,10 @@ Resolved WebUI Issues
 
 --------------
 
+
+#############
+AIMMS 4.86
+#############
 
 
 AIMMS 4.86.8 Release (July 6, 2022 - build 4.86.8.2).
@@ -8777,3 +8781,5 @@ Improvements
 	myMP
 	myModel
 	ProgramStatus
+	myParameter
+	somesubsetindex
