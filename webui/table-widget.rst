@@ -82,6 +82,10 @@ Pasting is not limited to the same table as from which you copied the values of 
 
    The Block Editing and the Copy/Paste features are available as Experimental Features from AIMMS 4.87 onwards. You can toggle the feature 'Advanced Table Editing' on or off in the Experimental Features dialog in order to use it.
 
+.. note::
+
+   Please be aware that there is no undo-functionality provided yet. We are working on this. As for now, please keep this in mind when block editing and pasting data.
+
 
 Limited Support for Special Numbers
 -----------------------------------
