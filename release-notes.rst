@@ -12,6 +12,32 @@ AIMMS 4.86
 #############
 
 
+AIMMS 4.87.1 Release (July 11, 2022 - build 4.87.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Knitro version 13.1 is added. A major improvement in this version of Knitro is the parallel implementation of the branch-and-bound algorithm.
+-  This AIMMS version adds functionality to do asynchronous solves (using GMP functionality) on the AIMMS Cloud.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The encoding for the function cp::Sequence was not always correct if the CP Optimizer option 'Sequence encoding' was set to 'Partial sum'.
+-  The performance of the Cleandependents function has been greatly improved. Due to implicit use of this functionality by Aimms, this also affects some other statements. It is sometimes used as part of a solve statement, it is used when calling Empty on a set, and it is used when calling Empty on a part of an identifier (e.g. Empty myParameter(somesubsetindex)).
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  A new color palette, consisting of 16 well discernable colors for most users, was introduced to replace the previously default 19-color palette. It will affect all Widgets that derive the coloring of their nodes from ordinal annotations: all Charts and the Map. The new palette also works better when using the Transparency Index option to create additional color variations for the Combination Chart. Please refer to the documentation about :ref:`Data Coloring and Palettes <data-coloring-and-palettes>` to learn more about the new colors, about falling back to the previous 19, 11 or 7-color palettes and how this influences any custom data coloring that might be in place.
+
+--------------
+
+
+
 AIMMS 4.86.8 Release (July 6, 2022 - build 4.86.8.2).
 ------------------------------------------------------------------------------------------
 
