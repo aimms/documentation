@@ -48,10 +48,44 @@ The table widget offers the user possibilities for various actions such as:
 
   * You can use the 0 or the 1 key to set binary values displayed as checkboxes that have the focus.
   
-  * You can use the space bar to toggle binary values displayed as checkboxes that have the focus.
-  
-  * You can use either ENTER or ALT+ARROW DOWN to open the drop-down list in focus, in order to change its value.
-  
+  * You can use the **SPACE BAR** to toggle binary values displayed as checkboxes that have the focus.
+    
+  * In AIMMS versions below 4.87, you can use either **ENTER** or **ALT+ARROW DOWN** to open the drop-down list in focus, in order to change its value. In 4.87 and higher, only **ALT+ARROW DOWN** does this.
+
+  * In AIMMS 4.87 and higher, pressing **ENTER** takes you to the cell below.
+
+
+
+Block Editing
+-------------
+
+From AIMMS 4.87 onwards, the table supports block editing. You can select a region of the table using your mouse, then type a value and press **CTRL+ENTER** to change all selected cells into the value you typed. In case of a dropdown cell displaying an element parameter, you should also use **CTRL+ENTER** to do this (in earlier AIMMS versions just pressing **ENTER** would change the value of the -single- cell). In case of a binary cell with a checkbox, use **CTRL+SPACE** to toggle all selected values into the toggled value of the first cell. Please be aware that if the top-left cell of your selection is a read-only cell, this does not work, so make sure you select an editable cell in that position. If your top-left cell is editable and your selection includes read-only cells, of course only the editable cells get the new value.
+
+You are not limited to selecting a rectangular region of cells. Holding down the **CTRL** key, you can select more than one region with your mouse. Such a region can also consist of a single cell; in that case simply click on it (while still holding **CTRL** pressed). This offers you a quick way to change a scattered selection of cells to a single value.
+
+As a side-effect of this feature, changing a cell containing a checkbox now requires you to precisely click in the checkbox itself. In earlier versions, clicking anywhere in the cell was enough. By changing this behavior, we prevent that clicking such a cell as part of selecting multiple cells/regions would unintentionally change the boolean value of the cell.
+
+Please note that currently the selection of a block can only be done using the mouse. At a later stage, we will add support for keyboard selection as well (like, for example, **CTRL+A**).
+
+Copy/Paste
+----------
+
+Also from AIMMS 4.87 onwards, the table supports copy/paste functionality. Currently, this is limited to rectangular blocks of cells, which you can select as described in the Block Editing section above. When having selected a block of cells, simple press **CTRL+C** to copy the block. In order to paste it, select a single cell in the table and press **CTRL+V**. This will paste your selected block of cells into a region of the same size with the selected cell as its top-left cell. 
+
+In case there is not enough space below or to the right of the selected cell to paste the full block, the paste is executed 'as far as it goes'. So, for example, copying a 5x5 block of cells and trying to paste it into a cell on the bottom right of your table, which only extends to a 2x2 block of cells until the edges of the table are reached, will paste the top-left 2x2 block of your original 5x5 block of values.
+
+If the paste region contains read-only cells, no values will be pasted in those.
+
+Pasting is not limited to the same table as from which you copied the values of course: you can paste into different tables on the same WebUI page or on different WebUI pages, even in other WebUI apps. Furthermore, you can also paste to external programs, like text editors or Excel, for example. Please note that pasting from an external source to a WebUI table is not supported.
+
+.. note::
+
+   The Block Editing and the Copy/Paste features are available as Experimental Features from AIMMS 4.87 onwards. You can toggle the feature 'Advanced Table Editing' on or off in the Experimental Features dialog in order to use it.
+
+.. note::
+
+   Please be aware that there is no undo-functionality provided yet. We are working on this. As for now, please keep this in mind when block editing and pasting data.
+
 
 Limited Support for Special Numbers
 -----------------------------------
