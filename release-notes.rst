@@ -32,7 +32,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  A new color palette, consisting of 16 well discernable colors for most users, was introduced to replace the previously default 19-color palette. It will affect all Widgets that derive the coloring of their nodes from ordinal annotations: all Charts and the Map. The new palette also works better when using the Transparency Index option to create additional color variations for the Combination Chart. Please refer to the documentation about :ref:`Data Coloring and Palettes <data-coloring-and-palettes>` to learn more about the new colors, about falling back to the previous 19, 11 or 7-color palettes and how this influences any custom data coloring that might be in place.
+-  A new color palette, consisting of 16 well discernible colors for most users, was introduced to replace the previously default 19-color palette. It will affect all Widgets that derive the coloring of their nodes from ordinal annotations: all Charts and the Map. The new palette also works better when using the Transparency Index option to create additional color variations for the Combination Chart. Please refer to `the documentation <https://documentation.aimms.com/webui/data-coloring-and-palettes.html>`__ to learn more about the new colors, about falling back to the previous 19, 11 or 7-color palettes and how this influences any custom data coloring that might be in place.
 
 --------------
 
@@ -8783,3 +8783,4 @@ Improvements
 	ProgramStatus
 	myParameter
 	somesubsetindex
+	cp
