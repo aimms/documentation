@@ -126,3 +126,4 @@ Locking the editors will still allow the 'locked' users to change data and to cr
 .. spelling::
 
     ae
+    flyout
