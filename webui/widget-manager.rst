@@ -13,11 +13,13 @@ Widget Manager
 
 .. |plus-add-widget| image:: images/WidgetManager_snap3.png
 
+.. |page-manager| image:: images/page_manager_new.png
 
-You can access the Widget Manager by pressing the pencil icon |pencil-black| in the `WebUI Menu Bar <menu-bar.html>`_.
 
-Adding a widget
-================
+The way to add a new widget to your WebUI page has changed over time. On this page, all manners to do it are described, along with the AIMMS versions to which those are applicable.
+
+Adding a widget (up to AIMMS 4.74)
+==================================
 
 In order to put a new widget on your page:
 
@@ -27,6 +29,30 @@ In order to put a new widget on your page:
 
 .. image:: images/WidgetManager_snap4.png
     :align: center
+
+
+Adding a widget (AIMMS 4.74 to AIMMS 4.87)
+==========================================
+
+In order to put a new widget on your page:
+
+* Navigate to the page manager by clicking on the hamburger icon |page-manager| in the top left of your screen.
+* In the menu that appears, click on the Page tab on the right. This shows the following:
+
+.. image:: images/page-manager-empty.png
+    :align: center
+
+* Press the big Plus button |plus-widget| on the bottom to show the Add Widget wizard:
+
+.. image:: images/add-widget-wizard.png
+    :align: center
+
+
+
+Adding a widget (AIMMS 4.87 and higher)
+=======================================
+
+
 
 .. tip::
 
