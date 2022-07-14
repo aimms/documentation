@@ -95,8 +95,9 @@ For example, if we choose Layout 6 for a newly added grid page Grid_Standard_Lay
 
 .. image:: images/GridPage_PageTab_Full_1.png
     :align: center
-	
-Initially, unassigned widgets may be moved from the "Unassigned widgets" section to one of the defined areas by using drag-and-drop. Assigned widgets may also be moved from one area to another by using drag-and-drop:
+
+Adding widgets can be done by following the steps described `in this section <widget-manager.html#adding-a-widget>`_ .
+Unassigned widgets may be moved from the "Unassigned widgets" section to one of the defined areas by using drag-and-drop. Assigned widgets may also be moved from one area to another by using drag-and-drop:
 
 .. image:: images/GridPage_Drag-and-Drop_1.png
     :align: center
@@ -113,8 +114,6 @@ The icon before the name of an area contains either a horizontal arrow from left
 
 .. image:: images/GridPage_Area_Name_Tooltip.png
     :align: center
-
-Please also note the "+" sign at the bottom of the Page tab of the Page Manager. This allows the user to add a new widget to the selected page directly from within this Page tab, without the need to open the Widget Manager in order to access the same functionality.  
 
 The layout selection and the assignments of widgets to areas as shown above results in the following page visualization:
 
