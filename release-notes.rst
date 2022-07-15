@@ -12,6 +12,26 @@ AIMMS 4.87
 #############
 
 
+AIMMS 4.87.2 Release (July 15, 2022 - build 4.87.2.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Knitro would use a lower value than the specified time limit if it was using multiple threads.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Pressing the "Enter" key in the Add Widget wizard was incorrectly interpreted as a click on the Cancel button. Now the widget will be correctly added.
+-  The option to convert a chart to a Combination Chart is now properly disabled if the "Combination Chart Widget" experimental feature is not enabled.
+
+--------------
+
+
+
 AIMMS 4.87.1 Release (July 11, 2022 - build 4.87.1.0).
 ------------------------------------------------------------------------------------------
 
