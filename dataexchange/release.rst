@@ -18,6 +18,10 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+
+1.3.2.3 [16-07-2022]
+    - Allow name-binds-to attribute on ``ExcelSheetMappings``
+
 1.3.2.1 [09-07-2022]
     - No change (internal: prepare for new build system)
 
