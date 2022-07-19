@@ -44,7 +44,7 @@ authentication/authorization.
 Example: Using Postman to Publish an App
 -----------------------------------------
 This is an example on how to use `Postman <https://www.postman.com/>`_ in order
-to perform CRUD operations an AIMMS applications (.aimmspack) using the PRO RESt API:
+to perform CRUD operations an AIMMS applications (.aimmspack) using the PRO REST API:
 
 1. Start in the Postman request view:
 
@@ -57,7 +57,9 @@ command from the drop down menu.
 3. The request URL depends on the API spec. In some cases, request parameters are present in the URL.
 Examples of the URL:
 
-``https://[account-name].aimms.cloud/pro-api/v1/applications`` or ``https://[account-name].aimms.cloud/pro-api/v1/applications/{projectName}/{projectVersionId}``
+``https://[account-name].aimms.cloud/pro-api/v1/applications``
+
+``https://[account-name].aimms.cloud/pro-api/v1/applications/{projectName}/{projectVersionId}``
 
 To know what URL should be used, check the corresponding API spec.
 
@@ -74,11 +76,46 @@ the "raw" format.
 .. image:: images/PatchView.PNG
     :align: center
 
-Note, that it is important that *JSON* format is selected.
+For an application update, the following arguments can be used (if an argument is not provided, then it wont be changed):
+
+5.1 Project description ("description")
+
+5.2 Project category ("projectCategory")
+
+5.3 Latest app tag ("isLatest")
+
+5.4 Project attributes ("attributes"): project attributes represent a list of key-value pairs that allow to store additional information about the project. Note that "isWebUI" entry is a reserved keyword which reflects if a project is a web UI or a win UI project.
+
+5.5 Project authorizations ("authorizations"): project authorizations represent a list of entries, where each entry consists of three fields. See an example of an authorization entry below:
+
+.. code-block:: php
+
+        {
+            "authorization": 1,
+            "deny": false,
+            "entity": 16777095
+        }
+
+The "entity" field is a unique ID of either environment, group or user. The "authorization" value varies from 1 to 7 is directly related to read ("authorization": 4), write ("authorization": 2) and execute ("authorization": 1) access. In order to enable muplitple authorizations, add up the respective numbers. For example, ""authorization": 5" corresponds to read and execute access. The "deny" field is "true" or "false" when authorization is not, or is permitted.
+It is also possible to grand the read permission and restrict the write permission for the same entity ID. This would look like the following:
+
+.. code-block:: php
+
+        {
+            "authorization": 4,
+            "deny": false,
+            "entity": 16777095
+        }
+
+        {
+            "authorization": 2,
+            "deny": true,
+            "entity": 16777095
+        }
 
 6. When publishing an application it is necessary to provide two fields: ``metadata`` and ``binaryFile``.
 The field ``metadata`` needs to be provided in json format. The ``binaryFile`` field is a file upload that
-requires to point to a specific location. Example: ``(C:\Users\Vlad\Postman\files)``.
+requires to point to a specific location. Example: ``(C:\Users\UserName\Postman\files)``.
 Insert the desired *.aimmspack* in files directory and point to this directory when uploading a ``binaryFile``.
 Dont forget to select ``form-data`` format. Also note that both ``metadata`` and ``binaryFile`` names correspond
 to ones defined in the API spec.
@@ -86,6 +123,25 @@ to ones defined in the API spec.
 .. image:: images/PostView.PNG
     :align: center
 
+
+The ``metadata`` example is provided below:
+
+.. code-block:: php
+
+        {
+            "name": "project7003",
+            "description": "my_project",
+            "projectVersionId": "3.0",
+            "aimmsVersionId": "4.84.1.5-linux64-x64-vc141",
+            "attributes": {
+                "additionalProp1": "prop_1",
+                "additionalProp2": "prop_2",
+                "additionalProp3": "prop_3",
+                "isWebUI": false
+            },
+            "isLatest": "true",
+            "projectCategory": "cat_1"
+        }       
 
 Example: Using Postman to Activate an AIMMS Version
 ---------------------------------------------------
