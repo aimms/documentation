@@ -96,7 +96,7 @@ For an application update, the following arguments can be used (if an argument i
             "entity": 16777095
         }
 
-The "entity" field is a unique ID of either environment, group or user. The "authorization" value varies from 1 to 7 is directly related to read ("authorization": 4), write ("authorization": 2) and execute ("authorization": 1) access. In order to enable muplitple authorizations, add up the respective numbers. For example, ""authorization": 5" corresponds to read and execute access. The "deny" field is "true" or "false" when authorization is not, or is permitted.
+The "entity" field is a unique ID of either environment, group or user. The "authorization" value varies from 1 to 7 is directly related to read ("authorization": 4), write ("authorization": 2) and execute ("authorization": 1) access. In order to enable multiple authorizations, add up the respective numbers. For example, ""authorization": 5" corresponds to read and execute access. The "deny" field is "true" or "false" when authorization is not, or is permitted.
 It is also possible to grand the read permission and restrict the write permission for the same entity ID. This would look like the following:
 
 .. code-block:: php
@@ -159,4 +159,9 @@ body described in ``AimmsVersion.yaml`` in the API schema:
         }
 
 
+.. spelling::
+
+    projectCategory
+	isLatest
+    isWebUI
 
