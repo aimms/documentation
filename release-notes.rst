@@ -32,26 +32,6 @@ Resolved WebUI Issues
 
 
 
-AIMMS 4.87.3 Release (July 21, 2022 - build 4.87.3.3).
-------------------------------------------------------------------------------------------
-
-Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
-
-Resolved AIMMS Issues
-+++++++++++++++++++++++++
-
--  An error was wrongly triggered during library list modification using Library Manager: when a library prefix had the same name as an existing identifier in some module of the model, even though it was not visible globally but required the usage of its module's prefix.
-
-Resolved WebUI Issues
-+++++++++++++++++++++++++
-
--  For chart types like Pie chart, Tree map and Gantt chart, we enhanced the readability of some colors of data labels displayed on top of similarly colored data elements.
--  The widget header buttons for the recently introduced "Upload and Download to/from Excel" feature now work properly from within Dialogs and Side panels too.
-
---------------
-
-
-
 AIMMS 4.87.2 Release (July 15, 2022 - build 4.87.2.4).
 ------------------------------------------------------------------------------------------
 
