@@ -1,6 +1,32 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.44
+########
+
+AIMMS PRO 2.44.1 Release
+------------------------
+
+On July 15, 2022, we released AIMMS PRO 2.44.1 (2.44.1.1). 
+
+**Improvements**
+
+   **Azure Cloud Platform:** 
+
+   - Added category support to App Publishing REST API. It is now possible to assign or update App category using category name when publishing or updating an App via REST API.
+   - *CPLEX Parallel Solve* is now available on the AIMMS Cloud Platform. For large-scale scenario comparisons this may offer big solve time savings. Please contact us for technical information and pricing details.
+   - Support for CmakeConan AIMMS Versions (AIMMS Versions with CmakeConan support will be released with AIMMS 4.88 or 4.89).
+
+   **AWS Cloud Platform:**
+
+   - Support for CmakeConan AIMMS Versions (AIMMS Versions with CmakeConan support will be released with AIMMS 4.88 or 4.89).
+
+   **On-Premise:**
+
+   - Support for CmakeConan AIMMS Versions (If you are using an on-premise installation of AIMMS PRO then you will need to upgrade your AIMMS PRO to 2.44.1 such that you can use CmakeConan AIMMS Versions. AIMMS Versions with CmakeConan support will be released with AIMMS 4.88 or 4.89).
+
+
+
 PRO 2.43
 ########
 
