@@ -41,79 +41,42 @@ is advised to copy it ans store it securely. This key should be sent in the *api
 header for every REST call the user want to make using this key for
 authentication/authorization.
 
-Example: Using Postman to Publish an App
------------------------------------------
+Setting up Postman for REST API CALLS
+----------------------------------------
 This is an example on how to use `Postman <https://www.postman.com/>`_ in order
-to perform CRUD operations an AIMMS applications (.aimmspack) using the PRO REST API:
+to perform CRUD operations an AIMMS applications using the PRO REST API:
 
 1. Start in the Postman request view:
 
 .. image:: images/RequestView.PNG
     :align: center
 
-2. Based on the API method to be tested, select the GET/PATCH/POST/DELETE/etc
+2. Based on the API method to be tested, select the GET/PATCH/POST/DELETE
 command from the drop down menu.
 
 3. The request URL depends on the API spec. In some cases, request parameters are present in the URL.
 Examples of the URL:
 
-``https://[account-name].aimms.cloud/pro-api/v1/applications``
+.. code-block:: php
 
-``https://[account-name].aimms.cloud/pro-api/v1/applications/{projectName}/{projectVersionId}``
+        https://[account-name].aimms.cloud/pro-api/v1/applications
+
+        https://[account-name].aimms.cloud/pro-api/v1/applications/{projectName}/{projectVersionId}
 
 To know what URL should be used, check the corresponding API spec.
 
-4. Headers: within the scope of CRUD on applications, add an "apikey" header with the api key value.
+4. Within the scope of CRUD on applications, add an "apikey" header with the api key value.
 Note that the header name must correspond to what is defined in the api spec. Make sure to tick the checkbox
 after adding the "apikey" field. The rest of the header fields remain unchanged.
 
 .. image:: images/HeadersView.PNG
     :align: center
 
-5. When updating an application, it is necessary to provide the body (in JSON) format. Do not forget to select
-the "raw" format.
 
-.. image:: images/PatchView.PNG
-    :align: center
+Application Upload (POST)
+--------------------------
 
-For an application update, the following arguments can be used (if an argument is not provided, then it wont be changed):
-
-5.1 Project description ("description")
-
-5.2 Project category ("projectCategory")
-
-5.3 Latest app tag ("isLatest")
-
-5.4 Project attributes ("attributes"): project attributes represent a list of key-value pairs that allow to store additional information about the project. Note that "isWebUI" entry is a reserved keyword which reflects if a project is a web UI or a win UI project.
-
-5.5 Project authorizations ("authorizations"): project authorizations represent a list of entries, where each entry consists of three fields. See an example of an authorization entry below:
-
-.. code-block:: php
-
-        {
-            "authorization": 1,
-            "deny": false,
-            "entity": 16777095
-        }
-
-The "entity" field is a unique ID of either environment, group or user. The "authorization" value varies from 1 to 7 is directly related to read ("authorization": 4), write ("authorization": 2) and execute ("authorization": 1) access. In order to enable multiple authorizations, add up the respective numbers. For example, ""authorization": 5" corresponds to read and execute access. The "deny" field is "true" or "false" when authorization is not, or is permitted.
-It is also possible to grand the read permission and restrict the write permission for the same entity ID. This would look like the following:
-
-.. code-block:: php
-
-        {
-            "authorization": 4,
-            "deny": false,
-            "entity": 16777095
-        }
-
-        {
-            "authorization": 2,
-            "deny": true,
-            "entity": 16777095
-        }
-
-6. When publishing an application it is necessary to provide two fields: ``metadata`` and ``binaryFile``.
+1. When publishing an application it is necessary to provide two fields: ``metadata`` and ``binaryFile``.
 The field ``metadata`` needs to be provided in json format. The ``binaryFile`` field is a file upload that
 requires to point to a specific location. Example: ``(C:\Users\UserName\Postman\files)``.
 Insert the desired *.aimmspack* in files directory and point to this directory when uploading a ``binaryFile``.
@@ -137,11 +100,64 @@ The ``metadata`` example is provided below:
                 "additionalProp1": "prop_1",
                 "additionalProp2": "prop_2",
                 "additionalProp3": "prop_3",
-                "isWebUI": false
+                "isWebUI": "false"
             },
-            "isLatest": "true",
             "projectCategory": "cat_1"
-        }       
+        }  
+
+
+Application Update (PATCH)
+--------------------------
+
+1. When updating an application, it is necessary to provide the body in JSON. Do not forget to select
+the "raw" format.
+
+.. image:: images/PatchView.PNG
+    :align: center
+
+2. For an application update, the following arguments can be used (if an argument is not provided, then it wont be changed):
+
+* **Project description** ("description")
+
+* **Project category** ("projectCategory")
+
+* **Latest app tag** ("isLatest"): latest app tag cannot be explicitly disabled for the selected app. When assigning the latest tag to an app ("isLatest": true), it will be automatically removed from all other app with the same name.  
+
+* **Project attributes** ("attributes"): project attributes represent a list of key-value pairs that allow to store additional information about the project. Note that "isWebUI" entry is a reserved keyword which shows if a project is a web UI ("isWebUI": "true") or a win UI project ("isWebUI": "false").
+
+* **Project authorizations** ("authorizations"): project authorizations represent a list of entries, where each entry consists of three fields. See an example of an authorization entry below:
+
+.. code-block:: php
+
+        {
+            "authorization": 1,
+            "deny": false,
+            "entity": 16777095
+        }
+
+The "entity" field is a unique ID of either environment, group or user which can be retrieved using the authentication rest API. The "authorization" value varies from 1 to 7 is directly related to read ("authorization": 4), write ("authorization": 2) and execute ("authorization": 1) access. In order to enable multiple authorizations, add up the respective numbers. For example, ""authorization": 5" corresponds to read and execute access. The "deny" field is "true" or "false" when authorization is not, or is permitted.
+It is also possible to grand the read permission and restrict the write permission for the same entity ID. This would look like the following:
+
+.. code-block:: php
+
+        {
+            "authorization": 4,
+            "deny": false,
+            "entity": 16777095
+        }
+
+        {
+            "authorization": 2,
+            "deny": true,
+            "entity": 16777095
+        }
+
+In order to completely remove permissions from an app, assign permissions to an empty list. This can be done as follows:
+
+.. code-block:: php
+
+        "authorizations": []
+     
 
 Example: Using Postman to Activate an AIMMS Version
 ---------------------------------------------------
