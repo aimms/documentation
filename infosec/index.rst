@@ -24,7 +24,7 @@ Self-assessments
 Shared responsibility
 ---------------------
 
-* :download:`Information Security Shared Responsibility Model for the AIMMS Cloud Platform//VI.01-01_AIMMS_Cloud_Platform_Information_Security_Shared_Responsibility.pdf>`,
+* :download:`Information Security Shared Responsibility Model for the AIMMS Cloud Platform <resources//VI.01-01_AIMMS_Cloud_Platform_Information_Security_Shared_Responsibility.pdf>`,
 
 Documentation pages with more details
 -------------------------------------
