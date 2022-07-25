@@ -13,11 +13,13 @@ AIMMS is ISO 27001 certified for 'Development, maintenance, delivery, and suppor
 * :download:`Certificate <resources//ISC_346_122021.pdf>` 
 * :download:`Statement of Applicability<resources//AIMMS_Statement_of_Applicability_21062021.xlsx>` 
 
-Self-assessments
-----------------
+Cloud Security Alliance Questionnaires
+--------------------------------------
 
-* :download:`CSA CAIQ V4.02 Questionnaire for Azure <resources//AIMMS_Azure_CAIQv4.0.2_20220723.xlsx>`,
-* :download:`CSA CAIQ Lite Questionnaire for AWS <resources//CAIQ-Lite_AIMMS_20210521.xlsx>`.
+* :download:`CSA CAIQ V4.02 Questionnaire for the AIMMS Cloud Platform on Azure <resources//AIMMS_Azure_CAIQv4.0.2_20220723.xlsx>`
+
+(please note we are phasing out the AIMMS Cloud Platform on AWS)
+* :download:`CSA CAIQ Lite Questionnaire for AWS <resources//CAIQ-Lite_AIMMS_20210521.xlsx>`
 * :download:`Questionnaire about AWS set-up <resources//AIMMS_AWS_Questionnaire_22_July_2021.xlsx>` 
   with supporting :download:`evidence <resources//AIMMS_AWS_questionnaire_evidence.zip>`
 
