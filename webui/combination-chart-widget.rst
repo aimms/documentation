@@ -401,6 +401,9 @@ So, the option "Data Interpolate" may be literally "connecting the dots" for the
 In this vein, another example of a possible use case for this chart option is when the set elements on the X-axis are timeslots in a calendar or have some other intrinsic ordering based on time, 
 but some identifiers to be shown in the chart do not have data for all those time moments. 
 
+.. note:: 
+   Please note that, when you show aggregated totals in a chart (or any other widget), these totals always have a full domain, even in case the identifier that is aggregated over does not have a full domain (because, in AIMMS, the sum over an empty set is defined as 0). The resulting aggregation will be displayed in any widget as 0 for the entries outside the domain of the original identifier.  
+
 Index Settings, Select, and Store Focus
 ---------------------------------------
 
