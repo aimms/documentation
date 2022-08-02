@@ -19,21 +19,21 @@ The DataExchange library is under active development. The following new features
 New Features and Bug Fixes
 --------------------------
 1.3.2.34 [02-08-2022]
-		- Sheets were read in alphabetical order instead of original order
-		- Write-filter on Excel sheets was lost during the row-based refactor
+	- Sheets were read in alphabetical order instead of original order
+	- Write-filter on Excel sheets was lost during the row-based refactor
 
 1.3.2.9 [22-07-2022]
-		- Labels generated from Excel cells with integer values inadvertently contained decimals
+	- Labels generated from Excel cells with integer values inadvertently contained decimals
 
 1.3.2.4 [20-07-2022]
-    - Values from evaluated cells with formulas in Excel files would not be read
+	- Values from evaluated cells with formulas in Excel files would not be read
 
 1.3.2.3 [16-07-2022]
-    - Allow name-binds-to attribute on ``ExcelSheetMappings``
+	- Allow name-binds-to attribute on ``ExcelSheetMappings``
 
 1.3.2.1 [09-07-2022]
-		- All row-based formats (CSV, Excel, Parquet) refactored to a common code base w.r.t. the read/write logic.
-    - Internal: prepare for new build system
+	- All row-based formats (CSV, Excel, Parquet) refactored to a common code base w.r.t. the read/write logic
+	- Internal: prepare for new build system
 
 1.3.1.7 [01-07-2022]
 	- OAuth2 ClientCredentials flow would only work on second try.
