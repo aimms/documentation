@@ -18,9 +18,12 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.2.37 [03-08-2022]
+	- Fix string to calendar conversion for Excel reading
+
 1.3.2.34 [02-08-2022]
 	- Sheets were read in alphabetical order instead of original order
-	- Write-filter on Excel sheets was lost during the row-based refactor
+	- Write-filter on Excel sheet names were lost during the row-based refactor
 
 1.3.2.9 [22-07-2022]
 	- Labels generated from Excel cells with integer values inadvertently contained decimals
