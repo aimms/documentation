@@ -185,17 +185,18 @@ Currently the following features are supported:
 * After an upload, upon data change on each of the cells, their respective 'Upon Change Procedures' (if any) would be called.
 * After an upload, WebUI will report the number of data changes as an INFO message. This is a temporary way of feedback which is likely to be improved in the future.
 * In case the uploaded Excel file contains duplicate values for a specific combination of indices, only the last change (when traversing the cells from top-left to bottom-right) will be considered.
+* Deleting a value in a cell will reset the corresponding value in AIMMS to its default value (when the corresponding identifier has a default value specified in its declaration).
+* When an element text annotation has been specified in the declaration of a set involved in the table contents, then the corresponding element text is taken into account during the upload/download. 
 
 .. note::
 
-   If a table contains more than one (numerical) identifier and the <IDENTIFIER-SET> index is pivoted to Totals, then the contents of the table may be downloaded, but it cannot be overwritten by an upload, because those (computed) totals have an implicit (runtime) definition in the AIMMS model.
+   If a table contains more than one (numerical) identifier and the <IDENTIFIER-SET> index is pivoted to Totals, then the contents of the table may be downloaded, but it cannot be overwritten by an upload, because those (computed) totals have an implicit (runtime) definition in the AIMMS model. 
+   Moreover, if a value representing a total had to be distributed among several identifiers values upon upload to the table, it would be rather ambiguous how this was to be done. 
    
 The following aspects are not (yet) supported, but may be subject to further improvements:
 
-• No support for element text yet (when an element text annotation has been specified in the declaration of a set involved in the table contents). 
 • No support for the display of units of measurement (in the downloaded Excel file). Only the plain values (without units) are subject to the download/upload actions.
 • There is no dedicated 'procedure upon upload'. The reason for this is that currently the upload changes are applied as if they were a sequence of manual edits. 
-• Deleting a value in a cell will not reset the corresponding value in AIMMS to its default value (when the corresponding identifier has a default value specified in its declaration). For now, the value is set to 0 (or the empty string or the empty label), instead.
 
 
 Creating Read-Only Cells
