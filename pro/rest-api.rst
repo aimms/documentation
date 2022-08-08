@@ -184,4 +184,4 @@ body described in ``AimmsVersion.yaml`` in the API schema:
     projectCategory
 	isLatest
     isWebUI
-
+    iconUrl
