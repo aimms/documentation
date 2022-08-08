@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+
+1.25.0.6 [26-07-2022]
+	- When creating a new table for a modified identifier, the associated unique constraint kept the same name as for the previous table, leading to a SQLServer error
+
 1.25.0.4 [09-05-2022]
 	- The procedure :any:`cdm::EmptyElementsInCategory`, erroneously pointed to the non-existing DLL function ``EmtpyElementInCategory`` instead of ``EmptyElementsInCategory``
 
