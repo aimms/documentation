@@ -20,7 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  Some improvements have been made to the function me::Compile(). Especially for the situation where runtime created sets and indices were re-created inbetween compilation attempts.
+-  Some improvements have been made to the function me::Compile(). Especially for the situation where runtime created sets and indices were re-created in between compilation attempts.
 -  The EMPTY statement on a slice of an identifier, like for example EMPTY x(i,j,'k1'), could lead to a fatal error.
 -  Time limits were not always handled correctly by the GMP Outer Approximation and Multi Start modules.
 -  When using the command line argument --run-only, the PostMainInitialization and PostLibraryInitialization procedures were not run.
