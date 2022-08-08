@@ -12,6 +12,30 @@ AIMMS 4.87
 #############
 
 
+AIMMS 4.87.4 Release (August 8, 2022 - build 4.87.4.20).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Some improvements have been made to the function me::Compile(). Especially for the situation where runtime created sets and indices were re-created inbetween compilation attempts.
+-  The EMPTY statement on a slice of an identifier, like for example EMPTY x(i,j,'k1'), could lead to a fatal error.
+-  Time limits were not always handled correctly by the GMP Outer Approximation and Multi Start modules.
+-  When using the command line argument --run-only, the PostMainInitialization and PostLibraryInitialization procedures were not run.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  WebUI widgets in which a non-default display-domain had been specified, did not update correctly after you changed an annotation of an identifier in the AIMMS IDE.
+-  Item Actions (on Chart and Table widgets) that depend on Store Focus being processed *before* showing them, will now work as expected. Before, you inconveniently needed to left-click the item before right-clicking it to access the correct Item Actions.
+-  When the Limited-Option-Editor option is set to True/1, the Combination chart widget now correctly only offers the Contents and Pivot tabs to end users.
+
+--------------
+
+
+
 AIMMS 4.87.3 Release (July 21, 2022 - build 4.87.3.3).
 ------------------------------------------------------------------------------------------
 
