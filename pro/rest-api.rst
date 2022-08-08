@@ -76,11 +76,11 @@ after adding the "apikey" field. The rest of the header fields remain unchanged.
 Application Upload (POST)
 --------------------------
 
-1. When publishing an application it is necessary to provide two fields: ``metadata`` and ``binaryFile``.
-The field ``metadata`` needs to be provided in json format. The ``binaryFile`` field is a file upload that
+1. When publishing an application it is necessary to provide two fields: ``metadata`` and ``file``.
+The field ``metadata`` needs to be provided in json format. The ``file`` field is a file upload that
 requires to point to a specific location. Example: ``(C:\Users\UserName\Postman\files)``.
-Insert the desired *.aimmspack* in files directory and point to this directory when uploading a ``binaryFile``.
-Dont forget to select ``form-data`` format. Also note that both ``metadata`` and ``binaryFile`` names correspond
+Insert the desired *.aimmspack* in files directory and point to this directory when uploading a ``file``.
+Dont forget to select ``form-data`` format. Also note that both ``metadata`` and ``file`` names correspond
 to ones defined in the API spec.
 
 .. image:: images/PostView.PNG
@@ -100,7 +100,8 @@ The ``metadata`` example is provided below:
                 "additionalProp1": "prop_1",
                 "additionalProp2": "prop_2",
                 "additionalProp3": "prop_3",
-                "isWebUI": "false"
+                "isWebUI": "false",
+                "iconUrl": "/icons/my_logo"
             },
             "projectCategory": "cat_1"
         }  
@@ -123,7 +124,10 @@ the "raw" format.
 
 * **Latest app tag** ("isLatest"): latest app tag cannot be explicitly disabled for the selected app. When assigning the latest tag to an app ("isLatest": true), it will be automatically removed from all other app with the same name.  
 
-* **Project attributes** ("attributes"): project attributes represent a list of key-value pairs that allow to store additional information about the project. Note that "isWebUI" entry is a reserved keyword which shows if a project is a web UI ("isWebUI": "true") or a win UI project ("isWebUI": "false").
+* **Project attributes** ("attributes"): project attributes represent a list of key-value pairs that allow to store additional information about the project. There are two reserved keywords: 
+   1) "isWebUI" key shows if a project is a web UI ("isWebUI": "true") or a win UI project ("isWebUI": "false")
+
+   2) "iconUrl" key points to the location of the application icon to uploaded. Note that "/icons/" is a fixed path prefix
 
 * **Project authorizations** ("authorizations"): project authorizations represent a list of entries, where each entry consists of three fields. See an example of an authorization entry below:
 
