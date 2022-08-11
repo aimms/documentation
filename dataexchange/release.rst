@@ -18,6 +18,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.2.45 [11-08-2022]
+	- Fix string to calendar conversion for CSV and Parquet reading
+
 1.3.2.37 [03-08-2022]
 	- Fix string to calendar conversion for Excel reading
 
