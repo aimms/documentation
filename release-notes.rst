@@ -20,7 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  We added a new predeclared `webui::IdentifierElementText` identifier (ranging over `AllIdentifiers`) that can be used to specify element text for identifiers in your WebUI. The application-specific 'properties' files were not sufficient to use element text while downloading an uploading Excel files from/to a table.
+-  We added a new predeclared `webui::IdentifierElementText` identifier (ranging over `AllIdentifiers`) that can be used to specify element text for identifiers in your WebUI. The application-specific 'properties' files were not sufficient to use element text while downloading an uploading Excel files from/to a table. For details, see `the documentation <https://documentation.aimms.com/webui/table-widget.html#excel-upload-download-support>`__. 
 
 --------------
 
