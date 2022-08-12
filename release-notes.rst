@@ -12,6 +12,21 @@ AIMMS 4.87
 #############
 
 
+AIMMS 4.87.5 Release (August 12, 2022 - build 4.87.5.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In tooltips in the Map widget, referring to the '/app-resources/resources/' path (for example, to include images in your tooltips, located somewhere in your WebUI resources folder) only worked in developer mode. When running the same model on PRO/Cloud, the path (and thus the files in it) could not be located. Other widgets which support tooltips will be adjusted similarly in future releases.
+-  We added a new predeclared `webui::IdentifierElementText` identifier (ranging over `AllIdentifiers`) that can be used to specify element text for identifiers in your WebUI. The application-specific 'properties' files were not sufficient to use element text while downloading an uploading Excel files from/to a table. See `<insert link to documentation>` for more info.
+
+--------------
+
+
+
 AIMMS 4.87.4 Release (August 8, 2022 - build 4.87.4.20).
 ------------------------------------------------------------------------------------------
 
