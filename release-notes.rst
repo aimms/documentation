@@ -12,6 +12,21 @@ AIMMS 4.87
 #############
 
 
+AIMMS 4.87.6 Release (August 12, 2022 - build 4.87.6.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When a parent page was deleted, the child pages and its widget details were not removed from WebUI JSON file properly.
+-  In tooltips in the Map widget, referring to the '/app-resources/resources/' path (for example, to include images in your tooltips, located somewhere in your WebUI resources folder) only worked in developer mode. When running the same model on PRO/Cloud, the path (and thus the files in it) could not be located. Other widgets which support tooltips will be adjusted similarly in future releases.
+
+--------------
+
+
+
 AIMMS 4.87.5 Release (August 12, 2022 - build 4.87.5.1).
 ------------------------------------------------------------------------------------------
 
