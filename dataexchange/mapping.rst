@@ -116,8 +116,6 @@ With the ``name-regex-prefix`` attribute you can specify a prefix that is used i
 
 By default, when writing CSV files, Excel sheets and Parquet files, AIMMS will first generate columns generated on the basis of the current contents associated with the :token:`name-binds-to` index. Subsequently, it will fill individual fields, on a row-per-row basis, based on the presence of data in the :token:`maps-to` identifier. If that identifier contains data for tuples which do not currently lie in the set associated with the :token:`name-binds-to` index, such data will not be written, and may potentially lead to rows without any data. 
 
-Cells under control of a :token:`name-binds-to` index, for which no data is present in the :token:`maps-to` identifier will normally be left empty. With the :token:`write-defaults` attribute you can indicate that you want the default value of that identifier to be written to such cells instead. 
-
 The iterative-binds-to attribute
 --------------------------------
 
@@ -163,6 +161,11 @@ You can assign the :token:`maps-to` attribute to any value-holding mapping eleme
 The :token:`write-filter` attribute can be specified at any node in the mapping tree, and should be a reference to an identifier in the model including the bound indices at this location as for the :token:`maps-to` attribute. For any tuple of bound indices for which the :token:`write-filter` attribute does not hold a non-default value, the corresponding part of the generate JSON, XML or CSV file will be skipped. 
 
 By default, the Data Exchange library assumes that all string values will hold up to 1024 characters. Through the :token:`max-string-size` attribute a maximum string size up to 8KB can be specified.
+
+The write-defaults attribute
+----------------------------
+
+For all row-based formats (CSV, Excel, Parquet), cells for which no data is present in the :token:`maps-to` identifier will be left empty by default. With the :token:`write-defaults` attribute you can indicate that you want the default value of that identifier to be written to such cells instead. You can specify the value 1 to the ``write-defaults`` attribute on a ``ColumnMapping``, or on the ``RowMapping`` or ``ExcelSheetMapping``. For the latter, the ``write-defaults`` attribute will be applied to all underlying ``ColumnMappings``.
 
 The range-existing attribute
 ----------------------------

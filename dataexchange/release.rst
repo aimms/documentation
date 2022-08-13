@@ -18,6 +18,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+1.3.2.46 [13-08-2022]
+	- Allow ``write-defaults`` attribute on ``RowMapping`` and ``ColumnMapping`` types in all row-based mappings, regardless of ``name-binds-to`` attribute.
+
 1.3.2.45 [11-08-2022]
 	- Fix string to calendar conversion for CSV and Parquet reading
 
