@@ -165,7 +165,7 @@ By default, the Data Exchange library assumes that all string values will hold u
 The write-defaults attribute
 ----------------------------
 
-For all row-based formats (CSV, Excel, Parquet), cells for which no data is present in the :token:`maps-to` identifier will be left empty by default. With the :token:`write-defaults` attribute you can indicate that you want the default value of that identifier to be written to such cells instead. You can specify the value 1 to the ``write-defaults`` attribute on a ``ColumnMapping``, or on the ``RowMapping`` or ``ExcelSheetMapping``. For the latter, the ``write-defaults`` attribute will be applied to all underlying ``ColumnMappings``.
+For all row-based formats (CSV, Excel, Parquet), cells for which no data is present in the :token:`maps-to` identifier will be left empty by default. With the :token:`write-defaults` attribute you can indicate that you want the default value of that identifier to be written to such cells instead. You can specify the value 1 to the ``write-defaults`` attribute on a ``ColumnMapping``, or on the ``RowMapping`` or ``ExcelSheetMapping``. For the latter, the ``write-defaults`` attribute will be applied to all underlying ``ColumnMappings``. The default value for the ``write-defaults`` attribute is 0.
 
 The range-existing attribute
 ----------------------------
