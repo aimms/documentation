@@ -14,6 +14,22 @@ AIMMS 4.87
 
 
 AIMMS 4.87.7 Release (August 17, 2022 - build 4.87.7.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In some situations, deleting widgets from a subpage could leave traces of it in the webui.json file.
+
+--------------
+
+
+
+
+
+AIMMS 4.87.7 Release (August 17, 2022 - build 4.87.7.0).
 
 ------------------------------------------------------------------------------------------
 
