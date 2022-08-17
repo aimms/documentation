@@ -5,10 +5,13 @@ The first public release of RLink was version 1.0.0.1, release date March 14, 20
 
 New Features and Bug Fixes
 --------------------------
-1.0.0.18 [19-07-2022]
+1.1.0.24 [17-08-2022]
+    - No change (internal)
+
+1.1.0.18 [19-07-2022]
     - No change (internal: resolve issues new build system)
 
-1.0.0.17 [09-07-2022]
+1.1.0.17 [09-07-2022]
     - No change (internal: prepare for new build system)
 
 1.1.0.7 [22-07-2020]
