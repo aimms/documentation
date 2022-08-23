@@ -52,6 +52,8 @@ The table widget offers the user possibilities for various actions such as:
     
   * In AIMMS versions below 4.87, you can use either **ENTER** or **ALT+ARROW DOWN** to open the drop-down list in focus, in order to change its value. In 4.87 and higher, only **ALT+ARROW DOWN** does this.
 
+  * In AIMMS 4.87 and higher, opening a DateTime cell with the keyboard should be done with either **ALT+ARROW DOWN** or **CTRL+SPACEBAR**.
+
   * In AIMMS 4.87 and higher, pressing **ENTER** takes you to the cell below.
 
 
@@ -59,7 +61,7 @@ The table widget offers the user possibilities for various actions such as:
 Block Editing
 -------------
 
-From AIMMS 4.87 onwards, the table supports block editing. You can select a region of the table using your mouse, then type a value and press **CTRL+ENTER** to change all selected cells into the value you typed. In case of a dropdown cell displaying an element parameter, you should also use **CTRL+ENTER** to do this (in earlier AIMMS versions just pressing **ENTER** would change the value of the -single- cell). In case of a binary cell with a checkbox, use **CTRL+SPACE** to toggle all selected values into the toggled value of the first cell. Please be aware that if the top-left cell of your selection is a read-only cell, this does not work, so make sure you select an editable cell in that position. If your top-left cell is editable and your selection includes read-only cells, of course only the editable cells get the new value.
+From AIMMS 4.87 onwards, the table supports block editing. You can select a region of the table using your mouse, then type a value and press **CTRL+ENTER** to change all selected cells into the value you typed. In case of a dropdown cell displaying an element parameter, you should also use **CTRL+ENTER** to do this (in earlier AIMMS versions just pressing **ENTER** would change the value of the -single- cell). In case of a binary cell with a checkbox, use **CTRL+SPACE** to toggle all selected values into the toggled value of the first cell. In case of a DateTime cell, use **CTRL+LEFT MOUSE**. Please be aware that if the top-left cell of your selection is a read-only cell, this does not work, so make sure you select an editable cell in that position. If your top-left cell is editable and your selection includes read-only cells, of course only the editable cells get the new value.
 
 You are not limited to selecting a rectangular region of cells. Holding down the **CTRL** key, you can select more than one region with your mouse. Such a region can also consist of a single cell; in that case simply click on it (while still holding **CTRL** pressed). This offers you a quick way to change a scattered selection of cells to a single value.
 
