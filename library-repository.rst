@@ -27,7 +27,7 @@ Please note that when using these libraries on AIMMS PRO, it needs access to the
    rlink/index
    unit-test/index
    AIMMSXLLibrary <https://documentation.aimms.com/aimmsxllibrary/index.html>
-
+   forecasting/index
 
 .. note::
 
