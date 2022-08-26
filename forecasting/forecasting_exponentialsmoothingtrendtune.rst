@@ -1,7 +1,5 @@
 .. aimms:function:: forecasting::ExponentialSmoothingTrendTune(dataValues, noObservations, alpha, beta, alphaLow, alphaUpp, betaLow, betaUpp)
 
-.. _forecasting::ExponentialSmoothingTrendTune:
-
 forecasting::ExponentialSmoothingTrendTune
 ==========================================
 
@@ -36,7 +34,7 @@ Arguments
     *noObservations*
         Specifies the number of elements that belong to the history of the time
         set. This parameter corresponds to :math:`T` in the notation presented
-        in :numref:`table:notation-observation-estimation`.
+        in :ref:`chapter:time-series-forecasting`.
 
     *alpha,*
         beta] :math:`\alpha` and :math:`\beta` are scalar output parameters of
@@ -64,3 +62,7 @@ Arguments
     -  Please note that this function performs an optimization step; a
        nonlinear programming solver should be available and, in an AIMMS PRO
        environment, it should be run server side.
+
+.. spellcheck::
+​​​​​​​
+    ExponentialSmoothingTrendTune

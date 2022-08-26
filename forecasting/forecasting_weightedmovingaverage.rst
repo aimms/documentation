@@ -1,7 +1,5 @@
 .. aimms:function:: forecasting::WeightedMovingAverage(dataValues, estimates, noObservations, weights, noAveragingPeriods, ErrorMeasures, Residuals)
 
-.. _forecasting::WeightedMovingAverage:
-
 forecasting::WeightedMovingAverage
 ==================================
 
@@ -13,7 +11,7 @@ Mathematical Formulation
 ------------------------
 
     Using the notation for observations and estimates given in
-    :numref:`table:notation-observation-estimation`, the estimates are defined as:
+    :ref:`chapter:time-series-forecasting`, the estimates are defined as:
 
     .. math:: e_t = \sum_{j=1,\tau=t-(N+1)+j}^N {w_j \tilde y}_\tau \mspace{4mu}\mspace{4mu}\mspace{4mu} \textrm{ where } {\tilde y}_\tau = \left\{ \begin{array}{ll} y_1 & \textrm{ if } \tau < 1 \\ y_\tau & \textrm{ if } \tau \in \{1 .. T \} \\ e_\tau & \textrm{ if } \tau > T \end{array} \right.
 
@@ -75,7 +73,7 @@ Arguments
     *noObservations*
         Specifies the number of elements that belong to the history of the time
         set. This parameter corresponds to :math:`T` in the notation presented
-        in :numref:`table:notation-observation-estimation`.
+        in :ref:`chapter:time-series-forecasting`.
 
     *weights*
         Specifies the weights. The weights should be indexed over a subset of
@@ -94,18 +92,17 @@ Arguments
 Example
 -------
 
-    With declarations and data as specified in :numref:`table:sample-input-data` the call:
-
     .. code-block:: aimms
-
-                    weightSet := ElementRange(1,4);
-                    locWeights := data { 1 : 0.1, 2 : 0.2, 3: 0.3, 4: 0.4 } ;
-                    forecasting::WeightedMovingAverage(
-                        dataValues         :  p_dat,
-                        estimates          :  p_est,
-                        noObservations     :  91,
-                        weights            :  locWeights,
-                        noAveragingPeriods :  4);
+        :linenos:
+        
+            weightSet := ElementRange(1,4);
+            locWeights := data { 1 : 0.1, 2 : 0.2, 3: 0.3, 4: 0.4 } ;
+            forecasting::WeightedMovingAverage(
+                dataValues         :  p_dat,
+                estimates          :  p_est,
+                noObservations     :  91,
+                weights            :  locWeights,
+                noAveragingPeriods :  4);
 
 
 
@@ -117,3 +114,7 @@ Example
     Here the history is from ``2021-04-01`` till ``2021-06-30`` and the horizon is from ``2021-07-01`` till ``2021-07-31``.
 
     .. |image| image:: images/WMA2021.png
+
+.. spellcheck::
+​​​​​​​
+    WeightedMovingAverage

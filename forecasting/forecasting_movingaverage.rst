@@ -1,7 +1,5 @@
 .. aimms:function:: forecasting::MovingAverage(dataValues, estimates, noObservations, noAveragingPeriods, ErrorMeasures, Residuals)
 
-.. _forecasting::MovingAverage:
-
 forecasting::MovingAverage
 ==========================
 
@@ -13,7 +11,7 @@ Mathematical Formulation
 ------------------------
 
     Using the notation for observations and estimates given in
-    :numref:`table:notation-observation-estimation`, the estimates are defined as:
+    :ref:`chapter:time-series-forecasting`, the estimates are defined as:
 
     .. math:: e_t = \sum_{\tau=t-1-N}^{t-1} {\tilde y}_\tau / N \mspace{4mu}\mspace{4mu}\mspace{4mu} \textrm{ where } {\tilde y}_\tau = \left\{ \begin{array}{ll} y_1 & \textrm{ if } \tau < 1 \\ y_\tau & \textrm{ if } \tau \in \{1 .. T \} \\ e_\tau & \textrm{ if } \tau > T \end{array} \right.
 
@@ -70,7 +68,7 @@ Arguments
     *noObservations*
         Specifies the number of elements that belong to the history of the time
         set. This parameter corresponds to :math:`T` in the notation presented
-        in :numref:`table:notation-observation-estimation`.
+        in :ref:`chapter:time-series-forecasting`.
 
     *noAveragingPeriods*
         Specifies the number of values used to compute a single average. This
@@ -87,7 +85,6 @@ Example
 
     .. code-block:: aimms
        :caption: Sample declarations and input data for the time series calculation 
-       :name: table:sample-input-data
 
             Parameter p_dat {
                 IndexDomain: d;
@@ -197,10 +194,6 @@ Example
                   2021-06-29 : 304.71238328,
                   2021-06-30 : 311.76177832 } ;
 
-
-
-    With declarations and data as specified in :numref:`table:sample-input-data` the call:
-
     .. code-block:: aimms
 
                     forecasting::MovingAverage(
@@ -218,3 +211,7 @@ Example
     Here the history is from ``2021-04-01`` till ``2021-06-30`` and the horizon is from ``2021-07-01`` till ``2021-07-31``.
 
     .. |image| image:: images/MA2021.png
+
+.. spellcheck::
+    ​​
+    MovingAverage

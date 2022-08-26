@@ -1,7 +1,5 @@
 .. aimms:function:: forecasting::ExponentialSmoothingTrendSeasonality(dataValues, estimates, noObservations, noAveragingPeriods, alpha, beta, gamma, periodLength, ErrorMeasures, Residuals)
 
-.. _forecasting::ExponentialSmoothingTrendSeasonality:
-
 forecasting::ExponentialSmoothingTrendSeasonality
 =================================================
 
@@ -74,7 +72,7 @@ Arguments
     *noObservations*
         Specifies the number of elements that belong to the history of the time
         set. This parameter corresponds to :math:`T` in the notation presented
-        in :numref:`table:notation-observation-estimation`.
+        in :ref:`chapter:time-series-forecasting`.
 
     *noAveragingPeriods*
         Specifies the number of values used to compute a single average. This
@@ -102,8 +100,6 @@ Arguments
 Example
 -------
 
-    With declarations and data as specified in :numref:`table:sample-input-data` the call:
-
     .. code-block:: aimms
 
                     forecasting::ExponentialSmoothingTrendSeasonality(
@@ -116,10 +112,13 @@ Example
                         periodLength       :  7);
 
 
-
     This can be
     graphically displayed as:
 
     |image|
 
     .. |image| image:: images/ESTS2021.png
+
+.. spellcheck::
+​​​​​​​
+    ExponentialSmoothingTrendSeasonality

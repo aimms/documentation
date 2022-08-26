@@ -1,7 +1,5 @@
 .. aimms:function:: forecasting::SimpleLinearRegression(xIndepVarValue, yDepVarValue, LRcoeff, VariationComp, yEstimates, eResiduals)
 
-.. _forecasting::SimpleLinearRegression:
-
 forecasting::SimpleLinearRegression
 ===================================
 
@@ -14,7 +12,7 @@ Mathematical Formulation
 ------------------------
 
     Using the notation for observations and estimates given in
-    :numref:`table:notation-observation-data-SLR`, the estimates of the coefficients of the linear regression line
+    :ref:`chapter:notation-observation-data-SLR`, the estimates of the coefficients of the linear regression line
     are determined as follows:
 
     .. math:: \hat{\beta}_1 = \frac{\sum_{i=1}^{N}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{N}(x_i - \hat{x})^2}
@@ -211,3 +209,7 @@ Example
     |image|
 
     .. |image| image:: images/SLR_Ex_Graph.png
+
+.. spellcheck::
+​​​​​​​
+    SimpleLinearRegression

@@ -1,7 +1,5 @@
 .. aimms:function:: forecasting::ExponentialSmoothing(dataValues, estimates, noObservations, alpha, ErrorMeasures, Residuals)
 
-.. _forecasting::ExponentialSmoothing:
-
 forecasting::ExponentialSmoothing
 =================================
 
@@ -12,7 +10,7 @@ observation and a previous forecast.
 Mathematical Formulation
 ------------------------
 
-    Using the notation in :numref:`table:notation-observation-estimation`, the estimates are defined as:
+    Using the notation in this table :ref:`chapter:time-series-forecasting`, the estimates are defined as: 
 
     .. math:: e_t = \alpha y_{t-1} + ( 1 - \alpha ) e_{t-1}
 
@@ -79,7 +77,7 @@ Arguments
     *noObservations*
         Specifies the number of elements that belong to the history of the time
         set. This parameter corresponds to :math:`T` in the notation presented
-        in :numref:`table:notation-observation-estimation`.
+        in :ref:`chapter:time-series-forecasting`.
 
     *alpha*
         Specifies the weighting factor for the observation. This parameter
@@ -99,8 +97,6 @@ Arguments
 Example
 -------
 
-    With declarations and data as specified in :numref:`table:sample-input-data` the call:
-
     .. code-block:: aimms
 
                 forecasting::ExponentialSmoothing(
@@ -117,3 +113,7 @@ Example
     |image|
 
     .. |image| image:: images/ES2021.png
+
+.. spellcheck::
+​​​​​​​
+    ExponentialSmoothing

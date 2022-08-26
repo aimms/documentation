@@ -1,9 +1,6 @@
 Simple Linear Regression
 *************************
 
-Notational Conventions for Simple Linear Regression
----------------------------------------------------
-
 For simple linear regression we follow the conventions below.
 
 Observations and Estimates
@@ -13,9 +10,9 @@ The ``AimmsForecasting`` library uses as input data observations for the
 independent variable and the dependent variable. It provides estimates
 for the coefficients of the simple linear regression line.
 
-.. _table:notation-observation-data-SLR:
+.. _chapter:notation-observation-data-SLR:
 
-.. table:: Simple Linear Regression notation 
+.. table:: Simple Linear Regression Notation 
 
     ======================================== ======================================================
     :math:`N`                                number of observations

@@ -1,7 +1,5 @@
 .. aimms:function:: forecasting::ExponentialSmoothingTune(dataValues, noObservations, alpha, alphaLow, alphaUpp)
 
-.. _forecasting::ExponentialSmoothingTune:
-
 forecasting::ExponentialSmoothingTune
 =====================================
 
@@ -33,7 +31,7 @@ Arguments
     *noObservations*
         Specifies the number of elements that belong to the history of the time
         set. This parameter corresponds to :math:`T` in the notation presented
-        in :numref:`table:notation-observation-estimation`.
+        in :ref:`chapter:time-series-forecasting`.
 
     *alpha*
         Upon return it provides the weighting factor :math:`\alpha` for which
@@ -54,3 +52,7 @@ Arguments
     -  Please note that this function performs an optimization step; a
        nonlinear programming solver should be available and, in an AIMMS PRO
        environment, it should be run server side.
+
+.. spellcheck::
+​​​​​​​
+    ExponentialSmoothingTune

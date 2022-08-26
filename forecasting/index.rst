@@ -15,7 +15,6 @@ this library is discussed in this chapter.
    :maxdepth: 1
    
    intro
-   simple-linear-regression
-   time-series-forecasting
+   notational-conventions
    functions
 

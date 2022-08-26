@@ -1,7 +1,5 @@
 .. aimms:function:: forecasting::ExponentialSmoothingTrend(dataValues, estimates, noObservations, alpha, beta, ErrorMeasures, Residuals)
 
-.. _forecasting::ExponentialSmoothingTrend:
-
 forecasting::ExponentialSmoothingTrend
 ======================================
 
@@ -67,7 +65,7 @@ Arguments
     *noObservations*
         Specifies the number of elements that belong to the history of the time
         set. This parameter corresponds to :math:`T` in the notation presented
-        in :numref:`table:notation-observation-estimation`.
+        in :ref:`chapter:time-series-forecasting`.
 
     *alpha*
         Specifies the weighting factor for the observation. This parameter
@@ -85,8 +83,6 @@ Arguments
 Example
 -------
 
-    With declarations and data as specified in :numref:`table:sample-input-data` the call:
-
     .. code-block:: aimms
 
                 forecasting::ExponentialSmoothingTrend(
@@ -97,10 +93,13 @@ Example
                     beta               :  0.3);
 
 
-
     This can be
     graphically displayed as:
 
     |image|
 
     .. |image| image:: images/EST2021.png
+
+.. spellcheck::
+​​​​​​​
+    ExponentialSmoothingTrend
