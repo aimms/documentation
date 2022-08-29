@@ -324,6 +324,6 @@ For example, the ``icofont.css`` may have classes defined for each icon as illus
 
 You need to pick the name of the desired icon class and assign it to the icon field in the model specification. e.g., :token:`icofont-brand-adidas` 
 
-.. spelling::
+.. spelling:word-list::
 
     addons

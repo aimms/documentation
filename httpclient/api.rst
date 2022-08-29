@@ -243,7 +243,7 @@ Library Management
     
     :param clientConfigs: one-dimensional string parameter argument, holding the config arguments and values
  
-.. spelling::
+.. spelling:word-list::
 
     getters
     triaging

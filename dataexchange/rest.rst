@@ -250,6 +250,6 @@ Yielding time to the API service to handle requests
 
 Within the execution of an AIMMS procedure, you can call the function `dex::api::Yield` to yield time to the API service to handle requests. You can use this functionality for instance, to implement tests in a project providing REST services using the `dex::client` functions to call the service endpoints exposed by your model. 
 
-.. spelling::
+.. spelling:word-list::
 
     libCurl

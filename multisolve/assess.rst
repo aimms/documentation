@@ -217,7 +217,7 @@ References
 
 #.  `An introduction to perfmon for using it in practice <https://www.youtube.com/watch?v=wpSif29l778>`_
 
-.. spelling::
+.. spelling:word-list::
 
     multiSolve
     brainer

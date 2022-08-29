@@ -497,7 +497,7 @@ Now we have a function that can be called to generate the test plots. If we make
     In our example application the image folder should start empty because first the R code has to run and generate the images. When making an  :token:`aimmspack` it is possible that the image folder is not included because it is empty and then the :token:`png` device will fail in creating the images. You can place an empty :token:`do_not_delete.txt` file in the image folder to make sure that the folder will not be accidentally excluded from the :token:`aimmspack`.
 
 
-.. spelling::
+.. spelling:word-list::
 
     trainnn
     multinomial

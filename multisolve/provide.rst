@@ -127,7 +127,7 @@ Remarks:
        If it turns out that relatively significant time is spent in the generation of GMP's, 
        the alternative provide mode ``'modify'`` can be considered.
 
-.. spelling::
+.. spelling:word-list::
 
     multiSolve
 
