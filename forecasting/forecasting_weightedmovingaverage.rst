@@ -115,6 +115,4 @@ Example
 
     .. |image| image:: images/WMA2021.png
 
-.. spellcheck::
-​​​​​​​
-    WeightedMovingAverage
+

@@ -212,6 +212,3 @@ Example
 
     .. |image| image:: images/MA2021.png
 
-.. spellcheck::
-    ​​
-    MovingAverage

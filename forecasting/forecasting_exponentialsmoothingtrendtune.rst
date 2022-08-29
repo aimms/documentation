@@ -63,6 +63,3 @@ Arguments
        nonlinear programming solver should be available and, in an AIMMS PRO
        environment, it should be run server side.
 
-.. spellcheck::
-​​​​​​​
-    ExponentialSmoothingTrendTune

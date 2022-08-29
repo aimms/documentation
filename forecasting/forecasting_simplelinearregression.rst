@@ -209,7 +209,3 @@ Example
     |image|
 
     .. |image| image:: images/SLR_Ex_Graph.png
-
-.. spellcheck::
-​​​​​​​
-    SimpleLinearRegression

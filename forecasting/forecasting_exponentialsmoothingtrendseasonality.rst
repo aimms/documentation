@@ -119,6 +119,3 @@ Example
 
     .. |image| image:: images/ESTS2021.png
 
-.. spellcheck::
-​​​​​​​
-    ExponentialSmoothingTrendSeasonality

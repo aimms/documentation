@@ -113,7 +113,3 @@ Example
     |image|
 
     .. |image| image:: images/ES2021.png
-
-.. spellcheck::
-​​​​​​​
-    ExponentialSmoothing

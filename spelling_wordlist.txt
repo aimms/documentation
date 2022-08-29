@@ -71,3 +71,11 @@ refactored
 scrollbar
 scrollbars
 parallelization
+ExponentialSmoothing
+ExponentialSmoothingTrend
+ExponentialSmoothingTrendSeasonality
+ExponentialSmoothingTrendSeasonalityTune
+ExponentialSmoothingTrendTune
+ExponentialSmoothingTune
+SimpleLinearRegression
+WeightedMovingAverage

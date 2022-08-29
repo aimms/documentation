@@ -100,6 +100,3 @@ Example
 
     .. |image| image:: images/EST2021.png
 
-.. spellcheck::
-​​​​​​​
-    ExponentialSmoothingTrend
