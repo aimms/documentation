@@ -265,6 +265,7 @@ Note that in the above example data we have defined both the icon and its color 
 
 	* Side panels appear in the same order from top to bottom as they appear in the data of the string parameter.
 	* If you enter an incorrect ``pageId``, then the corresponding side panel tab will not be shown.
+	* Case sensitivity applies to ``pageId`` mapping.
 	* When a side panel tab is open in the WebUI and if the ``displayText``, ``tooltip``, ``icon``, or ``iconcolor`` are changed/updated the side panel does not collapse in the WebUI. Only when the ``pageId`` or ``state`` are changed/updated an open side panel will collapse.
 	
 Configuring the string parameter on regular pages
