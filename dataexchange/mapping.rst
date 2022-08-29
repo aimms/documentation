@@ -267,6 +267,6 @@ Thus, for instance, to generate a JSON array containing only all element names o
 
 If a node in the mapping contains an included mapping, all externally bound indices bound to the values of bound indices in the outer mapping, will be carried over to the included mapping, resulting in the Data Exchange library to use the identifier slices corresponding to the externally bound indices to generate the node contents.
 
-.. spelling:word-list::
+.. spelling::
 
     regex

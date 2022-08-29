@@ -231,7 +231,7 @@ There is a clear separation between this program logic, and the business logic t
 #.  Retrieve solutions and put them in the data instances.
 
 
-.. spelling:word-list::
+.. spelling::
 
     multiSolve
 

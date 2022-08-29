@@ -497,6 +497,6 @@ The specified chart title is then reflected on the widget header:
 
 |  
 
-.. spelling:word-list::
+.. spelling::
 
     highcharts

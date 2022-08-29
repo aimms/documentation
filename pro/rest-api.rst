@@ -179,7 +179,7 @@ body described in ``AimmsVersion.yaml`` in the API schema:
         }
 
 
-.. spelling:word-list::
+.. spelling::
 
     projectCategory
 	isLatest

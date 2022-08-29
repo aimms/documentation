@@ -78,6 +78,6 @@ By default, all users of a published WebUI application on a PRO server can edit 
 Locking the editors will still allow the 'locked' users to change data and to create/compare cases, but they won't be able to change the application's UI structure. Furthermore, this option only affects published WebUI apps on PRO: when developing your WebUI locally, this setting does not affect the options editors, so you can just continue to make changes to your widgets when you are still developing the app.
 
 
-.. spelling:word-list::
+.. spelling::
 
     ae

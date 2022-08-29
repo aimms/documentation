@@ -290,7 +290,7 @@ Steps should be self sufficient, meaning that users don’t need to navigate to 
 
 You should not require users to exit and re-enter the workflow in order to complete it.
 
-.. spelling:word-list::
+.. spelling::
 
     workflowPageState
     pageDataState

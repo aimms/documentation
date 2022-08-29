@@ -44,7 +44,7 @@ Of course the library documentation would not be complete without the appendices
 ..    assess
 
 
-.. spelling:word-list::
+.. spelling::
 
     multiSolve
     acquints

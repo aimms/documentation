@@ -198,6 +198,6 @@ The AIMMS Cloud Platform is a fully managed AIMMS PRO environment. It is secure,
 
 More details can be found in the :doc:`AIMMS Cloud platform documentation </cloud/index>`.
 
-.. spelling:word-list::
+.. spelling::
 
     ons

@@ -8860,7 +8860,7 @@ Improvements
  
 
 
-.. spelling:word-list::
+.. spelling::
 
     presolved
     iODBC

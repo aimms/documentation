@@ -211,7 +211,7 @@ This could then print:
 
 Here we see in the top row the names from the ``ColumnMapping`` of the mapping. In the left column are the row numbers added by python. The other columns are data read from file *filefromdex.parquet*.
 
-.. spelling:word-list::
+.. spelling::
 
     geocoding
 		dataframes

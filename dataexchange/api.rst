@@ -394,6 +394,6 @@ The following functions are available for management of the memory streams.
 	:param fileName: name of the to which the content of the stream needs to be written.
 	
 
-.. spelling:word-list::
+.. spelling::
 
     uninitialize

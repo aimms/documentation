@@ -88,7 +88,7 @@ in :doc:`optimization-modeling-components/solving-mathematical-programs/the-solv
         
     endblock;
 
-.. spelling:word-list::
+.. spelling::
 
     acquireTimeout
     leaseMaxDuration

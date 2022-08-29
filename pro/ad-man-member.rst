@@ -62,6 +62,6 @@ In order for a user to be allowed to publish AIMMS projects, the user needs to b
 
 Following the same steps, but only dragging the user into the *AimmsPublishers* group will give AIMMS version publishing rights to the Active Directory user.
 
-.. spelling:word-list::
+.. spelling::
 
     mydomain
