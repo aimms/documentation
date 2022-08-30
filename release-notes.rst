@@ -12,6 +12,53 @@ AIMMS 4.87
 #############
 
 
+AIMMS 4.88.1 Release (August 30, 2022 - build 4.88.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The option 'Updates batch size' has been added for Gurobi to pass GMP updates more efficiently.
+-  Several solution and solver related statistics have been added to the Math Program Inspector, on the Math Program Solution, Variable Statistics and Constraint Statistics tabs.
+-  Gurobi 9.5 has been upgraded to version 9.5.2.
+-  Four new GMP routines have been added:
+- GMP::Coefficient::GetRaw
+- GMP::Row::GetRightHandSideRaw
+- GMP::Column::GetLowerBoundRaw
+- GMP::Column::GetUpperBoundRaw
+
+These can be used to retrieve a collection of coefficients/bounds/right-hand-sides efficiently.
+-  A new GMP procedure, called GMP::Coefficient::GetMinAndMax, was added. It can be used to determine the minimum and maximum value of coefficients in a generated mathematical program.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The procedure GMP::Instance::Solve did not take CurrentSolver into account for selecting the solver. (Note: GMP::Instance::SetSolver overrules CurrentSolver.).
+-  If the terms in the definition of a constraint are not unit-less then the Unit attribute of the constraint itself should also be specified and it should be commensurate with each of the terms in the definition. AIMMS was not always checking this, especially when unit parameters are involved that are not linked to a specific quantity. In that situation the unit consistency can only be checked during the generation of the mathematical program (and thus not at compile time).
+This change may lead to new warnings and errors in your existing model, and you should correct your model to make the units consistent. 
+If you encounter serious problems because of this change, please let us know.
+-  The infeasibility analysis by the AIMMS Presolver could sometimes be more complicated than needed.
+-  The program and solver status returned by IPOPT was incorrect in case the problem had too few degrees of freedom.
+-  Opening the Math Program Inspector for large MIP models with indicator constraints, solved with CPLEX, could be slow.
+-  The procedure GMP::Solution::Check did not take units into account.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  on Grid Layout pages, from the Page Configurator in the sidebar, you can now add your widgets directly to a Grid Area. So without having to drag each of them from the bottom of the list of Unassigned Widgets. For details, please see THE DOCUMENTATION.
+-  The Table widget has a new 'Show Upload/Download Data Controls' option, with which you can control whether you allow your end-users to upload/download the table data. In case of sensitive data you would probably want to prevent this. The default of the option is Off, so please be aware that you may need to make some changes to your existing applications. For more details, see THE DOCUMENTATION.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In the WebUI it is now possible to select 'element variables' as the contents of a table.
+
+--------------
+
+
+
 AIMMS 4.87.7 Release (August 23, 2022 - build 4.87.7.5).
 ------------------------------------------------------------------------------------------
 
