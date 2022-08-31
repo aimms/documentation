@@ -39,7 +39,7 @@ AIMMS Improvements
     -  GMP::Column::GetLowerBoundRaw
     -  GMP::Column::GetUpperBoundRaw
 
-These can be used to retrieve a collection of coefficients/bounds/right-hand-sides efficiently.
+   These can be used to retrieve a collection of coefficients/bounds/right-hand-sides efficiently.
 -  A new GMP procedure, called GMP::Coefficient::GetMinAndMax, was added. It can be used to determine the minimum and maximum value of coefficients in a generated mathematical program.
 
 Resolved AIMMS Issues
