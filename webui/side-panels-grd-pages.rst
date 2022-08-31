@@ -79,45 +79,8 @@ Side panel pages can be added to any level in the page tree, just like any other
 Adding widgets to a Side Panel Grid Page
 ----------------------------------------
 
-Essentially, adding widgets to a side panel grid page works in the same way as for a grid page. 
+Essentially, adding widgets to a side panel grid page works in the same way as for a grid page, as described `here <widget-manager.html>`_ .
 
-Step 1: Click the side panel grid page you want to add widgets to, in the application tree:
-
-.. image:: images/SPGL_SelectPage.png
-			:align: center
-			
-Step 2: You will see a narrow fixed width page. Switch to the "Page" tab, notice that ``Layout 11`` is assigned by default:
-
-.. image:: images/SPGL_Layout11Default.png
-			:align: center
-
-The Side Panel Title on the side panel page's header can be configured via the model. This is a preview and acts as a placeholder to depict how the actual side panel tab will look. This also gives an idea of the **usable area** for adding widgets in the side panel grid page. Side Panel Title is replaced with the `displayText` value specified in the string parameter used to configure the side panels.
-
-.. image:: images/SPGL_Preview.png
-			:align: center
-
-.. image:: images/SPGL_Preview_Small.png
-			:align: center
-
-Step 3: Click the "+" button at the bottom of the Page Configuration tab in order to open the widget addition wizard and add a widget:
-
-.. image:: images/SPGL_AddWidget.png
-			:align: center
-
-Step 4: Any new widget added appears in the "Unassigned widgets" area. Drag-and-drop the widget into "Area A":
-
-.. image:: images/SPGL_AddandDrag.png
-			:align: center
-
-Step 5: Once the widget appears in the designated area, you can configure the widget as required:
-
-.. image:: images/SPGL_ConfigureWidget.png
-			:align: center
-
-Step 6: Repeat steps 3 to 5 to add more widgets to the side panel. Since ``Layout 11`` is the assigned layout (by default), all widgets added to the "Area A" will be distributed equally in this case:
-
-.. image:: images/SPGL_Final.png
-			:align: center
 
 Creating a Custom Layout 
 ------------------------
