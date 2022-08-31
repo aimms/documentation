@@ -9,7 +9,7 @@ before_script:
   - curl "https://packages.gitlab.com/gpg.key" -o /tmp/omnibus_gitlab_gpg.key
   - sudo apt-key add /tmp/omnibus_gitlab_gpg.key
   - sudo rpm --import /tmp/omnibus_gitlab_gpg.key
-  - sudo apt-get install software-properties-common -y
+  - sudo apt-get --yes -o Dpkg::Options::="--force-confold" install software-properties-common
   - sudo add-apt-repository ppa:deadsnakes/ppa -y
   - sudo apt-get update -y
   - sudo apt-get install python3.8 python3.8-dev python3.8-venv python3-pip python3-venv python-enchant -y
