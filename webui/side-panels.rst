@@ -68,25 +68,8 @@ Side panels can be added to any level in the page tree, just like any normal pag
 Adding widgets to a Side Panel
 ------------------------------
 
-Adding widgets to a side panel page is the same as adding widgets to any other page. 
+Adding widgets to a side panel page is the same as adding widgets to any other page, as described `here <widget-manager.html>`_ .
 
-Step 1: Click the side panel page you want to add widgets to in the page manager
-
-.. image:: images/SP_Addwidget1toSP1.png
-			:align: center
-			
-Step 2: You will see a 2-column width page. Open the Widget Manager.
-
-.. image:: images/SP_Addwidget1toSP2.png
-			:align: center
-
-Step 3: Add desired widgets to the page.
-
-.. image:: images/SP_Addwidget1toSP3.png
-			:align: center
-
-.. image:: images/SP_Addwidget1toSP4.png
-			:align: center
 
 .. note:: 
 	
