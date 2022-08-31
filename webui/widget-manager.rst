@@ -52,7 +52,7 @@ In order to put a new widget on your page:
 The widget that you create using this wizard will be added to the 'Unassigned widgets' section on in the page manager. Now you can drag the widget to the area where you want it to be displayed on the page.
 
 
-Adding a widget (AIMMS 4.87 and higher)
+Adding a widget (AIMMS 4.88 and higher)
 =======================================
 
 In order to put a new widget on your page:

@@ -8,14 +8,23 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
-AIMMS 4.87
+AIMMS 4.88
 #############
 
 
-AIMMS 4.88.1 Release (August 30, 2022 - build 4.88.1.0).
+AIMMS 4.88.1 Release (August 31, 2022 - build 4.88.1.2).
 ------------------------------------------------------------------------------------------
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+IMPORTANT: Backward Compatibility on PRO
+++++++++++++++++++++++++++++++++++++++++
+For applications that are or will be built with AIMMS 4.88 (or future versions) to be published on PRO, it is necessary to update AIMMS PRO (on-premise) to version 2.44, released July 15 (see the `PRO release notes <https://documentation.aimms.com/pro-release-notes.html>`__).
+
+We have changed the underlying build configuration of our C++ code to move faster to new technologies. This upgrade does not affect the functionality of any product of AIMMS. Still, due to unavoidable name changes of some of the binaries we release with AIMMS, older versions of PRO and repository libraries are no longer compatible. This adjustment will improve the robustness and maintainability of our code.
+
+It might also affect some Repository Libraries, but that will be solved 'automatically' when you open the model in AIMMS 4.88 (or future versions). 
+If you open the model in AIMMS 4.88 (or future versions) before publishing, the Autolib will find the supported version for all repository libraries in the model and will show a pop-up that versions have been updated, and you need to save the model. Only when the model used a very old version (lower than 1.0.0) of the Unit Test Library, some incompatibility may arise because an identifier 's' is no longer available.
 
 AIMMS Improvements
 +++++++++++++++++++++++++
@@ -24,10 +33,11 @@ AIMMS Improvements
 -  Several solution and solver related statistics have been added to the Math Program Inspector, on the Math Program Solution, Variable Statistics and Constraint Statistics tabs.
 -  Gurobi 9.5 has been upgraded to version 9.5.2.
 -  Four new GMP routines have been added:
-- GMP::Coefficient::GetRaw
-- GMP::Row::GetRightHandSideRaw
-- GMP::Column::GetLowerBoundRaw
-- GMP::Column::GetUpperBoundRaw
+
+    -  GMP::Coefficient::GetRaw
+    -  GMP::Row::GetRightHandSideRaw
+    -  GMP::Column::GetLowerBoundRaw
+    -  GMP::Column::GetUpperBoundRaw
 
 These can be used to retrieve a collection of coefficients/bounds/right-hand-sides efficiently.
 -  A new GMP procedure, called GMP::Coefficient::GetMinAndMax, was added. It can be used to determine the minimum and maximum value of coefficients in a generated mathematical program.
@@ -36,9 +46,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  The procedure GMP::Instance::Solve did not take CurrentSolver into account for selecting the solver. (Note: GMP::Instance::SetSolver overrules CurrentSolver.).
--  If the terms in the definition of a constraint are not unit-less then the Unit attribute of the constraint itself should also be specified and it should be commensurate with each of the terms in the definition. AIMMS was not always checking this, especially when unit parameters are involved that are not linked to a specific quantity. In that situation the unit consistency can only be checked during the generation of the mathematical program (and thus not at compile time).
-This change may lead to new warnings and errors in your existing model, and you should correct your model to make the units consistent. 
-If you encounter serious problems because of this change, please let us know.
+-  If the terms in the definition of a constraint are not unit-less then the Unit attribute of the constraint itself should also be specified and it should be commensurate with each of the terms in the definition. AIMMS was not always checking this, especially when unit parameters are involved that are not linked to a specific quantity. In that situation the unit consistency can only be checked during the generation of the mathematical program (and thus not at compile time). This change may lead to new warnings and errors in your existing model, and you should correct your model to make the units consistent. If you encounter serious problems because of this change, please let us know.
 -  The infeasibility analysis by the AIMMS Presolver could sometimes be more complicated than needed.
 -  The program and solver status returned by IPOPT was incorrect in case the problem had too few degrees of freedom.
 -  Opening the Math Program Inspector for large MIP models with indicator constraints, solved with CPLEX, could be slow.
@@ -47,13 +55,14 @@ If you encounter serious problems because of this change, please let us know.
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  on Grid Layout pages, from the Page Configurator in the sidebar, you can now add your widgets directly to a Grid Area. So without having to drag each of them from the bottom of the list of Unassigned Widgets. For details, please see THE DOCUMENTATION.
--  The Table widget has a new 'Show Upload/Download Data Controls' option, with which you can control whether you allow your end-users to upload/download the table data. In case of sensitive data you would probably want to prevent this. The default of the option is Off, so please be aware that you may need to make some changes to your existing applications. For more details, see THE DOCUMENTATION.
+-  On Grid Layout pages, from the Page Configurator in the sidebar, you can now add your widgets directly to a Grid Area. So without having to drag each of them from the bottom of the list of Unassigned Widgets. For details, please see `the documentation <https://documentation.aimms.com/webui/widget-manager.html#adding-a-widget>`__.
+-  The Table widget has a new 'Show Upload/Download Data Controls' option, with which you can control whether you allow your end-users to upload/download the table data. In case of sensitive data you would probably want to prevent this. The default of the option is Off, so please be aware that you may need to make some changes to your existing applications. For more details, see `the documentation <https://documentation.aimms.com/webui/table-widget.html#controlling-the-csv-and-excel-functionality>`__.
+
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  In the WebUI it is now possible to select 'element variables' as the contents of a table.
+-  In the WebUI it is now possible to select element variables as the contents of a table.
 
 --------------
 
