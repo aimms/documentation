@@ -6,6 +6,7 @@ Table Widget
 .. |table-filtered| image:: images/headerfiltered_icon.png
 .. |delete-filter-icon| image:: images/filterdelete_icon.png
 .. |disable-rule| image:: images/enablerule_icon.png
+.. |widget-header-kebab| image:: images/widget-header-kebab.png
 
 The Table widget allows you to visualize and/or edit the data of one or more AIMMS identifiers represented in a tabular format:
 
@@ -102,10 +103,20 @@ AIMMS offers support for special numbers, like inf, na, undef, etc. The WebUI ta
   * any total that contains 'inf' (as an operand) as well as '-inf' results in undefined and produces an error message in the WebUI.
 
 
+The Kebab Menu
+--------------
+
+Because the header menu of the Table widget had become a bit obscure after adding new icons for various features in it, from AIMMS 4.89 onwards we cleaned up the header by introducing the 'kebab' menu (recognizable by the |widget-header-kebab| icon). This menu combines the options to download the table to a CSV file, to upload/download to/from an Excel file, the widget actions for the table and a help menu. Below is an example of the menu contents, when all options are available:
+
+.. image:: images/Kebab-menu-full.png
+    :align: center
+
+The menu is divided into four sections. The top one contains the download options, the second one the upload option, the third one the custom widget actions and the bottom one included the help menu.
+
 Download Table Data to CSV File
 -------------------------------
   
-The Table Widget offers you the possibility to download its current contents to a .csv file on your local machine, which you can use to further process your data in, for example, Excel. On the top right, left of the 'Full Screen' icon, you can find the download icon. 
+The Table Widget offers you the possibility to download its current contents to a .csv file on your local machine, which you can use to further process your data in, for example, Excel. On the top right, in the kebab menu, you can find the option 'Download.csv' (if the option is allowed by the app developer, see the :ref:`ControlCSV` section below).
 
 .. image:: images/Table-SaveCSV.png
     :align: center
@@ -130,11 +141,12 @@ More specifically, after using Excel to make edits to the data, the same sheet c
 
    These features of the Table are available as an Experimental Feature from AIMMS 4.86 onwards. You can switch on the feature by checking the 'Excel Upload/Download Support' box in the Experimental Features dialog.
 
-On the Table Widget header you can find the icons for the download/upload actions:
+On the Table Widget header you can access both actions when opening the kebab menu:
 
 .. image:: images/Table-Excel-Download-Upload-Icons.png  
     :align: center
 
+(Please note that the screenshots below have been taken with an AIMMS version prior to 4.89, in which the kebab menu was not present yet).
 For example, when clicking the button for downloading to Excel on the following table
 
 .. image:: images/Table-Excel-Download-ex-1.png
@@ -213,6 +225,8 @@ The following aspects are not (yet) supported, but may be subject to further imp
 • No support for the display of units of measurement (in the downloaded Excel file). Only the plain values (without units) are subject to the download/upload actions.
 • There is no dedicated 'procedure upon upload'. The reason for this drawback is that currently the upload changes are applied as if they were a sequence of manual edits. 
 
+
+.. _ControlCSV:
 
 Controlling the CSV and Excel functionality
 -------------------------------------------

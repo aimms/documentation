@@ -5,6 +5,7 @@ Widget Options
 .. |widget-action-old| image:: images/widget-actions.png
 .. |widget-action| image:: images/widget-actions-new.png
 .. |widget-action-nohover| image:: images/widget-actions-new-nohover.png
+.. |widget-header-kebab| image:: images/widget-header-kebab.png
 
 The ‘cog wheel’ button |cog-widget| (in the upper right corner of a widget) will open a pop-up window that allows you to change the options for the widget. 
 
@@ -754,7 +755,7 @@ Widget Actions
 
 .. note:: Widget actions tutorial is available in the `WebUI Advanced User Interactions <https://academy.aimms.com/mod/page/view.php?id=971>`_ training on the AIMMS Academy
 
-Widget Actions are a set of actions/procedures that can be defined via the model and configured for individual widgets. These widget actions are grouped under the |widget-action| icon in the widget header. The widget action displays up to 10 actions. In case you configure more than 10, only the top 10 active and/or inactive actions will be displayed.
+Widget Actions are a set of actions/procedures that can be defined via the model and configured for individual widgets. These widget actions are grouped under the |widget-header-kebab| icon in the widget header. The widget action displays up to 10 actions. In case you configure more than 10, only the top 10 active and/or inactive actions will be displayed.
 
 The widget actions can be associated with any procedure in your model. For example: Resetting data, Saving data, etc.
 
@@ -763,7 +764,7 @@ The widget actions can be associated with any procedure in your model. For examp
 
 .. note::
 
-    The Widget Actions icon in versions before AIMMS 4.75 used to be |widget-action-old|
+    The Widget Actions icon in versions before AIMMS 4.75 used to be |widget-action-old| and before AIMMS 4.89 it used to be |widget-action|. The screenshots on this page have been taken with a version between AIMMS 4.75 and 4.89.
 
 Configuring Widget Actions
 ++++++++++++++++++++++++++
