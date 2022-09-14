@@ -8,6 +8,10 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 
+1.26.0.30 [14-09-2022]
+	- First version compatible with new build system for AIMMS
+	- Fixed crash in cdm::ComputeDeltaOut
+
 1.25.0.6 [26-07-2022]
 	- When creating a new table for a modified identifier, the associated unique constraint kept the same name as for the previous table, leading to a SQLServer error
 
