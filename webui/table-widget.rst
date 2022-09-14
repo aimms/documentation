@@ -111,7 +111,7 @@ Because the header menu of the Table widget had become a bit obscure after addin
 .. image:: images/Kebab-menu-full.png
     :align: center
 
-The menu is divided into four sections. The top one contains the download options, the second one the upload option, the third one the custom widget actions and the bottom one included the help menu.
+The menu is divided into four sections. The top one contains the download options, the second one the upload option, the third one the custom widget actions and the bottom one includes the help menu.
 
 Download Table Data to CSV File
 -------------------------------
