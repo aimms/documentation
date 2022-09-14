@@ -106,7 +106,7 @@ AIMMS offers support for special numbers, like inf, na, undef, etc. The WebUI ta
 The Kebab Menu
 --------------
 
-Because the header menu of the Table widget had become a bit obscure after adding new icons for various features in it, from AIMMS 4.89 onwards we cleaned up the header by introducing the 'kebab' menu (recognizable by the |widget-header-kebab| icon). This menu combines the options to download the table to a CSV file, to upload/download to/from an Excel file, the widget actions for the table and a help menu. Below is an example of the menu contents, when all options are available:
+Because the header menu of the Table widget had become a bit cluttered after adding new icons for various features in it, from AIMMS 4.89 onwards we cleaned up the header by introducing the 'kebab' menu (recognizable by the |widget-header-kebab| icon). This menu combines the options to download the table to a CSV file, to upload/download to/from an Excel file, the widget actions for the table and a help menu. Below is an example of the menu contents, when all options are available:
 
 .. image:: images/Kebab-menu-full.png
     :align: center
