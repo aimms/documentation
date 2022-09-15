@@ -6,7 +6,7 @@ For simple linear regression we follow the conventions below.
 Observations and Estimates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ``AimmsForecasting`` library uses as input data observations for the
+The ``Forecasting`` library uses as input data observations for the
 independent variable and the dependent variable. It provides estimates
 for the coefficients of the simple linear regression line.
 
@@ -131,10 +131,3 @@ follows:
 In order to obtain the variation components, the
 user will need to provide a parameter indexed over ``forecasting::vcs``
 to the linear regression functions.
-
-AIMMS supports the following function for simple linear regression:
-
-.. toctree::
-   :maxdepth: 1
-
-   forecasting_simplelinearregression
