@@ -79,3 +79,5 @@ ExponentialSmoothingTrendTune
 ExponentialSmoothingTune
 SimpleLinearRegression
 WeightedMovingAverage
+MovingAverage
+
