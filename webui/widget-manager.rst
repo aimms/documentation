@@ -13,11 +13,15 @@ Widget Manager
 
 .. |plus-add-widget| image:: images/WidgetManager_snap3.png
 
+.. |page-manager| image:: images/page_manager_new.png
 
-You can access the Widget Manager by pressing the pencil icon |pencil-black| in the `WebUI Menu Bar <menu-bar.html>`_.
+.. |kebab| image:: images/kebab.png
 
-Adding a widget
-================
+
+The way to add a new widget to your WebUI page has changed over time. On this page, all manners to do it are described, along with the AIMMS versions to which those are applicable.
+
+Adding a widget (up to AIMMS 4.74)
+==================================
 
 In order to put a new widget on your page:
 
@@ -27,6 +31,47 @@ In order to put a new widget on your page:
 
 .. image:: images/WidgetManager_snap4.png
     :align: center
+
+
+Adding a widget (AIMMS 4.74 to AIMMS 4.87)
+==========================================
+
+In order to put a new widget on your page:
+
+* Navigate to the page manager by clicking on the hamburger icon |page-manager| in the top left of your screen.
+* In the menu that appears, click on the Page tab on the right. This shows the following:
+
+.. image:: images/page-manager-empty.png
+    :align: center
+
+* Press the big plus button |plus-widget| on the bottom to show the Add Widget wizard:
+
+.. image:: images/add-widget-wizard.png
+    :align: center
+
+The widget that you create using this wizard will be added to the 'Unassigned widgets' section on in the page manager. Now you can drag the widget to the area where you want it to be displayed on the page.
+
+
+Adding a widget (AIMMS 4.88 and higher)
+=======================================
+
+In order to put a new widget on your page:
+
+* Navigate to the page manager by clicking on the hamburger icon |page-manager| in the top left of your screen.
+* In the menu that appears, click on the Page tab on the right. This shows the following:
+
+.. image:: images/page-manager-empty-no-plus-button.png
+    :align: center
+
+(note that, compared to the previous section, the plus button |plus-widget| on the bottom is missing).
+
+* In this menu, navigate to the area to which you would like to add your new widget and click on the |kebab| menu for that area.
+* This will display a flyout menu with the option 'Add new widget'. Click on this to show the Add Widget wizard:
+
+.. image:: images/add-widget-wizard.png
+    :align: center
+
+As opposed to the previous section, your widget will now automatically be placed in the area for which you clicked the |kebab| menu. Of course, it is still possible to drag it to another area.
 
 .. tip::
 
@@ -81,3 +126,4 @@ Locking the editors will still allow the 'locked' users to change data and to cr
 .. spelling::
 
     ae
+    flyout

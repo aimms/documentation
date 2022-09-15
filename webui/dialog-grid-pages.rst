@@ -101,11 +101,11 @@ The pictures above show the dialog grid pages in their preview mode. In this mod
 Adding widgets to a Dialog Grid Page
 ------------------------------------
 
-Essentially, `adding widgets <widget-manager.html#adding-a-widget>`_ to a dialog grid page works in the same way as for a (grid) page, a regular dialog, or a side panel. Please follow the next steps.
+Essentially, `adding widgets <widget-manager.html#adding-a-widget>`_ to a dialog grid page works in the same way as for a (grid) page, a regular dialog, or a side panel.
 
 First, select a desired dialog size by clicking on the respective button in the top right corner of the dialog grid page or by defining a custom size for it. Subsequently, you can change the current grid layout to another grid layout in the same way as for regular `Grid Pages <webui-grid-pages.html>`_ by using the `Page Configurator tab of the App Manager <webui-grid-pages.html#page-manager-with-grid-pages>`_. More specifically, the layout may be chosen as any of the available `Standard Layouts <webui-grid-pages.html#standard-layouts>`_ or `Custom Layouts <webui-grid-pages.html#custom-layouts>`_. 
 
-Then open the widget manager and `add widgets <widget-manager.html#adding-a-widget>`_ which are needed. Please note that the "Add widget" option dialog can also be opened by clicking on the "+" button located at the bottom of the Page Configurator tab, see pictures above.
+Then open the widget manager and `add widgets <widget-manager.html#adding-a-widget>`_ which are needed.
 
 For example, for Dialog_Small declared above, we can keep the Small size and the grid Layout 11 (which has only Area A for widgets) and then add a table widget "demand_table" to this dialog grid page by using the "Add widget" option dialog:
 

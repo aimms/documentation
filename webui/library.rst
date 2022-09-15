@@ -324,7 +324,7 @@ Arguments
 
 This procedure has the following arguments:
 
-* ``pageId``: An element parameter(with range :any:`AllDialogPages`) which should contain the ``pageId`` of the dialog page you want to open. When a dialog page is created, an entry is added to the set :any:`AllDialogPages` under the `Public Pages Support Declarations`_ with a unique ``pageId`` in the `Pages and Dialog Support section`_.   
+* ``pageId``: An element parameter (with range :any:`AllDialogPages`) which should contain the ``pageId`` of the dialog page you want to open. When a dialog page is created, an entry is added to the set :any:`AllDialogPages` under the `Public Pages Support Declarations`_ with a unique ``pageId`` in the `Pages and Dialog Support section`_. Case sensitivity applies to ``pageId`` mapping.   
 * ``title``: A string parameter which contains the text to be displayed as the title of the dialog box. If this is left blank, i.e "", it will display the dialog page name given during creation by default.
 * ``actions``: A set of custom actions. The elements of this set are represented as buttons in the message dialog and their text is the same as the action names. When an action is selected (button is clicked), it invokes the ``onDone`` procedure with the corresponding action as an argument. If this set is empty, the buttons will have "Cancel" and "OK" by default respectively. 
 * ``onDone``: A reference to a procedure in the set AllProcedures. The procedure should have a single input string parameter as argument. When a user selects an action, the ``onDone`` procedure is invoked with the action name as its argument.

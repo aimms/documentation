@@ -68,25 +68,8 @@ Side panels can be added to any level in the page tree, just like any normal pag
 Adding widgets to a Side Panel
 ------------------------------
 
-Adding widgets to a side panel page is the same as adding widgets to any other page. 
+Adding widgets to a side panel page is the same as adding widgets to any other page, as described `here <widget-manager.html>`_ .
 
-Step 1: Click the side panel page you want to add widgets to in the page manager
-
-.. image:: images/SP_Addwidget1toSP1.png
-			:align: center
-			
-Step 2: You will see a 2-column width page. Open the Widget Manager.
-
-.. image:: images/SP_Addwidget1toSP2.png
-			:align: center
-
-Step 3: Add desired widgets to the page.
-
-.. image:: images/SP_Addwidget1toSP3.png
-			:align: center
-
-.. image:: images/SP_Addwidget1toSP4.png
-			:align: center
 
 .. note:: 
 	
@@ -166,6 +149,7 @@ In the above data we have not defined values for the color of the icon for the F
 
 	* Side panels appear in the same order from top to bottom as they appear in the data of the string parameter.
 	* If you enter an incorrect ``pageId``, then the corresponding side panel tab will not be shown.
+	* Case sensitivity applies to ``pageId`` mapping.
 	* When a side panel tab is open in the WebUI and if the ``displayText``, ``tooltip``, ``icon``, or ``iconcolor`` are changed/updated the side panel does not collapse in the WebUI. Only when the ``pageId`` or ``state`` are changed/updated an open side panel will collapse.
 	
 Configuring the string parameter on respective pages
