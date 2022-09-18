@@ -34,7 +34,7 @@ Look at the following mapping for a JSON format
         </ObjectMapping>
     </AimmsJSONMapping>
 
-It describes a JSON file with an object with four children, one of which is an array holding multiple structurally identical objects, bound to an index :token:`k`. A matching JSON file could look like: 
+It describes a JSON file with an object with four children, one of which is an array holding multiple structurally identical objects, bound to an index ``k``. A matching JSON file could look like: 
 
 .. code-block:: json
 
@@ -78,7 +78,7 @@ Look at the following mapping for an XML format
         </ElementObjectMapping>
     </AimmsXMLMapping> 
     
-It describes an XML file with an object with four children, one of which is another object holding multiple structurally identical values, bound to an index :token:`k`. A matching XML file could look like: 
+It describes an XML file with an object with four children, one of which is another object holding multiple structurally identical values, bound to an index ``k``. A matching XML file could look like: 
 
 .. code-block:: xml
 
@@ -121,7 +121,7 @@ Look at the following mapping for a CSV format:
         </RowMapping>
     </AimmsCSVMapping>
 
-It describes a repetitive table node, i.e. a repetitive structure consisting of multiple rows, each consisting of multiple named column leaf-nodes either being bound to the indices :token:`i` and :token:`j`, or to multi-dimensional identifiers over these two indices. A CSV file associated with this mapping could look like:
+It describes a repetitive table node, i.e. a repetitive structure consisting of multiple rows, each consisting of multiple named column leaf-nodes either being bound to the indices ``i`` and ``j``, or to multi-dimensional identifiers over these two indices. A CSV file associated with this mapping could look like:
 
 .. code-block:: xml
     
@@ -158,7 +158,7 @@ Look at the following mapping for a Excel file with a single sheet with a table:
         </SheetMapping>
     </AimmsExcelMapping>
 
-This mapping will create the same table as in the CSV example, but will now output the table to an Excel workbook with a sheet called :token:`Table1`. A single Excel mapping can contain mappings for multiple sheets.
+This mapping will create the same table as in the CSV example, but will now output the table to an Excel workbook with a sheet called ``Table1``. A single Excel mapping can contain mappings for multiple sheets.
 
 Example: Parquet mapping
 ------------------------

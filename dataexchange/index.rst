@@ -23,7 +23,9 @@ The following sections explain the Data Exchange library in more detail.
    using
    mapping
    standard
-   rest
+   rest-client
+   openapi-client
+   rest-server
    api
    release
 

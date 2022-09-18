@@ -393,6 +393,31 @@ The following functions are available for management of the memory streams.
 	:param streamName: name of memory stream to write content from
 	:param fileName: name of the to which the content of the stream needs to be written.
 	
+Generators
+----------
+
+For JSON schema and OpenAPI specifications, the Data Exchange library can generate a runtime library with collections of identifiers for all schema contained in these files, and, for all operations defined in an OpenAPI specification, a synchronous or asynchronous procedure that will make the corresponding API call and will take care of all handling of parameters, request and response bodies associated with the operation.
+
+..  js:function:: dex::schema::ParseJSONSchema
+
+	Generate a runtime library containing a collection of identifiers, along with a collection of mapping files that can read/write any JSON file that adheres to the schema into the identifiers in the runtime library. 
+	
+	:param schemaPath: absolute or relative path where to find the JSON schema file from which to generate the runtime library
+	:param schemaName_: name of the schema for which to create a runtime library and mapping, will also serve as the name of the runtime library.
+	:param schemaPrefix: prefix of the runtime library to generate
+	:param explodeDefault: flag to indicate whether to add references to an instance of a subschema (0), to explode subschemas into a schema but still maintaining an `instance` index to allow multiple instances of the data (1, default),  or to explode without an additional `instance` index (2)
+	:param externalBindsToPrefx_: string parameter holding an additional index to prefix to the index domain of every generated identifier in the runtime library
+	:param externalBindingPrefix: string parameter holding the name of an element parameter to serve as the external binding for the `externalBindsToPrefix_` argument
+
+..  js:function:: dex::schema::GenerateAPIClientFromOpenAPISpec
+
+	Generate a runtime library containing a collection procedures to call all operations defined in the OpenAPI specification, along with a collection of identifiers and their corresponding mappings, than are used to store the data of the request and response bodies associated with these operations.
+	
+	:param schemaPath: absolute or relative path where to find the OpenAPI specification file from which to generate the runtime library
+	:param schemaName_: name of the OpenAPI specification for which to create a runtime library and mapping, will also serve as the name of the runtime library.
+	:param schemaPrefix: prefix of the runtime library to generate
+	:param explodeDefault: flag to indicate whether to add references to an instance of a subschema (0), to explode subschemas into a schema but still maintaining an `instance` index to allow multiple instances of the data (1, default),  or to explode without an additional `instance` index (2). Values of 0 and 1 create asynchronous methods, that allow multiple API calls to be executed in parallel, while a value of 2 will generate a completely synchronous library, allowing only one API call to be executed at any time.
+	:param generateXMLData: flag to indicate wether the API expects JSON request and response bodies (0, default), or XML request and response bodies (1)
 
 .. spelling::
 
