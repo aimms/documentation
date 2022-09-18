@@ -82,4 +82,4 @@ WeightedMovingAverage
 MovingAverage
 cdm
 ComputeDeltaOut
-deserialize
+deserialized
