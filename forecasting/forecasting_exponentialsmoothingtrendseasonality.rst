@@ -7,7 +7,7 @@ The exponential smoothing with trend and seasonality procedure is a time
 series forecasting procedure. This procedure is an extension from the
 exponential smoothing whereby the forecast also captures both a trend
 and a seasonality. The reader interested in the mathematical background
-is referred to
+is referred to:
 
 -  https://www.otexts.org/book/fpp
 -  http://en.wikipedia.org/wiki/Exponential_smoothing
@@ -15,48 +15,48 @@ is referred to
 Function Prototype
 ------------------
 
-    To provide the error measures and residuals only when you need them,
-    there are three flavors of the ``ExponentialSmoothingTrendSeasonality``
-    procedure provided:
+To provide the error measures and residuals only when you need them,
+there are three flavors of the ``ExponentialSmoothingTrendSeasonality``
+procedure provided:
 
-    .. code-block:: aimms
+.. code-block:: aimms
 
-            forecasting::ExponentialSmoothingTrendSeasonality(    
-            ! Provides the estimates, but not the error measures nor the residuals
-                  dataValues,      ! Input, parameter indexed over time set
-                  estimates,       ! Output, parameter indexed over time set
-                  noObservations,  ! Scalar input, length history
-                  alpha,           ! Scalar input, weight of observation
-                  beta,            ! Scalar input, weight of change in observation
-                  gamma,           ! Scalar input, weight of seasonality
-                  periodLength)    ! Scalar input, length of season
+        forecasting::ExponentialSmoothingTrendSeasonality(    
+        ! Provides the estimates, but not the error measures nor the residuals
+                dataValues,      ! Input, parameter indexed over time set
+                estimates,       ! Output, parameter indexed over time set
+                noObservations,  ! Scalar input, length history
+                alpha,           ! Scalar input, weight of observation
+                beta,            ! Scalar input, weight of change in observation
+                gamma,           ! Scalar input, weight of seasonality
+                periodLength)    ! Scalar input, length of season
 
-    .. code-block:: aimms
+.. code-block:: aimms
 
-            forecasting::ExponentialSmoothingTrendSeasonalityEM(  
-            ! Provides estimates and error measures, but not the residuals
-                  dataValues,      ! Input, parameter indexed over time set
-                  estimates,       ! Output, parameter indexed over time set
-                  noObservations,  ! Scalar input, length history
-                  alpha,           ! Scalar input, weight of observation
-                  beta,            ! Scalar input, weight of change in observation
-                  gamma,           ! Scalar input, weight of seasonality
-                  periodLength,    ! Scalar input, length of season
-                  ErrorMeasures)   ! Output, indexed over forecasting::ems
+        forecasting::ExponentialSmoothingTrendSeasonalityEM(  
+        ! Provides estimates and error measures, but not the residuals
+                dataValues,      ! Input, parameter indexed over time set
+                estimates,       ! Output, parameter indexed over time set
+                noObservations,  ! Scalar input, length history
+                alpha,           ! Scalar input, weight of observation
+                beta,            ! Scalar input, weight of change in observation
+                gamma,           ! Scalar input, weight of seasonality
+                periodLength,    ! Scalar input, length of season
+                ErrorMeasures)   ! Output, indexed over forecasting::ems
 
-    .. code-block:: aimms
+.. code-block:: aimms
 
-            forecasting::ExponentialSmoothingTrendSeasonalityEMR( 
-            ! Provides estimates, error measures, and residuals
-                  dataValues,      ! Input, parameter indexed over time set
-                  estimates,       ! Output, parameter indexed over time set
-                  noObservations,  ! Scalar input, length history
-                  alpha,           ! Scalar input, weight of observation
-                  beta,            ! Scalar input, weight of change in observation
-                  gamma,           ! Scalar input, weight of seasonality
-                  periodLength,    ! Scalar input, length of season
-                  ErrorMeasures,   ! Output, indexed over forecasting::ems
-                  Residuals)       ! Output, parameter indexed over time set
+        forecasting::ExponentialSmoothingTrendSeasonalityEMR( 
+        ! Provides estimates, error measures, and residuals
+                dataValues,      ! Input, parameter indexed over time set
+                estimates,       ! Output, parameter indexed over time set
+                noObservations,  ! Scalar input, length history
+                alpha,           ! Scalar input, weight of observation
+                beta,            ! Scalar input, weight of change in observation
+                gamma,           ! Scalar input, weight of seasonality
+                periodLength,    ! Scalar input, length of season
+                ErrorMeasures,   ! Output, indexed over forecasting::ems
+                Residuals)       ! Output, parameter indexed over time set
 
 Arguments
 ---------
@@ -97,25 +97,13 @@ Arguments
     *Residuals*
         The residuals as presented in :ref:`chapter:time-series-forecasting`.
 
+.. note::
+
+    In order to use this function, the ``Forecasting`` system library needs
+    to be added to the application.
+
 Example
 -------
 
-    .. code-block:: aimms
-
-                    forecasting::ExponentialSmoothingTrendSeasonality(
-                        dataValues         :  p_dat,
-                        estimates          :  p_est,
-                        noObservations     :  91,
-                        alpha              :  0.5,
-                        beta               :  0.3,
-                        gamma              :  0.3, 
-                        periodLength       :  7);
-
-
-    This can be
-    graphically displayed as:
-
-    |image|
-
-    .. |image| image:: images/ESTS2021.png
+To further understand about this procedure and library, please use the `Demand Forecasting <https://how-to.aimms.com/Articles/550/550-demand-forecasting.html>`_ example. 
 

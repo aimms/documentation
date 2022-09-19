@@ -11,22 +11,22 @@ squared error is minimized.
 Function Prototype
 ------------------
 
-    .. code-block:: aimms
+.. code-block:: aimms
 
-            forecasting::ExponentialSmoothingTrendSeasonalityTune(    
-            ! Provides the alpha for which the mean squared error is minimized.
-                  dataValues,      ! Input, parameter indexed over time set
-                  noObservations,  ! Scalar input, length history
-                  alpha,           ! Scalar output,  
-                  beta,            ! Scalar output,  
-                  gamma,           ! Scalar output,  
-                  periodLength,    ! Scalar input, length of season
-                  alphaLow,        ! Optional input, default 0.01
-                  alphaUpp,        ! Optional input, default 0.99          
-                  betaLow,         ! Optional input, default 0.01
-                  betaUpp,         ! Optional input, default 0.99          
-                  gammaLow,        ! Optional input, default 0.01
-                  gammaUpp)        ! Optional input, default 0.99          
+        forecasting::ExponentialSmoothingTrendSeasonalityTune(    
+        ! Provides the alpha for which the mean squared error is minimized.
+                dataValues,      ! Input, parameter indexed over time set
+                noObservations,  ! Scalar input, length history
+                alpha,           ! Scalar output,  
+                beta,            ! Scalar output,  
+                gamma,           ! Scalar output,  
+                periodLength,    ! Scalar input, length of season
+                alphaLow,        ! Optional input, default 0.01
+                alphaUpp,        ! Optional input, default 0.99          
+                betaLow,         ! Optional input, default 0.01
+                betaUpp,         ! Optional input, default 0.99          
+                gammaLow,        ! Optional input, default 0.01
+                gammaUpp)        ! Optional input, default 0.99          
 
 Arguments
 ---------
@@ -41,7 +41,7 @@ Arguments
         in :ref:`chapter:time-series-forecasting`.
 
     *alpha,*
-        beta, gamma] :math:`\alpha`, :math:`\beta`, and :math:`\gamma` are
+        beta, gamma, i.e. :math:`\alpha`, :math:`\beta`, and :math:`\gamma` are
         scalar output parameters of this procedure. The values for
         :math:`\alpha`, :math:`\beta`, and :math:`\gamma` are such that the mean
         squared error of the estimates returned by :aimms:func:`forecasting::ExponentialSmoothingTrendSeasonality` are minimized.
@@ -69,10 +69,14 @@ Arguments
 
 .. note::
 
-    -  In order to use this function, the AIMMSForecasting system library
-       needs to be added to the application.
+    In order to use this function, the ``Forecasting`` system library needs
+    to be added to the application.
+    
+    Please note that this function performs an optimization step; 
+    a nonlinear programming solver should be available and, in an AIMMS PRO environment, 
+    it should be run server side.
 
-    -  Please note that this function performs an optimization step; a
-       nonlinear programming solver should be available and, in an AIMMS PRO
-       environment, it should be run server side.
+Example
+-------
 
+To further understand about this procedure and library, please use the `Demand Forecasting <https://how-to.aimms.com/Articles/550/550-demand-forecasting.html>`_ example. 

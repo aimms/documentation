@@ -97,18 +97,4 @@ Arguments
 Example
 -------
 
-.. code-block:: aimms
-
-            forecasting::ExponentialSmoothing(
-                dataValues         :  p_dat,
-                estimates          :  p_est,
-                noObservations     :  91,
-                alpha              :  0.3);
-
-
-
-This can be displayed as:
-
-.. image:: images/ES2021.png
-   :scale: 50
-   :align: center
+To further understand about this procedure and library, please use the `Demand Forecasting <https://how-to.aimms.com/Articles/550/550-demand-forecasting.html>`_ example. 
