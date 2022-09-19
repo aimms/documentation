@@ -1,4 +1,4 @@
-.. image:: ../Images/icons8-graph-64.png
+.. image:: ../Images/graph-128.png
    :scale: 100
    :align: right
    :alt: Forecasting

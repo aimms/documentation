@@ -10,58 +10,58 @@ observation and a previous forecast.
 Mathematical Formulation
 ------------------------
 
-    Using the notation in this table :ref:`chapter:time-series-forecasting`, the estimates are defined as: 
+Using the notation in this table :ref:`chapter:time-series-forecasting`, the estimates are defined as: 
 
-    .. math:: e_t = \alpha y_{t-1} + ( 1 - \alpha ) e_{t-1}
+.. math:: e_t = \alpha y_{t-1} + ( 1 - \alpha ) e_{t-1}
 
-    \ To initialize this sequence, we take
+\ To initialize this sequence, we take
 
-    .. math:: \begin{array}{l} e_0 = y_1 \\ y_0 = y_1 \end{array}
+.. math:: \begin{array}{l} e_0 = y_1 \\ y_0 = y_1 \end{array}
 
-    To calculate the forecasts for :math:`t\geq T+2`, we take :math:`y_t`
-    for all :math:`t \in \{T+1 \ldots T+H \}` to be equal to :math:`e_t`.
-    This results in :math:`y_t = y_{t-1}` for all
-    :math:`t \in \{T+2 \ldots T+H \}`; which is graphically depicted as a
-    horizontal line. The weighting factor :math:`\alpha` is a parameter in
-    the range :math:`(0,1)`; high values of :math:`\alpha` give more weight
-    to recent observations.
+To calculate the forecasts for :math:`t\geq T+2`, we take :math:`y_t`
+for all :math:`t \in \{T+1 \ldots T+H \}` to be equal to :math:`e_t`.
+This results in :math:`y_t = y_{t-1}` for all
+:math:`t \in \{T+2 \ldots T+H \}`; which is graphically depicted as a
+horizontal line. The weighting factor :math:`\alpha` is a parameter in
+the range :math:`(0,1)`; high values of :math:`\alpha` give more weight
+to recent observations.
 
 Function Prototype
 ------------------
 
-    To provide the error measures and residuals only when you need them,
-    there are three flavors of the ``ExponentialSmoothing`` procedure
-    provided:
+To provide the error measures and residuals only when you need them,
+there are three flavors of the ``ExponentialSmoothing`` procedure
+provided:
 
-    .. code-block:: aimms
+.. code-block:: aimms
 
-            forecasting::ExponentialSmoothing(    
-            ! Provides the estimates, but not the error measures nor the residuals
-                  dataValues,      ! Input, parameter indexed over time set
-                  estimates,       ! Output, parameter indexed over time set
-                  noObservations,  ! Scalar input, length history
-                  alpha)           ! Scalar input, weight of observation
+    forecasting::ExponentialSmoothing(    
+    ! Provides the estimates, but not the error measures nor the residuals
+            dataValues,      ! Input, parameter indexed over time set
+            estimates,       ! Output, parameter indexed over time set
+            noObservations,  ! Scalar input, length history
+            alpha)           ! Scalar input, weight of observation
 
-    .. code-block:: aimms
+.. code-block:: aimms
 
-            forecasting::ExponentialSmoothingEM(  
-            ! Provides estimates and error measures, but not the residuals
-                  dataValues,      ! Input, parameter indexed over time set
-                  estimates,       ! Output, parameter indexed over time set
-                  noObservations,  ! Scalar input, length history
-                  alpha,           ! Scalar input, weight of observation
-                  ErrorMeasures)   ! Output, indexed over forecasting::ems
+    forecasting::ExponentialSmoothingEM(  
+    ! Provides estimates and error measures, but not the residuals
+            dataValues,      ! Input, parameter indexed over time set
+            estimates,       ! Output, parameter indexed over time set
+            noObservations,  ! Scalar input, length history
+            alpha,           ! Scalar input, weight of observation
+            ErrorMeasures)   ! Output, indexed over forecasting::ems
 
-    .. code-block:: aimms
+.. code-block:: aimms
 
-            forecasting::ExponentialSmoothingEMR( 
-            ! Provides estimates, error measures, and residuals
-                  dataValues,      ! Input, parameter indexed over time set
-                  estimates,       ! Output, parameter indexed over time set
-                  noObservations,  ! Scalar input, length history
-                  alpha,           ! Scalar input, weight of observation
-                  ErrorMeasures,   ! Output, indexed over forecasting::ems
-                  Residuals)       ! Output, parameter indexed over time set
+    forecasting::ExponentialSmoothingEMR( 
+    ! Provides estimates, error measures, and residuals
+            dataValues,      ! Input, parameter indexed over time set
+            estimates,       ! Output, parameter indexed over time set
+            noObservations,  ! Scalar input, length history
+            alpha,           ! Scalar input, weight of observation
+            ErrorMeasures,   ! Output, indexed over forecasting::ems
+            Residuals)       ! Output, parameter indexed over time set
 
 Arguments
 ---------
@@ -91,25 +91,10 @@ Arguments
 
 .. note::
 
-    In order to use this function, the AIMMSForecasting system library needs
+    In order to use this function, the ``Forecasting`` system library needs
     to be added to the application.
 
 Example
 -------
 
-    .. code-block:: aimms
-
-                forecasting::ExponentialSmoothing(
-                    dataValues         :  p_dat,
-                    estimates          :  p_est,
-                    noObservations     :  91,
-                    alpha              :  0.3);
-
-
-
-    This can be
-    graphically displayed as:
-
-    |image|
-
-    .. |image| image:: images/ES2021.png
+To further understand about this procedure and library, please use the `Demand Forecasting <https://how-to.aimms.com/Articles/550/550-demand-forecasting.html>`_ example. 

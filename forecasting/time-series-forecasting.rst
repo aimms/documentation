@@ -1,13 +1,13 @@
 Time Series Forecasting
 *************************
 
-For time series forecasting, such as **Moving Average** and
-**Exponential Smoothing**, we follow the notational conventions below.
+For time series forecasting, such as **moving average** and
+**exponential smoothing**, we follow the notational conventions below.
 
 Observations and Estimates
 --------------------------
 
-The ``AIMMSForecasting`` library uses as input observations made in the
+The ``Forecasting`` library uses as input observations made in the
 history. It provides estimates over both the history and the horizon. A
 single set and index is used to index both the history and the
 estimates, this set is called the **time set**. In addition, you will
@@ -52,51 +52,48 @@ error measures, it uses identifiers declared over the index
 ``forecasting::ems``, declared as follows:
 
 .. code-block:: aimms
-    :linenos:
 
-            Set ErrorMeasureSet {
-                Index: ems;
-                Definition: {
-                    data {
-                        MAD,  ! Mean Absolute Deviation
-                        MAPE, ! Mean Absolute Percentage Error (provided as fraction)
-                        MSE   ! Mean Squared Error
-                    }
-                }
+    Set ErrorMeasureSet {
+        Index: ems;
+        Definition: {
+            data {
+                MAD,  ! Mean Absolute Deviation
+                MAPE, ! Mean Absolute Percentage Error (provided as fraction)
+                MSE   ! Mean Squared Error
             }
+        }
+    }
 
 To obtain the error measures, you will need to provide a parameter indexed over ``forecasting::ems`` to the time series forecasting functions.
 Note that the MAPE is a fraction, in order to use it as a percentage, you can use the predeclared quantity ``SI_unitless``.
 For instance, given the declarations:
 
 .. code-block:: aimms
-    :linenos:
 
-            Quantity SI_Unitless {
-                BaseUnit: -;
-                Conversions: % -> - : # -> # / 100;
-                Comment: "Expresses a dimensionless value.";
-            }
-            Parameter myMAPE {
-                Unit: %;
-            }
-            Parameter myErrorMeasures { 
-                IndexDomain: forecasting::ems;
-            }
+    Quantity SI_Unitless {
+        BaseUnit: -;
+        Conversions: % -> - : # -> # / 100;
+        Comment: "Expresses a dimensionless value.";
+    }
+    Parameter myMAPE {
+        Unit: %;
+    }
+    Parameter myErrorMeasures { 
+        IndexDomain: forecasting::ems;
+    }
 
 The following statements:
 
 .. code-block:: aimms
     :linenos:
 
-            myMAPE := myErrorMeasures('MAPE') ;
-            display myErrorMeasures, myMAPE ;
+    myMAPE := myErrorMeasures('MAPE') ;
+    display myErrorMeasures, myMAPE ;
 
 The output may look as follows:
 
 .. code-block:: aimms
-    :linenos:
 
-            myErrorMeasures := data { MAPE : 0.417092,  MAD : 1.785714,  MSE : 3.982143 } ;
-            myMAPE := 41.709184 [%] ;
+    myErrorMeasures := data { MAPE : 0.417092,  MAD : 1.785714,  MSE : 3.982143 } ;
+    myMAPE := 41.709184 [%] ;
 
