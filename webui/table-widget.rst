@@ -65,6 +65,8 @@ From AIMMS 4.87 onwards, the table supports block editing. You can select a regi
 
 You are not limited to selecting a rectangular region of cells. Holding down the **CTRL** key, you can select more than one region with your mouse. Such a region can also consist of a single cell; in that case simply click on it (while still holding **CTRL** pressed). This offers you a quick way to change a scattered selection of cells to a single value.
 
+A special case of block editing is "block deleting". When selecting a block, as described above, and pressing **CTRL+DELETE**, the whole block of cells will be set to default values (if not overriden by specific default values in the model, that means 0 for numeric/checkbox cells and the empty string for strings, element parameters and datetime values).
+
 As a side-effect of this feature, changing a cell containing a checkbox now requires you to precisely click in the checkbox itself. In earlier versions, clicking anywhere in the cell was enough. By changing this behavior, we prevent that clicking such a cell as part of selecting multiple cells/regions would unintentionally change the boolean value of the cell.
 
 Please note that currently the selection of a block can only be done using the mouse. At a later stage, we will add support for keyboard selection as well (like, for example, **CTRL+A**).
