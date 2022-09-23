@@ -12,6 +12,25 @@ AIMMS 4.88
 #############
 
 
+AIMMS 4.88.2 Release (September 23, 2022 - build 4.88.2.11).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We implemented a safer way of saving the model (*.ams files). Each model file is now saved to a temporary file first. In case of an unrecoverable error during save, the original file will stay unchanged, while its new version that is causing the error can be found in an *.ams-tmp file.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When using the experimental feature toggle 'Excel Upload/Download Support', the downloaded Excel files show a dropdown that lets you change the value element parameters. In case the element parameter at hand has a `webui::ElementTextIdentifier` annotation specified, the labels in the dropdown now correctly show the element text (instead of the original set elements).
+
+--------------
+
+
+
 AIMMS 4.88.1 Release (August 31, 2022 - build 4.88.1.2).
 ------------------------------------------------------------------------------------------
 
