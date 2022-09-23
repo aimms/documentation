@@ -409,7 +409,7 @@ For JSON schema and OpenAPI specifications, the Data Exchange library can genera
 	:param externalBindsToPrefx_: string parameter holding an additional index to prefix to the index domain of every generated identifier in the runtime library
 	:param externalBindingPrefix: string parameter holding the name of an element parameter to serve as the external binding for the `externalBindsToPrefix_` argument
 
-..  js:function:: dex::schema::GenerateAPIClientFromOpenAPISpec
+..  js:function:: dex::schema::GenerateClientFromOpenAPISpec
 
 	Generate a runtime library containing a collection procedures to call all operations defined in the OpenAPI specification, along with a collection of identifiers and their corresponding mappings, than are used to store the data of the request and response bodies associated with these operations.
 	

@@ -96,7 +96,7 @@ The parser will generate an identifier within the current module for
 Generating API clients from an OpenAPI specification
 ----------------------------------------------------
 
-For any OpenAPI specification file, the function :js:func:`dex::schema::GenerateAPIClientFromOpenAPISpec` will generate a runtime library
+For any OpenAPI specification file, the function :js:func:`dex::schema::GenerateClientFromOpenAPISpec` will generate a runtime library
 containing 
 
 - for every non-exploded schema encountered in the OpenAPI specification file, a module with a collection of identifiers, along with a corresponding mapping, as outlined in the section above
