@@ -7,7 +7,7 @@ PRO 2.44
 AIMMS PRO 2.44.3 Release
 ------------------------
 
-On September 22, 2022, we released AIMMS PRO 2.44.3 (2.44.3.1). 
+On September 22, 2022, we released AIMMS PRO 2.44.3 (*Azure cloud build*: 2.44.3.1, *On-Premise build*: 2.44.3.10). 
 
 **Improvements**
 
