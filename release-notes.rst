@@ -20,7 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  We implemented a safer way of saving the model (*.ams files). Each model file is now saved to a temporary file first. In case of an unrecoverable error during save, the original file will stay unchanged, while its new version that is causing the error can be found in an *.ams-tmp file.
+-  We implemented a safer way of saving the model (.ams files). Each model file is now saved to a temporary file first. In case of an unrecoverable error during save, the original file will stay unchanged, while its new version that is causing the error can be found in a .ams-tmp file.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
