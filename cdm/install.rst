@@ -42,11 +42,11 @@ Through the ``CDMConfig.xml`` file contained in the directory containing the CDM
 Installing multiple service instances
 -------------------------------------
 
-Each CDM service instance can only connect to a single database, as specified in the configuration file alongside the CDM service executable. If you need to connect to multiple databases, you can only accomplish this by starting multiple instances of the CDM service. On Windows, you can accomplish this by copying the folder containing the CDMService binaries and configuration files to a new directory, and install a separate instance of the service from that directory using the ``CDMService.exe --install --name <new-service-name>`` commandline. 
+Each CDM service instance can only connect to a single database, as specified in the configuration file alongside the CDM service executable. If you need to connect to multiple databases, you can only accomplish this by starting multiple instances of the CDM service. On Windows, you can accomplish this by copying the folder containing the CDMService binaries and configuration files to a new directory, and install a separate instance of the service from that directory using the ``CDMService.exe --install --name <new-service-name>`` command line. 
 
 .. note::
 	
-	If you are running multiple server instances on a single server, they all need a separate value for the ``ListenPort`` field in the configuraiton file.
+	If you are running multiple server instances on a single server, they all need a separate value for the ``ListenPort`` field in the configuration file.
 
 In the AIMMS cloud, a separate on-demand CDM service instance will be started for each separate value that you assign to the  ``cdm::CloudServiceName`` configuration parameter.
 
