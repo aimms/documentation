@@ -39,6 +39,17 @@ You can run the ``CDMService.exe`` executable located in the ``CDMService`` dire
 
 Through the ``CDMConfig.xml`` file contained in the directory containing the CDMService executable, you can control the port on which the CDM service listens. The default port is TCP port 19999. You can change it by modifying the ``ListenPort`` field in the ``CDMConfig.xml`` file, and restarting the service. 
 
+Installing multiple service instances
+-------------------------------------
+
+Each CDM service instance can only connect to a single database, as specified in the configuration file alongside the CDM service executable. If you need to connect to multiple databases, you can only accomplish this by starting multiple instances of the CDM service. On Windows, you can accomplish this by copying the folder containing the CDMService binaries and configuration files to a new directory, and install a separate instance of the service from that directory using the ``CDMService.exe --install --name <new-service-name>`` commandline. 
+
+.. note::
+	
+	If you are running multiple server instances on a single server, they all need a separate value for the ``ListenPort`` field in the configuraiton file.
+
+In the AIMMS cloud, a separate on-demand CDM service instance will be started for each separate value that you assign to the  ``cdm::CloudServiceName`` configuration parameter.
+
 Selecting a database to back AIMMS CDM
 --------------------------------------
 
@@ -68,7 +79,7 @@ PostgreSQL is the database engine used by AIMMS PRO, so is a natural choice if y
 SQL Server
 ++++++++++
  
-You can back your CDM service by any SQLServer database instance in your network, as long as you have a SQLServer ODBC driver installed on the host where the CDM service is running. You can backup the database holding the CDM-managed schema through the SQL Server Management Studio. Each application database instance created through CDM, will result in a separate schema in the specified database instance on the SQLServer server.  You are advised to create a separate database to hold all the database schema created by the CDM service, and set up a new database user with full access to this database.
+You can back your CDM service by any SQLServer database instance in your network, as long as you have a SQLServer ODBC driver installed on the host where the CDM service is running. You can backup the database holding the CDM-managed schema through the SQL Server Management Studio. Each application database instance created through CDM, will result in a separate schema in the specified database instance on the SQLServer server.  You are advised to create a separate database to hold all the database schema created by the CDM service, and set up a new database user with full access to this database. If you want to use a separate database for each CDM application database, instead of a separate schema in a single database, then on Windows you need to install separate service instances, one for each database. 
 
 MySQL
 +++++
