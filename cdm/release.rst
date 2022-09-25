@@ -7,8 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
-1.26.0.31 [23-09-2022]
+1.26.0.33 [23-09-2022]
 	- Allow multiple instances of the CDMService to be installed on Windows, to facilitate connecting to multiple databases
+	- ``cdm::RollbackChanges`` would not correctly rollback integer sets and root sets 
 
 1.26.0.30 [14-09-2022]
 	- First version compatible with new build system for AIMMS
