@@ -60,7 +60,7 @@ The table widget offers the user possibilities for various actions such as:
 Search-and-Find
 ---------------
 
-From AIMMS 4.89 onwards, the table widget offers a Search-and-Find functionality which allows you to search for the occurence of a sub-string of your choice within the data values contained in the table grid.
+From AIMMS 4.89 onwards, the table widget offers a Search-and-Find functionality which allows you to search for the occurrence of a sub-string of your choice within the data values contained in the table grid.
 
 .. note::
 
