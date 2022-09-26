@@ -57,6 +57,20 @@ The table widget offers the user possibilities for various actions such as:
   * In AIMMS 4.87 and higher, pressing **ENTER** takes you to the cell below.
 
 
+Search-and-Find
+---------------
+
+From AIMMS 4.89 onwards, the table widget offers a Search-and-Find functionality which allows you to search for the occurence of a sub-string of your choice within the data values contained in the table grid.
+
+.. note::
+
+   The Search-and-Find functionality is available in AIMMS 4.89 as an Experimental Feature. You can toggle the feature 'Advanced Table Editing' on or off in the Experimental Features dialog in order to use it.
+   
+The Search-and-Find functionality can be activated by clicking on the dedicated search icon on the table header: 
+
+.. image:: images/Table-Search-icon.png
+    :align: center
+ 
 
 Block Editing
 -------------
