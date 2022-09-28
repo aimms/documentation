@@ -19,7 +19,7 @@ New Features and Bug Fixes
 --------------------------
 2.0.0.5 [28-09-2022]
 	- Patch curl requests would not send a request body
-	- Better handling of defaults in generated REST API client code to prevent unitialized data warnings
+	- Better handling of defaults in generated REST API client code to prevent uninitialized data warnings
 	
 2.0.0.0 [18-09-2022]
 	- Initial release of the REST API client generator from OpenAPI specification files
