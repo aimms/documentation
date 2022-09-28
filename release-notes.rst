@@ -8990,3 +8990,4 @@ Improvements
 	somesubsetindex
 	cp
 	tmp
+	doubletons
