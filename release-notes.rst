@@ -12,6 +12,27 @@ AIMMS 4.88
 #############
 
 
+AIMMS 4.88.3 Release (September 28, 2022 - build 4.88.3.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Assigning a constant list expression to a multidimensional identifier was wrongly rejected at compile time when one of the identifier's indices was fixed by specifying it as a scalar element expression.
+-  The AIMMS Presolver did not always handle doubletons correctly. Namely, if a model contains the constraints x=y and x=y+5 then the AIMMS Presolver deleted the second constraint instead of marking the model as infeasible.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  All usages of links to and images residing within your Application's 'resources' folder will now keep on working correctly, whether deployed locally or on Pro, in the cloud. This is true for the Image Widget, the Text Widget and the HTML you provide for tooltips.
+-  Using URL Utility to add environment specific path for images in Tooltips, Image widget, Text Widget.
+
+--------------
+
+
+
 AIMMS 4.88.2 Release (September 23, 2022 - build 4.88.2.11).
 ------------------------------------------------------------------------------------------
 
