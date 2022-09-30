@@ -26,8 +26,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  All usages of links to and images residing within your Application's 'resources' folder will now keep on working correctly, whether deployed locally or on Pro, in the cloud. This is true for the Image Widget, the Text Widget and the HTML you provide for tooltips.
--  Using URL Utility to add environment specific path for images in Tooltips, Image widget, Text Widget.
+-  All usages of links to and images residing within your Application's 'resources' folder will now keep on working correctly, whether deployed locally, on Pro, or in the cloud. This is true for the Image Widget, the Text Widget and the HTML you provide for tooltips.
 
 --------------
 
