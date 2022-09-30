@@ -111,7 +111,7 @@ Because the header menu of the Table widget had become a bit cluttered after add
 .. image:: images/Kebab-menu-full.png
     :align: center
 
-The menu is divided into four sections. The top one contains the download options, the second one the upload option, the third one the custom widget actions and the bottom one includes the help menu.
+The menu is divided into four sections. The top one contains the download options, the second one the upload option, the third one the custom widget actions and the bottom one includes the help menu. This help menu is only displayed for app developers and it takes you to the documentation of the specific widget. There is one other item which may appear in the menu: the cogwheel, alias the settings menu. This is the case in end-user mode with the UI Editable option switched on (so the position of it is less prominent than in app developer mode).
 
 Download Table Data to CSV File
 -------------------------------
