@@ -178,6 +178,45 @@ body described in ``AimmsVersion.yaml`` in the API schema:
             "id": "4.82.9.1-linux64-x86-vc141"
         }
 
+CRUD on Tasks
+--------------------------
+The Data Exchange (DEX) library is capable of exposing procedures in an AIMMS model as a REST API. Invoking such
+procedures via this (DEX-exposed) REST API creates ``tasks`` which run in the same AIMMS session as the DEX library
+exposing them. Consuming and providing REST APIs using the DEX library is documented `here <../dataexchange/rest-server.html>`__.
+
+The AIMMS PRO REST API allows users to perform CRUD operations on DEX-exposed tasks, supporting the following:
+
+1. Creating tasks (POST). Once a task is created, it will eventually run on the PRO Cloud infrastructure.
+2. Retrieving a task's status/results (GET).
+3. Interrupting a task (PUT). This allows the task to complete earlier.
+4. Deleting a task (DELETE).
+
+The CRUD Task operations supported by the AIMMS PRO REST API closely mirror the REST API exposed by DEX, with the exception of
+the PUT command: while DEX supports both ``interrupt-execution`` and ``interrupt-solve`` in the PUT body, the PRO REST
+API only supports ``interrupt-solve``. The reason for this is that ``interrupt-execution`` terminates the AIMMS session
+running the task, and on PRO Cloud such sessions are not controllable by the API user, but rather directly managed by PRO.
+
+Tasks will be queued by PRO in the creation order. PRO will launch these tasks to run on Cloud infrastructure in the order they
+are queued. PRO will attempt to parallelize task execution, potentially having multiple tasks running at the same time up to
+a maximum degree of task parallelism (configurable per account).
+
+A PRO account needs special configuration in order to use CRUD on Tasks via the PRO REST API. Essentially, such configuration
+will create a special license profile specifying the number of concurrent tasks a user may run via the API (by default this is zero).
+To enable this special "REST" profile please contact the AIMMS Customer Support.
+
+Once this "REST" profile has been enabled for an account, users for that account can start making task-related calls via the
+PRO REST API. Such calls are authenticated via the same types of API keys as all the other PRO REST API calls. In order to be allowed to perform
+task-related operations, a given API key needs to have the "Task" scope.
+
+Finally, authorization to perform task-related calls is linked to the permissions the user (for whom the API key is used for authentication)
+has with respect to the AIMMS App that is exposing the DEX REST API:
+
+1. Create/Interrupt/Delete operations require that user to have ``Read`` and ``Execute`` permissions on that app.
+2. Retrieve operations require that user to have ``Read`` permissions on that app.
+
+CRUD on tasks is only supported starting from PRO Release 2.45, and will work only for AIMMS apps published with
+AIMMS version 4.89 and higher, and using the DEX library 1.3.2.71 or higher.
+
 
 .. spelling::
 
