@@ -12,6 +12,60 @@ AIMMS 4.88
 #############
 
 
+AIMMS 4.88.4 Release (October 4, 2022 - build 4.88.4.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  A rare, data dependent but potential severe performance regression issue has been addressed. It could appear if parameter data related to a huge set was incrementally added.
+-  When an application was trying to delete an already deleted runtime library, AIMMS could crash.
+
+--------------
+
+
+
+AIMMS 4.88.3 Release (September 28, 2022 - build 4.88.3.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Assigning a constant list expression to a multidimensional identifier was wrongly rejected at compile time when one of the identifier's indices was fixed by specifying it as a scalar element expression.
+-  The AIMMS Presolver did not always handle doubletons correctly. Namely, if a model contains the constraints x=y and x=y+5 then the AIMMS Presolver deleted the second constraint instead of marking the model as infeasible.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  All usages of links to and images residing within your Application's 'resources' folder will now keep on working correctly, whether deployed locally, on Pro, or in the cloud. This is true for the Image Widget, the Text Widget and the HTML you provide for tooltips.
+
+--------------
+
+
+
+AIMMS 4.88.2 Release (September 23, 2022 - build 4.88.2.11).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We implemented a safer way of saving the model (.ams files). Each model file is now saved to a temporary file first. In case of an unrecoverable error during save, the original file will stay unchanged, while its new version that is causing the error can be found in a .ams-tmp file.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When using the experimental feature toggle 'Excel Upload/Download Support', the downloaded Excel files show a dropdown that lets you change the value element parameters. In case the element parameter at hand has a `webui::ElementTextIdentifier` annotation specified, the labels in the dropdown now correctly show the element text (instead of the original set elements).
+
+--------------
+
+
+
 AIMMS 4.88.1 Release (August 31, 2022 - build 4.88.1.2).
 ------------------------------------------------------------------------------------------
 
@@ -8949,4 +9003,6 @@ Improvements
 	myParameter
 	somesubsetindex
 	cp
+	tmp
+	doubletons
 	WeightedMovingAverage
