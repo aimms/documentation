@@ -12,6 +12,20 @@ AIMMS 4.88
 #############
 
 
+AIMMS 4.88.4 Release (October 4, 2022 - build 4.88.4.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  A rare, data dependent but potential severe performance regression issue has been addressed. It could appear if parameter data related to a huge set was incrementally added.
+
+--------------
+
+
+
 AIMMS 4.88.3 Release (September 28, 2022 - build 4.88.3.3).
 ------------------------------------------------------------------------------------------
 
