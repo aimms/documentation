@@ -1,4 +1,4 @@
-References:
+References
 ===================
 
 #.  `Implementing Advanced Algorithms for Mathematical Programs <https://documentation.aimms.com/language-reference/optimization-modeling-components/implementing-advanced-algorithms-for-mathematical-programs/index.html>`_
@@ -23,4 +23,4 @@ Alternatives
 
 #.  `Robust optimization <https://documentation.aimms.com/language-reference/optimization-modeling-components/robust-optimization/index.html#robust-optimization>`_
 
-#.  `Monte carlo: <https://www.youtube.com/watch?v=aHK8qcghPMY>`_
+#.  `Monte carlo <https://www.youtube.com/watch?v=aHK8qcghPMY>`_

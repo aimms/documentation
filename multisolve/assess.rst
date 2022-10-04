@@ -1,5 +1,3 @@
-:orphan:
-
 Assess 
 ============================================
 
@@ -30,9 +28,9 @@ In that case, the multiSolve library can still be of use.
 Solver and license permit asynchronous solving
 -----------------------------------------------
 
-The list of solvers that permit asynchronous solving can be found `here  
-<https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_solversession-procedures-and-functions/gmp_solversession_asynchronousexecute.html>`_. 
+.. The list of solvers that permit asynchronous solving can be found `here  <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_solversession-procedures-and-functions/gmp_solversession_asynchronousexecute.html>`_. 
 
+The multiSolve library assumes the CPLEX solver with a license for asynchronous (parallel) solving.
 A license for asynchronous solving is an extended license.
 Please contact info@aimms.com for further details.
 
@@ -49,27 +47,29 @@ A typical example is a MIP whereby most of the time is spent in the branch and c
 ..     then there is a high chance of thread starvation. In a situation of thread starvation, the threads spent 
 ..     significant amount of time swapping in their memory when they get a timeslice on a logical processor.
 
-To avoid thread starvation, the number of threads alotted to a solve times the number of parallel solves 
+To avoid thread starvation, the number of threads allotted to a solve times the number of parallel solves 
 should not exceed the number of logical processors.
 
 To determine whether the mathematical programs solved by your application are benefiting from multi-threaded solving,
-you can test by setting their options for parallelization to a single thread as follows:
+you can test by setting the CPLEX option `global_thread_limit` to 1. 
 
-+----------+--------------------------+----------+
-| Solver   | Option                   | Setting  |
-+==========+==========================+==========+
-| CPLEX    | global_thread_limit      |  1       |
-+----------+--------------------------+----------+
-| Gurobi   | thread_limit             |  1       |
-+----------+--------------------------+----------+
-| XA       | -                        |  -       |
-+----------+--------------------------+----------+
-| CONOPT   | thread_limit             |  1       |
-+----------+--------------------------+----------+
-| KNITRO   | number_of_threads        |  1       |
-+----------+--------------------------+----------+
-|          | number_of_BLAS_threads   |  1       |
-+----------+--------------------------+----------+
+.. for parallelization to a single thread as follows:
+
+.. +----------+--------------------------+----------+
+.. | Solver   | Option                   | Setting  |
+.. +==========+==========================+==========+
+.. | CPLEX    | global_thread_limit      |  1       |
+.. +----------+--------------------------+----------+
+.. | Gurobi   | thread_limit             |  1       |
+.. +----------+--------------------------+----------+
+.. | XA       | -                        |  -       |
+.. +----------+--------------------------+----------+
+.. | CONOPT   | thread_limit             |  1       |
+.. +----------+--------------------------+----------+
+.. | KNITRO   | number_of_threads        |  1       |
+.. +----------+--------------------------+----------+
+.. |          | number_of_BLAS_threads   |  1       |
+.. +----------+--------------------------+----------+
 
 When the solve time significantly increases by setting this limitation to the solver, 
 your application is automatically benefiting from the availability of multiple logical processors.
@@ -122,7 +122,8 @@ Determining the Enginetime and the SolveTime starting with a solve statement
 
 A `solve statement <https://documentation.aimms.com/language-reference/optimization-modeling-components/solving-mathematical-programs/the-solve-statement.html#the-solve-statement>`_ combines the time to generate a mathematical program and the time needed to actually solve that mathematical program.
 The time needed to generate is part of the EngineTime. The time needed to actually solve, is the SolveTime.
-The following techniques can be used to separate these two portions:
+
+Each of the following techniques can be used to separate generation time from the solver time:
 
 
 #.  Make the solve statement, two statements using the GMP technology. 
@@ -147,7 +148,7 @@ The following techniques can be used to separate these two portions:
 
     
 
-#.  Check the suffices of a Mathematical Program
+#.  Check the suffices `gentime <https://documentation.aimms.com/functionreference/suffices/mathematical-program-suffices/gentime.html>`_ and `solutionTime <https://documentation.aimms.com/functionreference/suffices/mathematical-program-suffices/solutiontime.html>`_ of a Mathematical Program
 
 #.  Check the solver log file for the time needed by the solver, and the time needed to generate is the time for the solve statement minus the time reported by the solver.
 

@@ -120,7 +120,7 @@ Modify the instance
 Remarks:
 
 *   Lines 22-31 replace the single call to ``gmp::instance::generate``. 
-    The RHS's of two symbolic constraints need to updated to the latest values of supply and demand.
+    The RHS's of two symbolic constraints need to be updated to the latest values of supply and demand.
 
 .. tip:: From a software engineering point of view, it makes sense to start with the provide mode ``'generate'``; 
        this mode permits the model builder to focus on adding code to update the model identifiers only.
