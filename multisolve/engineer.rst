@@ -58,7 +58,7 @@ First a summary of the steps:
             pr_verifySolution(i_instance);
         endfor ;
 
-    whereby, pr_getInput(i_instance) starts with:
+    whereby, ``pr_getInput(i_instance)`` begins with:
 
     .. code-block:: aimms 
         :linenos:
@@ -80,6 +80,11 @@ First a summary of the steps:
 .. 
 .. To make this chapter concrete, an example is provided that 
 
+
+
+.. spelling::
+
+    multiSolve
 
 
 
