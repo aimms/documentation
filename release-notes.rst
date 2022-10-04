@@ -8949,3 +8949,4 @@ Improvements
 	myParameter
 	somesubsetindex
 	cp
+	WeightedMovingAverage
