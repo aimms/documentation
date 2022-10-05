@@ -11,13 +11,19 @@ Data Exchange Roadmap
 The DataExchange library is under active development. The following new features are on the roadmap of the DataExchange library:
 
 - Creation of OpenAPI specifications for model-based REST APIs
-- Automated creation of client code for a given REST API from its OpenAPI specification
 - Automated creation of application databases based on the ``dex::Dataset`` and ``dex::TableName`` annotations. 
 - Adding these application databases as an additional data source to the (synchronous) DataExchange read and write methods next to JSON, XML, CSV and Excel files.
 - Exposing these application databases to external applications via dedicated application database-specific API services. This will also allow for asynchronous reading and writing to such application databases from within an AIMMS model. 
 
 New Features and Bug Fixes
 --------------------------
+2.0.0.5 [28-09-2022]
+	- Patch curl requests would not send a request body
+	- Better handling of defaults in generated REST API client code to prevent uninitialized data warnings
+	
+2.0.0.0 [18-09-2022]
+	- Initial release of the REST API client generator from OpenAPI specification files
+	
 1.3.2.46 [13-08-2022]
 	- Allow ``write-defaults`` attribute on ``RowMapping`` and ``ColumnMapping`` types in all row-based mappings, regardless of ``name-binds-to`` attribute. By default, all row-based formats will now leave non-default cells empty.
 
@@ -61,18 +67,18 @@ New Features and Bug Fixes
 	- Prevent uninitialized warnings during ``dex::ReadAllMappings``
 
 1.3.0.53 [07-02-2022]
-	- Respect the ordering of :token:`name-binds-to` index when writing.
+	- Respect the ordering of ``name-binds-to`` index when writing.
 
 1.3.0.51 [02-02-2022]
 	- The maximum line length for CSV files is increased to 64KB.
 
 1.3.0.50 [28-01-2022]
-	- Runtime errors within a web service request handler would propagate to a controlling :token:`dex::api::Yield` loop. 
+	- Runtime errors within a web service request handler would propagate to a controlling ``dex::api::Yield`` loop. 
 	
 1.3.0.49 [27-01-2022]
 	- Limit Excel sheet names to 32 characters
 	- Allow tables of scalars in AIMMS-generated data sets
-	- Add support, through the :token:`dex::AutoTablePrefix`, for auto-generating tables names in AIMMS-generated data sets, based on index occurrence
+	- Add support, through the ``dex::AutoTablePrefix``, for auto-generating tables names in AIMMS-generated data sets, based on index occurrence
 
 1.3.0.48 [25-01-2022]
 	- Introduced new mapping attribute write-defaults to determine whether for name-binds-to fields, default values will be explicitly written or omitted
@@ -92,7 +98,7 @@ New Features and Bug Fixes
 
 1.3.0.30 [17-01-2022]
 	- Add support for the OAuth Authorization Code flow for WebUI applications on the PRO/CLoud platform (requires AIMMS 4.84 and PRO/Cloud 2.42)
-	- Introduce :token:`alt-name` and :token:`name-regex-from` attributes for mapping files.
+	- Introduce ``alt-name`` and ``name-regex-from`` attributes for mapping files.
 	
 1.3.0.22 [02-01-2022]
 	- Refresh token could exceed length of 1024 characters, leading to failed OAuth2 refresh token flow.
@@ -103,7 +109,7 @@ New Features and Bug Fixes
 	- Add support for the OAuth2 Authorization Code and Client Credentials flows to the Data Exchange library. The Authorization Code flow will currently only function on AIMMS desktop sessions. The Client Credentials flow can be used both in desktop and cloud sessions.	
 	
 1.3.0.15 [22-12-2021]
-	- Rows in a CSV and Excel files with an empty value for a binding column would produce duplicate values for the last bound element.	- Introduced the attribute :token:`binds-skip-non-existing` that will determine whether to skip rows/objects with an non-existing (or empty) binding or to produce a runtime error. 
+	- Rows in a CSV and Excel files with an empty value for a binding column would produce duplicate values for the last bound element.	- Introduced the attribute ``binds-skip-non-existing`` that will determine whether to skip rows/objects with an non-existing (or empty) binding or to produce a runtime error. 
 	
 1.3.0.8 [16-11-2021]
 	- The procedure :any:`dex::ReadAllMappings` would read from a non-existing directory.

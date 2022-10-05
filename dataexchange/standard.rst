@@ -82,57 +82,57 @@ Generating the dataset mapping files from annotations
 
 To create the mapping between multi-dimensional identifiers and datasets, tables and column names, you can use the following model annotations:
 
-* :token:`dex::Dataset`
-* :token:`dex::TableName`
-* :token:`dex::AutoTablePrefix`
-* :token:`dex::ColumnName`
-* :token:`dex::SuffixList`
-* :token:`dex::ExtraAttributeList`
-* :token:`dex::RowFilter`
+* ``dex::Dataset``
+* ``dex::TableName``
+* ``dex::AutoTablePrefix``
+* ``dex::ColumnName``
+* ``dex::SuffixList``
+* ``dex::ExtraAttributeList``
+* ``dex::RowFilter``
 
-Through the :token:`dex::TableName` annotation you can indicate for multi-dimensional identifiers and/or sections of multi-dimensional identifiers, to which table they should belong. The Data Exchange library will verify that all identifiers share a common index domain, and return an error if this is not the case. You can use the :token:`dex::ColumnName` annotation to indicate a column name for multi-dimensional identifiers and indices. If you don't specify an explicit column name, the Data Exchange library will use the identifier name as the implicit column name. Instead of using annotations, you can also directly set the column name for specific identifiers via the identifier :token:`dex::ColumnName`.
+Through the ``dex::TableName`` annotation you can indicate for multi-dimensional identifiers and/or sections of multi-dimensional identifiers, to which table they should belong. The Data Exchange library will verify that all identifiers share a common index domain, and return an error if this is not the case. You can use the ``dex::ColumnName`` annotation to indicate a column name for multi-dimensional identifiers and indices. If you don't specify an explicit column name, the Data Exchange library will use the identifier name as the implicit column name. Instead of using annotations, you can also directly set the column name for specific identifiers via the identifier ``dex::ColumnName``.
 
-Alternatively to creating table names yourself through the :token:`dex::TableName` annotation, you can also let the Data Exchange library create tables names by specifying the :token:`dex::AutoTablePrefix` annotation. For every identifier, with this annotation set, for which you didn't specify an explicit table name, the Data Exchange library will auto-generate a table name, by starting with the :token:`dex::AutoTablePrefix`, followed by all indices in the declaration of the identifier, separated by underscores. This will create tables where all identifiers with the same collection of indices will end up in the same table. All scalar identifiers will be assigned to the table :token:`dex::AutoTablePrefix` followed by :token:`_scalar`. Through the global option ``dex::PrefixAutoTableWithDataset`` you can prefix the generated table names with the specified dataset name, to prevent potential name clashes when the same table name is generated for multiple data categories. 
+Alternatively to creating table names yourself through the ``dex::TableName`` annotation, you can also let the Data Exchange library create tables names by specifying the ``dex::AutoTablePrefix`` annotation. For every identifier, with this annotation set, for which you didn't specify an explicit table name, the Data Exchange library will auto-generate a table name, by starting with the ``dex::AutoTablePrefix``, followed by all indices in the declaration of the identifier, separated by underscores. This will create tables where all identifiers with the same collection of indices will end up in the same table. All scalar identifiers will be assigned to the table ``dex::AutoTablePrefix`` followed by ``_scalar``. Through the global option ``dex::PrefixAutoTableWithDataset`` you can prefix the generated table names with the specified dataset name, to prevent potential name clashes when the same table name is generated for multiple data categories. 
 
-By assigning the :token:`dex::Dataset` annotation to specific identifiers or sections of identifiers, the Data Exchange library will deduce the mapping between datasets and tables. Typically one would assign the :token:`dex::TableName` and :token:`dex::Dataset` to sections of identifiers with identical domains. If any identifier is both mapped to a table and a dataset, the combination will be assigned to :token:`dex::DatasetTableMapping`. Instead of using the :token:`dex::Dataset` annotation, you can also assign 1 to specific combinations of tables and datasets in the identifier :token:`dex::DatasetTableMapping` directly. 
+By assigning the ``dex::Dataset`` annotation to specific identifiers or sections of identifiers, the Data Exchange library will deduce the mapping between datasets and tables. Typically one would assign the ``dex::TableName`` and ``dex::Dataset`` to sections of identifiers with identical domains. If any identifier is both mapped to a table and a dataset, the combination will be assigned to ``dex::DatasetTableMapping``. Instead of using the ``dex::Dataset`` annotation, you can also assign 1 to specific combinations of tables and datasets in the identifier ``dex::DatasetTableMapping`` directly. 
 
-Through the :token:`dex::SuffixList` annotation you can specify the extra suffices (next to the level value) that you want to add the to the set of columns of the table to which the identifier itself is added. The format of the of the :token:`dex::SuffixList` is as follows
+Through the ``dex::SuffixList`` annotation you can specify the extra suffices (next to the level value) that you want to add the to the set of columns of the table to which the identifier itself is added. The format of the of the ``dex::SuffixList`` is as follows
 
 .. code-block::
     
     <suffix-1>[=<suffix-1-columnname>][;<suffix-2>[=<suffix-2-columnname>]];...
     
-If you do not explicitly specify column names in the semi-colon-separated list of suffices, the column names will be :token:`<identifier>.<suffix>`. 
+If you do not explicitly specify column names in the semi-colon-separated list of suffices, the column names will be ``<identifier>.<suffix>``. 
 
-With the :token:`dex::ExtraAttributeList` annotation you can specify any additional mapping attributes that you want to have added to the mapping generated for a specific identifier. The value of the :token:`dex::ExtraAttributeList` annotation is a semi-colon-separated list
+With the ``dex::ExtraAttributeList`` annotation you can specify any additional mapping attributes that you want to have added to the mapping generated for a specific identifier. The value of the ``dex::ExtraAttributeList`` annotation is a semi-colon-separated list
 
 .. code-block::
     
     <annotation>=<value>[;<annotation>=<value];...
 
-where :token:`<value>` is the literal text that you want assign to the annotation :token:`<annotation>`.
+where ``<value>`` is the literal text that you want assign to the annotation ``<annotation>``.
 
-You can use the annotation :token:`dex::RowFilter` to specify an identifier that should serve as a :token:`write-filter` attribute for the rows being generated in the mapping. The identifier should have the same indices as all identifiers in the table. The :token:`RowFilter` annotation should be the same for all identifiers in a specific table. If all identifiers in a table are contained in a single section in your model, you can best add the annotation to that section, in which case all identifiers in the section will inherit it. With the row filter you can limit the number of rows being generated when writing a file using the mapping.
+You can use the annotation ``dex::RowFilter`` to specify an identifier that should serve as a ``write-filter`` attribute for the rows being generated in the mapping. The identifier should have the same indices as all identifiers in the table. The ``RowFilter`` annotation should be the same for all identifiers in a specific table. If all identifiers in a table are contained in a single section in your model, you can best add the annotation to that section, in which case all identifiers in the section will inherit it. With the row filter you can limit the number of rows being generated when writing a file using the mapping.
 
 To generate all annotation-based mapping, you can call the procedure :js:func:`dex::GenerateDatasetMappings`.
-This will generate Data Exchange mappings in the subfolder :token:`Mappings/Generated` in the main project folder. The following mappings will become available for every :token:`<dataset>`  and :token:`<table>`:
+This will generate Data Exchange mappings in the subfolder ``Mappings/Generated`` in the main project folder. The following mappings will become available for every ``<dataset>``  and ``<table>``:
 
 .. csv-table:: 
    :header: "Mapping", "Description"
    :widths: 100, 1000
    
-    :token:`JSONDataset`, all tables for all datasets in a single JSON file
-    :token:`XMLDataset`, all tables for all datasets in a single XML file
-    :token:`Generated/<dataset>-Excel`, all tables for dataset :token:`<dataset>` in a single Excel file (one sheet per table)
-    :token:`Generated/<dataset>-<table>-JSON-Sparse`, table :token:`<table>` in dataset :token:`<dataset>` in a single sparse JSON file (only non-default data)
-    :token:`Generated/<dataset>-<table>-JSON-Dense`, table :token:`<table>` in dataset :token:`<dataset>` in a single dense JSON file (also default data)
-    :token:`Generated/<dataset>-<table>-JSON-RowOriented`, table :token:`<table>` in dataset :token:`<dataset>` in a single row-oriented JSON file (array of row arrays)
-    :token:`Generated/<dataset>-<table>-JSON-ColumnOriented`, table :token:`<table>` in dataset :token:`<dataset>` in a single column-oriented JSON file (array of column arrays)
-    :token:`Generated/<dataset>-<table>-XML-Sparse`, table :token:`<table>` in dataset :token:`<dataset>` in a single sparse XML file (indices as attributes; values as elements; only non-default data)
-    :token:`Generated/<dataset>-<table>-XML-SparseAttribute`, table :token:`<table>` in dataset :token:`<dataset>` in a single sparse XML file (indices and values as elements; only non-default data)
-    :token:`Generated/<dataset>-<table>-XML-Dense`, table :token:`<table>` in dataset :token:`<dataset>` in a single dense XML file (indices as attributes; values as elements; also default data)
-    :token:`Generated/<dataset>-<table>-XML-DenseAttribute`, table :token:`<table>` in dataset :token:`<dataset>` in a single dense XML file (indices and values as elements; also default data)
-    :token:`Generated/<dataset>-<table>-CSV`, table :token:`<table>` in dataset :token:`<dataset>` in a single CSV file
+    ``JSONDataset``, all tables for all datasets in a single JSON file
+    ``XMLDataset``, all tables for all datasets in a single XML file
+    ``Generated/<dataset>-Excel``, all tables for dataset ``<dataset>`` in a single Excel file (one sheet per table)
+    ``Generated/<dataset>-<table>-JSON-Sparse``, table ``<table>`` in dataset ``<dataset>`` in a single sparse JSON file (only non-default data)
+    ``Generated/<dataset>-<table>-JSON-Dense``, table ``<table>`` in dataset ``<dataset>`` in a single dense JSON file (also default data)
+    ``Generated/<dataset>-<table>-JSON-RowOriented``, table ``<table>`` in dataset ``<dataset>`` in a single row-oriented JSON file (array of row arrays)
+    ``Generated/<dataset>-<table>-JSON-ColumnOriented``, table ``<table>`` in dataset ``<dataset>`` in a single column-oriented JSON file (array of column arrays)
+    ``Generated/<dataset>-<table>-XML-Sparse``, table ``<table>`` in dataset ``<dataset>`` in a single sparse XML file (indices as attributes; values as elements; only non-default data)
+    ``Generated/<dataset>-<table>-XML-SparseAttribute``, table ``<table>`` in dataset ``<dataset>`` in a single sparse XML file (indices and values as elements; only non-default data)
+    ``Generated/<dataset>-<table>-XML-Dense``, table ``<table>`` in dataset ``<dataset>`` in a single dense XML file (indices as attributes; values as elements; also default data)
+    ``Generated/<dataset>-<table>-XML-DenseAttribute``, table ``<table>`` in dataset ``<dataset>`` in a single dense XML file (indices and values as elements; also default data)
+    ``Generated/<dataset>-<table>-CSV``, table ``<table>`` in dataset ``<dataset>`` in a single CSV file
 
 
 A document-based JSON format
@@ -166,31 +166,31 @@ Next to a table-based format, the Data Exchange library can also generate a docu
 
 This document could be generated on the basis of the following identifiers in the model
 
-* :token:`documentDate`
-* :token:`CountryPopulation(country)`
-* :token:`CountryCapital(country)`
-* :token:`ProvinceCapital(country,province)`
+* ``documentDate``
+* ``CountryPopulation(country)``
+* ``CountryCapital(country)``
+* ``ProvinceCapital(country,province)``
 
-where :token:`country` is an index in the set :token:`Countries`, and :token:`province` an index in the set :token:`Provinces`.
+where ``country`` is an index in the set ``Countries``, and ``province`` an index in the set ``Provinces``.
 
 Generating the document mapping files from annotations
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 To create the mapping between multi-dimensional identifiers and datasets, tables and column names, you can use the following model annotations:
 
-* :token:`dex::Document`
-* :token:`dex::FieldName`
-* :token:`dex::SuffixList`
-* :token:`dex::ExtraAttributeList`
+* ``dex::Document``
+* ``dex::FieldName``
+* ``dex::SuffixList``
+* ``dex::ExtraAttributeList``
 
-Through the annotation :token:`dex::Document` you can indicate the document name in which you want the identifier to be included. 
+Through the annotation ``dex::Document`` you can indicate the document name in which you want the identifier to be included. 
 
-By default, the field name associated with a particular identifier is identical to the identifier name. With the annotation :token:`dex::FieldName` you can override this default. You can also set this annotation for the indices in the domain of the multi-dimensional identifiers used in the document and their associated sets.
+By default, the field name associated with a particular identifier is identical to the identifier name. With the annotation ``dex::FieldName`` you can override this default. You can also set this annotation for the indices in the domain of the multi-dimensional identifiers used in the document and their associated sets.
 
-The suffices :token:`dex::SuffixList` and :token:`dex::ExtraAttributeList` can be used in a similar ways as with the dataset mappings.
+The suffices ``dex::SuffixList`` and ``dex::ExtraAttributeList`` can be used in a similar ways as with the dataset mappings.
 
 To generate all annotation-based mapping, you can call the procedure :js:func:`dex::GenerateDocumentMappings`.
-This will generate Data Exchange mappings in the subfolder :token:`Mappings/Generated` in the main project folder, one per document mapping.
+This will generate Data Exchange mappings in the subfolder ``Mappings/Generated`` in the main project folder, one per document mapping.
 
 Creating your own annotation-based formats
 ------------------------------------------
@@ -199,8 +199,8 @@ The standard formats described in this section make some arbitrary choices in re
 
 The basis for generating a new annotation-based format is a *generator mapping*, which is an XML mapping specifying how to generate a Data Exchange mapping for a JSON, XML, CSV or Excel document type, based on the contents of identifiers in the Data Exchange library. 
 
-* The generator mappings for the formats in this section are contained in the :token:`Mappings/Generators` subfolder of the Data Exchange library.
-* The section :token:`Public Section/Dataset Mapping Generators` of the Data Exchange library contains the identifiers used by the dataset mappings. It also contain a procedure to read the dataset annotations and fill the dataset-related identifiers, as well as a procedure to generate the dataset mappings based on this data.
-* The section :token:`Public Section/Document Mapping Generators` of the Data Exchange library contains the identifiers used by the document mappings. It also contain a procedure to read the document annotations and fill the document-related identifiers, as well as a procedure to generate the document mappings based on this data.
+* The generator mappings for the formats in this section are contained in the ``Mappings/Generators`` subfolder of the Data Exchange library.
+* The section ``Public Section/Dataset Mapping Generators`` of the Data Exchange library contains the identifiers used by the dataset mappings. It also contain a procedure to read the dataset annotations and fill the dataset-related identifiers, as well as a procedure to generate the dataset mappings based on this data.
+* The section ``Public Section/Document Mapping Generators`` of the Data Exchange library contains the identifiers used by the document mappings. It also contain a procedure to read the document annotations and fill the document-related identifiers, as well as a procedure to generate the document mappings based on this data.
 
-To define your own annotation-based formats, you can create a new library, for which you can specify the annotations you want to make available in the model in the file :token:`AnnotationDefinitions.xml` in the :token:`Settings` subfolder of your library (taking the :token:`AnnotationDefinitions.xml` file from the Data Exchange library as an example). Subsequently, you can take any of the given generator mappings, and generating data and procedures as an example to create your own custom annotation-based mapping. 
+To define your own annotation-based formats, you can create a new library, for which you can specify the annotations you want to make available in the model in the file ``AnnotationDefinitions.xml`` in the ``Settings`` subfolder of your library (taking the ``AnnotationDefinitions.xml`` file from the Data Exchange library as an example). Subsequently, you can take any of the given generator mappings, and generating data and procedures as an example to create your own custom annotation-based mapping. 

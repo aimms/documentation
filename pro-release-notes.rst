@@ -4,6 +4,24 @@ AIMMS PRO Release Notes
 PRO 2.44
 ########
 
+AIMMS PRO 2.44.3 Release
+------------------------
+
+On September 22, 2022, we released AIMMS PRO 2.44.3 (*Azure cloud build*: 2.44.3.1, *On-Premise build*: 2.44.3.10). 
+
+**Improvements**
+
+   **Azure Cloud Platform:** 
+
+   - Enabled ``EncryptedAssertions`` for SAML Authentication.
+   - Extended the SAML Connections such that it supports another format for specifying the URL.
+
+**Resolved Issues**
+
+   **On-Premise:**
+
+   - Fixed an issue where maps could not load in the WebUI Applications.
+
 AIMMS PRO 2.44.1 Release
 ------------------------
 

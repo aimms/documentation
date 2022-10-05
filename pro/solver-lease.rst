@@ -7,7 +7,14 @@ Using Solver leases instead of DelegateToServer
 
 On the AIMMS Cloud platform it takes several seconds (typically about 5-8 seconds) to spin up a solver session at the server. The solve itself might however take only 2 or 3 seconds or even less. Obviously the overhead involved with starting a new solver session is way bigger then actual solve time. In order to solve this problem we introduced the notion of temporarily leasing a solver license in your running WebUI session to execute the solving inside that WebUI session. This removes the overhead of starting a solve session and the involved case I/O.
 
-However, beware that using the solver lease is not a general replacement for using DelegateToServer calls. The most important difference with the DelegateToServer call is that leasing a solver can fail because there are no licenses available at that moment. With DelegateToServer your job would then queued and executed whenever the appropriate resources become available. With the solver lease model, the solve would just fail immediately. Another difference with DelegateToServer is that running the leased solver is a blocking call, i.e. the user-interface will not be updated when that solve is running.
+However, beware that using the solver lease is not a general replacement for using DelegateToServer calls. The most important difference with the DelegateToServer call is that leasing a solver can fail because there are no licenses available within a short amount of time. If there is no license available within ``acquireTimeout`` seconds, the request for a license will fail.
+
+As an alternative to using solver leases, or after a failure acquiring a solver lease, you can use ``pro::delegateToServer``. 
+With ``pro::delegateToServer`` your job will be queued and executed whenever the appropriate resources become available. 
+As you may know, the call to ``pro::delegateToServer`` can be made without waiting for completion, such that the user of your application can continue to work with your application whilst the solve is queued or executed. See `Create responding applications <https://how-to.aimms.com/Articles/331/331-responding-applications.html>`_ for tips on making a long running solve in your application responding.
+
+.. In addition, it should be noted that ``pro::solverlease::AcquireSolverLease`` is a blocking call. 
+.. Another difference with DelegateToServer is that running the leased solver is a blocking call, i.e. the user-interface will not be updated when that solve is running.
 
 Solver lease concepts
 ++++++++++++++++++++++++++++++++++++++++++++
