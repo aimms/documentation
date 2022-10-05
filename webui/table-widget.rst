@@ -114,7 +114,7 @@ Case Sensitivity On:
 
 \
 
-The search action may be cancelled by clicking on the "x" icon on the right side of the search field, while the entire search box may be minimized by clicking on the "Minimize Search" icon as illustrated in the following picture:
+The search action may be canceled by clicking on the "x" icon on the right side of the search field, while the entire search box may be minimized by clicking on the "Minimize Search" icon as illustrated in the following picture:
 
 .. image:: images/Table-Search-View6.png
     :align: center
