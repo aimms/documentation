@@ -20,7 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  A rare, data dependent but potential severe performance regression issue has been addressed. It could appear if parameter data related to a huge set was incrementally added.
+-  A rare, data dependent but potential severe performance regression issue has been addressed. It could appear if parameter data related to a huge set was incrementally added. This problem was introduced in the AIMMS 4.70 release.
 -  When an application was trying to delete an already deleted runtime library, AIMMS could crash.
 
 --------------
