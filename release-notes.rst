@@ -12,6 +12,21 @@ AIMMS 4.88
 #############
 
 
+AIMMS 4.88.5 Release (October 6, 2022 - build 4.88.5.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  label is; otherwise it would have ended up in the release notes).
+-  In Aimms 4.70 we introduced a regression error. Aimms could create incorrect data if multidimensional index expressions were used at the left hand side of an assignment. In addition, such an expression must introduce a new index and the data must have a specific distribution. Param(i, EP(i,j), j) := 1; is a an example statement where this might occur. Note that EP is at the left hand side, is multidimensional, and introduces a new running index (j). In case you have such statements and are unable to update to newer versions, please contact User Support.
+
+--------------
+
+
+
 AIMMS 4.88.4 Release (October 4, 2022 - build 4.88.4.3).
 ------------------------------------------------------------------------------------------
 
