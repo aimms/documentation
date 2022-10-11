@@ -8,6 +8,7 @@ In order to get started as app developer working with the AIMMS WebUI, please re
     requirements
     background	
     creating
+    introduction-color
     publishing
     quick-start
     
