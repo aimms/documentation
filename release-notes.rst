@@ -26,7 +26,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Only now it was noticed that the Parametric Curve object in WinUI was no longer working. This is caused by a necessary change to the engine some time ago. From now on, you can no longer create a new Parametric Curve object and on existing pages that use it, an error message will appear. If you still need the functionality of the Parametric Curve you can quite easily create a procedure that mimics the calculations and store the result in some indexed identifiers, which can be displayed in any other page object (or WebUI widget).
--  A '+=' assignment containing index expressions in the identifier domain in the left hand side, could give wrong results. An example of such a statement is A(elemPar(i), elemPar2(j) += B(i,j). These type of statements, where the assignment to the left hand side does not follow the same order as the set order of the domain indices i an j, are treated by AIMMS as 'sequential statements'. This means that a kind of implicit FOR (i,j) statement is added around the statement. The analysis whether the 'sequential' approach is needed was not taking into account that there is a += instead of a normal :=. This error only appeared in the last release of AIMMS, where the new compiler was no longer skipping these statements.
+-  A '+=' assignment containing index expressions in the identifier domain in the left hand side, could give wrong results. An example of such a statement is ``A(elemPar(i), elemPar2(j) += B(i,j)``. These type of statements, where the assignment to the left hand side does not follow the same order as the set order of the domain indices i an j, are treated by AIMMS as 'sequential statements'. This means that a kind of implicit ``FOR (i,j)`` statement is added around the statement. The analysis whether the 'sequential' approach is needed was not taking into account that there is a += instead of a normal :=. This error only appeared in the last release of AIMMS, where the new compiler was no longer skipping these statements.
 -  If the option 'MIP calculate sensitivity information' was switched on then all continuous variables violating one of its bounds would be fixed to the nearest bound, even if none of them violated the bounds by more than the 'Postsolve bound tolerance'.
 
 --------------
@@ -9040,5 +9040,5 @@ Improvements
 	cp
 	tmp
 	doubletons
-	elempar
-	elempar2
+	elemPar
+	elemPar2
