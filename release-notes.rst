@@ -12,6 +12,26 @@ AIMMS 4.88
 #############
 
 
+AIMMS 4.88.6 Release (October 11, 2022 - build 4.88.6.7).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The new option 'Postsolve time limit' has been added, which can be used to specify a time limit if an LP problem is solved as part of the postsolve step.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Only now it was noticed that the Parametric Curve object in WinUI was no longer working. This is caused by a necessary change to the engine some time ago. From now on, you can no longer create a new Parametric Curve object and on existing pages that use it, an error message will appear.
+If you still need the functionality of the Parametric Curve you can quite easily create a procedure that mimics the calculations and store the result in some indexed identifiers, which can be displayed in any other page object (or WebUI widget).
+
+--------------
+
+
+
 AIMMS 4.88.5 Release (October 6, 2022 - build 4.88.5.1).
 ------------------------------------------------------------------------------------------
 
