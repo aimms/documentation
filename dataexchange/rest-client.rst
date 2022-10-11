@@ -18,7 +18,7 @@ The Data Exchange library contains a fully asynchronous HTTP client library, bas
 	
 	Although the ``dex::client`` HTTP requests more than the ``httpclient`` library forces you to e.g. adhere strictly to its asynchronous model, or invoke certain functionality by specifically enabling it through the available options, the tight integration also allows for more advanced features such as the automatic generation of API client code, based on an OpenAPI 3.1 specification of REST API.
 	
-To initiate a request, call the function :js:func:`dex::client::NewRequest`, where you specify the URL of the request, the callback to be called for the response, the HTTP method (``GET``, ``POST``, ...), and, if 
+To initiate a request, call the function :js:func:`dex::client::NewRequest`, where you specify the URL of the request, the callback to be called for the response, the HTTP method (``GET``, ``POST``, ...), and, if necessary, the location of a request and/or response file. 
 
 .. code-block:: aimms
     
