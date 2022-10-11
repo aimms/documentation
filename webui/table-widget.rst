@@ -203,6 +203,13 @@ Note that, the translations encountered when parsing the 'properties' files are 
 So, the app developer must assign the desired string values to this predeclared string parameter (for example, by using a procedure) upon the startup of the project.
 In that case, the string values available for the :token:`webui::IdentifierElementText` identifier will be used while downloading/uploading Excel files from/to a WebUI table. 
 
+Clearly, the :token:`webui::IdentifierElementText` can be assigned values for all the identifiers in the <IDENTIFIER-SET> specified by the contents of a WebUI table. 
+Moreover, it can also be assigned values for the indexes involved in the table contents (here indexes are referred to as elements in the predeclared set :token:`AllIdentifiers`).
+This means that also the table headers corresponding to such indexes may be translated by using the values of the :token:`webui::IdentifierElementText`.
+It is important to note that the value of :token:`webui::IdentifierElementText` on an index is the one which matters in the context of a table (and not the value of :token:`webui::IdentifierElementText` on the set which is the range of that index).
+In particular, this implies that, if a set has two or more indexes, then each of its indexes may get a different name through the string value of :token:`webui::IdentifierElementText` applied on that index.
+
+
 .. note::
 
    If a table contains more than one (numerical) identifier and the <IDENTIFIER-SET> index is pivoted to Totals, then the contents of the table may be downloaded, but it cannot be overwritten by an upload, because those (computed) totals have an implicit (runtime) definition in the AIMMS model. 
