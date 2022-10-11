@@ -36,7 +36,7 @@ To actually execute the request, you should call the function :js:func:`dex::cli
     
 This will queue the request for execution on one of the concurrent connections maintained by the Data Exchange library for making HTTP requests. You can specify how many concurrent connections you want to be used to execute HTTP requests through the function :js:func:`dex::client::SetParallelConnections`. By default, the Data Exchange library will use up to 16 parallel connections. By increasing this maximum number of connections you may substantially decrease the total amount of time taken to execute a large number of requests, but you should also make sure that the server infrastructure handling these requests is comfortable handling the number of parallel connections you set. 
 
-Upon completion of the request, your specified callback function will be called, with three arguments:
+Upon completion of the request, the specified callback function will be called, either when the AIMMS engine is idle, or within the flow of the calling procedure, by calling the procedure :js:func:`dex::client::WaitForResponses`. Each callback function should have the following three arguments:
 
 * ``theRequest``, the specific request identifier for which the callback is called.
 * ``statusCode``, the HTTP status code of the response.
