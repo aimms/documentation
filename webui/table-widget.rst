@@ -128,7 +128,9 @@ More specifically, after using Excel to make edits to the data, the same sheet c
 
 .. note::
 
-   These features of the Table are available as an Experimental Feature from AIMMS 4.86 onwards. You can switch on the feature by checking the 'Excel Upload/Download Support' box in the Experimental Features dialog.
+   This feature of the WebUI table was introduced as an Experimental Feature in AIMMS 4.86 onwards. When using AIMMS 4.86, 4.87, or 4.88, you can switch on the feature by checking the 'Excel Upload/Download Support' box in the Experimental Features dialog.
+   
+   Starting from AIMMS 4.89 this feature is available as main feature (so, it is no longer under Experimental Features).
 
 On the Table Widget header you can find the icons for the download/upload actions:
 
