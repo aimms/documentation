@@ -1,20 +1,17 @@
-Introduction to colors in WebUI
+Introduction to Colors in WebUI
 ===================================
 
 In AIMMS WebUI there are three sets of colors with different purposes.
 
-1. **Primary Colors**
-   AIMMS specific colors that contribute to the look and feel of the application. Used for branding, buttons, active states, etc.
+#. **Primary Colors:** AIMMS specific colors that contribute to the look and feel of the application. Used for branding, buttons, active states, etc.
 
-2. **Graytones**
-   Neutral colors used for interface elements. To achieve a harmonious look, a small amount of Primary Blue is mixed into the gray. When using custom Primary Colors we advise to adjust the Graytones as well with a small percentage of the primary color to achieve a harmonious look.
+#. **Graytones:** Neutral colors used for interface elements. To achieve a harmonious look, a small amount of Primary Blue is mixed into the gray. When using custom Primary Colors we advise to adjust the Graytones as well with a small percentage of the primary color to achieve a harmonious look.
 
-3. **Data Colors**
-   The colors used for data visualization. AIMMS comes out of the box with sets of 9, 11 and 19 colors for use in graphs, charts, etc.
+#. **Data Colors:** The colors used for data visualization. AIMMS comes out of the box with sets of 9, 11 and 19 colors for use in graphs, charts, etc.
   
   
-1. Primary colors
-----------------------
+Primary colors
+----------------
 
 These are the colors that are used for actions or for active elements. The primary color is used for the main navigation and buttons. The secondary color is used as hover color or active color.
 
@@ -58,7 +55,7 @@ These are the colors that are used for actions or for active elements. The prima
   | #FFC100                      | #FFE600                            |
   +------------------------------+------------------------------------+
   
-2. Graytones
+Graytones
 ----------------
 
 .. table::
@@ -101,7 +98,7 @@ These are the colors that are used for actions or for active elements. The prima
   | #EDEFF2                      | #F5F6FA                      |
   +------------------------------+------------------------------+
 
-3. Data Colors
+Data Colors
 ----------------
 
 When choosing colors to use for your data, try to use one of these approaches to color schemes for data visualization.
