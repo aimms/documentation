@@ -1,6 +1,25 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.45
+########
+
+AIMMS PRO 2.45.1 Release
+------------------------
+
+On October 13, 2022, we released AIMMS PRO 2.45.1 (2.45.1.5). 
+
+**New Features**
+
+   - CRUD on Tasks: An extension to the AIMMS PRO REST API which allows users to perform CRUD operations on DEX-exposed tasks. Please see the `documentation <https://documentation.aimms.com/pro/rest-api.html#crud-on-tasks>`__ for more details.   
+
+**Improvements**
+
+   - PRO REST API: Extended App Publishing API with the 'Latest App Version' tag support. 
+   - PRO REST API: It is now possible to publish an App with the icon. 
+   - Extended the maximum length of AIMMS PRO usernames to support the usernames with *long domain names* when logging-in via SAML/ActiveDirectory or directly to AIMMS PRO Portal.
+
+
 PRO 2.44
 ########
 
