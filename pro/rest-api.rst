@@ -189,7 +189,7 @@ The AIMMS PRO REST API allows users to perform CRUD operations on DEX-exposed ta
 1. Creating tasks (POST). Once a task is created, it will eventually run on the PRO Cloud infrastructure.
 2. Retrieving a task's status/results (GET).
 3. Interrupting a task (PUT). This allows the task to complete earlier.
-4. Deleting a task (DELETE).
+4. Deleting a task (DELETE). It can delete 'QUEUED' or 'COMPLETED' tasks.
 
 The CRUD Task operations supported by the AIMMS PRO REST API closely mirror the REST API exposed by DEX, with the exception of
 the PUT command: while DEX supports both ``interrupt-execution`` and ``interrupt-solve`` in the PUT body, the PRO REST
