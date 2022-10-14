@@ -9,6 +9,7 @@ In order to get started as app developer working with the AIMMS WebUI, please re
     background	
     creating
     introduction-color
+    user-insights
     publishing
     quick-start
     
