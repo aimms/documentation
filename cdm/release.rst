@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.27.0.0 [16-10-2022]
+	- Replaced temporary tables used during checkout to filter set elements by a different filtering approach using permanent tables to fix performance issue in Azure MySQL databases due to very slow DDL performance in Azure MySQL
+	
 1.26.0.33 [23-09-2022]
 	- Allow multiple instances of the CDMService to be installed on Windows, to facilitate connecting to multiple databases
 	- ``cdm::RollbackChanges`` would not correctly rollback integer sets and root sets 
