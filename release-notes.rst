@@ -21,7 +21,7 @@ AIMMS Improvements
 +++++++++++++++++++++++++
 
 -  The memory usage and computing speed of the AIMMS Presolver has become more efficient for linear models. For large linear models it can be beneficial to switch on the option 'Linear presolve' because this might drastically reduce the memory usage of the solver.
--  We introduced a new intrinsic function `SetAsString` that returns a string representation of a set. Implicitly casting from a set to a string is now deprecated. Please refer to `the AIMMS Function Reference <https://documentation.aimms.com/functionreference/elementary-computational-operations/set-related-functions/setasstring.html?highlight=setasstring#SetAsString>`__ for more information.
+-  We introduced a new intrinsic function `SetAsString` that returns a string representation of a set. Implicitly casting from a set to a string is now deprecated. Please refer to `the AIMMS Function Reference <https://documentation.aimms.com/functionreference/elementary-computational-operations/set-related-functions/setasstring.html>`__ for more information.
 -  Failed connections to our academic/community license server specified through a license URL now provide more detail about the reason of failure (e.g., license expired, too many sessions, etc). Licenses with a license URL can now also be specified in the License Configuration dialog in AIMMS itself. Previously, such licenses could only be entered in the AIMMS Launcher.
 
 
