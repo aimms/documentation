@@ -7826,7 +7826,7 @@ Resolved AIMMS Issues
 
 -  The `Used Identifers` dialog box on a page sometimes showed `random` identifier names.
 -  For an identifier with a unit via an indexed unit parameter and INF as the default value, the Pivot Table option `Show default values` did not work correctly.
--  In the AIMMS Forecasting system library, there was a problem in the :any:`forecasting::WeightedMovingAverage` function. The matching between weights and coefficients is now in forward mode, instead of backward. In addition, the forecasting component uses more advanced exception handling now.
+-  In the AIMMS Forecasting system library, there was a problem in the forecasting::WeightedMovingAverage function. The matching between weights and coefficients is now in forward mode, instead of backward. In addition, the forecasting component uses more advanced exception handling now.
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -9045,3 +9045,4 @@ Improvements
 	doubletons
 	elemPar
 	elemPar2
+	WeightedMovingAverage
