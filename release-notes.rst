@@ -9089,6 +9089,5 @@ Improvements
 	doubletons
 	elemPar
 	elemPar2
-	testSuite
-	testSuite:
+	TestSuite
 	aimmsunit
