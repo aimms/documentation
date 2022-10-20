@@ -11,40 +11,6 @@ This page provides details of changes made in each AIMMS version. For an overvie
 AIMMS 4.88
 #############
 
-
-AIMMS 4.89.1 Release (October 20, 2022 - build 4.89.1.1).
-------------------------------------------------------------------------------------------
-
-Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
-
-AIMMS Improvements
-+++++++++++++++++++++++++
-
--  The memory usage and computing speed of the AIMMS Presolver has become more efficient for linear models. For large linear models it can be beneficial to switch on the option 'Linear presolve' because this might drastically reduce the memory usage of the solver.
--  We introduced a new intrinsic function `SetAsString` that returns a string representation of a set. Implicitly casting from a set to a string is now deprecated. Please refer to the AIMMS Function Reference for more information: https://documentation.aimms.com/functionreference/elementary-computational-operations/set-related-functions/setasstring.html?highlight=setasstring#SetAsString.
-
-Resolved AIMMS Issues
-+++++++++++++++++++++++++
-
--  Failed connections to our academic/community license server specified through a license URL now provide more detail about the reason of failure (e.g., license expired, too many sessions, etc). Licenses with a license URL can now also be specified in the License Configuration dialog in AIMMS itself. Previously, such licenses could only be entered in the AIMMS Launcher.
--  When setting the 'aimmsunit::TestSuite' annotation on a section node in the model tree, the error message 'Section Test_Section: Annotation aimmsunit::TestSuite already set.' was incorrectly displayed. The cause was that the annotation was stored twice in the underlying .ams files. Now it is stored only once, which resolves the aforementioned and similar errors.
-
-Resolved WebUI Issues
-+++++++++++++++++++++++++
-
--  A Selectionbox widget displayed on the bottom of a page will now open its dropdown above it if there is not enough room left on the screen to open the dropdown below it.
--  We added a feature as part of the existing Experimental Feature 'Advanced table editing' which allows you to search for values in a WebUI table. Please read the documentation (`<insert link here>`) for more details.
--  In previous version of AIMMS, the webui.json file could sometimes still contain fragments of widgets which in reality had already been removed from your WebUI.
--  Performing a really quick CTRL+V keypress in a Table cell when trying to paste a block of cell data could lead to the whole block being copied into the single cell, leading to an error message about the value being invalid.
--  We added a ``webui::IdentifierTooltip`` annotation, which allows you to specify tooltips for elements used  in the ``<IDENTIFIET-SET>`` sections of WebUI widgets. For details, see THE DOCUMENTATION (ALS DIE ER IS).
--  The Table widget did not update properly after an edit in the table followed by changing a value in a Selectionbox widget causing the table to have a structural change.
--  Using ``webui::IdentifierElementText`` in combination with the Table widget's Excel download functionality did not work properly.
--  : The Selectionbox widget is now also updated when the dropdown is opened and at that time the underlying data changes.
-
---------------
-
-
-
 AIMMS 4.88.6 Release (October 11, 2022 - build 4.88.6.7).
 ------------------------------------------------------------------------------------------
 
