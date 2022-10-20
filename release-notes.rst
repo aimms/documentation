@@ -34,7 +34,10 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 -  We added a feature as part of the existing Experimental Feature 'Advanced table editing' which allows you to search for values in a WebUI table. Please read `the documentation <https://documentation.aimms.com/webui/table-widget.html#search-and-find>`__ for more details.
--  We added a ``webui::IdentifierTooltip`` annotation, which allows you to specify tooltips for elements used  in the ``<IDENTIFIER-SET>`` sections of WebUI widgets.
+-  We added a ``webui::IdentifierTooltip`` annotation, which allows you to specify tooltips for elements used  in the ``<IDENTIFIER-SET>`` sections of WebUI widgets. Currently, this is supported for Table row/column headers. We are aiming to support it across the whole of WebUI soon.
+-  Using ``webui::IdentifierElementText`` in combination with the Table widget's Excel download functionality is now supported.
+-  The widget header buttons have been restructured to prevent cluttering.
+-  We added the application option 'Show Upload/Download Data Controls', which allows you to enable or disable the Excel Upload/Download and the CSV Download buttons in all Table widgets across your WebUI.
 
 
 Resolved WebUI Issues
@@ -44,7 +47,6 @@ Resolved WebUI Issues
 -  In previous versions of AIMMS, the webui.json file could sometimes still contain fragments of widgets which in reality had already been removed from your WebUI.
 -  Performing a really quick CTRL+V keypress in a Table cell when trying to paste a block of cell data could lead to the whole block being copied into the single cell, leading to an error message about the value being invalid.
 -  The Table widget did not update properly after an edit in the table followed by changing a value in a Selectionbox widget causing the table to have a structural change.
--  Using ``webui::IdentifierElementText`` in combination with the Table widget's Excel download functionality did not work properly.
 -  The Selectionbox widget is now also updated when the dropdown is opened and at that time the underlying data changes.
 
 --------------
