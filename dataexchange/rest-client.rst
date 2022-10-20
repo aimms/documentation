@@ -150,6 +150,10 @@ The procedure :any:`dex::client::DetermineProxyServer` will set these defaults o
 
 * A good way to debug HTTP requests is to enable request tracing by specifying a trace file in the :js:func:`dex::client::NewRequest` function. The resulting file will contain all available tracing information made available by libCurl, including all verbatim request and response headers and bodies.
 
+  .. warning::
+	
+		If you use trace files to debug the communication between libcurl and a website, be aware that the trace file will expose all headers, potentially including those that contain API keys or credentials necessary to access a web service. In such case, you are advised to carefully delete trace files directly after use. You should never create trace files in production.
+
 .. spelling::
 
     libCurl

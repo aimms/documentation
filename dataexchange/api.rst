@@ -125,8 +125,10 @@ The Data Exchange library contains collection of functions implemented using ``l
 .. js:function::  dex::client::NewRequest
 
     Create a new HTTP request with (unique) identification :token:`theRequest` to the URL :token:`url`, with method :token:`httpMethod` (optional, default :token:`GET`). Upon response from the web server, the callback method :token:`callback` will be called. The prototype of :token:`callback` should be the same as the function :token:`dex::client::EmptyCallback`. 
+		
     For :token:`POST` and :token:`PUT` methods, you can specify the file :token:`requestFile` from which to take the request body of the request. If you specify the optional :token:`responseFile` argument, the response body will be captured in the specified file. If omitted the response body will be silently discarded. The function will return 1 on success, or 0 on failure.
-    If a :token:`traceFile` is being specified, tracing for the request will be enabled, and the detail trace output from ``libCurl`` will be stored in the specified file. 
+		
+    If a :token:`traceFile` is being specified, tracing for the request will be enabled, and the detail trace output from ``libCurl`` will be stored in the specified file. Be aware that the trace file will expose all headers, potentially including those that contain API keys or credentials necessary to access a web service. In such case, you are advised to carefully delete trace files directly after use. You should never create trace files in production.
     
     :param theRequest: string parameter holding the unique identification of the request.
     :param url: string parameter holding the URL of the request, including any query parameters you want to add to the request.
@@ -134,8 +136,8 @@ The Data Exchange library contains collection of functions implemented using ``l
     :param httpMethod: (optional) element parameter into :token:`dex::client::HTTPMethods`, specifying the HTTP method to use for the request (default :token:`GET`)
     :param requestFile: (optional) string parameter holding the filename from which to take the request body
     :param responseFile: (optional) string parameter holding the filename in which  to store the response body
-    :param traceFile: (optional) string parameter holding the filename in which all trace information about the request is being stored
-    
+    :param traceFile: (optional) string parameter holding the filename in which all trace information about the request is being stored. 
+
 .. js:function::  dex::client::CloseRequest
     
     Close the request :token:`theRequest` and all resources held by the Data Exchange library for the request. If the request has been executed, but Data Exchange library is still listening for a response to the request, it will stop doing so. By default, the Data Exchange library will close the request directly after its callback method has been called to free its resources as soon as possible (e.g. when a large number of request is being executed). Notice that closing a request will *not* remove any request or response files specified in :token:`dex::client::NewRequest`. The function will return 1 on success, or 0 on failure.
