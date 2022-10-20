@@ -38,7 +38,8 @@ WebUI Improvements
 -  We added the application option 'Show Upload/Download Data Controls', which allows you to enable or disable the Excel Upload/Download and the CSV Download buttons in all Table widgets across your WebUI.
 -  In AIMMS 4.86 we introduced the feature to Download Excel data from a WebUI Table and to upload Excel data into a WebUI Table. Since then, we have polished this feature and now we consider it good enough to make it into a generally available (GA) feature. This means that you do not have to set the 'Excel Upload/Download Support' checkbox anymore.
 -  Using ``webui::IdentifierElementText`` in combination with the Table widget's Excel download functionality is now supported.
--  We added a ``webui::IdentifierTooltip`` annotation, which allows you to specify tooltips for elements used  in the ``<IDENTIFIER-SET>`` sections of WebUI widgets. Currently, this is supported for Table row/column headers. We are aiming to support it across the whole of WebUI soon.
+-  We added a ``webui::IdentifierTooltip`` annotation, which allows you to specify tooltips for elements used  in the ``<IDENTIFIER-SET>`` sections of WebUI widgets. Currently, this is supported for Table row/column headers. We are aiming to support it across the whole of WebUI soon. For details, see `the documentation <https://documentation.aimms.com/webui/widget-options.html#identifier-annotations>`__.
+
 
 
 Resolved WebUI Issues
