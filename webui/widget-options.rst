@@ -149,6 +149,16 @@ the result when hovering over the same cell as above looks like this:
 
 If an identifier X does not have the :token:`webui::TooltipIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_tooltips` discussed above, if this is present in the model.
 
+A special case of the tooltip annotation is the :token:`webui::IdentifierTooltip` annotation. It is not included in the 'regular' annotation (i.e. the list you see under the 'Add Annotation...' attribute of identifiers in the AIMMS model tree). Instead, it is an identifier which is indexed over the pre-declared set :token:`AllIdentifiers`. With it, you can specify the tooltip which will be displayed when hovering any identifier name which is displayed in the WebUI. As of AIMMS 4.89, this is supported for the Table widget, but we aim to support it across the WebUI. An example of its use is:
+
+.. code::
+
+    webui::IdentifierTooltip('place_from') := "The place in the world from which the transport takes place.";
+
+In the header section of a Table widget displaying the :token:`place_from` identifier (the name of which might not be immediately clear to users), you can now hover this identifier name and you will see the string above in a tooltip.
+
+We advise you to set up this identifier in your initialization routines, such as MainInitialization. 
+
 Last (but not least), we discuss the identifier annotations related to the procedures "upon change". In order to specify a procedures "upon change", in the attribute form of the identifier for which you want to specify such a procedure, you can add the :token:`webui::UponChangeProcedure` annotation attribute and then fill in the name of the desired procedure there:
 
 .. image:: images/Annotations_view5.png
