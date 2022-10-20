@@ -7,7 +7,7 @@ Table Widget
 .. |delete-filter-icon| image:: images/filterdelete_icon.png
 .. |disable-rule| image:: images/enablerule_icon.png
 
-The Table widget allows you to visualize and/or edit the data of one or more AIMMS identifiers represented in a tabular format:
+The Table widget allows you to visualize and edit the data of one or more AIMMS identifiers represented in a tabular format:
 
   .. image:: images/Table-View1.png 
         :align: center 
@@ -29,7 +29,7 @@ The table widget offers the user possibilities for various actions such as:
   .. image:: images/Table-View4.png 
         :align: center  
 		
-* change several `Widget Options <widget-options.html>`_, e.g.
+* Change several `Widget Options <widget-options.html>`_, e.g.
 
   * add `aggregators (Totals) <widget-options.html#totals>`_
   * customize the table by drag-and-drop of the indices (`Pivot <widget-options.html#pivot>`_), 
@@ -56,6 +56,82 @@ The table widget offers the user possibilities for various actions such as:
 
   * In AIMMS 4.87 and higher, pressing **ENTER** takes you to the cell below.
 
+
+Search-and-Find
+---------------
+
+From AIMMS 4.89 onwards, the table widget offers a Search-and-Find functionality which allows you to search for the occurrence of a sub-string of your choice within the data values contained in the table grid.
+
+.. note::
+
+   The Search-and-Find functionality is available in AIMMS 4.89 as an Experimental Feature. You can toggle the feature 'Advanced Table Editing' on or off in the Experimental Features dialog in order to use it.
+   
+The Search-and-Find functionality can be activated by clicking on the dedicated search icon on the table header: 
+
+.. image:: images/Table-Search-icon.png
+    :align: center
+ 
+In the Search field you can type the sub-string to be used as search key and then press ENTER or click on the search icon on the left side of this field in order to trigger the search process. 
+Subsequently, the search counter on the right side of the search field will be updated with the total number of matches found as well as the rank of matching cell which gets the focus after the search. 
+This cell is the first matching cell starting from the cell position in the table grid which had the focus immediately before starting the search. 
+All matching cells are highlighted using a light colored background, while the matching cell which gets the focus will have additionally thick border grid lines round the cell, see the following example:
+
+.. image:: images/Table-Search-View0.png
+    :align: center
+
+\
+
+.. image:: images/Table-Search-View1.png
+    :align: center
+
+\
+
+By clicking on the arrows for Next or Previous inside the search box one can navigate to the next or the previous matching cell, respectively:
+
+.. image:: images/Table-Search-View2.png
+    :align: center
+
+\
+
+.. image:: images/Table-Search-View3.png
+    :align: center
+
+\
+
+The search box also features an icon (with the capital letter A) for toggling on/off the letter case sensitivity during the search, which will clearly impact the number of matches found, as shown by the example below:
+
+Case Sensitivity Off:
+
+.. image:: images/Table-Search-View4.png
+    :align: center
+
+\
+
+Case Sensitivity On:
+
+.. image:: images/Table-Search-View5.png
+    :align: center
+
+\
+
+The search action may be canceled by clicking on the "x" icon on the right side of the search field, while the entire search box may be minimized by clicking on the "Minimize Search" icon as illustrated in the following picture:
+
+.. image:: images/Table-Search-View6.png
+    :align: center
+
+\
+
+In case there are more than 1000 matches during a search action, only the first 1000 matching cells will get highlighted in the table and the search counter will render 1000+ as the total number of matches found:
+
+.. image:: images/Table-Search-View7.png
+    :align: center
+
+\
+
+Note that, if the table at hand appears on a side panel page, then the layout of the search box is slightly different (due to the limited width of a side panel), but the functionality behind the icons in the box is the same as explained above for a regular page:
+
+.. image:: images/Table-Search-View8.png
+    :align: center
 
 
 Block Editing
