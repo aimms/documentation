@@ -41,7 +41,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  A Selectionbox widget displayed on the bottom of a page will now open its dropdown above it if there is not enough room left on the screen to open the dropdown below it.
--  In previous version of AIMMS, the webui.json file could sometimes still contain fragments of widgets which in reality had already been removed from your WebUI.
+-  In previous versions of AIMMS, the webui.json file could sometimes still contain fragments of widgets which in reality had already been removed from your WebUI.
 -  Performing a really quick CTRL+V keypress in a Table cell when trying to paste a block of cell data could lead to the whole block being copied into the single cell, leading to an error message about the value being invalid.
 -  The Table widget did not update properly after an edit in the table followed by changing a value in a Selectionbox widget causing the table to have a structural change.
 -  Using ``webui::IdentifierElementText`` in combination with the Table widget's Excel download functionality did not work properly.
