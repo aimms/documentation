@@ -1,7 +1,7 @@
 DEX Troubleshooting
 ====================
 
-Here you will find explanations and tips on how errors and warnings that may occour. 
+Here you will find explanations and tips on how errors and warnings that may occur. 
 
 Errors and Warnings
 ---------------------
@@ -13,4 +13,12 @@ Errors and Warnings
 	In this case the most probable cause is that the element is referring to an AIMMS-identifier that should have at least one index defined but where no index can be found (like for an indexed parameter), where the index is not properly named in the mappingfile or where more indices are expected than defined (or the other way around).
 
 *ReadFromStream: <i_subset>: ERROR: No (active) element with name <elementValue> in set (error 136)*
-	In this case, check if you are trying to read data to a master set, and then for a subset of the master set. If you are, please after the read of the master set, add a ``update`` fuction to the subsets. 
+	In this case, check if you are trying to read data to a master set, and then for a subset of the master set. If you are, please after the read of the master set, add a ``update`` function to the subsets. 
+
+
+.. spelling::
+
+    dex
+    mappingfile
+    mappingfiles
+    AIMMS-identifiers	
