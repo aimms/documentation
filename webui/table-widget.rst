@@ -307,6 +307,10 @@ In particular, this implies that, if a set has two or more indexes, then each of
    If a table contains more than one (numerical) identifier and the <IDENTIFIER-SET> index is pivoted to Totals, then the contents of the table may be downloaded, but it cannot be overwritten by an upload, because those (computed) totals have an implicit (runtime) definition in the AIMMS model. 
    Moreover, if a value representing a total had to be distributed among several identifiers values upon upload to the table, it would be rather ambiguous how this was to be done. 
    
+.. note::
+
+   If uploading from an Excel file to a WebUI Table results in invalid entries in the WebUI Table (for example, when trying to upload a string value from Excel into a cell in the WebUI Table that expects a numerical value), the first of these errors will be displayed in the WebUI's message banner, together with the total count of errors.
+
 The following aspects are not (yet) supported, but may be subject to further improvements:
 
 • No support for the display of units of measurement (in the downloaded Excel file). Only the plain values (without units) are subject to the download/upload actions.
