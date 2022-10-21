@@ -159,7 +159,7 @@ The ``metadata`` example is provided below:
 
 
 Example: Using Postman to Update an Application (PATCH)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. When updating an application, it is necessary to provide the body in JSON. Do not forget to select
 the "raw" format.
