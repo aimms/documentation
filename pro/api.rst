@@ -12,7 +12,7 @@ AIMMS PRO REST API also supports all the functionality provided by our existing 
 
 As of now we support following services(functionality) through AIMMS PRO REST API,
 
-    - `Running Tasks <https://documentation.aimms.com/pro/rest-api.html#crud-on-tasks>`__
+    - `Running Tasks <https://documentation.aimms.com/pro/rest-api.html#running-tasks>`__
     - `Managing Users and Groups <https://documentation.aimms.com/pro/rest-api.html#managing-users-and-groups>`__
     - `Managing Apps <https://documentation.aimms.com/pro/rest-api.html#managing-apps>`__
     - `Managing AIMMS <https://documentation.aimms.com/pro/rest-api.html#managing-aimms>`__
