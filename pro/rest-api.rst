@@ -159,7 +159,7 @@ The ``metadata`` example is provided below:
 
 
 Example: Using Postman to Update an Application (PATCH)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. When updating an application, it is necessary to provide the body in JSON. Do not forget to select
 the "raw" format.
@@ -221,7 +221,8 @@ Managing AIMMS
 This REST API Service allows you to retrieve all available AIMMS Versions on Cloud, retrieve the information about specific AIMMS Version and activate/deactivate the AIMMS Version. Please see the following example and API specs (*Publishing* section) for the detailed usage.
 
 Example: Using Postman to Activate an AIMMS Version
----------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Postman can also be used to activate an AIMMS version via the REST API. The same basic one to four steps should be
 followed as in the previous example. The last step is to perform the actual activation. This is done by performing
 a ``PATCH`` operation on the ``https://[account-name].aimms.cloud/pro-api/v1/aimms-versions`` endpoint using the
