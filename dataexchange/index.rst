@@ -27,6 +27,7 @@ The following sections explain the Data Exchange library in more detail.
    openapi-client
    rest-server
    api
+   troubleshoot
    release
 
 .. spelling::
