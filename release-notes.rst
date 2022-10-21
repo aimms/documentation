@@ -29,6 +29,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  When setting the ``aimmsunit::TestSuite`` annotation on a section node in the model tree, the error message 'Section Test_Section: Annotation aimmsunit::TestSuite already set.' was incorrectly displayed. The cause was that the annotation was stored twice in the underlying .ams files. Now it is stored only once, which resolves the aforementioned and similar errors.
+-  A crash could occur when using an incorrect index domain attribute specification.
 
 
 WebUI Improvements
