@@ -336,10 +336,6 @@ Although downloading the Table content as a CSV file or as an Excel file can gre
 	Starting from AIMMS 4.89, a global application setting called 'Show Upload/Download Data Controls' was introduced, with which you can override the default for all tables at once. 
 	So, if the option on the table level has not been specified, then it will inherit automatically the value of the global application option.
 
-If the 'Excel Upload/Download Support' feature is active in your AIMMS version/model, then the setting of this option (either explicitly by the table setting or by an override using the global application setting) 
-affects both the CSV and the Excel functionality. As a result, enabling the option will get you three icons in your table header (Excel download, Excel upload and CSV download).
- 
-If the 'Excel Upload/Download Support' feature is not active in your AIMMS version/model, then the option will only control the CSV download feature, so enabling it in this case will show only the CSV download icon in the table header.
 
 Creating Read-Only Cells
 ------------------------------------
