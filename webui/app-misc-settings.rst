@@ -51,6 +51,10 @@ and widgets as they are, i.e. as provided by the app developer. More specificall
 
 Moreover, the "cog wheel" Settings icon is no longer available for any of the widgets, so the widget options are no longer editable.
 
+.. note::
+   
+   Be aware that the default of the UI Editable setting is "true". This means that, without changing it, your end users are allowed to edit the user interface when run under the AIMMS PRO platform.
+
 Limited Option Editor(1/0)
 --------------------------
 
