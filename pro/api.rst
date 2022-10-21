@@ -1,10 +1,24 @@
 AIMMS PRO API
 *************
 
+Currently we provide two APIs to PRO: the 'Java/C# API' which has been available for many years and the new 'PRO REST API server', released 2022. We recommend the use of the PRO REST API Server for all new applications, because it has more functionality and typically requires less time to implement. Also the 'Java/C# API' will be deprecated in the near future.
+
 AIMMS PRO REST API
 ------------------
 
-This is the newest implementation of the PRO API, following modern REST API design principles. It is described `here <rest-api.html>`__.
+This is the newest implementation of the PRO API, following modern REST API design principles,. Our goal of this REST API Services is to give you ‘programmatic access’ to our AIMMS PRO Cloud Platform. The AIMMS PRO REST API allows users to securely interact with the AIMMS PRO Cloud Platform via a REST interface. This API is designed following the `OpenAPI Specification <https://swagger.io/specification/>`_ such that you can automatically generate your client code. It is available only on our Azure Cloud Platform.
+
+AIMMS PRO REST API also supports all the functionality provided by our existing AIMMS PRO Java/C# API. Please consider switching to this newest REST API if you are already using our Azure Cloud Platform.
+
+As of now we support following services(functionality) through AIMMS PRO REST API,
+
+    - `Running Tasks <https://documentation.aimms.com/pro/rest-api.html#crud-on-tasks>`__
+    - `Managing Users and Groups <https://documentation.aimms.com/pro/rest-api.html#managing-users-and-groups>`__
+    - `Managing Apps <https://documentation.aimms.com/pro/rest-api.html#managing-apps>`__
+    - `Managing AIMMS <https://documentation.aimms.com/pro/rest-api.html#managing-aimms>`__
+ 
+For more details, please visit `AIMMS PRO REST API Documentation <rest-api.html>`__.
+
 
 AIMMS PRO Java/C# API
 ---------------------
