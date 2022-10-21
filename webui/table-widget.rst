@@ -207,6 +207,10 @@ Please note that the .csv file is constructed within your browser environment be
 
 Furthermore, there is a limit on the number of rows that can be downloaded (i.e. even when having just 1 column!): this is controlled by the value of the project option *WebUI_maximum_number_of_entries_in_widget*. The default value of this option is currently 50,000.
 
+.. note::
+
+   This feature is deprecated from AIMMS 4.89 onwards. By April 2023 we plan to remove it. However, `we are curious to learn <https://community.aimms.com/aimms-webui-44/feedback-wanted-would-you-prefer-the-table-download-csv-feature-over-the-table-download-excel-feature-and-why-1339>`_ whether you, as a user, see use cases where this functionality would be preferable over downloading to an Excel file (see the next paragraph).
+
 
 Excel Upload/Download Support
 -----------------------------
