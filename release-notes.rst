@@ -12,6 +12,28 @@ AIMMS 4.89
 #############
 
 
+AIMMS 4.89.2 Release (October 26, 2022 - build 4.89.2.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In AIMMS 4.88, versions of repository libraries that were stored in the .aimmspack file were not used when running the app. This could lead to unexpected longer startup times, for example in solver sessions.
+-  Calling the function GMP::Solution::GetRowValue many times could be time consuming if the (optional) argument 'valueType' was set to 2.
+-  In AIMMS 4.88.5 we introduced a regression issue for statements where the left-hand side identifier has both a nonzero default and a multidimensional index expression.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When the contents of a custom tooltip were changed while the tooltip was visible (for example: a button click changed the tooltip), it could happen that the combined contents would then start duplicating on every showing of the tooltip, potentially even leading to a crashing browser.
+-  After uploading an Excel sheet to an existing WebUI table, any existing sorting in the WebUI table was ignored.
+
+--------------
+
+
+
 AIMMS 4.89.1 Release (October 20, 2022 - build 4.89.1.1).
 ------------------------------------------------------------------------------------------
 
