@@ -330,11 +330,9 @@ Although downloading the Table content as a CSV file or as an Excel file can gre
 
 .. note::
 
-    The 'Show Upload/Download Data Controls' option was introduced in AIMMS 4.88. Since its default value is Off (whereas before this AIMMS version the controls were always visible by default), 
-	this means that if you have table widgets in your existing applications for which you want the user to be able to use this functionality, you should switch the option to On for all these tables. 
+   The 'Show Upload/Download Data Controls' option was introduced in AIMMS 4.88. Since its default value is now Off (whereas before this AIMMS version the controls were always visible by default), this means that if you have table widgets in your existing applications for which you want the user to be able to use this functionality, you should switch the option to On for all these tables. 
 	
-	Starting from AIMMS 4.89, a global application setting called 'Show Upload/Download Data Controls' was introduced, with which you can override the default for all tables at once. 
-	So, if the option on the table level has not been specified, then it will inherit automatically the value of the global application option.
+   Starting from AIMMS 4.89, a global application setting called 'Show Upload/Download Data Controls' was introduced, with which you can override the default for all tables at once. So, if the option on the table level has not been specified, then it will inherit automatically the value of the global application option.
 
 
 Creating Read-Only Cells
