@@ -57,7 +57,27 @@ The table widget offers the user possibilities for various actions such as:
 
   * In AIMMS 4.87 and higher, pressing **ENTER** takes you to the cell below.
 
+* Starting from AIMMS 4.90, it is also possible to sort the table headers, that is, the elements of one of the sets involved in the table (through the specification of its index in the shown data).
 
+  Consider the following example where the data has four indexes:
+
+  .. image:: images/Table-Header-Sort-1.png 
+        :align: center  
+
+  If we choose for "decreasing" sorting of the set Centers in the columns headers, then the columns are sorted as follows:
+
+  .. image:: images/Table-Header-Sort-2.png 
+        :align: center  
+  
+  Similarly, if we choose for "decreasing" sorting of the set Factories in the rows headers, then the table is sorted as follows:
+
+  .. image:: images/Table-Header-Sort-3.png 
+        :align: center  
+ 
+  Please note that any table header may be sorted, but only one sorting can be applied on table headers at a time. So, when another sorting is chosen, then the previously applied sorting is no longer active, but the corresponding index gets the default sorting, instead. Once a sorting is applied, the header title cell used for that sorting is indicated accordingly, as shown in the pictures above. 
+
+  Also, when sorting is applied on a cell in header titles area and afterwards some changes are performed to the table (such as a change in the pivoting of the indexes or a modification to the table contents), then the sorting is retained as long as that index/identifier continues to exist in the table.
+  
 Search-and-Find
 ---------------
 
