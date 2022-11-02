@@ -319,6 +319,27 @@ Support for OAuth2 authorization
 	:param apiClient: element parameter into :token:`dex::oath::APIClients`, for which the string parameter :token:`dex::oauth::APIClientStringData` holds the client configuration.
 	:param theRequest: `dex`::client` request name to which the Bearer authorization token should be added via the Authorization header.
 
+Support functions for HMAC and SHA256 
+-------------------------------------
+
+The Data Exchange library supports methods for computing HMAC and SHA256 digests in support of, for instance, AWS and Azure libraries that require signature headers or query parameters for method authentication.
+
+.. js:function:: dex::client::HMAC
+
+	Compute the HMAC for a ``data_`` string and a given ``key``. The key can be provided as-is, hex-encoded, base64-encoded or base64-url-encoded, while the resulting digest can be hex-, base64- or base64-url-encoded.
+	
+	:param key: the key used to compute the HMAC digest with
+	:param data_: the data string to compute the HMAC digest for
+	:param keyEncoding: Optional argument to indicate how the key is encoded, possible values 0 (default) indicates that key is used as-is, 1 key is hex-encoded, 2 key is base64-encoded, 3 key is base64-url-encoded
+	:param digestEncoding: Optional argument to indicate how the HMAC digest is encoded, possible values 1 (default) key is hex-encoded, 2 key is base64-encoded, 3 key is base64-url-encoded
+	
+.. js:function:: dex::client::SHA256
+
+	Compute the SHA256 digest for a ``data_`` string. The resulting digest can be hex-, base64- or base64-url-encoded.
+	
+	:param data_: the data string to compute the SHA256 digest for
+	:param digestEncoding: Optional argument to indicate how the SHA256 digest is encoded, possible values 1 (default) key is hex-encoded, 2 key is base64-encoded, 3 key is base64-url-encoded
+
 HTTP Server methods
 -------------------
 
@@ -429,3 +450,8 @@ For JSON schema and OpenAPI specifications, the Data Exchange library can genera
 .. spelling::
 
     uninitialize
+		HMAC
+		SHA256
+		base64
+		url
+		AWS

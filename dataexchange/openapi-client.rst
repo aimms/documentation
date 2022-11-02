@@ -117,7 +117,11 @@ Every operation defined in an OpenAPI specification of a service, can have four 
 How the generated code deals with requests and response bodies
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-When an operation in the OpenAPI specification expects a request body, the generated code will create the request body using the mapping generated for the specified schema of the request body, and expects the data to be available in the collection of identifiers associated with that schema in the runtime library. Similary the response body will be deserialized into the collection of identifiers associated with the schema of the response body. Depending on the HTTP status code, the schema of the response body may differ, so you may find the result of a valid call in a different module in the runtime library than an error message that is returned for a non-valid call.
+When an operation in the OpenAPI specification expects a request body, the generated code will create the request body using the mapping generated for the specified schema of the request body, and expects the data to be available in the collection of identifiers associated with that schema in the runtime library. Alternatively, if you specify a file (or memory stream) name for the string parameter ``<schemaName>::api::<operation>::RequestFile('requestBody')``, the ``<schemaName>::api::<operation>::apiCall`` method will use the content of that file as request body. You can use this if you want to construct the request body from other data in your model, or if the operation expects a binary file as request body.
+
+Similary the response body will be deserialized into the collection of identifiers associated with the schema of the response body. Depending on the HTTP status code, the schema of the response body may differ, so you may find the result of a valid call in a different module in the runtime library than an error message that is returned for a non-valid call.
+If you set the parameter ````<schemaName>::api::<operation>::DeserializeResponse(<statusClass>)`` to 0 (default is 1) where ``<statusClass>`` is any of the HTTP status codes, or one of the aggregator status class ``'2xx'``, ``'3xx'``, the ``<schemaName>::api::<operation>::callback`` method will not try to deserialize the response body. In this case, the content of the request body is available in the file (or memory stream) specified in the string parameter ``<schemaName>::api::<operation>::ResponseFile('responseBody',<callInstance>)``. 
+This allows you to deserialize the content into identifiers of your own choice, or to deal with binary content if the method returns a binary file. 
 
 If the generated identifiers have an additional *instance* index, then the request data need to be, and the response data will be stored in the specific slice associated with the *instance* representing this particular call. In this situation, you must first call the procedure ``<schemaName>::api::NewCallInstance`` to create a new call instance that you can use to store request data or to retrieve the response data. 
 
@@ -125,12 +129,12 @@ In case you have the ``explodeDefault`` argument to 2, the *instance* index will
 
 .. note::
 
-	The Data Exchange library does not yet handle `multipart` bodies, binary bodies, or services that work with XML request and response bodies.
+	The Data Exchange library does not yet handle `multipart` bodies, or services that work with XML request and response bodies.
 
 Supplying model-specific hooks
 ++++++++++++++++++++++++++++++
 
-The ``apiCall`` method will perform all generic functionality that is necessary to make the specific API request. Through the element parameter ``<schemaName>::api::<operation>::UserRequestHook`` you can set a procedure that will be call from within the ``apiCall`` method in which you can perform any model-specific actions necessary. Example of this are, for instance, HMAC hashing of request headers.
+The ``apiCall`` method will perform all generic functionality that is necessary to make the specific API request. Through the element parameter ``<schemaName>::api::<operation>::UserRequestHook`` you can set a procedure that will be call from within the ``apiCall`` method in which you can perform any model-specific actions necessary. Example of this are, for instance, HMAC hashing of request headers (e.g. for computing AWS signature v4 signatures).
 
 Likewise you can set the element parameter ``<schemaName>::api::<operation>::UserResponseHook`` to a procedure that will be called after all response data has been set in the callback of the libCurl request.
 
@@ -157,7 +161,7 @@ Configuring API authorization data
 
 The generated API client supports both API keys and OAuth2 for authorizing your API calls. You can specify these through the following parameters:
 
-- ``<schemaName>::api::RequestTracing``: a flag to indicate whether you want to the actual API call generate a libCurl trace file, which you can use of debug the particular sequence of network calls being made by libCurl.
+- ``<schemaName>::api::RequestTracing``: a flag to indicate whether you want to the actual API call generate a libCurl trace file, which you can use of debug the particular sequence of network calls being made by libCurl. 
 - ``<schemaName>::api::APIKey``: a string parameter in which you can store the API key to be used in all API calls for this client. The API key will be transmitted through a security-scheme dependent header.
 - ``<schemaName>::api::OAuth2APIClient``: If the service used OAuth2 for authorization, you can use this configuration parameter to point to an element of the set ``dex::oauth::APIClients`` (see section :ref:`Using OAuth2 for API authorization <OAuth2>`). The client will then automatically call the :js:func:`dex::oauth::AddBearerToken` before making any API call.
 
@@ -186,6 +190,11 @@ This will execute the operation asynchronously. If you want to wait for one or m
 
 If you have set the ``explodeDefault`` argument to 2 during the generation of the API client, there will be no *instance* index in the schema-specific identifiers, nor will there by a *callInstance* argument to the ``apiCall`` procedures.
 
+Cleaning up generated identifiers after a call
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Every generated schema will have a method ``<schemaName>::<schema>::EmptyInstance`` which will remove all data for the instance specified as an argument. If sub-schemas are not exploded, the the ``EmptyInstance`` method will also be called for all referenced sub-schema. This will make it easy to delete all data associated with request and response bodies for your API calls.
+
 Moving the runtime library to a permanent library
 -------------------------------------------------
 
@@ -194,3 +203,7 @@ Once you have generated a runtime library to integrate a third-party service int
 Not only will this save you time, as you don't have to generate the runtime library on every run of the model, but using identifiers and procedures from a regular library is much easier than using identifiers and procedures from a runtime library using the ``Uses runtime libs`` attribute. 
 
 Next to the source code, you should also make sure that you include the mapping file generated by the OpenAPI client generator into your project. 
+
+.. spelling::
+
+	AWS
