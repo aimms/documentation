@@ -1,8 +1,24 @@
 AIMMS PRO REST API
 ==================
 
-The API itself can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v1/``. 
+Currently we provide two APIs to PRO: the new PRO REST API service described here, released 2022, and the legacy `Java/C# API <../pro/api.html>`_. We recommend the use of the PRO REST API Server for all new applications, because it has more functionality and typically requires less time to implement. 
 
+The AIMMS PRO REST API follows modern REST API design principles, and is designed following the `OpenAPI Specification <https://swagger.io/specification/>`_ such that you can automatically generate your client code. Our goal of this REST API Service is to give you ‘programmatic access’ to our AIMMS PRO Cloud Platform. The AIMMS PRO REST API allows users to securely interact with the AIMMS PRO Cloud Platform via a REST interface. 
+
+.. note::
+
+	The AIMMS PRO REST API is available only on our Azure Cloud Platform. It is *not* supported on on-premise PRO installations.
+
+AIMMS PRO REST API also supports all the functionality provided by our existing AIMMS PRO Java/C# API. Please consider switching to the PRO REST API if you are already using our Azure Cloud Platform.
+
+We support following services(functionality) through the AIMMS PRO REST API:
+
+    - `Running Tasks <rest-api.html#running-tasks>`__
+    - `Managing Users and Groups <rest-api.html#managing-users-and-groups>`__
+    - `Managing Apps <rest-api.html#managing-apps>`__
+    - `Managing AIMMS <rest-api.html#managing-aimms>`__
+ 
+The full OpenAPI specification of the AIMMS PRO REST API itself can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v1/``. 
 
 API Keys and Scopes
 -------------------
@@ -20,10 +36,10 @@ an expiration date, as well as the *Scopes* for that key. Scopes are the
 mechanism by which the user can restrict privileges for a given API key to
 subsets of the PRO REST API:
 
-1. The *Authentication* scope allows CRUD operations on Users and Groups.
+1. The *Authentication* scope allows operations on Users and Groups.
 2. The *PublishAIMMS* scope allows operations on AIMMS Versions.
-3. The *PublishApp* scope allows CRUD operations on AIMMS apps.
-4. The *Tasks* scope allows CRUD operations on Tasks.
+3. The *PublishApp* scope allows operations on AIMMS apps.
+4. The *Tasks* scope allows operations on Tasks.
 
 .. image:: images/key2.jpg
     :align: center
@@ -35,7 +51,7 @@ The new key is shown to the user in a pop-up window:
     :align: center
 
 The key will only be shown in plain text once (for security reasons) - so the user
-is advised to copy it ans store it securely. This key should be sent in the *apikey*
+is advised to copy it and store it securely. This key should be sent in the *apikey*
 header for every REST call the user want to make using this key for
 authentication/authorization.
 
@@ -48,14 +64,14 @@ The Data Exchange (DEX) library is capable of exposing procedures in an AIMMS mo
 procedures via this (DEX-exposed) REST API creates ``tasks`` which run in the same AIMMS session as the DEX library
 exposing them. Consuming and providing REST APIs using the DEX library is documented `here <../dataexchange/rest-server.html>`__.
 
-The AIMMS PRO REST API allows users to perform CRUD operations on DEX-exposed tasks, supporting the following:
+The AIMMS PRO REST API allows users to perform operations on DEX-exposed tasks, supporting the following:
 
 1. Creating tasks (POST). Once a task is created, it will eventually run on the PRO Cloud infrastructure.
 2. Retrieving a task's status/results (GET).
 3. Interrupting a task (PUT). This allows the task to complete earlier.
 4. Deleting a task (DELETE). It can delete 'QUEUED' or 'COMPLETED' tasks.
 
-The CRUD Task operations supported by the AIMMS PRO REST API closely mirror the REST API exposed by DEX, with the exception of
+These Task operations supported by the AIMMS PRO REST API closely mirror the REST API exposed by DEX, with the exception of
 the PUT command: while DEX supports both ``interrupt-execution`` and ``interrupt-solve`` in the PUT body, the PRO REST
 API only supports ``interrupt-solve``. The reason for this is that ``interrupt-execution`` terminates the AIMMS session
 running the task, and on PRO Cloud such sessions are not controllable by the API user, but rather directly managed by PRO.
@@ -64,7 +80,7 @@ Tasks will be queued by PRO in the creation order. PRO will launch these tasks t
 are queued. PRO will attempt to parallelize task execution, potentially having multiple tasks running at the same time up to
 a maximum degree of task parallelism (configurable per account).
 
-A PRO account needs special configuration in order to use CRUD on Tasks via the PRO REST API. Essentially, such configuration
+A PRO account needs special configuration in order to use the Tasks REST API. Essentially, such configuration
 will create a special license profile specifying the number of concurrent tasks a user may run via the API (by default this is zero).
 To enable this special "REST" profile please contact the AIMMS Customer Support.
 
@@ -78,7 +94,7 @@ has with respect to the AIMMS App that is exposing the DEX REST API:
 1. Create/Interrupt/Delete operations require that user to have ``Read`` and ``Execute`` permissions on that app.
 2. Retrieve operations require that user to have ``Read`` permissions on that app.
 
-CRUD on tasks is only supported starting from PRO Release 2.45, and will work only for AIMMS apps published with
+The Tasks REST API is only supported starting from PRO Release 2.45, and will work only for AIMMS apps published with
 AIMMS version 4.89 and higher, and using the DEX library 1.3.2.71 or higher.
 
 Managing Users and Groups
@@ -95,7 +111,7 @@ Setting up Postman for REST API calls for publishing apps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is an example on how to use `Postman <https://www.postman.com/>`_ in order
-to perform CRUD operations an AIMMS applications using the PRO REST API:
+to perform operations an AIMMS applications using the PRO REST API:
 
 1. Start in the Postman request view:
 
@@ -116,7 +132,7 @@ Examples of the URL:
 
 To know what URL should be used, check the corresponding API spec.
 
-4. Within the scope of CRUD on applications, add an "apikey" header with the api key value.
+4. Within the scope of operations on applications, add an "apikey" header with the api key value.
 Note that the header name must correspond to what is defined in the api spec. Make sure to tick the checkbox
 after adding the "apikey" field. The rest of the header fields remain unchanged.
 
@@ -236,10 +252,9 @@ body described in ``AimmsVersion.yaml`` in the API schema:
             "id": "4.82.9.1-linux64-x86-vc141"
         }
 
-
 .. spelling::
 
     projectCategory
-	isLatest
+		isLatest
     isWebUI
     iconUrl
