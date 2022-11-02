@@ -12,6 +12,26 @@ AIMMS 4.89
 #############
 
 
+AIMMS 4.89.3 Release (November 2, 2022 - build 4.89.3.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Logging database statements at trace level could in some cases lead to crashes because the displaying of null-data was not correctly handled (since AIMMS 4.80).
+-  In some situations an Empty statement that uses an element parameter for slicing did not first update it. This resulted in either the wrong slice or nothing at all being emptied.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We have carried out two styling fixes: ('old') Bar and Line Charts now properly show the units used in the chart, at the top of the vertical axis. Layout issues were causing them to be hidden from view. This also repairs the margin between axis labels and the chart, which was too big. Moreover, the Label widget was inadvertently showing border/drop shadow where it was never intended to have them. These errors, made while creating the new Theming options, have been corrected.
+
+--------------
+
+
+
 AIMMS 4.89.2 Release (October 26, 2022 - build 4.89.2.5).
 ------------------------------------------------------------------------------------------
 
