@@ -319,10 +319,10 @@ Support for OAuth2 authorization
 	:param apiClient: element parameter into :token:`dex::oath::APIClients`, for which the string parameter :token:`dex::oauth::APIClientStringData` holds the client configuration.
 	:param theRequest: `dex`::client` request name to which the Bearer authorization token should be added via the Authorization header.
 
-Support functions for HMAC and SHA256 
--------------------------------------
+Support functions for hashing and encoding 
+------------------------------------------
 
-The Data Exchange library supports methods for computing HMAC and SHA256 digests in support of, for instance, AWS and Azure libraries that require signature headers or query parameters for method authentication.
+The Data Exchange library supports methods for computing HMAC and SHA256 digests in support of, for instance, AWS and Azure libraries that require signature headers or query parameters for method authentication. In addition, there are some functions to perform base64 encoding/decoding, and to URL encode a string.
 
 .. js:function:: dex::client::HMAC
 
@@ -339,6 +339,29 @@ The Data Exchange library supports methods for computing HMAC and SHA256 digests
 	
 	:param data_: the data string to compute the SHA256 digest for
 	:param digestEncoding: Optional argument to indicate how the SHA256 digest is encoded, possible values 1 (default) key is hex-encoded, 2 key is base64-encoded, 3 key is base64-url-encoded
+	
+.. js:function:: dex::client::Base64Encode
+
+	Base64 encode a ``data_`` string. Depending on the flag ``urlEncoding``, the result will be base64-encoded or base64-url-encoded.
+	
+	:param data_: the data string to base64 encode.
+	:param base64Data: the resulting encoded string.
+	:param urlEncoding: Optional argument to indicate whether the result should be base64-encoded, or base64-url-encoded
+
+.. js:function:: dex::client::Base64Decode
+
+	Base64 decode a ``base64Data`` string. Depending on the flag ``urlEncoding``, the string is assumed to be base64-encoded or base64-url-encoded.
+	
+	:param base64Data: the encoded string to base64 decode.
+	:param data_: the resulting decoded string.
+	:param urlEncoding: Optional argument to indicate whether the input is base64-encoded, or base64-url-encoded
+
+.. js:function:: dex::client::URLEncode
+
+	URL encode a ``data_`` string. 
+	
+	:param data_: the data string to URL encode.
+	:param urlEncodedData: the resulting encoded string.
 
 HTTP Server methods
 -------------------

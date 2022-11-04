@@ -18,10 +18,11 @@ The DataExchange library is under active development. The following new features
 New Features and Bug Fixes
 --------------------------
 
-2.0.0.14 [31-10-2022]
-	- Add methods for computing HMAC and SHA256 digests
+2.0.0.16 [04-11-2022]
+	- Add methods for computing HMAC and SHA256 digests, base64(-url) encoding and decoding, and url encoding
 	- Add support for binary request and response bodies
 	- Add ``EmptyInstance`` methods for all generated JSON schema
+	- URL encode the argument values for path parameters in generated ``apiCall`` methods
 
 2.0.0.5 [28-09-2022]
 	- Patch curl requests would not send a request body
