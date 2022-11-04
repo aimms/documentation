@@ -330,6 +330,13 @@ Commit and Pull Functions
 
    :param category: specifies the category for which to compute the local changes.
 
+.. js:function::  cdm::ComputeDeltaOutExt(category,changesDetected)
+   
+   Compute the changes between the actual identifiers of the given category and the committed values stored in the ``CommittedIdentifiers`` section of ``CDMRuntimeLibrary`` for the category, store the changed values in the ``DeltaOutIdentifiers``, set the corresponding tuples in the ``DeltaOutRevisionIdentifiers`` to 1, and report back the number of changes detected. This low-level function is used when `visually inspecting the differences between revisions <dtd.html#visually-viewing-differences>`_.
+
+   :param category: specifies the category for which to compute the local changes.
+   :param changesDetected: the number of changes detected when computing the delta out.
+
 .. js:function::  cdm::ResolveIdentifierConflicts(category,idName,useLocal)
    
    Low-level function used to resolved *all* conflicts for a given identifier in a category, either by *always* using the local changes or by *always* using the remote changes in case of a conflict. This function is used by the visual conflict resolution method implemented in the CDM library.

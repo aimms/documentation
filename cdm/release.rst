@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.27.0.2 [04-11-2022]
+	- Add ``cdm::ComputeDeltaOutExt`` method which computes the delta out and reports the number of changes detected.
+
 1.27.0.0 [16-10-2022]
 	- Replaced temporary tables used during checkout to filter set elements by a different filtering approach using permanent tables to fix performance issue in Azure MySQL databases due to very slow DDL performance in Azure MySQL
 	
