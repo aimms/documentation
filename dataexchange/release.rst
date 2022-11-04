@@ -227,3 +227,7 @@ New Features and Bug Fixes
     
 1.0.0.18 [10-07-2020]
     - Initial public release of the DataExchange library
+
+.. spelling::
+
+		url
