@@ -67,6 +67,8 @@ From AIMMS 4.89 onwards, the table widget offers a Search-and-Find functionality
 
    The Search-and-Find functionality is available in AIMMS 4.89 as an Experimental Feature. You can toggle the feature 'Advanced Table Editing' on or off in the Experimental Features dialog in order to use it.
    
+   Starting from AIMMS 4.90, the Advanced Table Editing is available as a main feature (so, it is no longer shown under the Experimental Features).
+   
 The Search-and-Find functionality can be activated by clicking on the dedicated search icon on the table header: 
 
 .. image:: images/Table-Search-icon.png
@@ -162,6 +164,8 @@ Pasting is not limited to the same table as from which you copied the values of 
 .. note::
 
    The Block Editing and the Copy/Paste features are available as Experimental Features from AIMMS 4.87 onwards. You can toggle the feature 'Advanced Table Editing' on or off in the Experimental Features dialog in order to use it.
+   
+   Starting from AIMMS 4.90, the Advanced Table Editing is available as a main feature (so, it is no longer shown under the Experimental Features).
 
 .. note::
 
@@ -223,7 +227,7 @@ More specifically, after using Excel to make edits to the data, the same sheet c
 
    This feature of the WebUI table was introduced as an Experimental Feature in AIMMS 4.86 onwards. When using AIMMS 4.86, 4.87, or 4.88, you can switch on the feature by checking the 'Excel Upload/Download Support' box in the Experimental Features dialog.
    
-   Starting from AIMMS 4.89 this feature is available as main feature (so, it is no longer under Experimental Features).
+   Starting from AIMMS 4.89 this feature is available as a main feature (so, it is no longer shown under the Experimental Features).
 
 On the Table Widget header you can access both actions when opening the kebab menu:
 
