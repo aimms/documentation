@@ -17,9 +17,10 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
-2.0.0.17 [08-11-2022]
+2.0.0.21 [08-11-2022]
 	- Boolean cells from Excel tables were not handled correctly
 	- Improve reading number cells from Excel tables to string parameters, using the minimal number of decimals necessary
+	- Set elements created from integer columns in a Parquet file would cause a crash
 
 2.0.0.16 [04-11-2022]
 	- Add methods for computing HMAC and SHA256 digests, base64(-url) encoding and decoding, and url encoding
