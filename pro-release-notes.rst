@@ -11,7 +11,7 @@ On November 4, 2022, we released AIMMS PRO 2.45.3 (2.45.3.1).
 
 **Resolved Issues**
 
-   - Cloud: Fixed an issue introduced in AIMMS PRO 2.44.3.1 where the text inside map widget displayed in various languages instead of english.
+   - Cloud: Fixed an issue introduced in AIMMS PRO 2.44.3.1 where the text inside map widget displayed in various languages instead of English.
 
 AIMMS PRO 2.45.2 Release
 ------------------------
