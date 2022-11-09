@@ -7,5 +7,7 @@
 *.pyc
 *.idea
 *.vscode
+*.actionLog
 /**/.history/**/*.*
 _build
+/guardserversession/model/FlowShop/log
