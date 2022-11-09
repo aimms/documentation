@@ -12,6 +12,26 @@ AIMMS 4.89
 #############
 
 
+AIMMS 4.89.4 Release (November 8, 2022 - build 4.89.4.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The function ConvertUnit could result in a crash if the passed unit was empty.
+-  Using a Student License, AIMMS would crash when trying to create a 'New Project' due to the limited model sizes for that type of license.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The Selection Box Widget would not work properly when the model was published on AIMMS PRO: searching/filtering the list was broken.
+
+--------------
+
+
+
 AIMMS 4.89.3 Release (November 2, 2022 - build 4.89.3.4).
 ------------------------------------------------------------------------------------------
 
