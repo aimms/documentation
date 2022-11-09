@@ -1,4 +1,4 @@
-Incident Handling for Organizations
+Introduction
 =============================================
 
 Thanks to extensive checking and clear reporting of incidents; end-users can handle several incidents themselves.
@@ -41,7 +41,9 @@ The information flow around the application now looks as follows:
 .. image:: images/210319_Guardserversession_v2.jpg
     :align: center
 
-Guard Server Session Library
+
+
+Library purpose
 ------------------------------
 
 The ``GuardServerSession`` library, with prefix ``gss``, is designed, amongst others, to work with session histories.
