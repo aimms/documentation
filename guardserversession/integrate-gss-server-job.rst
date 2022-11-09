@@ -141,12 +141,6 @@ Some optional recommended application changes
 
 #.  The option ``maximal_number_of_warnings_reported`` is switched to a high setting, like 1000.
 
-Further Reading
----------------------
-
-This article is part of the series :doc:`Indicident Handling for Organizations<incident-handling-for-organizations>`.
-
-The next article in this series discusses how to build a user interface to use the ``GuardServerSession`` library: :doc:`UI for GSS<install-gss-ui-for-specialists>`
 
 
 
