@@ -49,24 +49,24 @@ This library can be discussed from the perspective of internal mechanisms, or fr
 
 #.  The interaction of stakeholders with the pages of the library:
 
-    #.  :doc:`The incident reporting by end users<../310/310-gss-ui-for-end-users>`
+    #.  :doc:`The incident reporting by end users<gss-ui-for-end-users>`
 
-    #.  :doc:`The incident information managemen for specialists<../310/310-gss-ui-for-specialists>`
+    #.  :doc:`The incident information managemen for specialists<gss-ui-for-specialists>`
 
 #.  Mechanisms and provided functions:
 
-    #.  :doc:`Error handling<../310/310-errors-as-data>`: how errors are turned into data and how this data, together with profiling data, flows through this library. 
+    #.  :doc:`Error handling<errors-as-data>`: how errors are turned into data and how this data, together with profiling data, flows through this library. 
     
-    #.  :doc:`Logging<../310/310-logging>`: to generate logs for the application using ``GuardServerSession`` library.
+    #.  :doc:`Logging<logging>`: to generate logs for the application using ``GuardServerSession`` library.
 
 #.  Integration:
 
-    #.  :doc:`Integration instructions<../310/310-integrate-gss-server-job>`:  to integrate the ``GuardServerSession`` library with your application, 
+    #.  :doc:`Integration instructions<integrate-gss-server-job>`:  to integrate the ``GuardServerSession`` library with your application, 
         in particular how to adapt the delegation to server session.
 
-    #.  :doc:`UI for end users<../310/310-install-gss-ui-for-end-users>`: to build a user interface for end-users.
+    #.  :doc:`UI for end users<install-gss-ui-for-end-users>`: to build a user interface for end-users.
 
-    #.  :doc:`UI for specialists<../310/310-install-gss-ui-for-specialists>`: to build a user interface for specialists.
+    #.  :doc:`UI for specialists<install-gss-ui-for-specialists>`: to build a user interface for specialists.
 
 
 

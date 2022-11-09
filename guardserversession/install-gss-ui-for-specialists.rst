@@ -1,8 +1,6 @@
 Install UI of GuardServerSession Library
 =========================================
 
-This article is a companion article to :doc:`Incident Handling for Organizations<../310/310-incident-handling-for-organizations>` and to 
-:doc:`The GSS User Interface for specialists<../310/310-gss-ui-for-specialists>`. 
 It contains a set of instructions to create the user interface for specialists working with the ``GuardServerSession`` library. 
 
 After adding the library to your project, you can start building a user interface to that library in WebUI. 

@@ -1,7 +1,6 @@
 The GSS User Interface for specialists
 ======================================
 
-This article is a companion article to :doc:`Incident Handling for Organizations<../310/310-incident-handling-for-organizations>`. 
 It describes the User Interface for specialists supporting end-users of the application at hand.
 
 The User Interface for specialists lets them investigate the components of a Session History easily.

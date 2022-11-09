@@ -1,9 +1,6 @@
 Integrate GuardServerSession library with your AIMMS Application
 ==================================================================
 
-This article is a companion article to :doc:`Incident Handling for Organizations<../310/310-incident-handling-for-organizations>`
-
-
 This article describes how to use the `GuardServerSession` library to delegate jobs from your AIMMS app. 
 The following steps need to be considered:
 
@@ -18,8 +15,7 @@ The following steps need to be considered:
 Adding the library
 --------------------
 
-A copy of the library can be obtained from here: :download:`GSS Library download <model/GuardServerSession.zip>`.
-See also :doc:`AIMMS How-To: Add AIMMS Libraries<../84/84-using-libraries>`.
+The library is available from the AIMMS Library Repository.
 
 This library is dependent on the libraries:
 
@@ -75,7 +71,7 @@ Change in input and output cases
 The set of identifiers saved in a case by the data session as input for the solver session is stored in ``pro::ManagedSessionInputCaseIdentifierSet``.
 The set of identifiers saved in a case by the solver session for the data session is stored in ``pro::ManagedSessionOutputCaseIdentifierSet``.
 
-If your application does not adapt these sets from their default contents (as described in :doc:`AIMMS How-To: Reduce Exchange Between Client and Solver Sessions<../reduce-client-server-exchange/reduce-client-server-exchange>`) before integrating with the ``GuardServerSession`` library,  
+If your application does not adapt these sets from their default contents (as described in `Reduce Exchange <https://how-to.aimms.com/Articles/reduce-client-server-exchange/reduce-client-server-exchange.html>`_  Between Client and Solver Sessions before integrating with the ``GuardServerSession`` library,  
 you do not need to do so after the integration either.
 
 if your application does modify these sets from their default contents, then please add:
@@ -121,7 +117,7 @@ Remarks:
 
 * Lines 3 and 10: ``pr_enter`` and ``pr_leave`` these are used to generate contents for the ``.actionLog`` File. 
   
-  :doc:`AIMMS How-to: Tracing Procedures <../497/497-tracing-procedures>` explains the workings of these procedures.
+  `AIMMS How-to: Tracing Procedures <https://how-to.aimms.com/Articles/497/497-tracing-procedures.html>`_ explains the workings of these procedures.
   
 * Lines 4, 6, and 9 delineate the business logic (line 5) from the error handling logic (lines 7,8).
 
@@ -148,9 +144,9 @@ Some optional recommended application changes
 Further Reading
 ---------------------
 
-This article is part of the series :doc:`Indicident Handling for Organizations<../310/310-incident-handling-for-organizations>`.
+This article is part of the series :doc:`Indicident Handling for Organizations<incident-handling-for-organizations>`.
 
-The next article in this series discusses how to build a user interface to use the ``GuardServerSession`` library: :doc:`UI for GSS<../310/310-install-gss-ui-for-specialists>`
+The next article in this series discusses how to build a user interface to use the ``GuardServerSession`` library: :doc:`UI for GSS<install-gss-ui-for-specialists>`
 
 
 

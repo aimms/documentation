@@ -1,8 +1,6 @@
 The action log
 ===============
 
-This article is a companion article to :doc:`Incident Handling for Organizations<../310/310-incident-handling-for-organizations>`
-
 The action log is part of the Session History. 
 Where the Profiling information and errors as data provide deep insight into an incident, 
 the action log provides insight into what happened before.
@@ -118,7 +116,7 @@ Relevant identifiers for logging
     Log the entry of a procedure, including when the procedure was entered and how much memory was in use.
     In addition, it stores the entry time and the memory in use at entry in the output arguments ``sp_procEnterTimestamp`` and ``p_procEnterMemoryInUse``.
 
-    The techniques used by ``gss::pr_enter`` and ``gss::pr_leave`` are laid out in :doc:`Tracing<../497/497-tracing-procedures>`.
+    The techniques used by ``gss::pr_enter`` and ``gss::pr_leave`` are laid out in `Tracing <https://how-to.aimms.com/Articles/497/497-tracing-procedures.html>`_ .
 
     Arguments:
 
