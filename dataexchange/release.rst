@@ -17,8 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
-2.0.0.22 [11-11-2022]
+2.0.0.26 [11-11-2022]
 	- Reading integer cells from Excel tables into string parameters was not handled correctly
+	- Reading Parquet file containing columns with no data would casue a crash
 
 2.0.0.21 [08-11-2022]
 	- Boolean cells from Excel tables were not handled correctly
@@ -32,7 +33,7 @@ New Features and Bug Fixes
 	- URL encode the argument values for path parameters in generated ``apiCall`` methods
 
 2.0.0.5 [28-09-2022]
-	- Patch curl requests would not send a request body
+	- PATCH curl requests would not send a request body
 	- Better handling of defaults in generated REST API client code to prevent uninitialized data warnings
 	
 2.0.0.0 [18-09-2022]
