@@ -19,7 +19,7 @@ New Features and Bug Fixes
 --------------------------
 2.0.0.26 [11-11-2022]
 	- Reading integer cells from Excel tables into string parameters was not handled correctly
-	- Reading Parquet file containing columns with no data would casue a crash
+	- Reading Parquet file containing columns with no data would cause a crash
 
 2.0.0.21 [08-11-2022]
 	- Boolean cells from Excel tables were not handled correctly
