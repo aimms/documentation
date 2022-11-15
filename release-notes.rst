@@ -202,6 +202,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  We implemented a safer way of saving the model (.ams files). Each model file is now saved to a temporary file first. In case of an unrecoverable error during save, the original file will stay unchanged, while its new version that is causing the error can be found in a .ams-tmp file.
+-  Expressions such as { i in S } (a set constructor without definition) are now properly implemented using local binding only, instead of combining local binding with default binding. In short, this expression now results in the set S. See also `this topic on binding rules <https://documentation.aimms.com/language-reference/procedural-language-components/index-binding/binding-rules.html>`__ in our documentation.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
