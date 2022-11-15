@@ -114,6 +114,7 @@ Resolved WebUI Issues
 -  Performing a really quick CTRL+V keypress in a Table cell when trying to paste a block of cell data could lead to the whole block being copied into the single cell, leading to an error message about the value being invalid.
 -  The Table widget did not update properly after an edit in the table followed by changing a value in a Selectionbox widget causing the table to have a structural change.
 -  The Selectionbox widget is now also updated when the dropdown is opened and at that time the underlying data changes.
+-  Annotations were not applied correctly to WebUI charts when 2 identifiers were added that are in different index domains. Only the first identifier got the annotation.
 
 --------------
 
