@@ -29,6 +29,7 @@ Resolved WebUI Issues
 
 --------------
 
+(For technical reasons, we skipped the AIMMS 4.89.5 release).
 
 
 AIMMS 4.89.4 Release (November 8, 2022 - build 4.89.4.3).
