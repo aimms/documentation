@@ -12,6 +12,25 @@ AIMMS 4.89
 #############
 
 
+AIMMS 4.89.6 Release (November 16, 2022 - build 4.89.6.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When moving identifiers in a runtime library, these could appear as name change entries in the .nch file of the main project, which is not correct.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Entries in the Multiselect widget flickered when clicking either "Select All" or "Select None".
+
+--------------
+
+
+
 AIMMS 4.89.4 Release (November 8, 2022 - build 4.89.4.3).
 ------------------------------------------------------------------------------------------
 
