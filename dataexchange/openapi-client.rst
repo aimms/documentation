@@ -154,7 +154,12 @@ Configuration parameters of the API client
 The generated library has various configuration parameters that you may need to set prior to making any call to an API.
 
 - ``<schemaName>::api::APIServer``: this is the base URL that is prefixed to the path of any operation specified in the OpenAPI specification. Typically this points to the server where the service is running, potentially with a path prefix that needs to be prepended to the path associated with every specified operation.
+
 - ``<schemaName>::api::RequestResponseFilePrefix``: a prefix to every filenames being generated for every file being generated for request and response bodies. You can use this to store any such files in a particular subdirectory, or to instruct the Data Exchange library to use memory streams instead of real files.
+
+    #.  The library initializes this parameter to "##" to make effective use of `memory streams <https://documentation.aimms.com/dataexchange/api.html#memory-streams>`_ thereby avoiding bottlenecks such as virus scans and disk storage.
+
+    #.  When you want to inspect the contents of the generated files, you may want to set this parameter to an explicit folder.
 
 Configuring API authorization data
 ++++++++++++++++++++++++++++++++++
