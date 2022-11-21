@@ -12,6 +12,26 @@ AIMMS 4.89
 #############
 
 
+AIMMS 4.89.7 Release (November 21, 2022 - build 4.89.7.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The constraint listing sometimes displayed right-hand-side values close to 0 as 0, which is not correct if the option 'Listing number precision' is set to a high value.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The store focus mechanism in the Combination Chart widget did not work when the identifier specified resided in a library.
+-  Buttons did not work anymore in models created with old AIMMS versions (to be more precise: those using the deprecated option 'procedure' for their button procedure configuration).
+
+--------------
+
+
+
 AIMMS 4.89.6 Release (November 16, 2022 - build 4.89.6.0).
 ------------------------------------------------------------------------------------------
 
