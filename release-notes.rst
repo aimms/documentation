@@ -12,6 +12,21 @@ AIMMS 4.89
 #############
 
 
+AIMMS 4.89.8 Release (November 23, 2022 - build 4.89.8.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Annotations were not always properly set on Line Combination Charts, leading to css not being applied correctly.
+-  When uploading an Excel sheet to a WebUI table in a model for which the `webui::IdentifierElementText` identifier contained duplicate values, the upload could fail. Now the upload should work correctly as long as the element text for the identifiers that are actually being used in the table at hand are unique.
+
+--------------
+
+
+
 AIMMS 4.89.7 Release (November 21, 2022 - build 4.89.7.3).
 ------------------------------------------------------------------------------------------
 
