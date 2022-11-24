@@ -12,6 +12,25 @@ AIMMS 4.89
 #############
 
 
+AIMMS 4.89.9 Release (November 24, 2022 - build 4.89.9.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS could crash when adding a new library via the Library Manager dialog. This was a problem in the AIMMS 4.89 series of releases only.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We corrected the page delete confirmation message, which displayed an incorrect number of subpages.
+
+--------------
+
+
+
 AIMMS 4.89.8 Release (November 23, 2022 - build 4.89.8.3).
 ------------------------------------------------------------------------------------------
 
