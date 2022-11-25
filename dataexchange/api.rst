@@ -213,7 +213,9 @@ The Data Exchange library contains collection of functions implemented using ``l
     :param theRequest: string parameter holding the unique identification of the request for which to create a multi-part MIME body.
     :param partname: string parameter holding the name of the part
     :param partfile: string parameter holding the name of the file containing the contents of the part.
-    :param asfile: parameter indicating whether part is to be treated as a file part, in which case the base name of :token:`partfile` is transferred as the remote file name.
+		:param headers: string parameter holding the headers that should be added to the part
+    :param asfile: parameter indicating whether part is to be treated as a file part, in which case the base name of :token:`partfile` is transferred as the remote file name
+		:param encoding_: the encoding to be used for the part (can be ``binary``,``8bit``,``7bit``,``base64``, or ``quoted-printable``).
 
 .. js:function::  dex::client::EmptyCallback
 
