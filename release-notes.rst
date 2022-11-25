@@ -38,15 +38,15 @@ WebUI Improvements
 +++++++++++++++++++++++++
 
 -  In the WebUI Table widget, sorting on data has been possible for quite some time. From this release onwards, you can also sort on the row and column headers. For details, see `the documentation <https://documentation.aimms.com/webui/table-widget.html>`__.
-
+-  Now 'mailto:' links are supported in the Text widget.
+-  The "Advanced Table Editing" has been promoted to a General Feature; we removed it from the Experimental Features list.
+-  From AIMMS 4.90 onwards, you will get a deprecation message when opening models which still have a 'Contents.filters.in' property specified (as a result from using the deprecated Filter tab on widgets). See `the documentation <https://documentation.aimms.com/webui/widget-options.html>`__ for details on how to mitigate this.
 
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  When copy/pasting a cell displaying a string containing newline characters from and to a WebUI Table, the pasted string was spread over multiple cells, depending on the number of newline characters present.
--  The "Advanced Table Editing" has been promoted to a General Feature; we removed it from the Experimental Features list.
--  Now 'mailto:' links are supported in the Text widget.
+-  Only if you used the 'Advanced Table Editing' Experimental Feature: When copy/pasting a cell displaying a string containing newline characters from and to a WebUI Table, the pasted string was spread over multiple cells, depending on the number of newline characters present. 
 
 --------------
 

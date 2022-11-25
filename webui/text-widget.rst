@@ -43,6 +43,8 @@ For creating a link to another (internal) page within your WebUI app, type ‘/[
 
 If you want to create a link to an external URL page, simply paste the external page’s URL into the box.
 
+Since AIMMS 4.90, it is also possible to provide 'mailto:' links. Proceed as above, but instead of a URL simply specify 'mailto:person@organization.xx'. You can also specify more details, by extending this to, for example, 'mailto:person@organization.xx?subject=test&body=test'. By clicking on such a link, your default mail program will open with an e-mail pre-filled according to your link parameters.
+
 To change or remove a link, move your cursor to the left or right of the link and follow the menu that pops up.
 
 Lastly, to exit the text widget's editing mode, click the |exit-button| in the top right of the text box.
