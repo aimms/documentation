@@ -8,7 +8,7 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
-AIMMS 4.89
+AIMMS 4.90
 #############
 
 
@@ -47,6 +47,10 @@ Resolved WebUI Issues
 
 --------------
 
+
+#############
+AIMMS 4.89
+#############
 
 
 AIMMS 4.89.9 Release (November 24, 2022 - build 4.89.9.2).
@@ -9274,3 +9278,4 @@ Improvements
 	aimmsunit
 	valueType
 	nch
+	mailto
