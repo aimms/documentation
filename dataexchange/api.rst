@@ -215,7 +215,7 @@ The Data Exchange library contains collection of functions implemented using ``l
     :param partfile: string parameter holding the name of the file containing the contents of the part.
 		:param headers: string parameter holding the headers that should be added to the part
     :param asfile: parameter indicating whether part is to be treated as a file part, in which case the base name of :token:`partfile` is transferred as the remote file name
-		:param encoding_: the encoding to be used for the part (can be ``binary``,``8bit``,``7bit``,``base64``, or ``quoted-printable``).
+		:param encoding: the encoding to be used for the part (can be ``binary``,``8bit``,``7bit``,``base64``, or ``quoted-printable``).
 
 .. js:function::  dex::client::EmptyCallback
 
