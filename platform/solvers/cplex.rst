@@ -6,7 +6,7 @@ The CPLEX solver from IBM ILOG is a high performance solver for :doc:`Linear Pro
 
 CPLEX Linear Programming
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-CPLEX offers various algorithms for solving Linear Programming problems: you can choose between the primal or dual simplex algorithm, the barrier algorithm and the network algorithm. The barrier (or interior point) algorithm offers an approach particularly efficient on large sparse problems. CPLEX can handle sparse matrices very efficiently.
+CPLEX offers various algorithms for solving Linear Programming problems: you can choose between the primal or dual simplex algorithm, the parallel barrier algorithm, the network algorithm and the parallel concurrent algorithm. The barrier (or interior point) algorithm offers an approach particularly efficient on large sparse problems. CPLEX can handle sparse matrices very efficiently.
 
 A presolver is used to reduce the size of the problem before it is solved, sometimes by an order of magnitude. CPLEX is very robust and reliable. It is capable of solving huge, real-world Optimization problems. Almost always the default option settings of CPLEX are sufficient to solve a problem with excellent solution times.
 
