@@ -288,7 +288,7 @@ SP_resHeadAfter
 
     When the request has a body then the ``Content-Length`` header field is automatically added. The ``Content-Type`` is not added and may have to be set using ``request_setHeaders``.
 
-.. spelling::
+.. spelling:word-list::
 
     raison
     d'être

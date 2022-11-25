@@ -82,7 +82,7 @@ First a summary of the steps:
 
 
 
-.. spelling::
+.. spelling:word-list::
 
     multiSolve
 

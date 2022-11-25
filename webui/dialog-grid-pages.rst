@@ -206,6 +206,6 @@ When a dialog grid page is open (invoked), the user can only interact with the w
 
 	For a dialog grid page with custom size, where the ``maxrows`` and ``maxcolumns`` page options are specified through scalar model parameters, it is possible to put these parameters in a widget placed on the dialog itself and attempt to change the size of the dialog dynamically, after the dialog is invoked. This works fine as long as the dialog is not moved around on the invoking page. However, if the dialog is moved around and then resized dynamically by changing the values of the ``maxrows`` and ``maxcolumns`` parameters, then some scroll bars may become visible. This latter situation should be avoided. 
   
-.. spelling::
+.. spelling:word-list::
 
     th

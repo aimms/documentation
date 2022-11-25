@@ -20,7 +20,7 @@ New Features and Bug Fixes
 2.0.0.43 [24-11-2022]
 	- Integer-valued headers in Excel files were represented with 5 decimals as a string
 	- Improve double-to-string conversion in the JSON reader to generate the representation using the minimal number of decimals
-	- Add arguments to ``dex::client::AddMimePart`` for adding headers and encodings to multipart request bodies
+	- Add arguments to ``dex::client::AddMimePart`` for adding headers and encodings to multi-part request bodies
 	- Add support Decimal128, Date32 and Date64 Parquet data types in Parquet reader
 	- Parquet reader would not read Parquet files correctly where not all columns were read into model identifiers
 	- The generated sets ``<schemaName>::Instances`` are now subsets of the global set ``dex::Instances``	to make the use of the generated runtime libraries in the main model easier
@@ -248,6 +248,6 @@ New Features and Bug Fixes
 1.0.0.18 [10-07-2020]
     - Initial public release of the DataExchange library
 
-.. spelling::
+.. spelling:word-list::
 
 		url

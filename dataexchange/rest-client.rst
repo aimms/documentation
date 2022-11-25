@@ -154,6 +154,6 @@ The procedure :any:`dex::client::DetermineProxyServer` will set these defaults o
 	
 		If you use trace files to debug the communication between libCurl and a website, be aware that the trace file will expose all headers, potentially including those that contain API keys or credentials necessary to access a web service. In such case, you are advised to carefully delete trace files directly after use. You should never create trace files in production.
 
-.. spelling::
+.. spelling:word-list::
 
     libCurl

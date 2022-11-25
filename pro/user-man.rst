@@ -94,6 +94,6 @@ Editing and Deleting Users and Groups
 
 If you hover over a user or user group, you will see two icons appear. These two icons will allow you to either edit or delete that entity. In case of users, you will also get the aforementioned third icon to unlink the user from the currently selected user group.
 
-.. spelling::
+.. spelling:word-list::
 
     unmark

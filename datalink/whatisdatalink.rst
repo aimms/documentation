@@ -138,7 +138,7 @@ It is possible to deal with different types of data sources in the same model. T
 
     If you select an extra provider you **MUST** select a provider that is compatible with the DataLink library already installed. The library manager is not smart enough to figure out what to do when different providers require different versions of DataLink.
 
-.. spelling::
+.. spelling:word-list::
 
     firstname
     lastname

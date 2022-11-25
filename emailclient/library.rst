@@ -86,6 +86,6 @@ and subsequently add a related attachment to the email message as follows:
 
 In your text template, you should in this case modify the text to account for the images not being present in the text variant of the document.
 
-.. spelling::
+.. spelling:word-list::
 
     htm

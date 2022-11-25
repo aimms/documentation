@@ -26,6 +26,6 @@ Academic users
 --------------
 The Free Academic License does not contain a BARON license. A special academic BARON license is available within the `paid academic program <https://www.aimms.com/support/licensing/>`_.
 
-.. spelling::
+.. spelling:word-list::
 
     goniometric

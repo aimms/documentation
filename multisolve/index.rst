@@ -46,7 +46,7 @@ Of course the library documentation would not be complete without the appendices
 ..    engineer
 
 
-.. spelling::
+.. spelling:word-list::
 
     multiSolve
     acquints
