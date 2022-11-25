@@ -106,3 +106,7 @@ When you have added content as a "Definition" to the string parameter, you will 
     When reading from a file or adding HTML content to the string parameter ensure that the quotes used in style tags are escaped e.g., ``\"``.
 
     When reading from a file and defining content for the string parameter, we strongly recommend you set ``NoSave`` to the ``Property`` attribute. This will ensure that the text is not stored in the case files, which would unnecessarily increase the size of the case file.
+
+.. spelling:word-list::
+
+    mailto
