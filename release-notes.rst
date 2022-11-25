@@ -23,6 +23,7 @@ AIMMS Improvements
 -  You can now create a Quantity in a runtime library.
 -  The new linear solver COPT has been added. COPT can be used to solve LP and MIP problems, as well as convex QP and QCP problems. COPT is developed by Cardinal Operations.
 -  Gurobi 10.0 (version 10.0.0) has been added. Gurobi 10.0 comes with performance improvements for LP, MIP, convex MIQP models and for convex and non-convex MIQCP models.
+-  Previous versions of AIMMS did not always check that an argument passed to an external function/procedure was really matching the type of the argument. Especially when this argument was passed as a 'handle' to the underlying DLL function. In AIMMS 4.90 you will get a warning when the actual passed-in argument to an external procedure does not match the type or dimension of the argument declaration. However, compilation and execution will continue as it did in earlier versions. It is recommended to have a look at these warnings and try to fix them, as in a future version of AIMMS these warnings will be treated as errors.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
