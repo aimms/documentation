@@ -1,6 +1,6 @@
 COPT
 =====
-The COPT solver from Cardinal Operations is a high performance solver for :doc:`Linear Programming (LP) <../math-program/linear-programming>`, :doc:`Mixed Integer Programming (MIP) <../math-program/mixed-integer-programming>` and Quadratic Programming (QP/QCP) problems. A detailed list of all features supported by CPLEX can be found on our :doc:`Solvers <solvers>` page.
+The COPT solver from Cardinal Operations is a high performance solver for :doc:`Linear Programming (LP) <../math-program/linear-programming>`, :doc:`Mixed Integer Programming (MIP) <../math-program/mixed-integer-programming>` and Quadratic Programming (QP/QCP) problems. A detailed list of all features supported by COPT can be found on our :doc:`Solvers <solvers>` page.
 
 COPT Linear Programming
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
