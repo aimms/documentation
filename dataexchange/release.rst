@@ -17,7 +17,8 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
-2.0.0.46 [28-11-2022]
+
+2.0.0.48 [28-11-2022]
 	- Prevent warning for string parameter passed as handle to external function
 	- ``AimmsCSVMapping`` mappings would not accept iterative-reset attribute
 	- Allow only a subset of mappings to be generated with ``dex::GenerateDatasetMappings``
