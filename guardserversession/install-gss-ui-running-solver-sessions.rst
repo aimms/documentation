@@ -72,7 +72,7 @@ Progress table of selected session
 
 The second widget to be added is a table widget named ``tableGSSProgressData``
 
-contents
+Contents
 ^^^^^^^^^^^^
 
 The contents of the widget should be ``gss::sp_value``
@@ -90,9 +90,9 @@ Pivoting: rows: ``gss::i_progressTimeslot``, Columns: ``gss::i_shownItem``, Tota
 Miscellaneous properties:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Default column width: gss::p_progressColwidth
+Default column width: ``gss::p_progressColwidth``
 
-Title:  gss::sp_progressTitle
+Title:  ``gss::sp_progressTitle``
 
 The Gap Curve
 ------------------
@@ -102,11 +102,9 @@ The third widget is a (classic) line chart named ``linechartGSSGapDevelopment``
 Contents
 ^^^^^^^^^^
 
-* gss::p_GAP
-
-* gss::p_Incumbent
-
-* gss::p_Bestbound
+* ``gss::p_GAP``
+* ``gss::p_Incumbent``
+* ``gss::p_Bestbound``
 
 Identifier Settings
 ^^^^^^^^^^^^^^^^^^^^^^^^
