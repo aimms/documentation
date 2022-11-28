@@ -1,5 +1,5 @@
-Inspect Running Solver Sessions
-=================================
+Install UI Inspect Running Solver Sessions
+=============================================
 
 In this section, the installation of running solver sessions is detailed.
 
@@ -9,6 +9,8 @@ Start
 Start with creating a page named ``GSSInspectRunningSessions``.
 
 We will first check the layout of the page, and then start adding each of the three widgets in a separate section.
+
+onload procedure should be ``gss::pr_refreshRunningList``.
 
 Layout of page
 -----------------------
@@ -61,9 +63,9 @@ The title of this table should be set to ``gss::sp_titleRunningSessionList``
 Widget Extensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 
-Widget Actions should be set to ``gss::sp_widgetActionsRunningSessionList``
+Widget Actions should be set to ``gss::sp_widgetActionsRunningSessions``
 
-Item Actions should be set to ``gss::sp_itemActionsRunningSessionList``
+Item Actions should be set to ``gss::sp_itemActionsRunningSessions``
 
 Progress table of selected session
 ------------------------------------
