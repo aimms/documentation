@@ -12,7 +12,7 @@ On the left pane there are two widgets:
 
 #.  A scalar widget, named ``scalarGSSSessionSelection``, to make selections of the sessions shown.
 
-#.  A download widget, named ``downloadGSSSessionLog``, permitting to download the AIMMS session log of that session (only avialable on AIMMS PRO on Prem).
+#.  A download widget, named ``downloadGSSSessionLog``, permitting to download the AIMMS session log of that session (only available on AIMMS PRO on Prem).
 
 On the pane to the right, there is only a table widget, named ``tableGSSSelectedSessions``
 
