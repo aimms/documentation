@@ -8,6 +8,50 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 4.90
+#############
+
+
+AIMMS 4.90.1 Release (November 25, 2022 - build 4.90.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  You can now create a Quantity in a runtime library.
+-  The new linear solver COPT has been added. COPT can be used to solve LP and MIP problems, as well as convex QP and QCP problems. COPT is developed by Cardinal Operations.
+-  Gurobi 10.0 (version 10.0.0) has been added. Gurobi 10.0 comes with performance improvements for LP, MIP, convex MIQP models and for convex and non-convex MIQCP models.
+-  Previous versions of AIMMS did not always check that an argument passed to an external function/procedure was really matching the type of the argument. Especially when this argument was passed as a 'handle' to the underlying DLL function. In AIMMS 4.90 you will get a warning when the actual passed-in argument to an external procedure does not match the type or dimension of the argument declaration. However, compilation and execution will continue as it did in earlier versions. It is recommended to have a look at these warnings and try to fix them, as in a future version of AIMMS these warnings will be treated as errors.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The case files that are created to communicate data from a client to a PRO solver session and back, now use a different internal string character set. Especially for configurations where the session runs on a Linux machine, this greatly improves the time that is needed to read these cases.
+-  A local unit parameter in a procedure or function may get its value from the unit of a passed in argument. You now get an error if the arguments that assign this unit parameter are all optional.
+-  When passing a set implicitly via the arguments (so not as an explicit set-valued argument), all the arguments that use this set should refer to the exact same set in the actual call. This error message was missing in previous AIMMS versions.
+-  Sets that are passed to a procedure/function cannot be declared as being a subset of some other local set. In previous AIMMS versions this was not resulting in an error message, but the behavior was also not as expected: inside the procedure or function the set could then have elements that were not part of the superset.
+-  An optional element-valued argument in a procedure cannot have a local set as its range.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  In the WebUI Table widget, sorting on data has been possible for quite some time. From this release onwards, you can also sort on the row and column headers. For details, see `the documentation <https://documentation.aimms.com/webui/table-widget.html>`__.
+-  Now 'mailto:' links are supported in the Text widget.
+-  The "Advanced Table Editing" has been promoted to a General Feature; we removed it from the Experimental Features list.
+-  From AIMMS 4.90 onwards, you will get a deprecation message when opening models which still have a 'Contents.filters.in' property specified (as a result from using the deprecated Filter tab on widgets). See `the documentation <https://documentation.aimms.com/webui/widget-options.html>`__ for details on how to mitigate this.
+
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Only if you used the 'Advanced Table Editing' Experimental Feature: When copy/pasting a cell displaying a string containing newline characters from and to a WebUI Table, the pasted string was spread over multiple cells, depending on the number of newline characters present. 
+
+--------------
+
+
+#############
 AIMMS 4.89
 #############
 
@@ -9237,3 +9281,4 @@ Improvements
 	aimmsunit
 	valueType
 	nch
+	mailto

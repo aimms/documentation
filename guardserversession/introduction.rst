@@ -53,7 +53,7 @@ This library can be discussed from the perspective of internal mechanisms, or fr
 
     #.  :doc:`The incident reporting by end users<gss-ui-for-end-users>`
 
-    #.  :doc:`The incident information managemen for specialists<gss-ui-for-specialists>`
+    #.  :doc:`The incident information management for specialists<gss-ui-for-specialists>`
 
 #.  Mechanisms and provided functions:
 
