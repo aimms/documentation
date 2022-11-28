@@ -63,6 +63,6 @@ License Session Count
 Starting from *AIMMS PRO 2.13.3* and *AIMMS License Server 4.0.0.50*, Client license sessions are now counted per user/device combination, instead of per session. Which means one user can now run multiple apps whilst only occupying one session.
 
 
-.. spelling::
+.. spelling:word-list::
 
     Xmx

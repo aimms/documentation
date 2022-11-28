@@ -221,7 +221,7 @@ R-packages on the AIMMS cloud
 
 
 
-.. spelling::
+.. spelling:word-list::
 
     aimms
     assertthat

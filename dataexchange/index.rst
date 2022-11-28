@@ -30,5 +30,5 @@ The following sections explain the Data Exchange library in more detail.
    troubleshoot
    release
 
-.. spelling::
+.. spelling:word-list::
     libCurl

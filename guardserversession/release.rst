@@ -18,7 +18,7 @@ New Features and Bug Fixes
 
 
 
-..  .. spelling::
+..  .. spelling:word-list::
 ..  
 ..      performant
 ..      unhandled

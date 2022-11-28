@@ -232,6 +232,6 @@ You may select several backups and delete them if needed. You may not restore an
     
     This backup section provides only possibility to backup AIMMS PRO database and its configuration files (that are located in **%AIMMS_PRO_DATA%\Config** folder, e.g. C:\\ProgramData\\AimmsPRO\\Config\\). PRO administrator needs to backup the **storage folder** using some external tools if that is needed (for example, `this way <https://technet.microsoft.com/en-us/library/dd851825.aspx>`_). There are lot of tools available for incremental backups.
 
-.. spelling::
+.. spelling:word-list::
 
     cron

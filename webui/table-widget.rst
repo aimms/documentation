@@ -57,7 +57,27 @@ The table widget offers the user possibilities for various actions such as:
 
   * In AIMMS 4.87 and higher, pressing **ENTER** takes you to the cell below.
 
+* Starting from AIMMS 4.90, it is also possible to sort the table headers, that is, the elements of one of the sets involved in the table (through the specification of its index in the shown data).
 
+  Consider the following example where the data has four indexes:
+
+  .. image:: images/Table-Header-Sort-1.png 
+        :align: center  
+
+  If we choose for "decreasing" sorting of the set Centers in the columns headers, then the columns are sorted as follows:
+
+  .. image:: images/Table-Header-Sort-2.png 
+        :align: center  
+  
+  Similarly, if we choose for "decreasing" sorting of the set Factories in the rows headers, then the table is sorted as follows:
+
+  .. image:: images/Table-Header-Sort-3.png 
+        :align: center  
+ 
+  Please note that any table header may be sorted, but only one sorting can be applied on table headers at a time. So, when another sorting is chosen, then the previously applied sorting is no longer active, but the corresponding index gets the default sorting, instead. Once a sorting is applied, the header title cell used for that sorting is indicated accordingly, as shown in the pictures above. 
+
+  Also, when sorting is applied on a cell in header titles area and afterwards some changes are performed to the table (such as a change in the pivoting of the indexes or a modification to the table contents), then the sorting is retained as long as that index/identifier continues to exist in the table.
+  
 Search-and-Find
 ---------------
 
@@ -66,6 +86,8 @@ From AIMMS 4.89 onwards, the table widget offers a Search-and-Find functionality
 .. note::
 
    The Search-and-Find functionality is available in AIMMS 4.89 as an Experimental Feature. You can toggle the feature 'Advanced Table Editing' on or off in the Experimental Features dialog in order to use it.
+   
+   Starting from AIMMS 4.90, the Advanced Table Editing is available as a main feature (so, it is no longer shown under the Experimental Features).
    
 The Search-and-Find functionality can be activated by clicking on the dedicated search icon on the table header: 
 
@@ -162,6 +184,8 @@ Pasting is not limited to the same table as from which you copied the values of 
 .. note::
 
    The Block Editing and the Copy/Paste features are available as Experimental Features from AIMMS 4.87 onwards. You can toggle the feature 'Advanced Table Editing' on or off in the Experimental Features dialog in order to use it.
+   
+   Starting from AIMMS 4.90, the Advanced Table Editing is available as a main feature (so, it is no longer shown under the Experimental Features).
 
 .. note::
 
@@ -223,7 +247,7 @@ More specifically, after using Excel to make edits to the data, the same sheet c
 
    This feature of the WebUI table was introduced as an Experimental Feature in AIMMS 4.86 onwards. When using AIMMS 4.86, 4.87, or 4.88, you can switch on the feature by checking the 'Excel Upload/Download Support' box in the Experimental Features dialog.
    
-   Starting from AIMMS 4.89 this feature is available as main feature (so, it is no longer under Experimental Features).
+   Starting from AIMMS 4.89 this feature is available as a main feature (so, it is no longer shown under the Experimental Features).
 
 On the Table Widget header you can access both actions when opening the kebab menu:
 
@@ -688,7 +712,7 @@ There are different combinations of the date and time picker which are controlle
 
 When the Unit is set to Century, Year, Month or Day, the time picker is not displayed.
 
-.. spelling::
+.. spelling:word-list::
 
     inf
     na

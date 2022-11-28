@@ -252,7 +252,7 @@ body described in ``AimmsVersion.yaml`` in the API schema:
             "id": "4.82.9.1-linux64-x86-vc141"
         }
 
-.. spelling::
+.. spelling:word-list::
 
     projectCategory
 		isLatest

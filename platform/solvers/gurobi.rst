@@ -19,7 +19,7 @@ Gurobi is a state-of-the-art solver for :doc:`Linear Programming (LP) <../math-p
 
 Gurobi Linear Programming
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-For continuous models, Gurobi includes advanced implementations of the latest algorithms including: primal and dual simplex algorithms, a parallel barrier algorithm with crossover, concurrent optimization, and a sifting algorithm. Gurobi includes a parallel barrier optimizer for linear problems; Gurobi’s barrier algorithms fully exploit the features of the latest computer architectures.
+For continuous models, Gurobi includes advanced implementations of the latest algorithms including: primal and dual simplex algorithms, a parallel barrier algorithm with crossover, (parallel) concurrent optimization, and a sifting algorithm. Gurobi includes a parallel barrier optimizer for linear problems; Gurobi’s barrier algorithms fully exploit the features of the latest computer architectures.
 
 To help simplify a given model, identify any obvious errors or problems, and identify likely useful approaches for getting the best answer in the least amount of time, Gurobi takes advantage of the broadest range of advanced presolve capabilities available.
 
@@ -52,4 +52,4 @@ Gurobi requires that the computer’s CPU supports SSE2. Most modern computers s
 
 Gurobi Supported Versions
 ----------------------------
-AIMMS supports Gurobi 8.1 – 9.5.
+AIMMS supports Gurobi 9.1 – 10.0.

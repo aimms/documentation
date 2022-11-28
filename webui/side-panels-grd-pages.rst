@@ -268,6 +268,6 @@ Clicking on a tab highlights that tab and slides it open with the widgets which 
 .. image:: images/SidePanel_TabInteraction_Open.png
 			:align: center
 
-.. spelling::
+.. spelling:word-list::
 
     flyout

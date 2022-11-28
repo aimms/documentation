@@ -2721,7 +2721,7 @@ AIMMS PRO 2.1 Release
                         existing PRO desktop apps if you want to benefit
                         from the ‘one firewall port’ feature.
 
-.. spelling::
+.. spelling:word-list::
 
     startupMode
     timeStamp
