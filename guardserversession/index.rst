@@ -16,4 +16,5 @@ The purpose of the GuardServerSession (GSS) library is to reduce the time needed
    install-gss-ui-for-end-users
    install-gss-ui-for-specialists
    install-gss-ui-request-manager
+   install-gss-ui-running-solver-sessions
    release
