@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.27.0.3 [29-11-2022]
+	- Remove some warnings about handle arguments of external procedures that were triggered by AIMMS 4.90+
+
 1.27.0.2 [04-11-2022]
 	- Add ``cdm::ComputeDeltaOutExt`` method which computes the delta out and reports the number of changes detected.
 
