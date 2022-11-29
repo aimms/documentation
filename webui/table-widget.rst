@@ -339,6 +339,10 @@ In particular, this implies that, if a set has two or more indexes, then each of
 
    If uploading from an Excel file to a WebUI Table results in invalid entries in the WebUI Table (for example, when trying to upload a string value from Excel into a cell in the WebUI Table that expects a numerical value), the first of these errors will be displayed in the WebUI's message banner, together with the total count of errors.
 
+.. note::
+
+   When you use the :token:`webui::IdentifierElementText` functionality on identifiers that you upload from Excel, please be aware that if you have more than one element mapping to the same element text, things may go wrong. AIMMS scans the Excel sheet and based on the text there tries to determine which AIMMS element is involved. Obviously, if the same text maps to more than one AIMMS element, it is not certain to which of the possible AIMMS elements the text is referring.
+
 The following aspects are not (yet) supported, but may be subject to further improvements:
 
 • No support for the display of units of measurement (in the downloaded Excel file). Only the plain values (without units) are subject to the download/upload actions.
