@@ -21,7 +21,7 @@ AIMMS Improvements
 +++++++++++++++++++++++++
 
 -  You can now create a Quantity in a runtime library.
--  The new linear solver COPT has been added. COPT can be used to solve LP and MIP problems, as well as convex QP and QCP problems. COPT is developed by Cardinal Operations.
+-  The new linear solver COPT has been added. COPT can be used to solve LP and MIP problems, as well as convex QP and QCP problems. COPT is developed by Cardinal Operations. More details can be found in `the documentation <https://documentation.aimms.com/platform/solvers/copt.html>`__.
 -  Gurobi 10.0 (version 10.0.0) has been added. Gurobi 10.0 comes with performance improvements for LP, MIP, convex MIQP models and for convex and non-convex MIQCP models.
 -  Previous versions of AIMMS did not always check that an argument passed to an external function/procedure was really matching the type of the argument. Especially when this argument was passed as a 'handle' to the underlying DLL function. In AIMMS 4.90 you will get a warning when the actual passed-in argument to an external procedure does not match the type or dimension of the argument declaration. However, compilation and execution will continue as it did in earlier versions. It is recommended to have a look at these warnings and try to fix them, as in a future version of AIMMS these warnings will be treated as errors.
 
@@ -39,7 +39,7 @@ WebUI Improvements
 
 -  In the WebUI Table widget, sorting on data has been possible for quite some time. From this release onwards, you can also sort on the row and column headers. For details, see `the documentation <https://documentation.aimms.com/webui/table-widget.html>`__.
 -  Now 'mailto:' links are supported in the Text widget.
--  The "Advanced Table Editing" has been promoted to a General Feature; we removed it from the Experimental Features list.
+-  The "Advanced Table Editing" has been promoted to a General Feature; we removed it from the Experimental Features list. The copy/paste and block editing functionality is documented `here <https://documentation.aimms.com/webui/table-widget.html>`__.
 -  From AIMMS 4.90 onwards, you will get a deprecation message when opening models which still have a 'Contents.filters.in' property specified (as a result from using the deprecated Filter tab on widgets). See `the documentation <https://documentation.aimms.com/webui/widget-options.html>`__ for details on how to mitigate this.
 
 
