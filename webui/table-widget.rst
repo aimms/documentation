@@ -341,7 +341,7 @@ In particular, this implies that, if a set has two or more indexes, then each of
 
 .. note::
 
-   When you use the :token:`webui::IdentifierElementText` functionality on identifiers that you upload from Excel, please be aware that if you have more than one element mapping to the same identifier, things may go wrong. AIMMS scans the Excel sheet and based on the text there tries to determine which AIMMS identifier is involved. Obviously, if the same text maps to more than one AIMMS identifier, it is not certain to which of the possible AIMMS identifiers the text is referring.
+   When you use the :token:`webui::IdentifierElementText` functionality on identifiers that you upload from Excel, please be aware that if you have more than one  identifier mapping to the same element text, things may go wrong. AIMMS scans the Excel sheet and based on the text there tries to determine which AIMMS identifier is involved. Obviously, if the same text maps to more than one AIMMS identifier, it is not certain to which of the possible AIMMS identifiers the text is referring.
 
 The following aspects are not (yet) supported, but may be subject to further improvements:
 
