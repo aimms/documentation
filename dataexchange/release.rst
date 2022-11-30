@@ -17,7 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
-
+2.0.0.48 [29-11-2022]
+	- Tab characters in label names were not accepted and would cause a crash, all characters < 32 in label names are now replaced by spaces
+	
 2.0.0.47 [28-11-2022]
 	- Prevent warning for string parameter passed as handle to external function
 	- ``AimmsCSVMapping`` mappings would not accept iterative-reset attribute
