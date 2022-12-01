@@ -28,6 +28,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  We restored the 'contents.filters.in' option in the advanced option editor tab of the widgets where it was previously supported. This enables app developers to modify their WebUI, in order to adjust for the Widget Filtering feature, which has become deprecated since AIMMS 4.90.1.
+-  When entering negative values in the Combination Chart widget for the step size of the Y-axis in the settings, the app could hang.
 
 --------------
 
