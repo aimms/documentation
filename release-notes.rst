@@ -12,6 +12,27 @@ AIMMS 4.90
 #############
 
 
+AIMMS 4.90.2 Release (December 1, 2022 - build 4.90.2.7).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Saving cases where the option 'case_contains_runtime_libraries' is set to 'On' could result in a crash. Especially when some runtime libraries had the 'NoSave' property set.
+-  In the AIMMSPro library, some function arguments were not declared in the correct way. This led to a warning in the latest AIMMS version.
+-  SetElementRename did give an incorrect error message when trying to rename an element in a set that was defined as the union of some other subsets. Renaming an element in such a set is allowed unless one of the subsets itself has a definition and the element is in that subset.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We restored the 'contents.filters.in' option in the advanced option editor tab of the widgets where it was previously supported. This enables app developers to modify their WebUI, in order to adjust for the Widget Filtering feature, which has become deprecated since AIMMS 4.90.1.
+
+--------------
+
+
+
 AIMMS 4.90.1 Release (November 25, 2022 - build 4.90.1.0).
 ------------------------------------------------------------------------------------------
 
