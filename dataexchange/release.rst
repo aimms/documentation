@@ -17,6 +17,11 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.0.1.2 [02-12-2022]
+	- Optional query parameter arguments in generated API calls will only be added as query parameter to the URL if their value is non-default
+	- The method :js:func:`dex::schema::GenerateClientFromOpenAPISpec` will now generate a library on disk, which can be directly included into your project. Using the generated runtime library directly was often problematic because it is impossible to create parameter with an index domain referring to indices from the runtime library or using sets from the runtime library in the range of element parameters.
+	- Date fields from a Parquet file can now be translated to labels of a regular set, or as values of an element parameter with a regular set range.
+	
 2.0.0.48 [29-11-2022]
 	- Tab characters in label names were not accepted and would cause a crash, all characters < 32 in label names are now replaced by spaces
 	
