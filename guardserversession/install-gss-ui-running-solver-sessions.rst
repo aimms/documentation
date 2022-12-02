@@ -116,7 +116,7 @@ Miscellaneous
 
 Title should be ``gss::sp_titleGapEvolutionWidget``
 
-.. spelling::
+.. spelling:word-list::
     onload
 
 
