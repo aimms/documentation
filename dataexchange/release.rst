@@ -17,6 +17,12 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.0.1.4 [05-12-2022]
+	- OpenAPI client code now supports multi-part request bodies
+	- ``..._iter`` sets generated to add an extra dimension to identifiers for JSON array properties, are now a subset of ``Integers``
+	- Issue a warning for ``ColumnNodes`` in a row-based format mapping (CSV, Excel, Parquet) that cannot be mapped onto a column in a data source during read
+	- Protect the ``dex::ReadFile`` call in generated API callbacks to not stop the execution flow when reading faulty responses
+
 2.0.1.2 [02-12-2022]
 	- Optional query parameter arguments in generated API calls will only be added as query parameter to the URL if their value is non-default
 	- The method :js:func:`dex::schema::GenerateClientFromOpenAPISpec` will now generate a library on disk, which can be directly included into your project. Using the generated runtime library directly was often problematic because it is impossible to create parameter with an index domain referring to indices from the runtime library or using sets from the runtime library in the range of element parameters.
@@ -264,3 +270,4 @@ New Features and Bug Fixes
 .. spelling:word-list::
 
 		url
+	

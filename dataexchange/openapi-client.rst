@@ -69,7 +69,7 @@ The JSON Schema parser in the Data Exchange library parse the entire schema tree
 
 - if an `externalBindsToPrefix` is given, all identifiers associated with nodes throughout the JSON schema tree will start with the index specified through this argument
 - unless the `explodeDefault` argument is 2, an additional `i_instance` index will be added to allow for multiple instances of each schema
-- for every *property* of array type, the parser will create an (integer) set `<propertyName>_iter` to hold all array members, and add an index into this set for every identifier generated for properties underneath this node in the JSON schema tree
+- for every *property* of array type, the parser will create an integer set `<propertyName>_iter` to hold all array members, and add an index into this set for every identifier generated for properties underneath this node in the JSON schema tree
 - for every *patternProperty* or *additionalProperties*, the parser will create a set `<subSchemaName>_patterns` to hold all patterns encountered, and add an index into this set for every identifier generated for properties underneath this node in the JSON schema tree
 - for every subschema which is not exploded, the parser will create a reference parameter with an additional `i_childInstance` index pointing to the specific instance of the subschema to be associated with a specific property of another schema when reading a JSON file adhering to this schema.
 
@@ -129,9 +129,11 @@ If the generated identifiers have an additional *instance* index, then the reque
 
 In case you have the ``explodeDefault`` argument to 2, the *instance* index will not be present in any of the generated identifiers, and there will only be space to store the data for a single instance of a call. As a consequence, the generated code is automatically made completely synchronous, as this prevents two API calls to be made in parallel.
 
+For `multipart` request bodies, the generated code will generate mime parts for object-type properties if the schema of the property has an associated mapping. This is the case if the type is provided through a reference to a sub-schema. If such a mapping is not available, or if the type is an array or an atomic type, you have to provide contents of the mime parts yourself through the ``<schemaName>::api::<operation>::RequestFile`` parameter, where the ``reqpart`` index points to the corresponding part of the multi-part body. For array-type properties, the parts are identified by request parts ``<part>-1 .. <part>-n`` where already 8 parts are predeclared in the set ``<schemaName>::api::<operation>::RequestParts``.  
+ 
 .. note::
 
-	The Data Exchange library does not yet handle `multipart` bodies, or services that work with XML request and response bodies.
+	The Data Exchange library does not yet handle services that work with XML request and response bodies.
 
 Supplying model-specific hooks
 ++++++++++++++++++++++++++++++
