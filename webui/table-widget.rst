@@ -57,6 +57,10 @@ The table widget offers the user possibilities for various actions such as:
 
   * In AIMMS 4.87 and higher, pressing **ENTER** takes you to the cell below.
 
+   .. note::
+
+       From AIMMS 4.91 onwards, the dropdown that appears when you click on an element parameter in a table uses the same underlying technology as the Selectionbox widget. In practice, that means that it is more reactive to data changes in the underlying model while open. Furthermore, the current/default entry has been removed. For a table you can use the delete key to empty any cell (which sets it to default), including the dropdown cells. 
+
 * Starting from AIMMS 4.90, it is also possible to sort the table headers, that is, the elements of one of the sets involved in the table (through the specification of its index in the shown data).
 
   Consider the following example where the data has four indexes:
