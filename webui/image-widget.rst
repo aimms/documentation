@@ -19,3 +19,5 @@ You may want to update the image used in the widget with a new image. There are 
 
 #. Update the string parameter specified in the *Contents* of the image widget with the new image name.
 #. Overwrite the image with the new image while retaining the original image name, for example, DiaplayImage.jpg. Please refer to the How-To article on `Refreshing an Image widget without changing the file name <https://how-to.aimms.com/Articles/512/512-image-widget-refresh.html>`_ for more details.
+
+If your image does not completely fit the area that is reserved for it, you can use the option Image '"object-fit" (css)'. You can use this option with the values none, cover, contain, fill and scale-down, which are explained in this `article <https://www.w3schools.com/css/css3_object-fit.asp>`_.
