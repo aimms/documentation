@@ -9,19 +9,29 @@ Widget Header Bar
 .. |table-filtered| image:: images/headerfiltered_icon.png
 .. |download-csv| image:: images/downloadcsv.png
 .. |download-image| image:: images/downloadimage.png
+.. |small-kebab| image:: images/widget-header-kebab.png
+.. |button-with-kebab| image:: images/headerless-widget-with-kebab-and-options.png
+.. |simple-header| image:: images/WidgetHeader_SimpleHeader.png
+    
 
-All Widgets have a header bar, consisting of several options and the widget title. 
+Almost all Widgets have a header bar, consisting of several options and the widget title. A few widgets are too small to allow for an additional header bar above it (e.g. the Button widget, or the compact Scalar widget), so the widget header is displayed at the right side of it, without a title.
 
-.. image :: images/WidgetHeader_SimpleHeader.png
-    :align: center
+|simple-header|
+
 
 Title, Full Screen, and Settings
 ================================
-Some of the options are specific to certain widgets but almost all widgets have Title, Full Screen |full-screen| and Settings options |widget-settings|.
+Some of the options are specific to certain widgets but almost all widgets have Title, Full Screen |full-screen| and Settings options |widget-settings|. From AIMMS 4.89 onwards, some options may be put under the so-called kebab menu |small-kebab|, in order to keep the bar uncluttered.
+
+From AIMMS 4.91 onwards, widgets without a full header now also always show the options and the kebab menu in developer mode. A button widget, for example, looks like this in developer mode:
+
+|button-with-kebab|
+
+If you keep the 'UI editable' option in the Application menu on its default value of 0, your end users will not see the two extra buttons on the right, but it gives you, as an app developer, quick access to the menus you most often need.
 
 The **Title** for the widget can be specified in the ``Title`` option under the `Miscellaneous <widget-options.html#miscellaneous>`_ section of the `Widget Options <widget-options.html>`_.
 
-The |full-screen| icon expands the respective to a full-screen mode. Clicking on the icon again returns the widget to the original size.
+The |full-screen| icon expands the respective widget into full-screen mode. Clicking on the icon again returns the widget to the original size.
 
 .. image :: images/WidgetHeader_Normal.png
     :align: center
@@ -31,7 +41,7 @@ The |full-screen| icon expands the respective to a full-screen mode. Clicking on
 
 The |widget-settings| icon represents the `Widget Options <widget-options.html>`_ where you can specify contents, pivoting, and other options for the widget. 
 
-Below are some of the other icons you will see in the Widget Header if they are configured.
+Below are some of the other icons you will see in the Widget Header or under its kebab menu |small-kebab| if they are configured.
 
 
 Download Image - PNG |download-image|
