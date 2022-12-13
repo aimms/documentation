@@ -45,18 +45,18 @@ In the collapsed view, when the user hovers over a step the tooltip helps with i
 Configuring the Workflow Panel
 ------------------------------
 
-The Workflow Panel can be configured by the application developer via the AIMMS model. `Public Workflow Support Declarations <library.html#workflowspecification>`_ have been defined in the inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section of the AIMMS WebUI system library. These pre-declared identifiers are  used to configure different workflows and their respective steps.
+The Workflow Panel can be configured by the application developer via the AIMMS model. `Public Workflow Support Declarations <library.html#workflowspecification>`_ have been defined inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section of the AIMMS WebUI system library. These pre-declared identifiers are  used to configure different workflows and their respective steps.
 
 To create and configure the Workflow Panel in the application you will need to create two string parameters. The first string parameter will configure the number of workflows in the application, while the second string parameter will configure the steps of each workflow.
 
 .. Note::
 
-    When creating the string parameters to configure workflows and their steps, the first index for configuring Workflows, the first and second index for configuring Workflow Steps needs to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the indices from the pre-declared set **ExtensionOrder** for this purpose i.e. ``indexWorkflowOrder`` and ``indexNoOfPages``.
+    When creating the string parameters to configure workflows and their steps, the first index for configuring Workflows and the first and second index for configuring Workflow Steps need to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the indices from the pre-declared set **ExtensionOrder** for this purpose i.e. ``indexWorkflowOrder`` and ``indexNoOfPages``.
 
 Configuring Workflows
 ---------------------
 
-For illustration, let's call the first sting parameter ``MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)``. This string parameter is indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with the index ``indexWorkflowOrder`` and the `WorkflowSpecification <library.html#workflowspecificationset>`_ set with the index ``indexWorkflowSpec``. This string parameter is used to define the number of workflows and their respective titles. The values of this string parameter may be initialized in the Initial Data attribute, in a procedure or manually, by right clicking the string parameter and clicking on the Data option in order to open its data page. There you can add the details for the Workflow and their titles (leave the style property empty for now):
+For illustration, let's call the first sting parameter ``MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)``. This string parameter is indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with the index ``indexWorkflowOrder`` and the `WorkflowSpecification <library.html#workflowspecificationset>`_ set with the index ``indexWorkflowSpec``. This string parameter is used to define the number of workflows and their respective titles. The values of this string parameter may be initialized in the Initial Data attribute, in a procedure or manually, by right clicking the string parameter and clicking on the Data option in order to open its data page. There you can add the details for the Workflow and its titles (leave the style property empty for now):
 
 .. image:: images/Workflow_MyWorkflowsParameter.png
     :align: center
@@ -66,7 +66,7 @@ The values in the example above indicate that there are 3 workflows in the appli
 Configuring Steps of Workflows
 ------------------------------
 
-Create the second string parameter, let's call it ``MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)`` indexed over both indices of the `ExtensionOrder <library.html#extensionorder>`_ set and over the  index of the `WorkflowPageSpecification <library.html#workflowpagespecification>`_ set. This string parameter is used to define the steps for each workflow which has been defined in the MyWorkflows string parameter. In particular, each ``pageId`` which is configured becomes a step displayed in the Workflow Panel, see further below. 
+Create the second string parameter, let's call it ``MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)`` indexed over both indices of the `ExtensionOrder <library.html#extensionorder>`_ set and over the index of the `WorkflowPageSpecification <library.html#workflowpagespecification>`_ set. This string parameter is used to define the steps for each workflow which has been defined in the MyWorkflows string parameter. In particular, each ``pageId`` which is configured becomes a step displayed in the Workflow Panel, see further below. 
 
 .. Note::
 
@@ -79,24 +79,24 @@ In order to inspect the values, right click on the MyWorkflowSteps string parame
 .. image:: images/Workflow_MyWorkflowStepsParameter_1.png
     :align: center
 
-The data entered in the above illustration is for the 1st Workflow which was configured in "MyWorkflows" string parameter, that is, the Route Optimization workflow (with 10 steps defined).
+The data entered in the illustration above is for the first workflow which was configured in the "MyWorkflows" string parameter, that is, the Route Optimization workflow (with 10 steps defined).
 
-There is no limit for the number of steps each workflow may have. As a guideline, AIMMS recommends no more than 10 steps per workflow. If more than 10 steps are required, then please try to breakdown the workflow into smaller workflows, if possible.
+There is no limit for the number of steps each workflow may have. As a guideline, AIMMS recommends no more than 10 steps per workflow. If more than 10 steps are required, then please try to break down the workflow into smaller workflows, if possible.
 
-In order to configure the steps for the other workflows, one may just select the respective value for :any:`webui::indexWorkflowOrder` at the top in the Data page.
+In order to configure the steps for the other workflows, you may just select the respective value for :any:`webui::indexWorkflowOrder` at the top in the Data page.
 
-For instance, 3 steps may be configured for the 2\ :sup:`nd`\  workflow Inventory Management as follows:
+For instance, 3 steps may be configured for the second workflow Inventory Management as follows:
 
 .. image:: images/Workflow_MyWorkflowStepsParameter_2.png
     :align: center
 
-Similarly, an example of configuring 4 steps for the 3rd workflow Quality Assurance is illustrated here:
+Similarly, an example of configuring 4 steps for the third workflow Quality Assurance is illustrated here:
 
 .. image:: images/Workflow_MyWorkflowStepsParameter_3.png
     :align: center
 
 .. Note::
-    Please do not use a page configured with the Wizard in a Workflow, this will result in unwanted behaviour.
+    Please do not use a page configured with the Wizard in a Workflow, this will result in unwanted behavior.
 
 workflowPageState and pageDataState
 -----------------------------------
@@ -106,7 +106,7 @@ The ``workflowPageState`` determines the state of a step in the workflow. A step
 .. image:: images/Workflow_ActiveInactiveState.png
     :align: center
 
-The ``pageDataState`` determines the data state of a page. This state indicates if a step is Complete, Incomplete or in an Error state. There is a default (Empty) state as well when a certain step does not need a data state, for example an "Instruction" or an "Introduction" type of page.
+The ``pageDataState`` determines the data state of a page. This state indicates whether a step is Complete, Incomplete or in an Error state. There is a default (Empty) state as well when a certain step does not need a data state, for example an "Instruction" or an "Introduction" type of page.
 
 .. image:: images/Workflow_PageDataStates.png
     :align: center
@@ -124,14 +124,14 @@ These states can be changed dynamically, as required, and as the user progresses
 ``redirectPageId``
 --------------------
 
-In the case of an invalid ``pageId`` or when the ``workflowPageState`` for a certain step is Inactive or Hidden, the workflow will be redirected to the page indicated by the ``redirectPageId``. This is a fallback scenario for the situation in which a user tries to access a page in a workflow, via the Menu or by an OpenPage procedure defined somewhere in the application, but the page is not made available to the workflow yet. The ``redirectPageId`` is typically a page which is part of the same workflow. This ensures that the user stays in the workflow and learns that a previous step needs to be completed before accessing other steps of the workflow.
+In case of an invalid ``pageId`` or when the ``workflowPageState`` for a certain step is Inactive or Hidden, the workflow will be redirected to the page indicated by the ``redirectPageId``. This is a fallback scenario for the situation in which a user tries to access a page in a workflow, via the Menu or by an OpenPage procedure defined somewhere in the application, but the page is not made available to the workflow yet. The ``redirectPageId`` is typically a page which is part of the same workflow. This ensures that the user stays in the workflow and learns that a previous step needs to be completed before accessing other steps of the workflow.
 
-When the ``redirectPageId`` is also invalid or not defined, an error is generated and the workflow stays on the current step. There is also a possibility that the workflow steps enter a loop, in which case the redirection is applied 25 times, after which an error is generated and the workflow stays on the current step page.
+When the ``redirectPageId`` is also invalid or not defined, an error is generated and the workflow stays on the current step. There is also a possibility that the workflow steps enter a loop. Then the redirection is applied 25 times, after which an error is generated and the workflow stays on the current step page.
 
 Combinations and Scenarios
 --------------------------
 
-The below table represents the different combinations that can arise when creating a workflow and the result of each scenario.
+The table below represents the different combinations that can arise when creating a workflow and the result of each scenario.
 
 +------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
 | S.No |``pageId``|``workflowPageState``|``redirectPageId``| Result                                                                      |
@@ -184,13 +184,13 @@ To change the ``workflowPageState`` of a step in a workflow, simply reference th
 
     MyWorkflowSteps(1, 2, 'workflowPageState') := "Active";
 
-The above illustration sets the ``workflowPageState`` for Step 2 i.e. Inventory Allocation in Workflow 1 i.e Route Optimization to "Active".
+The above illustration sets the ``workflowPageState`` for Step 2 (i.e. Inventory Allocation) in Workflow 1 (i.e Route Optimization) to "Active".
 
 .. image:: images/Workflow_ChangeState.png
     :align: center
 
 
-Similarly, to change ``pageDataState`` an assignment statement like the following may be used in a model procedure:  
+Similarly, to change ``pageDataState``, an assignment statement like the following may be used in a model procedure:  
 
 .. code:: 
 
@@ -202,7 +202,7 @@ If you need to validate some data or actions and maybe to retain the user on the
 Configuring Workflows in the Application Settings
 -------------------------------------------------
 
-To enable the Workflow Panel click on the Application Extensions icon |ApplicationExtension| of the Application Settings and add the configured string parameters to the respective fields as illustrated below:
+To enable the Workflow Panel, click on the Application Extensions icon |ApplicationExtension| of the Application Settings and add the configured string parameters to the respective fields as illustrated below:
 
 .. image:: images/Workflow_ConfiguringStringParameters.png
     :align: center
@@ -212,9 +212,9 @@ Once the string parameters are added in their respective fields, the Workflow Pa
 Configuring a ``pageId`` in multiple workflows
 ----------------------------------------------
 
-Most of the times, configuring a page only in one workflow could suffice for the application at hand. However, the Workflow functionality is flexible enough such that one page may be configured in multiple workflows, if necessary. Although the page will be shown as a step in each of those workflow, there will be one workflow with the highest rank (i.e., the smallest order number) referencing the page and this workflow will be the one shown on the page when the page is opened. So, whenever you click on that step (in any workflow) you will be taken to the corresponding step in the first workflow where the ``pageId`` is referenced. Here "first workflow" is meant in the order of the workflows as defined by the MyWorkflows string parameter. 
+Most of the times, configuring a page in only one workflow could suffice for the application at hand. However, the Workflow functionality is flexible enough such that one page may be configured in multiple workflows, if necessary. Although the page will be shown as a step in each of those workflows, there will be one workflow with the highest rank (i.e., the smallest order number) referencing the page and this workflow will be the one shown on the page when the page is opened. So, whenever you click on that step (in any workflow) you will be taken to the corresponding step in the first workflow where the ``pageId`` is referenced. Here "first workflow" is meant in the order of the workflows as defined by the MyWorkflows string parameter. 
 
-For example, if a page 'Results' with ``pageId = results_1`` is configured for two workflows "Route Optimization" and "Inventory Management", then the page Results will appear in both workflows, but will redirect the user to step in Route Optimization workflow when accessed, as illustrated below.
+For example, if a page 'Results' with ``pageId = results_1`` is configured for two workflows "Route Optimization" and "Inventory Management", then the page Results will appear in both workflows, but will redirect the user to the step in the Route Optimization workflow when accessed, as illustrated below.
 
 The page Results is configured for two workflows:
 
@@ -232,12 +232,12 @@ In this case, when the user is on the Inventory Management workflow and clicks o
 When and How to use the Workflow Panel
 --------------------------------------
 
-When designing a workflow we recommend following some best practices which can make it consistent and easier to use. Below are some practices we would advise:
+When designing a workflow we recommend following some best practices which can make it consistent and easier to use. Below are some practices we advise:
 
 Background
 ++++++++++
 
-The Workflow Panel can be used when it is important to maintain the user’s focus throughout the process of filling in data to the system. This is similar to the checkout process often found on e-commerce websites. The checkout process is the most critical part of the site, as this is the part that captures the customer’s money. The Workflow shows the user how far they are in the process, and provides a visible end to the process to aim for. 
+The Workflow Panel can be used when it is important to maintain the user’s focus throughout the process of filling in data into the system. This is similar to the checkout process often found on e-commerce websites. The checkout process is the most critical part of the site, as this is the part that captures the customer’s money. The Workflow shows the user how far they are in the process, and provides a visible end to the process to reach. 
 
 *Below: example of a typical e-commerce workflow*
 
@@ -248,9 +248,9 @@ The Workflow Panel can be used when it is important to maintain the user’s foc
 Branching logic
 +++++++++++++++
 
-Next to maintaining focus, the Workflow Panel allows developers to reflect a business process with a sequence of steps. As a user enters information, the model computes the appropriate path and guides the user accordingly. Workflows therefore often have some branching logic, but the perceived user experience is that of a linear flow. The app guides them from one screen after another, and they click “next” to proceed (though you may also give the option “back,” or “cancel.”)
+Next to maintaining focus, the Workflow Panel allows developers to reflect a business process with a sequence of steps. As a user enters information, the model computes the appropriate path and guides the user accordingly. Workflows therefore often have some branching logic, but the perceived user experience is that of a linear flow. The app guides the users from one screen to another and they click “next” to proceed (though you may also give the option “back,” or “cancel”).
 
-Therefore, workflows can be used for processes where the next step depends on the information filled in the previous step(s) and it is critical that steps are completed before progressing to the next one.
+Therefore, workflows can be used for processes where the next step depends on the information provided in the previous step(s) and it is critical that steps are completed before progressing to the next one.
 
 An example case for this is an S&OP process. Users need to fill in sales data, refine the sales forecast, do a capacity review, decide on a scenario, and export plans. If these steps are not taken consecutively, the app will produce no result or unreliable results.
 
@@ -269,14 +269,14 @@ Some applications have multiple user types, which each have their own goal and f
 
 *Above: example of the Workflow panel in S&OP Navigator.*
 
-Do's and do not's
+Do's and don'ts
 -----------------
 
 ✅ Do  
 
-Use the Workflow panel for a process that has related steps and are part of the same goal a user is trying to achieve. The steps may (or may not) need to be completed in a specific order.
+Use the Workflow panel for a process that has related steps that are part of the same goal a user is trying to achieve. The steps may (or may not) need to be completed in a specific order.
 
-For example, when doing a tax return, a use must enter data such as income details, property, savings, and family situation. These steps don’t always need to be done in a certain order, but all need to be filled out to achieve complete the tax return.
+For example, when doing a tax return, a user must enter data such as income details, property, savings, and family situation. These steps do not always need to be done in a certain order, but all need to be filled out to complete the tax return.
 
 🚫 Don’t  
 
@@ -284,7 +284,7 @@ The Workflow steps are not tabs, meaning that if the steps are not directly rela
 
 ✅ Do  
 
-Steps should be self sufficient, meaning that users don’t need to navigate to other pages to gather information in order to complete the step.
+Steps should be self sufficient, meaning that users do not need to navigate to other pages to gather information in order to complete the step.
 
 🚫 Don’t  
 
