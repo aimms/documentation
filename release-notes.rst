@@ -12,6 +12,25 @@ AIMMS 4.90
 #############
 
 
+AIMMS 4.90.3 Release (December 14, 2022 - build 4.90.3.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When displayed in a WebUI widget, data could become corrupted if an entire row or column was removed. AIMMS could crash as a result.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  The modern identifier selector is now supported in the option dialog of the Slider widget. As a result of this, slicing is now also supported.
+
+--------------
+
+
+
 AIMMS 4.90.2 Release (December 1, 2022 - build 4.90.2.7).
 ------------------------------------------------------------------------------------------
 
