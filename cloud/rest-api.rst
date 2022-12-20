@@ -36,7 +36,7 @@ an expiration date, as well as the *Scopes* for that key. Scopes are the
 mechanism by which the user can restrict privileges for a given API key to
 subsets of the PRO REST API:
 
-1. The *Authentication* scope allows operations on Users and Groups.
+1. The *Authentication* scope allows operations on Environments, Groups and Users.
 2. The *PublishAIMMS* scope allows operations on AIMMS Versions.
 3. The *PublishApp* scope allows operations on AIMMS apps.
 4. The *Tasks* scope allows operations on Tasks.
