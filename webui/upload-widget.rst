@@ -8,6 +8,15 @@ The Upload widget and the related :doc:`download-widget` achieve complementary t
 
 With the Upload Widget, end-users can upload a file to the AIMMS application, which can then be further processed by the AIMMS model. This is very useful for applications that depend on users to provide input data (e.g. an Excel file with a predetermined template). 
 
+.. warning::
+
+   There is a limit to the size of the file that can be uploaded using the Upload widget. By default, this limit is 128Mb. However, that can be changed by adding (or adapting, if it already exists) a ``.conf`` file in you project settings folder (``MainProject\WebUI\settings\webui-options.conf``). In this file, please add or adapt the option ``webui.webuiserver.max-request-body-size 134217728`` (here, the limit of 128Mb is used).
+
+   Also be aware that there is a default upload timeout of 5 minutes (i.e. 300 seconds). This can also be overruled in this ``.conf`` file, by adding or adapting the option ``webui.webuiserver.max-session-idle-seconds``.
+
+   You will have to do some math to check if you can upload your file within the time-out. Unfortunately, either exceeding the size limit or the upload timeout currently does not result in very clear errors in the WebUI.
+
+
     
 Creating an Upload Widget
 -------------------------
