@@ -14,7 +14,7 @@ AIMMS PRO REST API also supports all the functionality provided by our existing 
 We support following services(functionality) through the AIMMS PRO REST API:
 
     - `Running Tasks <rest-api.html#running-tasks>`__
-    - `Managing Users and Groups <rest-api.html#managing-users-and-groups>`__
+    - `Managing Environments, Groups and Users <rest-api.html#managing-users-and-groups>`__
     - `Managing Apps <rest-api.html#managing-apps>`__
     - `Managing AIMMS <rest-api.html#managing-aimms>`__
  
@@ -97,8 +97,8 @@ has with respect to the AIMMS App that is exposing the DEX REST API:
 The Tasks REST API is only supported starting from PRO Release 2.45, and will work only for AIMMS apps published with
 AIMMS version 4.89 and higher, and using the DEX library 1.3.2.71 or higher.
 
-Managing Users and Groups
--------------------------
+Managing Environments, Groups and Users
+---------------------------------------
 
 This REST API Service allows you to manage your AIMMS PRO environments, groups and users. Please see the API specs (*Authentication* section) for the detailed usage.
 
