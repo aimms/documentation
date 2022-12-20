@@ -10,7 +10,7 @@ With the Upload Widget, end-users can upload a file to the AIMMS application, wh
 
 .. warning::
 
-   There is a limit to the size of the file that can be uploaded using the Upload widget. By default, this limit is 128Mb. However, that can be changed by adding (or adapting, if it already exists) a ``.conf`` file in you project settings folder (``MainProject\WebUI\settings\webui-options.conf``). In this file, please add or adapt the option ``webui.webuiserver.max-request-body-size 134217728`` (here, the limit of 128Mb is used).
+   There is a limit to the size of the file that can be uploaded using the Upload widget. By default, this limit is 128MB. However, that can be changed by adding (or adapting, if it already exists) a ``.conf`` file in you project settings folder (``MainProject\WebUI\settings\webui-options.conf``). In this file, please add or adapt the option ``webui.webuiserver.max-request-body-size 134217728`` (here, the limit of 128MB is used).
 
    Also be aware that there is a default upload timeout of 5 minutes (i.e. 300 seconds). This can also be overruled in this ``.conf`` file, by adding or adapting the option ``webui.webuiserver.max-session-idle-seconds``.
 
