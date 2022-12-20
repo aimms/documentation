@@ -12,6 +12,20 @@ AIMMS 4.90
 #############
 
 
+AIMMS 4.90.4 Release (December 20, 2022 - build 4.90.4.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In some situations the operator Mean was performing worse than the (deprecated) operator Average. In this version the usage of Average is no longer automatically redirected to Mean, so in those statements where you encounter a performance problem you can now fall back to using (the old implementation of) Average.
+
+--------------
+
+
+
 AIMMS 4.90.3 Release (December 14, 2022 - build 4.90.3.6).
 ------------------------------------------------------------------------------------------
 
