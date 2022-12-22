@@ -64,29 +64,29 @@ Widgets and CSS properties supported for annotations
 
 There are several CSS properties that can be changed for each widget that support annotations. AIMMS provides support for specific CSS properties with respect to CSS customization. The below table denotes the supported widgets and their respective CSS properties that can be changed.
 
-+------------------------+----------------------------+---------------------------------------------------+
-| Widgets                | CSS Property                                                                   |
-+========================+============================+===================================================+
-| Bar Chart              | fill, fill-opacity         | stroke, stroke-width, stroke-dasharray            |
-+------------------------+----------------------------+---------------------------------------------------+
-| Line Chart             | fill, fill-opacity         | stroke, stroke-width, stroke-dasharray            |
-+------------------------+----------------------------+---------------------------------------------------+
-| Pie Chart              | fill, fill-opacity         | stroke, stroke-width, stroke-dasharray            |
-+------------------------+----------------------------+---------------------------------------------------+
-| TreeMap Chart          | background, opacity        | font-size, font-family, font-style, font-weight   |
-+------------------------+----------------------------+---------------------------------------------------+
-| Gantt Chart            | fill, fill-opacity         | stroke, stroke-width, stroke-dasharray            |
-+------------------------+----------------------------+---------------------------------------------------+
-| Table                  | background, opacity        | font-size, font-family, font-style, font-weight   |
-+------------------------+----------------------------+---------------------------------------------------+
-| Bubble Chart           | fill, fill-opacity         | stroke, stroke-width, stroke-dasharray            |
-+------------------------+----------------------------+---------------------------------------------------+
-| Map (Nodes)            | fill, fill-opacity         | stroke, stroke-width, stroke-dasharray            |
-+------------------------+----------------------------+---------------------------------------------------+
-| Map (Arcs)             | background, color, opacity | stroke, stroke-dasharray, stroke-opacity          |
-+------------------------+----------------------------+---------------------------------------------------+
-| Scalar                 | background, opacity        | font-size, font-family, font-style, font-weight   |
-+------------------------+----------------------------+---------------------------------------------------+
++------------------------+-----------------------------+---------------------------------------------------+
+| Widgets                | CSS Property                                                                    |
++========================+=============================+===================================================+
+| Bar Chart              | fill, fill-opacity          | stroke, stroke-width, stroke-dasharray            |
++------------------------+-----------------------------+---------------------------------------------------+
+| Line Chart             | fill, fill-opacity          | stroke, stroke-width, stroke-dasharray            |
++------------------------+-----------------------------+---------------------------------------------------+
+| Pie Chart              | fill, fill-opacity          | stroke, stroke-width, stroke-dasharray            |
++------------------------+-----------------------------+---------------------------------------------------+
+| TreeMap Chart          | background, opacity         | font-size, font-family, font-style, font-weight   |
++------------------------+-----------------------------+---------------------------------------------------+
+| Gantt Chart            | fill, fill-opacity          | stroke, stroke-width, stroke-dasharray            |
++------------------------+-----------------------------+---------------------------------------------------+
+| Table                  | background, opacity         | font-size, font-family, font-style, font-weight   |
++------------------------+-----------------------------+---------------------------------------------------+
+| Bubble Chart           | fill, fill-opacity          | stroke, stroke-width, stroke-dasharray            |
++------------------------+-----------------------------+---------------------------------------------------+
+| Map (Nodes)            | fill, fill-opacity          | stroke, stroke-width, stroke-dasharray            |
++------------------------+-----------------------------+---------------------------------------------------+
+| Map (Arcs)             | background, color, opacity  | stroke, stroke-dasharray, stroke-opacity          |
++------------------------+-----------------------------+---------------------------------------------------+
+| Scalar                 | background, opacity, border | font-size, font-family, font-style, font-weight   |
++------------------------+-----------------------------+---------------------------------------------------+
 
 .. warning:: 
     For Line Chart, Bubble Chart and Map the radius property "r" is supported only on the Chrome browser, and not on IE 11 and Edge browsers.
