@@ -8,12 +8,16 @@ Specifying REST task types in your model
 
 The Data Exchange library is also capable of providing a REST API service that exposes procedures in your model, and will form the basis of exposing procedures in published AIMMS apps in our cloud platform in the future. 
 
-With each procedure in your model, you can associate a ``dex::ServiceName`` annotation, which will expose your procedure under the path ``/pro-api/v1/tasks/{service-name}``, where ``{service-name}`` is the value you entered in the ``dex::ServiceName`` annotation. 
+With each procedure in your model, you can associate a ``dex::ServiceName`` annotation, which will expose your procedure under the path ``/api/v1/tasks/{service-name}``, where ``{service-name}`` is the value you entered in the ``dex::ServiceName`` annotation. 
+
+.. note::
+
+	When deployed in the cloud the path is changed to ``/pro-api/v1/...``
 
 Service end-points exposed
 --------------------------
 
-* ``/pro-api/v1/tasks/{service-name}``
+* ``/api/v1/tasks/{service-name}``
     
     * ``POST``: accepts any JSON/XML/CSV/Excel/... data as the request body. The REST API Service handler built into the Data Exchange library will queue the request, and call the procedure in your model corresponding to ``{service-name}``.
       Within the procedure handling the request, the string parameter ``dex::api::RequestAttribute`` will provide you with access to the 
@@ -49,7 +53,7 @@ Service end-points exposed
          ! the application-specific returncode that will be returned via the task status of the job
          return 1;
 
-* ``/pro-api/v1/tasks/``
+* ``/api/v1/tasks/``
     
     * ``GET``: will return ``200 OK`` where the  response body will contain a array with the statuses of all submitted jobs, similar to:
       
@@ -62,7 +66,7 @@ Service end-points exposed
               {"id":"c692b9f9-d046-4aab-a015-47dcc7713fc6","service":"Test","starttime":"2021-05-17T11:02:56Z","status":"finished","queuetime":0.012,"runtime":0.004,"returncode":1}
          ]
               
-* ``/pro-api/v1/tasks/{id}``
+* ``/api/v1/tasks/{id}``
 
     * ``GET``: will return a ``404 Not found`` if there is no task with the given id, or ``200 OK`` with a response body similar to:
     
@@ -80,11 +84,11 @@ Service end-points exposed
       
     * ``DELETE``: the request will return a status code of ``405 Method not allowed`` if the task is still running, or ``200 OK`` if the task is still queued, interrupted, or already finished. When a task is deleted all associated resources, including all files containing the files contained request, response or intermediate status bodies will be deleted.
     
-* ``/pro-api/v1/tasks/{id}/response``
+* ``/api/v1/tasks/{id}/response``
     
     * ``GET``: will return a ``404 Not found`` if there is no task with the given id, or ``200 OK`` with the final response body stored as stored in the file ``dex::api::RequestAttribute('response-data-path')`` by the service handler procedure.
     
-* ``/pro-api/v1/tasks/{id}/status``
+* ``/api/v1/tasks/{id}/status``
     
     * ``GET``: will return a ``404 Not found`` if there is no task with the given id, or ``200 OK`` with an intermediate status response body stored as stored in the file ``dex::api::RequestAttribute('status-data-path')`` by the service handler procedure.
    
@@ -102,7 +106,7 @@ This will read all the service name annotations, and start the service listening
 Using the echo service
 ----------------------
 
-Next to the REST API service described above, the API service also provides an *echo* service, that will simply echo all headers and (any) body you present to it, via either a GET, PUT, POST, or DELETE request. You can use the echo service to check whether there are any problems with requests that you would like to send to a real service. The echo service is available via the path ``http://localhost:{listenerport}/pro-api/v1/echo/``, and it supports a single optional query parameter, ``delay``, indicating a delay in milliseconds before replying back to the caller.
+Next to the REST API service described above, the API service also provides an *echo* service, that will simply echo all headers and (any) body you present to it, via either a GET, PUT, POST, or DELETE request. You can use the echo service to check whether there are any problems with requests that you would like to send to a real service. The echo service is available via the path ``http://localhost:{listenerport}/api/v1/echo/``, and it supports a single optional query parameter, ``delay``, indicating a delay in milliseconds before replying back to the caller.
 
 Yielding time to the API service to handle requests
 ---------------------------------------------------
