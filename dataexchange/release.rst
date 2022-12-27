@@ -17,6 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.0.1.12 [27-12-2022]
+	- Allow ``force-dense`` on ``ExcelSheetNodeMappings`` with a ``name-binds-to`` attribute, and ``dense-children`` on ``ExcelRootNode`` for outputting empty non ``name-binds-to`` sheets
+
 2.0.1.4 [05-12-2022]
 	- OpenAPI client code now supports multi-part request bodies
 	- ``..._iter`` sets generated to add an extra dimension to identifiers for JSON array properties, are now a subset of ``Integers``
