@@ -17,7 +17,10 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
-2.0.1.12 [27-12-2022]
+2.0.1.15 [29-12-2022]
+	- Add ``no-diacritics`` as an additional normalization option next to ``nfc`` and ``nfd``.
+	
+2.0.1.14 [27-12-2022]
 	- Allow ``force-dense`` on ``ExcelSheetNodeMappings`` with a ``name-binds-to`` attribute, and ``dense-children`` on ``ExcelRootNode`` for outputting empty non ``name-binds-to`` sheets
 
 2.0.1.4 [05-12-2022]

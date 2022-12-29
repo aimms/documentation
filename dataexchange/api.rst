@@ -102,14 +102,14 @@ The library also contains a number of functions to normalize composed Unicode ch
     
     :param inStr: scalar input string parameter to hold the string value to normalize
     :param outStr: scalar output string parameter that will hold the normalized string
-    :param normalization: optional element parameter into :token:`dex::Normalizations` indicating the normalization to apply (either :token:`nfc` (default) or :token:`nfd`)
+    :param normalization: optional element parameter into :token:`dex::Normalizations` indicating the normalization to apply (either :token:`nfc` (default), :token:`nfd` or :token:`no-diacritics`)
 
 .. js:function:: dex::NormalizeSet(aSet, normalization)
 
 	Normalize all elements in the set :token:`aSet` using the normalization procedure indicated by :token:`normalization`. All elements that changed by the selected normalization will be renamed in the set.
     
     :param aSet: set argument indicating the set for which to normalize all elements
-    :param normalization: optional element parameter into :token:`dex::Normalizations` indicating the normalization to apply (either :token:`nfc` (default) or :token:`nfd`)
+    :param normalization: optional element parameter into :token:`dex::Normalizations` indicating the normalization to apply (either :token:`nfc` (default), :token:`nfd` or :token:`no-diacritics`)
 
 
 HTTP Client methods
