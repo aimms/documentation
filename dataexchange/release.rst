@@ -22,6 +22,7 @@ New Features and Bug Fixes
 	
 2.0.1.14 [27-12-2022]
 	- Allow ``force-dense`` on ``ExcelSheetNodeMappings`` with a ``name-binds-to`` attribute, and ``dense-children`` on ``ExcelRootNode`` for outputting empty non ``name-binds-to`` sheets
+	- **This release does no longer support AIMMS versions prior to 4.88**
 
 2.0.1.4 [05-12-2022]
 	- OpenAPI client code now supports multi-part request bodies
