@@ -12,6 +12,20 @@ AIMMS 4.90
 #############
 
 
+AIMMS 4.90.5 Release (January 5, 2023 - build 4.90.5.7).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In some situations, AIMMS could crash if you copied a widget to the same page. Also, a crash could occur after a combination of scrolling and clicking in several data and/or header cells of a Table widget.
+
+--------------
+
+
+
 AIMMS 4.90.4 Release (December 20, 2022 - build 4.90.4.2).
 ------------------------------------------------------------------------------------------
 
