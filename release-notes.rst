@@ -8,7 +8,7 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
-AIMMS 4.90
+AIMMS 4.91
 #############
 
 
@@ -16,6 +16,12 @@ AIMMS 4.91.1 Release (January 9, 2023 - build 4.91.1.1).
 ------------------------------------------------------------------------------------------
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The performance of the AIMMS Presolver has been improved for linear models.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
@@ -37,6 +43,9 @@ Resolved WebUI Issues
 
 --------------
 
+#############
+AIMMS 4.90
+#############
 
 
 AIMMS 4.90.5 Release (January 5, 2023 - build 4.90.5.7).
