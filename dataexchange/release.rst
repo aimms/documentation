@@ -17,6 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.0.1.16 [09-01-2023]
+	- Data pages for identifiers in the DEX library could cause the extraction of ``.aimmspack`` files to fail when the DEX library was included in the ``.aimmspack``. The publishing process of libraries to the library repository will now automatically remove all data pages. 
+
 2.0.1.15 [29-12-2022]
 	- Add ``no-diacritics`` as an additional normalization option next to ``nfc`` and ``nfd``.
 	
