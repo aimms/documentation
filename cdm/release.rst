@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.27.0.5 [09-01-2023]
+	- Identifiers from the CDM library will no longer be part of any CDM category (but identifiers defined over sets from the CDM library still can)
+
 1.27.0.3 [29-11-2022]
 	- Remove some warnings about handle arguments of external procedures that were triggered by AIMMS 4.90+
 
