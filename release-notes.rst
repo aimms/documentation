@@ -34,12 +34,15 @@ WebUI Improvements
 
 -  The dropdown boxes in both the Scalar and the Table widgets, when displaying element parameters, have been upgraded to a new underlying technology which we have already used for the Selectionbox widget for a while. It offers dynamic updating of the data in the list without having to close it first, faster loading of the elements and a search feature.
 -  We've changed the way the widget menu (the 'kebab menu') and the access to the widget options ('the cogwheel') looks. This is especially noticeable for application developers that will now find that these two buttons are always visibly attached to all widgets, both the ones with and without the a full header. This makes their presence immediately known and consistent for both developers and end-users, with editable or non-editable interfaces. It also allows the widget menu, which can also contain the widget actions, to have a more prominent and clear role in your application and development.
+-  In Scalar widgets, the currently selected dropdown entry can now be cleared by clicking the "x".
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  Upon causing a range violation on a table cell (for example, by specifying a negative value in a nonnegative cell), an error message was displayed. However, the cell was locked from any further modifications after this, requiring you to reload the page.
 -  In Scalar widgets that display an element parameter, opening the dropdown with its possible values is now always activated by a double-click. Previously, there were some scenarios where a single-click would do and some where a double-click was required.
+-  The Item actions context menu in combination with UponChange procedure which take some time, sometimes disappeared completely.
+
 
 --------------
 
