@@ -39,7 +39,7 @@ WebUI Improvements
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  Upon causing a range violation on a table cell (for example, by specifying a negative value in a nonnegative cell), an error message was displayed. However, the cell was locked from any further modifications after this, requiring you to reload the page.
+-  Upon causing a range violation on a table cell (for example, by specifying a negative value in a non-negative cell), an error message was displayed. However, the cell was locked from any further modifications after this, requiring you to reload the page.
 -  In Scalar widgets that display an element parameter, opening the dropdown with its possible values is now always activated by a double-click. Previously, there were some scenarios where a single-click would do and some where a double-click was required.
 -  The Item actions context menu in combination with UponChange procedure which take some time, sometimes disappeared completely.
 
