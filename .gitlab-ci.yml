@@ -39,7 +39,7 @@ deploy:
   <<: *run_on_dockerhost
   stage: build-and-deploy
   rules:
-    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "master"
       when: always
     - when: never
   script:
