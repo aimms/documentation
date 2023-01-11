@@ -2548,7 +2548,7 @@ Resolved AIMMS Issues
 
 -  Options that are given nondefault values to new models automatically, were not always saved. This applies especially to the option to use UTC times in reference dates introduced in 4.74. 
 
-    .. important:: If your model uses time, check that the option "Use UTC ``forcaseandstartenddate``" is on. Altering it once is enough to avoid the bug, but be aware: this changes the meaning of calenders.
+    .. important:: If your model uses time, check that the option "Use UTC ``forcaseandstartenddate``" is on. Altering it once is enough to avoid the bug, but be aware: this changes the meaning of calendars.
 
 -  Finding an element in a quarterly calendar, using :any:`StringToElement`, did not work sometimes.
 -  Specifying :ref:`the OrderBy attribute <set.order_by>` on a runtime set, could lead to an unexpected error in recent AIMMS versions.
