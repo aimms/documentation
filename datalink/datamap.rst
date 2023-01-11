@@ -143,7 +143,7 @@ A data map is a string parameter that can be defined as:
 
 The third and fourth element have changed. The third element is an integer value that is used for some new functionality described later. For now we can leave it as 0, to have the same setup as with the classic data map. 
 
-The fourth element is the data map attribute. This is a string expressing what information about the table and identifier we are expressing. The most important and mandatory attribute is :token:`colname` which tels that we specify the column name in the source. Also it allows us to specify column attributes in the data map instead of separate string parameter, like in the classic data map configuration. 
+The fourth element is the data map attribute. This is a string expressing what information about the table and identifier we are expressing. The most important and mandatory attribute is :token:`colname` which tells that we specify the column name in the source. Also it allows us to specify column attributes in the data map instead of separate string parameter, like in the classic data map configuration. 
 
 The first two element have not changed, so we also have to make sure that the table name is added to the set :token:`dl::DataTables`:
 
