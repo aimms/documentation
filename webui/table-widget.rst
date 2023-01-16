@@ -45,7 +45,7 @@ The table widget offers the user possibilities for various actions such as:
 
 * Change the default row height of the table, by specifying a positive integer value in the 'Default row height' option in the Miscellaneous options editor.
 
-* Use your keyboard (as well as the mouse) to navigate the table.
+* Use your keyboard (as well as the mouse) in order to navigate on the table.
 
   * You can use the 0 or the 1 key to set binary values displayed as checkboxes that have the focus.
   
