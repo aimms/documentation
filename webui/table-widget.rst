@@ -52,15 +52,35 @@ The table widget offers the user possibilities for various actions such as:
   * You can use the **SPACE BAR** to toggle binary values displayed as checkboxes that have the focus.
     
   * In AIMMS versions below 4.87, you can use either **ENTER** or **ALT+ARROW DOWN** to open the drop-down list in focus, in order to change its value. In 4.87 and higher, only **ALT+ARROW DOWN** does this.
+  
+  * In AIMMS 4.87 and higher, pressing **ENTER** takes you to the cell below.
 
   * In AIMMS 4.87 and higher, opening a DateTime cell with the keyboard should be done with either **ALT+ARROW DOWN** or **CTRL+SPACEBAR**.
-
-  * In AIMMS 4.87 and higher, pressing **ENTER** takes you to the cell below.
 
    .. note::
 
        From AIMMS 4.91 onwards, the dropdown that appears when you click on an element parameter in a table uses the same underlying technology as the Selectionbox widget. In practice, that means that it is more reactive to data changes in the underlying model while open. Furthermore, the current/default entry has been removed. For a table you can use the delete key to empty any cell (which sets it to default), including the dropdown cells. 
 
+  * In AIMMS 4.92 the table navigation has been improved such that it became more simple and natural to interact with and use the table. Similar to the navigation experience in Excel or in other tabular data applications, the AIMMS WebUI provides support for generic tabular data navigation keys, such as the following: 
+
+    * The arrow keys **RIGHT**, **LEFT**, **UP**, **DOWN** can be used to navigate to the adjacent cells within the same table widget.
+	
+    * The **HOME** key takes you to the left-most cell of the current table row. 
+	
+    * The **END** key takes you to the right-most cell of the current table row. 
+	
+    * The **CTRL+HOME** keys take you to the very first cell of the table, that is, the cell at the position (0,0).
+	
+    * The **CTRL+END** keys take you to the very last cell of the table, that is, the cell at the position (m-1,n-1), where m is the number of rows and n is the number of columns.
+	
+    * The **CTRL+RIGHT Arrow** keys get the focus on the horizontally-first (that is, right-most) cell of the same row.
+	
+    * The **CTRL+LEFT Arrow** keys get the focus on the horizontally-last (that is, left-most) cell of the same row.
+	
+    * The **CTRL+UP Arrow** keys get the focus on the vertically-first cell of the same column.
+	
+    * The **CTRL+DOWN Arrow** keys get the focus on the vertically-last cell of the same column.
+	
 * Starting from AIMMS 4.90, it is also possible to sort the table headers, that is, the elements of one of the sets involved in the table (through the specification of its index in the shown data).
 
   Consider the following example where the data has four indexes:
