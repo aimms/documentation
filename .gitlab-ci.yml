@@ -5,9 +5,6 @@ stages:
   - test
   - build-and-deploy
 
-before_script:
-  - docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
-
 .run_on_dockerhost: &run_on_dockerhost
   tags:
     - docker20
