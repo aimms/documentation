@@ -12,6 +12,27 @@ AIMMS 4.91
 #############
 
 
+AIMMS 4.91.2 Release (January 18, 2023 - build 4.91.2.8).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In the Conversions attribute of a Quantity, a line that started with a $ sometimes gave an unexpected error.
+-  Shadow prices with the special value ZERO were not handled correctly by the scaling tool.
+-  The log of the dual simplex algorithm was not shown in the CPLEX status file if the CPLEX option 'LP method' was set to 'Concurrent'. (Note: to see the logs of the primal simplex and barrier algorithms the CPLEX option 'Clone Log Files' should be switched on.).
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When widgets are added to the home page of a new application and this page is refreshed, the page layout would erroneously change to classic layout.
+
+--------------
+
+
+
 AIMMS 4.91.1 Release (January 9, 2023 - build 4.91.1.1).
 ------------------------------------------------------------------------------------------
 
