@@ -9431,3 +9431,4 @@ Improvements
 	valueType
 	nch
 	mailto
+	barlinechart
