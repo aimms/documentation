@@ -12,6 +12,26 @@ AIMMS 4.91
 #############
 
 
+AIMMS 4.91.3 Release (January 25, 2023 - build 4.91.3.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The procedure OptionSetString did not always handle string values 'on' and 'off' correctly in case of a solver option.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The barchart, linechart and barlinechart widget are using an internal heuristic to decide what index to use for coloring. In the special case in which the chart only contained a single element (e.g. a single bar in a bar chart), this heuristic could result in the bar not being colored at all (i.e. a gray bar). We improved the heuristic such that it can now use information from indices that have been fixed using slicing, resulting in more consistent coloring.
+-  WebUI applications showing a combination-chart, with a color index and/or transparency index specified, were vulnerable to (multi-threading related) AIMMS crashes. The likelihood of such crashes occurring increased as the data within the widget and/or the number of widgets on the screen increased. We addressed this multi-threading issue.
+
+--------------
+
+
+
 AIMMS 4.91.2 Release (January 18, 2023 - build 4.91.2.8).
 ------------------------------------------------------------------------------------------
 
