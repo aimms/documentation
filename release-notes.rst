@@ -47,7 +47,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  When widgets are added to the home page of a new application and this page is refreshed, the page layout would erroneously change to classic layout.
+-  When widgets are added to the home page of a new application and this page is refreshed, the page layout would erroneously change to classic layout. Because we addressed this in 4.91.2, it can happen that if you open an older model using 4.91.2 or later, you will have a (correct) grid page layout with all existing widgets in the 'unassigned' area. In this case, you should assign these widgets to their areas once. Please note that this problem can only occur in models which only have one page (the home page).
 
 --------------
 
