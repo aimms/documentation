@@ -12,6 +12,29 @@ AIMMS 4.91
 #############
 
 
+AIMMS 4.91.4 Release (January 31, 2023 - build 4.91.4.7).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Robust optimization models with an uncertainty set described by scenarios (using a ConvexHull region) were not always handled correctly by AIMMS.
+-  The EMPTY statement was no longer checking whether any unused strings could be removed from memory. In some models this could lead to a temporary increase in memory usage. This check has now been reintroduced during the EMPTY statement.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We removed the Title option from the Text widget. This option did not have any effect, because the header of the Text widget is never displayed.
+-  From AIMMS 4.90 onwards, the WebUI did not load properly on the Safari browser on iOS devices.
+-  The Legend of the Combination Chart widget now only contains entries for the associated elements that are actually displayed on the chart.
+-  When opening a Table cell for editing, it was not possible anymore to use the mouse cursor to start editing the contents somewhere in the middle.
+
+--------------
+
+
+
 AIMMS 4.91.3 Release (January 25, 2023 - build 4.91.3.6).
 ------------------------------------------------------------------------------------------
 
