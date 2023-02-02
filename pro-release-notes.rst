@@ -14,6 +14,9 @@ On December 20, 2022, we released AIMMS PRO 2.46.1 (2.46.1.2).
    - PRO REST API: It is now possible to create, update and delete environments using REST API.
    - PRO REST API: Tasks are further separated from solver sessions such that Tasks will get their own CPU and memory limits, concurrent tasks limit and solver string (i.e. solvers that can be selected for Tasks). These can be configured at a account level by AIMMS Customer Support.
 
+**Resolved Issues**
+   - Fixed an issue introduced in PRO 2.45.1, where new Apps could erroneously published with the REST license profile and could no longer run the sessions from it.   
+
 PRO 2.45
 ########
 
