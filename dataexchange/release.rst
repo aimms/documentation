@@ -17,6 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.0.1.22 [04-02-2023]
+	- Added trimming leading and trailing spaces off strings as a new string normalization method.
+	
 2.0.1.19 [30-01-2023]
 	- Empty procedures for JSON schema inadvertently omitted duplicate module prefixes when these occurred in generated identifier names to be emptied
 	
