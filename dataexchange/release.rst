@@ -17,6 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.0.1.23 [07-02-2023]
+	- Added support for XML request and response bodies in generated OpenAPI clients
+
 2.0.1.22 [04-02-2023]
 	- Added trimming leading and trailing spaces off strings as a new string normalization method.
 	
