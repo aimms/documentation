@@ -22,6 +22,7 @@ Resolved AIMMS Issues
 
 -  If the function IdentifierUnit was called on an identifier that did not have any unit specified, it could happen that the result was the base unit of the quantity SI_Unitless whereas it should return no unit at all.
 -  There was a problem with Output/InOut arguments in functions like DialogGetString.
+-  When the database structure was loaded from a file through the function LoadDatabaseStructure, random characters were sometimes added to the column names, resulting in strange looking errors.
 
 --------------
 
