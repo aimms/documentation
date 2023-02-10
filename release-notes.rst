@@ -12,6 +12,21 @@ AIMMS 4.91
 #############
 
 
+AIMMS 4.91.5 Release (February 10, 2023 - build 4.91.5.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If the function IdentifierUnit was called on an identifier that did not have any unit specified, it could happen that the result was the base unit of the quantity SI_Unitless whereas it should return no unit at all.
+-  There was a problem with Output/InOut arguments in functions like DialogGetString.
+
+--------------
+
+
+
 AIMMS 4.91.4 Release (January 31, 2023 - build 4.91.4.7).
 ------------------------------------------------------------------------------------------
 
