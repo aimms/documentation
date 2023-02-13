@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.27.0.6 [13-02-2023]
+	- Rolling back a root set to which a large number of elements were added could crash AIMMS
+
 1.27.0.5 [09-01-2023]
 	- Identifiers from the CDM library will no longer be part of any CDM category (but identifiers defined over sets from the CDM library still can)
 
