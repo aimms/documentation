@@ -3,7 +3,6 @@ Information security for the AIMMS Cloud Platform (on Azure)
 
 Backups / Business Continuity / Disaster Recovery
 ----------------------------------------------------
-
 * File storage is on Azure *Storage*, an Azure service with a durability of ‘twelve nines’. The data is replicated across 3 *Data Centers* within the Azure *Region* and an additional copy is stored in the Azure *Partner Region*. **Backups** are made every 24 hours to an isolated account and are retained for at least 30 days.
 * The optional, account-specific Application Databases use Azure’s *Flexible Server* MySQL service. The data is replicated across at least two Availability Zones (group of data centers). **Backups** of the transaction logs are taken every 5 minutes and retained for at least 30 days. These permit restores at each 5-minute interval. **Backups** are made every 24 hours to an isolated account and are retained for at least 30 days. You can contact our support team to restore any of those backups on your live database (or on the side).
 * **Hardware failover:** Hardware failure will hardly ever cause an outage because all software services are using redundant hardware components. Failed hardware is automatically replaced by Azure, typically within minutes.
@@ -16,6 +15,13 @@ Data security
 * All AIMMS projects and data files are encrypted and stored on Azure *Storage* with server-side encryption enabled. Azure *Storage* is encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Encryption keys are managed by Microsoft, including key rotation with Microsoft Azure *Managed Identity*. 
 * The application databases use Azure MySQL *Flexible Server* AES-256 encryption function, also for logs, backups and snapshots.
 * Application databases are single-customer and are placed in a single-customer Vnet, accessible via VPN or via an AIMMS-provided application.
+
+Single-tenancy / Multi-tenancy
+------------------------------
+* Application databases (optional service) are single-tenant (exclusive to one customer account) and placed in a separate Vnet.
+* User sessions and solve sessions run in single-session Docker containers (exclusive to one user/app combination).
+* File storage is multi-tenant and uses strong logical separation between customer accounts.
+* The following software modules are multi-tenant and do not contain any customer business or model data: portal, session management.
 
 Password security
 -----------------------
@@ -57,7 +63,6 @@ The AIMMS Cloud Platform is hosted on Azure, which meets the highest standards f
 
 Credit card safety
 ------------------------
-
 * AIMMS Cloud Platform is not PCI-compliant.
 * AIMMS will not store credit card information, but we cannot prevent customers from building applications which store credit card information.
 
@@ -104,4 +109,5 @@ Technology stack
 ----------------
 * The AIMMS PRO deployment software uses Java, C++ and Python.
 * The AIMMS Cloud application uses a wide range of Azure services such as AKS (Kubernetes on Azure).
+* WebUI uses HTML5, Javascript, CSS and various frameworks such as jquery and react. It also uses 3rd party components such as Highcharts.
 
