@@ -123,8 +123,8 @@ This will generate Data Exchange mappings in the subfolder ``Mappings/Generated`
    
     ``JSONDataset``, all tables for all datasets in a single JSON file
     ``XMLDataset``, all tables for all datasets in a single XML file
-    ``Generated/<dataset>-Excel``, all tables for dataset ``<dataset>`` in a single Excel file (one sheet per table, only if data is available for that sheet)
-    ``Generated/<dataset>-Excel-all-sheets``, all tables for dataset ``<dataset>`` in a single Excel file (one sheet per table, regardless whether data is available for that sheet)
+    ``Generated/<dataset>-Excel``, all tables for dataset ``<dataset>`` in a single Excel file (one sheet per table; only if data is available for that sheet)
+    ``Generated/<dataset>-Excel-all-sheets``, all tables for dataset ``<dataset>`` in a single Excel file (one sheet per table; regardless whether data is available for that sheet)
     ``Generated/<dataset>-<table>-JSON-Sparse``, table ``<table>`` in dataset ``<dataset>`` in a single sparse JSON file (only non-default data)
     ``Generated/<dataset>-<table>-JSON-Dense``, table ``<table>`` in dataset ``<dataset>`` in a single dense JSON file (also default data)
     ``Generated/<dataset>-<table>-JSON-RowOriented``, table ``<table>`` in dataset ``<dataset>`` in a single row-oriented JSON file (array of row arrays)
