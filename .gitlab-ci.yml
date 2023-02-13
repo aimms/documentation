@@ -36,7 +36,7 @@ build:
 
 deploy:
   <<: *run_on_dockerhost
-  stage: build-and-deploy
+  stage: .post
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
       when: always
