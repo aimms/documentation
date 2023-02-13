@@ -1,4 +1,4 @@
-Information security for AIMMS (the software)
+Information security for AIMMS Developer (the software)
 ====================================================
 
 We have implemented a collection of measures to make sure we deliver secure software to our customers. 
@@ -22,3 +22,10 @@ Testing
 Code scanning
 -----------------
 Static code analysis is included in the automated build process, scanning for the `CVE vulnerabilities <https://cve.mitre.org/cve/>`_.
+
+Technology stack
+-----------------
+* Compiler, execution engine and other parts of the 'kernel' are written in C and C++.
+* Extension libraries such as Data Exchange are written in C++.
+* IDE uses .net and C#.
+* WebUI uses HTML5, Javascript, CSS and various frameworks such as jquery and React. It also uses 3rd party components such as Highcharts.
