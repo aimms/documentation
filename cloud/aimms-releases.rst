@@ -1,3 +1,5 @@
+Getting the latest AIMMS Releases on AIMMS Cloud Platform
+*********************************************************
 
 Starting with AIMMS PRO 2.47.1, we have made the change to provide you with every AIMMS major feature release automatically and will also guarantee that you will always work on the most recent hotfix on that version, with all the benefits of bug fixes. This is how it will work:
 
