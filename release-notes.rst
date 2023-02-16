@@ -12,6 +12,27 @@ AIMMS 4.91
 #############
 
 
+AIMMS 4.91.6 Release (February 16, 2023 - build 4.91.6.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Statements in which the left-hand side identifier has both a nonzero default and a multidimensional index expression suffered from a regression issue introduced in AIMMS 4.88.5 (and incorrectly fixed in 4.89.2), which could lead to erroneous results.
+-  Having a '!' inside a quoted element name could sometimes lead to the situation that the whole statement was not executed at all.
+-  The Empty command did not remove some of the data of a defined variable in recent AIMMS versions.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Our online example (and variations thereof) to transform boolean scalar values into a nice sliding toggle switch should no longer experience some minor misalignment that appeared after introducing the new layout for the Widget Menu and access to the Option Editor (4.91.1).
+
+--------------
+
+
+
 AIMMS 4.91.5 Release (February 10, 2023 - build 4.91.5.4).
 ------------------------------------------------------------------------------------------
 
