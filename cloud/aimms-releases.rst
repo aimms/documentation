@@ -12,7 +12,7 @@ For example, when you have published an app with AIMMS 4.88 and then when you ru
 
 4. This does not impact your apps. They will always continue to work with the selected feature release and already benefit from any hotfixes available. You do not need to change anything.
 
-.. spelling::
+.. spelling:word-list::
 
     hotfix
 	hotfixes

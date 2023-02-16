@@ -23,6 +23,6 @@ If you want to disable MFA then click the **Delete MFA** button on your Account 
 
 Note: MFA is not available for ActiveDirectory and SAML Users(i.e. users with SSO). 
 
-.. spelling::
+.. spelling:word-list::
 
     authenticator
