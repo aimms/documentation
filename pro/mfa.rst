@@ -1,5 +1,5 @@
 MFA for AIMMS PRO Portal 
-************************
+========================
 
 Starting with **AIMMS PRO 2.47.1** each user can enable MFA for his/her AIMMS PRO user account. It is not yet possible to enforce MFA for all user accounts in a customer account. We decided not to add that complexity as we will be replacing the entire user management component in the foreseeable future.
 
