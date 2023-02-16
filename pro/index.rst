@@ -16,6 +16,7 @@ This is the documentation for the AIMMS PRO Platform
     configurator
     admin
     portal
+	mfa
     project
     api
 
