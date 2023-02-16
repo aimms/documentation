@@ -16,9 +16,13 @@ Users can enable MFA from their PRO Portal Account settings page by clicking the
 .. image:: images/add-mfa.png
     :align: center
 
-If you want to diable MFA then click the **Delete MFA** button on your Account settings page.
+If you want to disable MFA then click the **Delete MFA** button on your Account settings page.
 
 .. image:: images/delete-mfa.png
     :align: center
 
 Note: MFA is not available for ActiveDirectory and SAML Users(i.e. users with SSO). 
+
+.. spelling::
+
+    authenticator
