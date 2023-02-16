@@ -1,6 +1,25 @@
 AIMMS PRO Release Notes
 =======================
 
+
+PRO 2.47
+########
+
+AIMMS PRO 2.47.1 Release
+------------------------
+
+On February 16, 2023, we released AIMMS PRO 2.47.1(2.47.1.14). 
+
+**Improvements**
+
+   - MFA(Multi-Factor Authentication) for AIMMS PRO Portal user account. Please see the `documentation <https://documentation.aimms.com/pro/mfa.html>`__ for more details.
+   - Automatically getting the latest AIMMS Releases available on your cloud environment and always run your apps with the latest hotfix release of the major AIMMS release with which the app was published. Please see the `documentation <https://documentation.aimms.com/cloud/aimms-releases.html>`__ to get more details about this feature.
+
+**Resolved Issues**
+
+   - PRO REST API: Fixed an issue where updating an app via REST API could result into 'Environment does not exist' error.
+   
+   
 PRO 2.46
 ########
 

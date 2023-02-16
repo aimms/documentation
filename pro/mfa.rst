@@ -11,6 +11,7 @@ Users can enable MFA from their PRO Portal Account settings page by clicking the
 .. image:: images/add-mfa.png
     :align: center
 
+
 * When you click on Add MFA it will display the QR code.
 * Please scan this QR code with your authenticator app on your mobile, enter the MFA code and click Confirm.
 * Once you click on confirm MFA is enabled for your PRO Portal account. 
@@ -27,8 +28,11 @@ If you want to disable MFA then click the **Delete MFA** button on your Account 
 
 .. image:: images/delete-mfa.png
     :align: center
+	
+	
+.. note::
 
-Note: MFA is not available for ActiveDirectory and SAML Users(i.e. users with SSO). 
+	MFA is not available for ActiveDirectory and SAML Users(i.e. users with SSO). 
 
 .. spelling:word-list::
 
