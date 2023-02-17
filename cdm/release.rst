@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.27.0.8 [17-02-2023]
+	- Add additional safeguard to location where crash occurred that should not be possible
+	
 1.27.0.6 [13-02-2023]
 	- Rolling back a root set to which a large number of elements were added could crash AIMMS
 
