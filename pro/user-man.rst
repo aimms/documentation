@@ -39,6 +39,10 @@ By default, AIMMS PRO comes with a single environment installed, the ROOT enviro
 
 Please note that these system accounts and groups cannot be deleted.
 
+.. note::
+
+	If you are running your AIMMS PRO on AIMMS Cloud Platform then starting with AIMMS PRO **2.47.1**, AIMMSPublishers group is not shown as all the latest AIMMS versions are automatically available on cloud when publishing an App and thus AIMMS Versions does not need to be activated by AIMMSPublishers users.
+	
 Creating a New Environment
 --------------------------
 

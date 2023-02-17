@@ -1,6 +1,10 @@
 Activate AIMMS Version
 ======================
 
+.. note::
+ 
+    Starting with AIMMS PRO **2.47.1**, AIMMS Versions page is removed from the Portal. As from this release all the latest AIMMS Versions are automatically available on the cloud when publishing or updating an App and thus AIMMS Versions does not need to be activated on your cloud environment.
+
 As part of every AIMMS release, AIMMS Versions (AIMMS PRO Server packages) will be made available on the AIMMS Cloud Platform. Each AIMMS Versions contains:
 
 * an installation-free AIMMS PRO Client without solvers, which will run the client part of the application on the computer of the end-user, and
