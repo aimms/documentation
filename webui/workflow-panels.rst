@@ -12,11 +12,12 @@ Workflow Panels
 .. |ApplicationExtension| image:: images/ApplicationExtensionIcon.png
 
 
-This section describes various tasks related to application workflow panels.
+This section describes various tasks related to the creation, the configuration, and the usage of workflow panels in an WebUI application.
 
 .. important:: 
 
   - Workflow panels are available in software versions from AIMMS 4.68 onwards.
+  - Starting from AIMMS 4.92, a sub-level of steps can be configured per workflow step. This makes it easier to apply a hierarchical organization in your workflow(s).
   - A Workflow panels tutorial is available in the `WebUI Advanced User Interactions <https://academy.aimms.com/course/view.php?id=57>`__ course on `the AIMMS Academy <https://academy.aimms.com/>`__.
 
 Starting from AIMMS 4.68, it is possible to design and configure Workflows in the AIMMS WebUI. The Workflow Panel is used to represent and run any workflow which is designed and defined by the application developer in the model. AIMMS allows the application developer to configure multiple workflows in an application.
@@ -30,24 +31,24 @@ The workflow has states for each step that indicate to a user which steps can or
 .. image:: images/Workflow_Demo.png
     :align: center
 
-The Workflow Panel can also be collapsed and expanded:
+The Workflow Panel can also be collapsed and expanded horizontally, in order to save screen space:
 
 .. image:: images/Workflow_ExpandedCollapsed.png
     :align: center
     :scale: 75
 
-In the collapsed view, when the user hovers over a step the tooltip helps with identifying the purpose of that step:
+In the horizontally collapsed view, when the user hovers over a step the tooltip helps with identifying the purpose of it:
 
 .. image:: images/Workflow_CollapsedTooltips.png
     :align: center
 
 
-Configuring the Workflow Panel
-------------------------------
+Configuring Workflow Panels
+---------------------------
 
 The Workflow Panel can be configured by the application developer via the AIMMS model. `Public Workflow Support Declarations <library.html#workflowspecification>`_ have been defined inside the `Pages and Dialog Support <library.html#pages-and-dialog-support-section>`_ section of the AIMMS WebUI system library. These pre-declared identifiers are  used to configure different workflows and their respective steps.
 
-To create and configure the Workflow Panel in the application you will need to create two string parameters. The first string parameter will configure the number of workflows in the application, while the second string parameter will configure the steps of each workflow.
+In order to configure the Workflow Panels in the application, first you need to create two string parameters. The first string parameter will configure the number of workflows in the application, while the second string parameter will configure the steps of each workflow.
 
 .. Note::
 
@@ -56,7 +57,7 @@ To create and configure the Workflow Panel in the application you will need to c
 Configuring Workflows
 ---------------------
 
-For illustration, let's call the first sting parameter ``MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)``. This string parameter is indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with the index ``indexWorkflowOrder`` and the `WorkflowSpecification <library.html#workflowspecificationset>`_ set with the index ``indexWorkflowSpec``. This string parameter is used to define the number of workflows and their respective titles. The values of this string parameter may be initialized in the Initial Data attribute, in a procedure or manually, by right clicking the string parameter and clicking on the Data option in order to open its data page. There you can add the details for the Workflow and its titles (leave the style property empty for now):
+The first sting parameter must be indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with the index ``indexWorkflowOrder`` and by the `WorkflowSpecification <library.html#workflowspecificationset>`_ set with the index ``indexWorkflowSpec``, like ``MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)``. This string parameter is used to define the number of workflows and their respective titles. The values of this string parameter may be initialized in the Initial Data attribute, in a procedure or manually, by right clicking the string parameter and clicking on the Data option in order to open its data page. There you can add the details for the Workflow and its titles (leave the style property empty for now):
 
 .. image:: images/Workflow_MyWorkflowsParameter.png
     :align: center
@@ -66,13 +67,13 @@ The values in the example above indicate that there are 3 workflows in the appli
 Configuring Steps of Workflows
 ------------------------------
 
-Create the second string parameter, let's call it ``MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)`` indexed over both indices of the `ExtensionOrder <library.html#extensionorder>`_ set and over the index of the `WorkflowPageSpecification <library.html#workflowpagespecification>`_ set. This string parameter is used to define the steps for each workflow which has been defined in the MyWorkflows string parameter. In particular, each ``pageId`` which is configured becomes a step displayed in the Workflow Panel, see further below. 
+The second string parameter must be indexed over both indices of the `ExtensionOrder <library.html#extensionorder>`_ set and over the index of the `WorkflowPageSpecification <library.html#workflowpagespecification>`_ set, like ``MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)``. This string parameter is used to define the steps for each workflow which has been defined in the ``MyWorkflows`` string parameter described above. In particular, each ``pageId`` which is configured becomes a step displayed in the Workflow Panel, see further below. 
 
 .. Note::
 
     The indices must follow the same order as described in the string parameter ``MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)``
 
-    ``pageId`` is a required field.
+    Also, note that ``pageId`` is a required field.
 
 In order to inspect the values, right click on the MyWorkflowSteps string parameter and click on the Data option in order to open its Data page:
 
@@ -85,7 +86,7 @@ There is no limit for the number of steps each workflow may have. As a guideline
 
 In order to configure the steps for the other workflows, you may just select the respective value for :any:`webui::indexWorkflowOrder` at the top in the Data page.
 
-For instance, 3 steps may be configured for the second workflow Inventory Management as follows:
+For instance, the following three steps may be configured for the second workflow Inventory Management:
 
 .. image:: images/Workflow_MyWorkflowStepsParameter_2.png
     :align: center
@@ -96,17 +97,17 @@ Similarly, an example of configuring 4 steps for the third workflow Quality Assu
     :align: center
 
 .. Note::
-    Please do not use a page configured with the Wizard in a Workflow, this will result in unwanted behavior.
+    Please do not use a page configured with the Wizard in a Workflow, this will result in an undesired behavior.
 
-workflowPageState and pageDataState
------------------------------------
+The specifications ``workflowPageState`` and ``pageDataState``
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The ``workflowPageState`` determines the state of a step in the workflow. A step can have an Active (displayed and clickable), Inactive (displayed and not clickable) or Hidden (not displayed) state. This state is used to control the flow of actions in the workflow. Some steps can be made accessible only when certain conditions are met. For example, in a sequential workflow the next step should be accessible only when the current step is considered done. 
+The ``workflowPageState`` determines the actionable state of a step in the workflow. In this context, a step can have an Active (displayed and clickable), Inactive (displayed and not clickable) or Hidden (not displayed) state. This state is used to control the flow of actions in the workflow. Some steps can be made accessible only when certain conditions are met. For example, in a sequential workflow the next step should be accessible only when the current step is considered done. 
 
 .. image:: images/Workflow_ActiveInactiveState.png
     :align: center
 
-The ``pageDataState`` determines the data state of a page. This state indicates whether a step is Complete, Incomplete or in an Error state. There is a default (Empty) state as well when a certain step does not need a data state, for example an "Instruction" or an "Introduction" type of page.
+The ``pageDataState`` determines the data state of a page. This kind of state indicates whether a step is Complete, Incomplete or in an Error state. There is a default (Empty) state as well when a certain step does not need a data state, for example an "Instruction" or an "Introduction" type of page.
 
 .. image:: images/Workflow_PageDataStates.png
     :align: center
@@ -121,17 +122,17 @@ These states can be changed dynamically, as required, and as the user progresses
 .. Note:: 
     To make changes on the page please ensure the workflowPageState is Active. Or, before configuring the workflow steps, first make changes to the respective pages and then configure the workflow steps. When the workflowPageState is Inactive or Hidden you will not be able to access the respective page. 
 
-``redirectPageId``
---------------------
+The specification ``redirectPageId``
+++++++++++++++++++++++++++++++++++++
 
 In case of an invalid ``pageId`` or when the ``workflowPageState`` for a certain step is Inactive or Hidden, the workflow will be redirected to the page indicated by the ``redirectPageId``. This is a fallback scenario for the situation in which a user tries to access a page in a workflow, via the Menu or by an OpenPage procedure defined somewhere in the application, but the page is not made available to the workflow yet. The ``redirectPageId`` is typically a page which is part of the same workflow. This ensures that the user stays in the workflow and learns that a previous step needs to be completed before accessing other steps of the workflow.
 
 When the ``redirectPageId`` is also invalid or not defined, an error is generated and the workflow stays on the current step. There is also a possibility that the workflow steps enter a loop. Then the redirection is applied 25 times, after which an error is generated and the workflow stays on the current step page.
 
-Combinations and Scenarios
---------------------------
+Combinations of specifications
+++++++++++++++++++++++++++++++
 
-The table below represents the different combinations that can arise when creating a workflow and the result of each scenario.
+The table below represents different combinations which can arise when creating a workflow and the actual result in each scenario:
 
 +------+----------+---------------------+------------------+-----------------------------------------------------------------------------+
 | S.No |``pageId``|``workflowPageState``|``redirectPageId``| Result                                                                      |
@@ -172,6 +173,21 @@ The table below represents the different combinations that can arise when creati
 +----------------------------+--------------------------------------------------------------------------------------------+
 | ``redirectPageId`` warning | Workflow: The redirect page for the step is not found.                                     |
 +----------------------------+--------------------------------------------------------------------------------------------+
+
+
+The specification ``parentPageId``
+++++++++++++++++++++++++++++++++++
+
+From AIMMS 4.92 onwards, it is possible to specify one sub-level of child steps for a workflow step. 
+This allows for a better organization of related workflow steps. For each of the child steps of a workflow step, simply specify the ``pageId`` of that workflow step in order to indicate its parent step, so, actually making it a child step. 
+Please keep in mind that sub-level steps can be exactly one level deep. So specifying a parent page of another parent page will result in an error message.
+
+
+The specification of the ``openClose`` state 
+++++++++++++++++++++++++++++++++++++++++++++
+
+From AIMMS 4.92 onwards, you can specify whether a parent step in the workflow panel should be expanded (the so-called 'open' state) or collapsed (the so-called 'close' state). This can be achieved by setting the ``openClose`` option to the value ``open`` or ``close``, respectively. For example, the following configuration:
+
 
 Changing states
 ---------------
@@ -228,6 +244,15 @@ The page Results is shown as a step in both workflows:
     :align: center
 
 In this case, when the user is on the Inventory Management workflow and clicks on the Results step, the user will be redirected to the Results step in the Route Optimization workflow, because Route Optimization is the first workflow (referencing the page Results) in the order of the workflows as defined by the MyWorkflows string parameter.
+
+Configuration Error Validation
+------------------------------
+
+From AIMMS 4.92 onwards, we have changed the configuration validation process a bit. 
+Now your workflow configurations are validated upon starting up the WebUI. 
+Please note that this only happens when in developer mode, which means your end-users will never be confronted with details about misconfigured workflows. 
+If any of your workflows is incorrectly configured, you will see an appropriate error message and *no workflow panel will be displayed at all* until you correct the reported error(s). 
+In case more than one error is found, the message will inform you in detail about the first one encountered and it will indicate how many more errors were detected.
 
 When and How to use the Workflow Panel
 --------------------------------------
@@ -290,8 +315,10 @@ Steps should be self sufficient, meaning that users do not need to navigate to o
 
 You should not require users to exit and re-enter the workflow in order to complete it.
 
-.. spelling:word-list::
+.. spelling: word-list::
 
     workflowPageState
     pageDataState
     don'ts
+	parentPageId
+	collapseState
