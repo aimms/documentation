@@ -12,6 +12,26 @@ AIMMS 4.91
 #############
 
 
+AIMMS 4.91.7 Release (February 17, 2023 - build 4.91.7.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In some rare situations, the return value of a procedure was not passed correctly to the calling procedure.
+-  If the NoSave property is specified for a Variable with a definition, then the data of the artificially created constraint for the variable was inadvertently added to the case.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When pasting data in a WebUI table, cells that were specified as 'read-only' by using a `webui::FlagsIdentifier` annotation, were still being pasted into.
+
+--------------
+
+
+
 AIMMS 4.91.6 Release (February 16, 2023 - build 4.91.6.5).
 ------------------------------------------------------------------------------------------
 
