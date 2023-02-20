@@ -93,6 +93,8 @@ For instance, the following three steps may be configured for the second workflo
 .. image:: images/Workflow_MyWorkflowStepsParameter_2.png
     :align: center
 
+| 
+
 Similarly, an example of configuring 4 steps for the third workflow Quality Assurance is illustrated here:
 
 .. image:: images/Workflow_MyWorkflowStepsParameter_3.png
@@ -191,6 +193,19 @@ For each of the child steps of a parent step one must specify the ``pageId`` of 
 
    Sub-level steps can be exactly one level deep. So specifying a parent page of another parent page will result in an error message.
 
+For example, suppose that the configuration string for the workflow steps contains (among others) the following data values:
+
+.. image:: images/WF_SubLevels_1.png
+    :align: center
+
+| 
+
+This setting will result in a workflow with two parent pages (indicated by the presence of the sign > on the left side of a step) as illustrated in the pictures below:
+
+.. image:: images/WF_SubLevels_2.png
+    :align: center
+
+The user can perform a manual click action on the sign > on the left side of a parent step in order to toggle the folding/unfolding of that step in the panel (see also below).
 
 The specification of the ``openClose`` state 
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -203,15 +218,23 @@ So, this third configuration parameter should have a model declaration of the fo
 When a parent step is collapsed, then its child steps are not visible in the workflow panel. The child steps are made visible in the panel when the parent step is expanded. 
 The expanded and collapsed states of a parent step correspond to setting the ``openClose`` option to the value ``open`` and ``close``, respectively (as values of the open/close states configuration parameter mentioned above).
 
+For instance, in the picture below the workflow panel on the left hand side corresponds to the data values of the ``openClose`` option shown on the right hand side:
+
+.. image:: images/WF_SubLevels_3.png
+    :align: center
+
 In particular, the manual actions for expanding or collapsing a parent step in the panel will result in toggling the corresponding value of the ``openClose`` option between the values ``open`` and ``close``.
+Also, when the user navigates to a page which is child step in a workflow, then the parent step of that child step is expanded and the child step itself is highlighted in the panel.
 Therefore, it is recommended that the open/close states configuration parameter mentioned above is writable (that is, not read-only by using a definition in the model). 
-In this case, the workflow will work smoothly (without errors) in interaction with the user actions for folding or unfolding parent steps and the configuration parameter will be automatically updated to stay in sync with the actual workflow states in the panel. 
+In this case, the workflow will work smoothly (without warnings) in interaction with the user actions for folding or unfolding parent steps and the configuration parameter will be automatically updated to stay in sync with the actual workflow states in the panel. 
 
 If the app developer still decided to give a definition to this configuration parameter (so, making it read-only, which is not recommended), then a manual action for expanding or collapsing a parent step would result in an error stating that the configuration parameter may not be overwritten.
-Moreover, in such a case, the app developer should pay special attention not to use a dense definition which could result in a data overflow error which would prevent the loading of the workflow altogether.
+Moreover, in such a case, the app developer should pay special attention not to use a dense definition which could result in a data overflow error and prevent the loading of the workflow altogether.
+
+The data stored in the open/close states configuration parameter is applied to the workflow(s) such that the last saved states become persistent upon fully re-loading a WebUI page. 
 
 Changing states
----------------
++++++++++++++++
 
 As mentioned earlier, the ``workflowPageState`` and ``pageDataState`` can be changed dynamically while the user performs actions in the workflow. The user can also be restricted from leaving a certain step if some data is incorrect or certain actions need to be performed before moving to any other step or page.
 
@@ -226,6 +249,7 @@ The above illustration sets the ``workflowPageState`` for Step 2 (i.e. Inventory
 .. image:: images/Workflow_ChangeState.png
     :align: center
 
+| 
 
 Similarly, to change ``pageDataState``, an assignment statement like the following may be used in a model procedure:  
 
@@ -245,6 +269,12 @@ To enable the Workflow Panel, click on the Application Extensions icon |Applicat
     :align: center
 
 Once the string parameters are added in their respective fields, the Workflow Panel functionality will become visible on the pages which are part of a workflow.
+
+Starting from AIMMS 4.92, the third configuration parameter used for open/close folding states (see explanation above) may be configured in the Workflow Settings section of the Application Settings as illustrated in the following picture:
+
+.. image:: images/WF_SubLevels_4.png
+    :align: center
+
 
 Configuring a ``pageId`` in multiple workflows
 ----------------------------------------------
