@@ -195,13 +195,13 @@ For each of the child steps of a parent step one must specify the ``pageId`` of 
 The specification of the ``openClose`` state 
 ++++++++++++++++++++++++++++++++++++++++++++
 
-Starting from AIMMS 4.92, another (a third) string parameter can be used in the Workflow Settings in order to store the folding state of a parent step (see above), which may be expanded (in 'open' state) or collapsed (in 'close' state) in the workflow panel.
+Also starting from AIMMS 4.92, another (a third) string parameter can be used in the Workflow Settings in order to store the folding state of a parent step, which may be expanded (in 'open' state) or collapsed (in 'close' state) in the workflow panel.
 This string parameter must be indexed over both indexes of the set `ExtensionOrder <library.html#extensionorder>`_ (i.e. ``indexWorkflowOrder`` and ``indexNoOfPages``) 
-and over the index ``indexOpenCloseProps`` of the set `OpenCloseStateProperty` (which is pre-declared in the "Public Declarations" section of the WebUI Library). 
-In other words, this third string parameter used for the workflow configuration should have a model declaration of the following form ``MyWorkflowStepsFoldingStates(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexOpenCloseProps)``.  
+and over the index ``indexOpenCloseProps`` of the set `OpenCloseStateProperty` (which is pre-declared in the "Public Declarations" section of the WebUI Library and contains the set element ``openClose``). 
+So, this third configuration parameter should have a model declaration of the form ``MyWorkflowStepsFoldingStates(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexOpenCloseProps)``.  
 
-When a parent step is collapsed, then its child steps are not visible in the workflow panel; they will be made visible when the parent step is expanded. 
-The expanded and collapsed states correspond to setting the ``openClose`` option to the value ``open`` and ``close``, respectively. 
+When a parent step is collapsed, then its child steps are not visible in the workflow panel. The child steps are made visible in the panel when the parent step is expanded. 
+The expanded and collapsed states of a parent step correspond to setting the ``openClose`` option to the value ``open`` and ``close``, respectively (as values of the open/close states parameter mentioned above).
 
 
 Changing states
