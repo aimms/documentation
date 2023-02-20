@@ -17,7 +17,7 @@ This section describes various tasks related to the creation, the configuration,
 .. important:: 
 
   - Workflow panels are available in software versions from AIMMS 4.68 onwards.
-  - Starting from AIMMS 4.92, a sub-level of steps can be configured per workflow step. This makes it easier to apply a hierarchical organization in your workflow(s).
+  - Starting from AIMMS 4.92, one sub-level of steps can be configured for a workflow step. This makes it easier to apply a hierarchical organization in your workflow(s).
   - A Workflow panels tutorial is available in the `WebUI Advanced User Interactions <https://academy.aimms.com/course/view.php?id=57>`__ course on `the AIMMS Academy <https://academy.aimms.com/>`__.
 
 Starting from AIMMS 4.68, it is possible to design and configure Workflows in the AIMMS WebUI. The Workflow Panel is used to represent and run any workflow which is designed and defined by the application developer in the model. AIMMS allows the application developer to configure multiple workflows in an application.
@@ -50,9 +50,11 @@ The Workflow Panel can be configured by the application developer via the AIMMS 
 
 In order to configure the Workflow Panels in the application, first you need to create two string parameters. The first string parameter will configure the number of workflows in the application, while the second string parameter will configure the steps of each workflow.
 
-.. Note::
+.. note::
 
-    When creating the string parameters to configure workflows and their steps, the first index for configuring Workflows and the first and second index for configuring Workflow Steps need to be in a subset of integers. You can create your subset of integers and use the respective index as well. To make it convenient you can use the indices from the pre-declared set **ExtensionOrder** for this purpose i.e. ``indexWorkflowOrder`` and ``indexNoOfPages``.
+   When creating the string parameters to configure workflows and their steps, the first index for configuring Workflows and the first and second index for configuring Workflow Steps must be in a subset of integers. 
+   You can create your own subset of integers in the model and use its index(es) in this context. 
+   However, for convenience, you can actually use for this purpose the existing indexes of the pre-declared set **ExtensionOrder**, that is, the indexes ``indexWorkflowOrder`` and ``indexNoOfPages``.
 
 Configuring Workflows
 ---------------------
@@ -67,9 +69,9 @@ The values in the example above indicate that there are 3 workflows in the appli
 Configuring Steps of Workflows
 ------------------------------
 
-The second string parameter must be indexed over both indices of the `ExtensionOrder <library.html#extensionorder>`_ set and over the index of the `WorkflowPageSpecification <library.html#workflowpagespecification>`_ set, like ``MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)``. This string parameter is used to define the steps for each workflow which has been defined in the ``MyWorkflows`` string parameter described above. In particular, each ``pageId`` which is configured becomes a step displayed in the Workflow Panel, see further below. 
+The second string parameter must be indexed over both indexes of the set `ExtensionOrder <library.html#extensionorder>`_ (i.e. ``indexWorkflowOrder`` and ``indexNoOfPages``) and over the index of the set `WorkflowPageSpecification <library.html#workflowpagespecification>`_ , so, it should have a declaration of the following form ``MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)``. This string parameter is used to define the steps for each workflow which has been defined in the ``MyWorkflows`` string parameter described above. In particular, each ``pageId`` which is configured becomes a step displayed in the Workflow Panel, see further below. 
 
-.. Note::
+.. note::
 
     The indices must follow the same order as described in the string parameter ``MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)``
 
@@ -96,8 +98,11 @@ Similarly, an example of configuring 4 steps for the third workflow Quality Assu
 .. image:: images/Workflow_MyWorkflowStepsParameter_3.png
     :align: center
 
-.. Note::
-    Please do not use a page configured with the Wizard in a Workflow, this will result in an undesired behavior.
+| 
+
+.. note::
+    
+   Do not use in a workflow a page which is already configured with a wizard, this will result in an undesired behavior.
 
 The specifications ``workflowPageState`` and ``pageDataState``
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -119,7 +124,7 @@ These two states are actually interdependent, hence the style of a displayed ste
 
 These states can be changed dynamically, as required, and as the user progresses in the workflow. This is achievable either by applying data changes made on a page or by using model procedures which are triggered based on certain actions in the front end.
 
-.. Note:: 
+.. note:: 
     To make changes on the page please ensure the workflowPageState is Active. Or, before configuring the workflow steps, first make changes to the respective pages and then configure the workflow steps. When the workflowPageState is Inactive or Hidden you will not be able to access the respective page. 
 
 The specification ``redirectPageId``
@@ -178,15 +183,25 @@ The table below represents different combinations which can arise when creating 
 The specification ``parentPageId``
 ++++++++++++++++++++++++++++++++++
 
-From AIMMS 4.92 onwards, it is possible to specify one sub-level of child steps for a workflow step. 
-This allows for a better organization of related workflow steps. For each of the child steps of a workflow step, simply specify the ``pageId`` of that workflow step in order to indicate its parent step, so, actually making it a child step. 
-Please keep in mind that sub-level steps can be exactly one level deep. So specifying a parent page of another parent page will result in an error message.
+From AIMMS 4.92 onwards, it is possible to specify one sub-level of child steps for a step in a workflow by configuring this step as a parent step in the workflow panel. 
+This allows for a better structuring of some workflow steps which are closely related to each other (e.g., by grouping them as the child steps of the same parent). 
+For each of the child steps of a parent step one must specify the ``pageId`` of that parent step as the value of the attribute ``parentPageId`` of the child step. 
+
+.. note::
+
+   Sub-level steps can be exactly one level deep. So specifying a parent page of another parent page will result in an error message.
 
 
 The specification of the ``openClose`` state 
 ++++++++++++++++++++++++++++++++++++++++++++
 
-From AIMMS 4.92 onwards, you can specify whether a parent step in the workflow panel should be expanded (the so-called 'open' state) or collapsed (the so-called 'close' state). This can be achieved by setting the ``openClose`` option to the value ``open`` or ``close``, respectively. For example, the following configuration:
+Starting from AIMMS 4.92, another (a third) string parameter can be used in the Workflow Settings in order to store the folding state of a parent step (see above), which may be expanded (in 'open' state) or collapsed (in 'close' state) in the workflow panel.
+This string parameter must be indexed over both indexes of the set `ExtensionOrder <library.html#extensionorder>`_ (i.e. ``indexWorkflowOrder`` and ``indexNoOfPages``) 
+and over the index ``indexOpenCloseProps`` of the set `OpenCloseStateProperty` (which is pre-declared in the "Public Declarations" section of the WebUI Library). 
+In other words, this third string parameter used for the workflow configuration should have a model declaration of the following form ``MyWorkflowStepsFoldingStates(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexOpenCloseProps)``.  
+
+When a parent step is collapsed, then its child steps are not visible in the workflow panel; they will be made visible when the parent step is expanded. 
+The expanded and collapsed states correspond to setting the ``openClose`` option to the value ``open`` and ``close``, respectively. 
 
 
 Changing states
