@@ -17,6 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.0.1.26 [20-02-2023]
+	- Trim normalization will now also trim FEFF BOM characters
+
 2.0.1.24 [12-02-2023]
 	- Dataset mappings generated now also include an Excel mapping that writes sheets regardless of whether or not data is available for that sheet
 	
@@ -292,4 +295,5 @@ New Features and Bug Fixes
 .. spelling:word-list::
 
 		url
+		FEFF
 	
