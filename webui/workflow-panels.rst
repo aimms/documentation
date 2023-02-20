@@ -197,11 +197,14 @@ The specification of the ``openClose`` state
 
 Also starting from AIMMS 4.92, another (a third) string parameter can be used in the Workflow Settings in order to store the folding state of a parent step, which may be expanded (in 'open' state) or collapsed (in 'close' state) in the workflow panel.
 This string parameter must be indexed over both indexes of the set `ExtensionOrder <library.html#extensionorder>`_ (i.e. ``indexWorkflowOrder`` and ``indexNoOfPages``) 
-and over the index ``indexOpenCloseProps`` of the set `OpenCloseStateProperty` (which is pre-declared in the "Public Declarations" section of the WebUI Library and contains the set element ``openClose``). 
-So, this third configuration parameter should have a model declaration of the form ``MyWorkflowStepsFoldingStates(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexOpenCloseProps)``.  
+and over the (pre-declared) index ``indexOpenCloseProps`` of the set `OpenCloseStateProperty` (which is pre-declared in the "Public Declarations" section of the WebUI Library and contains the set element ``openClose``). 
+So, this third configuration parameter should have a model declaration of the following form ``MyWorkflowStepsFoldingStates(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexOpenCloseProps)``.  
 
 When a parent step is collapsed, then its child steps are not visible in the workflow panel. The child steps are made visible in the panel when the parent step is expanded. 
-The expanded and collapsed states of a parent step correspond to setting the ``openClose`` option to the value ``open`` and ``close``, respectively (as values of the open/close states parameter mentioned above).
+The expanded and collapsed states of a parent step correspond to setting the ``openClose`` option to the value ``open`` and ``close``, respectively (as values of the open/close states configuration parameter mentioned above).
+In particular, the manual actions for expanding or collapsing a parent step in the panel will result in toggling the corresponding value of the ``openClose`` option between the values ``open`` and ``close``.
+Therefore, it is recommended that the open/close states configuration parameter mentioned above is writable, that is, not read-only by using a definition. 
+If the app developer still decided to give a definition to the configuration parameter (so, making it read-only), then a manual action for expanding or collapsing a parent step could result in an error stating that the configuration parameter may not be overwritten.
 
 
 Changing states
