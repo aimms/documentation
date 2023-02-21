@@ -69,7 +69,7 @@ The values in the example above indicate that there are 3 workflows in the appli
 Configuring Steps of Workflows
 ------------------------------
 
-The second string parameter must be indexed over both indexes of the set `ExtensionOrder <library.html#extensionorder>`_ (i.e. ``indexWorkflowOrder`` and ``indexNoOfPages``) and over the index of the set `WorkflowPageSpecification <library.html#workflowpagespecification>`_ , so, it should have a declaration of the following form ``MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)``. This string parameter is used to define the steps for each workflow which has been defined in the ``MyWorkflows`` string parameter described above. In particular, each ``pageId`` which is configured becomes a step displayed in the Workflow Panel, see further below. 
+The second string parameter must be indexed over both indexes of the set `ExtensionOrder <library.html#extensionorder>`_ (i.e. ``indexWorkflowOrder`` and ``indexNoOfPages``) and over the index ``indexWorkflowPageSpec`` of the set `WorkflowPageSpecification <library.html#workflowpagespecification>`_ , so, it should have a declaration of the following form ``MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)``. This string parameter is used to define the steps for each workflow which has been defined in the ``MyWorkflows`` string parameter described above. In particular, each ``pageId`` which is configured becomes a step displayed in the Workflow Panel, see further below. 
 
 .. note::
 
@@ -77,16 +77,18 @@ The second string parameter must be indexed over both indexes of the set `Extens
 
     Also, note that ``pageId`` is a required field.
 
-In order to inspect the values, right click on the MyWorkflowSteps string parameter and click on the Data option in order to open its Data page:
+The values may be inspected on the Data page of the string parameter MyWorkflowSteps:
 
 .. image:: images/Workflow_MyWorkflowStepsParameter_1.png
     :align: center
 
+|
+
 The data entered in the illustration above is for the first workflow which was configured in the "MyWorkflows" string parameter, that is, the Route Optimization workflow (with 10 steps defined).
 
-There is no limit for the number of steps each workflow may have. As a guideline, AIMMS recommends no more than 10 steps per workflow. If more than 10 steps are required, then please try to break down the workflow into smaller workflows, if possible.
+There is no explicit limit for the number of steps each workflow may have. However, the practical recommendation is to use no more than 10 steps per workflow. If more than 10 steps are required, then please try to break down the workflow into smaller workflows, whenever possible.
 
-In order to configure the steps for the other workflows, you may just select the respective value for :any:`webui::indexWorkflowOrder` at the top in the Data page.
+In order to configure the steps for the other workflows, you can simply select the respective value for :any:`webui::indexWorkflowOrder` at the top in the Data page as shown above.
 
 For instance, the following three steps may be configured for the second workflow Inventory Management:
 
@@ -200,12 +202,12 @@ For example, suppose that the configuration string for the workflow steps contai
 
 | 
 
-This setting will result in a workflow with two parent pages (indicated by the presence of the sign > on the left side of a step) as illustrated in the pictures below:
+This setting will result in a workflow panel with two parent steps (indicated by the presence of the sign > on the left side of such a step) as illustrated in the pictures below:
 
 .. image:: images/WF_SubLevels_2.png
     :align: center
 
-The user can perform a manual click action on the sign > on the left side of a parent step in order to toggle the folding/unfolding of that step in the panel (see also below).
+The user can perform a manual click action on the sign > on the left side of a parent step in order to toggle the folding/unfolding of that step in the panel (see also further below).
 
 The specification of the ``openClose`` state 
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -215,8 +217,8 @@ This string parameter must be indexed over both indexes of the set `ExtensionOrd
 and over the (pre-declared) index ``indexOpenCloseProps`` of the set OpenCloseStateProperty (which is pre-declared in the "Public Declarations" section of the WebUI Library and contains the set element ``openClose``). 
 So, this third configuration parameter should have a model declaration of the following form ``MyWorkflowStepsFoldingStates(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexOpenCloseProps)``.  
 
-When a parent step is collapsed, then its child steps are not visible in the workflow panel. The child steps are made visible in the panel when the parent step is expanded. 
-The expanded and collapsed states of a parent step correspond to setting the ``openClose`` option to the value ``open`` and ``close``, respectively (as values of the open/close states configuration parameter mentioned above).
+When a parent step is collapsed, then its child steps are not visible in the workflow panel. The child steps are made visible in the panel when the parent step is expanded (see also the pictures above). 
+The expanded and collapsed states of a parent step correspond to setting the ``openClose`` option to the values ``open`` and ``close``, respectively (as values of the open/close states configuration parameter mentioned above).
 
 For instance, in the picture below the workflow panel on the left hand side corresponds to the data values of the ``openClose`` option shown on the right hand side:
 
@@ -224,14 +226,15 @@ For instance, in the picture below the workflow panel on the left hand side corr
     :align: center
 
 In particular, the manual actions for expanding or collapsing a parent step in the panel will result in toggling the corresponding value of the ``openClose`` option between the values ``open`` and ``close``.
-Also, when the user navigates to a page which is child step in a workflow, then the parent step of that child step is expanded and the child step itself is highlighted in the panel.
+Also, when the user navigates to a page which is a child step in a workflow, then the parent step of that child step is expanded and the child step itself is highlighted with the blue background in the workflow panel.
+
 Therefore, it is recommended that the open/close states configuration parameter mentioned above is writable (that is, not read-only by using a definition in the model). 
 In this case, the workflow will work smoothly (without warnings) in interaction with the user actions for folding or unfolding parent steps and the configuration parameter will be automatically updated to stay in sync with the actual workflow states in the panel. 
 
 If the app developer still decided to give a definition to this configuration parameter (so, making it read-only, which is not recommended), then a manual action for expanding or collapsing a parent step would result in an error stating that the configuration parameter may not be overwritten.
-Moreover, in such a case, the app developer should pay special attention not to use a dense definition which could result in a data overflow error and prevent the loading of the workflow altogether.
+Moreover, in such a case, the app developer should pay special attention not to use a dense definition (like 5000+ steps), which could result in a data overflow error and prevent the loading of the workflow altogether (see also the Configuration Error Validation section below).
 
-The data stored in the open/close states configuration parameter is applied to the workflow(s) such that the last saved states become persistent upon fully re-loading a WebUI page. 
+When the open/close states parameter is configured in the Workflow Settings (see further below), then its stored data is applied dynamically to the workflow(s) in the app such that the last saved states become persistent upon fully re-loading a WebUI page. 
 
 Changing states
 +++++++++++++++
@@ -270,11 +273,12 @@ To enable the Workflow Panel, click on the Application Extensions icon |Applicat
 
 Once the string parameters are added in their respective fields, the Workflow Panel functionality will become visible on the pages which are part of a workflow.
 
-Starting from AIMMS 4.92, the third configuration parameter used for open/close folding states (see explanation above) may be configured in the Workflow Settings section of the Application Settings as illustrated in the following picture:
+Starting from AIMMS 4.92, the third configuration parameter used for open/close folding states (see explanation above) may be configured as well in the Workflow Settings section of the Application Settings as illustrated in the following picture:
 
 .. image:: images/WF_SubLevels_4.png
     :align: center
 
+If the open/close states parameter is not configured in the Workflow Settings, then the open/close states in the workflow panel are not stored in the model and therefore, they are not persistent upon fully re-loading a WebUI page. 
 
 Configuring a ``pageId`` in multiple workflows
 ----------------------------------------------
@@ -299,9 +303,8 @@ In this case, when the user is on the Inventory Management workflow and clicks o
 Configuration Error Validation
 ------------------------------
 
-From AIMMS 4.92 onwards, we have changed the configuration validation process a bit. 
-Now your workflow configurations are validated upon starting up the WebUI. 
-Please note that this only happens when in developer mode, which means your end-users will never be confronted with details about misconfigured workflows. 
+From AIMMS 4.92 onwards, the configuration validation process has been adjusted. Now your workflow configurations are validated upon starting up the WebUI. 
+Please note that this only happens when in developer mode, which means that your end-users will never be confronted with details about misconfigured workflows. 
 If any of your workflows is incorrectly configured, you will see an appropriate error message and *no workflow panel will be displayed at all* until you correct the reported error(s). 
 In case more than one error is found, the message will inform you in detail about the first one encountered and it will indicate how many more errors were detected.
 
