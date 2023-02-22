@@ -59,7 +59,7 @@ In order to configure the Workflow Panels in the application, first you need to 
 Configuring Workflows
 ---------------------
 
-The first sting parameter must be indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with the index ``indexWorkflowOrder`` and by the `WorkflowSpecification <library.html#workflowspecificationset>`_ set with the index ``indexWorkflowSpec``, like ``MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)``. This string parameter is used to define the number of workflows and their respective titles. The values of this string parameter may be initialized in the Initial Data attribute, in a procedure or manually, by right clicking the string parameter and clicking on the Data option in order to open its data page. There you can add the details for the Workflow and its titles (leave the style property empty for now):
+The first string parameter must be indexed by the `ExtensionOrder <library.html#extensionorder>`_ set with the index ``indexWorkflowOrder`` and by the `WorkflowSpecification <library.html#workflowspecificationset>`_ set with the index ``indexWorkflowSpec``, like ``MyWorkflows(webui::indexWorkflowOrder,webui::indexWorkflowSpec)``. This string parameter is used to define the number of workflows and their respective titles. The values of this string parameter may be initialized in the Initial Data attribute, in a procedure or manually, by right clicking the string parameter and clicking on the Data option in order to open its data page. There you can add the details for the Workflow and its titles (leave the style property empty for now):
 
 .. image:: images/Workflow_MyWorkflowsParameter.png
     :align: center
@@ -189,7 +189,7 @@ The specification ``parentPageId``
 
 From AIMMS 4.92 onwards, it is possible to specify one sub-level of child steps for a step in a workflow by configuring this step as a parent step in the workflow panel. 
 This allows for a better structuring of some workflow steps which are closely related to each other (e.g., by grouping them as the child steps of the same parent). 
-For each of the child steps of a parent step one must specify the ``pageId`` of that parent step as the value of the attribute ``parentPageId`` of the child step. 
+For each of the child steps of a parent step you must specify the ``pageId`` of that parent step as the value of the attribute ``parentPageId`` of the child step. 
 
 .. note::
 
@@ -202,20 +202,22 @@ For example, suppose that the configuration string for the workflow steps contai
 
 | 
 
-This setting will result in a workflow panel with two parent steps (indicated by the presence of the sign > on the left side of such a step) as illustrated in the pictures below:
+This setting will result in a workflow panel with two parent steps (indicated by the presence of the '>' sign on the left side of such a step) as illustrated in the pictures below:
 
 .. image:: images/WF_SubLevels_2.png
     :align: center
 
-The user can perform a manual click action on the sign > on the left side of a parent step in order to toggle the folding/unfolding of that step in the panel (see also further below).
+The user can perform a manual click action on the '>' sign on the left side of a parent step in order to toggle the folding/unfolding of that step in the panel (see also further below).
 
 The specification of the ``openClose`` state 
 ++++++++++++++++++++++++++++++++++++++++++++
 
-Also starting from AIMMS 4.92, another (a third) string parameter can be used in the Workflow Settings in order to store the folding state of a parent step, which may be expanded (in 'open' state) or collapsed (in 'close' state) in the workflow panel.
+Also starting from AIMMS 4.92, another (third) string parameter can be used in the Workflow Settings in order to store the folding state of a parent step, which may be expanded (in 'open' state) or collapsed (in 'close' state) in the workflow panel.
 This string parameter must be indexed over both indexes of the set `ExtensionOrder <library.html#extensionorder>`_ (i.e. ``indexWorkflowOrder`` and ``indexNoOfPages``) 
 and over the (pre-declared) index ``indexOpenCloseProps`` of the set OpenCloseStateProperty (which is pre-declared in the "Public Declarations" section of the WebUI Library and contains the set element ``openClose``). 
-So, this third configuration parameter should have a model declaration of the following form ``MyWorkflowStepsFoldingStates(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexOpenCloseProps)``.  
+So, this third configuration parameter should have a model declaration of the following form:
+
+ ``MyWorkflowStepsFoldingStates(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexOpenCloseProps)``.  
 
 When a parent step is collapsed, then its child steps are not visible in the workflow panel. The child steps are made visible in the panel when the parent step is expanded (see also the pictures above). 
 The expanded and collapsed states of a parent step correspond to setting the ``openClose`` option to the values ``open`` and ``close``, respectively (as values of the open/close states configuration parameter mentioned above).
@@ -226,17 +228,17 @@ For instance, in the picture below the workflow panel on the left hand side corr
     :align: center
 
 In particular, the manual actions for expanding or collapsing a parent step in the panel will result in toggling the corresponding value of the ``openClose`` option between the values ``open`` and ``close``.
-Also, when the user navigates to a page which is a child step in a workflow, then the parent step of that child step is expanded and the child step itself is highlighted with the blue background in the workflow panel.
+Also, when the user navigates to a page which is a child step in a workflow, then the parent step of that child step is expanded and the child step itself is highlighted with a blue background in the workflow panel.
 
 Therefore, it is recommended that the open/close states configuration parameter mentioned above is writable (that is, not read-only by using a definition in the model). 
 In this case, the workflow will work smoothly (without warnings) in interaction with the user actions for folding or unfolding parent steps and the configuration parameter will be automatically updated to stay in sync with the actual workflow states in the panel. 
 
-If the app developer still decided to give a definition to this configuration parameter (so, making it read-only, which is not recommended), then a manual action for expanding or collapsing a parent step would result in an error stating that the configuration parameter may not be overwritten.
+If the app developer still decides to give a definition to this configuration parameter (so, making it read-only, which is not recommended), then a manual action for expanding or collapsing a parent step would result in an error stating that the configuration parameter may not be overwritten.
 Moreover, in such a case, the app developer should pay special attention not to use a dense definition (like 5000+ steps), which could result in a data overflow error and prevent the loading of the workflow altogether (see also the Configuration Error Validation section below).
 
-When the open/close states parameter is configured in the Workflow Settings (see further below), then its stored data is applied dynamically to the workflow(s) in the app such that the last saved states become persistent upon fully re-loading a WebUI page. 
+When the open/close states parameter is configured in the Workflow Settings (see further below), then its stored data is applied dynamically to the workflow(s) in the app such that the last saved states become persistent upon re-loading a WebUI page. 
 
-Changing states
+Changing States
 +++++++++++++++
 
 As mentioned earlier, the ``workflowPageState`` and ``pageDataState`` can be changed dynamically while the user performs actions in the workflow. The user can also be restricted from leaving a certain step if some data is incorrect or certain actions need to be performed before moving to any other step or page.
@@ -278,7 +280,7 @@ Starting from AIMMS 4.92, the third configuration parameter used for open/close 
 .. image:: images/WF_SubLevels_4.png
     :align: center
 
-If the open/close states parameter is not configured in the Workflow Settings, then the open/close states in the workflow panel are not stored in the model and therefore, they are not persistent upon fully re-loading a WebUI page. 
+If the open/close states parameter is not configured in the Workflow Settings, then the open/close states in the workflow panel are not stored in the model and therefore, they are not persistent upon re-loading a WebUI page. 
 
 Configuring a ``pageId`` in multiple workflows
 ----------------------------------------------
