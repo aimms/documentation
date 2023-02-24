@@ -12,6 +12,47 @@ AIMMS 4.91
 #############
 
 
+AIMMS 4.92.1 Release (February 24, 2023 - build 4.92.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Gurobi 10.0 has been upgraded to version 10.0.1.
+-  A new version of Knitro was added: Knitro 13.2.
+-  The postsolve step is now also supported for MIP models containing a pool of lazy constraints.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The setting 'Old situation' of option 'Stealth mode' has been removed for CPLEX versions 12.10 and 12.9. (Newer CPLEX versions already did not have this setting.).
+-  If the scaling tool is used then the values of the Solvers General options 'MIP absolute optimality tolerance' and 'Cutoff' should have been scaled before passing them to the solver.
+-  The postsolve could be incorrect for multi-objective optimization problems.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  The Table widget now has an improved keyboard navigation (more like Excel, see THE DOCUMENTATION).
+-  Block selection on the Table widget is now also possible using the SHIFT + arrow key combinations.
+-  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows.
+-  Block selection on the Table widget is now possible using a Shift+Mouse click combination.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Reverting a change to a Table cell value which shows an integer value (i.e. an element parameter with a subset of integers as its range) made the reverted value incorrectly show decimal values.
+-  Clicking on the 'closing cross' of the Selectionbox widget gave an unexpected error in recent AIMMS versions.
+-  On dialog pages, the widget Settings icon was appearing in the UI for "headerless widgets" when the dialog was opened (except when opened from the App manager) in recent AIMMS versions.
+-  When using the ESC key to try to abort a block edit still filled the whole block of table cells with an unintended value.
+-  The WebUI raised an unexpected error when block deleting from an identifier that has a linked read-only identifier.
+-  We removed the white background and box shadow from the Image Widget, like it was before the layout changes for headerless widgets (in 4.91.1). The original intention was to outline the Image widget better, but we now only show the covered area when it is still empty. This works better for the logos and branding found in many applications.
+
+--------------
+
+
+
 AIMMS 4.91.7 Release (February 17, 2023 - build 4.91.7.0).
 ------------------------------------------------------------------------------------------
 
