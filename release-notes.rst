@@ -12,7 +12,7 @@ AIMMS 4.92
 #############
 
 
-AIMMS 4.92.1 Release (February 27, 2023 - build 4.92.1.0).
+AIMMS 4.92.1 Release (February 28, 2023 - build 4.92.1.2).
 ------------------------------------------------------------------------------------------
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
@@ -36,7 +36,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows. For details, see `the documentation <https://documentation.aimms.com/webui/workflow-panels.html#configuring-the-workflow-panel>`__
+-  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows. For details, see `the documentation <https://documentation.aimms.com/webui/workflow-panels.html#configuring-the-workflow-panel>`__. Also, we added more direct data validation to the workflow definition data, such that you get clear feedback in case of inconsistencies there.
 -  The Table widget now has an improved keyboard navigation (more like Excel, see `the documentation <https://documentation.aimms.com/webui/table-widget.html#table-widget>`__).
 -  Block selection on the Table widget is now also possible using the SHIFT + arrow key combinations.
 -  Block selection on the Table widget is now possible using a Shift+Mouse click combination.
@@ -48,7 +48,7 @@ Resolved WebUI Issues
 -  Reverting a change to a Table cell value which shows an integer value (i.e. an element parameter with a subset of integers as its range) made the reverted value incorrectly show decimal values.
 -  Clicking on the 'closing cross' of the Selectionbox widget gave an unexpected error in recent AIMMS versions.
 -  On dialog pages, the widget Settings icon was appearing in the UI for "headerless widgets" when the dialog was opened (except when opened from the App manager) in recent AIMMS versions.
--  When using the ESC key to try to abort a block edit still filled the whole block of table cells with an unintended value.
+-  Using the ESC key to try to abort a block edit, led to the whole block of table cells being filled with an unintended value.
 -  The WebUI raised an unexpected error when block deleting from an identifier that has a linked read-only identifier.
 -  We removed the white background and box shadow from the Image Widget, like it was before the layout changes for headerless widgets (in 4.91.1). The original intention was to outline the Image widget better, but we now only show the covered area when it is still empty. This works better for the logos and branding found in many applications.
 
