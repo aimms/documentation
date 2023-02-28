@@ -8,11 +8,11 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
-AIMMS 4.91
+AIMMS 4.92
 #############
 
 
-AIMMS 4.92.1 Release (February 24, 2023 - build 4.92.1.0).
+AIMMS 4.92.1 Release (February 27, 2023 - build 4.92.1.0).
 ------------------------------------------------------------------------------------------
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
@@ -30,18 +30,21 @@ Resolved AIMMS Issues
 -  The setting 'Old situation' of option 'Stealth mode' has been removed for CPLEX versions 12.10 and 12.9. (Newer CPLEX versions already did not have this setting.).
 -  If the scaling tool is used then the values of the Solvers General options 'MIP absolute optimality tolerance' and 'Cutoff' should have been scaled before passing them to the solver.
 -  The postsolve could be incorrect for multi-objective optimization problems.
+-  Using File or Directory functions with path names that contained non OS native slashes, like for example FileExists("folder1/folder2\myfile.txt"), could lead to completely messed-up strings in other string parameters in the model. AIMMS automatically converts these slashes to the expected ones for the OS on which it runs, but while doing that the AIMMS string management got corrupted.
+-  An EMPTY statement where a slice of an identifier is emptied, went wrong if the slicing was done via a set that is not a subset of the original domain set. Both the slicing set and the domain set only shared the same root set.
 
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  The Table widget now has an improved keyboard navigation (more like Excel, see THE DOCUMENTATION).
+-  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows. For details, see `the documentation <https://documentation.aimms.com/webui/workflow-panels.html#configuring-the-workflow-panel>`__
+-  The Table widget now has an improved keyboard navigation (more like Excel, see `the documentation <https://documentation.aimms.com/webui/table-widget.html#table-widget>`__).
 -  Block selection on the Table widget is now also possible using the SHIFT + arrow key combinations.
--  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows.
 -  Block selection on the Table widget is now possible using a Shift+Mouse click combination.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
+-  On the cloud, in Scalar Widgets in end-user mode (with a non-editable UI) you could not filter the values by typing in the input field above the drop-down list.
 -  Reverting a change to a Table cell value which shows an integer value (i.e. an element parameter with a subset of integers as its range) made the reverted value incorrectly show decimal values.
 -  Clicking on the 'closing cross' of the Selectionbox widget gave an unexpected error in recent AIMMS versions.
 -  On dialog pages, the widget Settings icon was appearing in the UI for "headerless widgets" when the dialog was opened (except when opened from the App manager) in recent AIMMS versions.
@@ -51,6 +54,9 @@ Resolved WebUI Issues
 
 --------------
 
+#############
+AIMMS 4.91
+#############
 
 
 AIMMS 4.91.7 Release (February 17, 2023 - build 4.91.7.0).
