@@ -36,10 +36,10 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows. For details, see `the documentation <https://documentation.aimms.com/webui/workflow-panels.html#configuring-the-workflow-panel>`__. Also, we added more direct data validation to the workflow definition data, such that you get clear feedback in case of inconsistencies there.
+-  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows. Also, we added more direct data validation to the workflow definition data, such that you get clear feedback in case of inconsistencies there. For details, see `the documentation <https://documentation.aimms.com/webui/workflow-panels.html#configuring-the-workflow-panel>`__. 
 -  The Table widget now has an improved keyboard navigation (more like Excel, see `the documentation <https://documentation.aimms.com/webui/table-widget.html#table-widget>`__).
--  Block selection on the Table widget is now also possible using the SHIFT + arrow key combinations.
--  Block selection on the Table widget is now possible using a Shift+Mouse click combination.
+-  Block selection on the Table widget is now also possible using the SHIFT + ARROW keys.
+-  Block selection on the Table widget is now possible using a SHIFT + Mouse click combination.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
