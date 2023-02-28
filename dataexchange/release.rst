@@ -17,6 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.0.1.28 [28-02-2023]
+	- Indices bound via ``implicity-binds-to`` attribute would not always be carried over to parent node to allow usage in sibling nodes
+
 2.0.1.27 [20-02-2023]
 	- Trim normalization will now also trim FEFF BOM characters
 	- Labels will be trimmed from FEFF BOM characters before being added to sets
