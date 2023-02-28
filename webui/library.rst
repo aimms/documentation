@@ -137,6 +137,7 @@ Public Workflow Support Declarations
   * ``workflowPageState`` - The workflow state of the page, which may be Active (displayed and clickable), Inactive (displayed and not clickable) or Hidden (not visible). If not defined, by default the state is Hidden. 
   * ``pageDataState`` - The data state of the page, which may be Complete, Incomplete or Error. The specification of this state is optional. If not defined, by default it has an Empty state.
   * ``redirectPageId`` - The page Id of the page the user should be redirected to when the ``workflowPageState`` is Inactive or Hidden. When the user tries to navigate to an Inactive or Hidden workflow step they are redirected to this page. The page Id's can be referred from the elements of the pre-declared set ``AllRegularPages``.
+  * ``parentPageId`` - This attribute is available from AIMMS 4.92 onwards. It can be used in order to indicate a parent step for some step in the workflow, so, actually making the latter a child step in the panel.
 
 .. _extensionorder:
 
