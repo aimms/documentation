@@ -9580,3 +9580,4 @@ Improvements
 	mailto
 	barlinechart
 	headerless
+	stylesheets
