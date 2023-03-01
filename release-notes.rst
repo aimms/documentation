@@ -12,6 +12,25 @@ AIMMS 4.92
 #############
 
 
+AIMMS 4.92.2 Release (March 1, 2023 - build 4.92.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Using AIMMS 4.92.1, publishing a WinUI app on PRO gave an error message, after which the app would not start at all.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The labels of a compact Scalar Widget will now use the available horizontal space better, before inserting an ellipsis. Styling also cooperates better with custom stylesheets and the code used in the 'Display an On/Off Switch in Widgets' How-to article.
+
+--------------
+
+
+
 AIMMS 4.92.1 Release (February 28, 2023 - build 4.92.1.2).
 ------------------------------------------------------------------------------------------
 
