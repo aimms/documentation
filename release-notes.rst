@@ -25,7 +25,8 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  The labels of a compact Scalar Widget will now use the available horizontal space better, before inserting an ellipsis. Styling also cooperates better with custom stylesheets and the code used in the 'Display an On/Off Switch in Widgets' How-to article.
+-  The labels of a compact Scalar Widget will now use the available horizontal space better, before inserting an ellipsis. Styling also cooperates better with custom stylesheets and the code used in `this How-To article <https://how-to.aimms.com/Articles/94/94-using-the-scalar-switch-css.html>`__.
+
 
 --------------
 
