@@ -85,7 +85,7 @@ The table widget offers the user possibilities for various actions such as:
 
 
 Quick navigation
-================
+----------------
 
 In AIMMS 4.92 the table navigation has been improved such that it became more simple and natural to interact with and use the table. Similar to the navigation experience in Excel or in other tabular data applications, the AIMMS WebUI provides support for generic tabular data navigation keys, such as the following: 
 
