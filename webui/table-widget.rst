@@ -61,26 +61,7 @@ The table widget offers the user possibilities for various actions such as:
 
        From AIMMS 4.91 onwards, the dropdown that appears when you click on an element parameter in a table uses the same underlying technology as the Selectionbox widget. In practice, that means that it is more reactive to data changes in the underlying model while open. Furthermore, the current/default entry has been removed. For a table you can use the delete key to empty any cell (which sets it to default), including the dropdown cells. 
 
-  * In AIMMS 4.92 the table navigation has been improved such that it became more simple and natural to interact with and use the table. Similar to the navigation experience in Excel or in other tabular data applications, the AIMMS WebUI provides support for generic tabular data navigation keys, such as the following: 
 
-    * The arrow keys **RIGHT**, **LEFT**, **UP**, **DOWN** can be used to navigate to the adjacent cells within the same table widget.
-	
-    * The **HOME** key takes you to the left-most cell of the current table row. 
-	
-    * The **END** key takes you to the right-most cell of the current table row. 
-	
-    * The **CTRL+HOME** keys take you to the very first cell of the table, that is, the cell at the position (0,0).
-	
-    * The **CTRL+END** keys take you to the very last cell of the table, that is, the cell at the position (m-1,n-1), where m is the number of rows and n is the number of columns.
-	
-    * The **CTRL+RIGHT Arrow** keys get the focus on the horizontally-first (that is, right-most) cell of the same row.
-	
-    * The **CTRL+LEFT Arrow** keys get the focus on the horizontally-last (that is, left-most) cell of the same row.
-	
-    * The **CTRL+UP Arrow** keys get the focus on the vertically-first cell of the same column.
-	
-    * The **CTRL+DOWN Arrow** keys get the focus on the vertically-last cell of the same column.
-	
 * Starting from AIMMS 4.90, it is also possible to sort the table headers, that is, the elements of one of the sets involved in the table (through the specification of its index in the shown data).
 
   Consider the following example where the data has four indexes:
@@ -101,7 +82,32 @@ The table widget offers the user possibilities for various actions such as:
   Please note that any table header may be sorted, but only one sorting can be applied on table headers at a time. So, when another sorting is chosen, then the previously applied sorting is no longer active, but the corresponding index gets the default sorting, instead. Once a sorting is applied, the header title cell used for that sorting is indicated accordingly, as shown in the pictures above. 
 
   Also, when sorting is applied on a cell in header titles area and afterwards some changes are performed to the table (such as a change in the pivoting of the indexes or a modification to the table contents), then the sorting is retained as long as that index/identifier continues to exist in the table.
-  
+
+
+Quick navigation
+================
+
+In AIMMS 4.92 the table navigation has been improved such that it became more simple and natural to interact with and use the table. Similar to the navigation experience in Excel or in other tabular data applications, the AIMMS WebUI provides support for generic tabular data navigation keys, such as the following: 
+
+  * The arrow keys **RIGHT**, **LEFT**, **UP**, **DOWN** can be used to navigate to the adjacent cells within the same table widget.
+	
+  * The **HOME** key takes you to the left-most cell of the current table row. 
+	
+  * The **END** key takes you to the right-most cell of the current table row. 
+	
+  * The **CTRL+HOME** keys take you to the very first cell of the table, that is, the cell at the position (0,0).
+	
+  * The **CTRL+END** keys take you to the very last cell of the table, that is, the cell at the position (m-1,n-1), where m is the number of rows and n is the number of columns.
+	
+  * The **CTRL+RIGHT Arrow** keys get the focus on the horizontally-first (that is, right-most) cell of the same row.
+
+  * The **CTRL+LEFT Arrow** keys get the focus on the horizontally-last (that is, left-most) cell of the same row.
+	
+  * The **CTRL+UP Arrow** keys get the focus on the vertically-first cell of the same column.
+
+  * The **CTRL+DOWN Arrow** keys get the focus on the vertically-last cell of the same column.
+
+
 Search-and-Find
 ---------------
 
