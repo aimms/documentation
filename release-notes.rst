@@ -12,6 +12,25 @@ AIMMS 4.92
 #############
 
 
+AIMMS 4.92.3 Release (March 7, 2023 - build 4.92.3.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When writing to a SQlite database on Linux, strings were sometimes incorrectly written (only the first character appeared).
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  With case comparison enabled, workflow panels were not displayed.
+
+--------------
+
+
+
 AIMMS 4.92.2 Release (March 1, 2023 - build 4.92.2.3).
 ------------------------------------------------------------------------------------------
 
