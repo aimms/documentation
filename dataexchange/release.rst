@@ -17,6 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.0.1.29 [07-03-2023]
+	- String fields in an Excel file mapped to a numeric field would be skipped; they are now converted when possible, or produce a runtime error otherwise
+	
 2.0.1.28 [28-02-2023]
 	- Indices bound via ``implicity-binds-to`` attribute would not always be carried over to parent node to allow usage in sibling nodes
 
