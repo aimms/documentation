@@ -21,6 +21,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  When writing to a SQlite database on Linux, strings were sometimes incorrectly written (only the first character appeared).
+-  The best bound value shown in the (final) progress window was not always correct for non-convex QCP problems solved with Gurobi.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
