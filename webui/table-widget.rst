@@ -368,6 +368,8 @@ In particular, this implies that, if a set has two or more indexes, then each of
 .. note::
 
    If uploading from an Excel file to a WebUI Table results in invalid entries in the WebUI Table (for example, when trying to upload a string value from Excel into a cell in the WebUI Table that expects a numerical value), the first of these errors will be displayed in the WebUI's message banner, together with the total count of errors.
+   
+   Also, please note that  there is a hard-coded **limit of 128 MB for upload files** in the AIMMS Webserver component! In particular, exceeding this limit will result in an error while attempting to upload an Excel file to a table. 
 
 .. note::
 
