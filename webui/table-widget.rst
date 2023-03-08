@@ -371,7 +371,14 @@ In particular, this implies that, if a set has two or more indexes, then each of
 
 .. note::
 
-   When you use the :token:`webui::IdentifierElementText` functionality on identifiers that you upload from Excel, please be aware that if you have more than one  identifier mapping to the same element text, things may go wrong. AIMMS scans the Excel sheet and based on the text there tries to determine which AIMMS identifier is involved. Obviously, if the same text maps to more than one AIMMS identifier, it is not certain to which of the possible AIMMS identifiers the text is referring.
+   When you use the :token:`webui::IdentifierElementText` functionality on identifiers that you upload from Excel, please be aware that if you have more than one  identifier mapping to the same element text, things may go wrong. AIMMS scans the Excel sheet and based on the text there tries to determine which AIMMS identifier is involved. Obviously, if the same text maps to more than one AIMMS identifier, it is not clear which of the possible AIMMS identifiers the text is referring to.
+
+.. note::
+
+   Please keep in mind that very large Excel files are not the best way to communicate large amounts of data, because Excel exposes some limitations in this respect. In order to prevent all kinds of Excel related issues when trying to open a generated Excel file, 
+   the table feature 'download to Excel' has been restricted to not show more than 65535 dropdown cells (implemented as so-called Excel validations). In addition, in case the number of table cells corresponding to an element parameter or to a binary parameter 
+   exceeds 65535, the dropdown cells with just 2 elements will be also skipped, that is, they won't be saved as Excel validations (this in order to favor dropdown cells with more than 2 elements). Dropdown cells with more than 100 elements were 
+   already skipped in the initial version of this feature (so, not saved as Excel validations either).
 
 The following aspects are not (yet) supported, but may be subject to further improvements:
 
@@ -745,10 +752,3 @@ There are different combinations of the date and time picker which are controlle
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 
 When the Unit is set to Century, Year, Month or Day, the time picker is not displayed.
-
-.. spelling:word-list::
-
-    inf
-    na
-    undef
-    modifiability

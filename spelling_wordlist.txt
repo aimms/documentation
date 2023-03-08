@@ -1,3 +1,7 @@
+inf
+na
+undef
+modifiability
 workflowPageState
 pageDataState
 don'ts
