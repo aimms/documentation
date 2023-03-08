@@ -217,7 +217,7 @@ This string parameter must be indexed over both indexes of the set `ExtensionOrd
 and over the (pre-declared) index ``indexOpenCloseProps`` of the set OpenCloseStateProperty (which is pre-declared in the "Public Declarations" section of the WebUI Library and contains the set element ``openClose``). 
 So, this third configuration parameter should have a model declaration of the following form:
 
- ``MyWorkflowStepsFoldingStates(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexOpenCloseProps)``.  
+``MyWorkflowStepsFoldingStates(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexOpenCloseProps)`` 
 
 When a parent step is collapsed, then its child steps are not visible in the workflow panel. The child steps are made visible in the panel when the parent step is expanded (see also the pictures above). 
 The expanded and collapsed states of a parent step correspond to setting the ``openClose`` option to the values ``open`` and ``close``, respectively (as values of the open/close states configuration parameter mentioned above).
@@ -302,13 +302,45 @@ The page Results is shown as a step in both workflows:
 
 In this case, when the user is on the Inventory Management workflow and clicks on the Results step, the user will be redirected to the Results step in the Route Optimization workflow, because Route Optimization is the first workflow (referencing the page Results) in the order of the workflows as defined by the MyWorkflows string parameter.
 
-Configuration Error Validation
-------------------------------
+Configuration Validation and Error Messages
+-------------------------------------------
 
-From AIMMS 4.92 onwards, the configuration validation process has been adjusted. Now your workflow configurations are validated upon starting up the WebUI. 
-Please note that this only happens when in developer mode, which means that your end-users will never be confronted with details about misconfigured workflows. 
-If any of your workflows is incorrectly configured, you will see an appropriate error message and *no workflow panel will be displayed at all* until you correct the reported error(s). 
-In case more than one error is found, the message will inform you in detail about the first one encountered and it will indicate how many more errors were detected.
+From AIMMS 4.92 onwards, the configuration validation process has been adjusted and improved. Now all workflow configurations are validated upon starting up the WebUI. 
+If any of the workflows is incorrectly configured, WebUI issues an appropriate error message and *no workflow panel will be displayed at all* until all reported error(s) are corrected. 
+In case several errors are found at the same time, the shown error message will inform you in detail about the first encountered error and in addition, it will indicate how many more errors have been detected.
+
+Moreover, starting from AIMMS 4.93, the displayed validation errors are made more intuitive or sufficiently clear in order to indicate where and what has to be corrected.
+Some examples of incorrect configurations and the corresponding error messages are the following:
+
+* When ``pageId`` is found to be left blank for some step:
+  
+  *"The '{actual-step-name}' step in the '{actual-workflow-name}' workflow has an empty* ``pageId`` *specified."*
+
+* When ``pageId``/``redirectPageId`` is specified and found to be invalid (that is, not an Id of an existing page): 
+  
+  *"In the '{actual-workflow-name}' workflow, the '{actual-step-name}' step has an invalid* ``pageId``/``redirectPageId`` *specified."*
+
+* When ``parentPageId`` is specified and found to be invalid (that is, not an existing page or not a valid entry within the **current** workflow):  
+
+  *"In the '{actual-workflow-name}' workflow, the '{actual-step-name}' step has an invalid* ``parentPageId`` *specified."*
+
+* When duplicate ``pageId`` is found specified in a workflow: 
+  
+  *"Duplicate* ``pageId`` *entries of '{actual-duplicate-pageid}' have been specified in the '{actual-workflow-name}' workflow."*
+
+* When nested steps are configured:
+  
+  *"Nested steps are not supported. The '{actual-step-name}' step in the '{actual-workflow-name}' workflow has a* ``parentPageId`` *which itself already has a* ``parentPageId`` *."*
+
+* When an identical entry is specified for both ``pageId`` and ``redirectPageId``/``parentPageId``:
+  
+  *"In the '{actual-workflow-name}' workflow, the '{actual-step-name}' step has an identical entry specified for both* ``pageID`` *and* ``redirectPageId``/``parentPageId`` *. This is not permitted."*
+
+Again, these are just some examples listed here in order to illustrate the idea. Clearly, there are many more situations in which the workflow configuration string may contain inconsistencies and then 
+an appropriate error message will be issued corresponding to each situation at hand.
+
+Please note that this only happens in developer mode, such that the app developer is informed and can take the appropriate actions for correction. 
+However, the validation errors are not visible in end-user mode, so, the app users will never be confronted with details about misconfigured workflows. 
 
 When and How to use the Workflow Panel
 --------------------------------------
