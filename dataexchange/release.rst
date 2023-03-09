@@ -17,6 +17,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.0.1.30 [09-03-2023]
+	- ``dex::ReadAllMappings`` now reads all mappings from the ``Mappings`` folder recursively
+
 2.0.1.29 [07-03-2023]
 	- String fields in an Excel file mapped to a numeric field would be skipped; they are now converted when possible, or produce a runtime error otherwise
 	
