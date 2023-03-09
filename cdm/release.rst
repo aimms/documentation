@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.28.0.0 [09-03-2023]
+	- Commit times for sets and multi-dimensional identifiers are now measured and logged (at trace level)
+	- Root set labels are now inserted into the CDM database in batches (instead of one-by-one) like multi-dimensional identifier values
+
 1.27.0.8 [17-02-2023]
 	- Add additional safeguard to location where crash occurred that should not be possible
 	
