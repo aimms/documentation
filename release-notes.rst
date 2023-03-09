@@ -17,6 +17,8 @@ AIMMS 4.92.5 Release (March 9, 2023 - build 4.92.5.0).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
+(We skipped AIMMS 4.92.4 because of internal technical reasons).
+
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
