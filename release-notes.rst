@@ -12,6 +12,28 @@ AIMMS 4.92
 #############
 
 
+AIMMS 4.92.5 Release (March 9, 2023 - build 4.92.5.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The best bound value shown in the (final) progress window was not always correct for non-convex QCP problems solved with Gurobi.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The Text widget did not always take newline characters into account.
+-  The Gantt chart widget does not allow dragging of read-only jobs anymore.
+-  The Download widget now shows the translated text for its procedure name during the download process.
+-  The identifier element text (as specified in the `webui::IdentifierElementText` string parameter) as well as the identifier tooltip text (as specified in the `webui::IdentifierTooltip` string parameter) were not applied to identifiers that were displayed in widgets that were in 'case comparison' mode.
+
+--------------
+
+
+
 AIMMS 4.92.3 Release (March 7, 2023 - build 4.92.3.2).
 ------------------------------------------------------------------------------------------
 
