@@ -17,6 +17,13 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.0.1.35
+	- Missing columns in row-based formats that bind to an index are now reported as an error
+	- The error message about mismatching dimensions has been extended with showing the currently bound dimensions
+	- Mapping nodes with duplicate names are now reported as an error
+	- Reading from files with filenames with special characters would fail on Windows
+  - Error messages generated when reading specific row-based formats are now properly propagated and reported
+	
 2.0.1.30 [09-03-2023]
 	- ``dex::ReadAllMappings`` now reads all mappings from the ``Mappings`` folder recursively
 
