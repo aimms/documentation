@@ -12,6 +12,20 @@ AIMMS 4.92
 #############
 
 
+AIMMS 4.92.6 Release (March 10, 2023 - build 4.92.6.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  To prevent all kinds of Excel related issues when trying to open a generated Excel file, the 'download as Excel' WebUI table feature has been restricted to not show more than 65535 dropdowns (implemented as Excel validations). In addition, in case the number of table cells corresponding to an element parameter or binary parameter exceeds 65535, dropdowns with just 2 elements will also be skipped (to favor dropdowns with more elements). Dropdowns with more than 100 elements were already skipped in the initial version. Please keep in mind that large Excel files are not the best way to communicate large amounts of data.
+
+--------------
+
+
+
 AIMMS 4.92.5 Release (March 9, 2023 - build 4.92.5.0).
 ------------------------------------------------------------------------------------------
 
