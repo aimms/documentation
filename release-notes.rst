@@ -9638,3 +9638,4 @@ Improvements
 	barlinechart
 	headerless
 	stylesheets
+	dropdowns
