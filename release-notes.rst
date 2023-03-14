@@ -27,7 +27,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  When the Download Image button is clicked, a veil will now be displayed with a proper message, until the application becomes interactive again. In case of widgets with a lot of data, creating the screenshot can take some time.
--  Block editing did not work in full-screen mode of the Table widget.
+-  Block editing did not work in full-screen mode of the Table widget, after the block selection was already made in 'non full-screen mode'. This also did not work the other way around.
 
 --------------
 
