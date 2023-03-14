@@ -862,7 +862,7 @@ Item Actions are a set of actions/procedures that can be defined via the model a
 
 Item Actions give users quick access to frequently used commands related to the selected item.
 
-By default, Item Actions are hidden from view and there is no way for users to know if Item Actions are configured for a widget or not. Especially when the feature is new, users will not yet expect it to be there. It is therefore wise to mention it in documentation or onboarding for your app. On the page inside the app itself it can be mentioned in the Help sidepanel
+By default, Item Actions are hidden from view and there is no way for users to know if Item Actions are configured for a widget or not. Especially when the feature is new, the users will not yet expect it to be there. It is therefore wise to mention it in the documentation or the onboarding for your app. On the page inside the app itself it can be mentioned in the Help sidepanel.
 
 The right-click item action menu displays up to 10 actions. In case you configure more than 10, only the top 10 active and/or inactive actions will be displayed.
 
@@ -875,15 +875,19 @@ The item actions can be associated with any procedure in your model. For example
 Configuring Item Actions
 ++++++++++++++++++++++++
 
-Item Actions can be configured by the application developer via the AIMMS model, similar to how widget actions are configured.
+Item Actions can be configured by the application developer via the AIMMS model, similarly to how widget actions are configured.
 
-To configure item actions, create a string parameter indexed by the ``WidgetItemActionSpecification`` set with the index ``webui::indexWidgetItemActionSpec``, :any:`webui::ExtensionOrder` set with :any:`webui::indexPageExtension` and 
-:any:`webui::WidgetActionSpecification` set with the index :any:`webui::indexWidgetActionSpec`, for example ``MyItemActions(webui::indexWidgetItemActionSpec,webui::indexPageExtension,webui::indexWidgetActionSpec)`` as shown here:
+To configure item actions, create a string parameter indexed by the set ``webui::WidgetItemActionSpecification`` with the index ``webui::indexWidgetItemActionSpec``, the set ``webui::ExtensionOrder`` with the index ``webui::indexPageExtension``, and 
+the set ``webui::WidgetActionSpecification`` with the index ``webui::indexWidgetActionSpec``; for example, a string parameter as shown here:
+
+``MyItemActions(webui::indexWidgetItemActionSpec,webui::indexPageExtension,webui::indexWidgetActionSpec)`` 
 
 .. image:: images/ItemActions_StringParameter.png
             :align: center
 
-Double-click the string parameter and click on either the Definition or Initial Data wizard to open the data page. You can also right-click the string parameter and enter the data on the data page displayed (you do need to save your model data after that):
+Note that, starting from AIMMS 4.92, the second index above may also be any index in a sub-set of the Integers.
+
+You can double-click the created string parameter, open its data page and enter or modify its data values (you do need to save your model data after that):
 
 .. image:: images/ItemActions_StringParameterData.png
 			:align: center
