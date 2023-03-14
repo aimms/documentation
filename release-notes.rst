@@ -12,6 +12,27 @@ AIMMS 4.92
 #############
 
 
+AIMMS 4.92.7 Release (March 14, 2023 - build 4.92.7.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When copying text from an external program which contained special space characters, these were not recognized by the compiler. This 'non-breaking space' (ASCII character 160) is now replaced by the normal space character during compilation.
+-  AimmsCOM.exe would not start for AIMMS versions >= 4.88, preventing usage of the AIMMS COM object.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When the Download Image button is clicked, a veil will now be displayed with a proper message, until the application becomes interactive again. In case of widgets with a lot of data, creating the screenshot can take some time.
+-  Block editing did not work in fullscreen mode of the Table widget.
+
+--------------
+
+
+
 AIMMS 4.92.6 Release (March 10, 2023 - build 4.92.6.1).
 ------------------------------------------------------------------------------------------
 
