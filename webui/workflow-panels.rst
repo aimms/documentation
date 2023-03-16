@@ -12,7 +12,7 @@ Workflow Panels
 .. |ApplicationExtension| image:: images/ApplicationExtensionIcon.png
 
 
-This section describes various tasks related to the creation, the configuration, and the usage of workflow panels in an WebUI application.
+This section describes various tasks related to the creation, the configuration, and the usage of workflow panels in a WebUI application.
 
 .. important:: 
 
@@ -129,7 +129,7 @@ These two states are actually interdependent, hence the style of a displayed ste
 These states can be changed dynamically, as required, and as the user progresses in the workflow. This is achievable either by applying data changes made on a page or by using model procedures which are triggered based on certain actions in the front end.
 
 .. note:: 
-    To make changes on the page please ensure the workflowPageState is Active. Or, before configuring the workflow steps, first make changes to the respective pages and then configure the workflow steps. When the workflowPageState is Inactive or Hidden you will not be able to access the respective page. 
+    Although hidden or inactive pages cannot be opened through the workflow itself, by using the page menu on top or by typing the URL directly, app developers can still access them by using the App manager.
 
 The specification ``redirectPageId``
 ++++++++++++++++++++++++++++++++++++
@@ -285,9 +285,9 @@ If the open/close states parameter is not configured in the Workflow Settings, t
 Configuring a ``pageId`` in multiple workflows
 ----------------------------------------------
 
-Most of the times, configuring a page in only one workflow could suffice for the application at hand. However, the Workflow functionality is flexible enough such that one page may be configured in multiple workflows, if necessary. Although the page will be shown as a step in each of those workflows, there will be one workflow with the highest rank (i.e., the smallest order number) referencing the page and this workflow will be the one shown on the page when the page is opened. So, whenever you click on that step (in any workflow) you will be taken to the corresponding step in the first workflow where the ``pageId`` is referenced. Here "first workflow" is meant in the order of the workflows as defined by the MyWorkflows string parameter. 
+Most of the times, configuring a page in only one workflow will suffice for the application at hand. However, the Workflow functionality is flexible enough such that one page may be configured in multiple workflows, if necessary. If a page is shared between multiple workflows, you will remain in the workflow that is currently displayed. 
 
-For example, if a page 'Results' with ``pageId = results_1`` is configured for two workflows "Route Optimization" and "Inventory Management", then the page Results will appear in both workflows, but will redirect the user to the step in the Route Optimization workflow when accessed, as illustrated below.
+For example, if a page 'Results' with ``pageId = results_1`` is configured for two workflows "Route Optimization" and "Inventory Management", then the page Results will appear in both workflows, as illustrated below.
 
 The page Results is configured for two workflows:
 
@@ -300,7 +300,8 @@ The page Results is shown as a step in both workflows:
 .. image:: images/Workflow_Pagein2Workflows_2.png
     :align: center
 
-In this case, when the user is on the Inventory Management workflow and clicks on the Results step, the user will be redirected to the Results step in the Route Optimization workflow, because Route Optimization is the first workflow (referencing the page Results) in the order of the workflows as defined by the MyWorkflows string parameter.
+In this case, when the user is on the Inventory Management workflow and clicks on the Results step, he will remain in the Inventory Management workflow. Only when accessing another page, which is part of the Route Optimization workflow only, he is directed to that workflow. After that, clicking on the Results step will still keep him on the Route Optimization workflow.
+
 
 Configuration Error Validation
 ------------------------------
