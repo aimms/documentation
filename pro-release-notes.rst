@@ -1,7 +1,31 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.48
+########
 
+(We skipped PRO 2.47 because of internal technical reasons).
+
+AIMMS PRO 2.48.1 Release
+------------------------
+
+On March 16, 2023, we released AIMMS PRO 2.48.1(2.48.1.1). 
+
+**New Features**
+
+   - PRO REST API: Extended the REST API with the new service - Managing API Keys, which allows you to retrieve, create and delete API Keys on your cloud environment. Please see the `documentation <https://documentation.aimms.com/cloud/rest-api.html>`__ for more details.
+
+**Improvements**
+
+   - MFA(Multi-Factor Authentication) for AIMMS PRO Portal user account. Please see the `documentation <https://documentation.aimms.com/pro/mfa.html>`__ for more details.
+   - Automatically getting the latest AIMMS Releases available on your cloud environment and always run your apps with the latest hotfix release of the major AIMMS release with which the app was published. Please see the `documentation <https://documentation.aimms.com/cloud/aimms-releases.html>`__ to get more details about this feature.
+   - PRO REST API: The limits for REST session(Tasks) requests/responses have been increased from 32KB to 256MB.
+   
+**Resolved Issues**
+
+   - PRO REST API: Fixed an issue where updating an app via REST API could result into 'Environment does not exist' error.
+
+   
 PRO 2.46
 ########
 
