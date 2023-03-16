@@ -17,6 +17,7 @@ We support following services(functionality) through the AIMMS PRO REST API:
     - `Managing Environments, Groups and Users <rest-api.html#managing-users-and-groups>`__
     - `Managing Apps <rest-api.html#managing-apps>`__
     - `Managing AIMMS <rest-api.html#managing-aimms>`__
+	- `Managing API Keys <rest-api.html#managing-api-keys>`__
  
 The full OpenAPI specification of the AIMMS PRO REST API itself can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v1/``. 
 
@@ -40,6 +41,7 @@ subsets of the PRO REST API:
 2. The *PublishAIMMS* scope allows operations on AIMMS Versions.
 3. The *PublishApp* scope allows operations on AIMMS apps.
 4. The *Tasks* scope allows operations on Tasks.
+5. The *API Key* scope allows operations on API Keys.
 
 .. image:: images/key2.jpg
     :align: center
@@ -234,23 +236,13 @@ In order to completely remove permissions from an app, assign permissions to an 
 Managing AIMMS
 --------------
 
-This REST API Service allows you to retrieve all available AIMMS Versions on Cloud, retrieve the information about specific AIMMS Version and activate/deactivate the AIMMS Version. Please see the following example and API specs (*Publishing* section) for the detailed usage.
+This REST API Service allows you to retrieve all available AIMMS Versions on Cloud and retrieve the information about specific AIMMS Version. Please see the API specs (*Publishing* section) for the detailed usage.
 
-Example: Using Postman to Activate an AIMMS Version
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Postman can also be used to activate an AIMMS version via the REST API. The same basic one to four steps should be
-followed as in the previous example. The last step is to perform the actual activation. This is done by performing
-a ``PATCH`` operation on the ``https://[account-name].aimms.cloud/pro-api/v1/aimms-versions`` endpoint using the
-body described in ``AimmsVersion.yaml`` in the API schema:
+Managing API Keys
+-----------------
 
-.. code-block:: aimms
-
-        {
-            "activated": true,
-            "authorization": [],
-            "id": "4.82.9.1-linux64-x86-vc141"
-        }
+This REST API Service allows you to retrieve all API Keys, create and delete an API Key on your cloud environment. Please see the API specs (*Authentication* section) for the detailed usage.
 
 .. spelling:word-list::
 
