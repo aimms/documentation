@@ -126,6 +126,9 @@ Creating cloned data sets
 
 In order to be able to easily compare multiple identifiers affected by a single test, the AIMMS Unit Test framework supports *cloned datasets*, i.e., a clone of a collection of multi-dimensional parameters created in a runtime library. Once created, you can store the current values of the collection of parameters into the cloned dataset, and later when you have performed some test that have modified the values of the parameters, you can compare the parameter data with the values stored into the cloned dataset, to verify that the test succeeded.
 
+Cloned datasets are restricted to numerical, element and string parameters and variables. Because of their role in iterating over multi-dimensional data, sets can principally not be part of cloned datasets, and advanced data types, such as unit parameters and special data types for specific mathematical model types, are also excluded because they are much less likely to be changed computationally.
+ 
+
 Available cloned data set functions
 -----------------------------------
 
