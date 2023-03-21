@@ -6,18 +6,19 @@ The Upload widget and the related :doc:`download-widget` achieve complementary t
 .. image:: images/Upload-View.png
     :align: right
 
-With the Upload Widget, end-users can upload a file to the AIMMS application, which can then be further processed by the AIMMS model. This is very useful for applications that depend on users to provide input data (e.g. an Excel file with a predetermined template). 
+By using the Upload Widget the end-users can upload a file to the AIMMS application, which can be further processed by the AIMMS model. 
+This is very useful for applications which depend to a significant extent on input data provided by the users (e.g. an Excel file with a pre-determined template). 
 
 .. warning::
+   
+   There is a hard-coded **limit of 128 MB for upload files** in the AIMMS Webserver component! In particular, exceeding this limit will result in an error while attempting to upload a file using the upload widget.
+   
+   This limit can be changed (i.e. to a value lower than 128 MB) by adding (or adapting, if it already exists) a ``.conf`` file in you project settings folder (``MainProject\WebUI\settings\webui-options.conf``). 
+   In this file you can set a value for the following option (here the limit of 128 MB is used, for illustration): ``webui.webuiserver.max-request-body-size 134217728``.
 
-   There is a limit to the size of the file that can be uploaded using the Upload widget. By default, this limit is 128MB. However, that can be changed by adding (or adapting, if it already exists) a ``.conf`` file in you project settings folder (``MainProject\WebUI\settings\webui-options.conf``). In this file, please add or adapt the option ``webui.webuiserver.max-request-body-size 134217728`` (here, the limit of 128MB is used).
-
-   Also be aware that there is a default upload timeout of 5 minutes (i.e. 300 seconds). This can also be overruled in this ``.conf`` file, by adding or adapting the option ``webui.webuiserver.max-session-idle-seconds``.
-
-   You will have to do some math to check if you can upload your file within the time-out. Unfortunately, either exceeding the size limit or the upload timeout currently does not result in very clear errors in the WebUI.
-
-
-    
+   Also, please be aware that there is a default upload time-out of 5 minutes (i.e. 300 seconds). This can be overruled in the ``.conf`` file, by adding or adapting the option ``webui.webuiserver.max-session-idle-seconds``.
+   Some precaution should be taken in order to check whether your file can be uploaded within the specified time-out. 
+   
 Creating an Upload Widget
 -------------------------
 
@@ -40,7 +41,7 @@ After adding a new Upload widget to your WebUI page, you need to link it with an
 
 .. warning::
 
-   The latter two (output) arguments should have the exact names, as they are treated in a special way in the underlying procedure call mechanism.
+   The latter two (output) arguments should have the exact names shown above as they are treated in a special way in the underlying procedure call mechanism.
 
     
 FileLocation
@@ -61,7 +62,7 @@ The above function returns a string value with the absolute path to the file ``F
 
 .. note::
 
-    In case you want to be able to download a previously uploaded file through the download widget, you can copy that file into the appropriate location. You can use the :any:`FileCopy` function as below to do that 
+    In case you want to be able to download a previously uploaded file through the download widget, you can copy that file into the appropriate location. For this you can use the function :any:`FileCopy` as shown below: 
 
     .. code::
 
@@ -70,13 +71,13 @@ The above function returns a string value with the absolute path to the file ``F
 StatusCode
 ^^^^^^^^^^
 
-The ``StatusCode`` argument should be filled as follows:
+The ``StatusCode`` argument should be filled in as follows:
 
 .. code::
 
     statusCode := webui::ReturnStatusCode('OK');
 
-The pre-defined function ``webui::ReturnStatusCode`` has the below possible arguments 
+The pre-defined function ``webui::ReturnStatusCode`` has as possible arguments the ones shown below:
 
     * ``OK``
     * ``CREATED``
@@ -89,7 +90,7 @@ As your widget is expected to upload a file, the status ``OK`` is expected if al
 
 .. note::
 
-   Please note that these status codes are standard HTTP status codes. For further reference, please go to https://en.wikipedia.org/wiki/List_of_HTTP_status_codes 
+   Please note that these status codes are standard HTTP status codes. For further reference, please visit the following site https://en.wikipedia.org/wiki/List_of_HTTP_status_codes 
     
 StatusDescription
 ^^^^^^^^^^^^^^^^^
@@ -133,11 +134,11 @@ An example for the body of the Upload procedure is shown below. This particular 
 When executed through the upload widget, this procedure will let you upload a file at ``UploadLocation`` and read it in a string parameter ``sp_TextOfUploadedFile``. 
 
 The name of the uploaded file will be appended with a random "big" number, to be sure to not overwrite any other file on the server. 
-If you've uploaded "*MyExcel.xlsx*", the uploaded file name could be "*MyExcel-1564733452728.xlsx*"
+If you've uploaded "*MyExcel.xlsx*", the uploaded file name could be "*MyExcel-1564733452728.xlsx*".
 
-If launched from PRO, the file name will still remain the same but the value for UploadLocation will be "temporary PRO path + MyExcel-1564733452728.xlsx"
+If launched from PRO, the file name will still remain the same but the value for UploadLocation will be "temporary PRO path + MyExcel-1564733452728.xlsx".
 
-Note that this uploaded file is NOT automatically deleted if you are running WebUI in AIMMS Developer mode. If you want to delete this file after an upload, you should use the function :any:`FileDelete` as below. 
+Note that this uploaded file is NOT automatically deleted if you are running WebUI in AIMMS Developer mode. If you want to delete this file after an upload, you should use the function :any:`FileDelete` as shown below: 
 
 .. code::
 
@@ -147,7 +148,7 @@ This step is not required on PRO as the temporary PRO folder in which the file i
 
 .. tip::
 
-	If you need to use folder names in your model, use forward slashes to separate them. This ensures that your project will be able to be executed on a Linux server
+	If you need to use folder names in your model, use forward slashes to separate them. This ensures that your project will be able to be executed on a Linux server.
 
 Miscellaneous
 -------------
@@ -157,6 +158,7 @@ In the Miscellaneous tab of the Upload widget's options editor, other options ma
 .. image:: images/Upload_Misc.png
     :align: center
 
+\
 
 Visibility
 ^^^^^^^^^^
@@ -173,6 +175,8 @@ Set the display text on the upload widget here. By default, the text that is dis
 
 .. _upload-widget-custom-tooltip:
 
+\
+
 Custom Tooltip
 ^^^^^^^^^^^^^^
 
@@ -188,3 +192,5 @@ As illustrated below, the definition of string parameter ``sp_TT_Upload`` used t
 
 .. image:: images/Upload_CustomTooltip.png
     :align: center
+
+\
