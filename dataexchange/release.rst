@@ -17,6 +17,12 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.0.1.40
+	- 64-bits fields in a Parquet file could lead to runtime errors when exceeding maxint
+  - When converting string fields to numeric parameters in the model when reading Excel, partially successful conversions where unconditionally accepted potentially resulting in truncated numerical values. Now partially successful conversions are only accepted when the remainder of the string fields contain whitespace
+  - Data Exchange runtime errors when reading a file now print a context where the error occurred (e.g. Excel workbook, sheet, row and column)
+	- Fix issue in JSON schema support where an array of arrays would result in a duplicate index in the generated library
+
 2.0.1.35
 	- Missing columns in row-based formats that bind to an index are now reported as an error
 	- The error message about mismatching dimensions has been extended with showing the currently bound dimensions
