@@ -137,6 +137,8 @@ It describes a repetitive table node, i.e. a repetitive structure consisting of 
     arr-2,a-4,0.25,0.0,,"string ,""5",73
     arr-2,a-5,0.112488,0.0,,"string ,""2",86
 
+.. _example-excel-mapping:
+
 Example: Excel mapping
 ----------------------
 

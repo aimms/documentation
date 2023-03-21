@@ -23,6 +23,7 @@ The following sections explain the Data Exchange library in more detail.
    using
    mapping
    standard
+   sqldb
    rest-client
    openapi-client
    rest-server
