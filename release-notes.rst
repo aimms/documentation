@@ -12,6 +12,22 @@ AIMMS 4.92
 #############
 
 
+AIMMS 4.92.8 Release (March 21, 2023 - build 4.92.8.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When filtering values in a SelectionBox widget by typing specific special characters (those with a meaning in so-called regular expressions, like '*' or '?' for example), an error message was displayed.
+-  Now right clicking on a Table cell with the CTRL key pressed after a block selection will clear this selection. If the Table cell had item actions associated with it, the previous behavior suggested that the item actions would be applied to the whole selected block, which was not the case.
+-  Clicking on the 'closing cross' of the Selectionbox widget with a one-dimensional parameter gave an unexpected error in recent AIMMS versions.
+
+--------------
+
+
+
 AIMMS 4.92.7 Release (March 14, 2023 - build 4.92.7.5).
 ------------------------------------------------------------------------------------------
 
