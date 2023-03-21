@@ -20,7 +20,7 @@ The button text changes to 'Get' and you can now start the file download by clic
 Creating a Download Widget
 -------------------------------
 
-After adding a (blank) Download widget to your WebUI page, you need to link it with an AIMMS procedure using the options editor of the Download widget. This procedure needs to have the following arguments in the exact way as below. 
+After adding a (blank) Download widget to your WebUI page, you need to link it with an AIMMS procedure using the options editor of the Download widget. It is good to keep in mind that this procedure will be executed *right before doing the actual download*. So, you can use it so prepare a file to be downloaded. This procedure needs to have the following arguments in the exact way as below. 
 
 .. code::
     
@@ -128,9 +128,9 @@ An example for the body of the download procedure is shown below. This particula
        
     endif;
 
-When executed through the download widget, this procedure will let you download a file named MyDownloadFile.txt with *FinalLocation := "MyDownloadFile.txt"* as its content. If launched from PRO, the filename will still remain same but the value for FinalLocation will be temporary PRO path + MyDownloadFile.txt.
+When executed through the download widget, this procedure will let you download a file named MyDownloadFile.txt with *FinalLocation := "MyDownloadFile.txt"* as its content. If launched from PRO, the filename will still remain the same but the value for FinalLocation will be temporary PRO path + MyDownloadFile.txt.
 
-Please note that the file is NOT automatically deleted for you when running WebUI in AIMMS developer mode. It will be in case WebUI is running under PRO, as the temporary PRO folder is deleted some time after a session is closed. Note as well that you cannot delete the file from inside the download procedure itself (at the end), as at the point of deletion, the filename would not have been passed to the WebUI yet, meaning you would be just about to start a download of a file that you have already deleted, reulting in an error.
+Please note that the file is NOT automatically deleted for you when running WebUI in AIMMS developer mode. It will be in case WebUI is running under PRO, as the temporary PRO folder is deleted some time after a session is closed. Note as well that you cannot delete the file from inside the download procedure itself (at the end), as at the point of deletion, the filename would not have been passed to the WebUI yet, meaning you would be just about to start a download of a file that you have already deleted, resulting in an error.
 
 .. tip::
 
