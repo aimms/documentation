@@ -102,13 +102,13 @@ An example for the body of the download procedure is shown below. This particula
 
 .. code::
     
-    ! we want to download a file - MyDownloadFile.txt
+    ! we want to create a file to download - MyDownloadFile.txt
     FileLocation := "MyDownloadFile.txt"; 
     
     ! we store the location of the file in string parameter FinalLocation
     FinalLocation := webui::GetIOFilePath(FileLocation); 
     
-    ! writing the string parameter FinalLocation to a text file
+    ! writing the string parameter FinalLocation to the text file
     write FinalLocation to file FinalLocation; 
 
     ! checking if the previous write statement was successful or not
@@ -128,15 +128,9 @@ An example for the body of the download procedure is shown below. This particula
        
     endif;
 
-When executed through the download widget, this procedure will let you download a file named MyDownloadFile.txt with FinalLocation := "MyDownloadFile.txt" as its content. If launched from PRO, the filename will still remain same but the value for FinalLocation will be "temporary PRO path + MyDownloadFile.txt"
+When executed through the download widget, this procedure will let you download a file named MyDownloadFile.txt with *FinalLocation := "MyDownloadFile.txt"* as its content. If launched from PRO, the filename will still remain same but the value for FinalLocation will be temporary PRO path + MyDownloadFile.txt.
 
-Note that this generated file is NOT automatically deleted if you are running WebUI in AIMMS developer mode. If you want to delete this file after a download, you should use the function :any:`FileDelete` as below. 
-
-.. code::
-
-    FileDelete(FinalLocation)
-
-This step is not required on PRO as the temporary PRO folder in which the file is created will be automatically deleted sometime after the session is ended. 
+Please note that the file is NOT automatically deleted for you when running WebUI in AIMMS developer mode. It will be in case WebUI is running under PRO, as the temporary PRO folder is deleted some time after a session is closed. Note as well that you cannot delete the file from inside the download procedure itself (at the end), as at the point of deletion, the filename would not have been passed to the WebUI yet, meaning you would be just about to start a download of a file that you have already deleted, reulting in an error.
 
 .. tip::
 
