@@ -34,20 +34,23 @@ Database tables
 One of the integrity checks performed by the database is to make sure that every row is unique. Columns can be declared as "primary key" for this check. If we look at the example we see two columns "set1" and "set2" with a ``binds-to`` attribute. When writing all values for columns with a ``maps-to`` attribute, the parameters, the values of ``i`` and ``j`` are unique. Only the first two columns need to be checked for uniqueness and therefore DataExchange will create a table where columns "set1" and "set2" are defined as primary keys.
 
 Now the database only has to check two columns but still it requires comparing strings. DataExchange helps the database even more by creating helper tables for sets in the AIMMS model. Sets are either a root set or some subset of a root set, and their values are unique.
-For each rootset involved in the database mapping, DataExchange creates a rootset table to store their values. The database will assiociate each value with an unique integer value.
-Now each ``binds-to`` column can be declared as a foreighn key into the corresponding rootset table, so that all primary keys are integers that can be easily compared. Note that columns for Element Parameters are also created as foreing keys into root set tables, but unlike the ``binds-to`` columns they are not declared primary keys.
+For each root set involved in the database mapping, DataExchange creates a root set table to store their values. The database will associate each value with an unique integer value. Now each ``binds-to`` column can be declared as a foreign key into the corresponding rootset table, so that all primary keys are integers that can be easily compared. Note that columns for Element Parameters are also created as foreign keys into root set tables, but unlike the ``binds-to`` columns they are not declared primary keys.
 
-version
+A database is less flexible than files so saving different versions of datasets into different files may not be possible.
+For this reason DataExchange also includes a versioning mechanism by adding an extra helper table "ds\_version" to the database. This table stores the name of the data set and assigns an integer value to it. Each mapped table gets an extra column that is both a primary key and a foreign key into the versioning table. By passing along the name of the data set when writing, multiple writes are possible into the same database.
 
-Three kind of tables:
+All table names are small caps and a prefix is used to indicate their role. The three kind of tables used by DataExchange are:
+
+* The tables defined in the database mapping are prefixed with 'data\_'. The table from the example becomes "data\_table1".
+* The root set tables are prefixed with 'rs\_'. If "Set1" is a root set then the table becomes "rs\_set1".
+* The table with the dataset version names is "ds\_version".
 
 
+Reading and Writing
+-------------------
 
-Reing and Writing
------------------
 
-Reaing and writing
-Introduction....ReadToDataSource()
+Introduction ``WriteToDataSource``
 
 Look at the following file
 
@@ -63,6 +66,10 @@ Look at the following file
 
 here we see the 3 required nodes for a database. We must say which database 
 
+optional
+
+
+version
 
 
 Create Or Modify
@@ -74,7 +81,10 @@ explain when something can be modified....
 Supported Databases
 -------------------
 
-tja
+* SQLite
+* MySql
+* PostgreSQL
+* SQL Server
 
 
 
