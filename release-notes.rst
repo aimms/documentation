@@ -12,6 +12,20 @@ AIMMS 4.92
 #############
 
 
+AIMMS 4.92.9 Release (March 22, 2023 - build 4.92.9.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When trying to download a repository library, the Library Manager now gives a more useful error message for HTTP response code 403.
+
+--------------
+
+
+
 AIMMS 4.92.8 Release (March 21, 2023 - build 4.92.8.3).
 ------------------------------------------------------------------------------------------
 
