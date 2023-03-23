@@ -55,7 +55,7 @@ Methods for reading and writing data
     :param emptyIdentifiers: indicates whether all identifiers referred in the mapping should be emptied prior to reading the file
     :param emptySets: indicates whether all domain and range sets referred in the mapping should be emptied prior to reading the file
     :param resetCounters: indicates whether to reset all counters for :token:`iterative-binds-to` indices prior to reading the file
-    :param version: The version name of the dataset to be read. If this string is empty or ommitted, the last version will be selected.
+    :param version: The version name of the dataset to be read. If this string is empty or omitted, the last version will be selected.
 
 .. js:function::  dex::WriteToDataSource(dexconFile,mappingName,version)
 
@@ -70,7 +70,7 @@ Methods for reading and writing data
     Create a database as define by :token:`dexconFile` and mapping :token:`mappingName`. If the database exist it will check if the table can and needs to be modified. Currently it only allows to add ``maps-to`` columns. The function will return 1 on success, or 0 on failure.
     
     :param dexconFile: the relative path to the DexConnect file defining the database configuration
-    :param mappingName: the name of the mapping defining the (new) schame of the tables 
+    :param mappingName: the name of the mapping defining the (new) schema of the tables 
     
 .. js:function::  dex::ReadAllMappings
 
