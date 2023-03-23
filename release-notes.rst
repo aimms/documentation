@@ -12,6 +12,20 @@ AIMMS 4.92
 #############
 
 
+AIMMS 4.92.10 Release (March 23, 2023 - build 4.92.10.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In recent AIMMS 4.92 versions, it was not possible anymore to run WinUI apps on the cloud.
+
+--------------
+
+
+
 AIMMS 4.92.9 Release (March 22, 2023 - build 4.92.9.1).
 ------------------------------------------------------------------------------------------
 
