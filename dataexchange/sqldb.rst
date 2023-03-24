@@ -88,7 +88,7 @@ and suppose we use the following mapping:
         </TableMapping>
     </AimmsDatabaseMapping>
 
-Here ``i`` and ``j`` are indices of sets :token:`SetI` and :token:`SetJ`` which are a rootsets.
+Here ``i`` and ``j`` are indices of sets :token:`SetI` and :token:`SetJ`.
 
 When writing this data we can pass on a name for this dataset, like "Hello Data". 
 DataExchange checks first if table :token:`ds_version` exists and creates it if it doesn't. Then if the name does not exists yet (it should be unique) the name is insert into the table. The database will assign unique integer value to it. This is an auto increment primary key in SQL jargon, hence the column name "pk". The result is the table below:
@@ -185,15 +185,15 @@ Server
     This is used by MySql, PostgreSQL and SQLServer. When not specified it defaults to ``localhost``. If the server does not use the default port the attribute port can be used to specify the port.
 
 StringSize
-    A database has two ways of storing strings. Use value 'text' for generic text storage. Use an integer value for a fix lenght string (varchar). The default value is 255. Note that this only applies to String Parameters. Version names and rootset tables always use varchar(255).
+    A database has two ways of storing strings. Use value 'text' for generic text storage. Use an integer value for a fix length string. The default value is 255. Note that this only applies to String Parameters. Version names and rootset tables always use integer value 255.
 
 WriteBatchSize
-    The batch size is the integer value of how many rows are inserted to the database at once. A high value is slower for a database, but for networking high is more efficient. A tradoff has to be found. The default value is 1.
+    The batch size is the integer value of how many rows are inserted to the database at once. A high value is slower for a database, but for networking high is more efficient. A trade off has to be found. The default value is 1.
 
 Comment
     This node will be ignored, so it can be used to add comments
 
-This is an extended example for a MySql database. The server does not have the default port (3306 for MySql), the String Parameters are represented as :token:`text`` and write uses a batch size of 7:
+This is an extended example for a MySql database. The server does not have the default port (3306 for MySql), the String Parameters are represented as :token:`text` and write uses a batch size of 7:
 
 .. code-block:: xml
 
@@ -221,7 +221,7 @@ RootsetTable
 VersionName
     The default name of the column for versions is :token:`ver` and this can lead to a name clash with other column names in a table. With ``VersionName`` a different name for version columns can be chosen. If the name is an empty string the versioning itself is switch off.
 
-This is an example for a SQLite database "simpletables.db" in folder "data". Attribute ``RootsetTables`` is 0, so values of set elements are appear directly into the tables. Also there is no versioning because the ``VersionName`` is set to be empty. All tables will be the same as when they would have been save in an Excel file.
+This is an example for a SQLite database ``simpletables.db`` in folder "data". Attribute ``RootsetTables`` is 0, so values of set elements are appear directly into the tables. Also there is no versioning because the ``VersionName`` is set to be empty. All tables will be the same as when they would have been save in an Excel file.
 
 .. code-block:: xml
 
@@ -308,7 +308,7 @@ We can use the following DexConnect file:
         </Database>
     </AimmsDexConnect>
 
-The database is here the file "mydb.db" (so the ``name`` attribute of ``DataBase`` follwed by extention ``db``). The file is located in :token`myfoler as speified in :token:`path`. The ``Username`` and ``Password`` are set when the file is created. So this is different from the server databases, where the permissions are set by the server/database.
+The database is here the file ``mydb.db`` (so the ``name`` attribute of ``DataBase`` followed by extension ``db``). The file is located in :token`myfolder`` as specified in :token:`path`. The ``Username`` and ``Password`` are set when the file is created. So this is different from the server databases, where the permissions are set by the server/database.
 
 
 
@@ -336,7 +336,7 @@ Assume MySql is setup with a user named "bob" and that the server is started. We
         </Database>
     </AimmsDexConnect>
 
-This connects via the default port 3306 on localhost to a database called "mydb".
+This connects via the default port 3306 on localhost to a database called ``mydb``.
 
 PostgreSQL
 ^^^^^^^^^^
@@ -360,7 +360,7 @@ Assume PostgreSQL is setup with a user named "bob" and that the server is starte
         </Database>
     </AimmsDexConnect>
 
-This connects via the default port 5432 on localhost to a database called "mydb".
+This connects via the default port 5432 on localhost to a database called ``mydb``.
 
 SQL Server
 ^^^^^^^^^^
@@ -380,4 +380,4 @@ We can use the following DexConnect file:
         </Database>
     </AimmsDexConnect>
 
-In ``Server`` we notice that we explicitly have to connect via tcp. Also we notice that localhost cannot be used. Instead we connect to the (full) Device Name. This can be found when asking for properties for "This PC" in the explorer. The default port 1433 is used for the connection.
+In ``Server`` we notice that we explicitly have to connect via ``tcp``. Also we notice that localhost cannot be used. Instead we connect to the (full) Device Name. This can be found when asking for properties for "This PC" in the explorer. The default port 1433 is used for the connection.
