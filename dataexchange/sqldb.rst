@@ -120,7 +120,7 @@ After writing the rootset tables look like:
 After writing the actual table with data will look like:
 
 .. csv-table:: :token:`data_mytable`
-   :header: "ver", "SetI", "SetJ", "Par"
+   :header: "Ver", "SetI", "SetJ", "Par"
    :widths: 30, 30, 30, 30
 
    1, 1, 1, 1.2
@@ -308,7 +308,7 @@ We can use the following DexConnect file:
         </Database>
     </AimmsDexConnect>
 
-The database is here the file ``mydb.db`` (so the ``name`` attribute of ``DataBase`` followed by extension ``db``). The file is located in :token`myfolder`` as specified in :token:`path`. The ``Username`` and ``Password`` are set when the file is created. So this is different from the server databases, where the permissions are set by the server/database.
+The database is here the file ``mydb.db`` (so the ``name`` attribute of ``DataBase`` followed by extension ``db``). The file is located in :token:`myfolder`` as specified in :token:`path`. The ``Username`` and ``Password`` are set when the file is created. So this is different from the server databases, where the permissions are set by the server/database.
 
 
 
