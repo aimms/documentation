@@ -6,6 +6,16 @@ PRO 2.48
 
 (We skipped PRO 2.47 because of internal technical reasons).
 
+AIMMS PRO 2.48.2 Release
+------------------------
+
+On March 24, 2023, we released AIMMS PRO 2.48.2(2.48.2.1). 
+ 
+**Resolved Issues**
+
+   - Fixed an issue where you could no longer see some validation messages on Users page.
+   - Fixed an issue where it was no longer possible to assign the permissions to the previous versions of an App.
+
 AIMMS PRO 2.48.1 Release
 ------------------------
 
