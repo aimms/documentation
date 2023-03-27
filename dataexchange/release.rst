@@ -17,6 +17,12 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+
+2.0.1.44 [27-03-2023]
+	- Allow JSON documents to expand relative JSON pointers in place
+	- Filter unnecessary parameter schema from generated OpenAPI client code
+	- If possible, provide a more descriptive name for media type schema in generated OpenAPI client code
+
 2.0.1.41 [22-03-2023]
 	- Add support in DEX for keeping sessions alive for task REST service in cloud
 
