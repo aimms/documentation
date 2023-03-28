@@ -1,7 +1,7 @@
 Application Database
 ====================
 
-In addition to reading and writing data from and to files, DataExchange also supports some relational databases. These can be used as an application database. Typically one interacts with databases using the query language SQL, but DataExchanges allows us to do the reading and writing without SQL. Instead mappings used by the row based format can be used here as well.
+In addition to reading and writing data from and to files, DataExchange also supports some relational databases. These can be used to form an application database. Typically one interacts with databases using the query language SQL, but DataExchanges allows us to do the reading and writing without SQL. Instead mappings used by the row based format can be used here as well.
 
 
 .. tip::
@@ -29,20 +29,20 @@ Look at the following mapping for a database with a single table:
         </TableMapping>
     </AimmsDatabaseMapping>
 
-This mapping will create a table similar as in :ref:`example-excel-mapping`. The only difference with the Excel mapping is that the nodes ``AimmsExcelMapping`` and ``SheetMapping`` are replaced with ``AimmsDatabaseMapping`` and ``TableMapping``. This is mainly because DataExchange uses Excel as a collection of tables with rows and columns and not as a spreadsheet calculator. Relational databases are intended as collection of tables and are optimized for quick retrieval of data and for maintaining the integrity of data.
+This mapping will create a table similar as in :ref:`example-excel-mapping`. The only difference with the Excel mapping is that the nodes ``AimmsExcelMapping`` and ``SheetMapping`` are replaced with ``AimmsDatabaseMapping`` and ``TableMapping``. We can do this because DataExchange uses Excel only as a collection of tables with rows and columns and not as a spreadsheet calculator. On the other hand relational databases are actually intended as collection of tables. They are optimized for quick retrieval of data and for maintaining the integrity of data.
 
 
 Database tables
 ---------------
 
-One of the integrity checks performed by the database is to make sure that every row is unique. Columns can be declared as "primary key" for this check. If we look at the example we see two columns "set1" and "set2" with a ``binds-to`` attribute. When writing all values for columns with a ``maps-to`` attribute, the parameters, the values of ``i`` and ``j`` are unique. Only the first two columns need to be checked for uniqueness and therefore DataExchange will create a table where columns "set1" and "set2" are defined as primary keys.
+One of the integrity checks performed by the database is to make sure that every row is unique. Columns can be declared as *primary key* so that other columns can be excluded from the checks. If we look at the example we see two columns "set1" and "set2" with a ``binds-to`` attribute. When writing all values for columns with a ``maps-to`` attribute, the parameters, the values of ``i`` and ``j`` are unique. Only the first two columns need to be checked for uniqueness and therefore DataExchange will create a table where columns "set1" and "set2" are defined as primary keys.
 
 Rootset tables
 ^^^^^^^^^^^^^^
 
 Now the database only has to check two columns but still it requires comparing strings. DataExchange helps the database even more by creating helper tables for sets in the AIMMS model. Sets are either a rootset or some subset of a rootset, and their values are unique.
 
-For each root set involved in the database mapping, DataExchange creates a rootset table to store their values. The database will associate each value with an unique integer value. Now each ``binds-to`` column can be declared as a foreign key into the corresponding rootset table, so that all primary keys are integers that can be easily compared. 
+For each rootset involved in the database mapping, DataExchange creates a rootset table to store their values. The database will associate each value with an unique integer value. Now each ``binds-to`` column can be declared as a *foreign key* into the corresponding rootset table, so that all primary keys are integers that can be easily compared. 
 
 Note that columns for Element Parameters are also created as foreign keys into rootset tables, but unlike the ``binds-to`` columns they are not declared primary keys. Also note that rootset tables are shared among data tables.
 
@@ -52,7 +52,7 @@ Version table
 A database is less flexible than files so saving different versions of datasets into different files may not be possible.
 For this reason DataExchange also includes a versioning mechanism by adding an extra helper table ``ds_version`` to the database. This table stores the name of the dataset and assigns an integer value to it. 
 
-Each mapped table gets an extra column that is both a primary key and a foreign key into the versioning table. By passing along the name of the dataset when writing, multiple writes are possible into the same database.
+Each table that is defined in the mapping gets an extra column that is both a primary key and a foreign key into the versioning table. By passing along the name of the dataset when writing, multiple writes are possible into the same database.
 
 Table names
 ^^^^^^^^^^^
@@ -135,7 +135,7 @@ After writing the actual table with data will look like:
 Columns :token:`ver`, :token:`SetI` and :token:`SetJ` are the primary keys that make sure that each row in the table are unique. They are also foreign keys pointing to tables :token:`ds_version`, :token:`rs_seti` and :token:`rs_setj`. Note that in table :token:`MyTable` the string values of :token:`SetI` an :token:`SetJ` appear multiple times, while in :token:`rs_seti` and :token:`rs_setj` they appear only once. For checking integrity :token:`data_mytable` only has to deal with integers, which is more efficient that with strings.
 
 
-When reading, first the dataset name is looked up in table :token:`ds_version`. The corresponding :token:`pk` value is used to select only those rows from :token:`data_mytable` for which :token:`ver` has this value. Then, instead of sending the integer values from column :token:`Set` to AIMMS, the corresponding :token:`val` values from table :token:`rs_set` are send to AIMMS. So from AIMMS is still seems like we are reading from one single table while all four are involved. 
+When reading, first the dataset name is looked up in table :token:`ds_version`. The corresponding :token:`pk` value is used to select only those rows from :token:`data_mytable` for which :token:`ver` has this value. Then, instead of sending the integer values from columns :token:`Seti` and :token:`Setj` to AIMMS, the corresponding :token:`val` values from tables :token:`rs_seti` and :token:`rs_setj` are send to AIMMS. So from AIMMS is still seems like we are reading from one single table while all four tables are involved! 
 
 
 
@@ -145,9 +145,9 @@ Reading and Writing
 Reading and writing from and to the database can be accomplished with the functions ``dex::ReadFromDataSource()`` and ``dex::WriteToDataSource()``. They are similar to ``dex::ReadFromFile()`` and ``dex::WriteToFile()``, but there are two differences:
 
 1. The first argument of the function is not *the* file, but a so called DexConnect file. This is an xml configuration specifying the connection to the database.
-2. The last argument is string "version", which is the version name of the data set. Each call to ``dex::WriteToDataSource()`` will add this version as an entry to the :token:`ds_version` table. When calling ``dex::ReadFromDataSource()``, the version to read can be selected.
+2. The last argument is string "version", which is the version name of the data set. When calling ``dex::WriteToDataSource()`` this version will be added as an entry to the :token:`ds_version` table. So each call to ``dex::WriteToDataSource()`` needs a different value. If the version string is omitted or is empty then a unique name will be generated. When calling ``dex::ReadFromDataSource()``, the version string is used to select which dataset should be read be read. If the version string is empty the latest version is read.
 
-Note: When the database does not exist when writing, DataExchange will first try to create the database.
+Note: When the database does not exist when writing, DataExchange will try to create the database.
 
 The DexConnect file
 ^^^^^^^^^^^^^^^^^^^
@@ -164,8 +164,8 @@ Look at the following DexConnect file
         </Database>
     </AimmsDexConnect>
 
-The node ``Database`` tells that this is a connection to  a database.
-It has 3 **required** child nodes:
+Node ``Database`` makes this a database connection and attribute ``name`` is the name of the database.
+This node has 3 **required** child nodes:
 
 Client
     A client has to be chose from: SQLite, MySql, PostgreSQL or SQLServer.
@@ -180,24 +180,24 @@ Password
 Optional
 ^^^^^^^^
 
-There are a few extra options that can be configured as child nodes of ``Database``:
+There are a few **optional** options that can be configured as child nodes of ``Database``:
 
 Path 
-    This is used by SQLite to specify the folder of the database file. The default value is empty.
+    This can be used for SQLite to specify the folder of the database file. The default value is empty.
 
 Server
-    This is used by MySql, PostgreSQL and SQLServer. When not specified it defaults to ``localhost``. If the server does not use the default port the attribute port can be used to specify the port.
+    This can be used for MySql, PostgreSQL and SQLServer to specify the URL to connect to. The default value is ``localhost``. If the server does not use the default port, attribute ``port`` can be used to specify the port.
 
 StringSize
-    A database has two ways of storing strings. Use value 'text' for generic text storage. Use an integer value for a fix length string. The default value is 255. Note that this only applies to String Parameters. Version names and rootset tables always use integer value 255.
+    A database has two ways of storing strings. Use value ``text`` for generic text storage. Use an integer value as the maximum length of a text string. The default value is 255. Note that this option only applies to String Parameters, since version names and rootset tables always use integer value 255.
 
 WriteBatchSize
-    The batch size is the integer value of how many rows are inserted to the database at once. A high value is slower for a database, but for networking high is more efficient. A trade off has to be found. The default value is 1.
+    The batch size is the integer value that defines how many rows are inserted into the database at once. A high value is slower for a database, but for networking high is more efficient. A trade off has to be found. The default value is 1.
 
 Comment
     This node will be ignored, so it can be used to add comments
 
-This is an extended example for a MySql database. The server does not have the default port (3306 for MySql), the String Parameters are represented as :token:`text` and write uses a batch size of 7:
+This is an extended example for a MySql database. The server uses the non default port 3307 (3306 is default for MySql), the String Parameters are represented as :token:`text` and write uses a batch size of 7:
 
 .. code-block:: xml
 
@@ -220,12 +220,12 @@ Attributes of the Database node
 Besides the required attribute ``name`` the node ``Database`` can have optional attributes:
 
 RootsetTable
-    we can switch of the rootset tables and store the table just as in Excel by setting this to 0.
+    To switch of the rootset tables and store the table just as in Excel by setting this attribute to 0.
 
 VersionName
-    The default name of the column for versions is :token:`ver` and this can lead to a name clash with other column names in a table. With ``VersionName`` a different name for version columns can be chosen. If the name is an empty string the versioning itself is switch off.
+    The default name of the column for versions is :token:`ver` and this can lead to a name clash with other column names in a table. With ``VersionName`` a different name for version columns can be chosen. If the name is an empty string the versioning itself is switched off and the tables do not get an extra version column.
 
-This is an example for a SQLite database ``simpletables.db`` in folder "data". Attribute ``RootsetTables`` is 0, so values of set elements are appear directly into the tables. Also there is no versioning because the ``VersionName`` is set to be empty. All tables will be the same as when they would have been save in an Excel file.
+This is an example for a SQLite database ``simpletables.db`` in folder "data". Attribute ``RootsetTables`` is 0, so values of set elements appear directly into the tables and not in rootset tables. Also there is no versioning because the ``VersionName`` is an empty string. All tables will be the same as when they would have been saved in an Excel file.
 
 .. code-block:: xml
 
@@ -287,7 +287,7 @@ This is because when the column was added to the schema, for all existing rows t
 
 When a ``maps-to`` column is added that corresponds to a Element Parameter for which there is no rootset table, also a new rootset table is created when ``dex::CreateOrModifyDataSource()`` is called.
 
-Function  ``dex::CreateOrModifyDataSource()`` will not remove columns from a table, because this would mean that data written by an older version may be deleted. Instead just remove the unneeded columns from the mapping and the columns will be ignored.
+Function  ``dex::CreateOrModifyDataSource()`` will not remove columns from a table, because this would mean that data written by an older version may be deleted. Instead just remove the unneeded columns from the mapping and the columns will be ignored when reading or writing.
 
 
 
@@ -297,7 +297,7 @@ Supported Databases
 SQLite
 ^^^^^^
 
-SQLite is the only supported database that that is stored as a file.  For this reason it runs "out of the box" and does not require an external server to be running.  
+SQLite is the only supported database that is stored as a file.  For this reason it runs "out of the box" and does not require an external database server to be running.  
 
 We can use the following DexConnect file:
 
@@ -312,7 +312,7 @@ We can use the following DexConnect file:
         </Database>
     </AimmsDexConnect>
 
-The database is here the file ``mydb.db`` (so the ``name`` attribute of ``DataBase`` followed by extension ``db``). The file is located in :token:`myfolder`` as specified in :token:`path`. The ``Username`` and ``Password`` are set when the file is created. So this is different from the server databases, where the permissions are set by the server/database.
+The database is here the file ``mydb.db`` (so the ``name`` attribute of ``DataBase`` followed by extension ``db``). The file is located in :token:`myfolder`` as specified in :token:`path`. The ``Username`` and ``Password`` are set when the file is created. So this is different from the server databases, where the permissions are determined by the server/database.
 
 
 
