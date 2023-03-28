@@ -4,6 +4,10 @@ Application Database
 In addition to reading and writing data from and to files, DataExchange also supports some relational databases. These can be used as an application database. Typically one interacts with databases using the query language SQL, but DataExchanges allows us to do the reading and writing without SQL. Instead mappings used by the row based format can be used here as well.
 
 
+.. tip::
+
+    It is still possible to see the SQL statements. When ``DataExchange.DbEngine`` logging is set to trace, it will show the status of the connection to the database and the SQL statements in the log file. 
+
 Example: Database mapping
 -------------------------
 
