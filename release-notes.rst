@@ -12,6 +12,22 @@ AIMMS 4.92
 #############
 
 
+
+AIMMS 4.92.11 Release (March 29, 2023 - build 4.92.11.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When calling a procedure that is located in a runtime library that still requires compilation, this compilation is now automatically performed before running the procedure.
+
+--------------
+
+
+
+
 AIMMS 4.92.10 Release (March 23, 2023 - build 4.92.10.1).
 ------------------------------------------------------------------------------------------
 
