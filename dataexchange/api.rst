@@ -46,7 +46,32 @@ Methods for reading and writing data
     :param mappingName: the name of the mapping to be used for writing
     :param pretty: indicates whether to use a pretty writer (enhances readability at the cost of bigger file size)
 
+.. js:function::  dex::ReadFromDataSource(dexconFile,mappingName,emptyIdentifiers,emptySets,resetCounters,version)
 
+    Reads from the database defined in DexConnect file :token:`dexconFile` into model identifiers using mapping :token:`mappingName`. Note that the identifiers used in the :token:`included-mapping` and :token:`write-filter` will also be emptied, depending on the :token:`emptyIdentifiers` argument. When the mapping contains an the :token:`included-mapping` or the :token:`iterative-existing` attributes, emptying sets is likely to cause problems, unless the domain sets referred in these attributes are defined. In that case it is better to call :js:func:`dex::ResetMappingData` for selected mappings, or reset counters selectively using the :token:`iterative-reset` attribute. The function will return 1 on success, or 0 on failure.
+    
+    :param dexconFile: the relative path to the DexConnect file defining the database configuration
+    :param mappingName: the name of the mapping to be used
+    :param emptyIdentifiers: indicates whether all identifiers referred in the mapping should be emptied prior to reading the file
+    :param emptySets: indicates whether all domain and range sets referred in the mapping should be emptied prior to reading the file
+    :param resetCounters: indicates whether to reset all counters for :token:`iterative-binds-to` indices prior to reading the file
+    :param version: The version name of the dataset to be read. If this string is empty or omitted, the last version will be selected.
+
+.. js:function::  dex::WriteToDataSource(dexconFile,mappingName,version)
+
+    Writes to the database defined in DexConnect file :token:`dexconFile` from data in model identifiers using mapping :token:`mappingName`. The function will return 1 on success, or 0 on failure. It will try to create the database if it does not exist.
+    
+    :param dexconFile: the relative path to the DexConnect file defining the database configuration
+    :param mappingName: the name of the mapping to be used for writing
+    :param version: The version name of the data set to be written. If left empty or empty string, DataExchange will create a name like "v\_123", where 123 is the primary key number.
+
+.. js:function::  dex::CreateOrModifyDataSource(dexconFile,mappingName)
+
+    Create a database as define by :token:`dexconFile` and mapping :token:`mappingName`. If the database exist it will check if the table can and needs to be modified. Currently it only allows to add ``maps-to`` columns. The function will return 1 on success, or 0 on failure.
+    
+    :param dexconFile: the relative path to the DexConnect file defining the database configuration
+    :param mappingName: the name of the mapping defining the (new) schema of the tables 
+    
 .. js:function::  dex::ReadAllMappings
 
     Read all mappings contained in the folder :token:`Mappings` and store all successfully read mappings in the set :token:`dex::Mappings`. The function will return 1 on success, or 0 on failure.
