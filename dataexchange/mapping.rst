@@ -58,7 +58,7 @@ The following are the elements allowed in a Parquet mapping
 * the ``ColumnMapping`` element, a mapping element used to map the value of a column in a Parquet table
 
 Database Mapping elements
-========================
+=========================
 
 The following are the elements allowed in a Parquet mapping
 
