@@ -10,10 +10,7 @@ Data Exchange Roadmap
 
 The DataExchange library is under active development. The following new features are on the roadmap of the DataExchange library:
 
-- Creation of OpenAPI specifications for model-based REST APIs
-- Automated creation of application databases based on the ``dex::Dataset`` and ``dex::TableName`` annotations. 
-- Adding these application databases as an additional data source to the (synchronous) DataExchange read and write methods next to JSON, XML, CSV and Excel files.
-- Exposing these application databases to external applications via dedicated application database-specific API services. This will also allow for asynchronous reading and writing to such application databases from within an AIMMS model. 
+- Exposing DEX-generated application databases to external applications via dedicated application database-specific API services. This will also allow for asynchronous reading and writing to such application databases from within an AIMMS model. 
 
 New Features and Bug Fixes
 --------------------------

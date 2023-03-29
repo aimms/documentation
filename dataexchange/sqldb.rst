@@ -242,7 +242,7 @@ This is an example for a SQLite database ``simpletables.db`` in folder "data". A
 Create Or Modify
 ----------------
 
-When an AIMMS application uses an application database, the end user is primary interested in reading and writing data. This can be accomplished using functions ``dex::ReadFromDataSource()`` and ``dex::WriteToDataSource()``. The application developer also has to look after the database itself. While developing the application the database connection has to be tested, and tables have to be created etc. Then when the application is in use a version 2.0 can be under development and schemes of tables may have to be modified.
+When an AIMMS application uses an application database, the end user is primarily interested in reading and writing data. This can be accomplished using functions ``dex::ReadFromDataSource()`` and ``dex::WriteToDataSource()``. The application developer also has to look after the database itself. While developing the application the database connection has to be tested, and tables have to be created etc. Then when the application is in use a version 2.0 can be under development and schemes of tables may have to be modified.
 
 The function ``dex::CreateOrModifyDataSource()`` targets the application developers. It has two arguments:
 
