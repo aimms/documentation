@@ -1,12 +1,12 @@
 Application Database
 ====================
 
-In addition to reading and writing data from and to files, DataExchange also supports some relational databases. These can be used to form an application database. Typically one interacts with databases using the query language SQL, but DataExchanges allows us to do the reading and writing without SQL. Instead mappings used by the row based format can be used here as well.
+In addition to reading and writing data from and to files, the DataExchange library also supports data transfer with relational databases. Together with the capability to create DataExchange mappings from identifier annotations, you can use this functionality for let the Data Exchange library generate an application database for you AIMMS application. Typically one interacts with databases using the query language SQL, but the DataExchange library lets you use mappings used by the row based format here as well.
 
 
 .. tip::
 
-    It is still possible to see the SQL statements. When ``DataExchange.DbEngine`` logging is set to trace, it will show the status of the connection to the database and the SQL statements in the log file. 
+    It is still possible to see the SQL statements. When ``DataExchange.DbEngine`` logging is set to trace level, it will show the status of the connection to the database and the SQL statements used in the database transfer in the log file. 
 
 Example: Database mapping
 -------------------------
