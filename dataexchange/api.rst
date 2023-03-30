@@ -473,7 +473,7 @@ For JSON schema and OpenAPI specifications, the Data Exchange library can genera
 
 ..  js:function:: dex::schema::ParseJSONSchema
 
-	Generate a runtime library containing a collection of identifiers, along with a collection of mapping files that can read/write any JSON file that adheres to the schema into the identifiers in the runtime library. 
+	Generate a runtime library containing a collection of identifiers, along with a collection of mapping files that can read/write any JSON file that adheres to the schema into the identifiers in the runtime library. The function expects a JSON schema following the JSON meta schema ``https://json-schema.org/draft/2020-12/schema``.
 	
 	:param schemaPath: absolute or relative path where to find the JSON schema file from which to generate the runtime library
 	:param schemaName_: name of the schema for which to create a runtime library and mapping, will also serve as the name of the runtime library.
@@ -484,7 +484,7 @@ For JSON schema and OpenAPI specifications, the Data Exchange library can genera
 
 ..  js:function:: dex::schema::GenerateClientFromOpenAPISpec
 
-	Generate a runtime library containing a collection procedures to call all operations defined in the OpenAPI specification, along with a collection of identifiers and their corresponding mappings, than are used to store the data of the request and response bodies associated with these operations. 
+	Generate a runtime library containing a collection procedures to call all operations defined in the OpenAPI specification, along with a collection of identifiers and their corresponding mappings, than are used to store the data of the request and response bodies associated with these operations. The function expects a OpenAPI 3.1 specification. 
 
 	The library will be stored to disk, along with all generated mappings, in a subfolder of the folder located to by the string parameter ``dex::schema::libprj::LibraryRootFolder``. The ``LibraryInitialization`` procedure from the generated library will read initialization data from a library-specific file in the folder located to by the string parameter ``dex::schema::libprj::ApiInitFolder``. In that file you can, for instance, initialize settings such as the server URL, the API key to be used, or the OAuth2 credentials to be used.
 
