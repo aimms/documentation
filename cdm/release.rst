@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.29.0.1 [30-02-2023]
+	- Addressed an issue where a checkout of an identifier with two indices in the same, very large, set took a very long time
+
 1.28.0.0 [09-03-2023]
 	- Commit times for sets and multi-dimensional identifiers are now measured and logged (at trace level)
 	- Root set labels are now inserted into the CDM database in batches (instead of one-by-one) like multi-dimensional identifier values
