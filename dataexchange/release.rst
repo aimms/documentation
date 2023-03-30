@@ -14,9 +14,11 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
-
+2.1.0.1 [29-03-2023]
+	- Add capability to generate and read/write to application databases from DEX mappings (whether manually created or generated from annotations), with support for SQLite, MySQL, PostgreSQL and SQLServer backends
+	
 2.0.1.44 [27-03-2023]
-	- Allow JSON documents to expand relative JSON pointers in place
+	- Allow JSON documents to expand relative JSON in place
 	- Filter unnecessary parameter schema from generated OpenAPI client code
 	- If possible, provide a more descriptive name for media type schema in generated OpenAPI client code
 
