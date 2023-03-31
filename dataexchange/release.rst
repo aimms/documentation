@@ -14,8 +14,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
-2.1.0.4 [31-03-2023]
+2.1.0.5 [31-03-2023]
 	- Empty cells in an excel sheet of type string would return an exception when converted to a numeric value
+	- Removing set elements from sets would result in inactive data being displayed in generated data files
 	- Introduced new mapping attribute `skip-empty-rows` to skip empty rows in row-based mappings
 	
 2.1.0.2 [29-03-2023]
