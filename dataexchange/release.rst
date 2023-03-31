@@ -14,6 +14,10 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.1.0.4 [31-03-2023]
+	- Empty cells in an excel sheet of type string would return an exception when converted to a numeric value
+	- Introduced new mapping attribute `skip-empty-rows` to skip empty rows in row-based mappings
+	
 2.1.0.2 [29-03-2023]
 	- Add capability to generate and read/write to application databases from DEX mappings (whether manually created or generated from annotations), with support for SQLite, MySQL, PostgreSQL and SQLServer backends
 	- The function ``dex::schema::ParseJsonSchema`` failed because the mapping to generate an AIMMS library project file was not loaded.

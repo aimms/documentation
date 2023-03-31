@@ -89,6 +89,7 @@ The available mapping attributes are:
 * implicit-binds-to
 * binds-existing
 * binds-skip-non-existing
+* skip-empty-rows
 * maps-to
 * max-string-size    
 * range-existing
@@ -147,6 +148,11 @@ The binds-existing and binds-skip-non-existing attribute
 The ``binds-existing`` attribute can be used in conjunction with the ``binds-to``, ``name-binds-to`` and ``iterative-binds-to`` attribute to indicate that, when reading a data file, no new set elements will be created based on node values or names. If a newly read or generated element is not present in the set, any data value underneath the node to which the element is bound will be skipped or lead to an error depending on the value of the ``binds-skip-non-existing`` attribute. This allows for a filtering mechanism where a data file can only be partially read for all nodes that correspond to existing set elements in the model. This option behaves slightly different than the  ``iterative-existing`` attribute for iterative bindings which will always return with an error in such a case. 
 
 The ``binds-skip-non-existing`` attribute specifies the desired behavior when the Data Exchange library encounters a non-existing element for a ``binds-to`` attribute. If you specify a value of 0, an error will be returned, while with the default value of 1 all data dependent on the empty value for the ``binds-to`` attribute will be silently skipped. You can use this attribute to skip objects or rows that are indexed by empty labels in the data file, but also by non-empty labels that cannot be added to e.g. a defined set in the model.
+
+The skip-empty-rows attribute
+-----------------------------
+
+With the ``skip-empty-rows`` attribute you can let the Data Exchange library skip completely empty rows in row-based mappings. When specified, all columns present in the mapping will be checked, while non-mapped columns will be not be checked. You can use this to allow reading data from e.g. Excel sheets where the user inserted empty lines in between data. When ``binds-skip-non-existing`` is set to 0, the Data Exchange library will still pick up empty fields for columns that bind to indices in your model on non-empty lines.
 
 External bindings in mappings
 -----------------------------
