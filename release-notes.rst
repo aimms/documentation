@@ -13,6 +13,22 @@ AIMMS 4.92
 
 
 
+AIMMS 4.92.12 Release (March 31, 2023 - build 4.92.12.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We added the AIMMS procedure `webui::IsWebUIDialogOpen`, which returns 1 when a dialog is currently open on the WebUI and 0 otherwise. It can be used to assert that no dialog is currently open before starting a new one.
+
+--------------
+
+
+
+
+
 AIMMS 4.92.11 Release (March 29, 2023 - build 4.92.11.1).
 ------------------------------------------------------------------------------------------
 
