@@ -9720,3 +9720,4 @@ Improvements
 	headerless
 	stylesheets
 	dropdowns
+	IsWebUIDialogOpen
