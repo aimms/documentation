@@ -13,7 +13,7 @@ Pages and Dialog Support has been added to the AimmsWebUI library to be able to 
 
 .. image:: images/pageanddialogsupportsection.png
 			:align: center
-
+    
 .. _public-pages-support-declarations:
 
 Public Pages Support Declarations 
@@ -243,6 +243,10 @@ Public Dialog Support Procedures
   This procedure is used to open `dialog pages <page-manager.html#dialog-pages>`__ via the model, either by clicking on a button or some interaction in the model. 
   
   See `OpenDialogPage`_ below.
+
+.. aimms:procedure:: IsWebUIDialogOpen() 
+
+  This procedure is used to check whether a dialog is currently open on the WebUI. It can be used to assert that no dialog is currently open before starting a new one.
 
 .. note::
 
