@@ -14,6 +14,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.1.0.6 [01-04-2023]
+	- Fixed name length check for sheet names in Excel, and table and column names in databases
+
 2.1.0.5 [31-03-2023]
 	- Empty cells in an excel sheet of type string would return an exception when converted to a numeric value
 	- Removing set elements from sets would result in inactive data being displayed in generated data files
