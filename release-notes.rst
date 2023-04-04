@@ -8,7 +8,7 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
-AIMMS 4.92
+AIMMS 4.93
 #############
 
 
@@ -33,7 +33,7 @@ WebUI Improvements
 
 -  Previously, it was not possible as an app developer to easily access a workflow page once it had been marked hidden or inactive. You first had to make it visible or active again. Now you can always access such pages through the App manager of the WebUI.
 -  Now the Table and Scalar widgets support an indexed Element Parameter that is ranged over an Indexed Set.
--  The use of a single WebUI page in multiple workflows has been made more intuitive. Now you will remain in the same workflow when activating a step which is part of more than one workflow. The exact behavior is DOCUMENTED HERE.
+-  The use of a single WebUI page in multiple workflows has been made more intuitive. Now you will remain in the same workflow when activating a step which is part of more than one workflow. The exact behavior is documented `here <https://documentation.aimms.com/webui/workflow-panels.html#configuring-a-pageid-in-multiple-workflows>`__.
 -  We further improved the error validation and messages on the workflow mechanism.
 -  Now you can add up to 10 tabs in a WebUI sidepanel.
 
@@ -46,6 +46,9 @@ Resolved WebUI Issues
 --------------
 
 
+#############
+AIMMS 4.92
+#############
 
 
 AIMMS 4.92.12 Release (March 31, 2023 - build 4.92.12.2).
