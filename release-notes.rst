@@ -12,6 +12,41 @@ AIMMS 4.92
 #############
 
 
+AIMMS 4.93.1 Release (April 4, 2023 - build 4.93.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The new option 'presolve remove duplicate variables' has been added to the AIMMS Presolver.
+-  The new procedure GMP::Instance::AddLimitBinaryDeviationRow adds a constraint to a generated math program that sets a limit on the number of binary variables of which the solution value is allowed to vary. That way you can re-optimize an MIP problem after making some modifications and limit the impact of those modifications on the solution. Adding this constraint can have a negative impact on the objective value and therefore you have to make a trade-off between the solution quality and how much the solution is allowed to vary.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If the value of the option 'Listing and Temporary Files' was changed then the output folder in which the solver logs and the listing file were written was only changed after restarting AIMMS.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  Previously, it was not possible as an app developer to easily access a workflow page once it had been marked hidden or inactive. You first had to make it visible or active again. Now you can always access such pages through the App manager of the WebUI.
+-  Now the Table and Scalar widgets support an indexed Element Parameter that is ranged over an Indexed Set.
+-  The use of a single WebUI page in multiple workflows has been made more intuitive. Now you will remain in the same workflow when activating a step which is part of more than one workflow. The exact behavior is DOCUMENTED HERE.
+-  We further improved the error validation and messages on the workflow mechanism.
+-  Now you can add up to 10 tabs in a WebUI sidepanel.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The Combination Chart widget now supports custom tooltips on X-Axis labels.
+-  The styling of the List entry button (the '+' button), which is available in the Map and Combination chart widget option editors, has been improved and now resembles button widget styling.
+
+--------------
+
+
+
 
 AIMMS 4.92.12 Release (March 31, 2023 - build 4.92.12.2).
 ------------------------------------------------------------------------------------------
