@@ -16,7 +16,7 @@ This section describes various tasks related to WebUI side panels.
   - Side panels are available in software versions from AIMMS 4.64 onwards.
   - A Side panels tutorial is available in the `WebUI Advanced User Interactions <https://academy.aimms.com/course/view.php?id=57>`__ course on `the AIMMS Academy <https://academy.aimms.com/>`__.
 
-	The feature of configuring icons and icon colors on a side panel tab is available in software versions from AIMMS 4.80 onwards.
+  - The feature of configuring icons and icon colors on a side panel tab is available in software versions from AIMMS 4.80 onwards.
 
 Side panels are special pages with a fixed width of two columns which can be accessed on various regular pages in an application by using tabs on the right-hand side of the page (see illustrations bellow). Side panels can be configured with widgets and can help building model interactions. Also, they can hold widgets (such as filters) which are required by several pages, preventing the need to duplicate such widgets on each individual page. This way, side panels help to free up space on regular pages.
 
@@ -172,7 +172,10 @@ Once you have added the string parameter, the respective side panel tabs will ap
 			
 Similarly, you can create some (other) string parameters for other pages and configure them using the same steps.
 
-You can configure as many side panels as you need in your application. However, please note that, since there is limited screen space, **AIMMS WebUI only displays the top 6 side panels on each page.**
+.. note::
+
+   You can configure as many side panels as you need in your application. However, please note that, since there is limited screen space, only a limited number of side panels will be displayed on a page. 
+   More specifically, in software versions from AIMMS 4.64 until AIMMS 4.92, AIMMS WebUI displays only the top 6 side panels on a page. Starting from AIMMS 4.93, this limit has been increased such that **up to 10 side panels are displayed on a page**.
 
 Interacting with side panels
 ----------------------------

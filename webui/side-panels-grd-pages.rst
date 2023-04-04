@@ -252,7 +252,9 @@ Once you have added the string parameter, the respective side panel tabs will ap
 Similarly, you can create some (other) string parameters for other pages and configure them using the same steps. You can configure as many side panels as you need in your application. 
 
 .. note::
-	Please note that, since there is limited screen space, **AIMMS WebUI only displays the first 6 side panel tabs on each (regular) page**. So, even though the string parameter used for configuring the side panel may have data for 7 or more tabs, only the first 6 valid tabs will become visible. For consistency, the size of the tabs is always the same, i.e. 1/6\ :sup:`th`\  of the available height, no matter how many tabs are shown or how long the title text of a tab is.
+
+   You can configure as many side panels as you need in your application. However, please note that, since there is limited screen space, only a limited number of side panels will be displayed on a page. 
+   More specifically, in software versions from AIMMS 4.64 until AIMMS 4.92, AIMMS WebUI displays only the top 6 side panels on a page. Starting from AIMMS 4.93, this limit has been increased such that **up to 10 side panels are displayed on a page**.
 
 Interacting with side panels
 ----------------------------

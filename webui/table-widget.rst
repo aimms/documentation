@@ -50,17 +50,18 @@ The table widget offers the user possibilities for various actions such as:
   * You can use the 0 or the 1 key to set binary values displayed as checkboxes that have the focus.
   
   * You can use the **SPACE BAR** to toggle binary values displayed as checkboxes that have the focus.
-    
-  * In AIMMS versions below 4.87, you can use either **ENTER** or **ALT+ARROW DOWN** to open the drop-down list in focus, in order to change its value. In 4.87 and higher, only **ALT+ARROW DOWN** does this.
-  
+ 
   * In AIMMS 4.87 and higher, pressing **ENTER** takes you to the cell below.
 
   * In AIMMS 4.87 and higher, opening a DateTime cell with the keyboard should be done with either **ALT+ARROW DOWN** or **CTRL+SPACEBAR**.
+  
+  * In AIMMS versions up to 4.87, you could use either **ENTER** or **ALT+ARROW DOWN** to open the drop-down list in focus, in order to change its value. In AIMMS 4.87 and higher, only **ALT+ARROW DOWN** does this.
 
-   .. note::
+.. note::
 
-       From AIMMS 4.91 onwards, the dropdown that appears when you click on an element parameter in a table uses the same underlying technology as the Selectionbox widget. In practice, that means that it is more reactive to data changes in the underlying model while open. Furthermore, the current/default entry has been removed. For a table you can use the delete key to empty any cell (which sets it to default), including the dropdown cells. 
+   From AIMMS 4.91 onwards, the dropdown that appears when you click on an element parameter in a table uses the same underlying technology as the Selectionbox widget. In practice, that means that it is more reactive to data changes in the underlying model while open. Furthermore, the current/default entry has been removed. For a table you can use the delete key to empty any cell (which sets it to default), including the dropdown cells. 
 
+   Starting from AIMMS 4.93, if a dropdown cell in a table corresponds to an indexed element parameter which has as range an indexed (sub-)set, then upon clicking that cell only the entries (elements) from the specific indexed set at hand will be shown in the dropdown list.
 
 * Starting from AIMMS 4.90, it is also possible to sort the table headers, that is, the elements of one of the sets involved in the table (through the specification of its index in the shown data).
 

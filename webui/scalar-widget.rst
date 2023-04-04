@@ -41,9 +41,14 @@ Here are some examples of the scalar widget that show you some typical usage.
 .. image:: images/scalar-multiline.png
     :align: center
 
+.. note::
 
-Date and Time picker for Element parameters
--------------------------------------------
+   In a scalar widget showing an element parameter you can open the drop-down list in focus in order to change its value (to one of the values in its range).
+   
+   Starting from AIMMS 4.93, if a dropdown cell in a scalar widget corresponds to an indexed element parameter which has as range an indexed (sub-)set, then upon clicking that cell only the entries (elements) from the specific indexed set at hand will be shown in the dropdown list.
+
+Date and Time picker for element parameters with a calendar range
+-----------------------------------------------------------------
 
 .. Important:: 
     The Date and Time picker is available in software versions from AIMMS 4.77 onwards.
