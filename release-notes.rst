@@ -21,7 +21,8 @@ AIMMS Improvements
 +++++++++++++++++++++++++
 
 -  The new option 'presolve remove duplicate variables' has been added to the AIMMS Presolver.
--  The new procedure GMP::Instance::AddLimitBinaryDeviationRow adds a constraint to a generated math program that sets a limit on the number of binary variables of which the solution value is allowed to vary. That way you can re-optimize an MIP problem after making some modifications and limit the impact of those modifications on the solution. Adding this constraint can have a negative impact on the objective value and therefore you have to make a trade-off between the solution quality and how much the solution is allowed to vary.
+-  The new procedure GMP::Instance::AddLimitBinaryDeviationRow adds a constraint to a generated math program that sets a limit on the number of binary variables of which the solution value is allowed to vary. That way you can re-optimize an MIP problem after making some modifications and limit the impact of those modifications on the solution. Adding this constraint can have a negative impact on the objective value and therefore you have to make a trade-off between the solution quality and how much the solution is allowed to vary. For details, see `here <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_instance-procedures-and-functions/gmp_instance_addlimitbinarydeviationrow.html>`__.
+
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
