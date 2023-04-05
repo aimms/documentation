@@ -47,6 +47,11 @@ Any editable data from the active case will be shown in blue in the table, where
 
 Next to using the data management pane to add cases to the list of "compared cases", you can also do this from within AIMMS. In the AimmsWebUI library, there is the ``webui::CompareCaseBool`` identifier. This identifier is set to 'true' when a case is added to the list of "compared cases" and false when it is removed from the list. If you want to add or remove cases to/from the list of "compared cases" from within a procedure in AIMMS, you can update this ``webui::CompareCaseBool`` identifier.
 
+   .. note::
+
+        From AIMMS 4.94 onwards, the app developer can specify on a per widget basis whether that widget supports case comparison mode or not. In the widget options of the Table and the Chart widgets, the binary option "Case Comparison" is introduced to that end.
+
+
 Private vs. shared cases
 ------------------------
 
