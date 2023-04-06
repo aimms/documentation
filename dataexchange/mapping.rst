@@ -182,6 +182,8 @@ The write-defaults attribute
 
 For all row-based formats (CSV, Excel, Parquet, database), cells for which no data is present in the ``maps-to`` identifier will be left empty by default. With the ``write-defaults`` attribute you can indicate that you want the default value of that identifier to be written to such cells instead. You can specify the value 1 to the ``write-defaults`` attribute on a ``ColumnMapping``, or on the ``RowMapping`` or ``ExcelSheetMapping``. For the latter, the ``write-defaults`` attribute will be applied to all underlying ``ColumnMappings``. The default value for the ``write-defaults`` attribute is 0.
 
+Similarly, for JSON and XML mappings, you can set the ``write-defaults`` attribute for any value-holding mapping element. On its own it will never cause an element which contains a value with the  ``write-defaults`` attribute set to generated, but if such an element is generated because another child holds a non-default value, then the value with `` write-defaults`` attribute will also be generated, even if it holds no non-default value. 
+
 The range-existing attribute
 ----------------------------
 

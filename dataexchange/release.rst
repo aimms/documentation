@@ -14,6 +14,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.1.0.7 [06-04-2023]
+	- JSON schema parser ignored `required` status of properties in a JSON schema when writing using the generated mappings
+	
 2.1.0.6 [01-04-2023]
 	- Fixed name length check for sheet names in Excel, and table and column names in databases
 
