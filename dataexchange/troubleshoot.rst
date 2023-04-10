@@ -15,3 +15,5 @@ Errors and Warnings
 *ReadFromStream: <i_subset>: ERROR: No (active) element with name <elementValue> in set (error 136)*
 	In this case, check if you are trying to read data to a master set, and then for a subset of the master set. If you are, please after the read of the master set, add a ``update`` function to the subsets. 
 
+*Warning: The 'queryMap' argument has a dimension mismatch. This will be treated as an error in a future AIMMS versions. Perhaps the argument should be declared as a Handle.*
+	Update DEX version on Library Manager by re-adding the library.
