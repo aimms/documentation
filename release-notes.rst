@@ -12,6 +12,22 @@ AIMMS 4.93
 #############
 
 
+
+AIMMS 4.93.2 Release (April 14, 2023 - build 4.93.2.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The postsolve of an MIP with lazy constraints, solved with CPLEX, could be slow.
+
+--------------
+
+
+
+
 AIMMS 4.93.1 Release (April 4, 2023 - build 4.93.1.1).
 ------------------------------------------------------------------------------------------
 
