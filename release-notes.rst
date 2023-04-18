@@ -20,7 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  A database table write action with a fixed index could fail, deleting some rows in the database.
+-  Using indexed database tables, with a fixed value for the index, row deletes were not executed sometimes.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
