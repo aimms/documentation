@@ -12,6 +12,29 @@ AIMMS 4.93
 #############
 
 
+AIMMS 4.94.1 Release (April 18, 2023 - build 4.94.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  A database table write action with a fixed index could fail, deleting some rows in the database.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We added the possibility to filter on the actual identifier(s) being displayed in the Table widget, similar to the already existing filtering functionality.
+-  App developers can now choose whether or not the end-user is allowed to apply case comparison for each individual Table or Chart widget.
+-  App developers can now choose whether or not the end-user is allowed to apply case comparison for each individual chart widget.
+
+(edit Mischa: taking this release note together with the one in #4369).
+
+--------------
+
+
+
 
 AIMMS 4.93.2 Release (April 14, 2023 - build 4.93.2.5).
 ------------------------------------------------------------------------------------------
