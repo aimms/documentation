@@ -572,6 +572,8 @@ The "is" and "is not" operators allow you to select one or more elements from th
 
 The same visual indications are seen when the filters are applied as explained in the above steps.
 
+A special case of this columns/row header filtering is the filtering on the Identifier header. It works exactly the same and it allows you to filter on which actual identifiers are displayed in the table. Please note that this identifier filtering works from AIMMS 4.94 onwards.
+
 You can also remove selected elements by either clicking on the "x" on each individual element, or remove the complete selection by clicking the "X" in the selection box, as illustrated below.
 
     .. image:: images/TableFilters_FilterHeaderRemove1.png
@@ -579,6 +581,7 @@ You can also remove selected elements by either clicking on the "x" on each indi
 
     .. image:: images/TableFilters_FilterHeaderRemoveAll.png
         :align: center
+
 
 To edit filter rules
 ^^^^^^^^^^^^^^^^^^^^
@@ -688,6 +691,9 @@ Regular Expressions
 ^^^^^^^^^^^^^^^^^^^
 
 The last String/Elt Operator mentioned in the tables above ('matches regex') needs some more explanation. It allows you to use regular expressions in your filtering, providing additional flexibility over the other String/Elt Operators. The regular expressions that are accepted are those that are accepted in all search boxes in the WebUI. For details and examples on which expression you can use and on how to use them, please refer to the `documentation of the search boxes <widget-manager.html#using-the-search-boxes>`_.
+
+.. note ::
+    Please note that the 'contains', the 'does not contain' and the 'regex' filters do not take into account any translations that are applied through a .properties file. Using the webui::IdentifierElementText translation mechanism instead, these filters work as expected.
 
 Best Practices
 ^^^^^^^^^^^^^^
