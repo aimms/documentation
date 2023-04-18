@@ -22,7 +22,7 @@ Resolved AIMMS Issues
 
 -  Using indexed database tables, with a fixed value for the index, row deletes were not executed sometimes.
 
-Resolved WebUI Issues
+WebUI Improvements
 +++++++++++++++++++++++++
 
 -  We added the possibility to filter on the actual identifier(s) being displayed in the Table widget, similar to the already existing filtering functionality.
