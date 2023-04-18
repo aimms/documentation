@@ -755,3 +755,8 @@ There are different combinations of the date and time picker which are controlle
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 
 When the Unit is set to Century, Year, Month or Day, the time picker is not displayed.
+
+
+.. spelling:word-list::
+
+    IdentifierElementText
