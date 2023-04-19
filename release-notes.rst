@@ -25,7 +25,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We added the possibility to filter on the actual identifier(s) being displayed in the Table widget, similar to the already existing filtering functionality.
+-  We added the possibility to filter on the actual identifier(s) being displayed in the Table widget, similar to the already existing filtering functionality. For details, see the `documentation <https://documentation.aimms.com/webui/table-widget.html#to-add-filter-rules-to-the-identifier-header>`__.
 -  App developers can now choose whether or not the end-user is allowed to apply case comparison for each individual Table or Chart widget.
 
 --------------
