@@ -572,6 +572,9 @@ The "is" and "is not" operators allow you to select one or more elements from th
 
 The same visual indications are seen when the filters are applied as explained in the above steps.
 
+To add filter rules to the identifier header
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 A special case of this columns/row header filtering is the filtering on the Identifier header. It works exactly the same and it allows you to filter on which actual identifiers are displayed in the table. Please note that this identifier filtering works from AIMMS 4.94 onwards.
 
 You can also remove selected elements by either clicking on the "x" on each individual element, or remove the complete selection by clicking the "X" in the selection box, as illustrated below.
