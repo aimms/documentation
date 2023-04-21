@@ -12,6 +12,24 @@ AIMMS 4.94
 #############
 
 
+
+AIMMS 4.94.2 Release (April 21, 2023 - build 4.94.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Identifiers with a prefix that were renamed using the webui::IdentifierElementText method, were displayed untranslated when case comparison mode was being used in the WebUI.
+-  The Case Comparison switch, which was introduced in AIMMS 4.94.1, was missing for the Combination Chart Widget.
+-  Updatable identifiers in a library were wrongly shown as read-only when WebUI was in case-comparison mode.
+
+--------------
+
+
+
+
 AIMMS 4.94.1 Release (April 18, 2023 - build 4.94.1.1).
 ------------------------------------------------------------------------------------------
 
