@@ -9833,3 +9833,4 @@ Improvements
 	stylesheets
 	dropdowns
 	IsWebUIDialogOpen
+	IdentifierElementText
