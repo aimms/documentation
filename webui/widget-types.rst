@@ -22,6 +22,7 @@ More details on each widget are included in one of the corresponding sections be
    group-widget
    image-widget
    label-widget
+   legend-widget
    line-chart-widget
    list-widget
    map-widget
