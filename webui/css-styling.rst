@@ -53,10 +53,10 @@ The WebUI uses flags to indicate whether a certain DOM element corresponds to a 
 .. image:: images/Annotations_view2.png
     :align: center
 
-Finally, one can assign the value ``readOnly`` to ``FlagsOfX(i,j)`` for the (updatable) values of X(i,j) which should appear as read-only in the front-end.
+Finally, one can assign the value ``readOnly`` to ``FlagsOfX(i,j)`` for the (updatable in the model) values of X(i,j) which should appear as read-only in the front-end.
 
 .. note:: 
-     Please note that in AIMMS versions prior to 4.71, you had to define a string parameter called :token:`X_flags(i,j)` (with the domain of this '_flags identifier' being a valid subdomain of the original identifier) in order to achieve the same result. This had the disadvantage that when you renamed the original identifier, the '_flags identifier' was not automatically renamed with it, possibly leading to unexpected effects in the WebUI front-end.
+     Please note that in AIMMS versions prior to 4.71, you had to define a string parameter called :token:`X_flags(i,j)` (with the domain of this '_flags identifier' being a valid subdomain of the original identifier) in order to achieve the same result. This had the disadvantage that when you renamed the original identifier, the '_flags identifier' was not automatically renamed along with it, possibly leading to unexpected effects in the WebUI front-end.
 
 
 Widgets and CSS properties supported for annotations
@@ -152,7 +152,7 @@ For arcs on the map widget the CSS properties vary slightly as illustrated below
 
 The Table, Treemap Chart and Scalar widget use the DIV element. A DIV defines a division or a section in an HTML document. The <div> element is often used as a container for other HTML elements to style them with CSS or to perform certain tasks with JavaScript. AIMMS supports the use of background and font properties.
 
-The illustration below shows the use of DIV properties to change the background and font of a table cell when the annotation "blue" is added to the identifier. Followed by illustrations of the TreeMap and Scalar widgets.
+The illustration below shows the use of DIV properties to change the background and font of a table cell when the annotation "blue" is added to the identifier, followed by illustrations of the TreeMap and Scalar widgets.
 
 .. code:: CSS
 
@@ -186,7 +186,7 @@ Highlighting (experimental)
 
 .. important:: Highlighting is available in software versions from AIMMS 4.68.5 onwards as part of `Experimental Features <experimental-features.html>`_. Please visit the `Experimental Features <experimental-features.html>`_ page on how to enable the feature.
 
-Next to the annotations mechanism described above, we offer a lightweight way to responsively highlight certain tuples in the Table and the Gantt Chart widget. As opposed to former, this feature removes the need to re-render the whole widget just for highlighting a specific (small) selection of tuples, making it more responsive. To use it, you have to provide an additional string parameter in your model, which has the exact same index domain as the identifier(s) displayed in the widget, extended with an extra index :token:`indexIdentifiers`. You need to specify this identifier in the Highlight option provided in the Miscellaneous tab of the widget's options editor. For example, if you display an identifier :token:`JobDuration(i, j)` in a Gantt Chart, you need to introduce a string parameter like :token:`GanttHighlight(i, j, indexIdentifiers)`. You can choose any identifier name which suits your model.
+Next to the annotations mechanism described above, we offer a lightweight way to responsively highlight certain tuples in the Table and the Gantt Chart widget. As opposed to the former, this feature removes the need to re-render the whole widget just for highlighting a specific (small) selection of tuples, making it more responsive. To use it, you have to provide an additional string parameter in your model, which has the exact same index domain as the identifier(s) displayed in the widget, extended with an extra index :token:`indexIdentifiers`. You need to specify this identifier in the Highlight option provided in the Miscellaneous tab of the widget's options editor. For example, if you display an identifier :token:`JobDuration(i, j)` in a Gantt Chart, you need to introduce a string parameter like :token:`GanttHighlight(i, j, indexIdentifiers)`. You can choose any identifier name which suits your model.
 
 In your model, you can determine which tuples you want to highlight in your widget, by assigning values to the additional string parameter. For example, you could write something like: 
 
@@ -206,7 +206,7 @@ This would result in an annotation :token:`annotation-exceeds-time-limit` on the
 
 to color the bar red.
 
-You are of course not restricted to highlight just a single cell. You could also write something like:
+You are of course not restricted to highlight just a single bar. You could also write something like:
 
 .. code::
 
@@ -214,7 +214,7 @@ You are of course not restricted to highlight just a single cell. You could also
 		GanttHighlight(Selected_i, j, 'JobDuration') := "exceeds-time-limit";
 	endif;
 
-In combination with the css rule above, this would result in all jobs for the :token:`Selected_i` to be colored red. Do however keep in mind that this mechanism is intended for use with a relatively low number of tuples. If you want to style a huge number of tuples, we recommend using the annotations method described above.
+In combination with the css rule above, this would result in all jobs for the :token:`Selected_i` to be colored red. However, keep in mind that this mechanism is intended for use with a relatively low number of tuples. If you want to style a huge number of tuples, we recommend using the annotations method described above.
 
 If you display more than one identifier in a widget, you can specify the tuples for those by using the corresponding identifier name(s) in the extra index.
 
@@ -296,7 +296,7 @@ Custom Icon Sets
 
 Certain features like the Widget Actions or the (experimental) Page Actions may use icons. AIMMS has a predefined list of `1600+ icons <../_static/aimms-icons/icons-reference.html>`_ which can be used. Custom icons can also be used for the aforementioned features by adding the desired icon font to the CSS folder and using the class names defined in the .css file in the icon field in the model specification. The icon font folder will need to have at least the ``.ttf`` file or the ``.woff`` file and the corresponding ``.css`` file, which together define the icon.
 
-When an icon font is downloaded it will have the CSS file with the TTF and/or WOFF files. Just add these to the Resources/CSS folder. To use the icons, open the CSS file and use the class name for the respective icon in the icon filed in the model specification.
+When an icon font is downloaded it will have the CSS file with the TTF and/or WOFF files. Just add these to the Resources/CSS folder. To use the icons, open the CSS file and use the class name for the respective icon in the icon file in the model specification.
 
 
 .. image:: images/CustomIcon_Folder1.png
