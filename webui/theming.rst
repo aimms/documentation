@@ -13,7 +13,7 @@ Setting up WebUI theming is quite straightforward. It requires just one :token:`
 
 :token:`MainProject/WebUI/resources/css/`
 
-subfolder of your AIMMS project. You can name this file as you like. It should contain a series of *themable properties*, which you can assign your own values. These properties are listed in logical groups in the :token:`base-theme-<AIMMS version>.css` file, which you can use as a base for your work. It is located in a subfolder of the AIMMS installation folder:
+subfolder of your AIMMS project. You can name this CSS file as you like. It should contain a series of *themable properties*, which you can assign your own values. These properties are listed in logical groups in the :token:`base-theme-<AIMMS version>.css` file, which you can use as a base for your work. It is located in a subfolder of the AIMMS installation folder:
 
 :token:`C:\\Users\\<your name>\\AppData\\Local\\AIMMS\\IFA\\Aimms\\<your AIMMS version>\\WebUIDev\\www\\resources\\css`
 
@@ -21,7 +21,11 @@ Each group and property is commented, to give you an idea for which part of the 
 
 On side-note: a pretty large section of that file is aimed at providing a Data Color palette for widgets that can show annotated data, like Charts. If you're interested in exploring your options there, please read `Data Coloring and Palettes <data-coloring-and-palettes.html>`_ too.
 
-The values assigned in this base file are the values that are used by default in the WebUI AIMMS theme. Please note that in your :token:`.css` file, you do not have to specify properties from the base file which you do not want to change. This will also make sure that you will benefit from the effect of potential future updates to the default values in the base file.
+The values assigned in this base file are the values that are used by default in the WebUI AIMMS theme. Please note that in your own :token:`.css` file, you do *not* have to specify properties from the base file which you do *not* want to change. This will make sure that you will benefit from the effect of potential future updates to the default values in the base file and that your own file shows your clean changes only.
+
+Since AIMMS 4.95 the amount properties has grown significantly to further enlarge the number of areas the theming applies to. Many of these new but also existing properties have been re-applied throughout WebUI so practically all aspects of Widgets and the application can be coherently influenced from as few properties as possible.
+
+While the base theming file and its (brief) comments are always up-to-date for each release, we also keep some longer documentation about the css properties in our `Background of Theming Properties <theming-background.html>`_.
 
 An Example
 ----------------------
@@ -72,7 +76,11 @@ will result in the following WebUI theme:
     .. image:: images/Theming-gradient.jpg
         :align: center
 
-Obviously, using a function like :token:`linear-gradient()`, it needs to make sense. That means that it can only be applied to background coloring options, but not to, say, text coloring options. 
+Obviously, using a function like :token:`linear-gradient()`, it needs to make sense. That means that it can only be applied to background coloring options, but not to, say, text coloring options.
+
+.. note::
+
+   Although the base theme file contains an explanation that suggests that all properties prefixed with :token:`color_bg` or :token:`bg_` will be purely applied to real backgrounds (allowing for urls and gradients), there are a few exceptions were only a (straightforward) color values will work to theme some elements with these properties.  We have not managed to iron these out yet. Using color values only is currently the safest. Contact us if you run into areas that behave unexpectedly and always keep Chrome's DevTools at hand to check where and how theming is being applied.
 
 For borders, for example, by adding a specific border value like this:
 
@@ -146,8 +154,39 @@ Next to this kind of inheritance, it is also possible to 'inherit' from the stan
 
 Would display the background of your widget headers in the standard AIMMS dark yellow color.
 
+If you look at the base theming file, you will notice that the base definitions use inheritance for quite a few properties too. It allows similar color types to be adjusted from a single property, but if needed the properties can still be changed separately.
+
 
 Moving From Custom CSS/Theming
 ------------------------------
 
 Many clients have their apps styled using custom CSS. We advise you to move to the new AIMMS Theming, since it offers better maintainability and probably also backward compatibility in the future. The best way to migrate is to put aside all your existing custom CSS files by moving them somewhere outside your project folder, to keep as backup. From this 'clean' state, start theming your app as explained above. If, after that, you are not fully satisfied with the result, you can re-visit your previous custom CSS to see whether selected parts of it can be re-used to fill the gap.
+
+Also, it needs to be emphasized that you *can* combine custom CSS constructs with theming because it is CSS after all. And with your 'custom css knowledge' you can also come up with constructions that change theming only locally.
+
+For example, instead of putting all definitions on the :token:`:root{...}` element, like we do by default, you can also target a single widget, or type, or any context using well known selectors:
+
+.. code-block:: CSS
+
+[data-widget\.uri=my_special_table] {
+ --color_text_edit-select-link: #9400d3;
+ --color_bg_widget-canvas: #ffb6c1;
+}
+
+Or, on all pages with 'red_page' in the page name, you could just have different colored primary buttons:
+
+.. code-block:: CSS
+
+[data-widget\.uri*=red_page] {
+	--color_bg_button_primary: Red
+	--color_text_button_primary: White
+	--border_button_primary: 1px solid Yellow;
+	--color_bg_button_primary_hover: DarkRed;
+	--color_text_button_primary_hover: Yellow;
+	--border_button_primary_hover: 2px solid White;
+	--color_bg_button_primary_active: DarkGoldenRod;
+	--color_text_button_primary_active: White;
+	--border_button_primary_active: 1px solid White;
+}
+
+
