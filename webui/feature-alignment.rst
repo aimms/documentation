@@ -4,7 +4,7 @@
 Feature Mapping for WebUI 
 =========================
 
-This section outlines the various elements in the WebUI and what features each of them support.
+This section outlines the various elements in the WebUI and what features each of them supports.
 
 The table below maps the features available for data widgets.
 
@@ -57,7 +57,7 @@ The table below maps the features available for the UI components.
     Tooltips,|tickmark|,|tickmark|,|tickmark|
     `Icons <../_static/aimms-icons/icons-reference.html>`_,|tickmark|,|tickmark|,|tickmark| 
 
-The table below maps the features available for the different type of pages.
+The table below maps the features available for the different types of pages.
 
 .. csv-table:: 
     :header: "Features","`Regular Page <webui-pages.html>`_","`Side Panel Page <side-panels-grd-pages.html>`_","`Dialog Page <dialog-grid-pages.html>`_"
