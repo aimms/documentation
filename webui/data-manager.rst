@@ -38,12 +38,12 @@ The WebUI can be put into case comparison mode by adding one or more cases in th
 .. image:: images/DataManager_snap4.png
     :align: center
 
-In this mode, all data-showing widgets (such as tables and charts) will show an additional case dimension. When in case comparison mode, the active case is automatically included in the compared cases:
+In this mode, all data-showing widgets (such as tables and charts) will show an additional case dimension if their Case Comparison switch is set to 'On' (the default) in their options editor. When in case comparison mode, the active case is automatically included in the compared cases:
 
 .. image:: images/transnet-compcase_v470.png 
     :align: center
 
-Any editable data from the active case will be shown in blue in the table, whereas all other data will be read-only and shown in black. Removing the last case from the case comparison will automatically switch the WebUI to the regular mode of showing the data from the active case.
+Any editable data from the active case will be shown in blue in the table, whereas all other data will be read-only and shown in black. Removing the last case from the case comparison will automatically switch the WebUI back to the regular mode of showing the data from the active case.
 
 Next to using the data management pane to add cases to the list of "compared cases", you can also do this from within AIMMS. In the AimmsWebUI library, there is the ``webui::CompareCaseBool`` identifier. This identifier is set to 'true' when a case is added to the list of "compared cases" and false when it is removed from the list. If you want to add or remove cases to/from the list of "compared cases" from within a procedure in AIMMS, you can update this ``webui::CompareCaseBool`` identifier.
 
