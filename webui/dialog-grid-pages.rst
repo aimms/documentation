@@ -59,7 +59,7 @@ When using the `App/Page Manager <app-management.html>`_, click on the insert op
 .. image:: images/dpG_add_new.png
 			:align: center
 
-Dialog grid pages can be added to any level in the page tree, just like any other type of page. Unlike pages or grid pages, dialog (grid) pages do not appear in the navigation Menu and can only be accessed via the `App/Page Manager <app-management.html>`_, where they have the same options as a page or side panel, like Rename, Delete, etc. You can also move the dialog (grid) pages to a different location within the page tree by using drag-and-drop in the usual way. 
+Dialog grid pages can be added at any level in the page tree, just like any other type of page. Unlike pages or grid pages, dialog (grid) pages do not appear in the navigation Menu and can only be accessed via the `App/Page Manager <app-management.html>`_, where they have the same options as a page or side panel, like Rename, Delete, etc. You can also move the dialog (grid) pages to a different location within the page tree by using drag-and-drop in the usual way. 
 
 .. note:: 
 	
@@ -124,7 +124,7 @@ The newly added widget can be moved to one of the grid areas (in this case to Ar
 
 As you can see in the last picture above, when a widget has more data than fits within the width of the assigned grid area, the widget gets a horizontal scroll bar (and similarly, a vertical scroll bar when the height is insufficient). 
 
-The dialog grid pages themselves do not offer a scroll bar. Therefore, it is advisable to pick a suitable size and layout for the dialog grid page, depending on the widgets that you want to place on it. You can change the size of the dialog grid page any time when in developer mode. However, the sizing options are not available to end users, so the size can no longer be changed after the application has been published.
+The dialog grid pages themselves do not offer a scroll bar. Therefore, it is advisable to pick a suitable size and layout for the dialog grid page, depending on the widgets that you want to place on it. You can change the size of the dialog grid page any time in developer mode. However, the sizing options are not available to end users, so the size can no longer be changed after the application has been published.
 
 For instance, suppose that on the Dialog_Medium page we would like to show two tables rendering the numerical values of the unit costs and the transportation amounts for a selection of factories. In this case, we can select the standard Layout 4 and add the widgets  ``unitcost_table``, ``selected_factories``, and ``transport_table`` to Area A, Area B, and Area C, respectively, as illustrated in the following picture:
 
