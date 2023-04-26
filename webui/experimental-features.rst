@@ -3,26 +3,26 @@ Experimental Features
 
 .. |experimental-features| image:: images/experimentalfeatures_icon.png
 
-Experimental Features are features that have not been ironed out fully yet, but which you can enable to try out and share feedback about. Based on the usage and feedback the feature(s) eventually become official features in the WebUI or might be removed if they are proven to not work well or do not add value to users. 
+Experimental Features are features that have not been ironed out fully yet, but which you can enable to try out and share feedback about. Based on the usage and feedback the feature eventually becomes official in the WebUI or might be removed if proven not to work well or not to add enough value to users. 
 
 
 How to enable or disable Experimental Features
 ----------------------------------------------
 
-To access and enable/disable the list of experimental features you can follow the below steps:
+To access and enable/disable the list of experimental features, please follow the below steps:
 
-#. You need to press a three-key combination i.e ``CTRL+SHIFT+.`` (Control Key + Shift Key + Dot/Fullstop Key).
-#. Once you key in the combination you will see a new icon |experimental-features| in the Application Toolbar in the top right corner. Click on the icon.
+#. You need to press the three-key combination ``CTRL+SHIFT+.`` (Control Key + Shift Key + Dot/Fullstop Key).
+#. Once you have keyed in this combination you will see a new icon |experimental-features| in the Application Toolbar in the top right corner.
 
     .. image:: images/Experimental_Features_Manager.png
         :align: center
 
-#. Clicking on the icon will reveal the Experimental Features menu on the left hand side. 
+#. Clicking on the icon will reveal the Experimental Features menu on the left of your screen. 
 
     .. image:: images/Experimental_FeatureList_09Jun2022_1.png
         :align: center
 
-#. To enable or disable a feature, just check/uncheck the checkbox for the respective feature. In this illustration, we will enable the ``webui state support`` feature. After enabling the feature either click the Reload text or refresh the page. The feature will only be active once the page is reloaded.
+#. To enable or disable a feature, just check/uncheck the checkbox for the respective feature. In this illustration, we will enable the ``webui state support`` feature. After enabling the feature either click the "Reload" text button or refresh the page. The feature will only be active once the page is reloaded.
 
     .. image:: images/Experimental_FeatureList_09Jun2022_2.png
         :align: center
@@ -45,11 +45,11 @@ Current list of Experimental Features
 Development Stages
 *********************
 
-* **Feature Standby** - An option that allows you to use the earlier version of a General Availability feature that is recently introduced. This option is removed after a period of time that allows models to be updated and adjusted to the new feature.
-* **Feature Candidate** - The feature is available to be used and tested, but might have a change in implementation. There could be a chance that we replace this feature with an alternate improved feature as well.
+* **Feature Standby** - An option that allows you to use the earlier version of a General Availability feature which has recently been introduced. This option will be removed after a period of time, allowing models to be updated and adjusted to the new feature.
+* **Feature Candidate** - The feature is available to be used and tested, but might have a change in implementation. There is a chance that we replace this feature with an alternative improved feature as well.
 * **Beta** - The feature is available to be used and tested. We collect feedback and suggestions for further improvement that may or may not be implemented before General Availability.
 * **Release Candidate** - The feature is stable and ready to be released unless significant bugs emerge. 
-* **General Availability** - The feature is officially released and supported as part of SLA. 
+* **General Availability** - The feature is officially released and supported as part of the SLA. 
 
 .. note ::
     The development stages and General Availability versions for the experimental features can change based on certain conditions.
