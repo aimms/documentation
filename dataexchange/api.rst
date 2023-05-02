@@ -494,6 +494,95 @@ For JSON schema and OpenAPI specifications, the Data Exchange library can genera
 	:param explodeDefault: flag to indicate whether to add references to an instance of a subschema (0), to explode subschemas into a schema but still maintaining an `instance` index to allow multiple instances of the data (1, default),  or to explode without an additional `instance` index (2). Values of 0 and 1 create asynchronous methods, that allow multiple API calls to be executed in parallel, while a value of 2 will generate a completely synchronous library, allowing only one API call to be executed at any time.
 	:param generateXMLData: flag to indicate whether the API expects JSON request and response bodies (0, default), or XML request and response bodies (1)
 
+File transfer functions
+-----------------------
+
+.. js:function:: dex::client::GetFileAsync
+
+	Download a file from a given URL asynchronously. The function will return 1 if the HTTP request could be submitted successfully.
+	This function can be used, for instance, to retrieve files from Azure Blob Storage via a SAS URL. 
+	If necessary, additional headers for the HTTP request can be added via the string parameter ``dex::client::FileGetHeader``.
+	
+	Via the function :js:func:`dex::client::WaitForOutstandingFileRequests` you can wait for the download request to be completed. 	
+	Via the parameter ``dex::client::LatestFileRequest`` you can retrieve the id of the file request submitted.
+	
+	:param url: the URL of the file to be downloaded
+	:param filePath: the file path where to store the downloaded file
+
+.. js:function:: dex::client::GetFile
+
+	Download a file from a given URL synchronously. The function will return 1 if the file was successfully downloaded, or 0 otherwise.
+	If necessary, additional headers for the HTTP request can be added via the string parameter ``dex::client::FileGetHeader``.
+	
+	If the function does not complete within the given timeout, you can use the function :js:func:`dex::client::WaitForOutstandingFileRequests` to wait for the download request to complete. 	
+	
+	:param url: the URL of the file to be downloaded
+	:param filePath: the file path where to store the downloaded file
+	:param timeout: optional parameter indicating the time to wait for the request to complete (default 30 seconds)
+	
+.. js:function:: dex::client::PutFileAsync
+
+	Upload a file to a given URL asynchronously. The function will return 1 if the HTTP request could be submitted successfully.
+	This function can be used, for instance, to upload files to Azure Blob Storage via a SAS URL. 
+	If necessary, additional headers for the HTTP request can be added via the string parameter ``dex::client::FilePutHeader``.
+	
+	Via the function :js:func:`dex::client::WaitForOutstandingFileRequests` you can wait for the upload request to be completed. 	
+	Via the parameter ``dex::client::LatestFileRequest`` you can retrieve the id of the file request submitted.
+	
+	:param filePath: the file path of the file to upload
+	:param url: the URL where to upload the file to
+
+.. js:function:: dex::client::PutFile
+
+	Upload a file to a given URL synchronously. The function will return 1 if the file was successfully uploaded, or 0 otherwise.
+	If necessary, additional headers for the HTTP request can be added via the string parameter ``dex::client::FilePutHeader``.
+	
+	If the function does not complete within the given timeout, you can use the function :js:func:`dex::client::WaitForOutstandingFileRequests` to wait for the upload request to complete. 	
+	
+	:param filePath: the file path of the file to upload
+	:param url: the URL where to upload the file to
+	:param timeout: optional parameter indicating the time to wait for the request to complete (default 30 seconds)
+
+.. js:function:: dex::client::DeleteFile
+
+	Issue a DELETE request for a given URL synchronously. The function will return 1 if the file was successfully deleted, or 0 otherwise.
+	If necessary, additional headers for the HTTP request can be added via the string parameter ``dex::client::FileDeleteHeader``.
+	
+	If the function does not complete within the given timeout, you can use the function :js:func:`dex::client::WaitForOutstandingFileRequests` to wait for the upload request to complete. 	
+	
+	:param url: the URL to delete
+	:param timeout: optional parameter indicating the time to wait for the request to complete (default 30 seconds)
+
+.. js:function:: dex::client::WaitForOutstandingFileRequests
+
+	Wait for any outstanding file requests for a given timeout. The function returns 1 if all outstanding requests have been completed, or 0 otherwise.
+	
+	You can check the status of individual file requests via the parameters ``dex::client::FileRequestStatusCode`` and ``dex::client::FileRequestErrorCode``.
+		
+	:param timeout: optional parameter indicating the time to wait for any outstanding requests to complete (default 30 seconds)
+
+Creating SAS URL query strings
+------------------------------
+
+.. js:function:: dex::client::az::AccountSASQueryString
+
+	Generate an Account SAS query string, to pre-authenticate, for instance, a request to Azure Blob Storage. For details about the allowed values for the various arguments, please refer to `Create an account SAS <https://learn.microsoft.com/en-us/rest/api/storageservices/create-account-sas>`_.
+	
+	:param accessKey: the account access key to use for signing the SAS query string
+	:param accountName: the account name for which to create the SAS query string
+	:param services: the services to which the SAS query string can be applied
+	:param resourceTypes: the resource types to which the SAS query string can be applied
+	:param permissions: the permissions to apply
+	:param expiryDate: the expiry date until which the SAS query string can be used to authorize requests. You can use the function :js:func:`dex::client::az::ÈxpiryDateFromNow` to generate this argument
+	:param ip: the ip range from which requests can be made
+	:param queryString: the value of the generated SAS query string
+	
+.. js:function:: dex::client::az::ExpiryDateFromNow
+
+	Generate an expiry date for a SAS query string, ending at a given amount of seconds from now.
+	
+	:param expiry: the amount of seconds from now, at which time the SAS query string should expire
+	
 .. spelling:word-list::
 
     uninitialize
@@ -503,3 +592,5 @@ For JSON schema and OpenAPI specifications, the Data Exchange library can genera
 		url
 		AWS
 		OAuth2
+		
+	

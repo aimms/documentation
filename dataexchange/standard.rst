@@ -73,7 +73,7 @@ Uses of the row-based format
 
 The standard Data Exchange format discussed above is flexible enough to support a range of scenarios for integrating an AIMMS model into the wider IT landscape:
 
-* The format allows a standardized approach from calling external APIs from within an AIMMS model using the `HTTP Client library <../htppclient/index.html>`_. When calling web services to call Python or R scripts, e.g., to apply ML/AI algorithms to data passed from the model, or to retrieve results from applying ML/AI algorithms to external data retrieved from these scripts, the format can be easily read into, or generated from, Pandas in Python or Dataframes in R. 
+* The format allows a standardized approach from calling external APIs from within an AIMMS model using the `Asynchronous HTTP Client <rest-client.html#asynchronous-http-client>`_. When calling web services to call Python or R scripts, e.g., to apply ML/AI algorithms to data passed from the model, or to retrieve results from applying ML/AI algorithms to external data retrieved from these scripts, the format can be easily read into, or generated from, Pandas in Python or Dataframes in R. 
 * The format would be the natural candidate to call AIMMS models through a REST API, as it can be readily generated from any environment.
 * Based on the concepts of datasets and tables, it easy to generate an application database from the model annotations, and to create a web service that allows data exchange with such an application database using the standard format.
 
@@ -90,7 +90,7 @@ To create the mapping between multi-dimensional identifiers and datasets, tables
 * ``dex::ExtraAttributeList``
 * ``dex::RowFilter``
 
-Through the ``dex::TableName`` annotation you can indicate for multi-dimensional identifiers and/or sections of multi-dimensional identifiers, to which table they should belong. The Data Exchange library will verify that all identifiers share a common index domain, and return an error if this is not the case. You can use the ``dex::ColumnName`` annotation to indicate a column name for multi-dimensional identifiers and indices. If you don't specify an explicit column name, the Data Exchange library will use the identifier name as the implicit column name. Instead of using annotations, you can also directly set the column name for specific identifiers via the identifier ``dex::ColumnName``.
+Through the ``dex::TableName`` annotation you can indicate for multi-dimensional identifiers and/or sections of multi-dimensional identifiers, to which table they should belong. The Data Exchange library will verify that all identifiers share a common index domain, and return an error if this is not the case. You can use the ``dex::ColumnName`` annotation to indicate a column name for multi-dimensional identifiers and indices. If you don't specify an explicit column name, the Data Exchange library will use the identifier name as the implicit column name. Instead of using annotations, you can also directly set the column name for specific identifiers via the identifier ``dex::ColumnName``. If you want to set the column name for columns in a table associated with indices, you can either create a separate index node, and use the ``dex::ColumnName`` attribute, of assign the column name to be used for the index to the string parameter ``dex::ColumnName``.
 
 Alternatively to creating table names yourself through the ``dex::TableName`` annotation, you can also let the Data Exchange library create tables names by specifying the ``dex::AutoTablePrefix`` annotation. For every identifier, with this annotation set, for which you didn't specify an explicit table name, the Data Exchange library will auto-generate a table name, by starting with the ``dex::AutoTablePrefix``, followed by all indices in the declaration of the identifier, separated by underscores. This will create tables where all identifiers with the same collection of indices will end up in the same table. All scalar identifiers will be assigned to the table ``dex::AutoTablePrefix`` followed by ``_scalar``. Through the global option ``dex::PrefixAutoTableWithDataset`` you can prefix the generated table names with the specified dataset name, to prevent potential name clashes when the same table name is generated for multiple data categories. 
 
@@ -104,13 +104,13 @@ Through the ``dex::SuffixList`` annotation you can specify the extra suffices (n
     
 If you do not explicitly specify column names in the semi-colon-separated list of suffices, the column names will be ``<identifier>.<suffix>``. 
 
-With the ``dex::ExtraAttributeList`` annotation you can specify any additional mapping attributes that you want to have added to the mapping generated for a specific identifier. The value of the ``dex::ExtraAttributeList`` annotation is a semi-colon-separated list
+With the ``dex::ExtraAttributeList`` annotation you can specify any additional mapping attributes that you want to have added to the mapping generated for a specific identifier. The value of the ``dex::ExtraAttributeList`` annotation is a semi-colon-separated list.
 
 .. code-block::
     
     <annotation>=<value>[;<annotation>=<value];...
 
-where ``<value>`` is the literal text that you want assign to the annotation ``<annotation>``.
+where ``<value>`` is the literal text that you want assign to the annotation ``<annotation>``. If you want to set the extra attributes for columns in a table associated with indices, you can either create a separate index node, and use the ``dex::ExtraAttributeList`` attribute, of assign the column name to be used for the index to the string parameter ``dex::ExtraAttributeList``.
 
 You can use the annotation ``dex::RowFilter`` to specify an identifier that should serve as a ``write-filter`` attribute for the rows being generated in the mapping. The identifier should have the same indices as all identifiers in the table. The ``RowFilter`` annotation should be the same for all identifiers in a specific table. If all identifiers in a table are contained in a single section in your model, you can best add the annotation to that section, in which case all identifiers in the section will inherit it. With the row filter you can limit the number of rows being generated when writing a file using the mapping.
 
