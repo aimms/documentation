@@ -197,7 +197,7 @@ In this case, you can assign a value to the Maximum Resource Height option, whic
 .. image:: images/Ganttchart_maxheightpng.png
     :align: center
 
-If you define a value that is greater than the default value of a resource, there will be no change in the resource height. Only when the Maximum Resource Height is les than the default height, the resource height changes accordingly.
+If you define a value that is greater than the default value of a resource, there will be no change in the resource height. Only when the Maximum Resource Height is less than the default height, the resource height changes accordingly.
 
 When both the Minimum and Maximum Resource Height are defined, the resource height is calculated as:
 

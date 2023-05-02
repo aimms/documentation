@@ -574,7 +574,7 @@ Creating SAS URL query strings
 	:param resourceTypes: the resource types to which the SAS query string can be applied
 	:param permissions: the permissions to apply
 	:param expiryDate: the expiry date until which the SAS query string can be used to authorize requests. You can use the function :js:func:`dex::client::az::ÈxpiryDateFromNow` to generate this argument
-	:param ip: the ip range from which requests can be made
+	:param ip: the IP range from which requests can be made
 	:param queryString: the value of the generated SAS query string
 	
 .. js:function:: dex::client::az::ExpiryDateFromNow
@@ -592,5 +592,6 @@ Creating SAS URL query strings
 		url
 		AWS
 		OAuth2
+		IP
 		
 	
