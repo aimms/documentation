@@ -13,6 +13,24 @@ AIMMS 4.94
 
 
 
+AIMMS 4.94.3 Release (May 03, 2023 - build 4.94.3.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS could crash when retrieving data using an indexed unit into the WebUI.
+-  The financial functions that have a bound on 'rate' did not work properly above rates of 200% and had limits that were bound to -100..500%. Note: these are still the default bounds.
+-  When passing an identifier slice as argument to a procedure or function, AIMMS gave a severe internal error if the identifier was sliced using an 'empty' element.
+
+--------------
+
+
+
+
+
 AIMMS 4.94.2 Release (April 21, 2023 - build 4.94.2.3).
 ------------------------------------------------------------------------------------------
 
