@@ -14,6 +14,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.1.0.23 [04-05-2023]
+	- SAS URL generation could generate invalid SAS token depending on the UTC option settings of the AIMMS project
+	
 2.1.0.22 [02-05-2023]
 	- Allow setting extra dataset attributes on indices.
 	- Allow setting extra dataset attributes and suffix attributes via ``dex::ExtraAttributeList`` and ``dex::SuffixList``.
