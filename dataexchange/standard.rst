@@ -110,7 +110,7 @@ With the ``dex::ExtraAttributeList`` annotation you can specify any additional m
     
     <annotation>=<value>[;<annotation>=<value];...
 
-where ``<value>`` is the literal text that you want assign to the annotation ``<annotation>``. If you want to set the extra attributes for columns in a table associated with indices, you can either create a separate index node, and use the ``dex::ExtraAttributeList`` attribute, of assign the column name to be used for the index to the string parameter ``dex::ExtraAttributeList``.
+where ``<value>`` is the literal text that you want assign to the annotation ``<annotation>``. If you want to set the extra attributes for columns in a table associated with indices, you can either create a separate index node, and use the ``dex::ExtraAttributeList`` attribute, of assign the column name to be used for the index to the *string parameter* ``dex::ExtraAttributeList``.
 
 You can use the annotation ``dex::RowFilter`` to specify an identifier that should serve as a ``write-filter`` attribute for the rows being generated in the mapping. The identifier should have the same indices as all identifiers in the table. The ``RowFilter`` annotation should be the same for all identifiers in a specific table. If all identifiers in a table are contained in a single section in your model, you can best add the annotation to that section, in which case all identifiers in the section will inherit it. With the row filter you can limit the number of rows being generated when writing a file using the mapping.
 

@@ -88,7 +88,7 @@ The available mapping attributes are:
 * iterative-reset
 * implicit-binds-to
 * binds-existing
-* binds-skip-non-existing
+* skip-non-existing
 * skip-empty-rows
 * maps-to
 * max-string-size    
@@ -142,17 +142,17 @@ The implicit-binds-to attribute
 
 By default, if a node in a mapping has sibling nodes, any index bound via a ``binds-to`` attribute at such a node *n* can be used in any attribute of all nodes in the subtree starting at the *parent* node of *n*. Via the ``implicit-binds-to`` attribute you can make such an index available for use in subtrees starting at even higher parent nodes. You can use this, for instance, if an id of a JSON/XML data structure, that you intend to use as the index value for all data in such a data structure, is stored deeper in such a data structure. By means of the ``implicit-binds-to`` attribute you can make sure that the Data Exchange library will first read the entire subtree containing the index value, prior to reading the subtrees where this index is referenced in e.g. a ``maps-to`` attribute.
 
-The binds-existing and binds-skip-non-existing attribute
+The binds-existing and skip-non-existing attribute
 --------------------------------------------------------
 
-The ``binds-existing`` attribute can be used in conjunction with the ``binds-to``, ``name-binds-to`` and ``iterative-binds-to`` attribute to indicate that, when reading a data file, no new set elements will be created based on node values or names. If a newly read or generated element is not present in the set, any data value underneath the node to which the element is bound will be skipped or lead to an error depending on the value of the ``binds-skip-non-existing`` attribute. This allows for a filtering mechanism where a data file can only be partially read for all nodes that correspond to existing set elements in the model. This option behaves slightly different than the  ``iterative-existing`` attribute for iterative bindings which will always return with an error in such a case. 
+The ``binds-existing`` attribute can be used in conjunction with the ``binds-to``, ``name-binds-to`` and ``iterative-binds-to`` attribute to indicate that, when reading a data file, no new set elements will be created based on node values or names. If a newly read or generated element is not present in the set, any data value underneath the node to which the element is bound will be skipped or lead to an error depending on the value of the ``skip-non-existing`` attribute. This allows for a filtering mechanism where a data file can only be partially read for all nodes that correspond to existing set elements in the model. This option behaves slightly different than the  ``iterative-existing`` attribute for iterative bindings which will always return with an error in such a case. 
 
-The ``binds-skip-non-existing`` attribute specifies the desired behavior when the Data Exchange library encounters a non-existing element for a ``binds-to`` attribute. If you specify a value of 0, an error will be returned, while with the default value of 1 all data dependent on the empty value for the ``binds-to`` attribute will be silently skipped. You can use this attribute to skip objects or rows that are indexed by empty labels in the data file, but also by non-empty labels that cannot be added to e.g. a defined set in the model.
+The ``skip-non-existing`` attribute specifies the desired behavior when the Data Exchange library encounters a non-existing element for a ``binds-to``, ``name-binds-to``, ``iterative-binds-to``, or  attribute. If you specify a value of 0, an error will be returned, while with the default value of 1 all data dependent on the empty value for the ``binds-to``, ``name-binds-to`` or ``iterative-binds-to`` attribute will be silently skipped. A value of 2 will skip the value, but will also issue a warning. You can use this attribute to skip objects or rows that are indexed by empty labels in the data file, but also by non-empty labels that cannot be added to e.g. a defined set in the model.
 
 The skip-empty-rows attribute
 -----------------------------
 
-With the ``skip-empty-rows`` attribute you can let the Data Exchange library skip completely empty rows in row-based mappings. When specified, all columns present in the mapping will be checked, while non-mapped columns will be not be checked. You can use this to allow reading data from e.g. Excel sheets where the user inserted empty lines in between data. When ``binds-skip-non-existing`` is set to 0, the Data Exchange library will still pick up empty fields for columns that bind to indices in your model on non-empty lines.
+With the ``skip-empty-rows`` attribute you can let the Data Exchange library skip completely empty rows in row-based mappings. When specified, all columns present in the mapping will be checked, while non-mapped columns will be not be checked. You can use this to allow reading data from e.g. Excel sheets where the user inserted empty lines in between data. When ``skip-non-existing`` is set to 0, the Data Exchange library will still pick up empty fields for columns that bind to indices in your model on non-empty lines.
 
 External bindings in mappings
 -----------------------------
@@ -187,7 +187,7 @@ Similarly, for JSON and XML mappings, you can set the ``write-defaults`` attribu
 The range-existing attribute
 ----------------------------
 
-If the identifier associated with a ``maps-to`` attribute is an element parameter, the ``range-existing`` attribute can be used to that any values encountered that do not correspond to an existing element in the range set, should be skipped, rather than creating a new element in the range set for such a value. 
+If the identifier associated with a ``maps-to`` attribute is an element parameter, the ``range-existing`` attribute can be used to that any values encountered that do not correspond to an existing element in the range set, should be skipped, rather than creating a new element in the range set for such a value. When an non-existing element is encountered, the Data Exchange library will follow the ``skip-non-existing`` attribute to determine whether to raise an error, to skip the value, or to skip the value but raise a warning to the model.
 
 The force-dense attribute
 -------------------------
