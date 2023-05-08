@@ -17,7 +17,7 @@ New Features and Bug Fixes
 2.1.0.25 [08-05-2023]
 	- The mapping attribute ``binds-skip-non-existing`` has been renamed to ``skip-non-existing`` (but old name will remain for backward compatibility)
 	- The ``skip-non-existing`` attribute can have values 0 (raise error for non-existing elements), 1 (skip non-existing elements silently, default), or 2 (skip non-existing elements with runtime warning, new extension)
-	- The ``skip-non-existing`` attribute can both be used in conjuction with the ``...-binds-existing`` attributes, but now also with the ``range-existing`` attribute.
+	- The ``skip-non-existing`` attribute can both be used in conjunction with the ``...-binds-existing`` attributes, but now also with the ``range-existing`` attribute.
 
 2.1.0.23 [04-05-2023]
 	- SAS URL generation could generate invalid SAS token depending on the UTC option settings of the AIMMS project
