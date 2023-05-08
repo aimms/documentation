@@ -229,15 +229,15 @@ Public Pages Support Procedures
 
 .. aimms:procedure:: RefreshAllWidgets
 
-  This procedure can be called to force all widgets on the current WebUI page to be updated. Normally, WebUI widgets are updated only after an AIMMS procedure has been fully executed. In case of long(er) running procedures, you may want to provide your user with up-to-date info in any of your widgets before finishing the procedure already. In such cases, a call to ``webui::RefreshAllWidgets`` does exactly that. In order to get a clearer view of this data, you may want to use the ``webui::UseTransparentVeil`` procedure described below.
+  This procedure can be called to force all widgets in your WebUI to be updated. Normally, WebUI widgets are updated only after an AIMMS procedure has been fully executed. In case of long(er) running procedures, you may want to provide your user with up-to-date info in any of your widgets before finishing the procedure already. In such cases, a call to ``webui::RefreshAllWidgets`` does exactly that. In order to get a clearer view of this data, you may want to use the ``webui::UseTransparentVeil`` procedure described below.
 
-  Please know that this procedure uses a timeout to allow for the widgets to actually refresh. Per default, this timeout is set to 500 milliseconds. Should you encounter situations where you feel that a longer (or a shorter) timeout is needed, you can adjust it by adapting the ``webui.refreshallwidgets-sleep-milliseconds`` option in the optional ``webui-options.conf`` file.
+  Please know that this procedure uses a delay to allow for the widgets to actually refresh. Per default, this delay is set to 500 milliseconds. Should you encounter situations where you feel that a longer (or a shorter) delay is needed, you can adjust it by adapting the ``webui.refreshallwidgets-sleep-milliseconds`` option in the optional ``webui-options.conf`` file.
 
-  The current implementation of this procedure is still in an experimental phase. Based on any feedback by our users, we may decide to add arguments to it, which would require you to adapt your models accordingly.
+  The current implementation of this procedure is still in an experimental phase. Based on any feedback by our users, we may decide to add arguments to it or to change the default delay, which would require you to adapt your models accordingly.
 
 .. aimms:procedure:: UseTransparentVeil
 
-  Calling this procedure has the effect that the veil which is applied to your WebUI page if the AIMMS session is in a "working/busy" state, will be transparent. In combination with the ``webui::RefreshAllWidgets`` procedure described above, you can use this to keep your users fully up-to-date while executing long(er) running procedures. The effect of the procedure ceases when its calling procedure has finished executing, so it is not a procedure that affects your whole further WebUI session.
+  Calling this procedure has the effect that the veil which is applied to your WebUI page if the AIMMS session is in a "working/busy" state, will be transparent. In combination with the ``webui::RefreshAllWidgets`` procedure described above, you can use this to keep your users fully up-to-date while executing long(er) running procedures. The effect of the procedure ceases when its calling procedure has finished executing, so it is not a procedure that affects your whole further WebUI session. Please note that, although the veil is transparent, user interaction with any widget on the page (e.g. clicking a button, changing a value, etc.) is (by design) not possible.
 
 .. _public-dialog-support-procedures:
 
