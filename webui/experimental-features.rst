@@ -19,12 +19,12 @@ To access and enable/disable the list of experimental features, please follow th
 
 #. Clicking on the icon will reveal the Experimental Features menu on the left of your screen. 
 
-    .. image:: images/Experimental_FeatureList_09Jun2022_1.png
+    .. image:: images/Experimental_FeatureList_05May2023_1.png
         :align: center
 
 #. To enable or disable a feature, just check/uncheck the checkbox for the respective feature. In this illustration, we will enable the ``webui state support`` feature. After enabling the feature either click the "Reload" text button or refresh the page. The feature will only be active once the page is reloaded.
 
-    .. image:: images/Experimental_FeatureList_09Jun2022_2.png
+    .. image:: images/Experimental_FeatureList_05May2023_2.png
         :align: center
 
 
@@ -39,7 +39,8 @@ Current list of Experimental Features
    `Highlight Annotations <css-styling.html#highlighting-experimental>`_, "Enable this feature to use annotations to responsively highlight certain tuples in the Table and the Gantt Chart widget. `Read more here <css-styling.html#highlighting-experimental>`_.", 4.68.5 - Feature Candidate, TBD
    WebUI State Support, "By enabling this feature the element parameters :any:`webui::CurrentPageId` and :any:`webui::CurrentSidePanelPageId` will be updated with the ``pageId`` of the current page the user is on and the ``pageId`` of the Side Panel page that is open, respectively.", 4.72 - Feature Candidate, TBD
    Skip Combining CSS/JS Files, "Activate this option to load the CSS and JS files separately. This is unlike the other experimental features. This option will eventually be removed and the new setup will be applied. `Read more about the improvements here <https://community.aimms.com/product-updates-roadmap-36/smarter-delivery-of-webui-for-improved-performance-838>`_. This option is merely here such that you can use the old setup in case you face issues with the new setup. Please note, you will have to close the project, reopen the project and launch the WebUI each time this option is toggled.", 4.78 - Feature Standby, TBD
-   Combination Chart Widget Type, "Enable this feature to use the new `Combination Chart Widget type <combination-chart-widget.html>`_. This is a new chart widget type based on Highcharts library. This widget has exciting features like Support for Interactive Legend, Data labels, Horizontal Scroll, Abiliy to control Display Decimals and Show Units per Identifier and `many more <https://community.aimms.com/webui-features-testing-combination-chart-widget-54/feedback-wanted-new-combination-chart-widget-type-1161>`_.", 4.84 - Beta, TBD
+   Combination Chart Widget Type, "Enable this to use the new `Combination Chart Widget type <combination-chart-widget.html>`_. This is a new chart widget type based on Highcharts library. This widget has exciting features like Support for Interactive Legend, Data labels, Horizontal Scroll, Abiliy to control Display Decimals and Show Units per Identifier and `many more <https://community.aimms.com/webui-features-testing-combination-chart-widget-54/feedback-wanted-new-combination-chart-widget-type-1161>`_.", 4.84 - Beta, TBD
+   Widget Named Views, "Enable this to use the new `Widget Named Views feature <widget-options.html#widget-named-views>`_. This feature allows you to create different views of a given widget and offer them to your users. End users can easily switch between the different views being offered.", 4.95 - Beta, TBD
 
 
 Development Stages

@@ -219,12 +219,18 @@ So, this third configuration parameter should have a model declaration of the fo
 
 ``MyWorkflowStepsFoldingStates(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexOpenCloseProps)`` 
 
-When a parent step is collapsed, then its child steps are not visible in the workflow panel. The child steps are made visible in the panel when the parent step is expanded (see also the pictures above). 
+When a parent step is collapsed, then its child steps are not visible in the workflow panel. The child steps are made visible in the panel when the parent step is expanded (see also the pictures above).
+When the current page corresponds to a child step and its parent step is collapsed. A blue bar is displayed beneath the parent node (see also the pictures above).
+The current step's tooltip is displayed when you hover over this blue bar. When clicked, the parent step expands to reveal the currently selected child step again.   
+     
 The expanded and collapsed states of a parent step correspond to setting the ``openClose`` option to the values ``open`` and ``close``, respectively (as values of the open/close states configuration parameter mentioned above).
 
 For instance, in the picture below the workflow panel on the left hand side corresponds to the data values of the ``openClose`` option shown on the right hand side:
 
 .. image:: images/WF_SubLevels_3.png
+    :align: center
+    
+.. image:: images/WF_SubLevels_3_01.png
     :align: center
 
 In particular, the manual actions for expanding or collapsing a parent step in the panel will result in toggling the corresponding value of the ``openClose`` option between the values ``open`` and ``close``.

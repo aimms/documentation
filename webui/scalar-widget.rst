@@ -47,6 +47,16 @@ Here are some examples of the scalar widget that show you some typical usage.
    
    Starting from AIMMS 4.93, if a dropdown cell in a scalar widget corresponds to an indexed element parameter which has as range an indexed (sub-)set, then upon clicking that cell only the entries (elements) from the specific indexed set at hand will be shown in the dropdown list.
 
+
+Tooltips for Identifier names
+-----------------------------
+
+Starting from AIMMS 4.95, the predeclared identifier :token:`webui::IdentifierTooltip` (ranging over the predeclared set :token:`AllIdentifiers`) has been added to the WebUI library.
+This supports custom tooltips for identifiers names in the scalar widget.
+If values are assigned to this string parameter (through any of the usual methods), then when hovering over the name of the identifiers in the scalar widget, the tooltips will show 
+the values of the string parameter :token:`webui::IdentifierTooltip` for those identifiers.
+
+
 Date and Time picker for element parameters with a calendar range
 -----------------------------------------------------------------
 
