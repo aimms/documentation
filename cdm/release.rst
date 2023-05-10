@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+1.29.0.4 [10-05-2023]
+	- Root set labels inserted in batches, would fail in case the table contained existing elements
+	
 1.29.0.3 [17-04-2023]
 	- Fix creation of active set tables for SQLServer
 	- Fix in 1.29.0.1 did not work for MySQL 5.7, now only applied to affected databases
