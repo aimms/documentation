@@ -6,6 +6,11 @@ Widget Options
 .. |widget-action| image:: images/widget-actions-new.png
 .. |widget-action-nohover| image:: images/widget-actions-new-nohover.png
 .. |widget-header-kebab| image:: images/widget-header-kebab.png
+.. |WNV-option-editor-tab| image:: images/WNV-option-editor-tab.png
+.. |WNV-select-views| image:: images/WNV_select_views_icon.png
+.. |WNV_current_view_icon| image:: images/WNV_current_view_icon.png
+.. |WNV-order-up| image:: images/WNV-list-entry-up-arrow.png
+.. |WNV-order-down| image:: images/WNV-list-entry-down-arrow.png
 
 The ‘cog wheel’ button |cog-widget| (in the upper right corner of a widget) will open a pop-up window that allows you to change the options for the widget. 
 
@@ -621,6 +626,59 @@ In this case, the layout of the data in the table widget looks like in the follo
 So, in this table all the data of the above mentioned identifiers is shown together, while the Pivoting section of the table only consider 2 indexes instead of the 5 original indexes used in the
 model declarations. All the cells which show no value are simply empty ("outside-domain") and not editable in the table.
 
+
+Widget Named Views
+------------------
+    
+.. important::   
+    From **AIMMS 4.95 onwards**, the **Widget Named Views** feature is made available as an `experimental feature <#experimental-features>`__ under the same name. This is a Beta release,  meaning the feature is available to be used and tested. We collect feedback and suggestions for further improvement that may or may not be implemented before this will become a General Availability feature.
+    
+     
+With this feature you can create and offer different views of your widget. For example, you could offer one view of your widget with one particular pivoting and another view of the widget with a different pivoting. The widget could be made available in yet another view as a different widget type. The app developer can specify the view that an end user sees on the widget when they first load the page.
+    
+The widget header section now includes a new button |WNV-select-views|. Clicking on it allows end users to see the available views for this widget, from which they can choose and load a view. 
+     
+In the `widget options <#widget-options>`__, under the **Widget Named Views** |WNV-option-editor-tab| tab, there are controls to add, edit and delete a named view as well as to designate a named view as the *Current View* that users see when their WebUI page loads. The option to create a new named view is available when you click the "+" button. The current widget configuration is stored for the view name that you set through the *View Name* option. The *Current View* option can be tuned to one of the view names from the list of available named views. When the WebUI page loads, the widget is loaded with this designated view information. App developers can specify the named view they want their end users to see when the page loads using this current view option.    
+When you hover over each named view option header, the Up |WNV-order-up| and Down |WNV-order-down| controls appear, allowing you to order the different named views that have been made.
+
+.. image:: images/WNV_option-editor-default.png
+    :align: center
+       
+.. image:: images/WNV_option-editor-1-view-created.png
+    :align: center
+       
+.. image:: images/WNV_option-editor-2-views-created.png
+    :align: center
+       
+.. image:: images/WNV-option-editor-reordering-views.png
+    :align: center
+   
+
+When one or more named views are created for a widget, the |wnv-select-views| button is made available on the widget's header section. When you click on it, a list of the various named views made for this widget appears, in the order the views were arranged. The |WNV_current_view_icon| icon serves as an indication of the current active view.
+       
+.. image:: images/WNV_select_views_list.png
+    :align: center
+
+Any of the views are available for selection by the end user from the list and the corresponding widget configuration loads.
+
+.. image:: images/WNV-view-data-as-table.png
+    :align: center
+       
+.. image:: images/WNV-view-selecting-data-as-chart.png
+    :align: center
+       
+.. image:: images/WNV-view-data-as-chart.png
+    :align: center
+
+.. important::          
+    If no named views have been created yet, the widget will still load as usual.
+
+    For a named view, the current widget configuration is only saved when you provide it a name using the *View Name* option.   
+    
+    When all of the earlier-created named views are removed, the widget loads with the settings of the most recent view selected for the *Current View* option.
+
+.. note::
+    In the current version, the *Current View* option can only be a literal entry from the list of available view names. In the future version, this entry could be set to a view name though an AIMMS identifier.
 
 Pivot
 -----
