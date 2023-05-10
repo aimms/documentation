@@ -12,6 +12,45 @@ AIMMS 4.94
 #############
 
 
+AIMMS 4.95.1 Release (May 10, 2023 - build 4.95.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The AIMMS presolver will now also remove duplicate rows with unequal right-hand side values, unless the rows are incompatible. In that case, the presolver will detect the infeasibility of the model.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The image running AIMMS in the cloud has been upgraded:
+* It is based on ubuntu 22.04 
+* Available ODBC driver for MySQL : 'MySQL8.0' 
+  The 'MySQL' driver which was 5.3 under the hood is no longer supported
+* Available ODBC drivers for MS SQL Server: "ODBC Driver 17 for SQL Server" and "ODBC Driver 18 for SQL Server" 
+  In the previous image only version 17 was available, be aware that version 18 has breaking changes, see also https://techcommunity.microsoft.com/t5/sql-server-blog/odbc-driver-18-0-for-sql-server-released/ba-p/3169228
+* This image no longer contains direct support for R: contact user support if you are using R in the cloud for the migration trajectory to this AIMMS version.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  Now Identifier names in the Scalar widget also support custom tooltips using `webui::IdentifierTooltip`.
+-  The WebUI library was extended with two functions: RefreshAllWidgets and UseTransparentVeil. DOCUMENTATION LINKS!!!.
+-  Now the Table title header cells support custom tooltips using `webui::IdentifierTooltip`.
+-  Up until now the most recent Theming options could not be considered 'complete' yet: despite the number of custom CSS properties available, there were several elements not subject to any theming (using fixed values to achieve an AIMMS Theme) or only pretty coarse theming was achieved at the best, leaving you with the need to add application specific stylesheets like before... With the help of customer feedback and by going through virtually all components, we have added a whole range of additional CSS properties *and* made sure they are applied in all logical locations. Please review the latest base theme file and our new documentation page to see how Theming should now 'reach' all parts of a WebUI application much better.
+-  The behavior of the Workflow panel was changed to allow for a better utilization of the vertical space: a parent item that has a child item that is the currently visible page can now be collapsed. The presence of a 'current' child will still be visible, in an alternate form below the parent. This includes the state it is in, its tooltip and the ability to re-open the parent by clicking on the collapsed child.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We improved the assignment algorithm of colors (from the WebUI color palette) to the individual elements (e.g. bars in a bar chart) in WebUI widgets. As a result, colors may change but color consistency (i.e. the same elements will have the same color when used in different widgets) is retained. Colors will be more predictable as there is a direct link now between the ordinal number in the (root) set and the color in the color palette. Chances for unnecessary duplication of colors have decreased.
+
+--------------
+
+
+
 
 AIMMS 4.94.3 Release (May 03, 2023 - build 4.94.3.3).
 ------------------------------------------------------------------------------------------
