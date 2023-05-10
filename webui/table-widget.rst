@@ -360,6 +360,9 @@ This means that also the table headers corresponding to such indexes may be tran
 It is important to note that the value of :token:`webui::IdentifierElementText` on an index is the one which matters in the context of a table (and not the value of :token:`webui::IdentifierElementText` on the set which is the range of that index).
 In particular, this implies that, if a set has two or more indexes, then each of its indexes may get a different name through the string value of :token:`webui::IdentifierElementText` applied on that index.
 
+Starting from AIMMS 4.95, another predeclared identifier :token:`webui::IdentifierTooltip` (ranging over the predeclared set :token:`AllIdentifiers`) has been added to the WebUI library in order to support custom tooltips for table title headers.
+Values may be assigned to this string parameter in a similar way as to the parameter :token:`webui::IdentifierElementText` discussed above. 
+In that case, when hovering over the title headers in the table (that is, over the sets used in the table headers), the tooltips will show the values of the string parameter :token:`webui::IdentifierTooltip` for those sets.
 
 .. note::
 
