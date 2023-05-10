@@ -9891,3 +9891,4 @@ Improvements
 	IsWebUIDialogOpen
 	IdentifierElementText
 	ubuntu
+	pivotings
