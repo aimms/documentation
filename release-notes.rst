@@ -9890,3 +9890,4 @@ Improvements
 	dropdowns
 	IsWebUIDialogOpen
 	IdentifierElementText
+	ubuntu
