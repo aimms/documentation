@@ -103,6 +103,11 @@ You can activate the REST service via the call
 	
 This will read all the service name annotations, and start the service listening to incoming requests. Via the configuration parameters ``dex::api::ListenerPort`` and ``dex::api::MaxRequestSize`` you can configure the port the service will be listening on (default port 8080), and the maximum request size of request and response bodies accepted by the REST service (default 128 MB). After starting the API service, you can reach it via the base URL ``http://localhost:{listenerport}`` followed by the path the specific REST service you want to call, as listed above.
 
+.. note::
+
+	When deployed in the cloud, you should **not** call this function. The service is already running there for you.
+
+
 Using the echo service
 ----------------------
 

@@ -396,6 +396,12 @@ The Data Exchange library supports exposing procedures in your model as endpoint
     
     * :token:`dex::api::ListenerPort` (default 8080)
     * :token:`dex::api::MaxRequestSize` (default 128 MB)
+	
+.. note::
+
+	When deployed in the cloud, you should **not** call this function. The service is already running there for you.
+	
+
 
 .. js:function::  dex::api::StopAPIService
 
