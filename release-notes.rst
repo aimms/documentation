@@ -12,6 +12,27 @@ AIMMS 4.95
 #############
 
 
+
+AIMMS 4.95.2 Release (May 17, 2023 - build 4.95.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The ElementCast function with a calendar element as the second argument did not always work properly.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  If you used the menu or the page navigator to move to a workflow step of a *collapsed* parent item, this parent would remain closed. Which was unintended behavior, just like Workflow's urge to always scroll the current page into view. Both behaviors have been dealt with now.
+
+--------------
+
+
+
+
 AIMMS 4.95.1 Release (May 10, 2023 - build 4.95.1.0).
 ------------------------------------------------------------------------------------------
 
