@@ -14,6 +14,7 @@ The description of the various topics related to the WebUI folder can be accesse
    resources-subfolder
    css-styling
    theming
+   theming-background
    units-support
    multi-language
 

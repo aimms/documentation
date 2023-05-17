@@ -168,25 +168,25 @@ For example, instead of putting all definitions on the :token:`:root{...}` eleme
 
 .. code-block:: CSS
 
-[data-widget\.uri=my_special_table] {
- --color_text_edit-select-link: #9400d3;
- --color_bg_widget-canvas: #ffb6c1;
-}
+    [data-widget\.uri=my_special_table] {
+     --color_text_edit-select-link: #9400d3;
+     --color_bg_widget-canvas: #ffb6c1;
+    }
 
 Or, on all pages with 'red_page' in the page name, you could just have different colored primary buttons:
 
 .. code-block:: CSS
 
-[data-widget\.uri*=red_page] {
-	--color_bg_button_primary: Red
-	--color_text_button_primary: White
-	--border_button_primary: 1px solid Yellow;
-	--color_bg_button_primary_hover: DarkRed;
-	--color_text_button_primary_hover: Yellow;
-	--border_button_primary_hover: 2px solid White;
-	--color_bg_button_primary_active: DarkGoldenRod;
-	--color_text_button_primary_active: White;
-	--border_button_primary_active: 1px solid White;
-}
+    [data-widget\.uri*=red_page] {
+        --color_bg_button_primary: Red
+        --color_text_button_primary: White
+        --border_button_primary: 1px solid Yellow;
+        --color_bg_button_primary_hover: DarkRed;
+        --color_text_button_primary_hover: Yellow;
+        --border_button_primary_hover: 2px solid White;
+        --color_bg_button_primary_active: DarkGoldenRod;
+        --color_text_button_primary_active: White;
+        --border_button_primary_active: 1px solid White;
+    }
 
 
