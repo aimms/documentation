@@ -14,6 +14,11 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.1.0.29 [19-05-2023]
+	- Single column CSV files would not be read correctly
+	- Tasks that end in the ``Finished with errors`` state, will now provide more detail in the status error message
+	- Storing the task response in Azure Blob Storage would fail because of a missing ``x-ms-blob-type`` header
+
 2.1.0.25 [08-05-2023]
 	- The mapping attribute ``binds-skip-non-existing`` has been renamed to ``skip-non-existing`` (but old name will remain for backward compatibility)
 	- The ``skip-non-existing`` attribute can have values 0 (raise error for non-existing elements), 1 (skip non-existing elements silently, default), or 2 (skip non-existing elements with runtime warning, new extension)
