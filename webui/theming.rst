@@ -25,7 +25,7 @@ The values assigned in this base file are the values that are used by default in
 
 Since AIMMS 4.95 the amount properties has grown significantly to further enlarge the number of areas the theming applies to. Many of these new but also existing properties have been re-applied throughout WebUI so practically all aspects of Widgets and the application can be coherently influenced from as few properties as possible.
 
-While the base theming file and its (brief) comments are always up-to-date for each release, we also keep some longer documentation about the css properties, which should help you with `Understanding Theming <theming-background.html>`_.
+While the base theming file and its (brief) comments are always up-to-date for each release, we also keep some longer documentation about the css properties, which should help you with `Understanding Theming <understanding-theming.html>`_.
 
 An Example
 ----------------------

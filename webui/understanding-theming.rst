@@ -1,4 +1,4 @@
-.. _webui_theming_background:
+.. _webui_understanding_theming:
 
 Understanding Theming
 =====================
@@ -16,7 +16,7 @@ The first steps for grasping the available theming options are:
 For inspiration and examples, please also refer back to `Theming <theming.html>`_.
 
 Naming conventions
-----------------------
+------------------
 
 All property names include parts or prefixes that signal what kind of items they apply to. In general:
 
@@ -29,10 +29,10 @@ All property names include parts or prefixes that signal what kind of items they
 * :token:`border`, :token:`box-shadow`, :token:`border-radius` and :token:`font` all refer to what you can expect out of these when thinking of the similarly named css properties. So they accept the shorthand notation or the multiple arguments that might be applicable for those css properties.
 
 Sections in the base theming file
-=================================
+---------------------------------
 
 Generic properties
-----------------------
+^^^^^^^^^^^^^^^^^^
 This section lists the css custom properties that will influence the theme of parts of your application that are pretty much always visible. Areas like the application header (menu, icons, logo), the background color ('canvas') upon which the widgets or the widgets' contents are drawn, colors of dividing lines/borders and drop shadows.
 
 Text colors could be called generic too, but given their importance and impact, they get their own section.
@@ -40,7 +40,7 @@ Text colors could be called generic too, but given their importance and impact, 
 Whenever items specifically belong to a certain function, a widget, or a type of widget, they are placed in a separate section.
 
 Text properties
-----------------------
+^^^^^^^^^^^^^^^
 The :token:`text_default` color is used extensively throughout the WebUI. It should be the color that works best on the color you specify for the widget background, as part of the generic properties.
 
 Similarly, the color of text that needs to indicate that it can be edited, selected or that it can be clicked to perform a certain operation is determined by the :token:`text_edit-select-link` property.
@@ -52,19 +52,19 @@ Although default text hardly ever can be hovered (or is no longer default text a
 The :token:`text_high-contrast` and two :token:`.._unobtrusive` properties are both meant for text that either needs to stand out or do exactly the opposite. High contrast text has quite a number of applications. Unobtrusive text only a few (the filter dialog, chart legends).
 
 Button properties
-----------------------
+^^^^^^^^^^^^^^^^^
 These properties are mostly self-explanatory. You can influence the border, background and text color of both primary and secondary buttons, in hovered, active and disabled states.
 
 As mentioned before, the (dark, active-looking) color of the primary button's background is used in some other places that have similar, button-like features or for which an 'inverted' look is required and where use of  :token:`edit-select-link` with :token:`widget-canvas` felt inappropriate. Examples are Item actions, Widget header icons in certain states, Page Actions and parts of the Date Picker.
 
 Widget properties
-----------------------
+^^^^^^^^^^^^^^^^^
 Like the buttons, the colors of the widget header have a large impact on the visual theme of your application. Most properties here are targeting the header, with the remainder being either global (widget canvas), or related to the message you get within widgets that haven't received/processed any displayable data yet.
 
 The drop shadow for the widget, by default inheriting its value from the :token:`box-shadow_medium` property, was created as a separate property (:token:`box-shadow_widget`) so you can easily create a theme that has no shadows around widgets but still retains the (functional) drop shadows that are present on many 'pop-up' elements like dialogs, tooltips and drop-down menus. Or you can simply turn the shadow into a single pixel border that clearly outlines the widgets.
 
 Table properties
-----------------------
+^^^^^^^^^^^^^^^^
 The list of table properties is not as long as it might have been. Because with this many elements that need to be displayed in several states, there are plenty of small things that could have their own property.
 
 Instead, the table mostly relies on already available theming for regular, editable and disabled text. It only adds a few properties for the color of the 'borders' on the cell while (un)focused, plus a color of text that is intended to make text as legible as possible while editing: :token:`focus-cell-text_while-editing`.
@@ -74,13 +74,13 @@ Moreover, there are 4 properties that have the :token:`color_overlayed` prefix a
 The main reason for this is to take away the need to having to specify a lot of individual colors for all of the cells and dividers when you decide to change something as basic as the widget canvas color. Because due to the overlay these background and borders will just change along to create a nice tint of the underlying canvas, instead of being a harsh, fully opaque gray color. Please note: in order for this effect to continue to work when you specify your own 'overlay colors', do make sure that they really are a *very* transparent color. And if your widget background is dark instead of light, these transparent colors will need to be the exact opposite.
 
 Chart properties
-----------------------
+^^^^^^^^^^^^^^^^
 Like tables, charts pick up many theme settings from generic properties, like colors for the data labels, legends and tooltips which are mainly based on the different generic text colors. But a few properties related to the axes, the labels used near it and the grid beneath a chart are available to make the charts match your needs.
 
 Unlike the table, the lines on the grid and axes are not defined with any transparency, so expect these to look 'out of place' as soon as you change the widget canvas color.
 
 Side Panel properties
-----------------------
+^^^^^^^^^^^^^^^^^^^^^
 Side Panels, and specifically their tabs, can be made to stand out from the main page by changing their background and text colors for each of their 3 states: regular, active and while hovering. By default, these are inheriting from the widget canvas and primary button colors, keeping them in line.
 
 The contents of Side Panels should be considered to represent a page, including all the theming properties that normally apply to that with one important exception: there is no page canvas color within the side panel, so when combined with the lack of padding, the widget canvas blends in with the similarly white 'side panel canvas'.
@@ -96,7 +96,7 @@ If you would really want the Side Panel to have a different canvas (for everythi
 Both widgets and the panel itself will change their background color, within the side panels only.
 
 Workflow properties
-----------------------
+^^^^^^^^^^^^^^^^^^^
 Being a real part of the page and not a really separate structure, the items of the workflow by default inherit their main (background) colors from the widget canvas. Although you can still redefine them to make the Workflow stand out if you wanted to.
 
 The other properties apply to the background (:token:`color_bg_workflow_`) and the text (:token:`color_workflow_`), in the four different states that an item may have:
@@ -118,7 +118,7 @@ Within the step items, the icons' background, color and border again differ betw
 * for any other state `color_bg_workflow_icon` will be used for the background, `color_workflow-icon-border` for the border around it, while the icon itself uses the text color of an active workflow item: `color_workflow_active`.
 
 Font properties
-----------------------
+^^^^^^^^^^^^^^^
 The font properties allow you to refer to a different font family, by name. This value will be used for the elements mentioned in the inline documentation, falling back to AIMMS' default fonts if you accidentally break the definition.
 
 In order to be able to link to a font family by name, you will need to use a custom stylesheet to either:
@@ -130,7 +130,7 @@ In order to be able to link to a font family by name, you will need to use a cus
 In either case you will still need to define the name of the family for the appropriate theming property. Make sure you take into consideration how custom fonts will influence the (first load) performance of your application and whether the legibility does not suffer at the various sizes and widths that are in use for the WebUI (because, for now, you cannot influence the sizing of the fonts).
 
 Color palettes for data
-=======================
+^^^^^^^^^^^^^^^^^^^^^^^
 Although complicated to perform any changes on, the Data Coloring section comes with inline documentation that describes all the requirements correctly.
 
 Having said that, the more general advice that applies here is:
@@ -148,7 +148,7 @@ Having said that, the more general advice that applies here is:
   * step away from colors through theming and just apply custom annotations, which you style in a custom stylesheet. However, that *does* mean you will need to take care of applying to the correct background, stroke, fill etc. properties, potentially different for each chart type.
 
 The "Unused" section
-=====================
+^^^^^^^^^^^^^^^^^^^^
 At the bottom of the base theming file you will find a few properties that make sense to have available for theming, but for which we have not done a correct implementation yet. These properties would influence the sizing of elements for which we currently sometimes expect a certain, fixed size. Meaning that some layouts and functionality would be in jeopardy.
 
 If you see a use-case for having the "unused" properties available for your theming, please reach out to the team to make us aware of the need to plan those improvements. Which is equally true for all other suggestions on how to improve the usability of Theming.
