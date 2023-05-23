@@ -198,3 +198,4 @@ Or, on all pages with 'red_page' in the page name, you could just have different
 .. spelling:word-list::
 
     URL
+    themable

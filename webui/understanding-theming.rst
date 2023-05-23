@@ -145,7 +145,7 @@ Having said that, the more general advice that applies here is:
 
   *  redefine the whole set. As long as you change each of the 16 colors, there will be no surprises. Fall back to a duplicate set of 8x2 or 4x4 if you want to (visually) reduce the amount of colors.
 
-  * step away from colors through theming and just apply custom annotations, which you style in a custom stylesheet. However, that *does* mean you will need to take care of applying to the correct background, stroke, fill etc. properties, potentially different for each chart type.
+  * step away from colors through theming and just apply custom annotations, which you style in a custom style sheet. However, that *does* mean you will need to take care of applying to the correct background, stroke, fill etc. properties, potentially different for each chart type.
 
 The "Unused" section
 ^^^^^^^^^^^^^^^^^^^^
