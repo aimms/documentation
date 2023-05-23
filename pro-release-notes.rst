@@ -12,7 +12,7 @@ On May 19, 2023, we released AIMMS PRO 2.49.1(2.49.1.1).
 
 **Improvements**
 
-   - Starting with this PRO version each session recorded in the PRO Database will also record GBHour consumed (i.e memory cosumed) per session.
+   - Starting with this PRO version each session recorded in the PRO Database will also record GBHour consumed (i.e memory consumed) per session.
    - PRO REST API: *projectVersionId* query parameter has been changed to *projectVersion* for GET Tasks.
    - PRO REST API: Starting with this version it is possible to configure *REST session idle time* at account level. Please see the `documentation <https://documentation.aimms.com/cloud/rest-api.html#running-tasks>`__ for more details.
    
