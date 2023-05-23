@@ -23,7 +23,7 @@ On side-note: a pretty large section of that file is aimed at providing a Data C
 
 The values assigned in this base file are the values that are used by default in the WebUI AIMMS theme. Please note that in your own :token:`.css` file, you do *not* have to specify properties from the base file which you do *not* want to change. This will make sure that you will benefit from the effect of potential future updates to the default values in the base file and that your own file shows your clean changes only.
 
-Since AIMMS 4.95 the amount properties has grown significantly to further enlarge the number of areas the theming applies to. Many of these new but also existing properties have been re-applied throughout WebUI so practically all aspects of Widgets and the application can be coherently influenced from as few properties as possible.
+Since AIMMS 4.95 the amount of themable properties has grown significantly to further enlarge the number of areas the theming applies to. Many of these new but also existing properties have been re-applied throughout WebUI so practically all aspects of Widgets and the application can be coherently influenced from as few properties as possible.
 
 While the base theming file and its (brief) comments are always up-to-date for each release, we also keep some longer documentation about the css properties, which should help you with `Understanding Theming <understanding-theming.html>`_.
 
@@ -168,18 +168,18 @@ For example, instead of putting all definitions on the :token:`:root{...}` eleme
 
 .. code-block:: CSS
 
-    [data-widget\.uri=my_special_table] {
-     --color_text_edit-select-link: #9400d3;
-     --color_bg_widget-canvas: #ffb6c1;
-    }
+  [data-widget\.uri=my_special_table] {
+    --color_text_edit-select-link: #9400d3;
+    --color_bg_widget-canvas: #ffb6c1;
+  }
 
 Or, on all pages with 'red_page' in the page name, you could just have different colored primary buttons:
 
 .. code-block:: CSS
 
     [data-widget\.uri*=red_page] {
-        --color_bg_button_primary: Red
-        --color_text_button_primary: White
+        --color_bg_button_primary: Red;
+        --color_text_button_primary: White;
         --border_button_primary: 1px solid Yellow;
         --color_bg_button_primary_hover: DarkRed;
         --color_text_button_primary_hover: Yellow;
