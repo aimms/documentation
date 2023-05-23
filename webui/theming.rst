@@ -80,7 +80,7 @@ Obviously, using a function like :token:`linear-gradient()`, it needs to make se
 
 .. note::
 
-   Although the base theme file contains an explanation that suggests that all properties prefixed with :token:`color_bg` or :token:`bg_` will be purely applied to real backgrounds (allowing for urls and gradients), there are a few exceptions were only a (straightforward) color values will work to theme some elements with these properties.  We have not managed to iron these out yet. Using color values only is currently the safest. Contact us if you run into areas that behave unexpectedly and always keep Chrome's DevTools at hand to check where and how theming is being applied.
+   Although the base theme file contains an explanation that suggests that all properties prefixed with :token:`color_bg` or :token:`bg_` will be purely applied to real backgrounds (allowing for urls and gradients), there are a few exceptions where only a (straightforward) color values will work to theme some elements with these properties.  We have not managed to iron these out yet. Using color values only is currently the safest. Contact us if you run into areas that behave unexpectedly and always keep Chrome's DevTools at hand to check where and how theming is being applied.
 
 For borders, for example, by adding a specific border value like this:
 
@@ -164,19 +164,23 @@ Many clients have their apps styled using custom CSS. We advise you to move to t
 
 Also, it needs to be emphasized that you *can* combine custom CSS constructs with theming because it is CSS after all. And with your 'custom css knowledge' you can also come up with constructions that change theming only locally.
 
-For example, instead of putting all definitions on the :token:`:root{...}` element, like we do by default, you can also target a single widget, or type, or any context using well known selectors:
+For example, instead of putting all definitions on the :token:`:root{...}` element, like we do by default, you can also target a single widget, or type, or any context using well-known selectors:
 
-.. code-block:: CSS
+.. raw:: html
 
-  [data-widget\.uri=my_special_table] {
-    --color_text_edit-select-link: #9400d3;
-    --color_bg_widget-canvas: #ffb6c1;
-  }
+    <div class="highlight-CSS notranslate"><div class="highlight"><pre>
+        [data-widget\.uri=my_special_table] {
+        --color_text_edit-select-link: #9400d3;
+        --color_bg_widget-canvas: #ffb6c1;
+        }
+    </pre></div>
+    </div>
 
 Or, on all pages with 'red_page' in the page name, you could just have different colored primary buttons:
 
-.. code-block:: CSS
+.. raw:: html
 
+    <div class="highlight-CSS notranslate"><div class="highlight"><pre>
     [data-widget\.uri*=red_page] {
         --color_bg_button_primary: Red;
         --color_text_button_primary: White;
@@ -188,5 +192,6 @@ Or, on all pages with 'red_page' in the page name, you could just have different
         --color_text_button_primary_active: White;
         --border_button_primary_active: 1px solid White;
     }
-
+    </pre></div>
+    </div>
 
