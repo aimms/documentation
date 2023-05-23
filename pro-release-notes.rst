@@ -1,6 +1,29 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.49
+########
+
+AIMMS PRO 2.49.1 Release
+------------------------
+
+On May 19, 2023, we released AIMMS PRO 2.49.1(2.49.1.1). 
+
+
+**Improvements**
+
+   - Starting with this PRO version each session recorded in the PRO Database will also record GBHour consumed (i.e memory cosumed) per session.
+   - PRO REST API: *projectVersionId* query parameter has been changed to *projectVersion* for GET Tasks.
+   - PRO REST API: Starting with this version it is possible to configure *REST session idle time* at account level. Please see the `documentation <https://documentation.aimms.com/cloud/rest-api.html#running-tasks>`__ for more details.
+   
+**Resolved Issues**
+
+   - PRO REST API: Fixed an issue with listing tasks when offset query parameter is set to 0.
+   - PRO REST API: AIMMS *authorizations* has been removed from GET application info. 
+   - Fixed an issue where Tunnel App could crash when data is being imported. (This does require an AIMMS 4.96 or higher)
+   - Fixed an issue where changing the permissions of previous version of an App could lead to *PROAuthenticationEnvironment '127' does not exist* error message. 
+
+
 PRO 2.48
 ########
 
