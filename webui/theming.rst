@@ -80,7 +80,7 @@ Obviously, using a function like :token:`linear-gradient()`, it needs to make se
 
 .. note::
 
-   Although the base theme file contains an explanation that suggests that all properties prefixed with :token:`color_bg` or :token:`bg_` will be purely applied to real backgrounds (allowing for urls and gradients), there are a few exceptions where only a (straightforward) color values will work to theme some elements with these properties.  We have not managed to iron these out yet. Using color values only is currently the safest. Contact us if you run into areas that behave unexpectedly and always keep Chrome's DevTools at hand to check where and how theming is being applied.
+   Although the base theme file contains an explanation that suggests that all properties prefixed with :token:`color_bg` or :token:`bg_` will be purely applied to real backgrounds (allowing for URLs and gradients), there are a few exceptions where only a (straightforward) color values will work to theme some elements with these properties.  We have not managed to iron these out yet. Using color values only is currently the safest. Contact us if you run into areas that behave unexpectedly and always keep Chrome's DevTools at hand to check where and how theming is being applied.
 
 For borders, for example, by adding a specific border value like this:
 
@@ -195,3 +195,6 @@ Or, on all pages with 'red_page' in the page name, you could just have different
     </pre></div>
     </div>
 
+.. spelling:word-list::
+
+    URL

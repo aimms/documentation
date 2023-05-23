@@ -67,7 +67,7 @@ Table properties
 ^^^^^^^^^^^^^^^^
 The list of table properties is not as long as it might have been. Because with this many elements that need to be displayed in several states, there are plenty of small things that could have their own property.
 
-Instead, the table mostly relies on already available theming for regular, editable and disabled text. It only adds a few properties for the color of the 'borders' on the cell while (un)focused, plus a color of text that is intended to make text as legible as possible while editing: :token:`focus-cell-text_while-editing`.
+Instead, the table mostly relies on already available theming for regular, editable and disabled text. It only adds a few properties for the color of the 'borders' on the cell while focused/unfocused, plus a color of text that is intended to make text as legible as possible while editing: :token:`focus-cell-text_while-editing`.
 
 Moreover, there are 4 properties that have the :token:`color_overlayed` prefix and which are applied to either backgrounds or borders. All of them share the fact that they are intended to interact with the color beneath them: by default they (very mildly) darken the colors for which they are an overlay.
 
@@ -121,11 +121,11 @@ Font properties
 ^^^^^^^^^^^^^^^
 The font properties allow you to refer to a different font family, by name. This value will be used for the elements mentioned in the inline documentation, falling back to AIMMS' default fonts if you accidentally break the definition.
 
-In order to be able to link to a font family by name, you will need to use a custom stylesheet to either:
+In order to be able to link to a font family by name, you will need to use a custom style sheet to either:
 
-* define a new :token:`@font-face` with a correct source (which could be files in your own application resource folder, or a fully qualified online url).
+* define a new :token:`@font-face` with a correct source (which could be files in your own application resource folder, or a fully qualified online URL).
 
-* use a css :token:`@import` to basically do the same, but probably using the pre-defined stylesheets from resources like Google Font, Font Library or Adobe fonts.
+* use a css :token:`@import` to basically do the same, but probably using the pre-defined style sheets from resources like Google Font, Font Library or Adobe fonts.
 
 In either case you will still need to define the name of the family for the appropriate theming property. Make sure you take into consideration how custom fonts will influence the (first load) performance of your application and whether the legibility does not suffer at the various sizes and widths that are in use for the WebUI (because, for now, you cannot influence the sizing of the fonts).
 
@@ -152,3 +152,10 @@ The "Unused" section
 At the bottom of the base theming file you will find a few properties that make sense to have available for theming, but for which we have not done a correct implementation yet. These properties would influence the sizing of elements for which we currently sometimes expect a certain, fixed size. Meaning that some layouts and functionality would be in jeopardy.
 
 If you see a use-case for having the "unused" properties available for your theming, please reach out to the team to make us aware of the need to plan those improvements. Which is equally true for all other suggestions on how to improve the usability of Theming.
+
+.. spelling:word-list::
+
+    themable
+    URLs
+    hsl
+    rgba
