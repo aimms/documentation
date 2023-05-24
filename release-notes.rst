@@ -13,6 +13,22 @@ AIMMS 4.95
 
 
 
+AIMMS 4.95.3 Release (May 24, 2023 - build 4.95.3.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS could crash at the beginning of a solve if the option 'Linear Presolve' was switched on and the 'ShadowPriceRange' property was set for one of the constraints. This regression issue was introduced in AIMMS 4.89.1.
+
+--------------
+
+
+
+
+
 AIMMS 4.95.2 Release (May 17, 2023 - build 4.95.2.3).
 ------------------------------------------------------------------------------------------
 
