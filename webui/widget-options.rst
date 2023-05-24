@@ -849,12 +849,13 @@ This set has 4 elements representing widget action properties:
 #. ``icon``: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the `icon list. <../_static/aimms-icons/icons-reference.html>`_		
 #. ``procedure``: The procedure you want to call when the respective action is clicked.  
 #. ``state``: This is the state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
+#. ``actiontype``: This determines the type of action the procedure implements. It can either be :token:`procedure` (any procedure without arguments), :token:`upload` (an upload procedure, see `below <widget-options.html#upload-and-download-procedures>`_) or :token:`download` (a download procedure, see `below <widget-options.html#upload-and-download-procedures>`_). By default, the actiontype is :token:`procedure`.
 
 .. tip:: 
     If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append ``aimms-`` to the selected icon name when adding it to the model. For example: if the icon name is "calculator", then in AIMMS it needs to be ``aimms-calculator``.
 
     `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required.
-    
+
 To configure widget actions, create a string parameter indexed by the :any:`webui::ExtensionOrder` set with :any:`webui::indexPageExtension` and :any:`webui::WidgetActionSpecification` with the index :any:`webui::indexWidgetActionSpec`, for example MyWidgetActions(webui::indexPageExtension,webui::indexWidgetActionSpec) as shown here:
 
 .. image:: images/WidgetActions_MyWidgetActions.png
@@ -907,6 +908,15 @@ In case you have a long ``displaytext`` for an action, the widget action menu wi
 			:align: center 
 			:scale: 75
 
+Upload and Download Procedures
+++++++++++++++++++++++++++++++
+
+As described above, the actiontype for a widget action can be either procedure, upload or download (since AIMMS 4.96; previously the actiontype setting was not present). When specifying procedure (or leaving the actiontype empty), you should provide a procedure without arguments, which will be executed as described in the section above. 
+
+If you specify either an upload or a download actiontype, you should provide a special procedure which takes care of preparing a download file, or post-processing an upload file. Such procedures are exactly the same as the `procedures used for the Upload widget <upload-widget.html#creating-an-upload-widget>`_ and the `procedures used for the Download widget <download-widget.html#creating-a-download-widget>`_, respectively.
+
+The upload and download process works the same as it does with the separate Upload and Download widgets. The main advantage of doing the upload or download from a widget action is that is saved the space of the official widget on your page. Another advantage is that it is immediately clear that the upload or download action is relevant for the specific widget for which you have defined such a widget action.
+
 
 Item Actions
 ------------
@@ -933,7 +943,7 @@ The item actions can be associated with any procedure in your model. For example
 Configuring Item Actions
 ++++++++++++++++++++++++
 
-Item Actions can be configured by the application developer via the AIMMS model, similarly to how widget actions are configured.
+Item Actions can be configured by the application developer via the AIMMS model, similarly to how widget actions are configured. This includes the actiontype specification, as available in AIMMS from version 4.96 onwards.
 
 To configure item actions, create a string parameter indexed by the set ``webui::WidgetItemActionSpecification`` with the index ``webui::indexWidgetItemActionSpec``, the set ``webui::ExtensionOrder`` with the index ``webui::indexPageExtension``, and 
 the set ``webui::WidgetActionSpecification`` with the index ``webui::indexWidgetActionSpec``; for example, a string parameter as shown here:
@@ -1053,3 +1063,7 @@ Best Practices for Item Actions
 
     Some content of this guide is taken from the Apple Human Interface Guidelines. These guideline provide a wealth of information on human-computer interactions.
 
+
+.. spelling:word-list::
+
+    actiontype
