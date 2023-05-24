@@ -21,7 +21,14 @@ WebUI App Development
 
 .. |menu-bar-453| image:: images/page_menu_453.png
 
-The description of the tools for WebUI app development and related topics can be accessed using the following navigation scheme:
+This main section contains a number of sub-sections dedicated to various topics related to the WebUI app development.
+
+Some matters which are applicable to several sub-sections are mentioned here directly. 
+
+For example, starting from AIMMS 4.96, WebUi supports calling procedures with optional arguments in several places, such as behind a button widget, as part of item, widget, or page actions, as well as for page load and page leave procedures.
+When a procedure with optional arguments is used in one of these places, the call will be made based on the default values of the optional arguments.
+
+The description of the specific tools for WebUI app development and related topics can be accessed using the following navigation scheme:
 
 .. toctree::
 
