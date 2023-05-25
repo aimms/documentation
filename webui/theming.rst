@@ -166,21 +166,17 @@ Also, it needs to be emphasized that you *can* combine custom CSS constructs wit
 
 For example, instead of putting all definitions on the :token:`:root{...}` element, like we do by default, you can also target a single widget, or type, or any context using well-known selectors:
 
-.. raw:: html
+.. code-block:: text
 
-    <div class="highlight-CSS notranslate"><div class="highlight"><pre>
-        [data-widget\.uri=my_special_table] {
+    [data-widget\.uri=my_special_table] {
         --color_text_edit-select-link: #9400d3;
         --color_bg_widget-canvas: #ffb6c1;
-        }
-    </pre></div>
-    </div>
+    }
 
 Or, on all pages with 'red_page' in the page name, you could just have different colored primary buttons:
 
-.. raw:: html
+.. code-block:: text
 
-    <div class="highlight-CSS notranslate"><div class="highlight"><pre>
     [data-widget\.uri*=red_page] {
         --color_bg_button_primary: Red;
         --color_text_button_primary: White;
@@ -192,8 +188,6 @@ Or, on all pages with 'red_page' in the page name, you could just have different
         --color_text_button_primary_active: White;
         --border_button_primary_active: 1px solid White;
     }
-    </pre></div>
-    </div>
 
 .. spelling:word-list::
 
