@@ -13,6 +13,27 @@ AIMMS 4.95
 
 
 
+AIMMS 4.95.4 Release (May 26, 2023 - build 4.95.4.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Since AIMMS 4.90, AIMMS could crash due to a buffer overflow in dialog functions if you tried to display too many characters in it.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The disabling/enabling of the Widget Actions for 'Upload...' and 'Download...' (for data or image snapshots) has been made more fine-grained, so you can now hide (but not really disable) them individually and for specific widgets or widget types. More information on how to achieve this through a few lines of CSS in your application specific resources can be found in `this How-to article <https://how-to.aimms.com/Articles/568/568-disable-standard-webui-functions.html>`_ on disabling standard WebUI functions.
+
+--------------
+
+
+
+
+
 AIMMS 4.95.3 Release (May 24, 2023 - build 4.95.3.1).
 ------------------------------------------------------------------------------------------
 
