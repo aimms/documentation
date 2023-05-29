@@ -14,6 +14,12 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.1.0.41 [29-05-2023]
+	- Make recursively included mappings more efficient during write
+	- Add support for passing client id and secret to OAuth token service using basic authentication
+	- Add support for task termination callbacks for the task REST service
+	- Add support for reading and generating JWT tokens
+
 2.1.0.29 [19-05-2023]
 	- Single column CSV files would not be read correctly
 	- Tasks that end in the ``Finished with errors`` state, will now provide more detail in the status error message

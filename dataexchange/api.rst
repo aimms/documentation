@@ -503,6 +503,9 @@ For JSON schema and OpenAPI specifications, the Data Exchange library can genera
 File transfer functions
 -----------------------
 
+The following functions in the Data Exchange library, allow you to upload, download, or delete files from a HTTP service like Azure Blob Storage, or AWS S3. 
+For uploading and downloading files there are both synchronous as asynchronous variants. In the latter case, you can use the function ``dex::client::WaitForOutstandingFileRequests`` to wait for any outstanding asynchronous file request operations.
+
 .. js:function:: dex::client::GetFileAsync
 
 	Download a file from a given URL asynchronously. The function will return 1 if the HTTP request could be submitted successfully.
@@ -567,6 +570,37 @@ File transfer functions
 		
 	:param timeout: optional parameter indicating the time to wait for any outstanding requests to complete (default 30 seconds)
 
+Managing JWT Tokens
+-------------------
+
+Normally, when using OAuth, you don't need to worry about manipulating `JWT tokens <https://jwt.io>`_ directly. However, some services, like for instance the Snowflake SQL API, support authentication through JWT tokens you sign yourself using your own private RSA key. To support this, the Data Exchange library supports the following functions for manipulating JWT tokens directly.
+
+.. js:function:: dex::jwt::Encode
+
+	Generate a JWT token for a given payload, signed using a given private RSA key. The contents of the payload can be constructed using the pre-defined ``JWT`` mapping, and the identifiers in the ``dex::jwt`` section of the Data Exchange library. This mapping supports string, integer and boolean claims, as well as claims consisting of arrays of string or integers. If you need to specify other claims, you can obviously construct the JWT payload using mappings constructed specifically for that purpose.
+
+	:param payLoad: the JWT payload used to create the JWT token. 
+	:param rsaPrivateKey: the private RSA key used to sign the JWT token.
+	:param token: output string argument holding the signed JWT token.
+	
+.. js:function:: dex::jwt::Decode
+
+	Reconstruct the JWT payload contained in a given JWT token, but do not verify the token
+	
+	:param token: the given JWT token to decode
+	:param payLoad: output string argument holding the decoded JWT payload. 
+
+.. js:function:: dex::jwt::Verify
+
+	Verify the validity of a given JWT token. The function will verify the token signature using the given public RSA key, and check the ``iat``, ``nbf`` and ``exp`` fields of the given token and verify that is used in the given time range. The function will return 
+	
+	:param token: the given JWT token to verify
+	:param rsaPublicKey: the public RSA key to verify the signature with
+
+.. js:function:: dex::jwt::EpochTime
+
+	Return the time in seconds since Unix epoch. You can use this function to construct the ``iat``, ``nbf`` and ``exp`` fields of a JWT payload.
+
 Creating SAS URL query strings
 ------------------------------
 
@@ -599,5 +633,7 @@ Creating SAS URL query strings
 		AWS
 		OAuth2
 		IP
+		JWT
+		RSA
 		
 	
