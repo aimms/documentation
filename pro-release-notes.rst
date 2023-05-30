@@ -4,6 +4,16 @@ AIMMS PRO Release Notes
 PRO 2.49
 ########
 
+AIMMS PRO 2.49.2 Release
+------------------------
+
+On May 30, 2023, we released AIMMS PRO 2.49.2(2.49.2.1). 
+ 
+**Resolved Issues**
+
+   - Assigning/updating an app permissions could not be possible when an environment is deleted which had access to the app.
+   
+
 AIMMS PRO 2.49.1 Release
 ------------------------
 
