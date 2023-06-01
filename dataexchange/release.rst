@@ -14,6 +14,9 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.1.0.46 [01-06-2023]
+	- AIMMS function to convert calendar element to date and vice versa would not function correctly for calendar subsets
+
 2.1.0.41 [29-05-2023]
 	- Make recursively included mappings more efficient during write
 	- Add support for passing client id and secret to OAuth token service using basic authentication

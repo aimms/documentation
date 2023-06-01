@@ -5,6 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+1.0.2.166 [01-06-2023]
+	- The function ``aimmsunit::CompareClonedDataset`` will now report all identifiers with differences.
+
 1.0.2.162 [11-08-2022]
     - No change (internal)
 
