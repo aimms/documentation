@@ -7,12 +7,14 @@ PRO 2.49
 AIMMS PRO 2.49.2 Release
 ------------------------
 
-On May 30, 2023, we released AIMMS PRO 2.49.2(2.49.2.1). 
+On June 1, 2023, we released AIMMS PRO 2.49.2(2.49.2.3). 
  
 **Resolved Issues**
 
-   - Assigning/updating an app permissions could not be possible when an environment is deleted which had access to the app.
-   
+   - Assigning/updating an app permissions could not be possible when an environment is deleted which had an access to the app.
+   - PRO REST API: Improved error message when passing incorrect date to retrieve tasks list. 
+   - PRO REST API: Fixed an issue where a task could fail with an immediate response - HTTP code of 500 when passing a *.parquet* file with a cell length of 60 or more characters per line. 
+   - PRO REST API: Fixed an issue where it could not create a task with 5MB+ input/output. 
 
 AIMMS PRO 2.49.1 Release
 ------------------------
