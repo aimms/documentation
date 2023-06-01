@@ -13,6 +13,22 @@ AIMMS 4.95
 
 
 
+AIMMS 4.95.5 Release (June 01, 2023 - build 4.95.5.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Using -inf as the default value for an unspecified default argument, it was not picked up correctly when entering a procedure. Instead, the value 0 was used.
+
+--------------
+
+
+
+
+
 AIMMS 4.95.4 Release (May 26, 2023 - build 4.95.4.2).
 ------------------------------------------------------------------------------------------
 
