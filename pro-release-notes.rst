@@ -12,6 +12,7 @@ On June 1, 2023, we released AIMMS PRO 2.49.2(2.49.2.3).
 **Resolved Issues**
 
    - Assigning/updating an app permissions could not be possible when an environment is deleted which had an access to the app.
+   - Fixed an issue where Tunnel App could crash when data is being imported. (This does require an AIMMS 4.96 or higher)
    - PRO REST API: Improved error message when passing incorrect date to retrieve tasks list. 
    - PRO REST API: Fixed an issue where a task could fail with an immediate response - HTTP code of 500 when passing a *.parquet* file with a cell length of 60 or more characters per line. 
    - PRO REST API: Fixed an issue where it could not create a task with 5MB+ input/output. 
@@ -32,7 +33,6 @@ On May 19, 2023, we released AIMMS PRO 2.49.1(2.49.1.1).
 
    - PRO REST API: Fixed an issue with listing tasks when offset query parameter is set to 0.
    - PRO REST API: AIMMS *authorizations* has been removed from GET application info. 
-   - Fixed an issue where Tunnel App could crash when data is being imported. (This does require an AIMMS 4.96 or higher)
    - Fixed an issue where changing the permissions of previous version of an App could lead to *PROAuthenticationEnvironment '127' does not exist* error message. 
 
 
