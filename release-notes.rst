@@ -13,6 +13,22 @@ AIMMS 4.95
 
 
 
+AIMMS 4.95.6 Release (June 02, 2023 - build 4.95.6.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The IdentifierText function returned an empty string instead of the identifier name if the text field of the specified identifier was left empty.
+
+--------------
+
+
+
+
+
 AIMMS 4.95.5 Release (June 01, 2023 - build 4.95.5.1).
 ------------------------------------------------------------------------------------------
 
