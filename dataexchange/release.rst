@@ -14,6 +14,10 @@ The DataExchange library is under active development. The following new features
 
 New Features and Bug Fixes
 --------------------------
+2.1.1.2 [02-06-2023]
+	- DEX build version is now properly reported in ``dex::client`` User-Agent headers
+	- ``dex::api`` request termination callbacks are now always logged
+	
 2.1.0.46 [01-06-2023]
 	- AIMMS function to convert calendar element to date and vice versa would not function correctly for calendar subsets
 
