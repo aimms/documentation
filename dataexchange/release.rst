@@ -3,14 +3,13 @@ DataExchange Library Release Notes
 
 The first public release of the DataExchange library was version 1.0.0.18, release date July 10, 2020. 
 
-.. _Data Exchange roadmap:
+.. 
+	.. _Data Exchange roadmap:
 
-Data Exchange Roadmap
----------------------
+	Data Exchange Roadmap
+	---------------------
 
-The DataExchange library is under active development. The following new features are on the roadmap of the DataExchange library:
-
-- Exposing DEX-generated application databases to external applications via dedicated application database-specific API services. This will also allow for asynchronous reading and writing to such application databases from within an AIMMS model. 
+	The DataExchange library is under active development. The following new features are on the roadmap of the DataExchange library:
 
 New Features and Bug Fixes
 --------------------------
