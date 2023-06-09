@@ -13,6 +13,22 @@ AIMMS 4.95
 
 
 
+AIMMS 4.95.7 Release (June 09, 2023 - build 4.95.7.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The chart labels (across all chart types, when showing labels for the values within a chart) have been aligned to maximize legibility. Font size, color and outline should now yield good results on most data colors.
+
+--------------
+
+
+
+
+
 AIMMS 4.95.6 Release (June 02, 2023 - build 4.95.6.1).
 ------------------------------------------------------------------------------------------
 
