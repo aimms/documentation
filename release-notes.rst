@@ -13,6 +13,22 @@ AIMMS 4.95
 
 
 
+AIMMS 4.95.8 Release (June 13, 2023 - build 4.95.8.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The tooltip for (WebUI) table cells that contained a 'count' aggregator value could show a wrong value in case the table also had an active filter.
+
+--------------
+
+
+
+
+
 AIMMS 4.95.7 Release (June 09, 2023 - build 4.95.7.2).
 ------------------------------------------------------------------------------------------
 
