@@ -12,7 +12,6 @@ AIMMS 4.95
 #############
 
 
-
 AIMMS 4.95.10 Release (June 15, 2023 - build 4.95.10.0).
 ------------------------------------------------------------------------------------------
 
@@ -34,12 +33,7 @@ Resolved WebUI Issues
 --------------
 
 
-
-
-
-
-
-
+(we skipped AIMMS 4.95.9 due to internal technical reasons)
 
 
 AIMMS 4.95.8 Release (June 13, 2023 - build 4.95.8.1).
