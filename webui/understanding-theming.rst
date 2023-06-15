@@ -77,7 +77,7 @@ Chart properties
 ^^^^^^^^^^^^^^^^
 Like tables, charts pick up many theme settings from generic properties, like colors for the data labels, legends and tooltips which are mainly based on the different generic text colors. But a few properties related to the axes, the labels used near it and the grid beneath a chart are available to make the charts match your needs.
 
-And again similar to tables: the lines that make up the grid and the axis themselved (lines and labels) are set up using some transparency, all deriving from :token:`--color_text-default`. If you set that one correctly, the charts will follow accordingly
+And again similar to tables: the lines that make up the grid and the axis themselves (lines and labels) are set up using some transparency, all deriving from :token:`--color_text-default`. If you set that one correctly, the charts will follow accordingly
 
 Side Panel properties
 ^^^^^^^^^^^^^^^^^^^^^
