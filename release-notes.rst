@@ -28,7 +28,7 @@ Resolved WebUI Issues
 
 -  When combining the setting of the openClose string parameter for a workflow with the opening of a workflow page using the OpenPage procedure, the WebUI could get blocked. It would not react on any input anymore.
 -  Hyperlinks in the List Widget did not have the proper styling (blue and underlined) anymore.
--  When a WebUI Table cell had the focus, and you switched between browser tabs to come back to the one containing the Table, the focus was lost, forcing you to click on the cell again. Now the focus is retained.
+-  When a WebUI Table cell had the focus, and you switched between browser tabs to come back to the one containing the Table, the focus was lost, forcing you to click on the cell again. Now the focus is retained, which will help you when copy-pasting values from external sources to the table.
 -  Some custom CSS properties were added again to improve on the 'themeability' of the application header/footer and Workflow. Some definitions were changed so the theming of simple things like the widget background does not immediately pose problems for charts. Moreover, all elements that are considered to be part of the App Developer UI (sidebar, option editors, many dialogs) will no longer respond to theming (to guarantee the usability of them) because a new class was added to their containers: `container--unthemed-on-purpose`.
 
 --------------
@@ -10038,3 +10038,5 @@ Improvements
 	IdentifierElementText
 	ubuntu
 	pivotings
+	openClose
+	themeability
