@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+2.1.1.7 [16-06-2023]
+	- The ``write-defaults`` attribute would incorrectly advance the data iterator when writing
+
 2.1.1.2 [02-06-2023]
 	- DEX build version is now properly reported in ``dex::client`` User-Agent headers
 	- ``dex::api`` request termination callbacks are now always logged
