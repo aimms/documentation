@@ -498,7 +498,7 @@ For JSON schema and OpenAPI specifications, the Data Exchange library can genera
 	:param schemaName_: name of the OpenAPI specification for which to create a runtime library and mapping, will also serve as the name of the runtime library.
 	:param schemaPrefix: prefix of the runtime library to generate
 	:param explodeDefault: flag to indicate whether to add references to an instance of a subschema (0), to explode subschemas into a schema but still maintaining an `instance` index to allow multiple instances of the data (1, default),  or to explode without an additional `instance` index (2). Values of 0 and 1 create asynchronous methods, that allow multiple API calls to be executed in parallel, while a value of 2 will generate a completely synchronous library, allowing only one API call to be executed at any time.
-	:param generateXMLData: flag to indicate whether the API expects JSON request and response bodies (0, default), or XML request and response bodies (1)
+	:param generateXMLData: flag to indicate whether the API expects JSON request and response bodies (0, default), XML request and response bodies (1), or both JSON and XML request and response bodies.
 
 File transfer functions
 -----------------------
