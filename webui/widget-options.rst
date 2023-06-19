@@ -681,7 +681,7 @@ Any of the views are available for selection by the end user from the list and t
     When all of the earlier-created named views are removed, the widget loads with the settings of the most recent view selected for the *Current View* option.
 
 .. note::
-    All widget options are recorded if you create a Widget Named View. There is one special case, though: the Visibility option. If you change its value, it will be recorded for *all* named views. The reason behind that is that if you have two Named Views and one of them has the Visibility set to 0, you can run into the situation that you have a widget on your page, change the Named View as a user and suddenly the widget disappears. After which you cannot select the original Named View (the one with Visibility 1) anymore, because the whole widget menu is not there anymore.
+    All widget options are recorded if you create a Widget Named View. There is one special case, though: the Visibility option. If you change its value, it will be recorded for *all* named views. The reason behind that is that if you have two Named Views and one of them has the Visibility set to 0, you can run into the situation that you have a widget on your page, change the Named View as a user and suddenly the widget disappears. After which you cannot select the original Named View (the one with Visibility 1) anymore, because the whole widget, including the Named Views menu, has disappeared.
 
 Pivot
 -----
