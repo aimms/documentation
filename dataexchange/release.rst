@@ -13,8 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
-2.1.1.9 [18-06-2023]
+2.1.1.10 [19-06-2023]
 	- Add support for OpenAPI specs that require both XML and JSON mappings
+	- Increase maximum transferable string size to 16 KB
 	
 2.1.1.7 [16-06-2023]
 	- The ``write-defaults`` attribute would incorrectly advance the data iterator when writing
