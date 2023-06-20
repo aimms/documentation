@@ -21,7 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  Now, when using the 'is' or 'is not' filter types in the table widget, special characters like `.*+?^${}()|[]\` are properly escaped.
+-  Now, when using the 'is' or 'is not' filter types in the table widget, special characters are properly escaped.
 
 --------------
 
