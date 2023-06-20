@@ -12,6 +12,22 @@ AIMMS 4.95
 #############
 
 
+
+AIMMS 4.95.11 Release (June 20, 2023 - build 4.95.11.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Now, when using the 'is' or 'is not' filter types in the table widget, special characters like `.*+?^${}()|[]\` are properly escaped.
+
+--------------
+
+
+
+
 AIMMS 4.95.10 Release (June 15, 2023 - build 4.95.10.0).
 ------------------------------------------------------------------------------------------
 
