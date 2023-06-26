@@ -652,10 +652,16 @@ When you hover over each named view option header, the Up |WNV-order-up| and Dow
        
 .. image:: images/WNV-option-editor-reordering-views.png
     :align: center
-   
+
+
 The Current View option can be specified by a literal view name, or by an element parameter. This element parameter should have a set as its range, which contains a collection of applicable named views for the widget at hand. The benefit of specifying such an element parameter is that you can dynamically switch from one view to another from within the model itself: just set the element parameter to a different view than the one currently selected, and the widget will update accordingly. Please note that the set belonging to this parameter does not necessarily have to include all available view names for the widget: just a subset of those is also allowed. In case the set contains elements which do not correspond to existing view names for the widget, those will be ignored. The Widget Named View menu in the widget header will automatically display all valid view names from the set.
 
-To illustrate this, in the context of the image above, you could define a set `LabourCostsNamedViews` with `data {'View Data as Table', 'View Data as Chart'};` as its definition, create an element parameter `CurrentLabourCostsNamedView` with this set as its range and specify it for the Current View option.
+.. image:: images/NamedViewAsElement.jpg
+    :align: center
+
+To illustrate this, in the context of the image above, the model contains a set `AbsenteeViews` with `data {'Everyone', 'US People', 'NL People'};` as its definition, an element parameter `CurrentAbsenteeView` with this set as its range which is specified for the Current View option. In the image, the value of `CurrentAbsenteeView` is `NL People`. As you can see, this is reflected in the widget header menu showing the named views and the currently selected one.
+
+Please be aware that it is possible to have more literally specified named views than the set belonging to the Current View option element parameter. If you specify, let's say, six named views and the set contains just two of them, then if you specify the element parameter for the Current View option, the widget header menu will only show those two views.
 
 When one or more named views are created for a widget, the |wnv-select-views| button is made available on the widget's header section. When you click on it, a list of the various named views made for this widget appears, in the order the views were arranged. The |WNV_current_view_icon| icon serves as an indication of the currently active view.
        
