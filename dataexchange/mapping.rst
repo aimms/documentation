@@ -175,7 +175,7 @@ You can assign the ``maps-to`` attribute to any value-holding mapping element. I
 
 The ``write-filter`` attribute can be specified at any node in the mapping tree, and should be a reference to an identifier in the model including the bound indices at this location as for the ``maps-to`` attribute. For any tuple of bound indices for which the ``write-filter`` attribute does not hold a non-default value, the corresponding part of the generate JSON, XML or CSV file will be skipped. 
 
-By default, the Data Exchange library assumes that all string values will hold up to 1024 characters. Through the ``max-string-size`` attribute a maximum string size up to 8KB can be specified.
+By default, the Data Exchange library assumes that all string values will hold up to 1024 characters. Through the ``max-string-size`` attribute a maximum string size up to 16KB can be specified.
 
 The write-defaults attribute
 ----------------------------
