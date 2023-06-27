@@ -137,6 +137,9 @@ unresolvable
 unselected
 voilà
 jquery
+ColumnMapping
+sp
+commenttext
 #########
 
 

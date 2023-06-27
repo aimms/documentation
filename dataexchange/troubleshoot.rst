@@ -7,7 +7,7 @@ Errors and Warnings
 ---------------------
 
 *ReadFromFile: String length <0000> exceeds maximum of 1024 in CSV file <'fileName.csv'>, data row <'rowNumber'>, column <'commentName'>*
-	Use the max-string-size attribute to make string lenght of this identifier bigger. Example: "<ColumnMapping name="comment_text" max-string-size="3000" maps-to="sp_commenttext(i_id)"/>".
+	Use the max-string-size attribute to make string length of this identifier bigger. Example: "<ColumnMapping name="comment_text" max-string-size="3000" maps-to="sp_commenttext(i_id)"/>".
 
 *The maps-to attribute 'x' for node 'y' refers to an non-existing identifier*
 	In this case it is helpful to check if you have written the "maps-to" element correctly, including a possible index.
