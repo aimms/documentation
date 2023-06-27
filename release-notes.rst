@@ -13,6 +13,22 @@ AIMMS 4.95
 
 
 
+AIMMS 4.95.12 Release (June 27, 2023 - build 4.95.12.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  With the release of AIMMS 4.90.3, we upgraded the Slider widget to include support for slicing on Contents. The support for slicing on the Min, Max, and Step options has now been added as a further extension.
+
+--------------
+
+
+
+
+
 AIMMS 4.95.11 Release (June 20, 2023 - build 4.95.11.4).
 ------------------------------------------------------------------------------------------
 
