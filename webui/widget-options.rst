@@ -652,9 +652,18 @@ When you hover over each named view option header, the Up |WNV-order-up| and Dow
        
 .. image:: images/WNV-option-editor-reordering-views.png
     :align: center
-   
 
-When one or more named views are created for a widget, the |wnv-select-views| button is made available on the widget's header section. When you click on it, a list of the various named views made for this widget appears, in the order the views were arranged. The |WNV_current_view_icon| icon serves as an indication of the current active view.
+
+The Current View option can be specified by a literal view name, or by an element parameter. This element parameter should have a set as its range, which contains a collection of applicable named views for the widget at hand. The benefit of specifying such an element parameter is that you can dynamically switch from one view to another from within the model itself: just set the element parameter to a different view than the one currently selected, and the widget will update accordingly. Please note that the set belonging to this parameter does not necessarily have to include all available view names for the widget: just a subset of those is also allowed. In case the set contains elements which do not correspond to existing view names for the widget, those will be ignored. The Widget Named View menu in the widget header will automatically display all valid view names from the set.
+
+.. image:: images/NamedViewAsElement.jpg
+    :align: center
+
+To illustrate this, in the context of the image above, the model contains a set `AbsenteeViews` with `data {'Everyone', 'US People', 'NL People'};` as its definition, an element parameter `CurrentAbsenteeView` with this set as its range which is specified for the Current View option. In the image, the value of `CurrentAbsenteeView` is `NL People`. As you can see, this is reflected in the widget header menu showing the named views and the currently selected one.
+
+Please be aware that it is possible to have more literally specified named views than the set belonging to the Current View option element parameter. If you specify, let's say, six named views and the set contains just two of them, then if you specify the element parameter for the Current View option, the widget header menu will only show those two views.
+
+When one or more named views are created for a widget, the |wnv-select-views| button is made available on the widget's header section. When you click on it, a list of the various named views made for this widget appears, in the order the views were arranged. The |WNV_current_view_icon| icon serves as an indication of the currently active view.
        
 .. image:: images/WNV_select_views_list.png
     :align: center
@@ -678,7 +687,7 @@ Any of the views are available for selection by the end user from the list and t
     When all of the earlier-created named views are removed, the widget loads with the settings of the most recent view selected for the *Current View* option.
 
 .. note::
-    In the current version, the *Current View* option can only be a literal entry from the list of available view names. In the future version, this entry could be set to a view name though an AIMMS identifier.
+    All widget options are recorded if you create a Widget Named View. There is one special case, though: the Visibility option. If you change its value, it will be recorded for *all* named views. The reason behind that is that if you have two Named Views and one of them has the Visibility set to 0, you can run into the situation that you have a widget on your page, change the Named View as a user and suddenly the widget disappears. After which you cannot select the original Named View (the one with Visibility 1) anymore, because the whole widget, including the Named Views menu, has disappeared.
 
 Pivot
 -----
@@ -849,12 +858,13 @@ This set has 4 elements representing widget action properties:
 #. ``icon``: The icon you want to associate with the respective action. You can select from a list of 1600+ icons, the reference can be found in the `icon list. <../_static/aimms-icons/icons-reference.html>`_		
 #. ``procedure``: The procedure you want to call when the respective action is clicked.  
 #. ``state``: This is the state for the action, i.e. Active (displayed and clickable), Inactive (displayed and not clickable) and Hidden. By default, the state is Hidden.
+#. ``actiontype``: This determines the type of action the procedure implements. It can either be :token:`procedure` (any procedure without arguments), :token:`upload` (an upload procedure, see `below <widget-options.html#upload-and-download-procedures>`_) or :token:`download` (a download procedure, see `below <widget-options.html#upload-and-download-procedures>`_). By default, the actiontype is :token:`procedure`.
 
 .. tip:: 
     If you find it difficult to browse the icon list, navigate to `IcoMoon List <https://icomoon.io/#preview-ultimate>`_ and find an icon. Hover over the desired icon and write down the icon name. Append ``aimms-`` to the selected icon name when adding it to the model. For example: if the icon name is "calculator", then in AIMMS it needs to be ``aimms-calculator``.
 
     `Custom icons <webui-folder.html#custom-icon-sets>`_ can also be used if required.
-    
+
 To configure widget actions, create a string parameter indexed by the :any:`webui::ExtensionOrder` set with :any:`webui::indexPageExtension` and :any:`webui::WidgetActionSpecification` with the index :any:`webui::indexWidgetActionSpec`, for example MyWidgetActions(webui::indexPageExtension,webui::indexWidgetActionSpec) as shown here:
 
 .. image:: images/WidgetActions_MyWidgetActions.png
@@ -907,6 +917,15 @@ In case you have a long ``displaytext`` for an action, the widget action menu wi
 			:align: center 
 			:scale: 75
 
+Upload and Download Procedures
+++++++++++++++++++++++++++++++
+
+As described above, the actiontype for a widget action can be either procedure, upload or download (since AIMMS 4.96; previously the actiontype setting was not present). When specifying procedure (or leaving the actiontype empty), you should provide a procedure without arguments, which will be executed as described in the section above. 
+
+If you specify either an upload or a download actiontype, you should provide a special procedure which takes care of preparing a download file, or post-processing an upload file. Such procedures are exactly the same as the `procedures used for the Upload widget <upload-widget.html#creating-an-upload-widget>`_ and the `procedures used for the Download widget <download-widget.html#creating-a-download-widget>`_, respectively.
+
+The upload and download process works the same as it does with the separate Upload and Download widgets. The main advantage of doing the upload or download from a widget action is that is saved the space of the official widget on your page. Another advantage is that it is immediately clear that the upload or download action is relevant for the specific widget for which you have defined such a widget action.
+
 
 Item Actions
 ------------
@@ -933,7 +952,7 @@ The item actions can be associated with any procedure in your model. For example
 Configuring Item Actions
 ++++++++++++++++++++++++
 
-Item Actions can be configured by the application developer via the AIMMS model, similarly to how widget actions are configured.
+Item Actions can be configured by the application developer via the AIMMS model, similarly to how widget actions are configured. This includes the actiontype specification, as available in AIMMS from version 4.96 onwards.
 
 To configure item actions, create a string parameter indexed by the set ``webui::WidgetItemActionSpecification`` with the index ``webui::indexWidgetItemActionSpec``, the set ``webui::ExtensionOrder`` with the index ``webui::indexPageExtension``, and 
 the set ``webui::WidgetActionSpecification`` with the index ``webui::indexWidgetActionSpec``; for example, a string parameter as shown here:
@@ -1053,3 +1072,7 @@ Best Practices for Item Actions
 
     Some content of this guide is taken from the Apple Human Interface Guidelines. These guideline provide a wealth of information on human-computer interactions.
 
+
+.. spelling:word-list::
+
+    actiontype
