@@ -12,6 +12,45 @@ AIMMS 4.95
 #############
 
 
+AIMMS 4.96.1 Release (June 28, 2023 - build 4.96.1.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  AIMMS now provides detailed information in case CPLEX concludes that the Benders decomposition is invalid. This is controlled by the new CPLEX option 'Benders decomposition check limit'.
+-  Gurobi 10.0 has been upgraded to version 10.0.2.
+-  The matrix manipulation procedures, which have been deprecated since AIMMS version 3.5, have been removed. Projects using matrix manipulation procedures should use GMP procedures instead as explained here [https://documentation.aimms.com/functionreference/deprecated/matrix-manipulation-functions/index.html].
+-  The postsolve step is now also supported for MIP models for which a lazy constraints callback procedure is installed, but only if the Solvers General option 'Postsolve' is switched on.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Removing doubletons by the AIMMS Presolver could be slow since AIMMS 4.95.1. Now it is faster than before.
+-  The PRO library has a new parameter `ManagedSessionOutputCaseContainsDefinedIdentifiers`. If this is set to 1, the result case files that are sent back from server to client sessions will contain the data of sets and parameters that have a definition.
+This is only required if these case files are used directly in a multiple case comparison.
+By default, this parameter has the value 0, which results in a smaller case file that is sent over and there is no time spent at server side to update all these definitions.
+-  Calling GMP::Solver::InitializeEnvironment yielded an incomplete error message.
+-  The global solver Octeract has been upgraded to version 4.7. Octeract 4.7 comes with perfomance improvements for all kinds of nonlinear problems.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  Next to the already existing Upload and Download widgets, it is now also possible to link upload and download actions to both widget actions and item actions. This allows for more context-sensitive use of the actions, while saving space on the page by leaving out the separate Upload and Download widgets. Of course, there remain situations where those come in handy, so you can continue to use them as before.
+-  The Named Views feature has been extended, such that you can now set the current view from within the model by using an element parameter to specify the Current View option.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  WebUI now also accepts procedures with only optional arguments (wherever it previously would accept only procedures without arguments). The default argument values will be used when the actual procedure call is made.
+-  Workflow navigation did not always work as expected when the workflow had configuration errors.
+
+--------------
+
+
+
 
 AIMMS 4.95.12 Release (June 27, 2023 - build 4.95.12.2).
 ------------------------------------------------------------------------------------------
