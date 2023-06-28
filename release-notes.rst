@@ -24,7 +24,7 @@ AIMMS Improvements
 -  Gurobi 10.0 has been upgraded to version 10.0.2.
 -  The matrix manipulation procedures, which have been deprecated since AIMMS version 3.5, have been removed. Projects using matrix manipulation procedures should use GMP procedures instead as explained `here <https://documentation.aimms.com/functionreference/deprecated/matrix-manipulation-functions/index.html>`__.
 -  The postsolve step is now also supported for MIP models for which a lazy constraints callback procedure is installed, but only if the Solvers General option 'Postsolve' is switched on.
--  The global solver Octeract has been upgraded to version 4.7. Octeract 4.7 comes with perfomance improvements for all kinds of nonlinear problems.
+-  The global solver Octeract has been upgraded to version 4.7. Octeract 4.7 comes with performance improvements for all kinds of nonlinear problems.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
