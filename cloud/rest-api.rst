@@ -89,7 +89,7 @@ To enable this special "REST" profile please contact the AIMMS Customer Support.
 
 Once this "REST" profile has been enabled for an account, users for that account can start making task-related calls via the
 PRO REST API. Such calls are authenticated via the same types of API keys as all the other PRO REST API calls. In order to be allowed to perform
-task-related operations, a given API key needs to have the "Task" scope as explained `here <https://documentation.aimms.com/pro/rest-api.html#api-keys-and-scopes>`_
+task-related operations, a given API key needs to have the "Task" scope as explained `here <https://documentation.aimms.com/cloud/rest-api.html#api-keys-and-scopes>`_
 
 Finally, authorization to perform task-related calls is linked to the permissions the user (for whom the API key is used for authentication)
 has with respect to the AIMMS App that is exposing the DEX REST API:
