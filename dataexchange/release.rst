@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+2.1.1.13 [03-07-2023]
+	- The ``InitializeAPIClient`` method of generated OpenAPI client libraries would not read mappings recursively, as is now required for concurrent support for JSON/XML mappings
+	- The newly added ``AdditionalQueryParameters`` parameter for generated OpenAPI client libraries would not work correctly for libraries generated with the ``explodeDefault`` argument set to 2. 
+
 2.1.1.11 [20-06-2023]
 	- Add support for OpenAPI specs that require both XML and JSON mappings
 	- Increase maximum transferable string size to 16 KB
