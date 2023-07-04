@@ -1,7 +1,7 @@
 Using the Data Exchange library for communicating data
 ======================================================
 
-The AIMMS Data Exchange library allows mapping multi-dimensional AIMMS data onto tree-based data formats such as JSON, XML or even CSV (as a trivial tree-based format). It does so by letting you describe the repetitive structure of a given JSON, XML or CSV format in a mapping file that you can subsequently use to read data of a given format into multi-dimensional identifiers in your model, or write multi-dimensional data in your model to a given format. 
+The AIMMS Data Exchange library allows mapping multi-dimensional AIMMS data onto tree-based data formats such as JSON, XML or table-based formats such as CSV, Parquet, Excel or database. It does so by letting you describe the repetitive structure of a given format in a mapping file that you can subsequently use to read data of a given format into multi-dimensional identifiers in your model, or write multi-dimensional data in your model to a given format. 
  
 In the mapping file you specify how repetitive structure in the tree-based data binds to indices in your model, and how actual values in the data map to multi-dimensional identifiers over such bound indices.
 
@@ -11,7 +11,7 @@ Typically a tree-based data format can consists of several types of nodes:
 * repetitive nodes, which can hold multiple (named or unnamed) child nodes of the same type and structure, and
 * value-holding leaf nodes, which hold the actual labels of bound indices or values of multi-dimensional identifiers.
 
-The following simple examples demonstrate some basic uses of the Data Exchange library for JSON, XML and CSV formats. `This How-To article <https://how-to.aimms.com/Articles/534/534-dealing-with-the-different-data-types.html>`__ explains the use of various mapping attributes for JSON, XML, CSV and Parquet formats in more detail. Next to these examples, you can also download our internal :download:`unit test project<downloads/DataExchangeTest.zip>` for the Data Exchange library, which will provide you with more example mappings demonstrating various capabilities of the Data Exchange library. It also contains the mappings and corresponding collections of AIMMS identifiers for reading and writing the JSON formats for geocoding and distance service from Google and GraphHopper.
+The following simple examples demonstrate some basic uses of the Data Exchange library for JSON, XML and CSV formats. `This How-To article <https://how-to.aimms.com/Articles/534/534-dealing-with-the-different-data-types.html>`__ explains the use of various mapping attributes for different formats in more detail. Next to these examples, you can also download our internal :download:`unit test project<downloads/DataExchangeTest.zip>` for the Data Exchange library, which will provide you with more example mappings demonstrating various capabilities of the Data Exchange library. It also contains the mappings and corresponding collections of AIMMS identifiers for reading and writing the JSON formats for geocoding and distance service from Google and GraphHopper.
 
 Example: JSON mapping
 ---------------------
@@ -102,6 +102,7 @@ It describes an XML file with an object with four children, one of which is anot
 
 These examples make clear that each mapping closely follows the structure of the JSON, XML, or CSV file being described. Thus, if you know the format of the file to map, creating a corresponding mapping file for the Data Exchange library is rather straightforward.
 
+
 Example: CSV mapping
 ---------------------
 
@@ -139,28 +140,7 @@ It describes a repetitive table node, i.e. a repetitive structure consisting of 
 
 .. _example-excel-mapping:
 
-Example: Excel mapping
-----------------------
-
-Look at the following mapping for a Excel file with a single sheet with a table:
-
-.. code-block:: xml
-
-    <AimmsExcelMapping>
-        <SheetMapping name="Table1">
-            <RowMapping name="row">
-                <ColumnMapping name="set1" binds-to="i"/>
-                <ColumnMapping name="set2" binds-to="j"/>
-                <ColumnMapping name="d1" maps-to="d1(i,j)"/>
-                <ColumnMapping name="d2" maps-to="d2(i,j)"/>
-                <ColumnMapping name="de" maps-to="de(i,j)"/>
-                <ColumnMapping name="ds" maps-to="ds(i,j)"/>
-                <ColumnMapping name="di" maps-to="di(i,j)"/>
-            </RowMapping>
-        </SheetMapping>
-    </AimmsExcelMapping>
-
-This mapping will create the same table as in the CSV example, but will now output the table to an Excel workbook with a sheet called ``Table1``. A single Excel mapping can contain mappings for multiple sheets.
+If we want to map more CSV files in one mapping we can place `RowMapping` nodes underneath `TableMapping` nodes. Each table will correspond to a CSV file in the same directory.
 
 Example: Parquet mapping
 ------------------------
@@ -213,7 +193,60 @@ This could then print:
 
 Here we see in the top row the names from the ``ColumnMapping`` of the mapping. In the left column are the row numbers added by python. The other columns are data read from file *filefromdex.parquet*.
 
+If we want to map more Parquet files in one mapping we can place `RowMapping` nodes underneath `TableMapping` nodes. Each table will correspond to a Parquet file in the same directory.
+
+
+Example: Excel mapping
+----------------------
+
+Look at the following mapping for a Excel file with a single sheet with a table:
+
+.. code-block:: xml
+
+    <AimmsExcelMapping>
+        <TableMapping name="Table1">
+            <RowMapping name="row">
+                <ColumnMapping name="set1" binds-to="i"/>
+                <ColumnMapping name="set2" binds-to="j"/>
+                <ColumnMapping name="d1" maps-to="d1(i,j)"/>
+                <ColumnMapping name="d2" maps-to="d2(i,j)"/>
+                <ColumnMapping name="de" maps-to="de(i,j)"/>
+                <ColumnMapping name="ds" maps-to="ds(i,j)"/>
+                <ColumnMapping name="di" maps-to="di(i,j)"/>
+            </RowMapping>
+        </TableMapping>
+    </AimmsExcelMapping>
+
+This mapping will create the same table as in the CSV example, but will now output the table to an Excel workbook with a sheet called ``Table1``. A single Excel mapping can contain mappings for multiple sheets.
+
+
+Example: Database mapping
+-------------------------
+
+Look at the following mapping for a Database with a single sheet with a table:
+
+.. code-block:: xml
+
+    <AimmsDatabaseMapping>
+        <TableMapping name="Table1">
+            <RowMapping name="row">
+                <ColumnMapping name="set1" binds-to="i"/>
+                <ColumnMapping name="set2" binds-to="j"/>
+                <ColumnMapping name="d1" maps-to="d1(i,j)"/>
+                <ColumnMapping name="d2" maps-to="d2(i,j)"/>
+                <ColumnMapping name="de" maps-to="de(i,j)"/>
+                <ColumnMapping name="ds" maps-to="ds(i,j)"/>
+                <ColumnMapping name="di" maps-to="di(i,j)"/>
+            </RowMapping>
+        </TableMapping>
+    </AimmsDatabaseMapping>
+
+This mapping will create the same table as in the CSV example, but will now create one database table. Just like the Excel mapping can contain mappings for multiple tables.
+
+
+
+
 .. spelling:word-list::
 
     geocoding
-		dataframes
+    dataframes
