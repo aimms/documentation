@@ -26,7 +26,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  When page visibility issue was specified through an identifier, this did not work properly.
+-  When page visibility was specified through an identifier, this did not work properly.
 
 --------------
 
