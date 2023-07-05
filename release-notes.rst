@@ -12,6 +12,27 @@ AIMMS 4.96
 #############
 
 
+
+AIMMS 4.96.2 Release (July 05, 2023 - build 4.96.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The procedures GMP::Row::SetRightHandSide and GMP::Row::SetRightHandSideMulti no longer generate an error if they are called for a constraint containing the objective variable.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When page visibility issue was specified through an identifier, this did not work properly.
+
+--------------
+
+
+
+
 AIMMS 4.96.1 Release (June 28, 2023 - build 4.96.1.2).
 ------------------------------------------------------------------------------------------
 
