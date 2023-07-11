@@ -13,6 +13,22 @@ AIMMS 4.96
 
 
 
+AIMMS 4.96.3 Release (July 11, 2023 - build 4.96.3.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When publishing to the cloud, the successful use of images from the project's resources folder for theming was, unintentionally, restricted to the :token:`--bg_app-logo` property. Now, virtually all of the other properties starting with :token:`--color_bg` are usable for this purpose too.
+
+--------------
+
+
+
+
+
 AIMMS 4.96.2 Release (July 05, 2023 - build 4.96.2.3).
 ------------------------------------------------------------------------------------------
 
