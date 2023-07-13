@@ -21,7 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  On systems where the folder "C:\ProgramData\Paragon Decision Technology" exists and not "C:\ProgramData\AIMMS" the licensing of AIMMS could give rather unexpected errors that were prohibiting the usage of AIMMS. Please note that this folder is there to support old AIMMS versions that were released when our company was still called "Paragon Decision Technology" instead of "AIMMS".
+-  On systems where the folder "C:\\ProgramData\\Paragon Decision Technology" exists and not "C:\\ProgramData\\AIMMS" the licensing of AIMMS could give rather unexpected errors that were prohibiting the usage of AIMMS. Please note that this folder is there to support old AIMMS versions that were released when our company was still called "Paragon Decision Technology" instead of "AIMMS".
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
