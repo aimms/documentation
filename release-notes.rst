@@ -13,6 +13,28 @@ AIMMS 4.96
 
 
 
+AIMMS 4.96.4 Release (July 13, 2023 - build 4.96.4.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  On systems where the folder "C:\ProgramData\Paragon Decision Technology" exists and not "C:\ProgramData\AIMMS" the licensing of AIMMS could give rather unexpected errors that were prohibiting the usage of AIMMS. Please note that this folder is there to support old AIMMS versions that were released when our company was still called "Paragon Decision Technology" instead of "AIMMS".
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In recent versions of AIMMS, when opening the WebUI without having any page created yet, you would get an incorrect message saying that 'this page does not exist'.
+-  The appearance of resource labels in Gantt charts was inadvertently broken, as part of the Theming improvements found in 4.95.10. To fix this, and to prevent some other labels in Combination charts, Maps and Table from going 'bad' when you try going for a 'dark mode' theme, a few related color combinations where taken out of theming and changed to remain 'high contrast' under all circumstances.
+
+--------------
+
+
+
+
+
 AIMMS 4.96.3 Release (July 11, 2023 - build 4.96.3.1).
 ------------------------------------------------------------------------------------------
 
