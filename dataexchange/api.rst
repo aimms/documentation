@@ -458,6 +458,13 @@ The following functions are available for management of the memory streams.
 	:param streamName: name of memory stream to import content into
 	:param content: input string parameter holding the string to import into the memory stream
 	
+.. js:function:: dex::AppendStream
+
+	Append the content of a string parameter into an existing memory stream.  This function supports string parameters up to 8 KB of content. 
+
+	:param streamName: name of memory stream to append content to
+	:param content: input string parameter holding the string to append to the memory stream
+
 .. js:function:: dex::ExportStreamContent
 
 	Export the content of an existing memory stream into a string parameter. This function supports exporting memory streams up to 8KB.
