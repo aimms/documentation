@@ -33,10 +33,10 @@ The following are the elements allowed in a XML mapping
 Row-based Table mapping elements
 =================================
 
-For files types like CSV, Parquet and Excel data is organized in tables or collection of tables. This makes the mapping simple 
-and the same for these file types.
+For files types like CSV, Parquet, Excel and SQLite, data is organized in tables or collection of tables. This makes these table-based mapping simple 
+and the same for all these file types.
 
-The root of the mapping specifies the file type. These are possible roots of the row based table mappings
+The root of the mapping specifies the file type. These are the possible roots of a row based table mappings
 
 * the ``AimmsCSVMapping`` element for CSV files
 * the ``AimmsParquetMapping`` element for Parquet files
@@ -47,10 +47,13 @@ The child elements of these root nodes are
 
 * the ``TableMapping`` element is always directly underneath the root and represents the meta information of the table, like it's name. 
 * the ``RowMapping`` element a single child element of the ``TableMapping`` and maps the rows
-* the ``ColumnMapping`` element maps a columns and is always underneath a ``RowMapping`` element
+* the ``ColumnMapping`` element maps a column and is always underneath a ``RowMapping`` element
 
-For CSV and Parquet each table is stored as one file. This means that the first argument of Procedures  ``dex::WriteToFile()`` and ``dex::ReadFromFile()`` is interpreted as a folder. The first argument is interpreted as a file name when the element ``TableMapping`` is omitted from the mapping, because then the mapping can only represent one table.
+For CSV and Parquet each table is stored as one file, so if a ``TableMapping`` is specified then it will determine the name of the file.
+Therefore the first argument of Procedures  ``dex::WriteToFile()`` and ``dex::ReadFromFile()`` is interpreted as a folder containing the files.
+When no ``TableMapping`` is specified the first argument of Procedures  ``dex::WriteToFile()`` and ``dex::ReadFromFile()`` is the file name and only one single table can be written.
 
+The ``AimmsDatabaseMapping`` is not exclusive for SQLite, but this is the only database format that is a file and can be used with Procedures  ``dex::WriteToFile()`` and ``dex::ReadFromFile()``. For other databases see :ref:`DEX_Application_Database`.
 
 .. note::
         In older versions of DataExchange each file type had their own child element mapping nodes, like ``SheetMapping`` or ``CSVColumnMapping``. When reading the mapping these old style elements are automatically converted to the corresponding ``TableMapping``, ``RowMapping`` and ``ColumnMapping``.
