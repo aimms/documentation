@@ -189,6 +189,10 @@ Or, on all pages with 'red_page' in the page name, you could just have different
         --border_button_primary_active: 1px solid White;
     }
 
+Be warned, that if you intend to target anything other than :token:`:root`, **and** when using a :token:`url(...)` for one of the several :token:`--color_bg...` properties, **and** when publishing to the cloud, you will not be able to use images in the project resource folder. The special treatment we apply to those URLs in the cloud, can only be done for the root element.
+
+You can still use resources like that, but you will have to manually insert and maintain the Application name and version number into the resource path and it will then also only work after publishing. There is, unfortunately, no other way for us to predict where you might have been applying theming to specific elements.
+
 .. spelling:word-list::
 
     URL

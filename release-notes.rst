@@ -12,6 +12,65 @@ AIMMS 4.96
 #############
 
 
+
+AIMMS 4.96.4 Release (July 13, 2023 - build 4.96.4.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  On systems where the folder "C:\\ProgramData\\Paragon Decision Technology" exists and not "C:\\ProgramData\\AIMMS" the licensing of AIMMS could give rather unexpected errors that were prohibiting the usage of AIMMS. Please note that this folder is there to support old AIMMS versions that were released when our company was still called "Paragon Decision Technology" instead of "AIMMS".
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In recent versions of AIMMS, when opening the WebUI without having any page created yet, you would get an incorrect message saying that 'this page does not exist'.
+-  The appearance of resource labels in Gantt charts was inadvertently broken, as part of the Theming improvements found in 4.95.10. To fix this, and to prevent some other labels in Combination charts, Maps and Table from going 'bad' when you try going for a 'dark mode' theme, a few related color combinations where taken out of theming and changed to remain 'high contrast' under all circumstances.
+
+--------------
+
+
+
+
+
+AIMMS 4.96.3 Release (July 11, 2023 - build 4.96.3.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When publishing to the cloud, the successful use of images from the project's resources folder for theming was, unintentionally, restricted to the :token:`--bg_app-logo` property. Now, virtually all of the other properties starting with :token:`--color_bg` are usable for this purpose too.
+
+--------------
+
+
+
+
+
+AIMMS 4.96.2 Release (July 05, 2023 - build 4.96.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The procedures GMP::Row::SetRightHandSide and GMP::Row::SetRightHandSideMulti no longer generate an error if they are called for a constraint containing the objective variable.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When page visibility was specified through an identifier, this did not work properly.
+
+--------------
+
+
+
+
 AIMMS 4.96.1 Release (June 28, 2023 - build 4.96.1.2).
 ------------------------------------------------------------------------------------------
 
