@@ -32,7 +32,7 @@ Methods for reading and writing data
 
     Reads data from file :token:`dataFile` into model identifiers using mapping :token:`mappingName`. Note that the identifiers used in the :token:`included-mapping` and :token:`write-filter` will also be emptied, depending on the :token:`emptyIdentifiers` argument. When the mapping contains an the :token:`included-mapping` or the :token:`iterative-existing` attributes, emptying sets is likely to cause problems, unless the domain sets referred in these attributes are defined. In that case it is better to call :js:func:`dex::ResetMappingData` for selected mappings, or reset counters selectively using the :token:`iterative-reset` attribute. The function will return 1 on success, or 0 on failure.
     
-    :param dataFile: the relative path to the data file to be read
+    :param dataFile: the relative path to the data file/folder to be read
     :param mappingName: the name of the mapping to be used
     :param emptyIdentifiers: indicates whether all identifiers referred in the mapping should be emptied prior to reading the file
     :param emptySets: indicates whether all domain and range sets referred in the mapping should be emptied prior to reading the file
@@ -42,7 +42,7 @@ Methods for reading and writing data
 
     Writes file :token:`dataFile` from data in model identifiers using mapping :token:`mappingName`. The function will return 1 on success, or 0 on failure.
     
-    :param dataFile: the relative path to the data file to write to
+    :param dataFile: the relative path to the data file/folder to write to
     :param mappingName: the name of the mapping to be used for writing
     :param pretty: indicates whether to use a pretty writer (enhances readability at the cost of bigger file size)
 

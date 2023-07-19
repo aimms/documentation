@@ -1,3 +1,6 @@
+
+.. _DEX_Application_Database:
+
 Application Database
 ====================
 

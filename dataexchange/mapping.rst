@@ -1,7 +1,7 @@
 Data Exchange Mappings
 **********************
 
-Each Data Exchange mapping is an XML file describing the structure of the JSON, XML, CSV, Excel of Parquet format being mapped. Below you find the elements specific for each of the mapping types. The attributes that you can specify for each element are shared. In `this How-To article <https://how-to.aimms.com/Articles/534/534-dealing-with-the-different-data-types.html>`__ you can find some simple examples on the usages.
+Each Data Exchange mapping is an XML file describing the structure of particular formats (like JSON, XML, CSV, Excel or Parquet) being mapped. Below you find the elements specific for each of the mapping types. The attributes that you can specify for each element are shared. In `this How-To article <https://how-to.aimms.com/Articles/534/534-dealing-with-the-different-data-types.html>`__ you can find some simple examples on the usages.
 
 JSON Mapping elements
 =====================
@@ -29,43 +29,35 @@ The following are the elements allowed in a XML mapping
 * the ``ElementValueMapping`` element, a mapping element used to map an XML element that holds a value, but no child elements
 * the ``AttributeMapping`` element, a mapping element used to map the value of an attribute of an XML element
 
-CSV Mapping elements
-====================
 
-The following are the elements allowed in a CSV mapping
+Row-based Table mapping elements
+=================================
 
-* the ``AimmsCSVMapping`` element, the mandatory root of a CSV mapping. It should contain a single ``CSVTableMapping`` element.
-* the ``RowMapping`` element, a mapping element used to map rows of a CSV table
-* the ``ColumnMapping`` element, a mapping element used to map the value of a column in a CSV table
+For files types like CSV, Parquet, Excel and SQLite, data is organized in tables or collection of tables. This makes these table-based mapping simple 
+and the same for all these file types.
 
-Excel Mapping elements
-======================
+The root of the mapping specifies the file type. These are the possible roots of a row based table mappings
 
-The following are the elements allowed in a Excel mapping
+* the ``AimmsCSVMapping`` element for CSV files
+* the ``AimmsParquetMapping`` element for Parquet files
+* the ``AimmsExcelMapping`` element for Excel files (.xlsx)
+* the ``AimmsDatabaseMapping`` element for SQLite files (.db)
 
-* the ``AimmsExcelMapping`` element, the mandatory root of an Excel mapping. It can contain multiple ``ExcelSheetMapping`` elements.
-* the ``ExcelSheetMapping`` element, a mapping element used to map an Excel sheet
-* the ``RowMapping`` element, a mapping element used to map a row in an Excel sheet
-* the ``ColumnMapping`` element, a mapping element used to map the value of a column in an Excel sheet
+The child elements of these root nodes are
 
-Parquet Mapping elements
-========================
+* the ``TableMapping`` element is always directly underneath the root and represents the meta information of the table, like it's name. 
+* the ``RowMapping`` element a single child element of the ``TableMapping`` and maps the rows
+* the ``ColumnMapping`` element maps a column and is always underneath a ``RowMapping`` element
 
-The following are the elements allowed in a Parquet mapping
+For CSV and Parquet each table is stored as one file, so if a ``TableMapping`` is specified then it will determine the name of the file.
+Therefore the first argument of Procedures  ``dex::WriteToFile()`` and ``dex::ReadFromFile()`` is interpreted as a folder containing the files.
+When no ``TableMapping`` is specified the first argument of Procedures  ``dex::WriteToFile()`` and ``dex::ReadFromFile()`` is the file name and only one single table can be written.
 
-* the ``AimmsParquetMapping`` element, the mandatory root of a Parquet mapping
-* the ``RowMapping`` element, a single mapping element used to map rows of a Parquet table
-* the ``ColumnMapping`` element, a mapping element used to map the value of a column in a Parquet table
+The ``AimmsDatabaseMapping`` is not exclusive for SQLite, but this is the only database format that is a file and can be used with Procedures  ``dex::WriteToFile()`` and ``dex::ReadFromFile()``. For other databases see :ref:`DEX_Application_Database`.
 
-Database Mapping elements
-=========================
+.. note::
+        In older versions of DataExchange each file type had their own child element mapping nodes, like ``SheetMapping`` or ``CSVColumnMapping``. When reading the mapping these old style elements are automatically converted to the corresponding ``TableMapping``, ``RowMapping`` and ``ColumnMapping``.
 
-The following are the elements allowed in a Parquet mapping
-
-* the ``AimmsDatabaseMapping`` element, the mandatory root of a database mapping
-* the ``TableMapping`` element, a mapping element to map to a database table
-* the ``RowMapping`` element, a single mapping element used to map rows of a database table
-* the ``ColumnMapping`` element, a mapping element used to map the value of a column in a database table
 
 Mapping attributes
 ==================
@@ -106,7 +98,7 @@ The available mapping attributes are:
 
 The name and alt-name attributes
 --------------------------------
-The ``name`` attribute specifies the name of the mapped element in a JSON, XML, CSV, Excel, Parquet or database format. Not every element needs a name, for instance to root value in a JSON file, or the child mapping of a JSON array. With the ``alt-name`` attribute you can indicate an alternative name for the mapping element when reading a JSON, XML, CSV, Excel or Parquet file, e.g. when the name has been recently altered, and there are still data files that use the old name. When writing, the Data Exchange library will always use the ``name`` attribute.
+The ``name`` attribute specifies the name of the mapped element in the format. Not every element needs a name, for instance to root value in a JSON file, or the child mapping of a JSON array. With the ``alt-name`` attribute you can indicate an alternative name for the mapping element when reading a file, e.g. when the name has been recently altered, and there are still data files that use the old name. When writing, the Data Exchange library will always use the ``name`` attribute.
 
 The binds-to attribute
 ----------------------
@@ -180,7 +172,7 @@ By default, the Data Exchange library assumes that all string values will hold u
 The write-defaults attribute
 ----------------------------
 
-For all row-based formats (CSV, Excel, Parquet, database), cells for which no data is present in the ``maps-to`` identifier will be left empty by default. With the ``write-defaults`` attribute you can indicate that you want the default value of that identifier to be written to such cells instead. You can specify the value 1 to the ``write-defaults`` attribute on a ``ColumnMapping``, or on the ``RowMapping`` or ``ExcelSheetMapping``. For the latter, the ``write-defaults`` attribute will be applied to all underlying ``ColumnMappings``. The default value for the ``write-defaults`` attribute is 0.
+For all row-based formats (CSV, Excel, Parquet or database), cells for which no data is present in the ``maps-to`` identifier will be left empty by default. With the ``write-defaults`` attribute you can indicate that you want the default value of that identifier to be written to such cells instead. You can specify the value 1 to the ``write-defaults`` attribute on a ``ColumnMapping``, or on the ``RowMapping`` or ``ExcelSheetMapping``. For the latter, the ``write-defaults`` attribute will be applied to all underlying ``ColumnMappings``. The default value for the ``write-defaults`` attribute is 0.
 
 Similarly, for JSON and XML mappings, you can set the ``write-defaults`` attribute for any value-holding mapping element. On its own it will never cause an element which contains a value with the  ``write-defaults`` attribute set to generated, but if such an element is generated because another child holds a non-default value, then the value with `` write-defaults`` attribute will also be generated, even if it holds no non-default value. 
 
@@ -241,7 +233,7 @@ Assigning a value of 1 to the ``base64-encoded`` attribute indicates whether emb
 Unicode normalization
 =====================
 
-The Data Exchange library can read and write JSON, XML and CSV files which are encoded as UTF-8. However, in Unicode there multiple ways to represent composed characters such as characters with accents. In the Unicode standard these representations are considered equivalent, although their binary representations are different (see for instance `Unicode equivalence <https://en.wikipedia.org/wiki/Unicode_equivalence>`_) When you are reading data from multiple data sources, this may present a problem in your AIMMS model. Set elements may be read from a data source using one representation, while data defined over these sets may come from data sources using another representation. 
+The Data Exchange library can read and write the text-based formats JSON, XML and CSV files which are encoded as UTF-8. However, in Unicode there multiple ways to represent composed characters such as characters with accents. In the Unicode standard these representations are considered equivalent, although their binary representations are different (see for instance `Unicode equivalence <https://en.wikipedia.org/wiki/Unicode_equivalence>`_) When you are reading data from multiple data sources, this may present a problem in your AIMMS model. Set elements may be read from a data source using one representation, while data defined over these sets may come from data sources using another representation. 
 
 The Unicode standard provides several normalization procedures to normalize different text representations to various normalized forms. By itself, AIMMS will not normalize any incoming Unicode characters, as this may lead to problems when, for instance, you are trying to write back data to a database which was read in a different normalized form and then re-normalized in AIMMS. 
 Instead the Data Exchange library offers support for normalizing Unicode data from and to the NFC (representing composed characters as a single character, preferred) and the NFD representation (representing composed characters decomposed as the character itself and separate characters for the accents). In addition, it offers an option to remove all diacritics completely, as well as trim the string from leading and trailing spaces.
@@ -258,7 +250,7 @@ In this section we will explain how the Data Exchange library uses the mapping t
 During read
 -----------
 
-When reading a JSON, XML, CSV, Excel or Parquet file using a specified mapping, the Data Exchange library will iterate over the entire tree. 
+When reading a file or database using a specified mapping, the Data Exchange library will iterate over the entire tree. 
 
 If reading a particular node in the data file, it will first try to bind any indices specified 
 
@@ -275,7 +267,7 @@ If a node in the mapping contains an included mapping, all externally bound indi
 During write
 ------------
 
-When generating a JSON, XML, CSV, Excel, Parquet file or database for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes through either the ``maps-to``, ``write-filter`` or ``force-dense`` attributes, and will try to find the lowest sub-tuple associated with all these identifiers, for all indices bound at this level (through the ``binds-to``, ``name-binds-to``, ``iterative-binds-to``, or ``implicit-binds-to`` attributes) while fixing the indices already found at a previous level. If such a sub-tuple can be found, the new indices at this level will be stored, and any mapped value-holding nodes at this level will be written the associated values of any multi-dimensional identifiers matching with the value of the currently bound indices, and the Data Exchange library will iterate over all any structural or iterative child nodes recursively. If no further multi-dimensional data can be found for a particular node, the Data Exchange library will track back to the parent node, and try to progress there. 
+When generating a file or database for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes through either the ``maps-to``, ``write-filter`` or ``force-dense`` attributes, and will try to find the lowest sub-tuple associated with all these identifiers, for all indices bound at this level (through the ``binds-to``, ``name-binds-to``, ``iterative-binds-to``, or ``implicit-binds-to`` attributes) while fixing the indices already found at a previous level. If such a sub-tuple can be found, the new indices at this level will be stored, and any mapped value-holding nodes at this level will be written the associated values of any multi-dimensional identifiers matching with the value of the currently bound indices, and the Data Exchange library will iterate over all any structural or iterative child nodes recursively. If no further multi-dimensional data can be found for a particular node, the Data Exchange library will track back to the parent node, and try to progress there. 
 
 
 The message here is that an JSON, XML, CSV, Excel sheet, Parquet file tree or database is generated solely on the basis of multi-dimensional identifiers in the mapping, and *never* on the basis of any of the ``binds-to`` attributes. Such nodes will be generated based on indices bound by iterating over multi-dimensional data.
