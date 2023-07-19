@@ -453,24 +453,24 @@ The following functions are available for management of the memory streams.
 
 .. js:function:: dex::ImportStreamContent
 
-	Import the content of a string parameter into a new memory stream. The name of the stream should start with a `#`, to allow the stream to be used by other functions of the Data Exchange library. This function supports string parameters up to 8 KB of content. 
+	Import the content of a string parameter into a new memory stream. The name of the stream should start with a `#`, to allow the stream to be used by other functions of the Data Exchange library. This function supports string parameters up to 16 KB of content. 
 	
 	:param streamName: name of memory stream to import content into
 	:param content: input string parameter holding the string to import into the memory stream
 	
 .. js:function:: dex::AppendStream
 
-	Append the content of a string parameter into an existing memory stream.  This function supports string parameters up to 8 KB of content. 
+	Append the content of a string parameter into an existing memory stream.  This function supports string parameters up to 16 KB of content. 
 
 	:param streamName: name of memory stream to append content to
 	:param content: input string parameter holding the string to append to the memory stream
 
 .. js:function:: dex::ExportStreamContent
 
-	Export the content of an existing memory stream into a string parameter. This function supports exporting memory streams up to 8KB.
+	Export the content of an existing memory stream into a string parameter. This function supports exporting memory streams up to 16 KB.
 	
 	:param streamName: name of memory stream to export content from
-	:param content: output string parameter to hold the content (up to 8KB) exported from the memory stream	
+	:param content: output string parameter to hold the content (up to 16 KB) exported from the memory stream	
 	
 .. js:function:: dex::WriteStreamToFile
 
