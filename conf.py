@@ -131,8 +131,6 @@ else:
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-
-
     'logo_only': True,
     'display_version': False,
     'prev_next_buttons_location': 'bottom',
@@ -154,6 +152,8 @@ html_theme_options = {
     'algolia_appid': 'BH4D9OD16A', 
     'algolia_appkey': 'f7e44f5b57ababa5c5ceb1e1087ae3b1', 
     'algolia_indexname': 'aimms',
+    'aimms_support_menu_id': 'documentation',
+    'generate_aimms_support_menu' : True,
     'display_help_and_feedback' : True,
     'is_github' : True,
     'repo_url' : "https://github.com/aimms/documentation",
