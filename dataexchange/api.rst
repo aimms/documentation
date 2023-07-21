@@ -693,7 +693,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	:param pathName: output string parameter over `Paths` holding the names of all files and directories found.
 	:param fileSize: output numeric parameter over `Paths` holding the file size of all files found.
 	:param isDirectory: output binary parameter over `Paths` indicating whether a given path is a directory and not a file.
-	:param recursive: optional paramter indicating whether only files within the given path prefix should be listed, or recursively.
+	:param recursive: optional parameter indicating whether only files within the given path prefix should be listed, or recursively.
 
 .. js:function:: dex::dls::DeletePath
 
@@ -720,7 +720,7 @@ Data Lake Storage file transfer
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param directory: local directory from which to upload files
 	:param pathPrefix: string parameter holding the path prefix of the directory within the file system to which the file must be uploaded.
-	:param recursive: optional paramter indicating whether only files within the given directory should be uploaded, or recursively.
+	:param recursive: optional parameter indicating whether only files within the given directory should be uploaded, or recursively.
 
 .. js:function:: dex::dls::DownloadFile
 
@@ -737,7 +737,7 @@ Data Lake Storage file transfer
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param pathPrefix: string parameter holding the path prefix of the directory within the file system from which to download files.
 	:param directory: local directory to which to download files
-	:param recursive: optional paramter indicating whether only files within the given path prefix should be downloaded, or recursively.
+	:param recursive: optional parameter indicating whether only files within the given path prefix should be downloaded, or recursively.
 
 .. spelling:word-list::
 

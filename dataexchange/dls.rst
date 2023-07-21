@@ -5,7 +5,7 @@ Every AIMMS Cloud account is equipped with an Azure Data Lake Storage account. T
 
 Many applications are able to deal with Parquet files, and as such they can serve as an ideal method for data integration with other applications. Data warehouses such as Databricks are built on top of the Parquet format, and Snowflake has integrated support for importing and exporting data through Parquet files. Tools such as PowerBI can directly access Azure Data Lake Storage and work with the data offered in Parquet files.
 
-Because of the ease of use, easy integrability, performance and space efficiency every AIMMS Cloud account has been equipped with a Azure Data Lake Storage account. The Data Exchange library offers an easy-to-use collection of functions to create file systems within the account, and upload and download collections of files from within AIMMS.
+Because of the ease of use, easy capabilities for integration, performance and space efficiency every AIMMS Cloud account has been equipped with a Azure Data Lake Storage account. The Data Exchange library offers an easy-to-use collection of functions to create file systems within the account, and upload and download collections of files from within AIMMS.
 
 File systems
 ------------
@@ -23,7 +23,7 @@ Authorization
 
 The easiest way to provide access to file systems within Azure Data Lake Storage is through `SAS tokens <https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview>`_. SAS tokens will allow you to set permissions for an entire storage account, for individual file systems, or even directories within Data Lake Storage file systems. The Data Exchange library will create SAS tokens for you, given an account name and access key. 
 
-In the AIMMS Cloud, the Data Exchange library will automatically extract the storage account name and access key of the Data Lake Storage account assiociated with your AIMMS Cloud account. When developing on your desktop, you can provide a storage account name and access key to any Data Lake Storage account manually by providing values for the string parameter `dex::dls::StorageAccount` and `dex::dls::StorageAccessKey` via the file `api-init/Data_Lake_Storage.txt`. 
+In the AIMMS Cloud, the Data Exchange library will automatically extract the storage account name and access key of the Data Lake Storage account associated with your AIMMS Cloud account. When developing on your desktop, you can provide a storage account name and access key to any Data Lake Storage account manually by providing values for the string parameter `dex::dls::StorageAccount` and `dex::dls::StorageAccessKey` via the file `api-init/Data_Lake_Storage.txt`. 
 
 The Data Exchange library offers a number of functions to create SAS tokens to generate either Account or Service SAS tokens, with various permissions and lifetimes. As only Service SAS tokens allow limiting access to a single file system or directory within a file system, we advise to only distribute Service SAS tokens to setting up data integration with external applications.
 
