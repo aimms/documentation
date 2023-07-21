@@ -623,6 +623,36 @@ Creating SAS URL query strings
 	:param expiryDate: the expiry date until which the SAS query string can be used to authorize requests. You can use the function :js:func:`dex::client::az::ÈxpiryDateFromNow` to generate this argument
 	:param ip: the IP range from which requests can be made
 	:param queryString: the value of the generated SAS query string
+
+.. js:function:: dex::client::az::ContainerSASQueryString
+
+	Generate a Service SAS query string, to pre-authenticate request to a specific container in Azure Blob Storage. For details about the allowed values for the various arguments, please refer to `Create a service SAS <https://learn.microsoft.com/en-us/rest/api/storageservices/create-service-sas>`_.
+	
+	:param queryString: the value of the generated SAS query string
+	:param accessKey: the account access key to use for signing the SAS query string
+	:param accountName: the account name for which to create the SAS query string
+	:param container: the container name to which you want to limit access
+	:param permissions: the permissions to apply to the container
+	:param expiryDate: the expiry date until which the SAS query string can be used to authorize requests. You can use the function :js:func:`dex::client::az::ÈxpiryDateFromNow` to generate this argument
+	:param ip: optional argument providing the IP range from which requests can be made
+	:param storedAccessPolicy: optional argument providing the name of a stored Access Policy you want to apply to the created SAS token
+	:param encryptionScope: optional argument specifying the encryption scope that the client application can use.
+	
+.. js:function:: dex::client::az::DirectorySASQueryString
+
+	Generate a Service SAS query string, to pre-authenticate request to a specific directory within a container in Azure Blob Storage. For details about the allowed values for the various arguments, please refer to `Create a service SAS <https://learn.microsoft.com/en-us/rest/api/storageservices/create-service-sas>`_.
+	
+	:param queryString: the value of the generated SAS query string
+	:param accessKey: the account access key to use for signing the SAS query string
+	:param accountName: the account name for which to create the SAS query string
+	:param container: the container name to which you want to limit access
+	:param path: path prefix representing the directory within the container to which you want to limit access
+	:param permissions: the permissions to apply to the container
+	:param expiryDate: the expiry date until which the SAS query string can be used to authorize requests. You can use the function :js:func:`dex::client::az::ÈxpiryDateFromNow` to generate this argument
+	:param ip: optional argument providing the IP range from which requests can be made
+	:param directoryDepth: optional argument to indicate the number of subdirectories under the root directory 
+	:param storedAccessPolicy: optional argument providing the name of a stored Access Policy you want to apply to the created SAS token
+	:param encryptionScope: optional argument specifying the encryption scope that the client application can use.
 	
 .. js:function:: dex::client::az::ExpiryDateFromNow
 
@@ -630,6 +660,85 @@ Creating SAS URL query strings
 	
 	:param expiry: the amount of seconds from now, at which time the SAS query string should expire
 	
+Data Lake Storage file systems
+------------------------------
+
+These functions all require that the `dex::dls::StorageAccount` and `dex::dls::StorageAccessKey` parameters have been set. This happens automatically in the AIMMS Cloud, on your desktop you can set these parameters manually via the file `api-init/Data_Lake_Storage.txt`.
+
+.. js:function:: dex::dls::ListFileSystems
+
+	List all file systems within an Azure Data Lake Storage account. The function will return 1 upon success, or an error on failure.
+
+	:param FileSystems: output set argument holding the file systems present in the storage account.
+	
+.. js:function:: dex::dls::CreateFileSystem
+
+	Create a new file system within an Azure Data Lake Storage account. The function will return 1 upon success, or an error on failure.
+
+	:param fileSystem: string parameter holding the name of the file systems to create.
+	
+.. js:function:: dex::dls::DeleteFileSystem
+
+	Delete an existing file system within an Azure Data Lake Storage account. The function will return 1 upon success, or an error on failure.
+
+	:param fileSystem: string parameter holding the name of the file systems to delete.
+	
+.. js:function:: dex::dls::ListFiles
+
+	List the files within a certain path prefix of a given file system.  The function will return 1 upon success, or an error on failure.
+
+	:param fileSystem: string parameter holding the name of the file systems.
+	:param pathPrefix: string parameter holding the prefix of the path of all files to be listed. This prefix must correspond to a complete directory within the file system, and may, but need not, end with a `/`.
+	:param Paths: output set arguments used to enumerate all listed files and directories. The set must be a subset of the predefined set `Integers`.
+	:param pathName: output string parameter over `Paths` holding the names of all files and directories found.
+	:param fileSize: output numeric parameter over `Paths` holding the file size of all files found.
+	:param isDirectory: output binary parameter over `Paths` indicating whether a given path is a directory and not a file.
+	:param recursive: optional paramter indicating whether only files within the given path prefix should be listed, or recursively.
+
+.. js:function:: dex::dls::DeletePath
+
+	Delete a single file in a file system, or a complete directory. The function will return 1 upon success, or an error on failure.
+
+	:param fileSystem: string parameter holding the name of the file systems.
+	:param path: string parameter holding the name of the file or directory within the file system to be deleted.
+
+Data Lake Storage file transfer
+-------------------------------
+
+.. js:function:: dex::dls::UploadFile
+
+	Upload a single file to a path within a file system. The function will return 1 upon success, or an error on failure.
+
+	:param fileSystem: string parameter holding the name of the file systems.
+	:param _file: local file path of the file to upload
+	:param pathPrefix: string parameter holding the path prefix of the directory within the file system to which the file must be uploaded.
+
+.. js:function:: dex::dls::UploadFiles
+
+	(Recursively) upload the files within a local directory to a path within a file system. The function will return 1 upon success, or an error on failure.
+
+	:param fileSystem: string parameter holding the name of the file systems.
+	:param directory: local directory from which to upload files
+	:param pathPrefix: string parameter holding the path prefix of the directory within the file system to which the file must be uploaded.
+	:param recursive: optional paramter indicating whether only files within the given directory should be uploaded, or recursively.
+
+.. js:function:: dex::dls::DownloadFile
+
+	Download a single file from a file system to a local directory. The function will return 1 upon success, or an error on failure.
+
+	:param fileSystem: string parameter holding the name of the file systems.
+	:param urlPath: path of the file within the file system to download.
+	:param directory: string parameter holding the local directory to which the file must be downloaded.
+
+.. js:function:: dex::dls::DownloadFiles
+
+	(Recursively) download the files within a path within a file system to a local directory. The function will return 1 upon success, or an error on failure.
+
+	:param fileSystem: string parameter holding the name of the file systems.
+	:param pathPrefix: string parameter holding the path prefix of the directory within the file system from which to download files.
+	:param directory: local directory to which to download files
+	:param recursive: optional paramter indicating whether only files within the given path prefix should be downloaded, or recursively.
+
 .. spelling:word-list::
 
     uninitialize

@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+
+2.1.2.5 [21-07-2023]
+	- Add methods for accessing Azure Data Lake Storage
+	
 2.1.2.1 [18-07-2023]
 	- Allow ``TableMapping`` in ``AimmsCSVMapping`` and ``AimmsParquetMapping`` such that the first argument of ``dex::ReadFromFile()`` and ``dex::WriteToFile()`` can be interpreted as a folder containing a collection of CSV or Parquet tables
 
