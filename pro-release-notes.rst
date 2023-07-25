@@ -1,6 +1,23 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.50
+########
+
+AIMMS PRO 2.50.1 Release
+------------------------
+
+On July 25, 2023, we released AIMMS PRO 2.50.1(2.50.1.1). 
+ 
+**Improvements**
+
+   - Added support to access Azure Data Lake Storage within AIMMS sessions using DEX Library.
+   
+**Resolved Issues**
+
+   - PRO REST API: Fixed an issue where a task could fail with an immediate response - HTTP code of 500 when passing a *.JSON* file of more than 100KB. (Please note that this fix will be fully available only when all cloud accounts are moved to AIMMS PRO 2.50.1 )
+
+
 PRO 2.49
 ########
 
