@@ -13,6 +13,28 @@ AIMMS 4.96
 
 
 
+AIMMS 4.96.5 Release (July 25, 2023 - build 4.96.5.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The shadow prices of the lazy constraints were not always retrieved from CPLEX if the postsolve step was carried out for an MIP model for which a lazy constraints callback procedure was installed (a feature introduced in AIMMS 4.96.1).
+-  AIMMS version 4.96 did not show the correct version number on the start page.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When you specified a slicing for an identifier in one of the WebUI options and went back to the relevant options editor later, the slicing was not displayed correctly. Instead, the 'default slicing' would be displayed, even though functionally the slicing worked fine.
+
+--------------
+
+
+
+
+
 AIMMS 4.96.4 Release (July 13, 2023 - build 4.96.4.6).
 ------------------------------------------------------------------------------------------
 
