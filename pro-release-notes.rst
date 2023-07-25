@@ -12,6 +12,7 @@ On July 25, 2023, we released AIMMS PRO 2.50.1(2.50.1.1).
 **Improvements**
 
    - Added support to access Azure Data Lake Storage within AIMMS sessions using DEX Library.
+   - Added extra logging when data session could not launch. 
    
 **Resolved Issues**
 
