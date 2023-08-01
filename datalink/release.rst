@@ -5,6 +5,9 @@ The first public release of DataLink was version 1.0.0.106, release date January
 
 New Features and Bug Fixes
 --------------------------
+1.1.1.96 [01-08-2023]
+    - Fix issue where converting many string to double values when reading could lead to a crash
+
 1.1.1.93 [11-08-2022]
     - No change (internal)
 
