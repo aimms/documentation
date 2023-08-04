@@ -33,7 +33,7 @@ Remarks:
 
 #.  The actual logging consists of three columns:
 
-    #.  Date time
+    #.  Date time, since version 1.1.1, these time stamps are in timezone UTC
 
     #.  Importance level of messages
 
