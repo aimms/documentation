@@ -23,6 +23,12 @@ Resolved AIMMS Issues
 
 -  Academic/community/organization web licenses could not be used without a connection to our web license server. AIMMS now allows offline usage of these web licenses up to 24 hours after the last connection with the web license server was made.
 
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The shape of the chart markers used in the Combination chart widget, for the line, area and other chart types, will now be allocated based on the sequence of their data series, as reflected in the chart legend. Before, actions like pivoting, adding of contents, or other changes to the display of the series would result in the markers changing without any apparent need.
+- Improved the warning message for old-style annotations (deprecated since 4.71.1) still being used in your model. Previously, the message did not appear in case you were referring to identifiers in the :token:`webui::` attributes on the attribute form using a different casing that was used to declare the identifier. To prevent unnecessary old-style annotation warnings as a whole, you should rename the identifier to not be of the form :token:`X_annotations` (or :token:`X_tooltips`) for the identifier X. See our `online documentation <https://documentation.aimms.com/webui/widget-options.html#identifier-annotations>`__ for more details.
+
 --------------
 
 
