@@ -13,6 +13,22 @@ AIMMS 4.96
 
 
 
+AIMMS 4.96.6 Release (August 10, 2023 - build 4.96.6.8).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Academic/community/organization web licenses could not be used without a connection to our web license server. AIMMS now allows offline usage of these web licenses up to 24 hours after the last connection with the web license server was made.
+
+--------------
+
+
+
+
+
 AIMMS 4.96.5 Release (July 25, 2023 - build 4.96.5.3).
 ------------------------------------------------------------------------------------------
 
