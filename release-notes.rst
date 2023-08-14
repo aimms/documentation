@@ -13,6 +13,22 @@ AIMMS 4.96
 
 
 
+AIMMS 4.96.7 Release (August 14, 2023 - build 4.96.7.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Incorrectly triggered duplicate data errors could occur when writing a database table to MySQL in merge mode.
+
+--------------
+
+
+
+
+
 AIMMS 4.96.6 Release (August 10, 2023 - build 4.96.6.8).
 ------------------------------------------------------------------------------------------
 
