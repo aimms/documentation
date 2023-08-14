@@ -704,6 +704,9 @@ The last String/Elt Operator mentioned in the tables above ('matches regex') nee
 .. note ::
     Please note that the 'contains', the 'does not contain' and the 'regex' filters do not take into account any translations that are applied through a .properties file. Using the webui::IdentifierElementText translation mechanism instead, these filters work as expected.
 
+.. Important::
+    We highly recommend that WebUI apps refrain from configuring translations for identifiers in both the webui::IdentifierElementText identifier and in the .properties file. This caution is based on customer feedback highlighting instances where such configurations can result in WebUI features, like Table Data Filters, not functioning as intended.
+
 Best Practices
 ^^^^^^^^^^^^^^
 
