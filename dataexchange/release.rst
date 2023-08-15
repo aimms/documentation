@@ -14,6 +14,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 New Features and Bug Fixes
 --------------------------
 
+2.1.2.14 [15-08-2023]
+	- Writing a CSV or Parquet file in the project folder would generate an error
+
 2.1.2.11 [03-08-2023]
 	- OpenAPI methods with multipart request bodies would not set the type of mapped parts correctly in generated clients
 	- Added support for reading any JSON file using a generic `JSONAny/JSONAny` mapping
