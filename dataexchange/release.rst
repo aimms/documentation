@@ -13,13 +13,17 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+2.1.2.16 [20-08-2023]
+	- String values read from or written to files can now be dynamically extended to 1 MB via the `max-string-size` attribute in a mapping
+	- Extended support for reading/writing any JSON file using a pre-defined generic `JSONAny/JSONAny` mapping to support larger string-valued properties
+	- Added functions to create/iterate any JSON document programmatically 
 
 2.1.2.14 [15-08-2023]
 	- Writing a CSV or Parquet file in the project folder would generate an error
 
 2.1.2.11 [03-08-2023]
 	- OpenAPI methods with multipart request bodies would not set the type of mapped parts correctly in generated clients
-	- Added support for reading any JSON file using a generic `JSONAny/JSONAny` mapping
+	- Added support for reading/writing any JSON file using a pre-defined generic `JSONAny/JSONAny` mapping
 
 2.1.2.5 [21-07-2023]
 	- Add methods for accessing Azure Data Lake Storage

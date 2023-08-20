@@ -424,7 +424,7 @@ Any file
 * read by :js:func:`dex::ReadFromFile`, 
 * serving as a request or response file to :js:func:`dex::client::NewRequest` 
 
-can also be a memory stream, i.e. a file stored in memory. Memory streams can help
+can also be a memory stream, i.e. a file stored in memory. Memory streams can be up to 1 MB big. Memory streams can help
 
 * improve performance because they do not incur disk I/O, or delay because of virus scanning generated files on disk,
 * reduce clutter in your project folder.
@@ -611,6 +611,8 @@ Normally, when using OAuth, you don't need to worry about manipulating `JWT toke
 Creating SAS URL query strings
 ------------------------------
 
+SAS tokens can be used to authorize Azure Blob Storage access. The Data Exchange library supports the following functions for generating SAS tokens. 
+
 .. js:function:: dex::client::az::AccountSASQueryString
 
 	Generate an Account SAS query string, to pre-authenticate, for instance, a request to Azure Blob Storage. For details about the allowed values for the various arguments, please refer to `Create an account SAS <https://learn.microsoft.com/en-us/rest/api/storageservices/create-account-sas>`_.
@@ -663,6 +665,8 @@ Creating SAS URL query strings
 Data Lake Storage file systems
 ------------------------------
 
+The following functions are available for managing Azure Data Lake Storage file systems (also known as containers), and for listing their contents.
+
 These functions all require that the `dex::dls::StorageAccount` and `dex::dls::StorageAccessKey` parameters have been set. This happens automatically in the AIMMS Cloud, on your desktop you can set these parameters manually via the file `api-init/Data_Lake_Storage.txt`.
 
 .. js:function:: dex::dls::ListFileSystems
@@ -705,6 +709,10 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 Data Lake Storage file transfer
 -------------------------------
 
+The following functions are available in the Data Exchange library to upload file to or download files from Azure Data Lake Storage. 
+
+These functions all require that the `dex::dls::StorageAccount` and `dex::dls::StorageAccessKey` parameters have been set. This happens automatically in the AIMMS Cloud, on your desktop you can set these parameters manually via the file `api-init/Data_Lake_Storage.txt`.
+
 .. js:function:: dex::dls::UploadFile
 
 	Upload a single file to a path within a file system. The function will return 1 upon success, or an error on failure.
@@ -738,6 +746,202 @@ Data Lake Storage file transfer
 	:param pathPrefix: string parameter holding the path prefix of the directory within the file system from which to download files.
 	:param directory: local directory to which to download files
 	:param recursive: optional parameter indicating whether only files within the given path prefix should be downloaded, or recursively.
+
+Reading, writing and iterating arbitrary JSON documents
+-------------------------------------------------------
+
+The Data Exchange library offers programmatic support for reading, writing and iterating any JSON file using a pre-defined generic `JSONAny/JSONAny` mapping. The following functions are available. 
+
+.. js:function:: dex::json::ReadInstance
+
+	Read an arbitrary JSON file using the pre-defined `JSONAny/JSONAny` mapping into identifiers within the `dex::json` namespace.
+
+	:param instName: string parameter holding the name of the element within the set `dex::json::JSONInstances`.
+	:param instFile: string parameter holding the file name of the JSON document to read.
+
+.. js:function:: dex::json::WriteInstance
+
+	Write an arbitrary JSON file using the pre-defined `JSONAny/JSONAny` mapping using the content of the identifiers within the `dex::json` namespace, for the slice corresponding to the `_inst` argument. 
+
+	:param _inst: element parameter holding the element within the set `dex::json::JSONInstances` for which to write a JSON file.
+	:param instFile: string parameter holding the file name of the JSON document to read.
+	:param pretty: optional parameter indicating whether the generated JSON file should be pretty-printed.
+
+.. js:function:: dex::json::EmptyInstance
+
+	Empty the content of the identifiers within the `dex::json` namespace, for the slice corresponding to the `_inst` argument. 
+
+	:param _inst: element parameter holding the element within the set `dex::json::JSONInstances` for which to empty the identifiers within the `dex::json` namspace.
+
+.. js:function:: dex::json::CreateInstance
+
+	Create a new JSON instance in the set `dex::json::JSONInstances`, and prepare the identifiers in the `dex::json` namespace to programmatically create a new JSON document. The function returns the element in the set `dex::json::Nodes` representing the root node of the newly created JSON document.
+	
+	:param instName: string parameter holding the name of JSON instance to create.
+
+.. js:function:: dex::json::SetBool
+
+	Assign a boolean value to either the JSON root node of a JSON document or an array member of an array value in the JSON document.
+	
+	:param _nde: element parameter holding the node in the JSON document for which to set the value.
+	:param bool: boolean value to assign to the `_nde`
+
+.. js:function:: dex::json::SetInt
+
+	Assign an integer value to either the JSON root node of a JSON document or an array member of an array value in the JSON document.
+	
+	:param _nde: element parameter holding the node in the JSON document for which to set the value.
+	:param int: integer value to assign to the `_nde`
+
+.. js:function:: dex::json::SetNumber
+
+	Assign a double value to either the JSON root node of a JSON document or an array member of an array value in the JSON document.
+	
+	:param _nde: element parameter holding the node in the JSON document for which to set the value.
+	:param number: double value to assign to the `_nde`
+
+.. js:function:: dex::json::SetString
+
+	Assign a string value to either the JSON root node of a JSON document or an array member of an array value in the JSON document.
+	
+	:param _nde: element parameter holding the node in the JSON document for which to set the value.
+	:param _string: double value to assign to the `_nde`, the assigned value can be upto 256 KB in size.
+
+.. js:function:: dex::json::SetObject
+
+	Assign an object value to either the JSON root node of a JSON document or an array member of an array value in the JSON document. The function returns the element in the set `dex::json::Nodes` representing the added object.
+	
+	:param _nde: element parameter holding the node in the JSON document for which to set the value.
+
+.. js:function:: dex::json::SetArray
+
+	Assign an array value to either the JSON root node of a JSON document or an array member of an array value in the JSON document. The function returns the element in the set `dex::json::Nodes` representing the added array.
+	
+	:param _nde: element parameter holding the node in the JSON document for which to set the value.
+
+.. js:function:: dex::json::AddArrayMember
+
+	Assign a new member to a `_nde` representing an array valuer. The function will return the element of `dex::json::Nodes` representing the array member.
+	
+	:param _nde: element parameter holding the node in the JSON document representing the array value.
+
+.. js:function:: dex::json::AddBoolProperty
+
+	Add a new boolean property to a `_nde` representing an object in the JSON document. 
+	
+	:param _nde: element parameter holding the node in the JSON document representing the object to which to add the property.
+	:param prop: string parameter holding the name of the property to add to the object
+	:param bool: parameter holding the boolean value of the property to add.
+	
+.. js:function:: dex::json::AddIntProperty
+
+	Add a new integer property to a `_nde` representing an object in the JSON document. 
+	
+	:param _nde: element parameter holding the node in the JSON document representing the object to which to add the property.
+	:param prop: string parameter holding the name of the property to add to the object
+	:param int: parameter holding the integer value of the property to add.
+	
+.. js:function:: dex::json::AddNumberProperty
+
+	Add a new double property to a `_nde` representing an object in the JSON document. 
+	
+	:param _nde: element parameter holding the node in the JSON document representing the object to which to add the property.
+	:param prop: string parameter holding the name of the property to add to the object
+	:param number: parameter holding the double value of the property to add.
+	
+.. js:function:: dex::json::AddStringProperty
+
+	Add a new string property to a `_nde` representing an object in the JSON document. 
+	
+	:param _nde: element parameter holding the node in the JSON document representing the object to which to add the property.
+	:param prop: string parameter holding the name of the property to add to the object
+	:param _string: parameter holding the string value of the property to add.
+	
+.. js:function:: dex::json::AddObjectProperty
+
+	Add a new object property to a `_nde` representing an object in the JSON document. The function will return the element in the set `dex::json::Nodes` representing the newly added object.
+	
+	:param _nde: element parameter holding the node in the JSON document representing the object to which to add the property.
+	:param prop: string parameter holding the name of the property to add to the object
+	
+.. js:function:: dex::json::AddArrayProperty
+
+	Add a new array property to a `_nde` representing an object in the JSON document. The function will return the element in the set `dex::json::Nodes` representing the newly added array. You can use the function :js:func:`dex::json::AddArrayMember` to add new members to the array.
+	
+	:param _nde: element parameter holding the node in the JSON document representing the object to which to add the property.
+	:param prop: string parameter holding the name of the property to add to the object
+	
+.. js:function:: dex::json::RootNode
+
+	Return the root node of the last JSON document read using :js:func:`dex::json::ReadInstance`. If the root node is an object or array, you can directly access the object properties or array members.
+	
+.. js:function: dex::json::BoolVal
+
+	Return the bool value of the root node of a JSON document, or of an array item within the JSON document.
+
+	:param _nde: element parameter holding the node in the JSON document from which to retrieve the property.
+
+.. js:function: dex::json::IntVal
+
+	Return the integer value of the root node of a JSON document, or of an array item within the JSON document.
+
+	:param _nde: element parameter holding the node in the JSON documentfrom which to retrieve the property.
+	
+.. js:function: dex::json::NumberVal
+
+	Return the double value of the root node of a JSON document, or of an array item within the JSON document.
+
+	:param _nde: element parameter holding the node in the JSON document from which to retrieve the property.
+
+.. js:function: dex::json::StringVal
+
+	Return the string value of the root node of a JSON document, or of an array item within the JSON document.
+
+	:param _nde: element parameter holding the node in the JSON document from which to retrieve the property.
+	
+.. js:function: dex::json::BoolProperty
+
+	Return the bool value of a property of an object node within the JSON document.
+
+	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	
+	
+.. js:function: dex::json::IntProperty
+
+	Return the integer value of  a property of an object node within the JSON document.
+
+	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	
+.. js:function: dex::json::NumberProperty
+
+	Return the double value of a property of an object node within the JSON document.
+
+	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	
+.. js:function: dex::json::StringProperty
+
+	Return the string value of a property of an object node within the JSON document.
+
+	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	
+.. js:function: dex::json::ObjectProperty
+
+	Return the node representing the object value of a property of an object node within the JSON document.
+
+	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	
+.. js:function: dex::json::ArrayProperty
+
+	Return the node representing the array value of a property of an object node within the JSON document. You can use the function :js:func:`dex::json::ArrayItem` to retrieve a specific member of the array.
+
+	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	
+.. js:function: dex::json::ArrayItem
+
+	Return the node representing the `n`-th item from a node representing an array within the JSON document. 
+
+	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	:param n: the  (1-based) number of the item to retrieve from the array.
 
 .. spelling:word-list::
 
