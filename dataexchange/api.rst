@@ -771,7 +771,7 @@ The Data Exchange library offers programmatic support for reading, writing and i
 
 	Empty the content of the identifiers within the `dex::json` namespace, for the slice corresponding to the `_inst` argument. 
 
-	:param _inst: element parameter holding the element within the set `dex::json::JSONInstances` for which to empty the identifiers within the `dex::json` namspace.
+	:param _inst: element parameter holding the element within the set `dex::json::JSONInstances` for which to empty the identifiers within the `dex::json` namespace.
 
 .. js:function:: dex::json::CreateInstance
 
@@ -805,7 +805,7 @@ The Data Exchange library offers programmatic support for reading, writing and i
 	Assign a string value to either the JSON root node of a JSON document or an array member of an array value in the JSON document.
 	
 	:param _nde: element parameter holding the node in the JSON document for which to set the value.
-	:param _string: double value to assign to the `_nde`, the assigned value can be upto 256 KB in size.
+	:param _string: double value to assign to the `_nde`, the assigned value can be up to 256 KB in size.
 
 .. js:function:: dex::json::SetObject
 
