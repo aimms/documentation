@@ -13,7 +13,7 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
-2.1.2.16 [20-08-2023]
+2.1.2.17 [21-08-2023]
 	- String values read from or written to files can now be dynamically extended to 1 MB via the `max-string-size` attribute in a mapping
 	- Extended support for reading/writing any JSON file using a pre-defined generic `JSONAny/JSONAny` mapping to support larger string-valued properties
 	- Added functions to create/iterate any JSON document programmatically 
