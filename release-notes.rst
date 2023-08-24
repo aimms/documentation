@@ -13,6 +13,22 @@ AIMMS 4.96
 
 
 
+AIMMS 4.96.9 Release (August 24, 2023 - build 4.96.9.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We added additional diagnostic logging for analyzing and reproducing issues in database writing, should these occur.
+
+--------------
+
+
+
+
+
 AIMMS 4.96.8 Release (August 15, 2023 - build 4.96.8.1).
 ------------------------------------------------------------------------------------------
 
