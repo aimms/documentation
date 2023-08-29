@@ -13,6 +13,28 @@ AIMMS 4.96
 
 
 
+AIMMS 4.96.10 Release (August 29, 2023 - build 4.96.10.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS could crash when closing the project while the Math Program Inspector was open.
+-  If data was assigned to an identifier with a specified default running over a subset of its declared domain, it would run over the identifier's declared domain instead.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Due to a change in the latest Google Chrome versions, it was not possible anymore to select read-only cells in a WebUI Table widget.
+
+--------------
+
+
+
+
+
 AIMMS 4.96.9 Release (August 24, 2023 - build 4.96.9.3).
 ------------------------------------------------------------------------------------------
 
