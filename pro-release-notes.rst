@@ -1,6 +1,20 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.51
+########
+
+AIMMS PRO 2.51.1 Release
+------------------------
+
+On September 5, 2023, we released AIMMS PRO 2.51.1(2.51.1.1). 
+ 
+**Improvements**
+
+   - Fast publishing/verify session to reduce the timeouts during publishing of an AIMMS app. (Also available for **On-Premise**)
+   - More explicit logging when session crashes due to the out of memory.
+
+
 PRO 2.50
 ########
 
