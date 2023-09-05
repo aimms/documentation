@@ -31,11 +31,16 @@ for the available model data using the corresponding functionality at the bottom
 In our example, the binary parameter IsInSubsetCenters(c) is declared with the index domain the set Centers. In this case, it is appropriate to use a multiselect
 type of widget which allows to select several elements from the underlying set:
 
-.. image:: images/Selection-MultiselectBP.png
+.. image:: images/Selection-MultiSelect.png
     :align: center
 
 Note that, in this case it is still possible to switch to other representation type, e.g.. to selectionbox, but then the selection is restricted to just one element
 from the underlying set. 
+
+.. note::
+
+    In the AIMMS `4.97.1 <https://manual.aimms.com/release-notes.html#aimms-4-97>`_ release, we enhanced the functionality of the Select and Deselect links in the MultiSelect widget. With this improvement, when you apply a filter to the widget, the "Select" and "Deselect" links will now accurately select or deselect all the filtered entries. Furthermore, for added clarity, we've included a count of available entries next to the "Select" and "Deselect" links.
+
 
 Identifier Settings
 --------------------------
