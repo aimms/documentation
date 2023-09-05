@@ -1,4 +1,3 @@
-
 .. _DEX_Application_Database:
 
 Application Database
@@ -372,7 +371,7 @@ This connects via the default port 5432 on localhost to a database called ``mydb
 SQL Server
 ^^^^^^^^^^
 
-SQL Server is supported via OCDB. This means that SQL Server Management Studio is needed to create a connection on windows.
+SQL Server is supported via ODBC. This means that SQL Server Management Studio is needed to create a connection on windows.
 
 We can use the following DexConnect file:
 
