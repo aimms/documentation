@@ -6,8 +6,7 @@ Hello
    :description: This AIMMS project introduces the multiSolve library.
 
 .. image:: https://img.shields.io/badge/AIMMS_4.86-ZIP:_MultiSolveHelloWorld-blue
-   :target: :download:`MultiSolveHelloWorld.zip <downloads/MultiSolveHelloWorld.zip>`
-
+   
 :download:`AIMMS 4.86 MultiSolveHelloWorld.zip <downloads/MultiSolveHelloWorld.zip>`
 
 This section introduces the ``multiSolve`` library via a Hello World example.
