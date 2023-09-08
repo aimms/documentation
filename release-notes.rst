@@ -13,6 +13,23 @@ AIMMS 4.96
 
 
 
+AIMMS 4.96.11 Release (September 08, 2023 - build 4.96.11.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We addressed a problem in the Properties dialog of the WinUI Scalar object, where the specified symbol for the "# Visible Columns" was sometimes removed.
+-  We added licensing support for enforcing a minimum AIMMS version.
+
+--------------
+
+
+
+
+
 AIMMS 4.96.10 Release (August 29, 2023 - build 4.96.10.3).
 ------------------------------------------------------------------------------------------
 
