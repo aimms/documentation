@@ -24,7 +24,7 @@ Resolved WebUI Issues
 -  The scalar widget was not always properly refreshing when applying a display domain to it.
 -  Popups such as dropdown boxes created by a widget can now be styled using custom CSS in a similar fashion as custom styling other elements within a widget's scope. For example, to style the width of the dropdown box which is displayed by a selectionbox widget "T", the following CSS can be used:
 
-.. code-block:: CSS
+.. code-block::
 
     [data-widget\.uri="T"] .select2-drop, [data-widget\.uri="T"] .select2-drop .TiledPane, [data-widget\.uri="T"] .select2-results, [data-widget\.uri="T"] li.select2-result-selectable {
         width: 500px !important;
