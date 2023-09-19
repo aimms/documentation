@@ -13,6 +13,22 @@ AIMMS 4.96
 
 
 
+AIMMS 4.96.13 Release (September 19, 2023 - build 4.96.13.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Table widgets were not always refreshing immediately when opening a dropdown outside of the table, of which the content has an influence on how the Table is displayed (for example, as a display domain).
+
+--------------
+
+
+
+
+
 AIMMS 4.96.12 Release (September 13, 2023 - build 4.96.12.2).
 ------------------------------------------------------------------------------------------
 
