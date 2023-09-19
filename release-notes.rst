@@ -18,6 +18,13 @@ AIMMS 4.96.13 Release (September 19, 2023 - build 4.96.13.2).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Using AllIdentifiers in a statement like: "write AllIdentifiers to file "out.txt";" sometimes resulted in a severe internal error. This was caused by a problem in dealing with the Public attribute of a Module.
+
+
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
