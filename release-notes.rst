@@ -13,6 +13,22 @@ AIMMS 4.96
 
 
 
+AIMMS 4.96.14 Release (September 22, 2023 - build 4.96.14.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When displaying many indexes in a Table header (more than 15 or so), the last few index columns were not displaying the index values, but data values instead.
+
+--------------
+
+
+
+
+
 AIMMS 4.96.13 Release (September 19, 2023 - build 4.96.13.2).
 ------------------------------------------------------------------------------------------
 
