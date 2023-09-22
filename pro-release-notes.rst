@@ -4,6 +4,15 @@ AIMMS PRO Release Notes
 PRO 2.51
 ########
 
+AIMMS PRO 2.51.2 Release
+------------------------
+
+On September 22, 2023, we released AIMMS PRO 2.51.2(2.51.2.2). 
+ 
+**Resolved Issues**
+
+   - Fixed an issue with the rest-server when calling PRO REST API services could result into 30002 error. (by implementing an auto-restart of the rest-server when it gets into the problematic state)
+
 AIMMS PRO 2.51.1 Release
 ------------------------
 
