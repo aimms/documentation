@@ -7,7 +7,7 @@ PRO 2.51
 AIMMS PRO 2.51.2 Release
 ------------------------
 
-On September 22, 2023, we released AIMMS PRO 2.51.2(2.51.2.2). 
+On September 26, 2023, we released AIMMS PRO 2.51.2(2.51.2.4). 
  
 **Resolved Issues**
 
