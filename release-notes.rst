@@ -13,6 +13,22 @@ AIMMS 4.96
 
 
 
+AIMMS 4.96.15 Release (October 06, 2023 - build 4.96.15.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  We resolved a compilation error in the AIMMS WebUI (system) library, that occurred when the option 'case sensitive element comparison' was turned on.
+
+--------------
+
+
+
+
+
 AIMMS 4.96.14 Release (September 22, 2023 - build 4.96.14.1).
 ------------------------------------------------------------------------------------------
 
