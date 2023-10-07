@@ -13,6 +13,12 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+2.1.2.42 [06-10-2023]
+	- The mapping attribute ``value`` may now also hold a memory stream name to allow dynamically set values
+	- Introduced new session and task callbacks to be used when a DEX session is being called as part of a PRO task service. 
+	- Introduced ``--dex::listenPort`` and ``--dex::serviceTimeOut`` command line arguments for externally setting API service configuration parameters.
+	- Introduce a new function :js:func:`dex::GetOptionValues`.
+	
 2.1.2.17 [21-08-2023]
 	- String values read from or written to files can now be dynamically extended to 1 MB via the `max-string-size` attribute in a mapping
 	- Extended support for reading/writing any JSON file using a pre-defined generic `JSONAny/JSONAny` mapping to support larger string-valued properties

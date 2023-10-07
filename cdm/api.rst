@@ -472,10 +472,13 @@ Utility Functions
    
 .. js:function::  cdm::EmptyElementsInCategory(category,setName)
 
-   Empty all data defined over the element of the given subset in the given category. If the elements occurs in data of multiple categories, you may have to call this function for each category to achieve the desired effect.
+   Empty all data defined in the given category over a particular *root set* for all elements in a subset of that root set.  If the elements occurs in data of multiple categories, you may have to call this function for each category to achieve the desired effect.
+	 
+	 Please note that you integer sets are always a subset of the special root set `Integers`. You can, therefore, not use this function to empty identifiers defined solely over such an integer set. Instead, the data of identifiers defined over *any* integer set will be emptied for the given subset of elements. 
+	 
 
    :param category: specifies the category for which to empty all data for all identifiers in the category.
-   :param setName: specifies the set for the elements of which to empty all data
+   :param setName: specifies the subset of elements for which to empty all data defined over the associated *root set* of the subset
 
 .. js:function::  cdm::CreateUuid(uuid)
 

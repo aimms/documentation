@@ -53,7 +53,7 @@ Service end-points exposed
          ! the application-specific returncode that will be returned via the task status of the job
          return 1;
 
-* ``/api/v1/tasks/``
+* ``/api/v1/tasks``
     
     * ``GET``: will return ``200 OK`` where the  response body will contain a array with the statuses of all submitted jobs, similar to:
       
@@ -111,7 +111,7 @@ This will read all the service name annotations, and start the service listening
 Using the echo service
 ----------------------
 
-Next to the REST API service described above, the API service also provides an *echo* service, that will simply echo all headers and (any) body you present to it, via either a GET, PUT, POST, or DELETE request. You can use the echo service to check whether there are any problems with requests that you would like to send to a real service. The echo service is available via the path ``http://localhost:{listenerport}/api/v1/echo/``, and it supports a single optional query parameter, ``delay``, indicating a delay in milliseconds before replying back to the caller.
+Next to the REST API service described above, the API service also provides an *echo* service, that will simply echo all headers and (any) body you present to it, via either a GET, PUT, POST, or DELETE request. You can use the echo service to check whether there are any problems with requests that you would like to send to a real service. The echo service is available via the path ``http://localhost:{listenerport}/api/v1/echo``, and it supports a single optional query parameter, ``delay``, indicating a delay in milliseconds before replying back to the caller.
 
 Yielding time to the API service to handle requests
 ---------------------------------------------------

@@ -105,6 +105,10 @@ The binds-to attribute
 
 The ``binds-to`` attribute, which can be added to the mapping of any value-holding element. The ``binds-to`` attribute will also provide an index binding for all sibling mapping elements of mapping element for which it is specified, or for the parent element in case the ``binds-to`` attribute is applied to an ``AttributeMapping`` element.
 
+.. note::
+	
+		If the value of the ``binds-to`` attribute coincides with the ``binds-to`` attribute of an 	``ExternalBinding``, then the value of the external binding will be written to the corresponding value-holding element during a write, even though the write will be sliced to the value of the ``binding`` attribute of ``ExternalBinding``.
+
 The name-binds-to attribute
 ---------------------------
 
@@ -204,7 +208,7 @@ With this attribute you cannot cause an array to be written in a dense manner, a
 The value attribute
 -------------------
 
-With the ``value`` attribute you can specify that, when writing a file, the value of a value-holding mapping element should become the static string value specified through this attribute. When reading a file, a node with a ``value`` attribute will be silently ignored. 
+With the ``value`` attribute you can specify that, when writing a file, the value of a value-holding mapping element should become the static string value specified through this attribute. If the value starts with a ``#`` character, the value will be interpreted as a the name of a memory stream, and the Data Exchange library will take the value from the contents of the given memory stream. This will allow you to set the value *dynamically*. When reading a file, a node with a ``value`` attribute will be silently ignored. 
 
 .. note::
 

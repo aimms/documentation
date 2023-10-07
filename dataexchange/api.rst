@@ -136,6 +136,11 @@ The library also contains a number of functions to normalize composed Unicode ch
     :param aSet: set argument indicating the set for which to normalize all elements
     :param normalization: optional element parameter into :token:`dex::Normalizations` indicating the normalization to apply (either :token:`nfc` (default), :token:`nfd`, :token:`no-diacritics`, :token:`trim`, :token:`nfc-trim`, :token:`nfd-trim` or :token:`no-diacritics-trim`)
 
+.. js:function:: dex::GetOptionValues(optVal)
+
+	AIMMS supports reading arbitrary command line options of the form ``--<name-space>::<option-name>`` followed by the value of the option. This feature allows, for instance, libraries to define its own set of command line options. You can read the values of the command line options through this function. 
+	
+		:param optVal: one-dimensional string parameter over a set holding the command line options you want to retrieve the values for. The elements should be of the for ``<any-name-space>::<option-name>``.
 
 HTTP Client methods
 -------------------
