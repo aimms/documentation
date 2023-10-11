@@ -18,8 +18,12 @@ AIMMS 4.96.16 Release (October 11, 2023 - build 4.96.16.1).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
---------------
+Resolved WebUI Issues
++++++++++++++++++++++++++
 
+-  Using a 'defining procedure' as the definition of a parameter that has a unit, no longer triggers a unit inconsistency warning.
+
+--------------
 
 
 
