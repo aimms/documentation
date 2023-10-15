@@ -206,3 +206,7 @@ To use tunnels in your AIMMS model, please check
 .. spelling:word-list::
 
     loadbalancer
+	aes-cbc-256
+	aes
+	cbc
+	sha
