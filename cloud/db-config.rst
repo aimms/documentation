@@ -203,3 +203,6 @@ To use tunnels in your AIMMS model, please check
 `model changes for tunneling <https://documentation.aimms.com/pro/tunneling.html#changes-to-aimms-model>`_.
 
 
+.. spelling:word-list::
+
+    loadbalancer
