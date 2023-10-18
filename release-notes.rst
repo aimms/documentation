@@ -12,6 +12,43 @@ AIMMS 4.96
 #############
 
 
+AIMMS 4.97.1 Release (October 18, 2023 - build 4.97.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Gurobi 10.0 has been upgraded to version 10.0.3.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  GMP procedures which can modify a row, e.g., GMP::Row::SetRightHandSide and GMP::Coefficient::Set, now generate an error if the row is not part of the GMP. Previously, AIMMS would silently generate the row which could result in unexpected or unwanted behavior.
+-  The missing Gurobi option 'Projected implied bound cuts' has been added.
+-  For multi-objective models, the objective value and the best bound of the math program now refer to the (blended) objective with the highest priority.
+-  The procedure GMP::Row::GenerateMulti could fail if the indices in the 'binding' argument were permuted.
+-  The math program suffix .Objective was not always showing the correct value when used inside a time callback procedure.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  We have enhanced the functionality of the MultiSelect widget. When you apply a filter to the widget, the "Select" and "Deselect" links will now correctly select or deselect all the filtered entries as intended. Additionally, we have added a count of available entries to the "Select" and "Deselect" links for clarity.
+-  On the delete page and delete widget confirmation dialog, as well as on the deprecation alert dialog, users can now accomplish the action of the highlighted button by using the enter or spacebar keys.
+-  When running AIMMS in developer mode and downloading a WebUI table as an Excel file, the file to be downloaded is now created in a 'WebUITemp' subfolder of the project folder (instead of in the main project folder).
+-  When downloading WebUI table data as an Excel file (or uploading an Excel file to a WebUI table), the WebUI will now show an appropriate message when generating (or processing) the Excel file takes a while.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The Multiselect widget sometimes gave an incorrect error message when trying to deselect an entry.
+-  We have improved the table identifier filtering by ensuring that it continues to work even after the translations for identifier names were changed.
+
+--------------
+
+
+
 
 AIMMS 4.96.16 Release (October 11, 2023 - build 4.96.16.1).
 ------------------------------------------------------------------------------------------
