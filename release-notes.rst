@@ -8,7 +8,7 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
-AIMMS 4.96
+AIMMS 4.97
 #############
 
 
@@ -25,7 +25,7 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  GMP procedures which can modify a row, e.g., GMP::Row::SetRightHandSide and GMP::Coefficient::Set, now generate an error if the row is not part of the GMP. Previously, AIMMS would silently generate the row which could result in unexpected or unwanted behavior.
+-  GMP procedures which can modify a row, e.g. GMP::Row::SetRightHandSide and GMP::Coefficient::Set, now generate an error if the row is not part of the GMP. Previously, AIMMS would silently generate the row which could result in unexpected or unwanted behavior.
 -  The missing Gurobi option 'Projected implied bound cuts' has been added.
 -  For multi-objective models, the objective value and the best bound of the math program now refer to the (blended) objective with the highest priority.
 -  The procedure GMP::Row::GenerateMulti could fail if the indices in the 'binding' argument were permuted.
@@ -48,6 +48,10 @@ Resolved WebUI Issues
 --------------
 
 
+
+#############
+AIMMS 4.96
+#############
 
 
 AIMMS 4.96.16 Release (October 11, 2023 - build 4.96.16.1).
