@@ -35,7 +35,7 @@ WebUI Improvements
 +++++++++++++++++++++++++
 
 -  We have enhanced the functionality of the MultiSelect widget. When you apply a filter to the widget, the "Select" and "Deselect" links will now correctly select or deselect all the filtered entries as intended. Additionally, we have added a count of available entries to the "Select" and "Deselect" links for clarity.
--  On the delete page and delete widget confirmation dialog, as well as on the deprecation alert dialog, users can now accomplish the action of the highlighted button by using the enter or spacebar keys.
+-  On the delete page and delete widget confirmation dialog, as well as on the deprecation alert dialog, users can now accomplish the action of the highlighted button by using the enter or space bar keys.
 -  When running AIMMS in developer mode and downloading a WebUI table as an Excel file, the file to be downloaded is now created in a 'WebUITemp' subfolder of the project folder (instead of in the main project folder).
 -  When downloading WebUI table data as an Excel file (or uploading an Excel file to a WebUI table), the WebUI will now show an appropriate message when generating (or processing) the Excel file takes a while.
 
