@@ -149,7 +149,7 @@ html_theme_options = {
     'google_tag_manager_id': 'GTM-5T37RFM',
     'generate_google_tag_manager' : Display_3rd_Party_Extensions,
     'display_algolia_search' : Display_3rd_Party_Extensions,
-    'algolia_appid': 'BH4D9OD16A', 
+    'algolia_appid': 'O7P0H7XDLZ', 
     'algolia_appkey': 'f7e44f5b57ababa5c5ceb1e1087ae3b1', 
     'algolia_indexname': 'aimms',
     'aimms_support_menu_id': 'documentation',
