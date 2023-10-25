@@ -30,6 +30,8 @@ Resolved WebUI Issues
 
 --------------
 
+(we skipped AIMMS 4.97.2 due to internal technical reasons)
+
 
 
 
