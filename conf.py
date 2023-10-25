@@ -150,7 +150,7 @@ html_theme_options = {
     'generate_google_tag_manager' : Display_3rd_Party_Extensions,
     'display_algolia_search' : Display_3rd_Party_Extensions,
     'algolia_appid': 'O7P0H7XDLZ', 
-    'algolia_appkey': 'f7e44f5b57ababa5c5ceb1e1087ae3b1', 
+    'algolia_appkey': 'acafdefd4d3b6319f20faf2c9052a24b', 
     'algolia_indexname': 'aimms',
     'aimms_support_menu_id': 'documentation',
     'generate_aimms_support_menu' : True,
