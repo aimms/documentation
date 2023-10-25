@@ -12,6 +12,27 @@ AIMMS 4.97
 #############
 
 
+
+AIMMS 4.97.3 Release (October 25, 2023 - build 4.97.3.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The postsolve of a multi-objective model could fail if a nonzero relative tolerance was used for one of the objectives.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The selection box widget now refreshes following a data update through the "upon change" procedure when the value is cleared. Additionally, the widget will now show the default value (instead of the empty element) if a value is cleared.
+
+--------------
+
+
+
+
 AIMMS 4.97.1 Release (October 18, 2023 - build 4.97.1.0).
 ------------------------------------------------------------------------------------------
 
