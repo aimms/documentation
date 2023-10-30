@@ -23,9 +23,14 @@ Authorization
 
 The easiest way to provide access to file systems within Azure Data Lake Storage is through `SAS tokens <https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview>`_. SAS tokens will allow you to set permissions for an entire storage account, for individual file systems, or even directories within Data Lake Storage file systems. The Data Exchange library will create SAS tokens for you, given an account name and access key. 
 
-In the AIMMS Cloud, the Data Exchange library will automatically extract the storage account name and access key of the Data Lake Storage account associated with your AIMMS Cloud account. When developing on your desktop, you can provide a storage account name and access key to any Data Lake Storage account manually by providing values for the string parameter `dex::dls::StorageAccount` and `dex::dls::StorageAccessKey` via the file `api-init/Data_Lake_Storage.txt`. 
-
 The Data Exchange library offers a number of functions to create SAS tokens to generate either Account or Service SAS tokens, with various permissions and lifetimes. As only Service SAS tokens allow limiting access to a single file system or directory within a file system, we advise to only distribute Service SAS tokens to setting up data integration with external applications.
+
+In the AIMMS Cloud, the Data Exchange library will automatically extract the storage account name and access key of the Data Lake Storage account associated with your AIMMS Cloud account to create SAS tokens for an entire storage account or for a specific container in the storage account. 
+
+When developing on your desktop, you can provide, via the file `api-init/Data_Lake_Storage.txt`, either 
+
+- a (longer-lived) account SAS token or a service SAS token for a specific container through the string parameters `dex::dls::AccountSASQueryString` or `dex::dls::ContainerSASQueryString` (recommended), or 
+- a storage account name and access key to any Data Lake Storage account through the string parameter `dex::dls::StorageAccount` and `dex::dls::StorageAccessKey` to allow the Data Exchange library to create these SAS tokens themselves. 
 
 Managing file systems
 ---------------------
