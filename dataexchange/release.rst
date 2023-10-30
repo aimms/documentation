@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+2.1.2.44 [30-10-2023]
+	- The ``trim`` normalization would replace characters < 32 by spaces instead of removing the character
+
 2.1.2.42 [06-10-2023]
 	- The mapping attribute ``value`` may now also hold a memory stream name to allow dynamically set values
 	- Introduced new session and task callbacks to be used when a DEX session is being called as part of a PRO task service. 
