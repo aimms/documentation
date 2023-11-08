@@ -33,7 +33,7 @@ Service end-points exposed
 
       .. code-block:: json
 
-         {"id":"74d538bc-0ae9-421f-aa6f-35d02e1cd226","service":"Test","starttime":"2021-05-17T12:18:02Z","status":"queued"}
+					{"id":"fc510540-ede7-4d07-80d8-a653f22493fb","appName":"unnamed","appVersion":"0.0","serviceName":"Test","state":"queued","createdAt":"2023-11-08T23:03:29Z"}
 
       where ``status`` can be any of ``queued``, ``executing``, ``solving``, ``interrupted`` or ``finished``.
       

@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+2.1.2.48 [08-11-2023]
+	- Mitigated against CVE-2023-38545 for libcurl
+	- Synchronized the task status with the AIMMS task API running in the AIMMS cloud
+
 2.1.2.44 [30-10-2023]
 	- The ``trim`` normalization would replace characters < 32 by spaces instead of removing the character
 
