@@ -13,6 +13,22 @@ AIMMS 4.97
 
 
 
+AIMMS 4.97.4 Release (November 09, 2023 - build 4.97.4.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Invoking the ``webui::OpenPage`` procedure during the Home page onload procedure could result in a blank or incomplete page being displayed.
+
+--------------
+
+
+
+
+
 AIMMS 4.97.3 Release (October 25, 2023 - build 4.97.3.4).
 ------------------------------------------------------------------------------------------
 
