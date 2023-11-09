@@ -1,6 +1,8 @@
 Setting up an AIMMS PRO Cluster
 ===============================
 
+.. important:: AIMMS PRO Cluster is deprecated. Various options are available such as vertically scalling (larger machine) or the use of AIMMS Cloud; for details see this `How-to <https://how-to.aimms.com/Articles/373/373-pro-scaling-options.html>`_.
+
 Setting up a PRO cluster is a task that consists of three steps: connecting all nodes to the same database, pointing them to a shared storage directory and setting up the bundled ActiveMQ server.
 
 .. warning::
