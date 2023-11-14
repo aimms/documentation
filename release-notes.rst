@@ -18,6 +18,8 @@ AIMMS 4.97.4 Release (November 09, 2023 - build 4.97.4.2).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
+**PLEASE NOTE:** This version was retracted from our website, because it did not work correctly with our SCN apps on the cloud. It cannot be downloaded anymore.
+
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
