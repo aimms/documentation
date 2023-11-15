@@ -13,6 +13,22 @@ AIMMS 4.97
 
 
 
+AIMMS 4.97.5 Release (November 15, 2023 - build 4.97.5.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In combination with specific focus actions in WebUI widgets, editing an annotation in the AIMMS IDE could lead to AIMMS crashing.
+
+--------------
+
+
+
+
+
 AIMMS 4.97.4 Release (November 09, 2023 - build 4.97.4.2).
 ------------------------------------------------------------------------------------------
 
