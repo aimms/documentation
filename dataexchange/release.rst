@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+2.1.2.49 [15-11-2023]
+	- Mappings with external bindings might not write any sliced data in the presence of ordered sets for any of the non-externally bound indices
+
 2.1.2.48 [08-11-2023]
 	- Mitigated against curl CVE-2023-38545
 	- Synchronized the task status with the AIMMS task API running in the AIMMS cloud
