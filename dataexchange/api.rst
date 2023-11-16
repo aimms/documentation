@@ -545,6 +545,7 @@ For uploading and downloading files there are both synchronous as asynchronous v
 
 	Upload a file to a given URL asynchronously. The function will return 1 if the HTTP request could be submitted successfully.
 	This function can be used, for instance, to upload files to Azure Blob Storage via a SAS URL. 
+	Via the `offset` and `requestSize` arguments, files can be partially uploaded. 
 	If necessary, additional headers for the HTTP request can be added via the string parameter ``dex::client::FilePutHeader``.
 	
 	Via the function :js:func:`dex::client::WaitForOutstandingFileRequests` you can wait for the upload request to be completed. 	
@@ -559,7 +560,8 @@ For uploading and downloading files there are both synchronous as asynchronous v
 
 	Upload a file to a given URL synchronously. The function will return 1 if the file was successfully uploaded, or 0 otherwise.
 	If necessary, additional headers for the HTTP request can be added via the string parameter ``dex::client::FilePutHeader``.
-	
+	Via the `offset` and `requestSize` arguments, files can be partially uploaded. 
+
 	If the function does not complete within the given timeout, you can use the function :js:func:`dex::client::WaitForOutstandingFileRequests` to wait for the upload request to complete. 	
 	
 	:param filePath: the file path of the file to upload
