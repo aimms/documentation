@@ -552,6 +552,8 @@ For uploading and downloading files there are both synchronous as asynchronous v
 	
 	:param filePath: the file path of the file to upload
 	:param url: the URL where to upload the file to
+	:param offset: (optional) offset in `filePath` where to start the upload (default 0)
+	:param requestSize: (optional) size of content to upload (default 0, from offset to end-of-file)
 
 .. js:function:: dex::client::PutFile
 
@@ -563,6 +565,8 @@ For uploading and downloading files there are both synchronous as asynchronous v
 	:param filePath: the file path of the file to upload
 	:param url: the URL where to upload the file to
 	:param timeout: optional parameter indicating the time to wait for the request to complete (default 30 seconds)
+	:param offset: (optional) offset in `filePath` where to start the upload (default 0)
+	:param requestSize: (optional) size of content to upload (default 0, from offset to end-of-file)
 
 .. js:function:: dex::client::DeleteFile
 
@@ -724,7 +728,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param _file: local file path of the file to upload
-	:param pathPrefix: string parameter holding the path prefix of the directory within the file system to which the file must be uploaded.
+	:param pathPrefix: string parameter holding the path prefix of the directory within the file system to which the file must be uploaded
 
 .. js:function:: dex::dls::UploadFiles
 

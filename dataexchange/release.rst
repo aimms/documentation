@@ -13,6 +13,11 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+2.1.2.53 [16-11-2023]
+	- Automatically add `dense-children` attribute to generated CSV mappings
+	- Huge uploads to Azure Data Lake Storage could generate an HTTP 413 error
+	- API Service could crash on AIMMS termination
+
 2.1.2.49 [15-11-2023]
 	- Mappings with external bindings might not write any sliced data in the presence of ordered sets for any of the non-externally bound indices
 
