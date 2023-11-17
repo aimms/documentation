@@ -20,6 +20,8 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
 --------------
 
+-  When accidentally passing a Set to a function argument that is expecting a String, AIMMS will sometimes do a conversion that is most of the time not what you would expect, as it will create a string containing all the element names of that set. This string can become pretty large and for example the function StringToElement could not deal with such a large string, causing a crash. StringToElement has now been adapted to not crash anymore on such a large string.  The rather strange conversion of a Set to a string is already a deprecated 'feature' and is only still applied in expressions that are not yet accepted by the new compiler.
+-  Unit parameters with a definition should never trigger a warning like: "Warning: The unit parameter "upX" is not initialized (default values are used)."
 
 
 
