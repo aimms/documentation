@@ -13,6 +13,15 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+
+2.1.2.54 [21-11-2023]
+	- Split uploads to Azure Data Lake Storage > 2 GB would result in errors because file size determination would fail
+	- Allow skipping to add `iterative-reset` attributes to array mappings via dex::schema::IterativeResetArrays
+	- Allow adding headers to generated API calls that are not part of the headers specified in the OpenAPI specification
+	- Remove arguments from generated API calls that have a fixed value according to the OpenAPI specification
+	- Automatically add required headers with a fixed value to a generated API calls
+	- Do not try to read binary responses using a mapping that is not generated
+
 2.1.2.53 [16-11-2023]
 	- Automatically add `dense-children` attribute to generated CSV mappings
 	- Huge uploads to Azure Data Lake Storage could generate an HTTP 413 error
