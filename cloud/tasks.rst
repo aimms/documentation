@@ -71,7 +71,7 @@ The Tasks REST API **v2** is only supported starting from AIMMS PRO **2.52**, AI
 	returncode , returnCode 
 	errormessage , errorMessage 
 	statuses , current_batch
-	total_size , tatal_tasks
+	total_size , total_tasks
 
 
 
