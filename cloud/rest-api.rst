@@ -60,55 +60,6 @@ authentication/authorization.
 
 Please note that the maximum expiration date for any API key is 1 Year.
 
-Running Tasks
--------------
-
-The Data Exchange (DEX) library is capable of exposing procedures in an AIMMS model as a REST API. Invoking such
-procedures via this (DEX-exposed) REST API creates ``tasks`` which run in the same AIMMS session as the DEX library
-exposing them. Consuming and providing REST APIs using the DEX library is documented `here <../dataexchange/rest-server.html>`__.
-
-The AIMMS PRO REST API allows users to perform operations on DEX-exposed tasks, supporting the following:
-
-1. Creating tasks (POST). Once a task is created, it will eventually run on the PRO Cloud infrastructure.
-2. Retrieving a task's status/results (GET).
-3. Interrupting a task (PUT). This allows the task to complete earlier.
-4. Deleting a task (DELETE). It can delete 'QUEUED' or 'COMPLETED' tasks.
-
-These Task operations supported by the AIMMS PRO REST API closely mirror the REST API exposed by DEX, with the exception of
-the PUT command: while DEX supports both ``interrupt-execution`` and ``interrupt-solve`` in the PUT body, the PRO REST
-API only supports ``interrupt-solve``. The reason for this is that ``interrupt-execution`` terminates the AIMMS session
-running the task, and on PRO Cloud such sessions are not controllable by the API user, but rather directly managed by PRO.
-
-Tasks will be queued by PRO in the creation order. PRO will launch these tasks to run on Cloud infrastructure in the order they
-are queued. PRO will attempt to parallelize task execution, potentially having multiple tasks running at the same time up to
-a maximum degree of task parallelism (configurable per account).
-
-A PRO account needs special configuration in order to use the Tasks REST API. Essentially, such configuration
-will create a special license profile specifying the number of concurrent tasks a user may run via the API (by default this is zero).
-To enable this special "REST" profile please contact the AIMMS Customer Support.
-
-Once this "REST" profile has been enabled for an account, users for that account can start making task-related calls via the
-PRO REST API. Such calls are authenticated via the same types of API keys as all the other PRO REST API calls. In order to be allowed to perform
-task-related operations, a given API key needs to have the "Task" scope as explained `here <https://documentation.aimms.com/cloud/rest-api.html#api-keys-and-scopes>`_
-
-Finally, authorization to perform task-related calls is linked to the permissions the user (for whom the API key is used for authentication)
-has with respect to the AIMMS App that is exposing the DEX REST API:
-
-1. Create/Interrupt/Delete operations require that user to have ``Read`` and ``Execute`` permissions on that app.
-2. Retrieve operations require that user to have ``Read`` permissions on that app.
-
-REST Session Idle Time
-^^^^^^^^^^^^^^^^^^^^^^
-
-1. Starting with AIMMS PRO **2.49.1**, there will be an additional "Max REST Session Idle Time" parameter at account level which will determine, per account, how much longer to keep a REST session in Idle state (e.g. waiting for potential new tasks for the same app/version so they can start right away for ). By default this will be 5min, so there will be no visible change compared to the current task execution behavior. (Please contact AIMMS Customer Support if you want to change this for your cloud account)
-2. Model developers will be able to alter the behavior of their REST DEX sessions via the DEX API, for example specifying the maximum number of tasks that should be run on a given session, and potentially reducing this Idle running time, up to a minimum (set to the current default of 5 minutes) which is required to ensure we can always collect task status from a session before it terminates.
-3. The REST Server will no longer automatically terminate Idle sessions, but rather let them run idle until they automatically terminate. The REST Server will pass the "Max REST Session Idle Time" value for the account to the DEX session via a special "X-Aimms-Max-Idle-Time" header each time a new task is launched.
-4. As part of the task status response, the DEX session will include one additional field "Accept-More-Tasks" (true/false), which will determine if that session is willing to accept more task requests once the current task completes.
-
-
-The Tasks REST API is only supported starting from PRO Release 2.45, and will work only for AIMMS apps published with
-AIMMS version 4.89 and higher, and using the DEX library 1.3.2.71 or higher.
-
 Managing Environments, Groups and Users
 ---------------------------------------
 

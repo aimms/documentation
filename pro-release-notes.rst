@@ -1,6 +1,18 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 2.52
+########
+
+AIMMS PRO 2.52.1 Release
+------------------------
+
+On November 21, 2023, we released AIMMS PRO 2.52.1(2.52.1.1). 
+ 
+**Improvements**
+
+   - We have released a newly designed Tasks REST API Service(v2) with this PRO Version. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#tasks-rest-api-v1-and-v2>`__ for more details.  
+
 PRO 2.51
 ########
 
