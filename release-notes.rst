@@ -13,6 +13,23 @@ AIMMS 4.97
 
 
 
+AIMMS 4.97.7 Release (November 22, 2023 - build 4.97.7.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When using the Multiselect widget where the elements are from a sliced subset, the count of the Select/Deselect buttons were inaccurate and the clicking on the Deselect button would give an error message.
+-  When only typing whitespace characters in the Multiselect Widget, the search field disappeared.
+
+--------------
+
+
+
+
+
 AIMMS 4.97.6 Release (November 17, 2023 - build 4.97.6.1).
 ------------------------------------------------------------------------------------------
 
