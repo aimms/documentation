@@ -35,8 +35,7 @@ has with respect to the AIMMS App that is exposing the DEX REST API:
 1. Create/Interrupt/Delete operations require that user to have ``Read`` and ``Execute`` permissions on that app.
 2. Retrieve operations require that user to have ``Read`` permissions on that app.
 
-REST Session Idle Time
-^^^^^^^^^^^^^^^^^^^^^^
+**REST Session Idle Time**
 
 1. There is a "Max REST Session Idle Time" parameter at account level which will determine, per account, how much longer to keep a REST session in Idle state (e.g. waiting for potential new tasks for the same app/version so they can start right away for ). By default this will be 5min, so there will be no visible change compared to the current task execution behavior. (Please contact AIMMS Customer Support if you want to change this for your cloud account)
 2. Model developers will be able to alter the behavior of their REST DEX sessions via the DEX API, for example specifying the maximum number of tasks that should be run on a given session, and potentially reducing this Idle running time, up to a minimum (set to the current default of 5 minutes) which is required to ensure we can always collect task status from a session before it terminates.
@@ -46,13 +45,19 @@ REST Session Idle Time
 Tasks REST API V1 and V2
 ------------------------
 
-Currently we have two REST APIs for Tasks: v1 and v2, where v2 is the latest implementation with more reliable and robust design which supports all the functionality provided by v1. We recommend the use of v2 for all new applications or please consider switching to v2 if you are already using v1.
+Currently we have two REST APIs for Tasks: v1 and v2, where **v2** is the latest implementation with more reliable and robust design which supports all the functionality provided by v1. We recommend the use of v2 for all new applications or please consider switching to v2 if you are already using v1.
+
+.. important::
+
+   Tasks REST API **v1** is available only till **January 31, 2024**. Please consider migrating to **v2** as soon as possible.
 
 The full OpenAPI specification of this service can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v2/``.
 
 Service Endpoint: ``https://[account-name].aimms.cloud/pro-api/v2/tasks``
 
-The Tasks REST API **v2** is only supported starting from AIMMS PRO **2.52**, AIMMS version 4.89 or higher with DEX library **2.1.2.48** or higher.
+.. note::
+
+   The Tasks REST API **v2** is supported starting from AIMMS PRO **2.52**, AIMMS version 4.89 or higher with DEX library **2.1.2.48** or higher.
 
 .. note::
 
