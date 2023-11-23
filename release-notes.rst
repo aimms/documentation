@@ -13,6 +13,22 @@ AIMMS 4.97
 
 
 
+AIMMS 4.97.8 Release (November 23, 2023 - build 4.97.8.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  An updated docker image used in the AIMMS cloud did not contain some system libraries required to use the emailclient library.
+
+--------------
+
+
+
+
+
 AIMMS 4.97.7 Release (November 22, 2023 - build 4.97.7.2).
 ------------------------------------------------------------------------------------------
 
