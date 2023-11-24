@@ -8,16 +8,16 @@ Specifying REST task types in your model
 
 The Data Exchange library is also capable of providing a REST API service that exposes procedures in your model, and will form the basis of exposing procedures in published AIMMS apps in our cloud platform in the future. 
 
-With each procedure in your model, you can associate a ``dex::ServiceName`` annotation, which will expose your procedure under the path ``/api/v1/tasks/{service-name}``, where ``{service-name}`` is the value you entered in the ``dex::ServiceName`` annotation. 
+With each procedure in your model, you can associate a ``dex::ServiceName`` annotation, which will expose your procedure under the path ``/api/v2/tasks/{service-name}``, where ``{service-name}`` is the value you entered in the ``dex::ServiceName`` annotation. 
 
 .. note::
 
-	When deployed in the cloud the path is changed to ``/pro-api/v1/...``
+	When deployed in the cloud the path is changed to ``/pro-api/v2/...``
 
 Service end-points exposed
 --------------------------
 
-* ``/api/v1/tasks/{service-name}``
+* ``/api/v2/tasks/{service-name}``
     
     * ``POST``: accepts any JSON/XML/CSV/Excel/... data as the request body. The REST API Service handler built into the Data Exchange library will queue the request, and call the procedure in your model corresponding to ``{service-name}``.
       Within the procedure handling the request, the string parameter ``dex::api::RequestAttribute`` will provide you with access to the 
@@ -33,9 +33,9 @@ Service end-points exposed
 
       .. code-block:: json
 
-					{"id":"fc510540-ede7-4d07-80d8-a653f22493fb","appName":"unnamed","appVersion":"0.0","serviceName":"Test","state":"queued","createdAt":"2023-11-08T23:03:29Z"}
+					{"id": "efa680a0-748e-43d0-9099-cf40937b13f4","appName": "Test","appVersion": "1.0","serviceName": "JobSchedule","state": "completed","createdAt": "2023-11-23 15:16:38.000000","assignedAt": "2023-11-23 15:16:57.000000","runningAt": "2023-11-23 15:16:57.000000","endedAt": "2023-11-23 15:17:01.000000","queueTime": 19.000000,"runTime": 4.000000,"returnCode": 1,"errorMessage": null}
 
-      where ``status`` can be any of ``queued``, ``executing``, ``solving``, ``interrupted`` or ``finished``.
+      where ``state`` can be any of ``queued``, ``assigned``, ``running``, ``solving``, ``failed`` or ``completed``.
       
       The procedure body for handling such a request could look like:
       
@@ -53,26 +53,26 @@ Service end-points exposed
          ! the application-specific returncode that will be returned via the task status of the job
          return 1;
 
-* ``/api/v1/tasks``
+* ``/api/v2/tasks``
     
     * ``GET``: will return ``200 OK`` where the  response body will contain a array with the statuses of all submitted jobs, similar to:
       
       .. code-block:: json
                 
          [
-              {"id":"1b342050-74a8-4d46-b8e1-50bdf76fa172","service":"Test","starttime":"2021-05-17T11:03:15Z","status":"finished","queuetime":0.001,"runtime":0.004,"returncode":1},
-              {"id":"23df6e25-de6c-4168-b2d4-691c0e742647","service":"Test","starttime":"2021-05-17T11:02:56Z","status":"finished","queuetime":0.011,"runtime":0.005,"returncode":1},
-              {"id":"74d538bc-0ae9-421f-aa6f-35d02e1cd226","service":"Test","starttime":"2021-05-17T12:18:02Z","status":"finished","queuetime":0.003,"runtime":0.008,"returncode":1},
-              {"id":"c692b9f9-d046-4aab-a015-47dcc7713fc6","service":"Test","starttime":"2021-05-17T11:02:56Z","status":"finished","queuetime":0.012,"runtime":0.004,"returncode":1}
+              {"id": "a70c3321-3d74-49f1-bc03-75c5dc4f72d8","appName": "Test","appVersion": "1.0","serviceName": "JobSchedule","state": "completed","createdAt": "2023-11-16 09:13:29.000000","assignedAt": "2023-11-16 09:13:48.000000","runningAt": "2023-11-16 09:13:48.000000","endedAt": "2023-11-16 09:14:15.000000","queueTime": 19.000000,"runTime": 27.000000,"returnCode": 1,"errorMessage": null},
+              {"id": "e27a131a-58fc-4a69-bdab-9661e0ac89fa","appName": "Test","appVersion": "1.0","serviceName": "JobSchedule","state": "completed","createdAt": "2023-11-16 09:13:29.000000","assignedAt": "2023-11-16 09:13:49.000000","runningAt": "2023-11-16 09:13:49.000000","endedAt": "2023-11-16 09:14:17.000000","queueTime": 20.000000,"runTime": 28.000000,"returnCode": 1,"errorMessage": null},
+              {"id": "f2e1f06d-c428-4f5b-aa99-d3cd1cd8e462","appName": "Test","appVersion": "1.0","serviceName": "JobSchedule","state": "completed","createdAt": "2023-11-16 09:13:30.000000","assignedAt": "2023-11-16 09:13:50.000000","runningAt": "2023-11-16 09:13:50.000000","endedAt": "2023-11-16 09:14:20.000000","queueTime": 20.000000,"runTime": 30.000002,"returnCode": 1,"errorMessage": null},
+              {"id": "0b9baab0-df82-48d8-a8c9-7b67c8e5b7a3","appName": "Test","appVersion": "1.0","serviceName": "JobSchedule","state": "completed","createdAt": "2023-11-16 09:13:30.000000","assignedAt": "2023-11-16 09:13:51.000000","runningAt": "2023-11-16 09:13:51.000000","endedAt": "2023-11-16 09:14:16.000000","queueTime": 21.000000,"runTime": 25.000000,"returnCode": 1,"errorMessage": null}
          ]
               
-* ``/api/v1/tasks/{id}``
+* ``/api/v2/tasks/{id}``
 
     * ``GET``: will return a ``404 Not found`` if there is no task with the given id, or ``200 OK`` with a response body similar to:
     
       .. code-block:: json
     
-         {"id":"74d538bc-0ae9-421f-aa6f-35d02e1cd226","service":"Test","starttime":"2021-05-17T12:18:02Z","status":"finished","queuetime":0.003,"runtime":0.008,"returncode":1}
+         {"id": "d1bd173e-d4df-4ff9-ab81-d2aa0c5185a1","appName": "Test","appVersion": "1.0","serviceName": "JobSchedule","state": "completed","createdAt": "2023-11-16 09:13:30.000000","assignedAt": "2023-11-16 09:13:55.000000","runningAt": "2023-11-16 09:13:55.000000","endedAt": "2023-11-16 09:14:20.000000","queueTime": 25.000000,"runTime": 25.000000,"returnCode": 1,"errorMessage": null}
          
     * ``PUT``: the request will accept a request body similar to:
 
@@ -84,11 +84,11 @@ Service end-points exposed
       
     * ``DELETE``: the request will return a status code of ``405 Method not allowed`` if the task is still running, or ``200 OK`` if the task is still queued, interrupted, or already finished. When a task is deleted all associated resources, including all files containing the files contained request, response or intermediate status bodies will be deleted.
     
-* ``/api/v1/tasks/{id}/response``
+* ``/api/v2/tasks/{id}/response``
     
     * ``GET``: will return a ``404 Not found`` if there is no task with the given id, or ``200 OK`` with the final response body stored as stored in the file ``dex::api::RequestAttribute('response-data-path')`` by the service handler procedure.
     
-* ``/api/v1/tasks/{id}/status``
+* ``/api/v2/tasks/{id}/status``
     
     * ``GET``: will return a ``404 Not found`` if there is no task with the given id, or ``200 OK`` with an intermediate status response body stored as stored in the file ``dex::api::RequestAttribute('status-data-path')`` by the service handler procedure.
    
@@ -111,7 +111,7 @@ This will read all the service name annotations, and start the service listening
 Using the echo service
 ----------------------
 
-Next to the REST API service described above, the API service also provides an *echo* service, that will simply echo all headers and (any) body you present to it, via either a GET, PUT, POST, or DELETE request. You can use the echo service to check whether there are any problems with requests that you would like to send to a real service. The echo service is available via the path ``http://localhost:{listenerport}/api/v1/echo``, and it supports a single optional query parameter, ``delay``, indicating a delay in milliseconds before replying back to the caller.
+Next to the REST API service described above, the API service also provides an *echo* service, that will simply echo all headers and (any) body you present to it, via either a GET, PUT, POST, or DELETE request. You can use the echo service to check whether there are any problems with requests that you would like to send to a real service. The echo service is available via the path ``http://localhost:{listenerport}/api/v2/echo``, and it supports a single optional query parameter, ``delay``, indicating a delay in milliseconds before replying back to the caller.
 
 Yielding time to the API service to handle requests
 ---------------------------------------------------
