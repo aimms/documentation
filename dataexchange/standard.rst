@@ -135,6 +135,16 @@ This will generate Data Exchange mappings in the subfolder ``Mappings/Generated`
     ``Generated/<dataset>-<table>-XML-DenseAttribute``, table ``<table>`` in dataset ``<dataset>`` in a single dense XML file (indices and values as elements; also default data)
     ``Generated/<dataset>-<table>-CSV``, table ``<table>`` in dataset ``<dataset>`` in a single CSV file
 
+Generating dataset mappings containing external bindings
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+By default the generated mappings will iterate over the complete domain of all identifiers contained in each table. Via the element parameter `dex::ExternalTableBinding(tbl,extbind,IndexIndices)` you can define a collection of external bindings for a collection of initial indices of all identifiers contained in table `tbl`. The value of the element parameter should be the element parameter to which the index is externally bound. Via the parameter `dex::LeaveExternalBindsToIntact(tbl,IndexIndices)` you can indicate whether to skip the column for the externally bound index (default), or to retain this column in the table.
+
+Generating multiple mappings
+++++++++++++++++++++++++++++
+
+You can generated multiple collections of dataset mappings by setting the string parameter `dex::MappingPrefix` to a prefix that will be used for every generated mapping. You can use this for instance to create a mapping with and without external bindings.
+
 
 A document-based JSON format
 ----------------------------

@@ -14,6 +14,13 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 New Features and Bug Fixes
 --------------------------
 
+23.1.0.0 [25-11-2023]
+	- In some scenarios, the necessary mappings for split uploads were not read in when needed
+	- `dex::dls::StorageAccount` is made public again, as the storage account name may be needed to create URLs
+	- Add support for creating and retrieving stored access policies of Azure Blob Storage containers, and using these for creating container SAS tokens
+	- Make `RequestHeaderValue`, `ResponseHeaderValue`, `CookieValue`, `RequestFile`, `ResponseFile`, `MimeHeaderValue`, `TracingFile` and `AdditionalQueryParameters` API-method independent in generated OpenAPI client libraries
+	- Add support for generating dataset mappings with external bindings
+	
 2.1.2.54 [21-11-2023]
 	- Split uploads to Azure Data Lake Storage > 2 GB would result in errors because file size determination would fail
 	- Allow skipping to add `iterative-reset` attributes to array mappings via `dex::schema::IterativeResetArrays`

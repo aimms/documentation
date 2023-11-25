@@ -717,6 +717,27 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param path: string parameter holding the name of the file or directory within the file system to be deleted.
 
+.. js:function:: dex::dls::SetAccessPolicy
+
+	Define up to 5 stored access policies that can be used to create container SAS query strings that can modified on the fly by adapting the stored access policy.
+	Every call to `dex::dls::SetAccessPolicy` will override the previous values of all stored access policies.
+	
+	:param fileSystem: the Azure Blob Storage container for which to create stored access policies
+	:param Ids: set containing the names of all stored access policies to be defined
+	:param Start_: 1-dimensional string parameter holding the start dates of all stored access policies
+	:param Expiry: 1-dimensional string parameter holding the expiry dates of all stored access policies
+	:param Permission: 1-dimensional string parameter holding the permissions of all stored access policies
+	
+.. js:function:: dex::dls::GetAccessPolicy
+
+	Get the list of stored access policies defined for a specific Azure Blob Storage container.
+	
+	:param fileSystem: the Azure Blob Storage container for which to retrieve the stored access policies
+	:param Ids: set containing the names of all stored access policies to be retrieved
+	:param Start_: 1-dimensional string parameter holding the start dates of all stored access policies
+	:param Expiry: 1-dimensional string parameter holding the expiry dates of all stored access policies
+	:param Permission: 1-dimensional string parameter holding the permissions of all stored access policies
+
 Data Lake Storage file transfer
 -------------------------------
 
@@ -724,6 +745,24 @@ The following functions are available in the Data Exchange library to upload fil
 
 These functions all require that the `dex::dls::StorageAccount` and `dex::dls::StorageAccessKey` parameters have been set. This happens automatically in the AIMMS Cloud, on your desktop you can set these parameters manually via the file `api-init/Data_Lake_Storage.txt`.
 
+.. js:function:: dex::dls::GetAccountSASQueryString
+
+	Create an account SAS query string for the storage account associated with an AIMMS cloud account.
+	
+	:param queryString: output string parameter holding the generated SAS query string
+	:param permissions: the permission string used in creating the SAS query string
+	:param expiry: the expiry in seconds from now for the generated SAS query string
+
+.. js:function:: dex::dls::GetContainerSASQueryString
+
+	Create a container SAS query string for a container in the storage account associated with an AIMMS cloud account.
+
+	:param queryString: output string parameter holding the generated SAS query string
+	:param fileSystem: the container for which the SAS query string is generated
+	:param permissions: the permissions of the SAS query string
+	:param expiry: the expiry in seconds from now for the generated SAS query string	
+	:param storedAccessPolicy: the name of a stored access policy on the container to use in generating the SAS query string. If a stored access policy is used, the `permissions` and `expiry` arguments will be ignored
+	
 .. js:function:: dex::dls::UploadFile
 
 	Upload a single file to a path within a file system. The function will return 1 upon success, or an error on failure.
