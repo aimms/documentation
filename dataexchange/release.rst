@@ -14,10 +14,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 New Features and Bug Fixes
 --------------------------
 
-23.1.0.0 [25-11-2023]
+23.1.0.1 [26-11-2023]
 	- In some scenarios, the necessary mappings for split uploads were not read in when needed
 	- `dex::dls::StorageAccount` is made public again, as the storage account name may be needed to create URLs
-	- Add support for creating and retrieving stored access policies of Azure Blob Storage containers, and using these for creating container SAS tokens
+	- Add support for creating and retrieving stored access policies of Azure Blob Storage containers, and using these for creating DLS container SAS tokens
 	- Make `RequestHeaderValue`, `ResponseHeaderValue`, `CookieValue`, `RequestFile`, `ResponseFile`, `MimeHeaderValue`, `TracingFile` and `AdditionalQueryParameters` API-method independent in generated OpenAPI client libraries
 	- Add support for generating dataset mappings with external bindings
 	
