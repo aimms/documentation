@@ -765,7 +765,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	
 .. js:function:: dex::dls::UploadFile
 
-	Upload a single file to a path within a file system. The function will return 1 upon success, or an error on failure.
+	Upload a single file to a path within a file system. The function will return 1 upon success, or an error on failure. The method will wait for the upload to succeed for `dex::dls::WaitRetries` seconds, with a default of 500 seconds. In case of a slow internet connection, you can increase this value to make the upload succeed. 
 
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param _file: local file path of the file to upload
@@ -773,7 +773,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 .. js:function:: dex::dls::UploadFiles
 
-	(Recursively) upload the files within a local directory to a path within a file system. The function will return 1 upon success, or an error on failure.
+	(Recursively) upload the files within a local directory to a path within a file system. The function will return 1 upon success, or an error on failure. The method will wait for the upload to succeed for `dex::dls::WaitRetries` seconds, with a default of 500 seconds. In case of a slow internet connection, you can increase this value to make the upload succeed. 
 
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param directory: local directory from which to upload files
@@ -782,7 +782,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 .. js:function:: dex::dls::DownloadFile
 
-	Download a single file from a file system to a local directory. The function will return 1 upon success, or an error on failure.
+	Download a single file from a file system to a local directory. The function will return 1 upon success, or an error on failure. The method will wait for the download to succeed for `dex::dls::WaitRetries` seconds, with a default of 500 seconds. In case of a slow internet connection, you can increase this value to make the download succeed. 
 
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param urlPath: path of the file within the file system to download.
@@ -790,7 +790,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 .. js:function:: dex::dls::DownloadFiles
 
-	(Recursively) download the files within a path within a file system to a local directory. The function will return 1 upon success, or an error on failure.
+	(Recursively) download the files within a path within a file system to a local directory. The function will return 1 upon success, or an error on failure. The method will wait for the download to succeed for `dex::dls::WaitRetries` seconds, with a default of 500 seconds. In case of a slow internet connection, you can increase this value to make the download succeed. 
 
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param pathPrefix: string parameter holding the path prefix of the directory within the file system from which to download files.
