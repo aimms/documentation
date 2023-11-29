@@ -21,3 +21,13 @@ You may want to update the image used in the widget with a new image. There are 
 #. Overwrite the image with the new image while retaining the original image name, for example, DiaplayImage.jpg. Please refer to the How-To article on `Refreshing an Image widget without changing the file name <https://how-to.aimms.com/Articles/512/512-image-widget-refresh.html>`_ for more details.
 
 If your image does not completely fit the area that is reserved for it, you can use the option 'Image "object-fit" (css)'. You can use this option with the values none, cover, contain, fill and scale-down, which are explained in this `article <https://www.w3schools.com/css/css3_object-fit.asp>`_.
+
+.. important:: When specifying the relative path for the image source, ensure to incorporate the App-Name and App-Version. Omitting these details result in the image failing to load within the app on the PRO environment. Please find an example of how a String parameter can be defined to specify the relative path for an image.
+.. code::
+
+    if (pro::ModelName = "undefined")
+    then  ! Developer mode
+        "/app-resources/resources/images/MyImage.jpg"
+    else  ! PRO - end user mode
+        formatString("/app-resources/%s/%s/resources/images/MyImage.jpg", pro::ModelName, pro::ModelVersion)
+    endif;
