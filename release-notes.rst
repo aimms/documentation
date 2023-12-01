@@ -23,7 +23,7 @@ Resolved WebUI Issues
 
 -  When using the Upload widget to upload a file which exceeded 128MB in size, you got an unclear 'error uploading file' message. Now you get an explicit message about the size limit.
 -  Old style custom widgets could be rendered invisible in the WebUI.
--  Removed the "tag-linechart" from the CSS classList of the bubble chart widget, which had been added mistakenly.
+-  The "tag-linechart" class has been removed from the CSS classList of the bubble chart widget, because it was added mistakenly in the past.
 
 --------------
 
@@ -10553,4 +10553,5 @@ Improvements
 	themeability
 	ManagedSessionOutputCaseContainsDefinedIdentifiers
 	upX
+	classList
 	
