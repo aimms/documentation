@@ -4,6 +4,15 @@ AIMMS PRO Release Notes
 PRO 2.52
 ########
 
+AIMMS PRO 2.52.2 Release
+------------------------
+
+On December 1, 2023, we released AIMMS PRO 2.52.2(2.52.2.1). 
+ 
+**Resolved Issues**
+
+   -  Fixed an issue where session crashes or terminated sessions were incorrectly logged as out-of-memory crashes for data sessions.
+
 AIMMS PRO 2.52.1 Release
 ------------------------
 
