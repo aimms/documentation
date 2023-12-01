@@ -13,6 +13,24 @@ AIMMS 4.97
 
 
 
+AIMMS 4.97.9 Release (December 01, 2023 - build 4.97.9.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When using the Upload widget to upload a file which exceeded 128MB in size, you got an unclear 'error uploading file' message. Now you get an explicit message about the size limit.
+-  Old style custom widgets could be rendered invisible in the WebUI.
+-  Removed the "tag-linechart" from the CSS classList of the bubble chart widget, which had been added mistakenly.
+
+--------------
+
+
+
+
+
 AIMMS 4.97.8 Release (November 23, 2023 - build 4.97.8.3).
 ------------------------------------------------------------------------------------------
 
