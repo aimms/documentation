@@ -14,6 +14,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 New Features and Bug Fixes
 --------------------------
 
+23.1.0.8 [03-12-2023]
+	- `ArrayNode` mappings would erroneously accept multiple child nodes, leading to read errors
+	- `x-ms-date` header would contain wrong date format for single-digit day numbers, causing some Azure Blob Storage calls to fail 
+	
 23.1.0.1 [26-11-2023]
 	- In some scenarios, the necessary mappings for split uploads were not read in when needed
 	- `dex::dls::StorageAccount` is made public again, as the storage account name may be needed to create URLs
