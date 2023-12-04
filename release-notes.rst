@@ -13,6 +13,23 @@ AIMMS 4.97
 
 
 
+AIMMS 4.97.10 Release (December 04, 2023 - build 4.97.10.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  On a PRO environment, error messages for the upload and download widget were not displayed prominently enough.
+-  When you had an unsupported widget on the page (for example, a widget only compatible with a Grid Layout page added to an old style page), its settings button (cog wheel) would be shown on the widget below it.
+
+--------------
+
+
+
+
+
 AIMMS 4.97.9 Release (December 01, 2023 - build 4.97.9.3).
 ------------------------------------------------------------------------------------------
 
