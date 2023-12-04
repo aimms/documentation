@@ -8,7 +8,7 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 23.1.0.7 [04-12-2023]
-	- Updating the CDM schema version would set the revision to updated categories to 2 in recent AIMMS versions
+	- Updating the CDM schema version would set the revision of updated categories to 2 after checking them out in recent AIMMS versions
 	
 1.30.0.0 [10-05-2023]
 	- Root set labels inserted in batches, would fail in case the table contained existing elements
