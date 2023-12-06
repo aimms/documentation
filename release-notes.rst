@@ -13,6 +13,22 @@ AIMMS 4.97
 
 
 
+AIMMS 4.97.11 Release (December 06, 2023 - build 4.97.11.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Sometimes a scrollbar appeared in the Table widget, even when it wasn't needed. It could block the view of the right-most part of the data.
+
+--------------
+
+
+
+
+
 AIMMS 4.97.10 Release (December 04, 2023 - build 4.97.10.2).
 ------------------------------------------------------------------------------------------
 
