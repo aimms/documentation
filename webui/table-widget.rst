@@ -782,3 +782,4 @@ When the Unit is set to Century, Year, Month or Day, the time picker is not disp
 .. spelling:word-list::
 
     IdentifierElementText
+    conf
