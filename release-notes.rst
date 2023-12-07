@@ -13,22 +13,6 @@ AIMMS 4.97
 
 
 
-AIMMS 24.0.50000 Release (December 07, 2023 - build 24.0.50000.17).
-------------------------------------------------------------------------------------------
-
-Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
-
-Resolved WebUI Issues
-+++++++++++++++++++++++++
-
--  This is a test release note, please ignore.
-
---------------
-
-
-
-
-
 AIMMS 4.97.11 Release (December 06, 2023 - build 4.97.11.1).
 ------------------------------------------------------------------------------------------
 
