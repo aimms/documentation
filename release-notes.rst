@@ -13,6 +13,22 @@ AIMMS 4.97
 
 
 
+AIMMS 4.97.12 Release (December 08, 2023 - build 4.97.12.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The function Element() could cause an error if the statement containing the call to Element() was executed multiple times.
+
+--------------
+
+
+
+
+
 AIMMS 4.97.11 Release (December 06, 2023 - build 4.97.11.1).
 ------------------------------------------------------------------------------------------
 
