@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+23.1.0.8 [09-12-2023]
+	- A warning is issued for identifiers with a non-zero identifier order, but without assigned to a CDM category. When these identifiers are referenced as root set in the index domain of multi-dimensional data or of the range of an element parameter, as the begin/end date of a calendar, or in the definition of a root set, such identifiers may give problems when checking out data, and hence need to be assigned to a category themselves. Because of the broadness of the dependency checks in CDM, the warning may also point to harmless identifiers. After investigation, the user can suppress any further warning for such identifiers by setting `cdm::SuppressDependencyWarning` to 1.
+	
 23.1.0.7 [04-12-2023]
 	- Updating the CDM schema version would set the revision of updated categories to 2 after checking them out in recent AIMMS versions
 	
