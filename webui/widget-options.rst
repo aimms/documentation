@@ -831,8 +831,6 @@ Widget Actions
 
 .. important:: Widget Actions are available in software versions from AIMMS 4.66 onwards.
 
-.. note:: Widget actions tutorial is available in the `WebUI Advanced User Interactions <https://academy.aimms.com/mod/page/view.php?id=971>`_ training on the AIMMS Academy
-
 Widget Actions are a set of actions/procedures that can be defined via the model and configured for individual widgets. These widget actions are grouped under the |widget-header-kebab| icon in the widget header. The widget action displays up to 10 actions. In case you configure more than 10, only the top 10 active and/or inactive actions will be displayed.
 
 The widget actions can be associated with any procedure in your model. For example: Resetting data, Saving data, etc.

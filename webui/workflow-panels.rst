@@ -18,7 +18,6 @@ This section describes various tasks related to the creation, the configuration,
 
   - Workflow panels are available in software versions from AIMMS 4.68 onwards.
   - Starting from AIMMS 4.92, one sub-level of steps can be configured for a workflow step. This makes it easier to apply a hierarchical organization in your workflow(s).
-  - A Workflow panels tutorial is available in the `WebUI Advanced User Interactions <https://academy.aimms.com/course/view.php?id=57>`__ course on `the AIMMS Academy <https://academy.aimms.com/>`__.
 
 Starting from AIMMS 4.68, it is possible to design and configure Workflows in the AIMMS WebUI. The Workflow Panel is used to represent and run any workflow which is designed and defined by the application developer in the model. AIMMS allows the application developer to configure multiple workflows in an application.
 
