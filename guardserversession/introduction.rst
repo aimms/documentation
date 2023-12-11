@@ -73,7 +73,7 @@ This library can be discussed from the perspective of internal mechanisms, or fr
 
 
 .. tip:: 
-    The course `Error Handling <https://academy.aimms.com/course/view.php?id=50>`_  is an extensive walk through of how to handle errors.
+    The course `Error Handling <https://aimms.getlearnworlds.com/course/error-handling>`_  is an extensive walk through of how to handle errors.
 
 
 
