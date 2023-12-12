@@ -42,7 +42,8 @@ has with respect to the AIMMS App that is exposing the DEX REST API:
 3. The REST Server will no longer automatically terminate Idle sessions, but rather let them run idle until they automatically terminate. The REST Server will pass the "Max REST Session Idle Time" value for the account to the DEX session via a special "X-Aimms-Max-Idle-Time" header each time a new task is launched.
 4. As part of the task status response, the DEX session will include one additional field "Accept-More-Tasks" (true/false), which will determine if that session is willing to accept more task requests once the current task completes.
 
-**Run a task from the 'latest' version of an app**
+Run a task from the 'latest' version of an app
+----------------------------------------------
 
 Tasks REST API V2 is now extended with 'latest' tag support for appVersion. It is possible to run a task from the 'latest' version of an application.
 
