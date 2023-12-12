@@ -42,6 +42,28 @@ has with respect to the AIMMS App that is exposing the DEX REST API:
 3. The REST Server will no longer automatically terminate Idle sessions, but rather let them run idle until they automatically terminate. The REST Server will pass the "Max REST Session Idle Time" value for the account to the DEX session via a special "X-Aimms-Max-Idle-Time" header each time a new task is launched.
 4. As part of the task status response, the DEX session will include one additional field "Accept-More-Tasks" (true/false), which will determine if that session is willing to accept more task requests once the current task completes.
 
+**Latest appVersion Support**
+
+Tasks REST API V2 is now extended with 'Latest' tag support for appVersion. 
+
+When the appVersion is not specified in CreateTask request it look for the latest tag if there is one, the task will be scheduled with that version, otherwise, an error is thrown. For example,
+
+.. code-block:: php
+
+        https://[account-name].aimms.cloud/pro-api/v2/tasks/appName/serviceName
+
+        https://[account-name].aimms.cloud/pro-api/v2/tasks/Testapp/JobSchedule
+		
+For above request, it will find a version of app 'Testapp' which is tagged as 'Latest' and creates a task. If there is no version tagged as 'Latest' then it will throw an error i.e. App Testapp with latest tag doesn't exist.
+
+When the appVersion is specified in CreateTask request it creates a task for that specific appVersion.
+
+.. code-block:: php
+
+        https://[account-name].aimms.cloud/pro-api/v2/tasks/Testapp/1.0/JobSchedule
+		
+For above request, it will create a task for TestApp version 1.0 as th appVersion ius specified in the request.
+
 Tasks REST API V1 and V2
 ------------------------
 
