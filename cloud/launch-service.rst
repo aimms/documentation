@@ -160,12 +160,12 @@ LaunchServiceJson
 .. code-block:: aimms
 
     pro::service::LaunchServiceJson(
-	connectionURI      :  , 
-	jsonSpec           :  , 
-	storedApp          :  , 
-	maxRuntime         :  0, 
-	maxIdle            :  0, 
-	performanceProfile :  )
+	connectionURI,
+	jsonSpec,
+	storedApp,
+	maxRuntime,
+	maxIdle, 
+	performanceProfile)
 
 The parameters are:
 
