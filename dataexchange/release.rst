@@ -14,6 +14,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 New Features and Bug Fixes
 --------------------------
 
+23.1.0.11 [13-12-2023]
+	- The DEX documentation changed the API version of the Task functionality in DEX to `v2`, while the implementation still used `v1` only
+
 23.1.0.8 [03-12-2023]
 	- `ArrayNode` mappings would erroneously accept multiple child nodes, leading to read errors
 	- `x-ms-date` header would contain wrong date format for single-digit day numbers, causing some Azure Blob Storage calls to fail 
@@ -451,4 +454,5 @@ New Features and Bug Fixes
 
 		url
 		FEFF
+		DEX
 	
