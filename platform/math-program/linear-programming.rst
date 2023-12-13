@@ -21,16 +21,13 @@ Open Solver Interface
 ^^^^^^^^^^^^^^^^^^^^^^^
 The AIMMS :doc:`Open Solver Interface <../solvers/open-solver-interface>` allows solver developers to link their own solvers to AIMMS themselves.
 
-AIMMS Tutorials
----------------
-* `Introduction to Linear Programming <https://academy.aimms.com/mod/quiz/view.php?id=199>`_  (Sign-up to AIMMS Academy required)
+AIMMS E-Learning
+----------------
 
-Application Examples
----------------------
+Modeling with AIMMS is a trail of courses is for newcomers that wants to understand how to create a model in AIMMS. 
+Here you will also learn how to import data, and how to create a simple user interface.
 
-* `Distribution Center Allocation <https://github.com/aimms/examples/tree/master/Application%20Examples/Distribution%20Center%20Allocation>`_
-* `Farm Planning <https://github.com/aimms/examples/tree/master/Modeling%20Book/Farm%20Planning>`_
-* `Inventory Control <https://github.com/aimms/examples/tree/master/Modeling%20Book/Inventory%20Control>`_
-* `Telecommunication Network Design <https://github.com/aimms/examples/tree/master/Modeling%20Book/Telecommunication%20Network%20Design>`_
-* `Transport Model <https://github.com/aimms/examples/tree/master/Application%20Examples/Transport%20Model>`_
+* `Modeling with AIMMS I <https://aimms.getlearnworlds.com/course/modeling-with-aimms-i>`_
+* `Modeling with AIMMS II <https://aimms.getlearnworlds.com/course/modeling-with-aimms-ii>`_
+
 

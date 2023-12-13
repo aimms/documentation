@@ -72,10 +72,8 @@ This library can be discussed from the perspective of internal mechanisms, or fr
 
 
 
-Further Reading
--------------------
-
-* `Error Handling course on AIMMS Academy <https://academy.aimms.com/course/view.php?id=50>`_
+.. tip:: 
+    The course `Error Handling <https://aimms.getlearnworlds.com/course/error-handling>`_  is an extensive walk through of how to handle errors.
 
 
 

@@ -7,11 +7,16 @@ PRO 2.52
 AIMMS PRO 2.52.2 Release
 ------------------------
 
-On December 1, 2023, we released AIMMS PRO 2.52.2(2.52.2.1). 
+On December 1, 2023, we released AIMMS PRO 2.52.2(2.52.2.1).
+
+**Improvements**
+
+   - Tasks REST API v2 is extended with the 'latest' appVersion support. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#Run-a-task-from-the-'latest'-version-of-an-app>`__ for more details 
  
 **Resolved Issues**
 
    -  Fixed an issue where session crashes or terminated sessions were incorrectly logged as out-of-memory crashes for data sessions.
+   -  Task REST API v2: Fixed an issue where tasks could stuck in the queued state when it failed to schedule a REST session.
 
 AIMMS PRO 2.52.1 Release
 ------------------------

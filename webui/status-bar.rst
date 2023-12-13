@@ -5,8 +5,7 @@ Status Bar
 
 .. important:: 
   
-  - Status Bar is available in software versions from AIMMS 4.70 onwards.
-  - A Status Bar tutorial is available in the `WebUI Advanced User Interactions <https://academy.aimms.com/course/view.php?id=57>`__ course on `the AIMMS Academy <https://academy.aimms.com/>`__.
+  Status Bar is available in software versions from AIMMS 4.70 onwards.
 
 The Status Bar is used to display custom messages i.e status messages, like the dataset that is currently in use or the connection status to a database to users. The Status Bar is displayed in the footer across the application, on all pages. These status messages can be updated when necessary or as required.
 
