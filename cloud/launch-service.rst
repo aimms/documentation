@@ -102,7 +102,7 @@ When that has been done you now can ask our PRO platform to start the service. T
         connectionURI      :  remoteURL, 
         serviceId          :  "MultiplicationService", 
         imageName          :  "services/aimms-anaconda-service", 
-        imageTag           :  "2022.10-3061b759", 
+        imageTag           :  "2023.07-1", 
         listenPort         :  8000, 
         storedApp          :  "pro://" + appStoragePath, 
         cmdLine            :  "python3 main.py"
