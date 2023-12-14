@@ -8,7 +8,7 @@ Starting with AIMMS version 24.1 and PRO version 24.1 it is possible to launch P
 Create the Python service
 -------------------------
 
-When you want to expose eg. a Python script as a REST service such that it can be called from AIMMS, we recommend using Fast API (https://fastapi.tiangolo.com/). Fast API is a Python framework for building APIs. It is easy to use, and it is very fast. It also has a built-in Swagger UI, which makes it easy to test your API.
+When you want to expose e.g. a Python script as a REST service such that it can be called from AIMMS, we recommend using Fast API (https://fastapi.tiangolo.com/). Fast API is a Python framework for building APIs. It is easy to use, and it is very fast. It also has a built-in Swagger UI, which makes it easy to test your API.
 
 Below is an example of a Python script that can be called from AIMMS. It takes a list of numbers as input, and returns a list of the squares of these numbers as output.
 
