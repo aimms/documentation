@@ -210,6 +210,21 @@ Available images:
 
 .. spelling:word-list::
 
+    explodeDefault
+    connectionURI
+    serviceId
+    imageName
+    preconfigured
+    imageTag
+    listenPort
+    storedApp
+    cmdLine
+    envVars
+    maxRuntime
+    maxIdle
+    performanceProfile
+    jsonSpec
+    aimms
     projectCategory
 		isLatest
     isWebUI
