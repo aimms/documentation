@@ -83,6 +83,10 @@ Service Endpoint: ``https://[account-name].aimms.cloud/pro-api/v2/tasks``
 .. note::
 
    Some of the request/response parameters has been changed in v2 as listed below, please check and adapt your applications accordingly.
+   
+   **Task Status(v1):** queued, executing, solving, interrupted or finished
+   
+   **Task state(v2):** queued, assigned, running, solving, failed or completed
 
 .. csv-table:: 
    :header: "v1", "v2"
@@ -98,7 +102,7 @@ Service Endpoint: ``https://[account-name].aimms.cloud/pro-api/v2/tasks``
 	errormessage , errorMessage 
 	statuses , current_batch
 	total_size , total_tasks
-
+	
 
 
 
