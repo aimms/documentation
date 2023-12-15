@@ -264,6 +264,15 @@ Public Dialog Support Procedures
 
     The procedures :any:`OpenSidePanel`, :any:`OpenPage`, :any:`OpenExternalLink` and :any:`OpenDialogPage` currently do not work as expected when called on a page load procedure. This issue will be expected to be fixed in the coming releases.
 
+
+Public Identifier Support
+-------------------------------------------------------
+
+.. aimms:stringparameter:: webui::IdentifierElementText 
+
+	This string parameter can be used to translate identifier names that are displayed in your WebUI. For full details, please see `this section <table-widget.html#webui-identifierelementtext>`_.
+
+
 SetProgressMessage
 ==================
 
