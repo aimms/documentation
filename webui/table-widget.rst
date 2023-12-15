@@ -345,6 +345,10 @@ Currently the following features are supported:
 * Deleting a value in a cell will reset the corresponding value in AIMMS to its default value (when the corresponding identifier has a default value specified in its declaration).
 * When an element text annotation has been specified in the declaration of a set involved in the table contents, then the corresponding element text is taken into account during the upload/download. 
 
+
+webui::IdentifierElementText
+-----------------------------
+
 Related to the last point above, also a new predeclared identifier :token:`webui::IdentifierElementText` (ranging over the predeclared set :token:`AllIdentifiers`) has been added to the WebUI library: 
 
 .. image:: images/IdentElementText.png

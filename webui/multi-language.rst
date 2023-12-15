@@ -49,6 +49,9 @@ To provide a translation for a language-locale, e.g. :token:`en-GB`, create a fi
 
     org_name = Organi***s***ation name
 
+
+Another way of providing translations is by using the `webui::IdentifierElementText <table-widget.html#webui-identifierelementtext>`_ functionality.
+
 Element Text
 ------------
 
@@ -85,5 +88,7 @@ will display :token:`ItemDescription` instead of the element :token:`i` in your 
 .. important:: 
 
     In AIMMS versions lower than 4.46, this feature does not work properly when used in combination with the selectionbox widget.
+
+
 
 
