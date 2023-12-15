@@ -8,7 +8,7 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
-AIMMS 4.97
+AIMMS 4.98
 #############
 
 
@@ -22,14 +22,14 @@ AIMMS Improvements
 +++++++++++++++++++++++++
 
 -  Gurobi 11.0 has been added. Gurobi 11.0 comes with performance improvements for MIP, MIQP and MIQCP models.
--  The CPLEX feature FeasOpt and the Gurobi feature FeasRelax are now supported by AIMMS. These features offer an extension of the existing [violation penalties](https://documentation.aimms.com/language-reference/optimization-modeling-components/solving-mathematical-programs/infeasibility-analysis.html#adding-infeasibility-analysis-to-your-model) functionality. FeasOpt and FeasRelax can be enabled by adding violation penalties to the mathematical program and setting the new Solvers General option 'Feasibility relaxation' to 'Advanced'. FeasOpt and FeasRelax allow the user more flexibility in choosing the objective metric for minimizing the violations (the minimum-cost relaxation). Besides minimizing the weighted sum of violations, one can now also minimize the weighted sum of squared violations or the weighted number of violations. The objective of the minimum-cost relaxation can be set using the new option 'Feasibility relaxation objective'. Furthermore, after computing a minimum-cost relaxation, the user can optionally choose to optimize the original objective among all solutions that have a minimum-cost relaxation. Whether or not to optimize the original objective can be set using the new option 'Feasibility relaxation optimize original objective'.
+-  The CPLEX feature FeasOpt and the Gurobi feature FeasRelax are now supported by AIMMS. For more details, please refer to the `documentation <https://documentation.aimms.com/language-reference/optimization-modeling-components/solving-mathematical-programs/infeasibility-analysis.html#adding-infeasibility-analysis-to-your-model>`__.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  If a parameter with a Definition is used to define a unit in the Conversion attribute of a Quantity (which is sometimes used in the currency quantity to deal with changing exchange rates), then in some situations this definition was not evaluated at the right time leading to unexpected unit conversion results.
 -  The Gurobi option 'MIP node method' was missing the value 'Automatic'.
--  We made the PRO Launch service procedure more user-friendly and created some <a href="https://documentation.aimms.com/cloud/launch-service.rst">documentation</a> for it.
+-  We made the PRO Launch service procedure more user-friendly and created some `documentation <https://documentation.aimms.com/cloud/launch-service.rst>`__ for it.
 
 WebUI Improvements
 +++++++++++++++++++++++++
@@ -44,6 +44,11 @@ Resolved WebUI Issues
 
 --------------
 
+
+
+#############
+AIMMS 4.97
+#############
 
 
 
@@ -10638,4 +10643,4 @@ Improvements
 	ManagedSessionOutputCaseContainsDefinedIdentifiers
 	upX
 	classList
-	
+	conf
