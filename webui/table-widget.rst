@@ -84,6 +84,10 @@ The table widget offers the user possibilities for various actions such as:
 
   Also, when sorting is applied on a cell in header titles area and afterwards some changes are performed to the table (such as a change in the pivoting of the indexes or a modification to the table contents), then the sorting is retained as long as that index/identifier continues to exist in the table.
 
+  Note that until AIMMS 4.97 the sorting is done on a case-sensitive basis. Starting from AIMMS 4.98, the sorting is done on a case-insensitive basis. This behavior can be overridden by specifying the option 'webui.case-sensitive-comparison' in a 'webui-options.conf' file in the WebUI/settings subfolder of your model. Setting this option to 1 reverts to the pre-4.98 behavior. 
+  
+  In case you are using a '.properties' file translations of elements, the sorting is still done on the basis of the original values! We strongly recommend to use the :token:`webui::ElementTextIdentifier` construct.
+
 
 Quick navigation
 ----------------
@@ -778,3 +782,4 @@ When the Unit is set to Century, Year, Month or Day, the time picker is not disp
 .. spelling:word-list::
 
     IdentifierElementText
+    conf
