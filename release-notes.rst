@@ -27,7 +27,6 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  If a parameter with a Definition is used to define a unit in the Conversion attribute of a Quantity (which is sometimes used in the currency quantity to deal with changing exchange rates), then in some situations this definition was not evaluated at the right time leading to unexpected unit conversion results.
 -  The Gurobi option 'MIP node method' was missing the value 'Automatic'.
 -  We made the PRO Launch service procedure more user-friendly and created some `documentation <https://documentation.aimms.com/cloud/launch-service.html>`__ for it.
 
