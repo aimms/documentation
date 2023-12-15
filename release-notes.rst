@@ -13,6 +13,41 @@ AIMMS 4.97
 
 
 
+AIMMS 4.98.1 Release (December 15, 2023 - build 4.98.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Gurobi 11.0 has been added. Gurobi 11.0 comes with performance improvements for MIP, MIQP and MIQCP models.
+-  The CPLEX feature FeasOpt and the Gurobi feature FeasRelax are now supported by AIMMS. These features offer an extension of the existing [violation penalties](https://documentation.aimms.com/language-reference/optimization-modeling-components/solving-mathematical-programs/infeasibility-analysis.html#adding-infeasibility-analysis-to-your-model) functionality. FeasOpt and FeasRelax can be enabled by adding violation penalties to the mathematical program and setting the new Solvers General option 'Feasibility relaxation' to 'Advanced'. FeasOpt and FeasRelax allow the user more flexibility in choosing the objective metric for minimizing the violations (the minimum-cost relaxation). Besides minimizing the weighted sum of violations, one can now also minimize the weighted sum of squared violations or the weighted number of violations. The objective of the minimum-cost relaxation can be set using the new option 'Feasibility relaxation objective'. Furthermore, after computing a minimum-cost relaxation, the user can optionally choose to optimize the original objective among all solutions that have a minimum-cost relaxation. Whether or not to optimize the original objective can be set using the new option 'Feasibility relaxation optimize original objective'.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If a parameter with a Definition is used to define a unit in the Conversion attribute of a Quantity (which is sometimes used in the currency quantity to deal with changing exchange rates), then in some situations this definition was not evaluated at the right time leading to unexpected unit conversion results.
+-  The Gurobi option 'MIP node method' was missing the value 'Automatic'.
+-  We made the PRO Launch service procedure more user-friendly and created some <a href="https://documentation.aimms.com/cloud/launch-service.rst">documentation</a> for it.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  As per customer request, we changed the default alphabetical sort order in the WebUI (table widget) from case-sensitive to case-insensitive (to match the behavior in the WinUI pivot table). To override this behavior you can set the 'webui.case-sensitive-comparison' option to 1 in the 'webui-options.conf' settings file.
+-  Identifiers with a multi-dimensional unit parameter as unit are now displayed correctly in the WebUI. In previous versions the data values were displayed according to the unit, but the unit itself was not displayed.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Some special characters (like ampersands, or brackets) were accepted in the name of a PRO app, but led to the app not being able to start.
+
+--------------
+
+
+
+
+
 AIMMS 4.97.12 Release (December 08, 2023 - build 4.97.12.2).
 ------------------------------------------------------------------------------------------
 
