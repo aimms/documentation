@@ -14,6 +14,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 New Features and Bug Fixes
 --------------------------
 
+23.1.0.12 [16-12-2023]
+	- Local API requests could be interpreted as being executed from the AIMMS CLoud if an `apikey` header was specified for the request, leading to failing impersonation requests
+
 23.1.0.11 [13-12-2023]
 	- The DEX documentation changed the API version of the Task functionality in DEX to `v2`, while the implementation still used `v1` only
 
