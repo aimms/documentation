@@ -175,7 +175,7 @@ The Data Exchange library contains collection of functions implemented using ``l
     
 .. js:function::  dex::client::PerformRequest
 
-    Execute a previously created HTTP request :token:`theRequest`. Upon response, the Data Exchange library will call the specified :token:`callback` function asynchronously, as soon as the request has been completed and the AIMMS engine is idle. To force :token:callback`to be called synchronously within a procedure of your model, you can use the method :token:`dex::client::WaitForResponses`. The function will return 1 on success, or 0 on failure.
+    Execute a previously created HTTP request `theRequest`. Upon response, the Data Exchange library will call the specified `callback` function asynchronously, as soon as the request has been completed and the AIMMS engine is idle. To force `callback`to be called synchronously within a procedure of your model, you can use the method `dex::client::WaitForResponses`. The function will return 1 on success, or 0 on failure.
    
     :param theRequest: string parameter holding the unique identification of the request to execute
 
