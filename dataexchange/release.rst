@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+23.1.0.15 [19-12-2023]
+	- Fix write Calendar type to table issue
+
 23.1.0.14 [17-12-2023]
 	- Row-based column values would not set `force-dense` identifiers
 
