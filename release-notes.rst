@@ -12,6 +12,21 @@ AIMMS 4.98
 #############
 
 
+AIMMS 4.98.2 Release (December 19, 2023 - build 4.98.2.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If a parameter with a Definition is used to define a unit in the Conversion attribute of a Quantity (which is sometimes used in the currency quantity to deal with changing exchange rates), then in some situations this definition was not evaluated at the right time leading to unexpected unit conversion results.
+-  Missing values have been added for the Gurobi options ‘Barrier crossover basis’, 'Presolve aggregation', 'Presolve sparsify reduction' and 'Scale'. For the latter two options, some option values have been renamed.
+
+--------------
+
+
+
 
 AIMMS 4.98.2 Release (December 19, 2023 - build 4.98.2.2).
 ------------------------------------------------------------------------------------------
