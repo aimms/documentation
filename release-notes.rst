@@ -10660,3 +10660,4 @@ Improvements
 	upX
 	classList
 	conf
+	sparsify
