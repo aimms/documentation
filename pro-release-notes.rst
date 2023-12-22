@@ -4,6 +4,15 @@ AIMMS PRO Release Notes
 PRO 2.52
 ########
 
+AIMMS PRO 2.52.3 Release
+------------------------
+
+On December 22, 2023, we released AIMMS PRO 2.52.3(2.52.3.1).
+ 
+**Resolved Issues**
+
+   -  Fixed an issue where MFA could be bypassed when the WebUI app is launched using an app launch link.
+
 AIMMS PRO 2.52.2 Release
 ------------------------
 
