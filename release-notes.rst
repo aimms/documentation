@@ -13,6 +13,23 @@ AIMMS 4.98
 
 
 
+AIMMS 4.98.4 Release (December 22, 2023 - build 4.98.4.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The sort button in the header of the table widget did not always react to every click on it.
+-  The order in which identifiers are being displayed in the WebUI identifier selector list has been improved. Identifiers that are declared in the main model will be shown on top of identifiers that have been declared is some (other) namespace; any exact match with the text specified in the search box will be shown on top, and all other identifiers are sorted alphabetically on their fully qualified name.
+
+--------------
+
+
+
+
+
 AIMMS 4.98.2 Release (December 19, 2023 - build 4.98.2.2).
 ------------------------------------------------------------------------------------------
 
