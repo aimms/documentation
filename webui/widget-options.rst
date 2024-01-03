@@ -717,6 +717,7 @@ The list of indices also includes an index referring to IDENTIFIER-SET. You can 
     
     This also holds for the Table widget, where you cannot explicitly deselect a cell.
 
+.. _Totals:
 
 Totals
 ------
@@ -824,6 +825,21 @@ to make sure that only finance people and people from the management can see one
 .. important:: 
 
     Please note that if you want to make sure that *not* all your users can see all available data (e.g. because some of it is confidential), hiding certain widgets is not sufficient. Users can still create new widgets for showing all available data. To avoid this, you need to adapt the set `AllPublicIdentifiers <creating.html#public-identifiers>`_, such that it only contains the identifiers that the current user is allowed to see. Furthermore, you need to make sure that users cannot edit the parameter that you specified for the Visible option (e.g. by giving it a definition).
+
+
+Advanced
+--------
+
+The *Advanced* tab of the widget options is kind of a special case. It basically lists most options that are already available through the other tabs already discussed above in a technical format that requires knowledge of the AIMMS Widget Framework.
+
+.. important:: **We strongly advise not to change any of these options, unless you know really well what you are doing or are advised to do so by AIMMS Support. Changing values is quite error-prone due to the specific formatting requirements.**
+
+There are a few exceptions to this advice:
+
+* The :token:`Contents.totals` option is currently the only way to force aggregators to appear at the start of a row/column instead of at the end, as described in the :ref:`Totals` section.
+* By default, WebUI Tables show a refresh button when (procedurally) adding or removing rows. You can force a table to always automatically refresh by setting the option :token:`Fast.editing.disable` to :token:`literal:1`.
+* By default, WebUI Tables jump to the next row after editing a cell. You can disable this behavior by setting the option :token:`Focus.next.disable` to :token:`literal:1`.
+
 
 
 Widget Actions
