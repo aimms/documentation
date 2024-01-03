@@ -1090,3 +1090,4 @@ Best Practices for Item Actions
 .. spelling:word-list::
 
     actiontype
+    procedurally
