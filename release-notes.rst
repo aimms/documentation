@@ -264,7 +264,7 @@ AIMMS Improvements
 +++++++++++++++++++++++++
 
 -  Gurobi 10.0 has been upgraded to version 10.0.3.
--  The compiler now triggers warnings on deprecated usage of the operators $ and |. See `here <https://community.aimms.com/aimms-developer-12/pipe-signs-and-dollar-signs-expected-changes-for-4-97-1505>`__ for details.
+-  The compiler now triggers warnings on deprecated usage of the operators \$ and \|. See `here <https://community.aimms.com/aimms-developer-12/pipe-signs-and-dollar-signs-expected-changes-for-4-97-1505>`__ for details.
 -  For some warnings and errors there is now a menu command to let AIMMS make the required change and thus improve the code. These warnings and errors show a small wrench in the icon indicating that the right-mouse menu will show the Improve commands.
 
 
