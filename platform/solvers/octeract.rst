@@ -17,4 +17,4 @@ Octeract is developed and supported by `Octeract <https://octeract.com/>`_.
 
 Octeract Supported Versions
 ----------------------------
-AIMMS supports Octeract 4.2 (Windows 64-bit only).
+AIMMS supports Octeract 4.7 (Windows 64-bit only).
