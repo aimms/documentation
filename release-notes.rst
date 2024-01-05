@@ -13,6 +13,22 @@ AIMMS 4.98
 
 
 
+AIMMS 4.98.5 Release (January 05, 2024 - build 4.98.5.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Fixed an annoying warning that wanted you to change a \$ into a \|, and once you did it asked to change the \| into a \$.  See also `here <https://community.aimms.com/aimms-developer-12/pipe-signs-and-dollar-signs-expected-changes-for-4-97-1505>`__.
+
+--------------
+
+
+
+
+
 AIMMS 4.98.4 Release (December 22, 2023 - build 4.98.4.4).
 ------------------------------------------------------------------------------------------
 
