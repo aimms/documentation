@@ -31,4 +31,6 @@ In order to allow you to continue your work when you are facing an incorrect val
 	- remove the ``webui-schema.json`` file from the *Bin* subfolder of your AIMMS installation. However, this is not recommended as it will disable the validation for all your projects.
 
 
+.. important:: 
 
+	Even though the webui.json file is in the common json format, **we strongly advise against editing the contents of it yourself, as that could easily lead to breaking (parts of) your WebUI.**
