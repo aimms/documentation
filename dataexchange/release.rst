@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+23.1.1.2 [07-01-2024]
+	- The `max-string-size` attribute of row-based formats would still check for an 8 Kb limit
+
 23.1.0.15 [19-12-2023]
 	- Fix write Calendar type to table issue
 
