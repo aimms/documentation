@@ -1,6 +1,19 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.1
+########
+
+AIMMS PRO 24.1.1 Release
+------------------------
+
+On January 9, 2024, we released AIMMS PRO 24.1.1(*Cloud build*: 24.1.1.4, *On-Premise build*: 24.1.1.7)
+ 
+**Improvements**
+
+   -  Support for Conan2 AIMMS Versions (AIMMS Versions with Conan2 support will be released soon with AIMMS 24.1).
+   (Note: If you are using an on-premise installation of AIMMS PRO then you will need to upgrade your AIMMS PRO to 24.1.1 such that you can use Conan2 AIMMS Versions)
+
 PRO 2.52
 ########
 
