@@ -13,6 +13,27 @@ AIMMS 4.98
 
 
 
+AIMMS 4.98.6 Release (January 10, 2024 - build 4.98.6.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS cannot handle file names longer than 260 characters. You now get an error message when you try to open an .aimms application that is on a path that is too long.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The X-axis labels on the Gantt Chart widget were cut off slightly when displaying letters like 'p', 'q', 'g' which need some more vertical space than other letters. As a result, the actual chart area has been ever so slightly decreased.
+
+--------------
+
+
+
+
+
 AIMMS 4.98.5 Release (January 05, 2024 - build 4.98.5.1).
 ------------------------------------------------------------------------------------------
 
