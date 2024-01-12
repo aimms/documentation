@@ -74,7 +74,7 @@ The second string parameter must be indexed over both indexes of the set `Extens
 
     The indices must follow the same order as described in the string parameter ``MyWorkflowSteps(webui::indexWorkflowOrder,webui::indexNoOfPages,webui::indexWorkflowPageSpec)``
 
-    Also, note that ``pageId`` is a required field.
+    The ``pageId`` is a required field. 
 
 The values may be inspected on the Data page of the string parameter MyWorkflowSteps:
 
@@ -106,6 +106,16 @@ Similarly, an example of configuring 4 steps for the third workflow Quality Assu
 .. note::
     
    Do not use in a workflow a page which is already configured with a wizard, this will result in an undesired behavior.
+
+The specifications ``pageId``
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+| This represents the unique Id of the WebUI page that will be displayed when the corresponding workflow step is selected. The ``pageId`` is **case-sensitive**.
+| You can identify the unique Id's of the existing WebUI pages by accessing ``webui::AllRegularPages`` identifier data. Only the Id's of regular WebUI pages, excluding Dialog pages or SidePanel pages, should be referenced for ``pageId``.
+
+.. important::
+
+    It's important not to confuse the name of the page with the page's unique Id.
+
 
 The specifications ``workflowPageState`` and ``pageDataState``
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
