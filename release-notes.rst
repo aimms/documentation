@@ -10736,3 +10736,4 @@ Improvements
 	sparsify
   aimms
   .aimms
+	RefreshAllWidgets
