@@ -13,6 +13,22 @@ AIMMS 4.98
 
 
 
+AIMMS 4.98.7 Release (January 16, 2024 - build 4.98.7.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  A crash could occur when switching between browser tabs while using the webui::RefreshAllWidgets procedure.
+
+--------------
+
+
+
+
+
 AIMMS 4.98.6 Release (January 10, 2024 - build 4.98.6.2).
 ------------------------------------------------------------------------------------------
 
