@@ -12,6 +12,31 @@ AIMMS 4.98
 #############
 
 
+AIMMS 24.1.1 Release (January 18, 2024 - build 24.1.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In rare cases, specifying the solver in the solve statement would result in an incorrect solver being used and could result in a crash.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  The Widget Named Views feature has been extended with a template mechanism (DOCUMENTATION INVOEGEN!), to simplify the management of multiple Widget Named Views for a widget.
+-  The Combination Chart widget type, initially introduced as an experimental feature in AIMMS 4.84, has now been transitioned to a general availability feature.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The widget names in the Add Widget wizard and the Change Type option editor have been changed from technical names to user-friendly labels (for example: "Gantt Chart" instead of the previous "ganttchart").
+
+--------------
+
+
+
 
 AIMMS 4.98.8 Release (January 18, 2024 - build 4.98.8.1).
 ------------------------------------------------------------------------------------------
