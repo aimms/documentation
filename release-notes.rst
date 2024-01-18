@@ -13,6 +13,22 @@ AIMMS 4.98
 
 
 
+AIMMS 4.98.8 Release (January 18, 2024 - build 4.98.8.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When applying a custom (CSS) theme, for an application published on PRO, that attempted to set a more complex background property, you could see the new definition being broken because of (incorrect) silent path updates on the WebUI side. For example, definitions that set multiple background images, or a background image and a 'fallback' color using RGB values, would break.
+
+--------------
+
+
+
+
+
 AIMMS 4.98.7 Release (January 16, 2024 - build 4.98.7.1).
 ------------------------------------------------------------------------------------------
 
