@@ -635,7 +635,7 @@ Widget Named Views
     
 .. important::   
     | This feature has been accessible since **AIMMS 4.95**, as an `experimental feature <#experimental-features>`__ sharing the same name.
-    | We've actively gathered and worked on feedback for this feature. Beginning with **AIMMS 4.99**, we have introduced the concepts of Template Views and Views derived from these Templates to enhance the management of Named Views.
+    | We've actively gathered and worked on feedback for this feature. Beginning with **AIMMS 24.1**, we have introduced the concepts of Template Views and Views derived from these Templates to enhance the management of Named Views.
     | We welcome feedback and suggestions for potential improvements, which may or may not be implemented before transitioning this feature to General Availability.
     
 .. note::
