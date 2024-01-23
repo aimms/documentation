@@ -10789,3 +10789,4 @@ Improvements
   aimms
   .aimms
 	RefreshAllWidgets
+  ganttchart
