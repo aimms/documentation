@@ -11,6 +11,9 @@ Widget Options
 .. |WNV_current_view_icon| image:: images/WNV_current_view_icon.png
 .. |WNV-order-up| image:: images/WNV-list-entry-up-arrow.png
 .. |WNV-order-down| image:: images/WNV-list-entry-down-arrow.png
+.. |WNV-option-editor-template-tab-icon| image:: images/WNV-option-editor-template-tab.png
+.. |WNV-deriving-icon| image:: images/WNV-deriving-icon.png
+.. |WNV-clear-option| image:: images/WNV-clear-option-value.png
 
 The ‘cog wheel’ button |cog-widget| (in the upper right corner of a widget) will open a pop-up window that allows you to change the options for the widget. 
 
@@ -631,37 +634,106 @@ Widget Named Views
 ------------------
     
 .. important::   
-    From **AIMMS 4.95 onwards**, the **Widget Named Views** feature is made available as an `experimental feature <#experimental-features>`__ under the same name. This is a Beta release,  meaning the feature is available to be used and tested. We collect feedback and suggestions for further improvement that may or may not be implemented before this will become a General Availability feature.
+    | This feature has been accessible since **AIMMS 4.95**, as an `experimental feature <#experimental-features>`__ sharing the same name.
+    | We've actively gathered and worked on feedback for this feature. Beginning with **AIMMS 4.99**, we have introduced the concepts of Template Views and Views derived from these Templates to enhance the management of Named Views.
+    | We welcome feedback and suggestions for potential improvements, which may or may not be implemented before transitioning this feature to General Availability.
     
-     
-With this feature you can create and offer different views of your widget. For example, you could offer one view of your widget with one particular pivoting and another view of the widget with a different pivoting. The widget could be made available in yet another view as a different widget type. The app developer can specify the view that an end user sees on the widget when they first load the page.
+.. note::
+    The Widget Named Views Management feature, which introduces support for Template View and Views derived from these Templates, is applicable only to the Table, Map, Combination Chart and other chart type widgets, excluding the Gantt chart.
     
-The widget header section now includes a new button |WNV-select-views|. Clicking on it allows end users to see the available views for this widget, from which they can choose and load a view. 
-     
-In the `widget options <#widget-options>`__, under the **Widget Named Views** |WNV-option-editor-tab| tab, there are controls to add, edit and delete a named view as well as to designate a named view as the *Current View* that users see when their WebUI page loads. The option to create a new named view is available when you click the "+" button. The current widget configuration is stored for the view name that you set through the *View Name* option. The *Current View* option can be tuned to one of the view names from the list of available named views. When the WebUI page loads, the widget is loaded with this designated view information. App developers can specify the named view they want their end users to see when the page loads using this current view option.    
-When you hover over each named view option header, the Up |WNV-order-up| and Down |WNV-order-down| controls appear, allowing you to order the different named views that have been made.
+| With this feature, you have the flexibility to start by creating a template view of the widget and then derive one or more named views from this template view, each with specific variations to offer to end users.
+| The purpose of template views is to facilitate the management of named views, making it easier to modify certain settings under the various derived views. The changes are made on the Template view, and these adjustments get applied to all of its derived views automatically.
+| The alternative would be to create multiple views of the widget without using the template functionality, either of the base widget state or from an existing named view. However, if you want to change the same option for each of these views, you'd have to do that for each individual named view.
 
-.. image:: images/WNV_option-editor-default.png
-    :align: center
-       
-.. image:: images/WNV_option-editor-1-view-created.png
-    :align: center
-       
-.. image:: images/WNV_option-editor-2-views-created.png
-    :align: center
-       
-.. image:: images/WNV-option-editor-reordering-views.png
-    :align: center
+| The Named Views feature allows you to offer multiple views to the user, providing options such as one view of your widget with a specific pivoting and another view with a different pivoting.
+| Additionally, you can present the widget in yet another view as a different widget type.
+| The app developer can specify the initial view that an end user sees on the widget when they first load the page.
+
+The widget header section now includes a new button |WNV-select-views|. Clicking on it allows end users to see the available named views for this widget, from which they can choose and load a view.     
 
 
-The Current View option can be specified by a literal view name, or by an element parameter. This element parameter should have a set as its range, which contains a collection of applicable named views for the widget at hand. The benefit of specifying such an element parameter is that you can dynamically switch from one view to another from within the model itself: just set the element parameter to a different view than the one currently selected, and the widget will update accordingly. Please note that the set belonging to this parameter does not necessarily have to include all available view names for the widget: just a subset of those is also allowed. In case the set contains elements which do not correspond to existing view names for the widget, those will be ignored. The Widget Named View menu in the widget header will automatically display all valid view names from the set.
+Creating Views
++++++++++++++++++
+    
+| In the `widget options <#widget-options>`__, on the **Templates Views** |WNV-option-editor-template-tab-icon| tab, you'll find controls for adding, editing, and deleting template views.
+| Here you have the flexibility to create a template view from either the base state of the widget, an existing template view or a named view. The button on this tab adjusts its action based on the current view of the widget and the specific operation being performed.
+| The current widget configuration, whether from the base widget configuration or an existing template view or named view, is saved under the newly specified template view name set through the *Template Name* option.
+| On the same tab, by selecting a template view using the *Current View* option, you can visualize the presentation of the widget and observe the contents of the selected template view.
+
+| It’s essential to note that template views will not be made accessible to end users.
+| Within this tab, you’ll find a list of all the template views created for this widget. Under each template view, you can also see the related views that are derived from it.
+| You cannot delete a template view until all its related derived views are deleted.
+
+| As previously discussed regarding template views, any modifications made within a template view are effortlessly propagated to all the named views derived from it.
+
+.. image:: images/WNV-template-view.png
+    :align: center
+
+
+| In the `widget options <#widget-options>`__, on the **Widget Named Views** |WNV-option-editor-tab| tab, you'll find controls for adding, editing, and deleting named views.
+| Additionally, you can designate a named view as the default view that users see when their WebUI page loads.
+| Here, you can create a named view based on the current widget configuration, which can be the base widget configuration, a template view, or another named view.
+| To be specific, if a view is to be created from a template, this template needs to be set as the current view. Then, by clicking the button on this tab, a named view is created that derives its options from the specifed template.
+| If a view is to be created from another view, that view must first be loaded as the *Current View*. Clicking the button then creates a duplicate view of the existing one.
+| If the *Current View* option is cleared, clicking the button creates a new view of the base widget configuration.
+| The named view is created only when a name is assigned to it through the *View Name* option. The newly created view is automatically set as the *Current View* option and can be specified to one of the view names from the list of available views. The *Default View* option should be set with a named view from the list. This ensures that when the WebUI page loads, the widget is loaded with the designated view information. App developers can specify the named view they want their end users to see when the page loads using this default view option.
+| When you hover over each named view option header, the Up |WNV-order-up| and Down |WNV-order-down| controls appear, allowing you to order the different named views that have been created.
+
+.. image:: images/WNV-named-view-1.png
+    :align: center
+       
+.. image:: images/WNV-creating-view-from-template1.png
+.. image:: images/WNV-creating-view-from-template2.png
+
+
+.. image:: images/WNV-named-view-2.png
+    :align: center
+    
+
+Managing Derived Views
+++++++++++++++++++++++
+
+| A named view derived from a template, as the name suggests, derives all its settings from the respective template view.  
+| Each option under this named view can be overridden or modified to an explicit entry. To facilitate understanding which options are still derived from the template and which not (anymore), each inherited option will include an |WNV-deriving-icon| icon within, indicating that the option derives its value from the template.
+| Conversely, if the option is modified in the named view, this |WNV-deriving-icon| icon is not shown anymore. Instead, an |WNV-clear-option| icon is displayed. Clicking on this |WNV-clear-option| icon clears the modified entry in the option and restores the value from the template.   
+
+.. image:: images/WNV-options-deriving1.png
+.. image:: images/WNV-options-deriving2.png
+
+On certain option editor tabs, such as Contents, Pivoting and Totals, the |WNV-deriving-icon| icon is displayed at the top to signify that all the data visible on this tab is derived from the template.
+
+.. image:: images/WNV-deriving-contents-tab.png
+.. image:: images/WNV-deriving-pivots-tab.png
+
+| Special attention is needed for the Combination Chart and Map widgets. These widgets either inherit all their contents from their template or none at all if any modifications are made to any of the options related to the contents. In the latter scenario, the entire contents become detached from the template.
+| For example, on the Map widget's "Arc Sets" option editor, if the "Decimal Places" option under any Arc Set is modified, then all Node Sets, all Arc Sets, and Heat Map information will no longer be derived from the template.
+| It's important to note that to reestablish the link with the template and have the contents derived back, all Node Sets, all Arc Sets, and Heat Map, information including those that were not modified, need to be removed or cleared off, followed by a page refresh.
+| In the latter scenario discussed, even though the contents related information gets detached from the template, other non-contents related options on tabs like Misc, etc., will continue to derive their values from the template.
+ 
+Current View
+++++++++++++++++++++
+
+| The current widget configuration mirrors the view specified under the *Current View* option, and the sub-label in the option editor header indicates the name of this current view.
+| When a new view, whether it be a template or a named view, is created, the *Current View* option gets updated with this new view.
+| This option should be set with the appropriate view name to inspect the widget configuration or its presentation.
+
+Default View
+++++++++++++++++++++
+
+| The *Default View* option can be utilized by the App developer to determine which view is displayed upon the first load of the page.
+| This option can be specified either by a literal view name, or by an element parameter.
+| This element parameter should have a set as its range, which contains a collection of applicable named views for the widget at hand.
+| The benefit of specifying such an element parameter is that you can dynamically switch from one view to another from within the model itself: just set the element parameter to a different view than the one currently selected, and the widget will update accordingly.
+| Please note that the set belonging to this parameter does not necessarily have to include all available view names for the widget: just a subset of those is also allowed.
+| In case the set contains elements which do not correspond to existing view names for the widget, those will be ignored.
+| The Widget Named View menu in the widget header will automatically display all valid view names from the set.
 
 .. image:: images/NamedViewAsElement.jpg
     :align: center
 
-To illustrate this, in the context of the image above, the model contains a set `AbsenteeViews` with `data {'Everyone', 'US People', 'NL People'};` as its definition, an element parameter `CurrentAbsenteeView` with this set as its range which is specified for the Current View option. In the image, the value of `CurrentAbsenteeView` is `NL People`. As you can see, this is reflected in the widget header menu showing the named views and the currently selected one.
+To illustrate this, in the context of the image above, the model contains a set `AbsenteeViews` with `data {'Everyone', 'US People', 'NL People'};` as its definition, an element parameter `CurrentAbsenteeView` with this set as its range which is specified for the *Default View* option. In the image, the value of `CurrentAbsenteeView` is `NL People`. As you can see, this is reflected in the widget header menu showing the named views and the currently selected one.
 
-Please be aware that it is possible to have more literally specified named views than the set belonging to the Current View option element parameter. If you specify, let's say, six named views and the set contains just two of them, then if you specify the element parameter for the Current View option, the widget header menu will only show those two views.
+Please be aware that it is possible to have more literally specified named views than the set belonging to the *Default View* option element parameter. If you specify, let's say, six named views and the set contains just two of them, then if you specify the element parameter for the *Default View* option, the widget header menu will only show those two views.
 
 When one or more named views are created for a widget, the |wnv-select-views| button is made available on the widget's header section. When you click on it, a list of the various named views made for this widget appears, in the order the views were arranged. The |WNV_current_view_icon| icon serves as an indication of the currently active view.
        
@@ -682,7 +754,7 @@ Any of the views are available for selection by the end user from the list and t
 .. important::          
     If no named views have been created yet, the widget will still load as usual.
 
-    For a named view, the current widget configuration is only saved when you provide it a name using the *View Name* option.   
+    For a named view, the current widget configuration is only saved when you assign it a name using the *View Name* option.   
     
     When all of the earlier-created named views are removed, the widget loads with the settings of the most recent view selected for the *Current View* option.
 
