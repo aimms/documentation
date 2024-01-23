@@ -1,6 +1,23 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.2
+########
+
+AIMMS PRO 24.2.1 Release
+------------------------
+
+On January 23, 2024, we released AIMMS PRO 24.2.1(24.2.1.11)
+ 
+**Improvements**
+
+   - **PRO REST API**: Starting with PRO 24.2.1, the latest version v2 of PRO REST API covers all the services(functionality) provided by version v1, this will allow you to generate single and complete OpenAPI interface and you do not have to worry about changing your client applications because a version is end-of-life.
+   - Reduced start-up time for sessions on cloud.
+   
+**Resolved Issues**
+
+   -  Better error message when App permissions limit has been reached.
+  
 PRO 24.1
 ########
 
