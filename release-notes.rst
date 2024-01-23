@@ -12,7 +12,7 @@ AIMMS 24.1
 #############
 
 
-AIMMS 24.1.1 Release (January 19, 2024 - build 24.1.1.0).
+AIMMS 24.1.1 Release (January 23, 2024 - build 24.1.1.3).
 ------------------------------------------------------------------------------------------
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
