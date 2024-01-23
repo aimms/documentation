@@ -21,7 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  After almost a hundred AIMMS 4 releases, we say goodbye to the existing way of versioning our releases. From now on, we will use a year-based system, making it easier for you to quickly get an idea of when a particular AIMMS was released. Needless to say that we will start with AIMMS 24.1.1. Aside from the 24, the numbering system will not change: the next Hotfix Release will be AIMMS 24.1.2, and the next Feature Release will be AIMMS 24.2.1. Once we hit 2025, AIMMS 25.1.1 will be the first Feature Release in that year. For details on compatibility between AIMMS, PRO and AIMMS Library versions, please see `this Community post <https://community.aimms.com/aimms-pro-cloud-platform-43/new-24-aimms-libraries-and-aimms-pro-versions-1604>`__.
+-  After almost a hundred AIMMS 4 Feature Releases, we say goodbye to the existing way of versioning our releases. From now on, we will use a year-based system, making it easier for you to quickly get an idea of when a particular AIMMS was released. Needless to say that we will start with AIMMS 24.1.1. Aside from the 24, the numbering system will not change: the next Hotfix Release will be AIMMS 24.1.2, and the next Feature Release will be AIMMS 24.2.1. Once we hit 2025, AIMMS 25.1.1 will be the first Feature Release in that year. For details on compatibility between AIMMS, PRO and AIMMS Library versions, please see `this Community post <https://community.aimms.com/aimms-pro-cloud-platform-43/new-24-aimms-libraries-and-aimms-pro-versions-1604>`__.
 -  Knitro 14.0 has been added.
 
 Resolved AIMMS Issues
