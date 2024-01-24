@@ -12,6 +12,23 @@ AIMMS 24.1
 #############
 
 
+
+AIMMS 24.1.2 Release (January 24, 2024 - build 24.1.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  UnitParameters without a specific Quantity specified, in combination with unit conversions that use identifiers with a definition, sometimes caused errors because the identifiers used in the unit conversion were not evaluated at the right time.
+-  The NodelockManager.dll file was missing in the installation.
+
+--------------
+
+
+
+
 AIMMS 24.1.1 Release (January 23, 2024 - build 24.1.1.3).
 ------------------------------------------------------------------------------------------
 
