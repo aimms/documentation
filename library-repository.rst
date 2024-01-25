@@ -25,7 +25,6 @@ Please note that when using these libraries on AIMMS PRO, it needs access to the
    forecasting/index
    guardserversession/index
    httpclient/index
-   multisolve/index
    rlink/index
    unit-test/index
    AIMMSXLLibrary <https://documentation.aimms.com/aimmsxllibrary/index.html>
