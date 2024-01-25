@@ -1,88 +1,41 @@
-Email Client API
+Snowflake API
 ================
 
-.. js:function::  email::SetServer(_HostName,_Port,_ConnectionType,_AuthType,_UserName,_Password,_OAuth2Token,_CheckCertificate)
+.. js:function::  sf::ExecuteSQLStatement(stmt,timeout)
 
-    Sets the STMP server to use for sending email messages through the :js:func:`email::SendMail` function. Returns 1 if successful, or 0 otherwise.
+    Execute a SQL statement `stmt` in the configured schema of the configured Snowflake instance. By default, the function will wait for a maximum of 50 seconds for the execution of the statement to complete. If the execution is completed, the function will return a code of 200, if the execution is still in progress, the function will return 202. In case of any failure the function will return 0. If the execution is still in progress, you can call the function `sf::WaitForSQLStatements` to wait for any SQL statements still in progress.
     
-    :param _HostName: hostname of the SMTP server to which to connect to.
-    :param _Port: IP port on which the SMTP server will listen for incoming SMTP connections (typically 25 or 587)
-    :param _ConnectionType: optional argument specifying the type of connection (clear text (default), StartTLS or TLS), you can use the constants defined in the :token:`DLLInterface/Connection Types` section to specify the connection type.
-    :param _AuthType: optional argument specifying the type of authentication required for connecting to the SMTP server (default None). You can use the constants defined in the :token:`DLLInterface/Authentication Types` section to specify the required authentication type.
-    :param _UserName: optional argument specifying the username to use when connecting to the STMP server
-    :param _Password: optional argument specifying the password to use when connecting to the STMP server
-    :param _OAuth2Token: optional argument specifying the ``OAuth2`` token to use when connecting to the STMP server
-    :param _CheckCertificate: optional argument specifying whether to verify the certificate returned by the server when connecting via StartTLS or TLS connection type.
+    :param stmt: SQL statement to be executed
+    :param timeout: time to wait for the statement execution to complete (default 50 seconds)
 
-.. js:function::  email::NewMail(_Subject,_Name,_Address,_MessageId)
+.. js:function::  sf::WaitForSQLStatements(timeout)
 
-    Creates a new mail message object, to which you can add information and eventually send via the specified SMTP server. Returns 1 if successful, or 0 otherwise.
+    Wait for `timeout` seconds for all outstanding SQL statements that are still in progress to complete. The function returns 1 if all statements have completed, or 0 otherwise.
         
-    :param _Subject: subject of the email message
-    :param _Name: name of the sender of the email message
-    :param _Address: email address of the sender
-    :param _MessageId: output argument holding the message id of the mail message object being created
+    :param timeout: time in seconds to wait for all outstanding statements still in progress to complete
    
-.. js:function::  email::AddRecipientTo(_MessageId,_Name,_Address)
+.. js:function::  sf::GenerateAndLoadParquetIntoSFTable(mappingName,tableName,timeout,sqlString)
 
-    Adds a *To* recipient to the given email message. Returns 1 if successful, or 0 otherwise.
+    The function will generate an intermediate Parquet file using the DEX mapping `mappingName`, store the Parquet file in the Azure Data Lake Storage account that comes with every AIMMS cloud account, and insert the data contained in the table `tableName` in the configured schema of the Snowflake instance connected to. The default `sqlString` executed will assume that the table will just have all the fields contained in the Parquet file, but you can specify any Snowflake SQL statement to provide a customized insert statement. The function will wait `timeout` seconds for the execution of the SQL statement to complete. If the statement is still in progress on return (202 return code), you can call `sf::WaitForSQLStatements` to wait for the completion of the insert statement.
     
-    :param _MessageId: message id of the email message
-    :param _Name: name of the recipient
-    :param _Address: email address of the recipient
+    :param mappingName: name of a DEX mapping used to generate a Parquet file to upload from the current model data
+    :param tableName: name of the table in the configured Snowflake schema to insert the data in the generated Parquet file to
+    :param timeout: time to wait for the Snowflake insert statement to complete (default 50 seconds)
+    :param sqlString: optional string argument containing the SQL statement to execute.
    
-.. js:function::  email::AddRecipientCc(_MessageId,_Name,_Address)
+.. js:function::  sf::GenerateAndLoadParquetFromSFTable(mappingName,tableName,timeout,sqlString,emptyIdentifiers,emptySets)
 
-    Adds a *Cc* recipient to the given email message. Returns 1 if successful, or 0 otherwise.
+    The function will execute the `sqlString` statement to generate a Parquet file from Snowflake select statement. The default statement will generate a Parquet file from all fields in the Snowflake table `tableName`. The function will wait `timeout` seconds for the execution of the SQL statement to complete. If the statement is still in progress on return (202 return code), you can call `sf::WaitForSQLStatements` to wait for the completion of the insert statement. After the statement has completed, the data in the generated Parquet file will be read into the current model data using the DEX mapping `mappingName`.
     
-    :param _MessageId: message id of the email message
-    :param _Name: name of the recipient
-    :param _Address: email address of the recipient
+    :param mappingName: name of a DEX mapping used to read the generated Parquet file into the current model data
+    :param tableName: name of the table in the configured Snowflake schema the contents of which will be used to generate the intermediate Parquet file
+    :param timeout: time to wait for the Snowflake select statement to complete (default 50 seconds)
+    :param sqlString: optional string argument containing the SQL select statement to execute.
+    :param emptyIdentifiers: optional 0/1 argument indicating whether all identifiers in the mapping should be emptied prior to reading the Parquet file
+    :param emptySets: optional 0/1 argument indicating whether all sets used in the mapping should be emptied prior to reading the Parquet file
     
-.. js:function::  email::AddRecipientBcc(_MessageId,_Name,_Address)
+.. js:function::  sf::GenerateTableCreateStatements
 
-    Adds a *Bcc* recipient to the given email message. Returns 1 if successful, or 0 otherwise.
+    When you are using DEX model annotations to create the Parquet mapping, then you can use this function to generate a Snowflake create table statement that exactly matches the generated Parquet file mapping. The generated statements are stored in the string parameter `sf::TableCreateStatements`.
     
-    :param _MessageId: message id of the email message
-    :param _Name: name of the recipient
-    :param _Address: email address of the recipient
     
-.. js:function::  email::SetMessageFromFile(_MessageId,_TextBodyFile,_HTMLBodyFile,_PlaceHolders)
-
-    Creates the text and HTML bodies based on templates, and a parameter containing replacement text for placeholders contained in the template files. Returns 1 if successful, or 0 otherwise.
-    
-    :param _MessageId: message id of the email message
-    :param _TextBodyFile: the file path for the template used for generating the text body of the email message. When left empty, no text body will be generated. 
-    :param _HTMLBodyFile: the file path for the template used for generating the HTML body of the email message. When left empty, no HTML body will be generated. 
-    :param _PlaceHolders: 1-dimensional string parameter, mapping placeholder keys to replacement values.
-    
-.. js:function::  email::AddRelatedAttachment(_MessageId,_Path,_Cid)
-
-    Adds related attachments to the email message, e.g. to add images to the message referred to in the HTML body of the message. To add a related attachment in the HTML body,
-    you should specify :token:`cid:CidValue` for the :token:`src` attribute, where :token:`CidValue` is the value pass through the :token:`_Cid` argument. Returns 1 if successful, or 0 otherwise.
-   
-    :param _MessageId: message id of the email message
-    :param _Path: file path to the attachment to add to the email message.
-    :param _Cid: id of the attachment used in the HTML body to refer to the attachment.
-
-.. js:function::  email::AddFileAttachment(_MessageId,_Path)
-
-    Adds a file attachment to the email message. Returns 1 if successful, or 0 otherwise.
-    
-    :param _MessageId: message id of the email message
-    :param _Path: file path to the attachment to add to the email message.
-    
-.. js:function::  email::SendMail(_MessageId,_ErrorMessage,_SendToFile)
-
-    Sends the email message via the SMTP server specified through the :js:func:`email::SetServer` function. Returns 1 if successful, or 0 otherwise.
-    
-    :param _MessageId: message id of the email message
-    :param _ErrorMessage: output string argument holding the error message when the function call fails.
-    :param _SendToFile: optional argument to specify whether the message created will be saved in a file :token:`mail.dump` instead of being sent to the specified SMTP server (default 0). Useful for debugging the generated email message.
-
-.. js:function::  email::CloseMail(_MessageId)
-
-    Deletes the internal email message object. After call this function the email message can no longer be used.
-    
-    :param _MessageId: message id of the email message
-
