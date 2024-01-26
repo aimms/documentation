@@ -1,7 +1,7 @@
 Introduction
 ============
 
-Data warehouses offer a central storage location for large-scale coorporate data with the specific aim to enable smarter decision making through analytics workloads such as machine learning, deep learning or optimization. Contrary to regular transactional database applications that insert new, or modify existing, database records one at a time, analytics workloads typically require bulk data extracted from the data warehouse to operate on, and the solutions to business problems they produce similarly insert bulk data back into the data warehouse. 
+Data warehouses offer a central storage location for large-scale corporate data with the specific aim to enable smarter decision making through analytics workloads such as machine learning, deep learning or optimization. Contrary to regular transactional database applications that insert new, or modify existing, database records one at a time, analytics workloads typically require bulk data extracted from the data warehouse to operate on, and the solutions to business problems they produce similarly insert bulk data back into the data warehouse. 
 
 Data warehouses support such workflows by offering their storage solutions with integrated compute capabilities, that can efficiently extract bulk data from, or insert bulk data into the data warehouse. For the data transfer with applications they typically use compact open-source data formats such as Parquet, AVRO or ORC.  
 
@@ -59,7 +59,7 @@ If you're using an `external OAuth identity provider to access a Snowflake insta
 
 Alternatively, if you're using `key-pair authentication to access a Snowflake instance <https://docs.snowflake.com/en/developer-guide/sql-api/authenticating#using-key-pair-authentication>`_, you need to provide the path to the file containing the private RSA key, the finger print of the public key, as well as the Snowflake account id and user you wish to authorize through the key-pair. In either case, the library will take care of adding the appropriate bearer token and authorization headers to your requests, to authorize it using your selected method. 
 
-For accessing the Snowflake data warehouse, you need to specifiy your assigned role in Snowflake, the warehouse to use for executing your SQL statements, as well as the database name and schema in which the tables live you want to access. 
+For accessing the Snowflake data warehouse, you need to specify your assigned role in Snowflake, the warehouse to use for executing your SQL statements, as well as the database name and schema in which the tables live you want to access. 
 
 Finally, you need to configure the account information of the DLS storage account you wish to use as the intermediate storage area between you AIMMS application and your Snowflake data warehouse. If you're running the AIMMS application in the AIMMS cloud, then the account information for the integrated DLS account is already available in the AIMMS session, and you do not need to provide this. If you're testing from within the AIMMS IDE on your desktop, you do need to provide this information.
 
