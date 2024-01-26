@@ -13,6 +13,22 @@ AIMMS 24.1
 
 
 
+AIMMS 24.1.3 Release (January 26, 2024 - build 24.1.3.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In the Scalar widget, trying to slice a non-scalar parameter with its unit displayed to a scalar value (using 'Fixed Element'), could lead to a crash.
+
+--------------
+
+
+
+
+
 AIMMS 24.1.2 Release (January 24, 2024 - build 24.1.2.3).
 ------------------------------------------------------------------------------------------
 
