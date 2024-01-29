@@ -340,7 +340,7 @@ Remarks
   Translation files are described in more details in :doc:`multi-language`
 
 Starting from AIMMS 24.2 the WebUI library contains a parameter :any:`webui::RequestQueueSize` defined as the cardinality of the set :any:`webui::Requests`, which is present in the public Interface of the WebUI library. 
-So, its value may be accessed from outside the library and may be used to check from within the AIMMS language whether there is currently a dialog openned by a call to the procedure :any:`webui::RequestPerformWebUIDialog`.
+So, its value may be accessed from outside the library and may be used to check from within the AIMMS language whether there is currently a dialog opened by a call to the procedure :any:`webui::RequestPerformWebUIDialog`.
 This way the app developer may prevent another call to the procedure :any:`webui::RequestPerformWebUIDialog` while a dialog is already open in the WebUI.
 
 OpenDialogPage
