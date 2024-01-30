@@ -21,7 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  Multidimensional arguments in the multi variants of the GMP routines, e.g., GMP::Column::Freeze, were not correctly handled anymore.
+-  Multidimensional arguments in the multi variants of the GMP routines, e.g., GMP::Column::FreezeMulti, were not handled correctly anymore.
 -  Changing the dimension of an identifier in the IDE could lead to a crash instead of a proper error message.
 
 --------------
