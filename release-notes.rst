@@ -13,6 +13,23 @@ AIMMS 24.1
 
 
 
+AIMMS 24.1.4 Release (January 30, 2024 - build 24.1.4.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Multidimensional arguments in GMP::Multi.. functions were not correctly handled anymore.
+-  Changing the dimension of an identifier in the IDE could lead to a crash instead of a proper error message.
+
+--------------
+
+
+
+
+
 AIMMS 24.1.3 Release (January 26, 2024 - build 24.1.3.2).
 ------------------------------------------------------------------------------------------
 
