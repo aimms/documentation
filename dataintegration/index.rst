@@ -19,7 +19,7 @@ Native options for storing data on the AIMMS Cloud
 
 There are three AIMMS-native ways to store data within your AIMMS Cloud (all included in the above decision tree):
 
-#.	RECOMMENDED: Every AIMMS Cloud is by default equipped with an `Azure Data Lake Storage Gen2 (ADLS) <https://documentation.aimms.com/dataexchange/dls.html>`_ that you can use freely to store data on and exchange data with.
+#.	RECOMMENDED: Every AIMMS Cloud is by default equipped with an `Azure Data Lake Storage Gen2 (ADLS) <https://documentation.aimms.com/dataexchange/dls.html>`_ that you can use to store data on and exchange data with.
 #.	Another option is to equip your cloud account with `a MySQL database <https://documentation.aimms.com/cloud/db-config.html>`_ for an additional fee.
 #.	Your AIMMS Cloud has a so called `PRO Storage <https://documentation.aimms.com/pro/pro-data-man.html>`_ available on which (case) files can be saved.
 

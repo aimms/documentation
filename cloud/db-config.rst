@@ -39,7 +39,7 @@ Requesting a VPN Connection
 ----------------------------------------------------
 Before setting up the VPN, be sure you have the following information available. Typically this requires the involvement of your IT department:
 
- * **The Local Adress Prefix**
+ * **The Local Address Prefix**
  
    The IP address ranges that will be routed through the VPN gateway to the VPN device (e.g. 10.0.0.0/24)
    
@@ -161,7 +161,7 @@ Other settings are:
 	
 Database Tunnel Application
 ---------------------------
-We have a simple AIMMS Desktop Application available ('DB Tunnel App') which allows you to open up/close a local connection to the AIMMS Cloud App database. All you need to do is publish this application with **AIMMS Version 4.66.2 or higher** on your PRO Portal and configure the Tunnel from the `Configuration <https://manual.aimms.com/pro/admin-config-1.html#tunnels>`_ menu. See also `Tunneling Support <https://manual.aimms.com/pro/tunneling.html>`_ for more details on Tunnels.
+We have a simple AIMMS Desktop Application available for Windows ('DB Tunnel App') which allows you to open up/close a local connection to the AIMMS Cloud App database. All you need to do is publish this application with **AIMMS Version 4.66.2 or higher** on your PRO Portal and configure the Tunnel from the `Configuration <https://manual.aimms.com/pro/admin-config-1.html#tunnels>`_ menu. See also `Tunneling Support <https://manual.aimms.com/pro/tunneling.html>`_ for more details on Tunnels.
 
 For example, if your app database is called ``example.db.aimms.cloud`` then your Tunnel configuration and DB Tunnel App would be as shown:
 
