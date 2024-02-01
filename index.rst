@@ -70,4 +70,3 @@
    release-notes
    pro-release-notes
    deprecation-table
-   migration-a2a/index

@@ -23,9 +23,10 @@ The database is only accessible from within an AIMMS session. If you want to acc
 
 The picture below shows the conceptual network topology:
 
-.. image:: images/AIMMS-Cloud-VPN.png
+.. image:: images/general-VPN-architecture.png
     :align: center
  
+
 When a VPN connection has been set up, sessions cannot reach anything on premise, because the sessions are configured to only have a route available to their appropriate Customer Single Tenant Private /26 network. 
 
 Similarly, the Tunnel Service and the database tunnel application only allows access to the database of the appropriate customer. Access to that tunnel service is arranged via PRO user/group management.
@@ -210,3 +211,11 @@ To use tunnels in your AIMMS model, please check
 	aes
 	cbc
 	sha
+	GCMAES
+	ECP
+	ipsec
+	des
+	pfs
+	md
+	IKE
+	
