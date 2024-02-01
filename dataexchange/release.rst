@@ -13,7 +13,7 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
-24.1.1.13 [01-02-2024]
+24.0.0.13 [01-02-2024]
 	- API service would not work with AIMMS 24 because of missing DLL
 	- An HTTP file request could fail when a previous for the same file was not completed
 	- Regression: labels for a calendar subset would not be shown in Excel, where they should have been shown as date fields 
