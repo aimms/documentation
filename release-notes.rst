@@ -13,6 +13,27 @@ AIMMS 24.1
 
 
 
+AIMMS 24.1.5 Release (February 02, 2024 - build 24.1.5.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We downgraded the MySQL ODBC driver used in the AIMMS cloud applications from 8.1 to 8.0 in order to work around backwards compatibility issues with database schemas relying on default settings of the MySQL ODBC driver.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Resizing column widths in a WebUI Table on the cloud where the 'UI Editable' option was set to false, did not have any effect anymore.
+
+--------------
+
+
+
+
+
 AIMMS 24.1.4 Release (January 30, 2024 - build 24.1.4.1).
 ------------------------------------------------------------------------------------------
 
