@@ -26,7 +26,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  Resizing column widths in a WebUI Table on the cloud where the 'UI Editable' option was set to false, did not have any effect anymore.
+-  When the setting 'UI Editable' was set to false, cloud users could no longer resize their table columns.
 
 --------------
 
