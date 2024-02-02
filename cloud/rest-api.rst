@@ -22,6 +22,11 @@ We support following services(functionality) through the AIMMS PRO REST API:
 	
 The full OpenAPI specification of the AIMMS PRO REST API itself can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v1/``. 
 
+.. note::
+
+	Starting with *PRO 24.2.1*, the latest version *v2* of AIMMS PRO REST API covers all the services(functionality) provided by version v1, this will allow you to generate single and complete OpenAPI interface and you do not have to worry about changing your client applications because a version is end-of-life. Please use ``https://[account-name].aimms.cloud/pro-api/v2/`` for full OpenAPI specification.
+
+
 API Keys and Scopes
 -------------------
 
