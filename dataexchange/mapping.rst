@@ -1,7 +1,7 @@
 Data Exchange Mappings
 **********************
 
-Each Data Exchange mapping is an XML file describing the structure of particular formats (like JSON, XML, CSV, Excel or Parquet) being mapped. Below you find the elements specific for each of the mapping types. The attributes that you can specify for each element are shared. In `this How-To article <https://how-to.aimms.com/Articles/534/534-dealing-with-the-different-data-types.html>`__ you can find some simple examples on the usages.
+Each Data Exchange mapping is an XML file describing the structure of particular formats (like JSON, XML, CSV, Excel or Parquet) being mapped. Below you find the elements specific for each of the mapping types. The attributes that you can specify for each element are shared. In `this How-To article <https://how-to.aimms.com/Articles/534/534-dealing-with-the-different-data-types.html>`__ you can find some simple examples on the usages. `Here <https://documentation.aimms.com/dataexchange/api.html#methods-for-reading-and-writing-data>`__ you can find the functions related to mappings.
 
 JSON Mapping elements
 =====================
