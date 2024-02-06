@@ -13,6 +13,22 @@ AIMMS 24.1
 
 
 
+AIMMS 24.1.6 Release (February 06, 2024 - build 24.1.6.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We updated the MySQL ODBC driver to 8.0.29. This version addresses an incorrect retrieval of TEXT field information that was introduced with the earlier 8.0.19 driver in the AIMMS 24.1.5 release.
+
+--------------
+
+
+
+
+
 AIMMS 24.1.5 Release (February 02, 2024 - build 24.1.5.3).
 ------------------------------------------------------------------------------------------
 
