@@ -13,6 +13,27 @@ AIMMS 24.1
 
 
 
+AIMMS 24.1.7 Release (February 07, 2024 - build 24.1.7.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In very specific situations, making a structural change to your AIMMS model in developer mode, could lead to AIMMS crashing.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The Gantt-chart's Job labels (the y-axis) now respect all the margins of the widget and will no longer be truncated.
+
+--------------
+
+
+
+
+
 AIMMS 24.1.6 Release (February 06, 2024 - build 24.1.6.2).
 ------------------------------------------------------------------------------------------
 
