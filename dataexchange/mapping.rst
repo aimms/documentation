@@ -95,6 +95,7 @@ The available mapping attributes are:
 * base64-encoded
 * read-normalize
 * write-normalize
+* color
 
 The name and alt-name attributes
 --------------------------------
@@ -213,6 +214,18 @@ With the ``value`` attribute you can specify that, when writing a file, the valu
 .. note::
 
         Any value-holding mapping element may have only one of the ``binds-to``, ``maps-to`` or ``value`` attributes specified. 
+
+The color attribute
+-------------------
+
+For Excel workbooks, you can set the color of the tab for a sheet, or the color of a column header in a sheet, by setting the ``color`` attribute of a ``TableMapping`` or a ``ColumnMapping`` respectively. The ``color`` attribute will be ignored by any other mapping than an ``AimmsExcelMapping``. The value of the ``color`` attribute can be one of the colors
+
+* darkblue
+* orange
+* gray
+* yellow
+* lightblue
+* green
 
 The included-mapping attribute
 ------------------------------
