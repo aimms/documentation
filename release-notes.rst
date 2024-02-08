@@ -13,6 +13,22 @@ AIMMS 24.1
 
 
 
+AIMMS 24.1.8 Release (February 08, 2024 - build 24.1.8.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In some situations, it could happen that a WebUI app hanged (and remained 'Busy' forever).
+
+--------------
+
+
+
+
+
 AIMMS 24.1.7 Release (February 07, 2024 - build 24.1.7.2).
 ------------------------------------------------------------------------------------------
 
