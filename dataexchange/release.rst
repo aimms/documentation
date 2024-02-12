@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.1.1.2 [12-02-2024]
+	- Automatically generated mappings via :js:func:`dex::WriteToFile` will now take the ``name-binds-to`` extra attribute value into account in determining and checking the row dimension of a generated table mapping
+	
 24.1.1.0 [08-02-2024]
 	- Add support for colored sheet tabs and column headers in Excel mappings
 
