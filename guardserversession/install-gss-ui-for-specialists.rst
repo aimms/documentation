@@ -1,11 +1,16 @@
 Install UI of GuardServerSession Library
 =========================================
 
-It contains a set of instructions to create the user interface for specialists working with the ``GuardServerSession`` library. 
+.. image:: images/preview-install-main-ui-for-specialists.png
+    :align: center
+
+It contains a set of instructions to create the user interface, with above preview, 
+for specialists working with the ``GuardServerSession`` library. 
 
 After adding the library to your project, you can start building a user interface to that library in WebUI. 
 
-The rest of this article details the WebUI page ``GSS Session History Management`` in this project and how you can replicate this functionality in your application. 
+The rest of this article details the WebUI page ``GSS Session History Management`` in this project and 
+how you can replicate this functionality in your application. 
 
 Sidepanel
 ----------
@@ -72,22 +77,22 @@ Below are the widgets recommended to build a user interface for the ``GuardServe
 
 #.  Table ``ErrorWarningMessageTable``, titled: ``gss::sp_titleErrorWarningMessagesTable``
 
-    #. Contents: 
+    #.  Contents: 
 
         #.  ``gss::ep_shownJobErrorSeverity``
         #.  ``gss::sp_shownJobErrorMoments``
         #.  ``gss::sp_shownJobErrorMessages``
 
-    #. Pivoting: 
+    #.  Pivoting: 
 
         #.  Rows: ``gss::i_jobErrorMessageNumber``
         #.  Cols: ``<Identifiers>``
 
-    #. Store focus: 
+    #.  Store focus: 
 
         ``gss::i_jobErrorMessageNumber`` to ``gss::ep_errorWarningSelectedNessage``
 
-    #. Widget Extensions:
+    #.  Widget Extensions:
 
         #. Widget actions: ``gss::sp_widgetActionMessageList``
 
@@ -97,7 +102,7 @@ Below are the widgets recommended to build a user interface for the ``GuardServe
 
 #.  Table ``JobProfilerData``, titled: ``sp_titleProfilerOverview``
 
-    #. Contents: 
+    #.  Contents: 
 
         #.  ``gss::p_shownJobProfilerHits``
 
@@ -105,15 +110,15 @@ Below are the widgets recommended to build a user interface for the ``GuardServe
 
         #.  ``gss::p_shownJobProfilerNetto``
 
-    #. Store Focus:
+    #.  Store Focus:
 
         ``IndexIdentifiers`` --> ``gss::ep_profilerDataSelectedIdentifier``
 
-    #. Identifier Settings > Set slicing per index
+    #.  Identifier Settings > Set slicing per index
 
         ``gss::i_lineNumber`` --> fixed element ``'0'``
     
-    #. Widget Extensions:
+    #.  Widget Extensions:
 
         #.  Widget actions: ``gss::sp_widgetActionIdentifierProfiler``
     
@@ -121,26 +126,25 @@ Below are the widgets recommended to build a user interface for the ``GuardServe
 
     Move this widget to Area B of the grid page
 
-
 #.  Table ``ErrorWarningStack``, titled: ``gss::sp_titleStackMessage``
 
-    #. Contents:
+    #.  Contents:
 
         #.  ``gss::ep_shownJobErrorNodes``
         #.  ``gss::ep_shownJobErrorAttributes``
         #.  ``gss::p_shownJobErrorLines``
 
-    #. Identifier settings:
+    #.  Identifier settings:
 
         For all three, slice type index ``gss::i_jobErrorMessageNumber`` to element parameter ``gss::ep_errorWarningSelectedMessage``
 
-    #. no decimals: 0
+    #.  no decimals: 0
 
-    #. Store Focus:
+    #.  Store Focus:
 
         ``gss::i_stackPosition`` --> ``gss::ep_stackPos``
 
-    #. Widget Extensions:
+    #.  Widget Extensions:
 
         #.  Widget actions: ``gss::sp_widgetActionMessageStack``
         #.  Item actions: ``gss::sp_itemActionMessageStack``
@@ -149,7 +153,7 @@ Below are the widgets recommended to build a user interface for the ``GuardServe
 
 #.  Table ``LineBasedProfilerData``, titled: ``gss::sp_titleProfilerDetail``
 
-    #. Contents: 
+    #.  Contents: 
 
         #.  ``gss::p_shownJobProfilerHits``
 
@@ -157,7 +161,7 @@ Below are the widgets recommended to build a user interface for the ``GuardServe
 
         #.  ``gss::p_shownJobProfilerNetto``
 
-    #. Identifier Settings - Set slicing per index
+    #.  Identifier Settings - Set slicing per index
 
         index ``IndexIdentifiers`` --> element parameter ``gss::ep_profilerDataSelectedIdentifier``
 

@@ -1,18 +1,22 @@
 Install GSS interface for end-users
 =====================================
 
-In this article, it is explained how to create the dialog page in which the end-user can submit an incident report.
+.. image:: images/preview-install-gss-interface-for-end-users.png
+    :align: center
+
+In this article, it is explained how to create the above dialog page in which the end-user can submit an incident report.
 
 #.  Create a dialog page, preferably below the page GSS Session History Management, named ``GSS Incident report``.
     The set ``webui::AllDialogPages`` should now contain ``gss_incident_report``.
 
     If not, you may want to change the ``webui.json`` file by replacing the new element you see with ``gss_incident_report``.
 
-#.  The size of the dialog should be ``large``.
+#.  The size of the dialog should be ``large``, and you can choose layout 2:
 
-#.  First create a table ``ErrorWarningTable``, titled "Errors and warnings encountered".
+	.. image:: images/layout-2.png
+		:align: center
 
-    size 8 cols 1 rows
+#.  First create a table ``ErrorWarningTable``, titled "Errors and warnings encountered" in Area A.
 
     Contents:
 
@@ -28,9 +32,7 @@ In this article, it is explained how to create the dialog page in which the end-
 
     *   Columns: ``<IDENTIFIER-SET>``
 
-#.  Create a scalar widget, named  ``IncidentSummary``
-
-    #.  size: 4 columns, 2 rows.
+#.  Create a scalar widget, named  ``IncidentSummary`` in Area B.
 
     #.  contents: ``gss::sp_incidentSummarySuppliedByEndUser``.
 
@@ -42,13 +44,13 @@ In this article, it is explained how to create the dialog page in which the end-
 
     #.  Title to ``gss::sp_incidentSummaryTitle``
     
-#.  Add a download widget named ``downloadIncidentSummary`` (4 columns, 1 row)
+#.  Add a download widget named ``downloadIncidentSummary`` in Area C.
 
     #.  Procedure ``gss::pr_downloadIncidentSummary``
     
     #.  Title:  ``gss::sp_titleDowloadIncidentSummary``
     
-#.  Add a button named ClearDataSessionErrors (4 columns, 1 row)
+#.  Add a button named ClearDataSessionErrors in Area C.
 
     #.  Procedure: ``gss::pr_clearDataSessionErrors``
 
