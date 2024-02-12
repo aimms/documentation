@@ -783,6 +783,31 @@ There are different combinations of the date and time picker which are controlle
 When the Unit is set to Century, Year, Month or Day, the time picker is not displayed.
 
 
+Editing in Sorted Tables
+------------------------------------
+
+As described above, the Table widget allows sorting on rows and columns. Editing in a sorted table could potentially lead to the situation that the ordering of the table changes because of the edits you make. For example, consider the following table, which is sorted on the 'NumberOfItemsOrdered' column:
+
+.. Image:: images/Sorted-table-before-edit.png
+    :align: center
+
+Suppose you would change the value of the 'NumberOfItemsOrdered' cell for 'Mary' to 9 here. Because of the sorting on this column, the whole 'Mary' row would suddenly move 2 rows down, to keep the sorting correct. If the user is not aware of this, he would end up editing cells for the wrong row(s) afterwards. The chance of this happening increases with the size and complexity of the table at hand (the above example is a very simple one, where the user would probably spot the problem).
+
+To prevent situations as described here, the WebUI will *not* automatically update the sorting of the table. Instead, a new icon will appear in the title bar, as shown here:
+
+.. Image:: images/Sorted-table-after-edit.png
+    :align: center
+
+Hovering on the icon shows the tooltip that is displayed in the image. As you can see, the 'Mary' row remains in the same position as before, even though based on the sorting it should be 2 lines lower. By clicking on the new icon, the sorting will be re-applied and the row moved to the expected position. After doing so, the icon will disappear again and a small banner will be shown on the bottom of the  table:
+
+.. Image:: images/Sorted-table-after-sort-update.png
+    :align: center
+
+
+There is a way to prevent this behavior and to force the automatic updating of the sorting, should you have good reasons for that. It is described in the `Advanced section <widget-options.html#advanced>`_ of the widget options.
+
+
+
 .. spelling:word-list::
 
     IdentifierElementText

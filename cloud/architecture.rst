@@ -3,33 +3,29 @@ General Architecture
 
 To provide you with a better understanding of what's going on in an AIMMS Cloud Platform setup in terms of communication between the various components, we created the following schema. 
 
-.. image:: images/general-architecture-cloud_v1.jpg
+.. image:: images/gen-cloud-architecture.png
     :align: center
-
+	
+[#f1]_ icons attributions in footnotes
 
 * `Overview from left to right <#overview-from-left-to-right>`_
 * `Left: the users view <#the-users-view>`_
-* `Mid: the provisions given <#the-provisions-given>`_
-* `Right: the resources <#the-resources>`_
-* `High availability and failover <#high-availability-and-failover>`_
-
+* `Mid: the AKS cluster <#the-AKS-cluster>`_
+* `Right: customer specific services <#customer-specific-services>`_
 
 Overview from left to right
----------------------------
+----------------------------
 
-This discuss this overview as it corresponds by going from the user view to the realization view.
+1.	On the left we have the AIMMS PRO PORTAL in a browser.  Via this portal, a user can logon and subsequently launch either a WebUI data session or a Desktop client session. There is also the `AIMMS PRO REST API <https://documentation.aimms.com/cloud/rest-api.html>`_. Any call to this API goes to our AKS cluster.
+2.	In the middle we have our `AIMMS Azure Kubernetes Service (AKS) cluster <https://azure.microsoft.com/en-us/products/kubernetes-service>`_, which provides high availability, automatic scaling, and robust security. 
+3.	On the right we have the customer specific services; some default, some optional.
 
-1.	On the left we have the AIMMS PRO PORTAL in a browser.  Via this portal, a user can logon and subsequently launch either a WebUI data session or a Desktop client session.  
-2.	In the middle we have `Amazon ELB <https://aws.amazon.com/elasticloadbalancing/>`_, which provides high availability, automatic scaling, and robust security.
-3.	On the right we have the AIMMS PRO Environment consist of 4 components (portal, backend, user sessions and solve sessions) fully managed by AIMMS Cloud Platform which uses `Amazon ECS <https://aws.amazon.com/ec2>`_
-4.	On the far right we have 2 Amazon Resources: For AIMMS PRO Storage we use `Amazon S3 <https://aws.amazon.com/s3/>`_ and for AIMMS PRO Administrative database we use `Amazon RDS <https://aws.amazon.com/rds>`_.
-
-The users view
---------------
+The users' view
+-----------------
 
 Let’s zoom in to the left and detail the user requirements met.
 
-The user starts with the PRO portal via a browser such as Chrome or Internet Explorer 8+. At this portal, the following actions are supported:
+The user starts with the PRO portal via a browser. When logged in to this portal, the following actions are supported:
 
 *	Uploading an AIMMS version. These versions are signed by AIMMS B.V.   
 *	Uploading an AIMMS end-user application, a so-called app.  An app is created from within the AIMMS development environment from an AIMMS project by using SSL based encryption of the project.  
@@ -38,34 +34,35 @@ The user starts with the PRO portal via a browser such as Chrome or Internet Exp
 *	Finally, the packages, apps, and running jobs are managed via this portal.
 
 
-The provisions given
+The AKS cluster
 --------------------
 
-Let’s zoom in on the middle and detail provisions given:
+The AIMMS Cloud Platform runs on an Azure Kubernetes Service (AKS) cluster, designed based on our and our users' needs with functionalities deployed in docker containers. Each session (that is; a user, solver and/or task session) starts in its own pod. We auto-scale nodes whenever needed. 
 
-For the AIMMS Cloud Platform the AIMMS PRO application is divided into smaller components: portal, backend, user sessions and solve sessions, each run in a separate Docker container. These containers can be deployed across multiple virtual servers, thus making the application highly scalable.
+Customer specific services
+----------------------------
 
-AIMMS Cloud Platform uses `AWS Elastic Container Service <https://aws.amazon.com/ec2>`_ to run these Docker containers, enabling rapid scale-up and scale-down by adding or removing virtual servers (AWS EC2s) from this cluster. 
-
-The resources
--------------
-
-Third let’s zoom in to the far right and detail the resources.
-
-
-The AIMMS Cloud Platform makes use of 2 Amazon resources for storage and admin database:
-
-* `Amazon S3 <https://aws.amazon.com/s3/>`_: The AIMMS packages, the apps, and cases (binary compressed data snapshots) are stored. 
-* `Amazon RDS <https://aws.amazon.com/rds>`_:  AIMMS Cloud Platform use this resource to run PRO Admin database which is a PostgreSQL databases where administrative data concerning, users, apps, access rights and so forth are stored.
+Every cloud account is by default equipped with an Azure Data Lake Gen2 Storage account and a customer specific Azure Blob Storage. Optionally we can add `a MySQL database <https://documentation.aimms.com/cloud/db-config.html>`_. We also use a PostgreSQL database for administrating our cloud accounts.
 
 High availability and failover
 ------------------------------
 
-The AIMMS Cloud Platform itself is designed for high availability and failover. 
+The AIMMS Cloud Platform itself is designed for high availability and failover. `Find more information about our platform and its (information) security on this page <https://documentation.aimms.com/infosec/cloud-platform-azure.html>`_.
 
-AIMMS Cloud Platform uses AWS Regions to allow our customers to manage network latency and meet regulatory compliance. Data stored in a specific region is not replicated outside that region. Regions are designed with availability in mind and consist of at least two, often more, Availability Zones. Availability Zones are designed for fault isolation. They are connected to multiple Internet ServiceProviders (ISPs) and different power grids.
+.. rubric:: Footnotes
 
-AIMMS Cloud Platform uses  `Amazon EC2 <https://aws.amazon.com/ec2>`_ for obtaining computing resources and this service spreads the work across multiple Availability Zones in one Region, reducing the impact of the failure of a single Availability Zone. 
+.. [#f1] `Firewall icon created by smashingstocks - Flaticon <https://www.flaticon.com/free-icons/firewall>`_
+	// `Computer, data lake, data warehouse & database icon created by Freepik - Flaticon <https://www.flaticon.com/free-icons/database>`_
+	// `Api icon created by berkahicon - Flaticon <https://www.flaticon.com/free-icons/api>`_
+	// `Load balancer icons created by Flat Icons - Flaticon <https://www.flaticon.com/free-icons/load-balancer>`_
+	// `Server icons created by RaftelDesign - Flaticon <https://www.flaticon.com/free-icons/server>`_
 
-`Amazon EC2 <https://aws.amazon.com/ec2>`_ operates a cluster of virtual servers (EC2s) across which the workload (Docker containers) is spread. Failure of one of the servers will cause the workload (Docker containers) on that server to be re started automatically on another server in the cluster. At worst customers may have to restart their app or solve session in case of server failure. 
 
+.. spelling:word-list::
+
+    AKS
+    end-user
+    IE
+	MySQL
+	PostgreSQL
+	docker

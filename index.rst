@@ -34,14 +34,14 @@
                 <div>Documentation for the AIMMS PRO deployment platform</div>
             </a>
             <a class="box_home_page" href="cloud/index.html">
-                <img alt="cloud" src="_images/cloud-checked-32.png">
-                <h1>Cloud Platform</h1>
-                <div>Documentation for the AIMMS Cloud deployment platform</div>
-            </a>
-            <a class="box_home_page" href="cloud/index.html">
-                <img alt="cloud" src="_images/cloud-checked-32.png">
+                <img alt="dataintegration" src="_images/cloud-checked-32.png">
                 <h1>Cloud Platform</h1>
                 <div>Documentation for the AIMMS Cloud platform</div>
+            </a>
+            <a class="box_home_page" href="dataintegration/index.html">
+                <img alt="cloud" src="_images/cloud-checked-32.png">
+                <h1>Data integration</h1>
+                <div>Documentation for data integration with AIMMS</div>
             </a>
             <a class="box_home_page" href="library-repository.html">
                 <img alt="library" src="_images/library-bulleted-list-32.png">
@@ -63,10 +63,10 @@
    aimms_modeling
    webui/index
    pro/index
-   cloud/index   
+   cloud/index  
+   dataintegration/index   
    library-repository
    infosec/index
    release-notes
    pro-release-notes
    deprecation-table
-   migration-a2a/index

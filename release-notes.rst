@@ -8,8 +8,185 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 24.1
+#############
+
+
+
+AIMMS 24.1.8 Release (February 08, 2024 - build 24.1.8.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In some situations, it could happen that a WebUI app hanged (and remained 'Busy' forever).
+
+--------------
+
+
+
+
+
+AIMMS 24.1.7 Release (February 07, 2024 - build 24.1.7.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In very specific situations, making a structural change to your AIMMS model in developer mode, could lead to AIMMS crashing.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The Gantt-chart's Job labels (the y-axis) now respect all the margins of the widget and will no longer be truncated.
+
+--------------
+
+
+
+
+
+AIMMS 24.1.6 Release (February 06, 2024 - build 24.1.6.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We updated the MySQL ODBC driver to 8.0.29. This version addresses an incorrect retrieval of TEXT field information that was introduced with the earlier 8.0.19 driver in the AIMMS 24.1.5 release.
+
+--------------
+
+
+
+
+
+AIMMS 24.1.5 Release (February 02, 2024 - build 24.1.5.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We downgraded the MySQL ODBC driver used in the AIMMS cloud applications from 8.1 to 8.0 in order to work around backwards compatibility issues with database schemas relying on default settings of the MySQL ODBC driver.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When the setting 'UI Editable' was set to false, cloud users could no longer resize their table columns.
+
+--------------
+
+
+
+
+
+AIMMS 24.1.4 Release (January 30, 2024 - build 24.1.4.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Multidimensional arguments in the multi variants of the GMP routines, e.g., GMP::Column::FreezeMulti, were not handled correctly anymore.
+-  Changing the dimension of an identifier in the IDE could lead to a crash instead of a proper error message.
+
+--------------
+
+
+
+
+
+AIMMS 24.1.3 Release (January 26, 2024 - build 24.1.3.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  In the Scalar widget, trying to slice a non-scalar parameter with its unit displayed to a scalar value (using 'Fixed Element'), could lead to a crash.
+
+--------------
+
+
+
+
+
+AIMMS 24.1.2 Release (January 24, 2024 - build 24.1.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  UnitParameters without a specific Quantity specified, in combination with unit conversions that use identifiers with a definition, sometimes caused errors because the identifiers used in the unit conversion were not evaluated at the right time.
+-  The NodelockManager.dll file was missing in the installation.
+
+--------------
+
+
+
+
+AIMMS 24.1.1 Release (January 23, 2024 - build 24.1.1.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  After almost a hundred AIMMS 4 Feature Releases, we say goodbye to the existing way of versioning our releases. From now on, we will use a year-based system, making it easier for you to quickly get an idea of when a particular AIMMS was released. Needless to say that we will start with AIMMS 24.1.1. Aside from the 24, the numbering system will not change: the next Hotfix Release will be AIMMS 24.1.2, and the next Feature Release will be AIMMS 24.2.1. Once we hit 2025, AIMMS 25.1.1 will be the first Feature Release in that year. For details on compatibility between AIMMS, PRO and AIMMS Library versions, please see `this Community post <https://community.aimms.com/aimms-pro-cloud-platform-43/new-24-aimms-libraries-and-aimms-pro-versions-1604>`__.
+-  AIMMS 24 has been compiled using newer compilers. Next to that, we did an update of all open source components of AIMMS and we modernized our build system so that we can more easily keep up with automatically updating these open source components to their latest versions.
+-  Knitro 14.0 has been added.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In rare cases, specifying the solver in the solve statement would result in an incorrect solver being used and could result in a crash.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  The Widget Named Views feature has been extended with a `template mechanism <https://documentation.aimms.com/webui/widget-options.html#managing-derived-views>`__, to simplify the management of multiple Widget Named Views for a widget.
+-  The Combination Chart widget type, initially introduced as an experimental feature in AIMMS 4.84, has now been transitioned to a general availability feature.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The widget names in the Add Widget wizard and the Change Type option editor have been changed from technical names to user-friendly labels (for example: "Gantt Chart" instead of the previous "ganttchart").
+
+--------------
+
+
+
+#############
 AIMMS 4.98
 #############
+
+
+AIMMS 4.98.8 Release (January 18, 2024 - build 4.98.8.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When applying a custom (CSS) theme, for an application published on PRO, that attempted to set a more complex background property, you could see the new definition being broken because of (incorrect) silent path updates on the WebUI side. For example, definitions that set multiple background images, or a background image and a 'fallback' color using RGB values, would break.
+
+--------------
+
+
 
 
 
@@ -244,11 +421,13 @@ AIMMS 4.97.6 Release (November 17, 2023 - build 4.97.6.1).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
---------------
+Resolved AIMMS Issues
++++++++++++++++++++++++++
 
 -  When accidentally passing a Set to a function argument that is expecting a String, AIMMS will sometimes do a conversion that is most of the time not what you would expect, as it will create a string containing all the element names of that set. This string can become pretty large and for example the function StringToElement could not deal with such a large string, causing a crash. StringToElement has now been adapted to not crash anymore on such a large string.  The rather strange conversion of a Set to a string is already a deprecated 'feature' and is only still applied in expressions that are not yet accepted by the new compiler.
 -  Unit parameters with a definition should never trigger a warning like: "Warning: The unit parameter "upX" is not initialized (default values are used)."
 
+--------------
 
 
 
@@ -10737,3 +10916,4 @@ Improvements
   aimms
   .aimms
 	RefreshAllWidgets
+  ganttchart
