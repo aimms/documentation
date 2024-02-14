@@ -8,6 +8,32 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 24.2
+#############
+
+
+
+AIMMS 24.2.1 Release (February 14, 2024 - build 24.2.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  A new function "RequestQueueSize" has been added to the public interface of the WebUI library. Amongst others, you can use this function to find out whether a dialog is open in WebUI. For details, see `the documentation <https://documentation.aimms.com/webui/library.html>`__.
+-  The dropdown list for selecting an element parameter for the Store Focus option of a widget has been improved. Now this list only shows the entries which are compatible with the corresponding index.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When saving a case using the Data Manager in WebUI, execution errors during updating identifier definitions could lead to a saved case which was non-shareable to the end users. In these situations, AIMMS now saves a case without the defined identifiers.
+-  The Multiselect widget and the (compact) Scalar widget got some involuntary scrollbars after Google released Chrome 121. Along with the remediation of this, we improved the overall consistency of scrollbar sizing and colors too.
+
+--------------
+
+
+#############
 AIMMS 24.1
 #############
 
