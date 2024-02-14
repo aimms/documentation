@@ -18,6 +18,12 @@ AIMMS 24.2.1 Release (February 14, 2024 - build 24.2.1.0).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Non-default Gurobi option settings can now be written to the Gurobi log by enabling the new Gurobi 11.0 option 'Parameter display' (default 'yes'). The default for the CPLEX option 'Parameter display' has been changed to 'yes' for CPLEX 22.1.
+
 WebUI Improvements
 +++++++++++++++++++++++++
 
