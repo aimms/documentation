@@ -126,7 +126,7 @@ With these settings, you can again call the function :js:func:`dex::oauth::AddBe
 
 .. note::
 	
-	The OAuth2 Authorization Code flow support will work for AIMMS sessions running locally on the desktop for all AIMMS versions. For WebUI session running from an on-premise PRO server or from the AIMMS Cloud Platform, AIMMS version 4.84+ and PRO version 2.41+ are required to support the redirect URLs to be routed back to the AIMMS session backing your WebUI session. Also, the use of OAuth requires the use of HTTPS on your on-premise PRO server. 
+	The OAuth2 Authorization Code flow support will work for AIMMS sessions running locally on the desktop for all AIMMS versions. For WebUI session running from an on-premise PRO server or from the AIMMS Cloud Platform, AIMMS version 4.84+ and PRO version 2.41+ are required to support the redirect URLs to be routed back to the AIMMS session backing your WebUI session. Also, the use of OAuth requires the use of HTTPS on your on-premise PRO server, and the library will assume HTTPS traffic on port 443. If your PRO on-premise server uses a different port, then you can configure it through the parameter ``dex::oauth::WebUIOAuthCallbackPort``. 
 
 Debugging client requests
 -------------------------
