@@ -1,9 +1,6 @@
 Privacy Statement
 ====================
 
-Introduction
-------------------------------------------------------------------
-
 This Privacy Statement provides information on the collection, use, and processing of usage data by AIMMS BV and its affiliates in connection with your use of AIMMS Cloud Platform. It sets out the purposes of AIMMS’ data processing. AIMMS recommends that you read this Privacy Statement prior to using the AIMMS Cloud Platform. 
 
 AIMMS may collect usage data during your use of the AIMMS Cloud Platform. Your usage data can be regarded as Personal Data in the sense of GDPR and other regulations. AIMMS will, however, only use such data in accordance with the purposes set forth in this Privacy Statement and is committed to safeguarding the usage information collected.
