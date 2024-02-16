@@ -25,7 +25,7 @@ AIMMS can process usage data collected during your access to the AIMMS Cloud Pla
 * username and organization
 * IP address and information that may be derived from IP address, such as geographic location;
 * information about a device you use, such as browser, device type, operating system, application usage statistics, screen resolution, and the preferred language;
-* AIMMS webpages and AIMMS content you click or view and the date and time of such usage. 
+* AIMMS web pages and AIMMS content you click or view and the date and time of such usage. 
 
 Who and how will use the data?
 ===============================
