@@ -5,6 +5,9 @@ The first public release of Snowflake library was version 24.1.1.6, release date
 
 New Features and Bug Fixes
 --------------------------
+24.1.1.8 [18-02-2024]
+	- Add support for communicating parquet files with Snowflake via an external stage in Snowflake
+
 24.1.1.6 [26-01-2024]
     - Initial public release of Snowflake library
    
