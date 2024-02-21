@@ -13,6 +13,28 @@ AIMMS 24.2
 
 
 
+AIMMS 24.2.2 Release (February 21, 2024 - build 24.2.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The function GMP::Solution::RandomlyGenerate resulted in an error if the optional argument was not specified.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  : On a sorted WebUI Table column, when hovering over the "v" header cell context button, the context menu was not always displayed.
+-  Some WebUI widgets were not able to deal correctly with custom annotations (i.e. those specified by the app developer as the webui::IdentifierAnnotation attribute) for set elements in case these custom annotations were specified as a string value with some words separated by spaces.
+
+--------------
+
+
+
+
+
 AIMMS 24.2.1 Release (February 14, 2024 - build 24.2.1.0).
 ------------------------------------------------------------------------------------------
 
