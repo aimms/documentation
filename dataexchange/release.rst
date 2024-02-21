@@ -13,6 +13,12 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.1.1.4 [21-02-2024]
+	- Transfer of a large number of files with Azure DLS could cause a crash
+
+24.1.1.3 [16-02-2024]
+	- The OAuth callback URL in on-premise installations of PRO can now take into account a non-default HTTPS port of the PRO service
+
 24.1.1.2 [12-02-2024]
 	- Automatically generated mappings via :js:func:`dex::WriteToFile` will now take the ``name-binds-to`` extra attribute value into account in determining and checking the row dimension of a generated table mapping
 	
