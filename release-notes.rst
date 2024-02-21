@@ -10971,3 +10971,4 @@ Improvements
   .aimms
 	RefreshAllWidgets
   ganttchart
+  IdentifierAnnotation
