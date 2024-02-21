@@ -26,7 +26,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  : On a sorted WebUI Table column, when hovering over the "v" header cell context button, the context menu was not always displayed.
+-  On a sorted WebUI Table column, when hovering over the "v" header cell context button, the context menu was not always displayed.
 -  Some WebUI widgets were not able to deal correctly with custom annotations (i.e. those specified by the app developer as the webui::IdentifierAnnotation attribute) for set elements in case these custom annotations were specified as a string value with some words separated by spaces.
 
 --------------
