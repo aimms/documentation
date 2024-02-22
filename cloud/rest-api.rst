@@ -141,6 +141,19 @@ The ``metadata`` example is provided below:
             "projectCategory": "cat_1"
         }  
 
+* Starting with **AIMMS PRO 24.2.2** above metadata for publishing an aimms applicaiton is extended with:
+
+.. code-block:: php
+
+     publishBehavior:
+		type: integer
+	 oldProjectName:
+		type: string
+     oldProjectVersion:
+		type: string
+		
+This allows not only to publish a new App but also publish a new version of an existing App. PublishBehavior is either 0 (new publish), 1 (keep old verison), 2 (hide old version).
+
 
 Example: Using Postman to Update an Application (PATCH)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -157,7 +170,7 @@ the "raw" format.
 
 * **Project category** ("projectCategory")
 
-* **Latest app tag** ("isLatest"): latest app tag cannot be explicitly disabled for the selected app. When assigning the latest tag to an app ("isLatest": true), it will be automatically removed from all other app with the same name.  
+* **Latest app tag** ("isLatest"): latest app tag cannot be explicitly disabled for the selected app. When assigning the latest tag to an app ("isLatest": true), it will be automatically removed from all other app with the same name. 
 
 * **Project attributes** ("attributes"): project attributes represent a list of key-value pairs that allow to store additional information about the project. There are two reserved keywords: 
 
