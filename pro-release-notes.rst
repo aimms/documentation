@@ -4,6 +4,20 @@ AIMMS PRO Release Notes
 PRO 24.2
 ########
 
+AIMMS PRO 24.2.2 Release
+------------------------
+
+On February 22, 2024, we released AIMMS PRO 24.2.2(24.2.2.1)
+ 
+**Improvements**
+
+   - **PRO REST API:Task Service**: Task REST API is extended with a call back feature which will allow you to request a call back that informs you when your task is completed, without polling all jobs continuously. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#request-a-task-call-back>`__ for more details. 
+   - **PRO REST API:Managing Apps**: We have made some changes in 'Managing Apps' API service,
+
+       - Publish app(POST request) returns application json instead of an empty response when app is successfully published.
+       - Update app(PATCH request) returns application json instead of an empty response when app is successfully updated.
+       - Metadata for POST request (Publish an App) is extended with *publishBehavior*, which will allow you to publish a new version of an existing application. Please see the `documentation <https://documentation.aimms.com/cloud/rest-api.html#example-using-postman-to-publish-an-application-post>`__ for more details.
+
 AIMMS PRO 24.2.1 Release
 ------------------------
 
