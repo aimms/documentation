@@ -141,18 +141,15 @@ The ``metadata`` example is provided below:
             "projectCategory": "cat_1"
         }  
 
-* Starting with **AIMMS PRO 24.2.2** above metadata for publishing an aimms applicaiton is extended with:
+* Starting with **AIMMS PRO 24.2.2** above metadata to publish an application is extended with:
 
 .. code-block:: php
 
-     publishBehavior:
-		type: integer
-	 oldProjectName:
-		type: string
-     oldProjectVersion:
-		type: string
+	publishBehavior
+	oldProjectName
+	oldProjectVersion
 		
-This allows not only to publish a new App but also publish a new version of an existing App. PublishBehavior is either 0 (new publish), 1 (keep old verison), 2 (hide old version).
+This allows to publish a new application and also publish a new version of an existing App(update an application). PublishBehavior is either 0 (new publish), 1 (keep old version), 2 (hide old version).
 
 
 Example: Using Postman to Update an Application (PATCH)
