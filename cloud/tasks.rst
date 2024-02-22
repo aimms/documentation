@@ -103,6 +103,18 @@ Service Endpoint: ``https://[account-name].aimms.cloud/pro-api/v2/tasks``
 	statuses , current_batch
 	total_size , total_tasks
 	
+Request a task call back
+------------------------
+
+When users create tasks (POST), they can specify an optional HTTP header named *taskStateHook* specifying the hook URL which task service will call on any changes in the created task state starting from queued to completed or failed. The task scheduler will call this hook semi-passively, meaning there's a strict timeout, no retry, and no redirect. This is to reduce the load incurred to our service when a hook target is unavailable or not responsive.
+
+The following query parameters are added to the hook URL which is called using the HTTP **PUT** method:
+  
+    - *task_uuid*: Identifies the task that its state is changed.
+    - *task_state*: The new state of the task
+    - *at*: The time point that the hook is being invoked. This is to prevent potential replay attacks.
+    - *hmac*: If the hook URL contains a query parameter with the name 'key', then an HMAC is calculated based the the value of it and the task's UUID. The hook receiver can use this HMAC to validate the authenticity of the call. The original 'key' query parameter will be removed from the call.
+	
 
 
 
