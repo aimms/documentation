@@ -31,4 +31,5 @@ Documentation pages with more details
 
     cloud-platform-azure
     aimms-software
+    responsible_disclosure
     
