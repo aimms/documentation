@@ -27,7 +27,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  On a sorted WebUI Table column, when hovering over the "v" header cell context button, the context menu was not always displayed.
--  Some WebUI widgets were not able to deal correctly with custom annotations (i.e. those specified by the app developer as the webui::IdentifierAnnotation attribute) for set elements in case these custom annotations were specified as a string value with some words separated by spaces.
+-  Some WebUI widgets were not able to deal correctly with custom annotations (i.e. those specified by the app developer as the webui::IdentifierAnnotation attribute) for set elements. In case these custom annotations were specified as a string value with some words separated by spaces, these would be put in the DOM incorrectly. For example, "ABC DEF" would be put as "annotation-ABC DEF". With this fix, it will be put as "annotation-ABC annotation-DEF".
 
 --------------
 
