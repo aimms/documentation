@@ -13,6 +13,22 @@ AIMMS 24.2
 
 
 
+AIMMS 24.2.3 Release (February 29, 2024 - build 24.2.3.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If the option 'warning_range_violation' was set to off, you could get an incorrect error in the WebUI when you assigned a new value to an identifier.
+
+--------------
+
+
+
+
+
 AIMMS 24.2.2 Release (February 21, 2024 - build 24.2.2.3).
 ------------------------------------------------------------------------------------------
 
