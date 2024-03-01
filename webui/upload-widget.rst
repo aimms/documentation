@@ -194,3 +194,10 @@ As illustrated below, the definition of string parameter ``sp_TT_Upload`` used t
     :align: center
 
 \
+
+Alternative to the Upload Widget
+---------------------------------
+
+.. note::
+    
+   Starting from AIMMS 24.3 uploading a file to the AIMMS application can be achieved by using the dedicated procedure ``webui::RequestFileUpload`` declared in the `WebUI Library <library.html>`__. This procedure can be called in the WebUI, for example, behind a button, a page action, a widget action, or an item action. 

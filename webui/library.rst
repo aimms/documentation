@@ -273,6 +273,56 @@ Public Identifier Support
 	This string parameter can be used to translate identifier names that are displayed in your WebUI. For full details, please see `this section <table-widget.html#webui-identifierelementtext>`_.
 
 
+Upload and Download Procedures section
+======================================
+
+Starting from AIMMS 24.3 the WebUI library provides support for uploading and downloading a file by using some dedicated procedures.
+
+.. image:: images/UpDownProc_WebUI_lib.png
+			:align: center
+			:scale:  60%
+
+Public Upload Procedure
+-----------------------
+		
+.. aimms:procedure:: RequestFileUpload(onDone) 
+
+  This procedure can be used to upload a file programmatically to the AIMMS application. When running this procedure a dialog is opened in which the user may choose the file to be uploaded. 
+  
+  The input argument ``onDone`` is an element parameter with the range the predeclared set :any:`AllProcedures`. The actual procedure argument used when calling ``webui::RequestFileUpload`` is a callback procedure 
+  defined by the app developer (for example, "HandleUpload"), which is invoked immediately after the upload has been completed.
+  The prototype of this callback procedure should have three arguments as illustrated in the following picture:
+
+.. image:: images/UpDownProc_UpArgProto.png
+			:align: center
+			:scale: 50% 
+
+\
+			
+  In particular, the output arguments such as ``statusCode`` and ``statusDescription`` can be assigned appropriate values in this callback procedure based on the outcome of the upload process.
+  
+  The argument ``fname`` illustrated above denotes the name of the uploaded file. For security reasons, no absolute paths are allowed to be specified for the location where the uploaded files are stored. 
+  Instead, this procedure uses the same conventions as described in the section `Upload Widget <upload-widget.html#filelocation>`__.
+
+Public Download Procedure
+-------------------------
+		
+.. aimms:procedure:: RequestFileDownload(fname)
+
+  This procedure can be used to download a file programmatically from the AIMMS application.
+  
+  The input argument ``fname`` is an string parameter which denotes the name of the downloaded file. For security reasons, no absolute paths are allowed to be specified for the location where the files to be 
+  downloaded are stored. Instead, this procedure uses the same conventions as described in the section `Download Widget <download-widget.html#filelocation>`__.
+
+  Typically the file to be downloaded is generated prior to calling ``webui::RequestFileDownload``. 
+  Therefore, before calling this procedure it may be useful to check whether the file denoted by the argument ``fname`` actually exists. This can be achieved by using the procedure :any:`FileExists` as shown below:
+  
+  .. code::
+
+    if FileExists(webui::GetIOFilePath(fname)) then webui::RequestFileDownload(fname) endif;
+	
+  Here the pre-defined function :token:`webui::GetIOFilePath` works as explained in the section `Download Widget <download-widget.html#filelocation>`__.
+  
 SetProgressMessage
 ==================
 

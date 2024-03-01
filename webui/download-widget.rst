@@ -145,6 +145,7 @@ In the Miscellaneous tab of the Download widget's options editor, other options 
 .. image:: images/Download_Misc.png
     :align: center
 
+\
 
 Visibility
 ^^^^^^^^^^
@@ -161,6 +162,8 @@ Set the display text on the download widget here. By default, the text that is d
 
 .. _download-widget-custom-tooltip:
 
+\
+
 Custom Tooltip
 ^^^^^^^^^^^^^^
 
@@ -176,3 +179,12 @@ As illustrated below, the definition of string parameter ``sp_TT_Download`` used
 
 .. image:: images/Download_CustomTooltip.png
     :align: center
+
+\
+
+Alternative to the Download Widget
+----------------------------------
+
+.. note::
+    
+   Starting from AIMMS 24.3 downloading a file from the AIMMS application can be achieved by using the dedicated procedure ``webui::RequestFileDownload`` declared in the `WebUI Library <library.html>`__. This procedure can be called in the WebUI, for example, behind a button, a page action, a widget action, or an item action. 
