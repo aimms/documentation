@@ -200,4 +200,5 @@ Alternative to the Upload Widget
 
 .. note::
     
-   Starting from AIMMS 24.3 uploading a file to the AIMMS application can be achieved by using the dedicated procedure ``webui::RequestFileUpload`` declared in the `WebUI Library <library.html>`__. This procedure can be called in the WebUI, for example, behind a button, a page action, a widget action, or an item action. 
+   Starting from AIMMS 24.3 uploading a file to the AIMMS application can be achieved by using the dedicated procedure ``webui::RequestFileUpload`` declared in the `WebUI Library <library.html>`__. 
+   This library procedure can be called inside a self-declared AIMMS procedure without arguments. This latter procedure can then be called in the WebUI, for example, behind a button, a page action, a widget action, or an item action. 

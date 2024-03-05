@@ -287,7 +287,7 @@ Public Upload Procedure
 		
 .. aimms:procedure:: RequestFileUpload(onDone) 
 
-  This procedure can be used to upload a file programmatically to the AIMMS application. When running this procedure a dialog is opened in which the user may choose the file to be uploaded. 
+  This procedure can be used to upload a file programmatically from your local computer to the AIMMS application (running on a PRO server). When running this procedure a dialog is opened in which the user may choose the file to be uploaded. 
   
   The input argument ``onDone`` is an element parameter with the range the predeclared set :any:`AllProcedures`. The actual procedure argument used when calling ``webui::RequestFileUpload`` is a callback procedure 
   defined by the app developer (for example, "HandleUpload"), which is invoked immediately after the upload has been completed.
@@ -309,7 +309,8 @@ Public Download Procedure
 		
 .. aimms:procedure:: RequestFileDownload(fname)
 
-  This procedure can be used to download a file programmatically from the AIMMS application.
+  This procedure can be used to download a file programmatically from the AIMMS application (running on a PRO server) to your local computer. 
+  At the end of the execution of this procedure the default download functionality of your browser is used to download the file on your local machine. 
   
   The input argument ``fname`` is an string parameter which denotes the name of the downloaded file. For security reasons, no absolute paths are allowed to be specified for the location where the files to be 
   downloaded are stored. Instead, this procedure uses the same conventions as described in the section `Download Widget <download-widget.html#filelocation>`__.
