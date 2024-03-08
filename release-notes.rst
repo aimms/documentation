@@ -13,6 +13,22 @@ AIMMS 24.2
 
 
 
+AIMMS 24.2.4 Release (March 08, 2024 - build 24.2.4.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Calling GMP::Instance::GenerateStochasticProgram twice for the same generated math program could result in a crash if GMP::Coefficient::Set(Multi) was called in between.
+
+--------------
+
+
+
+
+
 AIMMS 24.2.3 Release (February 29, 2024 - build 24.2.3.3).
 ------------------------------------------------------------------------------------------
 
