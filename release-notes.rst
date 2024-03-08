@@ -11005,3 +11005,4 @@ Improvements
 	RefreshAllWidgets
   ganttchart
   IdentifierAnnotation
+  anOption
