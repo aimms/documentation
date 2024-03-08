@@ -22,6 +22,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Calling GMP::Instance::GenerateStochasticProgram twice for the same generated math program could result in a crash if GMP::Coefficient::Set(Multi) was called in between.
+-  Option assignments to a specific solver option (example: Option 'solver name'.anOption := 8;) was not working correctly.
 
 --------------
 
