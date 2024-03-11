@@ -86,6 +86,7 @@ The available mapping attributes are:
 * max-string-size    
 * range-existing
 * value
+* number-type
 * write-defaults           
 * write-filter      
 * force-dense
@@ -214,6 +215,11 @@ With the ``value`` attribute you can specify that, when writing a file, the valu
 .. note::
 
         Any value-holding mapping element may have only one of the ``binds-to``, ``maps-to`` or ``value`` attributes specified. 
+
+The number-type attribute
+-------------------------
+
+For JSON mappings you can specify a ``number-type`` attribute for every numerical value-holding node to be used when writing a JSON file. The possible values for the ``number-type`` attribute are ``integer``, ``double`` or ``boolean``.
 
 The color attribute
 -------------------
