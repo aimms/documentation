@@ -1,6 +1,34 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.4
+########
+
+AIMMS PRO 24.4.1 Release
+------------------------
+
+On March 8, 2024, we released AIMMS PRO 24.4.1(24.4.1.1)
+ 
+**Improvements**
+
+   - AIMMS Cloud Platform `Privacy Statement <https://documentation.aimms.com/cloud/privacy.html>`__ and `Responsible Disclosure Policy <https://documentation.aimms.com/infosec/responsible-disclosure.html>`__ are available on PRO Portal.
+
+**Resolved Issues**
+
+   - Fixed a permission issue where an App could be available to all users in some specific scenario.
+
+PRO 24.3
+########
+
+AIMMS PRO 24.3.1 Release
+------------------------
+
+On February 27, 2024, we released AIMMS PRO 24.3.1(24.3.1.1)
+ 
+**Improvements**
+
+   - Some internal improvement to handle AIMMS hotfix releases on cloud.
+
 PRO 24.2
 ########
 
