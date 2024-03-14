@@ -13,6 +13,27 @@ AIMMS 24.2
 
 
 
+AIMMS 24.2.5 Release (March 14, 2024 - build 24.2.5.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  There was a regression problem with cashing in the GMP::...Multi() functionality.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When having a literally specified default Named View in your widget, in combination with the UIEditable option set to 0, then on PRO the Named View selector in the widget header did not react to the selection made there.
+
+--------------
+
+
+
+
+
 AIMMS 24.2.4 Release (March 08, 2024 - build 24.2.4.3).
 ------------------------------------------------------------------------------------------
 
