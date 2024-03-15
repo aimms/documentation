@@ -18,6 +18,11 @@ AIMMS 24.2.6 Release (March 15, 2024 - build 24.2.6.1).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  PRO debug sessions did not work any longer due to an incorrect session type.
+
 --------------
 
 
