@@ -497,6 +497,38 @@ The specified chart title is then reflected on the widget header:
 
 |  
 
+Developer Option for Threshold of Data Points
+---------------------------------------------
+
+Starting from AIMMS 24.3 an option is available for the app developer to control the threshold of the number of data points shown by the combination chart.
+This option is provided through the `Application Specific Resource (ASR) <resources-subfolder.html#webui-resources>`_ file ``resources\javascript\webui-options.js``.
+If this file does not exist yet in the ``resources`` sub-folder, then it will be created automatically upon launching WebUI in developer mode.
+Upon its automatic creation this file ``webui-options.js`` has by default a contents such as the following:
+
+.. code::
+
+    // Configure the highcharts widgets data overload threshold limit
+    webui_highcharts_data_overload_threshold = 1000;
+
+The option setting as shown above means that any combination chart used in the WebUI will show in total at most 1000 data points (so, this option is applied to all combination chart widgets).
+Note that, if a combination chart shows more than one identifier, then for that chart the total threshold set by this option is divided equally by the number of identifiers.
+For example, if this option is set to 1000 and a combination chart shows two identifiers (eg, with the same index domain, which is pivoted on the X-axis), then in that chart at most 500 points will be shown for each identifier.  
+
+The app developer has the possibility to change this option to a different value which is deemed more appropriate for the application at hand.
+When doing so, the app developer has the flexibility to experiment with various option values and eventually, to choose a setting which is appropriately balanced between accommodating the needs of the application 
+and at the same time supporting an acceptable behavior of the combination chart widget, such that the chart does not get overloaded upon usage. 
+
+There is no general option setting which would fit all situations. However, here are some recommendations and guidelines for best practices. 
+If the identifiers shown in any combination chart bear no associated customized information (such as annotations/CSS styling, special tooltips, or element text identifiers), then it is recommended to set this option 
+to a value up to (around) 20000 data points.
+If the identifiers shown in some combination chart do bear associated customized information, then the recommendation is to confine this threshold option to a value up to (around) 5000 data points.
+  
+In all situations when a large number of data points is to be displayed, it is recommended to set an appropriate value for the option "Maximum Number of Categories in Viewport" (and maybe also for the option "Step Size") 
+from the X-Axis group explained above. This option setting determines the maximum number of data points visible in the viewport and, if necessary, it results in a horizontal scroll bar appearing along the X-axis such that 
+the user can scroll through all the points. It is recommended to set the "Maximum Number of Categories in Viewport" to a value up to (around) 500 data points.
+
+
 .. spelling:word-list::
 
     highcharts
+	eg
