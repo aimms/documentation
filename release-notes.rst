@@ -13,6 +13,22 @@ AIMMS 24.2
 
 
 
+AIMMS 24.2.7 Release (March 20, 2024 - build 24.2.7.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We addressed the "error: could not find '/apps/...'" when launching an app on PRO. This was caused by PRO being able to connect to the webserver before it was fully initialized.
+
+--------------
+
+
+
+
+
 AIMMS 24.2.6 Release (March 15, 2024 - build 24.2.6.1).
 ------------------------------------------------------------------------------------------
 
