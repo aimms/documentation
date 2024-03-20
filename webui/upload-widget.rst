@@ -106,30 +106,39 @@ An example for the body of the Upload procedure is shown below. This particular 
 
 .. code::
 
-   ! we store the location of the file in string parameter UploadLocation 
-   UploadLocation := webui::GetIOFilePath(FileLocation); 
-   
-   ! reading the file UploadLocation into an string parameter
-   sp_TextOfUploadedFile := FileRead(UploadLocation); 
+   ! Using a block/on error construction guarantees that any unforeseen error is handled properly
+   block
 
-   ! checking if the previous read statement was successful or not
-   if sp_TextOfUploadedFile <> '' then 
+        ! we store the location of the file in string parameter UploadLocation 
+        UploadLocation := webui::GetIOFilePath(FileLocation); 
 
-      ! if successful, statusCode is set to 'OK' which will trigger the WebUI to show the message below in a grey box
-      StatusCode := webui::ReturnStatusCode('OK'); 
+        ! reading the file UploadLocation into an string parameter
+        sp_TextOfUploadedFile := FileRead(UploadLocation); 
 
-      ! displaying the status message, and logging it in the WebUI messages
-      StatusDescription := "File was uploaded and read successfully"; 
+        ! checking if the previous read statement was successful or not
+        if sp_TextOfUploadedFile <> '' then 
+
+            ! if successful, statusCode is set to 'OK' which will trigger the WebUI to show the message below in a grey box
+            StatusCode := webui::ReturnStatusCode('OK'); 
+
+            ! displaying the status message, and logging it in the WebUI messages
+            StatusDescription := "File was uploaded and read successfully"; 
+        
+        else
+            raise error "Something wrong";
+        endif;
+
+    onerror err do            
       
-   else    !if previous read statement was not successful 
-      
-      ! setting the statusCode to 'ERROR' 
-      statusCode := webui::ReturnStatusCode('ERROR'); 
+        ! setting the statusCode to 'ERROR' 
+        statusCode := webui::ReturnStatusCode('ERROR'); 
 
-      !displaying a custom error message 
-      statusDescription := "Could not read the file or the file is empty."; 
+        !displaying a custom error message 
+        statusDescription := "Could not read the file or the file is empty."; 
+
+        errh::MarkAsHandled(err); 
       
-   endif;
+   endblock;
 
 When executed through the upload widget, this procedure will let you upload a file at ``UploadLocation`` and read it in a string parameter ``sp_TextOfUploadedFile``. 
 
