@@ -53,7 +53,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  There was a regression problem with cashing in the GMP::...Multi() functionality.
+-  There was a regression problem with caching in the GMP::...Multi() functionality.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
