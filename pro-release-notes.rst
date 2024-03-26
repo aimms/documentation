@@ -4,6 +4,15 @@ AIMMS PRO Release Notes
 PRO 24.4
 ########
 
+AIMMS PRO 24.4.2 Release
+------------------------
+
+On March 26, 2024, we released AIMMS PRO 24.4.2(24.4.2.1)
+ 
+**Resolved Issues**
+
+   - **PRO REST API**: Publishing an app could fail when *publishBehavior = 0*
+
 AIMMS PRO 24.4.1 Release
 ------------------------
 
