@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.2.1.1 [27-03-2024]
+	- Add support for reading and writing YAML documents
+	- Allow reading of OpenAPI specification in YAML format
+
 24.1.1.4 [21-02-2024]
 	- Transfer of a large number of files with Azure DLS could cause a crash
 

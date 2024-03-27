@@ -1,7 +1,7 @@
 Data Exchange Mappings
 **********************
 
-Each Data Exchange mapping is an XML file describing the structure of particular formats (like JSON, XML, CSV, Excel or Parquet) being mapped. Below you find the elements specific for each of the mapping types. The attributes that you can specify for each element are shared. In `this How-To article <https://how-to.aimms.com/Articles/534/534-dealing-with-the-different-data-types.html>`__ you can find some simple examples on the usages. `Here <https://documentation.aimms.com/dataexchange/api.html#methods-for-reading-and-writing-data>`__ you can find the functions related to mappings.
+Each Data Exchange mapping is an XML file describing the structure of particular formats (like JSON, YAML, XML, CSV, Excel or Parquet) being mapped. Below you find the elements specific for each of the mapping types. The attributes that you can specify for each element are shared. In `this How-To article <https://how-to.aimms.com/Articles/534/534-dealing-with-the-different-data-types.html>`__ you can find some simple examples on the usages. `Here <https://documentation.aimms.com/dataexchange/api.html#methods-for-reading-and-writing-data>`__ you can find the functions related to mappings.
 
 JSON Mapping elements
 =====================
@@ -18,6 +18,18 @@ The following are the elements allowed in a JSON mapping
 * the ``ColumnMapping`` element (underneath a ``RowMapping``), a mapping element used to map the value of a particular element in a ``RowMapping`` to a specific identifier in the model.
 
 The represent row-oriented data, the ``RowMapping`` and ``ColumnMapping`` will provide the most compact JSON representations and will execute the fastest.
+
+YAML Mapping elements
+=====================
+
+The following are the elements allowed in a YAML mapping
+
+* the ``AimmsYAMLMapping`` element, the mandatory root of a YAML mapping
+* the ``MapMapping`` (alternatively you can use the ``ObjectMapping``) element, a mapping element used to map a YAML map 
+* the ``SequenceMapping`` (alternatively you can use the ``ArrayMapping``) element, a mapping element used to map a YAML sequence. A YAML sequence mapping can only have a single child mapping, specifying the type of every element in the sequence.
+* the ``MapMapping`` (alternatively you can use the ``ValueMapping``) element, a mapping element used to map a integer, double or string value in a YAML file
+
+By using the JSON mapping elements, you can easily switch between a JSON and YAML mapping, by just changing the root element of the mapping from ``AimmsJSONMapping`` to ``AimmsYAMLMapping`` and vice versa. Everywhere below where a comment is directed towards a JSON mapping element, the same applies to the corresponding YAML mapping element.
 
 XML Mapping elements
 ====================
