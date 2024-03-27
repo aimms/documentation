@@ -25,6 +25,7 @@ Resolved WebUI Issues
 
 --------------
 
+(we skipped AIMMS 24.2.8 due to internal technical reasons.)
 
 
 
