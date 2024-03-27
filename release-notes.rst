@@ -13,6 +13,22 @@ AIMMS 24.2
 
 
 
+AIMMS 24.2.9 Release (March 27, 2024 - build 24.2.9.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  A WebUI table with a single identifier as its contents and for which the pivoting was such that the identifier index was put in the totals group, showed the wrong (i.e. all zeroes) values.
+
+--------------
+
+
+
+
+
 AIMMS 24.2.7 Release (March 20, 2024 - build 24.2.7.1).
 ------------------------------------------------------------------------------------------
 
