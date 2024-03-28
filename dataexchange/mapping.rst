@@ -95,6 +95,7 @@ The available mapping attributes are:
 * skip-non-existing
 * skip-empty-rows
 * maps-to
+* precision
 * max-string-size    
 * range-existing
 * value
@@ -184,6 +185,8 @@ The maps-to attribute
 You can assign the ``maps-to`` attribute to any value-holding mapping element. Its value should be a reference to an identifier in your model, including the indices bound at this location in the mapping tree *in the exact order in which they are bound in the mapping, including any external bindings present*. Note that this implies that the dimension of the identifier must be matched exactly with the number of bound indices, and that the root domain of the identifier should match the root domains of the indices. Also this requirement prevents you from permuting the bound indices bound in the identifier reference specified in the ``maps-to`` attribute.
 
 The ``write-filter`` attribute can be specified at any node in the mapping tree, and should be a reference to an identifier in the model including the bound indices at this location as for the ``maps-to`` attribute. For any tuple of bound indices for which the ``write-filter`` attribute does not hold a non-default value, the corresponding part of the generate JSON, XML or CSV file will be skipped. 
+
+When writing numerical data, you can use the ``precision`` attribute to specify the number of decimals with which the numerical data should be written. The attribute should hold a value between 0 and 16, and the numerical value will be rounded to the specified number of decimals.
 
 By default, the Data Exchange library assumes that all string values will hold up to 1024 characters. Through the ``max-string-size`` attribute a maximum string size up to 1 MB can be specified.
 

@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.2.1.2 [28-03-2024]
+	- Add `precision` attribute for specifying numerical precision when exporting numerical data
+
 24.2.1.1 [27-03-2024]
 	- Add support for reading and writing YAML documents
 	- Allow reading of OpenAPI specification in YAML format
