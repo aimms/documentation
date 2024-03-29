@@ -13,6 +13,24 @@ AIMMS 24.2
 
 
 
+AIMMS 24.2.10 Release (March 29, 2024 - build 24.2.10.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The 't' icon, signifying derivation, was absent on the Identifier Settings option editor tab of a named view derived from a template, potentially leading to confusion.
+-  If there was just one job in the Gantt Chart widget that was read-only, the whole Gantt Chart became read-only.
+-  In some situations, a 'vector<T> too long' error message could appear when working in WebUI tables which had a sorting applied.
+
+--------------
+
+
+
+
+
 AIMMS 24.2.9 Release (March 27, 2024 - build 24.2.9.2).
 ------------------------------------------------------------------------------------------
 
