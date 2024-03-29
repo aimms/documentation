@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.2.1.4 [29-03-2024]
+	- Table node with more than one row would crash when adding a mapping
+
 24.2.1.2 [28-03-2024]
 	- Add `precision` attribute for specifying numerical precision when exporting numerical data
 
