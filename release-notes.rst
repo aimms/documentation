@@ -25,10 +25,6 @@ AIMMS Improvements
 -  The scaling score has been added to the Matrix Statistics tab in the Math Program Inspector.
 -  The compilation and execution of constant and symbolic list expressions is now picked up by the new compiler and the parallel engine. This may lead to some compilation errors in your application for constructs that were unintentionally accepted by the old compiler. An example is: 'DATA { 'a' : 3, 'b' : 4, 'c' }' where the last entry is missing a colon and a corresponding value. The old compiler just accepted this and assumed a value of 1.0.
 -  Gurobi 11.0 has been upgraded to version 11.0.1.
-
-Resolved AIMMS Issues
-+++++++++++++++++++++++++
-
 -  Many of the time related functions are now handled by the new compiler within AIMMS. This may introduce some compiler warnings that were not given in previous AIMMS versions. If the warnings do not make any sense, or if you notice any other unexpected behavior related to these functions, please let us know.
 
 WebUI Improvements
@@ -44,7 +40,6 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  Previously, sometimes the WebUI was not always updated when the function `webui::RefreshAllWidgets` was called from within an AIMMS procedure. The behavior of this function has been significantly improved.
--  The Diagram widget will not be operational on non-grid layout pages. Instead, the error message "Incompatible (Diagram) Widget!" will be displayed.
 
 --------------
 
