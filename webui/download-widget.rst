@@ -101,32 +101,40 @@ An example for the body of the download procedure is shown below. This particula
 
 
 .. code::
-    
-    ! we want to create a file to download - MyDownloadFile.txt
-    FileLocation := "MyDownloadFile.txt"; 
-    
-    ! we store the location of the file in string parameter FinalLocation
-    FinalLocation := webui::GetIOFilePath(FileLocation); 
-    
-    ! writing the string parameter FinalLocation to the text file
-    write FinalLocation to file FinalLocation; 
 
-    ! checking if the previous write statement was successful or not
-    if FileExists(FinalLocation) then 
-    
-       ! if successful, statusCode is set to 'CREATED' which will trigger the download widget to show the Get button
-       StatusCode := webui::ReturnStatusCode('CREATED');
-       ! displaying the status message as All perfect instead of the default "File ready to download"
-       StatusDescription := "All perfect!"; 
+   ! Using a block/on error construction guarantees that any unforeseen error is handled properly
+   block
+
+        ! we want to create a file to download - MyDownloadFile.txt
+        FileLocation := "MyDownloadFile.txt"; 
+
+        ! we store the location of the file in string parameter FinalLocation
+        FinalLocation := webui::GetIOFilePath(FileLocation); 
+
+        ! writing the string parameter FinalLocation to the text file
+        write FinalLocation to file FinalLocation; 
+
+        ! checking if the previous write statement was successful or not
+        if FileExists(FinalLocation) then 
+
+            ! if successful, statusCode is set to 'CREATED' which will trigger the download widget to show the Get button
+            StatusCode := webui::ReturnStatusCode('CREATED');
+            ! displaying the status message as All perfect instead of the default "File ready to download"
+            StatusDescription := "All perfect!"; 
+        
+        else
+            raise error "File not found";
+        endif;
        
-    else    !if previous write statement was not successful 
+    onerror err do
        
        ! setting the statusCode to 'ERROR' and the download widget will not show the Get button anymore
        statusCode := webui::ReturnStatusCode('ERROR'); 
        !displaying a custom error message 
        statusDescription := "Something went wrong when creating the file."; 
-       
-    endif;
+
+        errh::MarkAsHandled(err);       
+    endblock;
 
 When executed through the download widget, this procedure will let you download a file named MyDownloadFile.txt with *FinalLocation := "MyDownloadFile.txt"* as its content. If launched from PRO, the filename will still remain the same but the value for FinalLocation will be temporary PRO path + MyDownloadFile.txt.
 
@@ -145,6 +153,7 @@ In the Miscellaneous tab of the Download widget's options editor, other options 
 .. image:: images/Download_Misc.png
     :align: center
 
+\
 
 Visibility
 ^^^^^^^^^^
@@ -161,6 +170,8 @@ Set the display text on the download widget here. By default, the text that is d
 
 .. _download-widget-custom-tooltip:
 
+\
+
 Custom Tooltip
 ^^^^^^^^^^^^^^
 
@@ -176,3 +187,13 @@ As illustrated below, the definition of string parameter ``sp_TT_Download`` used
 
 .. image:: images/Download_CustomTooltip.png
     :align: center
+
+\
+
+Alternative to the Download Widget
+----------------------------------
+
+.. note::
+    
+   Starting from AIMMS 24.3 downloading a file from the AIMMS application can be achieved by using the dedicated procedure ``webui::RequestFileDownload`` declared in the `WebUI Library <library.html>`__. 
+   This library procedure can be called inside a self-declared AIMMS procedure without arguments. This latter procedure can then be called in the WebUI, for example, behind a button, a page action, a widget action, or an item action. 
