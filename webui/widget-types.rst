@@ -17,6 +17,7 @@ More details on each widget are included in one of the corresponding sections be
    bubble-chart-widget
    button-widget
    combination-chart-widget
+   diagram-widget
    download-widget
    gantt-chart-widget
    group-widget
