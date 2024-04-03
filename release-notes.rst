@@ -8,6 +8,48 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 24.3
+#############
+
+
+
+AIMMS 24.3.1 Release (April 03, 2024 - build 24.3.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  You can now print information about constraints, variable bounds and integrality violations to the listing file. This is controlled by the new Solvers general option 'Display most violated constraints and bounds'.
+-  The scaling score has been added to the Matrix Statistics tab in the Math Program Inspector.
+-  The compilation and execution of constant and symbolic list expressions is now picked up by the new compiler and the parallel engine. This may lead to some compilation errors in your application for constructs that were unintentionally accepted by the old compiler. An example is: 'DATA { 'a' : 3, 'b' : 4, 'c' }' where the last entry is missing a colon and a corresponding value. The old compiler just accepted this and assumed a value of 1.0.
+-  Gurobi 11.0 has been upgraded to version 11.0.1.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Many of the time related functions are now handled by the new compiler within AIMMS. This may introduce some compiler warnings that were not given in previous AIMMS versions. If the warnings do not make any sense, or if you notice any other unexpected behavior related to these functions, please let us know.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  Two new procedures (RequestFileUpload and RequestFileDownload) have been added to the WebUI library, which support the uploading and downloading of files to/from the WebUI. These procedures make it possible to start such actions from behind a button in the WebUI, or from an item or widget action. For further details, please see <a href="https://documentation.aimms.com/webui/library.html#upload-and-download-procedures-section">the documentation</a>.
+-  Two new WebUI library functions, `webui::RequestFileUpload` and `webui::RequestFileDownload`, have been introduced that allow you to trigger file uploads and downloads from within an AIMMS procedure, allowing you to put those behind a button, item-action or widget action. For more information, please have a look at THE DOCUMENTATION.
+-  It is now possible to add HTML content in Table cells, allowing for much flexibility in your data presentation. For details, see <a href="https://documentation.aimms.com/webui/widget-options.html#webui-ishtml">the documentation</a>.
+-  We created a new option 'Header Visibility' in the Table widget. With this option, you can hide the rows and/or columns header(s), as there are situations where omitting either of those will give a cleaner presentation of your Table data. For details, please see <a href="https://documentation.aimms.com/webui/table-widget.html#support-to-hide-row-and-column-headers">the documentation</a>.
+-  The brand new Diagram widget is now available as an experimental feature. It provides a very straightforward and eye-pleasing way to create and/or display any kind of network in your apps. For details, please refer to <a href="https://documentation.aimms.com/webui/diagram-widget.html">The documentation</a>.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Previously, sometimes the WebUI was not always updated when the function `webui::RefreshAllWidgets` was called from within an AIMMS procedure. The behavior of this function has been significantly improved.
+-  The Diagram widget will not be operational on non-grid layout pages. Instead, the error message "Incompatible (Diagram) Widget!" will be displayed.
+
+--------------
+
+
+#############
 AIMMS 24.2
 #############
 
