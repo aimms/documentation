@@ -22,7 +22,9 @@ You may want to update the image used in the widget with a new image. There are 
 
 If your image does not completely fit the area that is reserved for it, you can use the option 'Image "object-fit" (css)'. You can use this option with the values none, cover, contain, fill and scale-down, which are explained in this `article <https://www.w3schools.com/css/css3_object-fit.asp>`_.
 
-.. important:: When specifying the relative path for the image source, ensure to incorporate the App-Name and App-Version. Omitting these details result in the image failing to load within the app on the PRO environment. Please find an example of how a String parameter can be defined to specify the relative path for an image.
+.. important::
+    | When specifying the relative path for the image source, ensure to incorporate the App-Name and App-Version. Omitting these details result in the image failing to load within the app on the PRO environment.
+    | Please find an example of how a String parameter can be defined to specify the relative path for an image.
 .. code::
 
     if (pro::ModelName = "undefined")
