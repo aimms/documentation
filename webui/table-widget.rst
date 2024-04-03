@@ -806,8 +806,42 @@ Hovering on the icon shows the tooltip that is displayed in the image. As you ca
 
 There is a way to prevent this behavior and to force the automatic updating of the sorting, should you have good reasons for that. It is described in the `Advanced section <widget-options.html#advanced>`_ of the widget options.
 
+Support to hide Row and Column Headers 
+------------------------------------------
+
+.. note ::
+    This feature of the WebUI table was introduced in AIMMS 24.3.
+
+| While presenting table content alongside its row and column headers offers additional context on the data, we recognize that there may be scenarios where hiding the row or column headers, or both, would present the data more effectively.
+| To address this scenario, we have introduced the **Header Visibility** option, located on the 'Miscellaneous' tab, to provide users with the capability to customize header visibility per table widget.
+
+The option supports four behaviors as listed below:
+
++-----------------------------------+---------------------------------------------------------------------------------------------------------------+
+| Header Visibility Option Value    | Behavior on the Table                                                                                         |
++===================================+===============================================================================================================+
+| Hide Row Header                   | All of the Row headers, including those of the Identifiers area, are hidden.                                  |
++-----------------------------------+---------------------------------------------------------------------------------------------------------------+
+| Hide Column Header                | All of the Column headers, including those of the Identifiers area, are hidden.                               |
++-----------------------------------+---------------------------------------------------------------------------------------------------------------+
+| Hide Row and Column Header        | All of the Row and Column headers, including those of the Identifiers area, are hidden.                       |
++-----------------------------------+---------------------------------------------------------------------------------------------------------------+
+| **Show Row and Column Header**    | Both Row and Column headers are shown. **This is the default behavior.**                                      |
++-----------------------------------+---------------------------------------------------------------------------------------------------------------+
+
+| The default behavior is to display/include the row and column headers on the table. Therefore, there is no impact on existing tables.
+
+Below is an illustration of this option and its corresponding behavior on the Table:
+
+.. Image:: images/HiddingTableRowColumnHeaders.gif
+    :align: center
 
 
+
+.. note ::
+    Any sorting and filtering applied on the Row, Column, or Identifiers headers before setting them up to be hidden will continue to be applied to the table.
+    
+       
 .. spelling:word-list::
 
     IdentifierElementText
