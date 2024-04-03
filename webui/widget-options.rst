@@ -99,6 +99,10 @@ The kind of additional identifier properties discussed above may be specified mo
 	
 	It is referred to as the "new style annotations" (versus the "old style annotations" as discussed in the previous section). These new style annotations are the recommended ones from the moment they became available in AIMMS.
 
+
+webui::AnnotationsIdentifier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To start with, in the attribute form of the identifier for which you want to specify annotations, you can add the :token:`webui::AnnotationsIdentifier` annotation attribute and then fill in the string parameter containing the desired annotations there:
 
 .. image:: images/Annotations_view1.png
@@ -110,6 +114,10 @@ The string parameter used in the annotation attribute may have any name of your 
 
 If an identifier X does not have the :token:`webui::AnnotationsIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_annotations` discussed above, if this is present in the model.
 
+
+webui::FlagsIdentifier
+^^^^^^^^^^^^^^^^^^^^^^
+
 Similarly, in the attribute form of the identifier for which you want to specify flags, you can add the :token:`webui::FlagsIdentifier` annotation attribute and then fill in the string parameter containing the desired flags there:
 
 .. image:: images/Annotations_view2.png
@@ -118,6 +126,10 @@ Similarly, in the attribute form of the identifier for which you want to specify
 Again, such a string may be then used for front-end styling purposes, please see the `Data-Dependent Styling <webui-folder.html#data-dependent-styling>`_ section for more details. Also, the string parameter used in the flags annotation attribute may have any name of your choice, so it is no longer intrinsically linked to the name of the original identifier.
 
 If an identifier X does not have the :token:`webui::FlagsIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_flags` discussed previously, if this is present in the model.
+
+
+webui::ItemTextIdentifier
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Next, in the attribute form of the identifier for which you want to specify some item text, you can add the :token:`webui::ItemTextIdentifier` annotation attribute and then fill in the string parameter containing the desired item text there:
 
@@ -130,6 +142,9 @@ Again, the string parameter used in the item text annotation attribute may have 
     :align: center
 
 If an identifier X does not have the :token:`webui::ItemTextIdentifier` annotation attribute added or this attribute exists but it is empty, then AIMMS will fall back on the values of :token:`X_text` discussed above, if this is present in the model.
+
+webui::TooltipIdentifier
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Next, we come to the identifier annotations related to tooltips. Almost all widgets offered by the AIMMS WebUI support tooltips. These tooltips have some default value. For example, when hovering over a Table cell, its value is displayed.  However, they can also be completely user-defined, giving the user freedom in determining the contents to be shown. 
 In order to create user-defined tooltips, in the attribute form of the identifier for which you want to specify tooltips, you can add the :token:`webui::TooltipIdentifier` annotation attribute and then fill in the auxiliary string parameter containing the desired tooltips there:
@@ -167,6 +182,22 @@ A special case of the tooltip annotation is the :token:`webui::IdentifierTooltip
 In the header section of a Table widget displaying the :token:`place_from` identifier (the name of which might not be immediately clear to users), you can now hover this identifier name and you will see the string above in a tooltip.
 
 We advise you to set up this identifier in your initialization routines, such as MainInitialization. 
+
+webui::IsHTML
+^^^^^^^^^^^^^
+
+| The :token:`webui::IsHtml` annotation is a special case available only for String Parameters.
+| Setting :token:`webui::IsHtml` to **True** enables the WebUI to interpret HTML tags embedded within the provided string data. By default, string content, including HTML tags, is rendered as plain text on widgets like the WebUI Tables. However, in scenarios where structured HTML data needs to be displayed with its intended formatting, setting :token:`webui::IsHtml` to **True** allows the HTML tags to be interpreted and rendered as HTML elements rather than plain text.
+| This feature becomes particularly handy when you need to display formatted text, links, or other rich content within your WebUI. Instead of treating HTML tags as literal text, the WebUI will interpret them as markup instructions, resulting in the display of properly formatted content.
+
+.. note::
+    | The support for the :token:`webui::IsHtml` annotation was introduced in **AIMMS 24.3**.
+    | However, it's important to mention that currently, only the **Table widget cells** display HTML data as configured
+    | Additionally, as a security precaution, any content enclosed within `<script>` tags or image tags that include `onerror` or `javascript` attributes will be removed before presenting the HTML data on Table cells. This measure is implemented to mitigate potential security vulnerabilities stemming from the execution of arbitrary JavaScript code within the application.
+	 
+
+webui::UponChangeProcedure
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Last (but not least), we discuss the identifier annotations related to the procedures "upon change". In order to specify a procedures "upon change", in the attribute form of the identifier for which you want to specify such a procedure, you can add the :token:`webui::UponChangeProcedure` annotation attribute and then fill in the name of the desired procedure there:
 
@@ -1163,3 +1194,6 @@ Best Practices for Item Actions
 
     actiontype
     procedurally
+    FlagsIdentifier
+    IsHTML
+    UponChangeProcedure
