@@ -13,6 +13,27 @@ AIMMS 24.3
 
 
 
+AIMMS 24.3.2 Release (April 04, 2024 - build 24.3.2.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When adding new arguments to a procedure or function via the wizard, a rather strange error message appeared.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When creating a new AIMMS model and opening the WebUI for the first time in that same first session, you would get an error about the WebUI page not being found. Saving, closing and reopening the model would mitigate this problem, but in this version we properly addressed the problem and now it does not happen anymore.
+
+--------------
+
+
+
+
+
 AIMMS 24.3.1 Release (April 03, 2024 - build 24.3.1.0).
 ------------------------------------------------------------------------------------------
 
