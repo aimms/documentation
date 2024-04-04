@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.2.1.5 [04-04-2024]
+	- Table state was not emptied completely when generating dataset mappings, which could lead to corrupted mappings
+
 24.2.1.4 [29-03-2024]
 	- Table node with more than one row would crash when adding a mapping
 
