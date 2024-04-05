@@ -7,7 +7,7 @@ PRO 24.5
 AIMMS PRO 24.5.1 Release
 ------------------------
 
-On April 5, 2024, we released AIMMS PRO 24.5.1(24.4.2.1)
+On April 5, 2024, we released AIMMS PRO 24.5.1(24.5.1.1)
 
 **Improvements**
 
