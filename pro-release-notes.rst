@@ -1,6 +1,23 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.5
+########
+
+AIMMS PRO 24.5.1 Release
+------------------------
+
+On April 5, 2024, we released AIMMS PRO 24.5.1(24.4.2.1)
+
+**Improvements**
+
+   - It is now possible to wait longer than the default 30 seconds for the Python service to start by specifying the *startWaitTime* argument of the LaunchService method. Please note that this does require **AIMMS Version 24.3** or higher.
+   - **On-Premise**: AIMMS PRO Postgres database is upgraded to **Postgres 16.2** for Windows installation. This means upgrading to AIMMS PRO 24.5.1 will require a database migration of your AIMMS PRO database. Please contact AIMMS Customer Support to help you with this upgrade.
+
+**Resolved Issues**
+
+   - Fixed an issue where external Python service was not accessible within AIMMS session on AIMMS Cloud Platform.
+
 PRO 24.4
 ########
 
