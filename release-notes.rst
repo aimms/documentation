@@ -47,6 +47,7 @@ AIMMS Improvements
 -  The compilation and execution of constant and symbolic list expressions is now picked up by the new compiler and the parallel engine. This may lead to some compilation errors in your application for constructs that were unintentionally accepted by the old compiler. An example is: 'DATA { 'a' : 3, 'b' : 4, 'c' }' where the last entry is missing a colon and a corresponding value. The old compiler just accepted this and assumed a value of 1.0.
 -  Gurobi 11.0 has been upgraded to version 11.0.1.
 -  Many of the time related functions are now handled by the new compiler within AIMMS. This may introduce some compiler warnings that were not given in previous AIMMS versions. If the warnings do not make any sense, or if you notice any other unexpected behavior related to these functions, please let us know.
+-  It is now possible to wait longer than the default 30 seconds for the Python service to start by specifying the 'startWaitTime' argument of the LaunchService method. Please note that this will only have effect when run on AIMMS PRO 24.5 or higher.
 
 WebUI Improvements
 +++++++++++++++++++++++++
@@ -11153,3 +11154,5 @@ Improvements
   IdentifierAnnotation
   anOption
   webserver
+  startWaitTime
+  LaunchService
