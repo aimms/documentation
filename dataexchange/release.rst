@@ -15,7 +15,7 @@ New Features and Bug Fixes
 --------------------------
 24.2.1.6 [10-04-2024]
 	- Add capability to generate Excel mappings for individual tables
-	- Allow localhost oauth2 callback path to be configurable
+	- Allow localhost OAuth2 callback path to be configurable
 
 24.2.1.5 [04-04-2024]
 	- Table state was not emptied completely when generating dataset mappings, which could lead to corrupted mappings
@@ -501,4 +501,5 @@ New Features and Bug Fixes
 		url
 		FEFF
 		DEX
+		OAuth2
 	
