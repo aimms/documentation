@@ -63,14 +63,8 @@ When the appVersion is specified in create task request it schedule a task with 
 		
 For above request, it will schedule a task for TestApp version 1.0.
 
-Tasks REST API V1 and V2
-------------------------
-
-Currently we have two REST APIs for Tasks: v1 and v2, where **v2** is the latest implementation with more reliable and robust design which supports all the functionality provided by v1. We recommend the use of v2 for all new applications or please consider switching to v2 if you are already using v1.
-
-.. important::
-
-   Tasks REST API **v1** is available only till **January 31, 2024**. Please consider migrating to **v2** as soon as possible.
+Tasks REST API V2
+-----------------
 
 The full OpenAPI specification of this service can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v2/``.
 
