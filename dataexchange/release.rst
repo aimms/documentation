@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.2.1.6 [10-04-2024]
+	- Add capability to generate Excel mappings for individual tables
+	- Allow localhost oauth2 callback path to be configurable
+
 24.2.1.5 [04-04-2024]
 	- Table state was not emptied completely when generating dataset mappings, which could lead to corrupted mappings
 
