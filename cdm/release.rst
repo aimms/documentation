@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+24.1.1.3 [16-04-2024]
+	- Set labels with non-ASCII Unicode characters might result in duplicate entries in namespace tables due to incorrect lower case conversion
+
 24.1.1.1 [30-03-2024]
 	- Categories are now traversed in the dependency order, to make sure changes for categories are committed in the order in which they should be pulled.
 	

@@ -114,7 +114,7 @@ where ``<value>`` is the literal text that you want assign to the annotation ``<
 
 You can use the annotation ``dex::RowFilter`` to specify an identifier that should serve as a ``write-filter`` attribute for the rows being generated in the mapping. The identifier should have the same indices as all identifiers in the table. The ``RowFilter`` annotation should be the same for all identifiers in a specific table. If all identifiers in a table are contained in a single section in your model, you can best add the annotation to that section, in which case all identifiers in the section will inherit it. With the row filter you can limit the number of rows being generated when writing a file using the mapping.
 
-To generate all annotation-based mapping, you can call the procedure :js:func:`dex::GenerateDatasetMappings`.
+To generate all annotation-based mapping, you can call the procedure :js:func:`dex::GenerateDatasetMappings`. 
 This will generate Data Exchange mappings in the subfolder ``Mappings/Generated`` in the main project folder. The following mappings will become available for every ``<dataset>``  and ``<table>``:
 
 .. csv-table:: 
@@ -135,6 +135,8 @@ This will generate Data Exchange mappings in the subfolder ``Mappings/Generated`
     ``Generated/<dataset>-<table>-XML-DenseAttribute``, table ``<table>`` in dataset ``<dataset>`` in a single dense XML file (indices and values as elements; also default data)
     ``Generated/<dataset>-<table>-CSV``, table ``<table>`` in dataset ``<dataset>`` in a single CSV file
 
+Through the parameter ``dex::DatasetGeneratorFilter`` you can limit for which types of mappings you want to be generated, for instance, for which output formats, whether you want mappings for complete datasets or individual tables, etc.
+
 Generating dataset mappings containing external bindings
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -144,7 +146,6 @@ Generating multiple mappings
 ++++++++++++++++++++++++++++
 
 You can generated multiple collections of dataset mappings by setting the string parameter `dex::MappingPrefix` to a prefix that will be used for every generated mapping. You can use this for instance to create a mapping with and without external bindings.
-
 
 A document-based JSON format
 ----------------------------
