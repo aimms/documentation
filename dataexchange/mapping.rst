@@ -140,13 +140,13 @@ By default, when writing CSV files, Excel sheets, Parquet files and databases, A
 The iterative-binds-to attribute
 --------------------------------
 
-The ``iterative-binds-to`` attribute can be used if the given JSON or XML format does not hold an explicit value which can be bound to an index in your model. The  ``iterative-binds-to`` attribute will generate elements using an increasing integer counter.
+The ``iterative-binds-to`` attribute can be used if the given JSON or XML format does not hold an explicit value which can be bound to an index in your model.  The  ``iterative-binds-to`` attribute will generate elements using an increasing integer counter. You should specify the ``iterative-binds-to`` attribute for a ``RowMapping`` underneath a ``TableMapping`` or for object, value or nested array nodes underneath an ``ArrayMapping``. Specifying the ``iterative-binds-to`` attribute to a ``TableMapping`` or an ``ArrayMapping`` will not have the desired effect.
 
 The ``iterative-prefix`` attribute can be used alongside the ``iterative-binds-to`` attribute. All elements created in the model will be prefixed with the prefix specified here. If you don't specify a prefix, the element names will be just increasing integer values.
 
 Assigning a value of 1 to the the ``iterative-existing`` attribute causes the ``iterative-binds-to`` attribute to not generate new elements, but instead to use existing elements of the set bound to the index specified in the ``iterative-binds-to`` attribute, starting at the element with ordinal 1. If a generated element is not present, the reading will stop with an error.
 
-The ``iterative-reset`` attribute can be specified at a particular element of your mapping. If attribute value is "1", it will cause the integer counter associated with the of ``iterative-binds-to`` attributes of all direct child mappings to be reset to 1. If it contains a comma-separated list of indices used in the mapping or in any of its included mappings, then the integer counter associated with each of these indices will be reset to 1. The indices specified in an ``iterative-reset`` attribute do not have to be bound at that node.  
+The ``iterative-reset`` attribute can be specified at a particular element of your mapping. If attribute value is "1", it will cause the integer counter associated with the ``iterative-binds-to`` attributes of all direct _child_ mappings to be reset to 1. If it contains a comma-separated list of indices used in the mapping or in any of its included mappings, then the integer counter associated with each of these indices will be reset to 1. The indices specified in an ``iterative-reset`` attribute do not have to be bound at that node.  
 
 The implicit-binds-to attribute
 -------------------------------
