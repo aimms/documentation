@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+
+24.2.1.7 (24-04-2024)
+	- When writing a JSON schema with a lot of nodes, the pre-filled set of schema nodes could run of out nodes
+
 24.2.1.6 [10-04-2024]
 	- Add capability to generate Excel mappings for individual tables
 	- Allow localhost OAuth2 callback path to be configurable
