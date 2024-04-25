@@ -379,7 +379,7 @@ Plotting in WebUI
 
 Till now we only moved data back an forward between AIMMS and R. The WebUI can be used to visualize the data using different types of graphs, but R has plotting capabilities by itself. We will show how a plot made by R can be shown the in the WebUI.
 
-We use two image widgets in the WebUI, one to show a plot of sepal length and width and one to show a plot of petal length and width. The file names used by the widgets are retrieved from StringParameters :token:`SepalImg` and :token:`PetalImg`. The image widget searches for these file in the images directory of the :doc:`https://documentation.aimms.com/webui/webui/resources-subfolder.html`. We create a StringParameter :token:`ImgPath` for this:
+We use two image widgets in the WebUI, one to show a plot of sepal length and width and one to show a plot of petal length and width. The file names used by the widgets are retrieved from StringParameters :token:`SepalImg` and :token:`PetalImg`. The image widget searches for these file in the images directory of the `https://documentation.aimms.com/webui/webui/resources-subfolder.html`. We create a StringParameter :token:`ImgPath` for this:
 
 .. code::
 
