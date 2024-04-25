@@ -6,6 +6,9 @@
   <sitemap>
     <loc>http://documentation.aimms.com/functionreference/sitemap.xml</loc>
   </sitemap>
+    <sitemap>
+    <loc>http://documentation.aimms.com/webui/sitemap.xml</loc>
+  </sitemap>
   <sitemap>
     <loc>http://documentation.aimms.com/language-reference/sitemap.xml</loc>
   </sitemap>
