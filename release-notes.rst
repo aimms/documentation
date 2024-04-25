@@ -3769,7 +3769,7 @@ Resolved WebUI Issues
 -  Now you can click anywhere in a Table/Scalar cell to set a checkbox. You do not need to click specifically inside the checkbox anymore.
 -  Widget actions now also work when a widget is in full screen mode. Previously the widget actions menu did not appear when the button was clicked and the widget was in full screen mode.
 -  In a few Grid Layout templates, the selection box stretched to the complete area that it was assigned to instead of maintaining the actual height of the widget.
--  There was an issue with the :doc:`Barline widget <../webui/bar-line-chart-widget>` aggregating data for elements that had the same element text attribute. The behavior is now consistent with other widgets.
+-  There was an issue with the :doc:`Barline widget <https://documentation.aimms.com/webui/webui/bar-line-chart-widget.html>` aggregating data for elements that had the same element text attribute. The behavior is now consistent with other widgets.
 
 
 --------------

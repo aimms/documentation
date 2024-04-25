@@ -82,9 +82,9 @@ Integrated WebUI builder
 ^^^^^^^^^^^^^^^^^^^^^^^^
 Create a modern UI with minimal design knowledge based on sophisticated and well-documented `UX-forward design <http://design-system.aimms.com/>`_.
 
-* Maintain consistent :doc:`page layout </webui/quick-start>` with template managers
+* Maintain consistent :doc:`page layout <https://documentation.aimms.com/webui/webui/quick-start.html>` with template managers
 * Select and configure your pages using a library of components
-* Style :doc:`customizable components </webui/css-styling>` and pages, and apps using basic CSS skills
+* Style :doc:`customizable components <https://documentation.aimms.com/webui/webui/css-styling.html>` and pages, and apps using basic CSS skills
 
 Diagnostic tools
 ^^^^^^^^^^^^^^^^^^^
