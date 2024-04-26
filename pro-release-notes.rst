@@ -1,6 +1,22 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.6
+########
+
+AIMMS PRO 24.6.1 Release
+------------------------
+
+On April 26, 2024, we released AIMMS PRO 24.6.1(24.6.1.2)
+
+**Improvements**
+
+   - Some internal technical improvements.
+
+**Resolved Issues**
+
+   - **On-Premise**: Under heavy load a backwards compatibility feature for older AIMMS versions would potentially cause a webui session not to start. Starting with the combination of **AIMMS PRO 24.6** and **AIMMS 24.4** this feature will no longer be needed and thereby resolve the occasional not starting webui session under heavy load.
+
 PRO 24.5
 ########
 
