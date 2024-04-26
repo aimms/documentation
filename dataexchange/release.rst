@@ -14,6 +14,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 New Features and Bug Fixes
 --------------------------
 
+24.2.1.10 (26-04-2024)
+	- Add a standard ``StandardTaskService`` REST service with a key-value list for both the request and response body, passed on to a handler procedure via 1-dimensional string parameters
+
 24.2.1.7 (24-04-2024)
 	- When writing a JSON schema with a lot of nodes, the pre-filled set of schema nodes could run of out nodes
 
