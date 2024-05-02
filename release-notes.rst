@@ -29,6 +29,7 @@ Resolved AIMMS Issues
 -  The irreducible infeasibility set (IIS) could be incomplete for models containing semi-continuous or semi-integer variables.
 -  Calling a procedure with missing arguments, like in FormatString("%n %n", a, ), could cause a severe internal error.
 -  A "Read from file" did not work correctly if the file contained multi-dimensional sliced assignment statements, like A('i1','i2') := 3; and the quoted elements did not exist in the corresponding sets.
+-  If you removed the Stochastic property of a variable for which the Stage attribute was also specified, the Stage attribute was not completely removed and was still present in the saved .ams file, which could lead to unexpected errors.
 
 --------------
 
