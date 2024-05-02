@@ -8,6 +8,27 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 24.4
+#############
+
+
+
+AIMMS 24.4.1 Release (May 02, 2024 - build 24.4.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The irreducible infeasibility set (IIS) could be incomplete for models containing semi-continuous or semi-integer variables.
+-  Calling a procedure with missing arguments, like in FormatString("%n %n", a, ), could cause a severe internal error.
+-  A "Read from file" did not work correctly if the file contained multi-dimensional sliced assignment statements, like A('i1','i2') := 3; and the quoted elements did not exist in the corresponding sets.
+
+--------------
+
+
+#############
 AIMMS 24.3
 #############
 
