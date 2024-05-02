@@ -23,7 +23,7 @@
         <p>AIMMS Documentation is a help resource containing detailed product documentation and other reference materials including user guide, function list, modeling manual, language reference.</p>
 
         <div class="boxes">
-            <a class="box_home_page" href="webui/index.html">
+            <a class="box_home_page" href="webui/webui/index.html">
                 <img alt="webui" src="_images/webui-design-32.png">
                 <h1>WebUI</h1>
                 <div>Documentation for AIMMS WebUI</div>
