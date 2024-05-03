@@ -13,7 +13,12 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
-
+24.2.1.11 (03-05-2024)
+	- Any string value passed to can now be expanded to the content of a memory stream when writing to a file, when the string value starts with `#` and the string value corresponds to an existing memory stream. Otherwise the string value will be will written. 
+	- When reading a string value from a file, the value will be stored in a memory stream if the `max-string-size` attribute is set to the maximum string size (1048576) and the length of the string exceeds this size. In that case the string will be stored in a memory stream, and the name of the stream (starting with a `#` character) will be assigned to the string parameter
+	- A new function  :js:func:`dex::ReadStreamFromFile` has been introduced
+	- When reading/writing memory streams from/to file, the content of the memory stream can now optionally be base64 encoded/decoded
+	
 24.2.1.10 (26-04-2024)
 	- Add a standard ``StandardTaskService`` REST service with a key-value list for both the request and response body, passed on to a handler procedure via 1-dimensional string parameters
 
