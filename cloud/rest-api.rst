@@ -20,7 +20,7 @@ We support following services(functionality) through the AIMMS PRO REST API:
     - `Managing API Keys <rest-api.html#managing-api-keys>`__
 
 	
-The full OpenAPI specification of the AIMMS PRO REST API itself can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v1/``. 
+The full OpenAPI specification of the AIMMS PRO REST API itself can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v2/``. 
 
 .. note::
 
@@ -94,9 +94,9 @@ Examples of the URL:
 
 .. code-block:: php
 
-        https://[account-name].aimms.cloud/pro-api/v1/applications
+        https://[account-name].aimms.cloud/pro-api/v2/applications
 
-        https://[account-name].aimms.cloud/pro-api/v1/applications/{projectName}/{projectVersion}
+        https://[account-name].aimms.cloud/pro-api/v2/applications/{projectName}/{projectVersion}
 
 To know what URL should be used, check the corresponding API spec.
 
