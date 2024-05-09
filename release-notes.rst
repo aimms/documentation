@@ -13,6 +13,22 @@ AIMMS 24.4
 
 
 
+AIMMS 24.4.2 Release (May 09, 2024 - build 24.4.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS RPM installer for Linux did not contain the correct dependencies.
+
+--------------
+
+
+
+
+
 AIMMS 24.4.1 Release (May 02, 2024 - build 24.4.1.0).
 ------------------------------------------------------------------------------------------
 
