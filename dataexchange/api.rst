@@ -458,7 +458,7 @@ The following functions are available for management of the memory streams.
 
 .. js:function:: dex::ImportStreamContent
 
-	Import the content of a string parameter into a new memory stream. The name of the stream should start with a `#`, to allow the stream to be used by other functions of the Data Exchange library. This function supports string parameters up to 16 KB of content. 
+	Import the content of a string parameter into a new memory stream. The name of the stream should start with a `#`, to allow the stream to be used by other functions of the Data Exchange library. This function supports string parameters up to 1 MB of content. 
 	
 	:param streamName: name of memory stream to import content into
 	:param content: input string parameter holding the string to import into the memory stream
@@ -476,14 +476,25 @@ The following functions are available for management of the memory streams.
 	
 	:param streamName: name of memory stream to export content from
 	:param content: output string parameter to hold the content (up to 16 KB) exported from the memory stream	
+	:param base64: (optional) argument indicating whether the content of the memory stream should be base64-decoded
 	
 .. js:function:: dex::WriteStreamToFile
 
 	Write the content of an existing memory stream to a file. 
 	
 	:param streamName: name of memory stream to write content from
-	:param fileName: name of the to which the content of the stream needs to be written.
+	:param fileName: name of the file to which the content of the stream needs to be written.
+	:param base64: (optional) argument indicating whether the content of the memory stream should be base64-decoded
 	
+.. js::function:: dex::ReadStreamFromFile
+
+	Read the content of a file into a memory stream. 
+	
+	:param streamName: name of memory stream to write content to
+	:param fileName: name of the file from which the content of the stream needs to be read.
+	:param base64: (optional) argument indicating whether the content of the memory stream should be base64-encoded
+
+
 Generators
 ----------
 

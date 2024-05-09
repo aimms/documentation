@@ -22,6 +22,9 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  AIMMS RPM installer for Linux did not contain the correct dependencies.
+-  Newly created projects now set the option case_compatibility to AIMMS_4_80. It is recommended to set this option in existing projects as well.
+-  The AIMMSAPI function AimmsSetNameToElement no longer triggers an error message in the error/warning window if a calendar element name does not adhere to the format of the calendar. The return value of the API function will simply be 0.
+-  The model generation times are now reported in the log file using the AIMMS.GENERATOR logger.
 
 --------------
 
