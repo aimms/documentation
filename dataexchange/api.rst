@@ -429,12 +429,14 @@ Any file
 * read by :js:func:`dex::ReadFromFile`, 
 * serving as a request or response file to :js:func:`dex::client::NewRequest` 
 
-can also be a memory stream, i.e. a file stored in memory. Memory streams can be up to 1 MB big. Memory streams can help
+can also be a memory stream, i.e. a file stored in memory. Memory streams can have arbitrary length. Memory streams can help
 
 * improve performance because they do not incur disk I/O, or delay because of virus scanning generated files on disk,
 * reduce clutter in your project folder.
 
 If the file name starts with a `#`, the Data Exchange library will assume that the specified file name is to be interpreted as a memory stream. Memory streams for the output file of the function :js:func:`dex::WriteToFile` and the response file of the function :js:func:`dex::client::NewRequest` will create a memory stream with the given file name as its key, while the input file of the function :js:func:`dex::ReadFromFile` and the request file of the function :js:func:`dex::client::NewRequest` will assume an existing memory stream with the given key. 
+
+In addition, when a mapping contains a string parameter, and the value of the string starts with `#`, then the Data Exchange library will verify whether the entire string is the name of an existing memory stream, and if so, output the content of that memory stream. If the string does not denote the name of an existing memory stream, just the content of the string parameter will be output.
 
 Memory streams with keys starting with `##` used as request or response files will be *automatically deleted* when the corresponding `dex::client` request is closed. 
 
