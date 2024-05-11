@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.2.1.12 (11-05-2024)
+	- Add support for new `name-binds-to-display-name` attribute to allow an alternative field/column name to be displayed for `name-binds-to` fields.
+
 24.2.1.11 (03-05-2024)
 	- Any string value passed to can now be expanded to the content of a memory stream when writing to a file, when the string value starts with `#` and the string value corresponds to an existing memory stream. Otherwise the string value will be will written. 
 	- When reading a string value from a file, the value will be stored in a memory stream if the `max-string-size` attribute is set to the maximum string size (1048576) and the length of the string exceeds this size. In that case the string will be stored in a memory stream, and the name of the stream (starting with a `#` character) will be assigned to the string parameter
