@@ -5,7 +5,7 @@ Snowflake API
 
     Execute a SQL statement `stmt` in the configured schema of the configured Snowflake instance. By default, the function will wait for a maximum of 50 seconds for the execution of the statement to complete. If the execution is completed, the function will return a code of 200, if the execution is still in progress, the function will return 202. In case of any failure the function will return 0. If the execution is still in progress, you can call the function `sf::WaitForSQLStatements` to wait for any SQL statements still in progress.
     
-    :param stmt: SQL statement to be executed (upto 64KB characters)
+    :param stmt: SQL statement to be executed (up to 64KB characters)
     :param timeout: time to wait for the statement execution to complete (default 50 seconds)
 
 .. js:function::  sf::WaitForSQLStatements(timeout)

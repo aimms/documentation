@@ -6,7 +6,7 @@ The first public release of Snowflake library was version 24.1.1.6, release date
 New Features and Bug Fixes
 --------------------------
 24.1.1.11 [03-05-2024]
-	- Allowed SQL statements to be upto 64KB characters
+	- Allowed SQL statements to be up to 64KB characters
 
 24.1.1.8 [18-02-2024]
 	- Add support for communicating parquet files with Snowflake via an external stage in Snowflake
