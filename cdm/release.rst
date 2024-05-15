@@ -7,7 +7,7 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
-24.2.1.1 [15-05-2024]
+24.2.1.2 [15-05-2024]
 	- Increase number of dispatcher threads from 16 to 64 in CDM service
 	- Improve handling of heartbeat message by making them priority messages
 	- Improve fix in version 24.1.1.3 by setting locale in CDM service
