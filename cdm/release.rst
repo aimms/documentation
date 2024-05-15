@@ -7,6 +7,11 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+24.2.1.1 [15-05-2024]
+	- Increase number of dispatcher threads from 16 to 64 in CDM service
+	- Improve handling of heartbeat message by making them priority messages
+	- Improve fix in version 24.1.1.3 by setting locale in CDM service
+
 24.1.1.4 [17-04-2024]
 	- During checkout CDM would complain unnecessarily about non-existing elements when using AIMMS 24, where AIMMS >= 4.84 should have prevented this
 
