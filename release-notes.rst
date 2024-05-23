@@ -13,6 +13,22 @@ AIMMS 24.4
 
 
 
+AIMMS 24.4.3 Release (May 23, 2024 - build 24.4.3.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS would crash when changing WebUI versions through the Library Manager.
+
+--------------
+
+
+
+
+
 AIMMS 24.4.2 Release (May 09, 2024 - build 24.4.2.3).
 ------------------------------------------------------------------------------------------
 
