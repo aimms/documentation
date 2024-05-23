@@ -21,7 +21,9 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  AIMMS would crash when changing WebUI versions through the Library Manager.
+-  AIMMS crashed when changing WebUI versions through the Library Manager.
+-  In a WebUI table widget, showing the contents of a Set next to some other identifiers could lead to a crash in the underlying AIMMS system.
+-  We made a small performance improvement that could make generation of a mathematical program a bit faster.
 
 --------------
 
