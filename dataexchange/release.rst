@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.2.1.14 (24-05-2024)
+	- Offer better support for combining `name-binds-to-display-name` and `name-regex-from` with regex pre- and post-fixes
+
 24.2.1.13 (22-05-2024)
 	- Downloading and uploading files asynchronously to Azure DLS would not correctly deal with CURL errors due to an incorrectly evaluated AIMMS expression, and report success regardless
 	- Row-based mappings will now support integer columns as calendar labels, if the timeslot format produces calendar labels that can be interpreted as integers
