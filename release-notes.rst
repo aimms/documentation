@@ -18,20 +18,22 @@ AIMMS 24.5.1 Release (May 30, 2024 - build 24.5.1.1).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
---------------
-
 AIMMS Improvements
 +++++++++++++++++++++++++
 
-- The new option 'Row range violation left hand side tolerance' has been added. This option is used by the AIMMS generator to check individual constraints for feasibility by computing the range of the left hand side and comparing it to the right hand side, as controlled by the option 'Row range violation left hand side'. (Previously, this tolerance was controlled by the option 'Constraint listing feasibility tolerance'.)
+- An extra (optional) binary argument has been added to the procedure GMP::Solution::Check. If set to 1, the procedure will also check for bound violations and integrality violations.
 - The default for the option case_string_character_set has been changed from "utf8" to "native". From experiments it shows that the native character set has the best performance. This option only affects newly created cases and all these cases remain compatible with older AIMMS versions.
+- Gurobi 11.0 has been upgraded to version 11.0.2.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
-- A defined parameter with a unit for which the conversion from the base unit contained a parameter (like in: localCurrency->€ : # -> # * exchangeRate) did not show the correct value in WebUi if the value of exchangeRate was changed.
-- An extra (optional) binary argument has been added to the procedure GMP::Solution::Check. If set to 1, the procedure will also check for bound violations and integrality violations.
+- A defined parameter with a unit for which the conversion from the base unit contained a parameter (like in: localCurrency->€ : # -> # * exchangeRate) did not show the correct value in WebUI if the value of exchangeRate was changed.
 - A performance issue was fixed for iterative operators like mean.
+- The new option 'Row range violation left hand side tolerance' has been added. This option is used by the AIMMS generator to check individual constraints for feasibility by computing the range of the left hand side and comparing it to the right hand side, as controlled by the option 'Row range violation left hand side'. (Previously, this tolerance was controlled by the option 'Constraint listing feasibility tolerance'.)
+
+--------------
+
 
 #############
 AIMMS 24.4
