@@ -8,6 +8,20 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 24.5
+#############
+
+
+
+AIMMS 24.5.1 Release (May 30, 2024 - build 24.5.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+--------------
+
+
+#############
 AIMMS 24.4
 #############
 
