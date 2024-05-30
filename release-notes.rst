@@ -31,6 +31,7 @@ Resolved AIMMS Issues
 - A defined parameter with a unit for which the conversion from the base unit contained a parameter (like in: localCurrency->€ : # -> # * exchangeRate) did not show the correct value in WebUI if the value of exchangeRate was changed.
 - A performance issue was fixed for iterative operators like mean.
 - The new option 'Row range violation left hand side tolerance' has been added. This option is used by the AIMMS generator to check individual constraints for feasibility by computing the range of the left hand side and comparing it to the right hand side, as controlled by the option 'Row range violation left hand side'. (Previously, this tolerance was controlled by the option 'Constraint listing feasibility tolerance'.)
+- Callbacks aren't called anymore when calculating Substructure Causing Infeasibility or Substructure Causing Unboundedness in the Math Program Inspector.
 
 --------------
 
