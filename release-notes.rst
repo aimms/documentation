@@ -11248,3 +11248,5 @@ Improvements
   LaunchService
   localCurrency
   exchangeRate
+  utf8
+  utf
