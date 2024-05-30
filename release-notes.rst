@@ -20,11 +20,15 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
 --------------
 
-Resolved AIMMS Issues
+AIMMS Improvements
 +++++++++++++++++++++++++
 
 - The new option 'Row range violation left hand side tolerance' has been added. This option is used by the AIMMS generator to check individual constraints for feasibility by computing the range of the left hand side and comparing it to the right hand side, as controlled by the option 'Row range violation left hand side'. (Previously, this tolerance was controlled by the option 'Constraint listing feasibility tolerance'.)
 - The default for the option case_string_character_set has been changed from "utf8" to "native". From experiments it shows that the native character set has the best performance. This option only affects newly created cases and all these cases remain compatible with older AIMMS versions.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
 - A defined parameter with a unit for which the conversion from the base unit contained a parameter (like in: localCurrency->€ : # -> # * exchangeRate) did not show the correct value in WebUi if the value of exchangeRate was changed.
 - An extra (optional) binary argument has been added to the procedure GMP::Solution::Check. If set to 1, the procedure will also check for bound violations and integrality violations.
 - A performance issue was fixed for iterative operators like mean.
@@ -11242,3 +11246,5 @@ Improvements
   webserver
   startWaitTime
   LaunchService
+  localCurrency
+  exchangeRate
