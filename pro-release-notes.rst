@@ -4,6 +4,16 @@ AIMMS PRO Release Notes
 PRO 24.6
 ########
 
+AIMMS PRO 24.6.2 Release
+------------------------
+
+On May 24, 2024, we released AIMMS PRO 24.6.2(24.6.2.1)(Cloud only release)
+
+**Resolved Issues**
+
+   - Changed the wait for session start timeout from 1 minute to 3 minutes to fix session launch failures.
+
+
 AIMMS PRO 24.6.1 Release
 ------------------------
 
