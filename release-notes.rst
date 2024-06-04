@@ -32,6 +32,7 @@ Resolved AIMMS Issues
 - A performance issue was fixed for iterative operators like mean.
 - The new option 'Row range violation left hand side tolerance' has been added. This option is used by the AIMMS generator to check individual constraints for feasibility by computing the range of the left hand side and comparing it to the right hand side, as controlled by the option 'Row range violation left hand side'. (Previously, this tolerance was controlled by the option 'Constraint listing feasibility tolerance'.)
 - Callbacks aren't called anymore when calculating Substructure Causing Infeasibility or Substructure Causing Unboundedness in the Math Program Inspector.
+- In functions like StringToTimeslot where a date time string is matched against a date time format, an error could occur when the match was not successful.
 
 --------------
 
@@ -11253,3 +11254,4 @@ Improvements
   exchangeRate
   utf8
   utf
+  StringToTimeslot
