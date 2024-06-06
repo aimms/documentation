@@ -41,3 +41,25 @@ Transferring files
 ------------------
 
 Once you have a file system ready, the Data Exchange library offers a collection of functions to upload or download a single file, or the contents of an entire directory of files to/from a path within a file system within your Data Lake Storage account. 
+
+Support for storing data of generated datasets in DLS as a collection of Parquet files
+--------------------------------------------------------------------------------------
+
+The Data Exchange library introduced the datasets generated from model annotations as a convenient way to store your application data in various row-based formats. Given the large amounts of data typically involved with optimization models, we prefer Parquet for storing application data, given its compact storage, fast reading and writing, and its wide usability because of its open source nature. To store and exchange application data in an easily sharable way, the DEX library provides an easy way to generate all data in a dataset as Parquet files and upload them to Azure Data Lake storage in a single call, and, conversely, download Parquet files from Azure Data Lake storage and read the data into the model.
+
+For any given generated dataset in your model, you can call one of the functions
+
+- `dex::dls::WriteDataSetByTable(dataset, instance)`
+- `dex::dls::WriteDataSetByInstance(dataset, instance)`
+
+to let the Data Exchange library generate a collection of Parquet files for an `instance` of the given dataset `dataset` from the current data in your model, and store them in the configured Azure Data Lake storage. These functions differ in the way they organize the data in Azure Data Lake storage. Both work from a container in the configured Azure Data Lake storage, pointed to by either `dex::dls::DatasetsByTable` or `dex::dls::DatasetsByInstance`, respectively. Inside this container, Parquet files are organized as follows:
+
+- `<dataset>/<table>/<instance>.parquet`
+- `<dataset>/<instance>/<table>.parquet`
+
+Conversely, you can read back the data associated with an instance of a generated dataset through the functions
+
+- `dex::dls::ReadDataSetByTable(dataset, instance)`
+- `dex::dls::ReadDataSetByInstance(dataset, instance)`
+
+You can use these functions to create a very easy-to-use storage scheme for your application data, which can also be used very easily to exchange data with other applications by providing them with a SAS token to your Azure Data Lake storage container.

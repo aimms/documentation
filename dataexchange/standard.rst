@@ -69,7 +69,7 @@ The following JSON data contains the data of an instance of two datasets, each c
     }
     
 Uses of the row-based format
-+++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++
 
 The standard Data Exchange format discussed above is flexible enough to support a range of scenarios for integrating an AIMMS model into the wider IT landscape:
 
@@ -135,7 +135,18 @@ This will generate Data Exchange mappings in the subfolder ``Mappings/Generated`
     ``Generated/<dataset>-<table>-XML-DenseAttribute``, table ``<table>`` in dataset ``<dataset>`` in a single dense XML file (indices and values as elements; also default data)
     ``Generated/<dataset>-<table>-CSV``, table ``<table>`` in dataset ``<dataset>`` in a single CSV file
 
-Through the parameter ``dex::DatasetGeneratorFilter`` you can limit for which types of mappings you want to be generated, for instance, for which output formats, whether you want mappings for complete datasets or individual tables, etc.
+Adding extra columns
+++++++++++++++++++++
+
+Through the parameter `dex::ExtraTableValueColumns` you can add extra string columns to a table with the ``value`` attribute set to the string value of this parameter. If that string value starts with the `#` character, it will be replaced with the content of the memory stream whose name matches the string value when writing files using these generated mappings.
+
+For the special case where you want to add the name of the dataset instance, you can also set the string parameter `dex::DatasetColumnName` to the column name to be added to every generated table to hold the name of the dataset instance. The ``value`` attribute of these columns will be set to ``#<dataset>-instance``, where ``<dataset>`` is the name of the appropriate dataset for each table. Prior to writing you have to provide the instance name for in the memory stream named ``#<dataset>-instance``.
+
+Limiting the mappings generated
++++++++++++++++++++++++++++++++
+
+Through the parameter ``dex::DatasetGeneratorFilter(gt,mm,amt)`` you can indicate which mappings you want the Data Exchange library to generate. By default, only Excel, CSV and Parquet will be generated. The parameter ``dex::DatasetGeneratorFilterDomain(gt,mm,amt)`` holds all the allowed formats, and you can copy the values of it to obtain all possible mappings.
+
 
 Generating dataset mappings containing external bindings
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++

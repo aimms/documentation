@@ -13,6 +13,17 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.3.1.1 (05-06-2024)
+	- Add support for uploading and downloading parquet files for generated datasets in two distinct storage arrangements
+	- Add Snowflake support directly into DEX
+	- An empty set used in a `name-regex-from` attribute would lead to an runtime error during `dex::AddMapping`
+	- Retrying a failed GET file request would result in retrying a PUT request
+	- AIMMS 24.5 does not return a runtime error any longer on a failed `EnvironmentGetString` call, and would result in the api-init file for Data Lake Storage no longer being read
+	- Expensive `SASQuerystring` computation is now cached more often to save DLS execution time
+	- Add support for adding labels in UTF8 format to prevent expensive UTF8 to Unicode conversions for row-based formats (resulting in up to 30% runtime reduction for some label rich files)
+	- UTF8 labels with non-ASCII characters may give an incorrect error for exceeding the maximum string size
+	- Non-parsable YAML files would cause AIMMS sessions to completely abort
+	
 24.2.1.14 (24-05-2024)
 	- Offer better support for combining `name-binds-to-display-name` and `name-regex-from` with regex pre- and post-fixes
 
