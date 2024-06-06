@@ -13,6 +13,22 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.2 Release (June 06, 2024 - build 24.5.2.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The AIMMS function MemoryInUse now shows the accurate value.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.1 Release (May 30, 2024 - build 24.5.1.1).
 ------------------------------------------------------------------------------------------
 
