@@ -13,6 +13,11 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.3.1.2 (09-06-2024)
+	- The regular expression for `name-regex-from` and `name-binds-to-display-name` would no longer be created as case-insensitive
+	- Improved the warning for non-read columns in row-based formats by referring to file and location
+	- Increased read performance of row-based tables with `name-binds-to` columns by mapping column name to set element only once
+
 24.3.1.1 (05-06-2024)
 	- Add support for uploading and downloading parquet files for generated datasets in two distinct storage arrangements
 	- Add Snowflake support directly into DEX
