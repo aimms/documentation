@@ -1,6 +1,18 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.7
+########
+
+AIMMS PRO 24.7.1 Release
+------------------------
+
+On June 11, 2024, we released AIMMS PRO 24.7.1(24.7.1.4)
+
+**Improvements**
+
+   - Several potential security exploits were found in 3rd party libraries used by AIMMS PRO. These libraries have been removed (log4j) or updated (ActiveMQ and the Spring framework) to newer versions thereby resolving this security issues.
+
 PRO 24.6
 ########
 
