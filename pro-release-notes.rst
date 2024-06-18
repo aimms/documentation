@@ -4,6 +4,16 @@ AIMMS PRO Release Notes
 PRO 24.7
 ########
 
+AIMMS PRO 24.7.2 Release
+------------------------
+
+On June 18, 2024, we released AIMMS PRO 24.7.2(24.7.2.7)
+
+**Resolved Issues**
+
+   - The *GetObjectInfo* did not give an error when the file did not exist.
+   - Fixed an issue where an update of the Spring Framework in AIMMS PRO 24.7.1 caused a too much load on Azure Service Bus.
+
 AIMMS PRO 24.7.1 Release
 ------------------------
 
