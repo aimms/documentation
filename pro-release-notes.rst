@@ -1,6 +1,18 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.8
+########
+
+AIMMS PRO 24.8.1 Release
+------------------------
+
+On June 27, 2024, we released AIMMS PRO 24.8.1(24.8.1.1)
+
+**Improvements**
+
+   - Portal Customization (under configuration menu) is now available for SC Navigator accounts, which allows them to customize login page background and some other settings.
+
 PRO 24.7
 ########
 
