@@ -43,7 +43,7 @@ Release history
 
 Version 1.4.2.90
 ++++++++++++++++
-The linux SDK server no longer ships with the stdc++ libraries, they are assumed to be on the system.
+The Linux SDK server no longer ships with the stdc++ libraries, they are assumed to be on the system.
 
 
 Version 1.4.2
@@ -127,3 +127,4 @@ Version 1.1.2.8, contained json.net version 8.0.1 for the .net front end.
 .. spelling:word-list::
 
     gcc
+    stdc
