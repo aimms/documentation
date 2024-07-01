@@ -17,6 +17,15 @@ You need to install the AIMMS SDK for developing and locally running Java, C# or
 
 You can download the latest version of the AIMMS SDK/SDK Server by clicking on one of the download links below.
 
+**1.4.2.90**
+
+* `Download SDK (Windows x86/x64) <https://download.aimms.com/aimms/download/data/SDK/AimmsSDK-1.4.2.90.msi>`_
+* `Download SDK Server (Windows x64) <http://download.aimms.com/aimms/download/data/SDK/AimmsSDKServer-1.4.2.90.exe>`_
+* `Download SDK (Linux x64) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-1.4.2.90.tar.gz>`_
+* `Download SDK Server (Linux x64, gcc 6.1) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-1.4.2.90-gcc61.tar.gz>`_
+
+**1.4.2.26**
+
 * `Download SDK (Windows x86/x64) <http://download.aimms.com/aimms/download/data/SDK/AimmsSDK-1.4.2.26.msi>`_
 * `Download SDK Server (Windows x64) <http://download.aimms.com/aimms/download/data/SDK/AimmsSDKServer-1.4.2.26.exe>`_
 * `Download SDK (Linux x64) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-1.4.2.26.tar.gz>`_
@@ -31,6 +40,11 @@ The Linux artifacts are also available as signed RPMs signed with `this key <htt
 
 Release history
 ---------------
+
+Version 1.4.2.90
+++++++++++++++++
+The linux SDK server no longer ships with the stdc++ libraries, they are assumed to be on the system.
+
 
 Version 1.4.2
 ++++++++++++++
