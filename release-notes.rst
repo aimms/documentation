@@ -13,6 +13,24 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.3 Release (July 04, 2024 - build 24.5.3.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Fixed a problem when trying to open an old application that still has compound set constructs in it.
+-  Reading data from a text file which referred to a non existing index could get into an endless loop. This will now end immediately with an appropriate error message.
+-  Leaving an argument to a function empty could cause a crash.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.2 Release (June 06, 2024 - build 24.5.2.2).
 ------------------------------------------------------------------------------------------
 
