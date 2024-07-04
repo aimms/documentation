@@ -21,7 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  Fixed a problem when trying to open an old application that still has compound set constructs in it.
+-  Trying to open an old application that still has compound set constructs in it now works properly.
 -  Reading data from a text file which referred to a non existing index could get into an endless loop. This will now end immediately with an appropriate error message.
 -  Leaving an argument to a function empty could cause a crash.
 
