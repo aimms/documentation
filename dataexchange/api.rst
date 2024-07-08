@@ -302,7 +302,7 @@ The Data Exchange library contains collection of functions implemented using ``l
     Using this function you can block the execution of the calling procedure for a maximum of :token:`timeout` milliseconds to wait for incoming responses of any outstanding HTTP requests.
     As soon as a first response is available for any of the outstanding requests within the given timeout, its associated callback will be called, as well as for any other available responses. If there are no further responses, the function will return. The function will return 1 if one or more responses came in within the given timeout, or 0 on timeout.
 	
-	By specifying a `tag` you can limit the responses for which the method will wait to those requests that have been tagged through the function :token:`dex::client::AddRequestTag` with the specfied tag. You can use this, for instance, to make sure that callbacks for different HTTP requests that are executed asynchronously are called in the right order. 
+	By specifying a `tag` you can limit the responses for which the method will wait to those requests that have been tagged through the function :token:`dex::client::AddRequestTag` with the specified tag. You can use this, for instance, to make sure that callbacks for different HTTP requests that are executed asynchronously are called in the right order. 
     
     :param timeout: the maximum time in milliseconds to wait for any incoming responses.
 	:param tag: optional tag to indicate to only wait for responses of requests tagged with this tag.
