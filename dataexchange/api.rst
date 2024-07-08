@@ -231,6 +231,13 @@ The Data Exchange library contains collection of functions implemented using ``l
     :param headers: string parameter holding the header name to add
     :param headerValue: string parameter holding the header value to add
 
+.. js:function::  dex::client::AddRequestTag
+
+    Using the function :token:`dex::client::AddRequestTag` you can add a tag to request :token:`theRequest`, which can be used to more selectively wait for responses. The function will return 1 on success, or 0 on failure.
+    
+    :param theRequest: string parameter holding the unique identification of the request to add a request header to.
+    :param tag: string parameter holding the tag to add
+
 .. js:function::  dex::client::AddMimePart
 
     Using the function :token:`dex::client::AddMimePart` you can create a multi-part MIME body for a :token:`POST` request. The function will return 1 on success, or 0 on failure.
@@ -294,8 +301,11 @@ The Data Exchange library contains collection of functions implemented using ``l
 
     Using this function you can block the execution of the calling procedure for a maximum of :token:`timeout` milliseconds to wait for incoming responses of any outstanding HTTP requests.
     As soon as a first response is available for any of the outstanding requests within the given timeout, its associated callback will be called, as well as for any other available responses. If there are no further responses, the function will return. The function will return 1 if one or more responses came in within the given timeout, or 0 on timeout.
+	
+	By specifying a `tag` you can limit the responses for which the method will wait to those requests that have been tagged through the function :token:`dex::client::AddRequestTag` with the specfied tag. You can use this, for instance, to make sure that callbacks for different HTTP requests that are executed asynchronously are called in the right order. 
     
     :param timeout: the maximum time in milliseconds to wait for any incoming responses.
+	:param tag: optional tag to indicate to only wait for responses of requests tagged with this tag.
 
 .. js:function::  dex::client::SetParallelConnections
 

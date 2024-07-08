@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.3.1.3 (08-07-2024)
+	- OAuth methods didn't function properly any longer because of missing request tag
+	
 24.3.1.2 (09-06-2024)
 	- The regular expression for `name-regex-from` and `name-binds-to-display-name` would no longer be created as case-insensitive
 	- Improved the warning for non-read columns in row-based formats by referring to file and location
