@@ -305,7 +305,7 @@ The Data Exchange library contains collection of functions implemented using ``l
 	By specifying a `tag` you can limit the responses for which the method will wait to those requests that have been tagged through the function :token:`dex::client::AddRequestTag` with the specified tag. You can use this, for instance, to make sure that callbacks for different HTTP requests that are executed asynchronously are called in the right order. 
     
     :param timeout: the maximum time in milliseconds to wait for any incoming responses.
-	:param tag: optional tag to indicate to only wait for responses of requests tagged with this tag.
+    :param tag: optional tag to indicate to only wait for responses of requests tagged with this tag.
 
 .. js:function::  dex::client::SetParallelConnections
 
