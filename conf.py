@@ -59,7 +59,8 @@ if os.name != 'nt':
 
 # A list of regular expressions that match URIs that should not be checked when doing a linkcheck build.   
 linkcheck_ignore = [r'http://localhost:\d+/?', r'http://0\.0\.0\.0[:/]\d+/?', r'\b[\w-]+\.html', r'\.\..+\.html#?\w*', 
-r'_downloads/\w+\.pdf', r'http://your-server-name:\d+', r'http://example.com/?.*', r'https://yourproportal/?.*',r'https://your.*', r'https://icomoon.io/#preview-ultimate', r'https://cloud-name\.aimms\.cloud', r'https://cloud-name\.cloud\.aimms\.com']
+r'_downloads/\w+\.pdf', r'http://your-server-name:\d+', r'http://example.com/?.*', r'https://yourproportal/?.*',r'https://your.*', r'https://icomoon.io/#preview-ultimate', r'https://cloud-name\.aimms\.cloud', r'https://cloud-name\.cloud\.aimms\.com', r'https://www\.flaticon\.com/.*']
+
     
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
