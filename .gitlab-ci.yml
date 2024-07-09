@@ -21,10 +21,21 @@ linkcheck:
 spellcheck:
   <<: *run_on_dockerhost
   stage: test
+  variables:
+    SPHINX_IGNORE_EXTERNAL_SPELLCHECK: "true"
   script:
     - python3 --version
     - pip freeze
     - python3 -msphinx -W --keep-going -b spelling . _build/spelling
+
+spellcheck_external:
+  <<: *run_on_dockerhost
+  stage: test
+  script:
+    - python3 --version
+    - pip freeze
+    - python3 -msphinx -W --keep-going -b spelling . _build/spelling
+  allow_failure: true
 
 build:
   <<: *run_on_dockerhost
