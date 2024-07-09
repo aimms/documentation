@@ -16,7 +16,7 @@ linkcheck:
   <<: *run_on_dockerhost
   stage: test
   variables:
-    SPHINX_IGNORE_EXTERNAL_SPELLCHECK: "true"
+    SPHINX_IGNORE_EXTERNAL_LINKS: "true"
   script:
     - python3 -msphinx -W --keep-going -b linkcheck . _build/linkcheck
 

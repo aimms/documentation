@@ -61,7 +61,7 @@ if os.name != 'nt':
 linkcheck_ignore = [r'http://localhost:\d+/?', r'http://0\.0\.0\.0[:/]\d+/?', r'\b[\w-]+\.html', r'\.\..+\.html#?\w*', 
     r'_downloads/\w+\.pdf', r'http://your-server-name:\d+', r'http://example.com/?.*', r'https://yourproportal/?.*',r'https://your.*', r'https://icomoon.io/#preview-ultimate', r'https://cloud-name\.aimms\.cloud', r'https://cloud-name\.cloud\.aimms\.com']
 # get env variable SPHINX_EXTERNAL_SPELLCHECK to check external links
-if os.environ.get('SPHINX_IGNORE_EXTERNAL_SPELLCHECK') == 'true':
+if os.environ.get('SPHINX_IGNORE_EXTERNAL_LINKS') == 'true':
     linkcheck_ignore += [
         r'https://www\.flaticon\.com/.*',
         r'https://en\.wikipedia\.org/.*',
