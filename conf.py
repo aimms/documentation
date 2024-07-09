@@ -97,7 +97,10 @@ r'_downloads/\w+\.pdf', r'http://your-server-name:\d+', r'http://example.com/?.*
     r'http://sbsi-sol-optimize\.com/?',
     r'http://logback\.qos\.ch/?',
     r'http://activemq\.apache\.org/?',
-    r'http://www\.log4view\.com/?'
+    r'http://www\.log4view\.com/?',
+    r'http://en\.wikipedia\.org/?',
+    r'http://www\.gurobi\.com/?',
+    r'https://www\.otexts\.org/?'
 ]
 
     

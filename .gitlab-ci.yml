@@ -17,8 +17,6 @@ linkcheck:
   stage: test
   script:
     - python3 -msphinx -W --keep-going -b linkcheck . _build/linkcheck
-  allow_failure: true
-  retry: 1
 
 spellcheck:
   <<: *run_on_dockerhost
