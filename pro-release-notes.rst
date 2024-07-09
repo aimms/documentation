@@ -178,7 +178,7 @@ On December 1, 2023, we released AIMMS PRO 2.52.2(2.52.2.1).
 
 **Improvements**
 
-   - Tasks REST API v2 is extended with the 'latest' appVersion support. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#Run-a-task-from-the-'latest'-version-of-an-app>`__ for more details 
+   - Tasks REST API v2 is extended with the 'latest' appVersion support. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#run-a-task-from-the-latest-version-of-an-app>`__ for more details 
  
 **Resolved Issues**
 
@@ -192,7 +192,7 @@ On November 21, 2023, we released AIMMS PRO 2.52.1(2.52.1.1).
  
 **Improvements**
 
-   - We have released a newly designed Tasks REST API Service(v2) with this PRO Version. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#tasks-rest-api-v1-and-v2>`__ for more details.  
+   - We have released a newly designed Tasks REST API Service(v2) with this PRO Version. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#tasks-rest-api-v2>`__ for more details.  
 
 PRO 2.51
 ########
@@ -261,7 +261,7 @@ On May 19, 2023, we released AIMMS PRO 2.49.1(2.49.1.1).
 
    - Starting with this PRO version each session recorded in the PRO Database will also record GBHour consumed (i.e memory consumed) per session.
    - PRO REST API: *projectVersionId* query parameter has been changed to *projectVersion* for GET Tasks.
-   - PRO REST API: Starting with this version it is possible to configure *REST session idle time* at account level. Please see the `documentation <https://documentation.aimms.com/cloud/rest-api.html#running-tasks>`__ for more details. (Please note that this feature can be avail fully only when all cloud accounts are moved to AIMMS PRO 2.49.1)
+   - PRO REST API: Starting with this version it is possible to configure *REST session idle time* at account level. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#running-tasks>`__ for more details. (Please note that this feature can be avail fully only when all cloud accounts are moved to AIMMS PRO 2.49.1)
    
 **Resolved Issues**
 
@@ -351,7 +351,7 @@ On October 13, 2022, we released AIMMS PRO 2.45.1 (2.45.1.5).
 
 **New Features**
 
-   - CRUD on Tasks: An extension to the AIMMS PRO REST API which allows users to perform CRUD operations on DEX-exposed tasks. Please see the `documentation <https://documentation.aimms.com/pro/rest-api.html#running-tasks>`__ for more details.   
+   - CRUD on Tasks: An extension to the AIMMS PRO REST API which allows users to perform CRUD operations on DEX-exposed tasks.
 
 **Improvements**
 

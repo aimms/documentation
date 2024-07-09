@@ -80,7 +80,7 @@ For a full description of the AIMMS Mathematical Modeling Language see the :doc:
 
 Integrated WebUI builder
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Create a modern UI with minimal design knowledge based on sophisticated and well-documented `UX-forward design <http://design-system.aimms.com/>`_.
+Create a modern UI with minimal design knowledge based on sophisticated UX-forward design.
 
 * Maintain consistent `page layout <https://documentation.aimms.com/webui/webui/quick-start.html>` with template managers
 * Select and configure your pages using a library of components

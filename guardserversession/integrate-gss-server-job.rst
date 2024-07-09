@@ -71,7 +71,7 @@ Change in input and output cases
 The set of identifiers saved in a case by the data session as input for the solver session is stored in ``pro::ManagedSessionInputCaseIdentifierSet``.
 The set of identifiers saved in a case by the solver session for the data session is stored in ``pro::ManagedSessionOutputCaseIdentifierSet``.
 
-If your application does not adapt these sets from their default contents (as described in `Reduce Exchange <https://how-to.aimms.com/Articles/reduce-client-server-exchange/reduce-client-server-exchange.html>`_  Between Client and Solver Sessions before integrating with the ``GuardServerSession`` library,  
+If your application does not adapt these sets from their default contents Between Client and Solver Sessions before integrating with the ``GuardServerSession`` library,  
 you do not need to do so after the integration either.
 
 if your application does modify these sets from their default contents, then please add:

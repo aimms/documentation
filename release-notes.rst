@@ -1738,7 +1738,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows. Also, we added more direct data validation to the workflow definition data, such that you get clear feedback in case of inconsistencies there. For details, see `the documentation <https://documentation.aimms.com/webui/webui/workflow-panels.html#configuring-the-workflow-panel>`__. 
+-  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows. Also, we added more direct data validation to the workflow definition data, such that you get clear feedback in case of inconsistencies there. For details, see `the documentation <https://documentation.aimms.com/webui/webui/workflow-panels.html#configuring-workflow-panels>`__. 
 -  The Table widget now has an improved keyboard navigation (more like Excel, see `the documentation <https://documentation.aimms.com/webui/webui/table-widget.html#table-widget>`__).
 -  Block selection on the Table widget is now also possible using the SHIFT + ARROW keys.
 -  Block selection on the Table widget is now possible using a SHIFT + Mouse click combination.
@@ -2353,7 +2353,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  On Grid Layout pages, from the Page Configurator in the sidebar, you can now add your widgets directly to a Grid Area. So without having to drag each of them from the bottom of the list of Unassigned Widgets. For details, please see `the documentation <https://documentation.aimms.com/webui/webui/widget-manager.html#adding-a-widget>`__.
+-  On Grid Layout pages, from the Page Configurator in the sidebar, you can now add your widgets directly to a Grid Area. So without having to drag each of them from the bottom of the list of Unassigned Widgets. For details, please see `the documentation <https://documentation.aimms.com/webui/webui/widget-manager.html#adding-a-widget-aimms-4-88-and-higher>`__.
 -  The Table widget has a new 'Show Upload/Download Data Controls' option, with which you can control whether you allow your end-users to upload/download the table data. In case of sensitive data you would probably want to prevent this. The default of the option is Off, so please be aware that you may need to make some changes to your existing applications. For more details, see `the documentation <https://documentation.aimms.com/webui/webui/table-widget.html#controlling-the-csv-and-excel-functionality>`__.
 
 
@@ -4464,7 +4464,7 @@ WebUI Improvements
 +++++++++++++++++++++++++
 -  In this release, we present a whole new mechanism for creating the layout of your WebUI pages: Grid Layouts. It offers far more control on where widgets will be located on your pages. Currently, this is offered as an experimental feature. We are eager to hear your feedback. For details, please see the `documentation <https://manual.aimms.com/webui/webui/webui-grid-pages.html>`__.
 -  We have added filtering for Table columns, rows and headers. This feature allows you to easily show just the data that your end-users are interested in. For details, see the `documentation <https://manual.aimms.com/webui/webui/table-widget.html#data-filtering-on-the-table>`__.
--  It is now possible (as an experimental feature) to select dates and/or times by using a dedicated date/time picker whenever a Table or a Scalar widget displays date/time-related values. For details, see the documentation for `Scalars <https://manual.aimms.com/webui/webui/scalar-widget.html#date-and-time-picker-for-element-parameters>`__ and `Tables <https://manual.aimms.com/webui/webui/table-widget.html#date-and-time-picker-for-calendar-elements>`__.
+-  It is now possible (as an experimental feature) to select dates and/or times by using a dedicated date/time picker whenever a Table or a Scalar widget displays date/time-related values. For details, see the documentation for `Scalars <https://manual.aimms.com/webui/webui/scalar-widget.html#date-and-time-picker-for-element-parameters-with-a-calendar-range>`__ and `Tables <https://manual.aimms.com/webui/webui/table-widget.html#date-and-time-picker-for-calendar-elements>`__.
 -  As another experimental feature, the AIMMS WebUI now offers support for working with the same WebUI App from different time zones. For details, see the `documentation <https://manual.aimms.com/webui/webui/time-zone-setting.html>`__.
 -  We changed the Widget Actions icon to better suit the new UX.
 
@@ -6820,7 +6820,7 @@ Build 4.57.1.0
 AIMMS Improvements
 ++++++++++++++++++++
 
--  For each subset of Integers you can now specify either of the two properties 'ElementsAreNumerical' or 'ElementsAreLabels' to have full control on how elements of these sets behave in an expression. See the Language Reference for more information on this, or read the `tech blog <https://techblog.aimms.com/2018/07/27/integer-set-expressions-2-new-properties/>`__ about it.
+-  For each subset of Integers you can now specify either of the two properties 'ElementsAreNumerical' or 'ElementsAreLabels' to have full control on how elements of these sets behave in an expression. See the Language Reference for more information on this.
 
 WebUI Improvements
 ++++++++++++++++++++
