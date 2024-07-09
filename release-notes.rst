@@ -122,7 +122,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  From AIMMS 24.4 onwards, the WebUI will be released separately in the form of a Repository Library. Next to advantages for the developers at AIMMS themselves, this offers the benefit that we will be able to increase our WebUI release frequency, while retaining a very stable AIMMS engine. It also allows you to combine a (slightly) older tried-and-tested AIMMS version that works well in your situation, with the latest WebUI improvements. All this means that the WebUI has been assigned `its own part on our documentation website <https://documentation.aimms.com/webui/webui/index.html>`__, which also includes `the release notes <https://documentation.aimms.com/webui/release-notes.html>`__ of the WebUI. In `this section <https://documentation.aimms.com/webui/webui/creating.html#in-aimms-24-4-and-higher>`__ you can read how to work with the WebUI as a Repository Library.
+-  From AIMMS 24.4 onwards, the WebUI will be released separately in the form of a Repository Library. Next to advantages for the developers at AIMMS themselves, this offers the benefit that we will be able to increase our WebUI release frequency, while retaining a very stable AIMMS engine. It also allows you to combine a (slightly) older tried-and-tested AIMMS version that works well in your situation, with the latest WebUI improvements. All this means that the WebUI has been assigned `its own part on our documentation website <https://documentation.aimms.com/webui/webui/index.html>`__, which also includes `the release notes <https://documentation.aimms.com/webui/webui/release-notes.html>`__ of the WebUI. In `this section <https://documentation.aimms.com/webui/webui/creating.html#in-aimms-24-4-and-higher>`__ you can read how to work with the WebUI as a Repository Library.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
@@ -180,11 +180,11 @@ AIMMS Improvements
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  Two new WebUI library functions, `webui::RequestFileUpload` and `webui::RequestFileDownload`, have been introduced that allow you to trigger file uploads and downloads from within an AIMMS procedure, allowing you to put those behind a button, item-action or widget action. For more information, please have a look at `the documentation <https://documentation.aimms.com/webui/library.html#upload-and-download-procedures-section>`__.
--  It is now possible to add HTML content in Table cells, allowing for much flexibility in your data presentation. For details, see `the documentation <https://documentation.aimms.com/webui/widget-options.html#webui-ishtml>`__.
--  We created a new option 'Header Visibility' in the Table widget. With this option, you can hide the rows and/or columns header(s), as there are situations where omitting either of those will give a cleaner presentation of your Table data. For details, please see `the documentation <https://documentation.aimms.com/webui/table-widget.html#support-to-hide-row-and-column-headers>`__.
--  The brand new Diagram widget is now available as an experimental feature. It provides a very straightforward and eye-pleasing way to create and/or display any kind of network in your apps. For details, please refer to `the documentation <https://documentation.aimms.com/webui/diagram-widget.html>`__.
--  The previous restriction limiting Combination chart to only show up to 1000 data points has been lifted. While we continue to advocate for concise and clear data presentation, users now have the flexibility to load more data points onto the chart if necessary. For details, please see `the documentation <https://documentation.aimms.com/webui/combination-chart-widget.html#developer-option-for-threshold-of-data-points>`__.
+-  Two new WebUI library functions, `webui::RequestFileUpload` and `webui::RequestFileDownload`, have been introduced that allow you to trigger file uploads and downloads from within an AIMMS procedure, allowing you to put those behind a button, item-action or widget action. For more information, please have a look at `the documentation <https://documentation.aimms.com/webui/webui/library.html#upload-and-download-procedures-section>`__.
+-  It is now possible to add HTML content in Table cells, allowing for much flexibility in your data presentation. For details, see `the documentation <https://documentation.aimms.com/webui/webui/widget-options.html#webui-ishtml>`__.
+-  We created a new option 'Header Visibility' in the Table widget. With this option, you can hide the rows and/or columns header(s), as there are situations where omitting either of those will give a cleaner presentation of your Table data. For details, please see `the documentation <https://documentation.aimms.com/webui/webui/table-widget.html#support-to-hide-row-and-column-headers>`__.
+-  The brand new Diagram widget is now available as an experimental feature. It provides a very straightforward and eye-pleasing way to create and/or display any kind of network in your apps. For details, please refer to `the documentation <https://documentation.aimms.com/webui/webui/diagram-widget.html>`__.
+-  The previous restriction limiting Combination chart to only show up to 1000 data points has been lifted. While we continue to advocate for concise and clear data presentation, users now have the flexibility to load more data points onto the chart if necessary. For details, please see `the documentation <https://documentation.aimms.com/webui/webui/combination-chart-widget.html#developer-option-for-threshold-of-data-points>`__.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
@@ -357,7 +357,7 @@ AIMMS Improvements
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  A new function "RequestQueueSize" has been added to the public interface of the WebUI library. Amongst others, you can use this function to find out whether a dialog is open in WebUI. For details, see `the documentation <https://documentation.aimms.com/webui/library.html>`__.
+-  A new function "RequestQueueSize" has been added to the public interface of the WebUI library. Amongst others, you can use this function to find out whether a dialog is open in WebUI. For details, see `the documentation <https://documentation.aimms.com/webui/webui/library.html>`__.
 -  The dropdown list for selecting an element parameter for the Store Focus option of a widget has been improved. Now this list only shows the entries which are compatible with the corresponding index.
 
 Resolved WebUI Issues
@@ -519,7 +519,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  The Widget Named Views feature has been extended with a `template mechanism <https://documentation.aimms.com/webui/widget-options.html#managing-derived-views>`__, to simplify the management of multiple Widget Named Views for a widget.
+-  The Widget Named Views feature has been extended with a `template mechanism <https://documentation.aimms.com/webui/webui/widget-options.html#managing-derived-views>`__, to simplify the management of multiple Widget Named Views for a widget.
 -  The Combination Chart widget type, initially introduced as an experimental feature in AIMMS 4.84, has now been transitioned to a general availability feature.
 
 Resolved WebUI Issues
@@ -1082,7 +1082,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  The shape of the chart markers used in the Combination chart widget, for the line, area and other chart types, will now be allocated based on the sequence of their data series, as reflected in the chart legend. Before, actions like pivoting, adding of contents, or other changes to the display of the series would result in the markers changing without any apparent need.
-- Improved the warning message for old-style annotations (deprecated since 4.71.1) still being used in your model. Previously, the message did not appear in case you were referring to identifiers in the :token:`webui::` attributes on the attribute form using a different casing that was used to declare the identifier. To prevent unnecessary old-style annotation warnings as a whole, you should rename the identifier to not be of the form :token:`X_annotations` (or :token:`X_tooltips`) for the identifier X. See our `online documentation <https://documentation.aimms.com/webui/widget-options.html#identifier-annotations>`__ for more details.
+- Improved the warning message for old-style annotations (deprecated since 4.71.1) still being used in your model. Previously, the message did not appear in case you were referring to identifiers in the :token:`webui::` attributes on the attribute form using a different casing that was used to declare the identifier. To prevent unnecessary old-style annotation warnings as a whole, you should rename the identifier to not be of the form :token:`X_annotations` (or :token:`X_tooltips`) for the identifier X. See our `online documentation <https://documentation.aimms.com/webui/webui/widget-options.html#identifier-annotations>`__ for more details.
 
 --------------
 
@@ -1194,8 +1194,8 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  Next to the already existing Upload and Download widgets, it is now also possible to link upload and download actions to both widget actions and item actions. This allows for more context-sensitive use of the actions, while saving space on the page by leaving out the separate Upload and Download widgets. Of course, there remain situations where those come in handy, so you can continue to use them as before. For details on how to use this, please read `the documentation <https://documentation.aimms.com/webui/widget-options.html#configuring-widget-actions>`__.
--  The Named Views feature has been extended, such that you can now `set the current view from within the model <https://documentation.aimms.com/webui/widget-options.html#widget-named-views>`__ by using an element parameter to specify the Current View option. 
+-  Next to the already existing Upload and Download widgets, it is now also possible to link upload and download actions to both widget actions and item actions. This allows for more context-sensitive use of the actions, while saving space on the page by leaving out the separate Upload and Download widgets. Of course, there remain situations where those come in handy, so you can continue to use them as before. For details on how to use this, please read `the documentation <https://documentation.aimms.com/webui/webui/widget-options.html#configuring-widget-actions>`__.
+-  The Named Views feature has been extended, such that you can now `set the current view from within the model <https://documentation.aimms.com/webui/webui/widget-options.html#widget-named-views>`__ by using an element parameter to specify the Current View option. 
 -  WebUI now also accepts procedures with only optional arguments (wherever it previously would accept only procedures without arguments). The default argument values will be used when the actual procedure call is made.
 
 Resolved WebUI Issues
@@ -1407,11 +1407,11 @@ AIMMS Improvements
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  The app developer can now define multiple Named Views for a widget. Each of these views represents a specific state of the widget. The end-user can select either of these named views to have a different look at the widget. For example, there could be named views for different pivotings of the data, or even completely different widget types, such that you can present the data in a Bar chart or a Line chart, according to which named view the end-user selects. Please refer to `the documentation <https://documentation.aimms.com/webui/widget-options.html#widget-named-views>`__ for all the possibilities.
--  Now the Table title header cells support custom tooltips using `webui::IdentifierTooltip  <https://documentation.aimms.com/webui/table-widget.html#tooltips-for-identifier-names>`__.
--  Now Identifier names in the Scalar widget also support custom tooltips using `webui::IdentifierTooltip  <https://documentation.aimms.com/webui/scalar-widget.html#tooltips-for-identifier-names>`__.
--  The WebUI library was extended with two procedures: `RefreshAllWidgets <https://documentation.aimms.com/webui/library.html#webui::RefreshAllWidgets>`__ and `UseTransparentVeil <https://documentation.aimms.com/webui/library.html#webui::UseTransparentVeil>`__.
--  Up until now the most recent Theming options could not be considered 'complete' yet: despite the number of custom CSS properties available, there were several elements not subject to any theming (using fixed values to achieve an AIMMS Theme) or only pretty coarse theming was achieved at the best, leaving you with the need to add application specific stylesheets like before... With the help of customer feedback and by going through virtually all components, we have added a whole range of additional CSS properties *and* made sure they are applied in all logical locations. Please review the latest base theme file to see how Theming should now 'reach' all parts of a WebUI application much better. For more information, please see `this documentation <https://documentation.aimms.com/webui/understanding-theming.html>`__.
+-  The app developer can now define multiple Named Views for a widget. Each of these views represents a specific state of the widget. The end-user can select either of these named views to have a different look at the widget. For example, there could be named views for different pivotings of the data, or even completely different widget types, such that you can present the data in a Bar chart or a Line chart, according to which named view the end-user selects. Please refer to `the documentation <https://documentation.aimms.com/webui/webui/widget-options.html#widget-named-views>`__ for all the possibilities.
+-  Now the Table title header cells support custom tooltips using `webui::IdentifierTooltip  <https://documentation.aimms.com/webui/webui/table-widget.html#tooltips-for-identifier-names>`__.
+-  Now Identifier names in the Scalar widget also support custom tooltips using `webui::IdentifierTooltip  <https://documentation.aimms.com/webui/webui/scalar-widget.html#tooltips-for-identifier-names>`__.
+-  The WebUI library was extended with two procedures: `RefreshAllWidgets <https://documentation.aimms.com/webui/webui/library.html#webui::RefreshAllWidgets>`__ and `UseTransparentVeil <https://documentation.aimms.com/webui/webui/library.html#webui::UseTransparentVeil>`__.
+-  Up until now the most recent Theming options could not be considered 'complete' yet: despite the number of custom CSS properties available, there were several elements not subject to any theming (using fixed values to achieve an AIMMS Theme) or only pretty coarse theming was achieved at the best, leaving you with the need to add application specific stylesheets like before... With the help of customer feedback and by going through virtually all components, we have added a whole range of additional CSS properties *and* made sure they are applied in all logical locations. Please review the latest base theme file to see how Theming should now 'reach' all parts of a WebUI application much better. For more information, please see `this documentation <https://documentation.aimms.com/webui/webui/understanding-theming.html>`__.
 -  The behavior of the Workflow panel was changed to allow for a better utilization of the vertical space: a parent item that has a child item that is the currently visible page can now be collapsed. The presence of a 'current' child will still be visible, in an alternate form below the parent. This includes the state it is in, its tooltip and the ability to re-open the parent by clicking on the collapsed child.
 
 Resolved WebUI Issues
@@ -1475,7 +1475,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We added the possibility to filter on the actual identifier(s) being displayed in the Table widget, similar to the already existing filtering functionality. For details, see the `documentation <https://documentation.aimms.com/webui/table-widget.html#to-add-filter-rules-to-the-identifier-header>`__.
+-  We added the possibility to filter on the actual identifier(s) being displayed in the Table widget, similar to the already existing filtering functionality. For details, see the `documentation <https://documentation.aimms.com/webui/webui/table-widget.html#to-add-filter-rules-to-the-identifier-header>`__.
 -  App developers can now choose whether or not the end-user is allowed to apply case comparison for each individual Table or Chart widget.
 
 --------------
@@ -1523,7 +1523,7 @@ WebUI Improvements
 
 -  Previously, it was not possible as an app developer to easily access a workflow page once it had been marked hidden or inactive. You first had to make it visible or active again. Now you can always access such pages through the App manager of the WebUI.
 -  Now the Table and Scalar widgets support an indexed Element Parameter that is ranged over an Indexed Set.
--  The use of a single WebUI page in multiple workflows has been made more intuitive. Now you will remain in the same workflow when activating a step which is part of more than one workflow. The exact behavior is documented `here <https://documentation.aimms.com/webui/workflow-panels.html#configuring-a-pageid-in-multiple-workflows>`__.
+-  The use of a single WebUI page in multiple workflows has been made more intuitive. Now you will remain in the same workflow when activating a step which is part of more than one workflow. The exact behavior is documented `here <https://documentation.aimms.com/webui/webui/workflow-panels.html#configuring-a-pageid-in-multiple-workflows>`__.
 -  We further improved the error validation and messages on the workflow mechanism.
 -  Now you can add up to 10 tabs in a WebUI sidepanel.
 
@@ -1738,8 +1738,8 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows. Also, we added more direct data validation to the workflow definition data, such that you get clear feedback in case of inconsistencies there. For details, see `the documentation <https://documentation.aimms.com/webui/workflow-panels.html#configuring-the-workflow-panel>`__. 
--  The Table widget now has an improved keyboard navigation (more like Excel, see `the documentation <https://documentation.aimms.com/webui/table-widget.html#table-widget>`__).
+-  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows. Also, we added more direct data validation to the workflow definition data, such that you get clear feedback in case of inconsistencies there. For details, see `the documentation <https://documentation.aimms.com/webui/webui/workflow-panels.html#configuring-the-workflow-panel>`__. 
+-  The Table widget now has an improved keyboard navigation (more like Excel, see `the documentation <https://documentation.aimms.com/webui/webui/table-widget.html#table-widget>`__).
 -  Block selection on the Table widget is now also possible using the SHIFT + ARROW keys.
 -  Block selection on the Table widget is now possible using a SHIFT + Mouse click combination.
 
@@ -2015,10 +2015,10 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  In the WebUI Table widget, sorting on data has been possible for quite some time. From this release onwards, you can also sort on the row and column headers. For details, see `the documentation <https://documentation.aimms.com/webui/table-widget.html>`__.
+-  In the WebUI Table widget, sorting on data has been possible for quite some time. From this release onwards, you can also sort on the row and column headers. For details, see `the documentation <https://documentation.aimms.com/webui/webui/table-widget.html>`__.
 -  Now 'mailto:' links are supported in the Text widget.
--  The "Advanced Table Editing" has been promoted to a General Feature; we removed it from the Experimental Features list. The copy/paste and block editing functionality is documented `here <https://documentation.aimms.com/webui/table-widget.html>`__.
--  From AIMMS 4.90 onwards, you will get a deprecation message when opening models which still have a 'Contents.filters.in' property specified (as a result from using the deprecated Filter tab on widgets). See `the documentation <https://documentation.aimms.com/webui/widget-options.html>`__ for details on how to mitigate this.
+-  The "Advanced Table Editing" has been promoted to a General Feature; we removed it from the Experimental Features list. The copy/paste and block editing functionality is documented `here <https://documentation.aimms.com/webui/webui/table-widget.html>`__.
+-  From AIMMS 4.90 onwards, you will get a deprecation message when opening models which still have a 'Contents.filters.in' property specified (as a result from using the deprecated Filter tab on widgets). See `the documentation <https://documentation.aimms.com/webui/webui/widget-options.html>`__ for details on how to mitigate this.
 
 
 Resolved WebUI Issues
@@ -2192,13 +2192,13 @@ Resolved AIMMS Issues
 
 WebUI Improvements
 +++++++++++++++++++++++++
--  We added a feature as part of the existing Experimental Feature 'Advanced table editing' which allows you to search for values in a WebUI table. Please read `the documentation <https://documentation.aimms.com/webui/table-widget.html#search-and-find>`__ for more details.
+-  We added a feature as part of the existing Experimental Feature 'Advanced table editing' which allows you to search for values in a WebUI table. Please read `the documentation <https://documentation.aimms.com/webui/webui/table-widget.html#search-and-find>`__ for more details.
 -  The widget header buttons have been restructured to prevent cluttering.
 -  We added the application option 'Show Upload/Download Data Controls', which allows you to enable or disable the Excel Upload/Download and the CSV Download buttons in all Table widgets across your WebUI.
 -  In AIMMS 4.86 we introduced the feature to Download Excel data from a WebUI Table and to upload Excel data into a WebUI Table. Since then, we have polished this feature and now we consider it good enough to make it into a generally available (GA) feature. This means that you do not have to set the 'Excel Upload/Download Support' checkbox anymore.
 -  When copy/pasting values in the Table widget that are not allowed (for example, a string value into a numeric cell), a warning message is now displayed.
 -  Using ``webui::IdentifierElementText`` in combination with the Table widget's Excel download functionality is now supported.
--  We added a ``webui::IdentifierTooltip`` annotation, which allows you to specify tooltips for elements used  in the ``<IDENTIFIER-SET>`` sections of WebUI widgets. Currently, this is supported for Table row/column headers. We are aiming to support it across the whole of WebUI soon. For details, see `the documentation <https://documentation.aimms.com/webui/widget-options.html#identifier-annotations>`__.
+-  We added a ``webui::IdentifierTooltip`` annotation, which allows you to specify tooltips for elements used  in the ``<IDENTIFIER-SET>`` sections of WebUI widgets. Currently, this is supported for Table row/column headers. We are aiming to support it across the whole of WebUI soon. For details, see `the documentation <https://documentation.aimms.com/webui/webui/widget-options.html#identifier-annotations>`__.
 
 
 
@@ -2353,8 +2353,8 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  On Grid Layout pages, from the Page Configurator in the sidebar, you can now add your widgets directly to a Grid Area. So without having to drag each of them from the bottom of the list of Unassigned Widgets. For details, please see `the documentation <https://documentation.aimms.com/webui/widget-manager.html#adding-a-widget>`__.
--  The Table widget has a new 'Show Upload/Download Data Controls' option, with which you can control whether you allow your end-users to upload/download the table data. In case of sensitive data you would probably want to prevent this. The default of the option is Off, so please be aware that you may need to make some changes to your existing applications. For more details, see `the documentation <https://documentation.aimms.com/webui/table-widget.html#controlling-the-csv-and-excel-functionality>`__.
+-  On Grid Layout pages, from the Page Configurator in the sidebar, you can now add your widgets directly to a Grid Area. So without having to drag each of them from the bottom of the list of Unassigned Widgets. For details, please see `the documentation <https://documentation.aimms.com/webui/webui/widget-manager.html#adding-a-widget>`__.
+-  The Table widget has a new 'Show Upload/Download Data Controls' option, with which you can control whether you allow your end-users to upload/download the table data. In case of sensitive data you would probably want to prevent this. The default of the option is Off, so please be aware that you may need to make some changes to your existing applications. For more details, see `the documentation <https://documentation.aimms.com/webui/webui/table-widget.html#controlling-the-csv-and-excel-functionality>`__.
 
 
 Resolved WebUI Issues
@@ -2408,7 +2408,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  We added a new predeclared `webui::IdentifierElementText` identifier (ranging over `AllIdentifiers`) that can be used to specify element text for identifiers in your WebUI. The application-specific 'properties' files were not sufficient to use element text while downloading an uploading Excel files from/to a table. For details, see `the documentation <https://documentation.aimms.com/webui/table-widget.html#excel-upload-download-support>`__. 
+-  We added a new predeclared `webui::IdentifierElementText` identifier (ranging over `AllIdentifiers`) that can be used to specify element text for identifiers in your WebUI. The application-specific 'properties' files were not sufficient to use element text while downloading an uploading Excel files from/to a table. For details, see `the documentation <https://documentation.aimms.com/webui/webui/table-widget.html#excel-upload-download-support>`__. 
 
 --------------
 
@@ -2498,8 +2498,8 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  The Table widget has been extended with block editing and copy/paste functionality as an Experimental Feature. For details, see `the documentation <https://documentation.aimms.com/webui/table-widget.html#block-editing>`__
--  A new color palette, consisting of 16 well discernible colors for most users, was introduced to replace the previously default 19-color palette. It will affect all Widgets that derive the coloring of their nodes from ordinal annotations: all Charts and the Map. The new palette also works better when using the Transparency Index option to create additional color variations for the Combination Chart. Please refer to `the documentation <https://documentation.aimms.com/webui/data-coloring-and-palettes.html>`__ to learn more about the new colors, about falling back to the previous 19, 11 or 7-color palettes and how this influences any custom data coloring that might be in place.
+-  The Table widget has been extended with block editing and copy/paste functionality as an Experimental Feature. For details, see `the documentation <https://documentation.aimms.com/webui/webui/table-widget.html#block-editing>`__
+-  A new color palette, consisting of 16 well discernible colors for most users, was introduced to replace the previously default 19-color palette. It will affect all Widgets that derive the coloring of their nodes from ordinal annotations: all Charts and the Map. The new palette also works better when using the Transparency Index option to create additional color variations for the Combination Chart. Please refer to `the documentation <https://documentation.aimms.com/webui/webui/data-coloring-and-palettes.html>`__ to learn more about the new colors, about falling back to the previous 19, 11 or 7-color palettes and how this influences any custom data coloring that might be in place.
 
 --------------
 
@@ -2640,7 +2640,7 @@ AIMMS Improvements
 
 WebUI Improvements
 +++++++++++++++++++++++++
--  The WebUI Table widget has been extended with the possibility to download the Table data to an Excel file. It is also possible to upload data from an Excel file to a WebUI Table. This is currently released as an `Experimental Feature <https://documentation.aimms.com/webui/experimental-features.html#experimental-features>`__.
+-  The WebUI Table widget has been extended with the possibility to download the Table data to an Excel file. It is also possible to upload data from an Excel file to a WebUI Table. This is currently released as an `Experimental Feature <https://documentation.aimms.com/webui/webui/experimental-features.html#experimental-features>`__.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
@@ -2778,9 +2778,9 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  WebUI now offers a fully new and simpler way of theming your application. For details, see `the documentation <https://documentation.aimms.com/webui/theming.html>`__.
+-  WebUI now offers a fully new and simpler way of theming your application. For details, see `the documentation <https://documentation.aimms.com/webui/webui/theming.html>`__.
 -  The Combination Chart widget has been greatly extended. In the previous release, just the Column chart was supported. Now it also supports the Area, Area Spline, Line, Scatter and Spline chart types.
--  Existing Bar Chart, Line Chart and BarLine Chart widgets can now automatically be converted into the new Combination Chart widget. Please see `the documentation <https://documentation.aimms.com/webui/combination-chart-widget.html>`__ for details.
+-  Existing Bar Chart, Line Chart and BarLine Chart widgets can now automatically be converted into the new Combination Chart widget. Please see `the documentation <https://documentation.aimms.com/webui/webui/combination-chart-widget.html>`__ for details.
 -  In the Combination Chart widget, it is now possible to hide specific indexes from being displayed.
 -  In the Combination Chart widget, it is now possible to specify an interval for the X-axis label.
 -  In the Combination Chart widget, there are better coloring options by using the coloring index and the transparency index.
@@ -2940,7 +2940,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We added a new widget type as an experimental feature: the Combination Chart. It allows the displaying of several chart types in one single chart. The first version is restricted to the Column Chart type, but it also offers cool features such as a clear legend which can be easily toggled on or off and to display/hide data points, zooming in on your data and many more. For more details, see `the documentation <https://documentation.aimms.com/webui/combination-chart-widget.html>`__.
+-  We added a new widget type as an experimental feature: the Combination Chart. It allows the displaying of several chart types in one single chart. The first version is restricted to the Column Chart type, but it also offers cool features such as a clear legend which can be easily toggled on or off and to display/hide data points, zooming in on your data and many more. For more details, see `the documentation <https://documentation.aimms.com/webui/webui/combination-chart-widget.html>`__.
 -  We added support for OAuth2 Authorization Code flow in WebUI applications running on the PRO/Cloud platform (this requires PRO/Cloud platform version 2.41+, DEX 1.3.0.24+).
 
 
@@ -3952,7 +3952,7 @@ Resolved AIMMS Issues
 
 WebUI Improvements
 +++++++++++++++++++++++++
--  AIMMS 4.78 comes with new `App Management <https://documentation.aimms.com/webui/app-management.html>`__ tooling that allows you to easily rename and copy widgets as well as move them between pages in your Web Apps. It is available as an `experimental feature <https://manual.aimms.com/webui/experimental-features.html>`__.
+-  AIMMS 4.78 comes with new `App Management <https://documentation.aimms.com/webui/webui/app-management.html>`__ tooling that allows you to easily rename and copy widgets as well as move them between pages in your Web Apps. It is available as an `experimental feature <https://manual.aimms.com/webui/webui/experimental-features.html>`__.
 -  To improve the Table filtering, a certain tolerance has been added when comparing numerical values, resulting in a better user experience. This is especially important for using (in)equalities in a filter.
 -  The communication of resources to the browser has been made more efficient. For more details, see `this community post <https://community.aimms.com/product-updates-roadmap-36/smarter-delivery-of-webui-for-improved-performance-838>`__.
 -  The WebUI application options 'Sidebar open by default' and 'Page manager hidden' have been removed from the product.
@@ -4180,9 +4180,9 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  There were issues with `tooltips <https://documentation.aimms.com/webui/widget-options.html#html-tooltips>`__ and some menus (like those for item actions or widget actions) hiding behind dialog pages or side panels in some cases.
+-  There were issues with `tooltips <https://documentation.aimms.com/webui/webui/widget-options.html#html-tooltips>`__ and some menus (like those for item actions or widget actions) hiding behind dialog pages or side panels in some cases.
 -  Map widget longitudes are no longer clipped between -180 and 180 but are instead wrapped to fall within the -360 to 360 range, which gives you more options when trying to keep a logical relation between the curves/nodes you might be drawing but that did not end up where you expected them.
--  When having the option `UI Editable <https://documentation.aimms.com/webui/app-misc-settings.html#ui-editable>`__ set to 0 in a WebUI (as is the case under PRO, for example), the end-user was not able to use the Table filter mechanism to filter the data.
+-  When having the option `UI Editable <https://documentation.aimms.com/webui/webui/app-misc-settings.html#ui-editable>`__ set to 0 in a WebUI (as is the case under PRO, for example), the end-user was not able to use the Table filter mechanism to filter the data.
 -  :any:`errh::MarkAsHandled` now also empties the predeclared string parameter :any:`CurrentErrorMessage` if it is related to the handled error.
 
 
@@ -4228,7 +4228,7 @@ Resolved WebUI Issues
 
 -  The experimental 'webui state support' feature will now also work for pages using :doc:`the new Grid Layout <webui/webui-grid-pages>` (but some limitations to setting it up correctly will still apply).
 -  In some rare situations (in which you use similar totals in tables on more than one WebUI page), you could receive errors like 'Some of the attributes of runtime parameter ``webui_runtime::Exprxxx`` are not yet successfully compiled.'.
--  Editing or changing a latitude or longitude identifier using the identifier selector from `the Map widget options <https://documentation.aimms.com/webui/map-widget.html#adding-node-sets>`__ used to clear any previously made selection.
+-  Editing or changing a latitude or longitude identifier using the identifier selector from `the Map widget options <https://documentation.aimms.com/webui/webui/map-widget.html#adding-node-sets>`__ used to clear any previously made selection.
 
 
 --------------
@@ -4340,7 +4340,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We have added the combined Bar-Line Chart to the collection of WebUI widgets. For details, please see the `documentation <https://manual.aimms.com/webui/bar-line-chart-widget.html>`__.
+-  We have added the combined Bar-Line Chart to the collection of WebUI widgets. For details, please see the `documentation <https://manual.aimms.com/webui/webui/bar-line-chart-widget.html>`__.
 -  We changed the way some totals (in WebUI tables) are computed: all 'total sum', 'total count', 'total mean', etc. totals are computed by the model using AIMMS expressions. Ergo, these do not take into account any rows or columns not being visible because of display-domain, sparsity or filtering. All 'sum', 'count', 'mean', etc. totals are computed by traversing the cells in the table itself and therefore reflect the totals of the *visible* cells in the table (potentially affected by sparsity, display-domains and/or filtering).
 
 
@@ -4463,9 +4463,9 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 -  In this release, we present a whole new mechanism for creating the layout of your WebUI pages: Grid Layouts. It offers far more control on where widgets will be located on your pages. Currently, this is offered as an experimental feature. We are eager to hear your feedback. For details, please see the `documentation <https://manual.aimms.com/webui/webui-grid-pages.html>`__.
--  We have added filtering for Table columns, rows and headers. This feature allows you to easily show just the data that your end-users are interested in. For details, see the `documentation <https://manual.aimms.com/webui/table-widget.html#data-filtering-on-the-table>`__.
--  It is now possible (as an experimental feature) to select dates and/or times by using a dedicated date/time picker whenever a Table or a Scalar widget displays date/time-related values. For details, see the documentation for `Scalars <https://manual.aimms.com/webui/scalar-widget.html#date-and-time-picker-for-element-parameters>`__ and `Tables <https://manual.aimms.com/webui/table-widget.html#date-and-time-picker-for-calendar-elements>`__.
--  As another experimental feature, the AIMMS WebUI now offers support for working with the same WebUI App from different time zones. For details, see the `documentation <https://manual.aimms.com/webui/time-zone-setting.html>`__.
+-  We have added filtering for Table columns, rows and headers. This feature allows you to easily show just the data that your end-users are interested in. For details, see the `documentation <https://manual.aimms.com/webui/webui/table-widget.html#data-filtering-on-the-table>`__.
+-  It is now possible (as an experimental feature) to select dates and/or times by using a dedicated date/time picker whenever a Table or a Scalar widget displays date/time-related values. For details, see the documentation for `Scalars <https://manual.aimms.com/webui/webui/scalar-widget.html#date-and-time-picker-for-element-parameters>`__ and `Tables <https://manual.aimms.com/webui/webui/table-widget.html#date-and-time-picker-for-calendar-elements>`__.
+-  As another experimental feature, the AIMMS WebUI now offers support for working with the same WebUI App from different time zones. For details, see the `documentation <https://manual.aimms.com/webui/webui/time-zone-setting.html>`__.
 -  We changed the Widget Actions icon to better suit the new UX.
 
 
@@ -4690,7 +4690,7 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 -  The Pivot Tab in the options of the Bubble chart widget was broken.
 -  Console errors were displayed while opening the option editor for Table widget contents and adding/removing identifiers from the Bubble chart widget.
--  The WebUI will now actually make use of your browser's configuration for preferred languages and thus also of any provided translations for that language, when available. See https://documentation.aimms.com/webui/multi-language.html#multi-language-support for details.
+-  The WebUI will now actually make use of your browser's configuration for preferred languages and thus also of any provided translations for that language, when available. See https://documentation.aimms.com/webui/webui/multi-language.html#multi-language-support for details.
 
 
 --------------
@@ -4860,7 +4860,7 @@ WebUI Improvements
 
     Because of the map upgrade, we needed to make a change in the CSS selectors for the arcs: arcs used to be **polyline**, now they are **path**. The labels on the arcs used to be **rect**, now they are **div**. If you are using these selectors in your custom CSS, you will need to make the appropriate changes. Please note that the custom style changes on arcs were not officially supported by AIMMS. We will now support some of the CSS properties for arcs that are mentioned in the CSS styling section of the manual.
 
--  You can now use a wizard to select a ``webui::UponChangeProcedure``. Please, make sure you select a procedure with the right prototype: the UponChange procedure can have 0, 1 or 2 arguments. For details on this, please see `the documentation <https://documentation.aimms.com/webui/widget-options.html#additional-identifier-properties>`__.
+-  You can now use a wizard to select a ``webui::UponChangeProcedure``. Please, make sure you select a procedure with the right prototype: the UponChange procedure can have 0, 1 or 2 arguments. For details on this, please see `the documentation <https://documentation.aimms.com/webui/webui/widget-options.html#additional-identifier-properties>`__.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -5265,7 +5265,7 @@ AIMMS Improvements
 WebUI Improvements
 ++++++++++++++++++++
 
--  We added new aggregator types to the WebUI widgets. For example, you can now distinguish between aggregators for the total data covered by a widget, or for only the data currently displayed. For details, see the `documentation <https://manual.aimms.com/webui/widget-options.html#totals>`__.
+-  We added new aggregator types to the WebUI widgets. For example, you can now distinguish between aggregators for the total data covered by a widget, or for only the data currently displayed. For details, see the `documentation <https://manual.aimms.com/webui/webui/widget-options.html#totals>`__.
 -  In the multiselect widget, we added the possibility to translate the phrases 'SELECT ALL' AND 'SELECT NONE' (using a standard language translation (i.e. -'properties') file.
 -  In the application settings, the Workflow Panel section that contained Workflows and Workflow Steps has been moved under Application Extensions section along with the Status Bar setting. The Application Extensions section will contain all features that will work across the application.
 -  In the page settings, the Workflow Items section that contained Side Panels, Primary Page Action and Secondary Page Actions has been renamed to Page Extensions. Page Extensions are features that are specific to pages.
@@ -5546,7 +5546,7 @@ AIMMS 4.68.5 Release (August 29, 2019)
 WebUI Improvements
 ++++++++++++++++++++
 
--  We have added an experimental feature "Highlight" for widgets in the WebUI. This features enables you to add additional css classes to specific tuples in widgets. It allows for more responsive synchronization between widgets. Currently the Gantt Chart and the Table widgets support this. For details on how to enable this experimental feature, please contact `AIMMS support <mailto:suppport@aimms.com>`__. For more details, see `the documentation <https://documentation.aimms.com/webui/css-styling.html#highlighting-experimental>`__.
+-  We have added an experimental feature "Highlight" for widgets in the WebUI. This features enables you to add additional css classes to specific tuples in widgets. It allows for more responsive synchronization between widgets. Currently the Gantt Chart and the Table widgets support this. For details on how to enable this experimental feature, please contact `AIMMS support <mailto:suppport@aimms.com>`__. For more details, see `the documentation <https://documentation.aimms.com/webui/webui/css-styling.html#highlighting-experimental>`__.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -5653,9 +5653,9 @@ WebUI Improvements
 ++++++++++++++++++++
 
 -  The WebUI now supports name changes in the AIMMS model. Before this version, using identifiers in the WebUI that had their name changed in the AIMMS model, required you to re-select the changed identifier(s) where used in the WebUI. From now on, model name changes are propagated to the WebUI.
--  AIMMS has been extended with a procedure :any:`webui::SetProgressMessage` which allows you to replace the text of the 'busy' message in the WebUI with something more suitable to your specific situation. You can update/change this message multiple times during execution. For details, see `the documentation <https://manual.aimms.com/webui/library.html#setprogressmessage>`__.
--  We added Page Actions to the WebUI, which help your users to get quick access to actions that are needed often, while at the same time reducing unnecessary clutter on their WebUI pages. For details, see `the documentation <https://manual.aimms.com/webui/page-settings.html#page-actions>`__.
--  WebUI now offers, similar to the Page Open Procedure, a Page Leave procedure, which is called upon leaving the page for which it is specified. For details, see `the documentation <https://manual.aimms.com/webui/page-settings.html#procedure-for-restricting-page-navigation>`__.
+-  AIMMS has been extended with a procedure :any:`webui::SetProgressMessage` which allows you to replace the text of the 'busy' message in the WebUI with something more suitable to your specific situation. You can update/change this message multiple times during execution. For details, see `the documentation <https://manual.aimms.com/webui/webui/library.html#setprogressmessage>`__.
+-  We added Page Actions to the WebUI, which help your users to get quick access to actions that are needed often, while at the same time reducing unnecessary clutter on their WebUI pages. For details, see `the documentation <https://manual.aimms.com/webui/webui/page-settings.html#page-actions>`__.
+-  WebUI now offers, similar to the Page Open Procedure, a Page Leave procedure, which is called upon leaving the page for which it is specified. For details, see `the documentation <https://manual.aimms.com/webui/webui/page-settings.html#procedure-for-restricting-page-navigation>`__.
 -  We are currently working on our Workflow support feature in the WebUI. For more details and information on how to get access to this experimental feature, see the `AIMMS New Features Page <https://www.aimms.com/support/new-features/>`__.
 -  When selecting a widget in the widget manager that is not in view on the current page, the page is now scrolled such that the widget will be in view, in order to be highlighted properly.
 
@@ -5935,7 +5935,7 @@ AIMMS Improvements
 WebUI Improvements
 ++++++++++++++++++++
 
--  We have introduced so-called 'Widget Actions'. This allows you to add a short menu to individual widgets, which you can populate with relevant actions. For more details, please see `the documentation <https://manual.aimms.com/webui/widget-options.html#widget-actions>`__.
+-  We have introduced so-called 'Widget Actions'. This allows you to add a short menu to individual widgets, which you can populate with relevant actions. For more details, please see `the documentation <https://manual.aimms.com/webui/webui/widget-options.html#widget-actions>`__.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -6139,7 +6139,7 @@ In this release the implementation of the error handling system as described in 
 WebUI Improvements
 ++++++++++++++++++++
 
--  In the WebUI, you can now also add Side Panels to your pages. Side Panels allow you to put 'controlling' widgets to a panel on the right side of the screen, which can be opened and closed. This gives you the benefit of not having to clutter your pages with all kinds of selection widgets, allowing your users to focus better on the widgets that present your data. For more details, see `the documentation <https://manual.aimms.com/webui/side-panels.html>`__.
+-  In the WebUI, you can now also add Side Panels to your pages. Side Panels allow you to put 'controlling' widgets to a panel on the right side of the screen, which can be opened and closed. This gives you the benefit of not having to clutter your pages with all kinds of selection widgets, allowing your users to focus better on the widgets that present your data. For more details, see `the documentation <https://manual.aimms.com/webui/webui/side-panels.html>`__.
 -  See note on inefficient use of iterative operators in the section above.
 -  Errors and warnings that are reported in WebUI now listen to the error and warnings options that have been specified in your AIMMS project. In addition, errors that are caught and handled by the model, will not appear in the WebUI anymore. See the note(s) on error handling in the section above.
 
@@ -6207,7 +6207,7 @@ AIMMS Improvements
 WebUI Improvements
 ++++++++++++++++++++
 
--  We have implemented an authority mechanism, which allows you to fully control which of your model identifiers will be readable, writable or executable in your WebUI app. For details, see the `documentation <https://manual.aimms.com/webui/creating.html>`__.
+-  We have implemented an authority mechanism, which allows you to fully control which of your model identifiers will be readable, writable or executable in your WebUI app. For details, see the `documentation <https://manual.aimms.com/webui/webui/creating.html>`__.
 -  Under the hood, we have done a lot of work on the WebUI code in this version. This should help us in our goal to make the WebUI more robust. Functionally, there should not be any difference. In terms of performance you may experience a slight gain in specific scenarios.
 
 Resolved AIMMS Issues
@@ -6259,7 +6259,7 @@ WebUI Improvements
 -  The Scalar widget and the Table widget now support custom HTML tooltips. The user can override the default tooltip on these widgets to achieve the same effect as those on the charts. Please note that n characters should be replaced by the ``br`` tag, and t by using HTML tables. **IMPORTANT:** In order to implement this change, we had to rename the former 'title' attribute to 'data-old-title'. This can result in custom CSS not behaving as expected, if it targets this attribute. In such cases, please do the same rename in your CSS code.
 -  The Gantt chart now has support lines/backdrop OR indicators when a job is being dragged or resized. This will be a default feature for the Gantt chart. When you drag or resize a job, there will be a background that helps the user drag the job with reference to other jobs. This makes it easier for the user to either line up jobs from different tasks/resources, or schedule jobs one after the other.
 -  The Gantt chart now offers an indication using Today and Now lines, that helps the user identify the exact day and time on the Gantt chart.
--  In addition to the identifier slicing that is common through all of AIMMS and the WebUI, you can now also expand indices in the WebUI. So, in addition to slicing an index to (for example) a subset, you can now also expand it to a SUPERset. This allows you to match indexes of different identifiers displayed in the same widget. For example, you can make the displaying of related identifiers in a Table much more concise and intuitive. For details and examples, please refer to the `documentation <https://manual.aimms.com/webui/widget-options.html#identifier-settings>`__.
+-  In addition to the identifier slicing that is common through all of AIMMS and the WebUI, you can now also expand indices in the WebUI. So, in addition to slicing an index to (for example) a subset, you can now also expand it to a SUPERset. This allows you to match indexes of different identifiers displayed in the same widget. For example, you can make the displaying of related identifiers in a Table much more concise and intuitive. For details and examples, please refer to the `documentation <https://manual.aimms.com/webui/webui/widget-options.html#identifier-settings>`__.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -6774,7 +6774,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 ++++++++++++++++++++
 
--  Tasks in a Gantt chart in the WebUI can now have additional text displayed in the associated bars. The duration identifier needs an _text identifier annotation. See the `Gantt Chart documentation <https://manual.aimms.com/webui/gantt-chart-widget.html>`__ for details.
+-  Tasks in a Gantt chart in the WebUI can now have additional text displayed in the associated bars. The duration identifier needs an _text identifier annotation. See the `Gantt Chart documentation <https://manual.aimms.com/webui/webui/gantt-chart-widget.html>`__ for details.
 -  There is a new and more clear dialog to set the sorting of a Table row or column. Furthermore, there is now a clear indicator to show you which row or column is sorted and in what direction.
 
 Resolved WebUI Issues
@@ -7288,7 +7288,7 @@ AIMMS Improvements
 WebUI Improvements
 ++++++++++++++++++++
 
--  The unit support in the WebUI has improved over previous versions. For details, see the `documentation <https://documentation.aimms.com/webui/units-support.html>`__.
+-  The unit support in the WebUI has improved over previous versions. For details, see the `documentation <https://documentation.aimms.com/webui/webui/units-support.html>`__.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
@@ -9476,7 +9476,7 @@ Resolved WebUI Issues
 WebUI Improvements
 ++++++++++++++++++++
 
--  There is a new "UI Editable" option in the application settings of the WebUI. With this option, you can lock the UI for certain users in a very flexible way. When you are currently using the old-style locking mechanism, you will have to convert your model as the old one does not work anymore in AIMMS 4.22 and onwards. You can find more information on the "UI Editable" option in the `WebUI Documentation <https://documentation.aimms.com/webui/app-misc-settings.html#ui-editable>`__ on our website.
+-  There is a new "UI Editable" option in the application settings of the WebUI. With this option, you can lock the UI for certain users in a very flexible way. When you are currently using the old-style locking mechanism, you will have to convert your model as the old one does not work anymore in AIMMS 4.22 and onwards. You can find more information on the "UI Editable" option in the `WebUI Documentation <https://documentation.aimms.com/webui/webui/app-misc-settings.html#ui-editable>`__ on our website.
 
 
 
@@ -9601,7 +9601,7 @@ WebUI Improvements
 -  There is a New Table widget in the WebUI. This is a currently still read-only version of the Table widget, with much improved performance when displaying huge data sets. It supports smooth scrolling and sorting. If you only want to display your data (i.e. don't want users to edit the data), you can simply switch to the New Table widget type from any already existing Table widget (just do a type switch through the options editor).
 -  The Gantt Chart widget now offers support for vertical dragging and dropping of bars. It also includes functionality that supports a 'time window' on a Gantt Chart, making it easy to focus on the part of the Gantt Chart data that you are interested in.
 -  Scalar element parameters can now be used in Selectionbox and Multiselect Widgets. However, please note that these widgets with an element parameter as content, cannot (yet) be used a a filter for other widgets.
--  Model annotations and flags: We have introduced a breaking change in this version to avoid future problems, and to standardize existing usage. This change might require developers to update custom CSS or JavaScript included in their projects. Annotations and flags appearing anywhere in the HTML of plugins, for example classes like `Mod7Ord1` and `readOnly`, are now prefixed with e.g. `annotation-` or `flag-`, and are differently (and more consistently) escaped. For more information, please see the manual section on `data dependent styling <https://documentation.aimms.com/webui/css-styling.html>`__.
+-  Model annotations and flags: We have introduced a breaking change in this version to avoid future problems, and to standardize existing usage. This change might require developers to update custom CSS or JavaScript included in their projects. Annotations and flags appearing anywhere in the HTML of plugins, for example classes like `Mod7Ord1` and `readOnly`, are now prefixed with e.g. `annotation-` or `flag-`, and are differently (and more consistently) escaped. For more information, please see the manual section on `data dependent styling <https://documentation.aimms.com/webui/webui/css-styling.html>`__.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
