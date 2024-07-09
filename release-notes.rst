@@ -122,7 +122,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  From AIMMS 24.4 onwards, the WebUI will be released separately in the form of a Repository Library. Next to advantages for the developers at AIMMS themselves, this offers the benefit that we will be able to increase our WebUI release frequency, while retaining a very stable AIMMS engine. It also allows you to combine a (slightly) older tried-and-tested AIMMS version that works well in your situation, with the latest WebUI improvements. All this means that the WebUI has been assigned `its own part on our documentation website <https://documentation.aimms.com/webui/webui/index.html>`__, which also includes `the release notes <https://documentation.aimms.com/webui/webui/release-notes.html>`__ of the WebUI. In `this section <https://documentation.aimms.com/webui/webui/creating.html#in-aimms-24-4-and-higher>`__ you can read how to work with the WebUI as a Repository Library.
+-  From AIMMS 24.4 onwards, the WebUI will be released separately in the form of a Repository Library. Next to advantages for the developers at AIMMS themselves, this offers the benefit that we will be able to increase our WebUI release frequency, while retaining a very stable AIMMS engine. It also allows you to combine a (slightly) older tried-and-tested AIMMS version that works well in your situation, with the latest WebUI improvements. All this means that the WebUI has been assigned `its own part on our documentation website <https://documentation.aimms.com/webui/webui/index.html>`__, which also includes `the release notes <https://documentation.aimms.com/webui/release-notes.html>`__ of the WebUI. In `this section <https://documentation.aimms.com/webui/webui/creating.html#in-aimms-24-4-and-higher>`__ you can read how to work with the WebUI as a Repository Library.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
@@ -7139,7 +7139,7 @@ AIMMS 4.53.1 Release (April 24, 2018 Build 4.53.1.8)
 WebUI Improvements
 ++++++++++++++++++++
 
--  As part of our new user experience improvement project called UX 2.0, to drastically improve the usability of AIMMS applications, a new Navigation Menu has been added to the WebUI. This menu should help users find their way around AIMMS Apps and get a general overview much more easily. As this new menu will become the new default, your existing Apps will change automatically. Please see the `documentation <http://manual.aimms.com/webui/page-menu.html>`__ for more details.
+-  As part of our new user experience improvement project called UX 2.0, to drastically improve the usability of AIMMS applications, a new Navigation Menu has been added to the WebUI. This menu should help users find their way around AIMMS Apps and get a general overview much more easily. As this new menu will become the new default, your existing Apps will change automatically. Please see the `documentation <http://manual.aimms.com/webui/webui/page-menu.html>`__ for more details.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -9377,7 +9377,7 @@ WebUI Improvements
 ++++++++++++++++++++
 
 -  The Selectionbox widget can now also be dragged to a custom position. In order to allow this, a small drag area has been added to the right of the widget. This area becomes visible when hovering over the widget.
--  The Gantt Chart now supports reverse links (using the Store Focus tab in its options editor) and has new options to specify the visible viewport, allowing to implement scrolling/zooming in your model. For details, see the `Gantt Chart documentation <http://manual.aimms.com/webui/gantt-chart-widget.html>`__.
+-  The Gantt Chart now supports reverse links (using the Store Focus tab in its options editor) and has new options to specify the visible viewport, allowing to implement scrolling/zooming in your model. For details, see the `Gantt Chart documentation <http://manual.aimms.com/webui/webui/gantt-chart-widget.html>`__.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
