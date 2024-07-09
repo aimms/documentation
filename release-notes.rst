@@ -13,6 +13,23 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.4 Release (July 09, 2024 - build 24.5.4.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  SetAsString now uses the set ordering.
+-  Always recompile after using the drop down menu from variable to parameter and back.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.3 Release (July 04, 2024 - build 24.5.3.5).
 ------------------------------------------------------------------------------------------
 
