@@ -1,4 +1,4 @@
 https://documentation.aimms.com/language-reference/help_index_languagereference.txt 
 https://documentation.aimms.com/functionreference/help_index_functionreference.txt
 https://documentation.aimms.com/aimmsxllibrary/help_index_aimmsxllibrary.txt
-https://documentation.aimms.com/webui/webui/help_index_webui.txt
+https://documentation.aimms.com/webui/help_index_webui.txt
