@@ -4160,7 +4160,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  Uploading a file using the :doc:`webui/upload-widget` in the WebUI to a folder that contained special Unicode characters did not work on Windows.
+-  Uploading a file using the `upload-widget <https://documentation.aimms.com/webui/upload-widget.html>`__ in the WebUI to a folder that contained special Unicode characters did not work on Windows.
 
 
 --------------
@@ -4222,8 +4222,8 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  Maps may draw slightly faster when showing overlays with large amounts of straight line sections.
--  Workflow configurations that redirect to a page using :doc:`webui/webui-grid-pages` did not work correctly in previous versions.
--  A WebUI case could incorrectly not be marked as dirty after running a procedure from WebUI, resulting in the 'Save case as...' option to not appear.
+-  Workflow configurations that redirect to a page using `webui-grid-pages <https://documentation.aimms.com/webui/webui-grid-pages.html>`__ did not work correctly in previous versions.
+-  A WebUI case could incorrectly not be marked as dirty after running a procedure from WebUI, resulting in the 'Save case as...' option to not appear. 
 
 
 --------------
@@ -4243,7 +4243,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  The experimental 'webui state support' feature will now also work for pages using :doc:`the new Grid Layout <webui/webui-grid-pages>` (but some limitations to setting it up correctly will still apply).
+-  The experimental 'webui state support' feature will now also work for pages using `the new Grid Layout <https://documentation.aimms.com/webui/webui-grid-pages.html>`__ (but some limitations to setting it up correctly will still apply).
 -  In some rare situations (in which you use similar totals in tables on more than one WebUI page), you could receive errors like 'Some of the attributes of runtime parameter ``webui_runtime::Exprxxx`` are not yet successfully compiled.'.
 -  Editing or changing a latitude or longitude identifier using the identifier selector from `the Map widget options <https://documentation.aimms.com/webui/map-widget.html#adding-node-sets>`__ used to clear any previously made selection.
 
@@ -4268,7 +4268,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  The edit menu of the :doc:`webui/text-widget` was not always visible when having a Text widget on :doc:`webui/dialog-pages`.
+-  The edit menu of the `text-widget <https://documentation.aimms.com/webui/text-widget.html>`__ was not always visible when having a Text widget on `dialog-pages <https://documentation.aimms.com/webui/dialog-pages.html>`__.
 
 
 --------------
