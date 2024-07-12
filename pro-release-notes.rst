@@ -15,7 +15,7 @@ On June 27, 2024, we released AIMMS PRO 24.8.1(24.8.1.1)
 
 **Resolved Issues**
 
-- **PRO REST API:Task Service**: Fixed an issue where task session could finish with an error when accessing data from dls storage.
+- **PRO REST API:Task Service**: Fixed an issue where task session could finish with an error when accessing data to/from dls (Data Lake Storage) storage.
 - **PRO REST API:Task Service**: Added more information about the selected AIMMS version in logs.
 
 PRO 24.7
