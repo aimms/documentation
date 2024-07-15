@@ -204,6 +204,7 @@ html_theme_options = {
     'algolia_appid': 'O7P0H7XDLZ', 
     'algolia_appkey': 'acafdefd4d3b6319f20faf2c9052a24b', 
     'algolia_indexname': 'aimms',
+    'algolia_hitsperpage': 10,
     'aimms_support_menu_id': 'documentation',
     'generate_aimms_support_menu' : True,
     'display_help_and_feedback' : True,
