@@ -13,6 +13,24 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.5 Release (July 17, 2024 - build 24.5.5.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS could crash when using CPLEX parameter files for multi-objective optimization.
+-  Assigning sets to an indexed set could lead to a crash. This is fixed now.
+-  The scaling tool did not handle extreme values like 1e100 correctly.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.4 Release (July 09, 2024 - build 24.5.4.2).
 ------------------------------------------------------------------------------------------
 
