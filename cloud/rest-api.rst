@@ -60,7 +60,7 @@ authentication/authorization.
 
 Please note that the maximum expiration date for any API key is 1 Year.
 
-An API user also needs to fulfill some other requirements togather with having a valid API key and scope
+An API user also needs to fulfill some other requirements together with having a valid API key and scope
 
 .. csv-table:: 
    :header: "API Service", "Requirements"
