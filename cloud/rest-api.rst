@@ -60,6 +60,16 @@ authentication/authorization.
 
 Please note that the maximum expiration date for any API key is 1 Year.
 
+An API user also needs to fulfill some other requirements togather with having a valid API key and scope
+
+.. csv-table:: 
+   :header: "API Service", "Requirements"
+   :widths: 30, 30
+
+    Running Tasks , Create/Interrupt/Delete requires RX app permission; Retrieve requires R app permission
+	Managing Environments Groups and Users , Create/Delete requires Admin rights
+	Managing Apps , AppPublishers rights 
+
 Managing Environments, Groups and Users
 ---------------------------------------
 
