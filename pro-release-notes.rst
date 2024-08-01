@@ -9,6 +9,10 @@ AIMMS PRO 24.8.2 Release
 
 On August 1, 2024, we released AIMMS PRO 24.8.2(24.8.2.1)
 
+**Improvements**
+
+- **PRO REST API:Task Service**: It is possible to get the TaskID inside AIMMS while the procedure called by the task is running.
+
 **Resolved Issues**
 
 - Fixed an issue where a session could stuck in a crash loop and fail due to intermittent network issues.
