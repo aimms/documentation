@@ -4,6 +4,15 @@ AIMMS PRO Release Notes
 PRO 24.8
 ########
 
+AIMMS PRO 24.8.2 Release
+------------------------
+
+On August 1, 2024, we released AIMMS PRO 24.8.2(24.8.2.1)
+
+**Resolved Issues**
+
+- Fixed an issue where a session could crash because of too many restarts of the pod.
+
 AIMMS PRO 24.8.1 Release
 ------------------------
 
