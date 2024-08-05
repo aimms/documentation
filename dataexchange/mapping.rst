@@ -325,3 +325,4 @@ If a node in the mapping contains an included mapping, all externally bound indi
 .. spelling:word-list::
 
     regex
+	tsv

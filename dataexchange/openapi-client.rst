@@ -214,10 +214,9 @@ Not only will this save you time, as you don't have to generate the runtime libr
 Data-driven generic API client
 ------------------------------
 
-If an API does not provide an OpenAPI specification, the Data Exchange library also offers a completely data-driven generic REST API client in the ``dex::client::rest`` namespace. This generic client follows exactly the same flow as REST clients generated from an OpenAPI specification, but relies on you to provide mappings for request and response bodies, and the REST client uses identifiers in the ``dex::client::rest`` namespace to specify URLs and methods for API operations and which query, header and path arguments are avaliable, and to provide data for these parameters.
+If an API does not provide an OpenAPI specification, the Data Exchange library also offers a completely data-driven generic REST API client in the ``dex::client::rest`` namespace. This generic client follows exactly the same flow as REST clients generated from an OpenAPI specification, but relies on you to provide mappings for request and response bodies, and the REST client uses identifiers in the ``dex::client::rest`` namespace to specify URLs and methods for API operations and which query, header and path arguments are available, and to provide data for these parameters.
 
 To use the generic REST client, please consult the ``dex::client::rest`` module in the Data Exchange library to find out which data needs to the specified. When all operations have been configured, and all argument data has been provided, you can call the methods ``dex::client::rest::GenericAPICallSync`` or ``dex::client::rest::GenericAPICallASync`` to make REST API calls in a synchronous or asynchronous manner.
-
 
 .. spelling:word-list::
 
