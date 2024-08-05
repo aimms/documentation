@@ -101,14 +101,14 @@ Methods for reading and writing data
     
 .. js:function::  dex::GenerateDatasetMappings
 
-    Generate standardized table and Excel sheet mappings based on the :token:`dex::Dataset`, :token:`dex::TableName`, and :token:`dex::ColumnName` annotations. The generated mappings will be stored in the :token:`Mappings/Generated` subfolder of the project folder. All generated mappings will automatically be added to the set of available mappings, and can be directly used to read and write the standardized JSON, XML, CSV or Excel data sources based on the data exchange annotations. The function will return 1 on success, or 0 on failure. Through the global option ``dex::PrefixAutoTableWithDataset`` you can prefix the generated table names with the specified dataset name, to prevent potential name clashes when the same table name is generated for multiple data categories. Through the global parameter ``dex::DatasetGeneratorFilter`` you can restrict the formats for which mappings will be generated, the default will be to generate mappings for all available formats.
+    Generate standardized table and Excel sheet mappings based on the :token:`dex::Dataset`, :token:`dex::TableName`, and :token:`dex::ColumnName` annotations. The generated mappings will be stored in the :token:`Mappings/Generated` subfolder of the project folder. All generated mappings will automatically be added to the set of available mappings, and can be directly used to read and write the standardized JSON, XML, CSV/TSV or Excel data sources based on the data exchange annotations. The function will return 1 on success, or 0 on failure. Through the global option ``dex::PrefixAutoTableWithDataset`` you can prefix the generated table names with the specified dataset name, to prevent potential name clashes when the same table name is generated for multiple data categories. Through the global parameter ``dex::DatasetGeneratorFilter`` you can restrict the formats for which mappings will be generated, the default will be to generate mappings for all available formats.
     
     You can use the generated mappings directly with the functions :js:func:`dex::WriteToFile` and :js:func:`dex::ReadFromFile` as with any manually created mapping.
 	
 Changing encodings and normalizations
 -------------------------------------
 
-The Data Exchange library only accepts UTF-8 JSON, XML and CSV files. Through the following functions you can change the encoding of a file prior to reading or after writing its contents.
+The Data Exchange library only accepts UTF-8 JSON, XML and CSV/TSV files. Through the following functions you can change the encoding of a file prior to reading or after writing its contents.
 The library also contains a number of functions to normalize composed Unicode characters in strings and sets in your model to either the NFC or NFD normalization.
 
 .. js:function:: dex::ConvertFileToEncoding(inputFile, inputEncoding, ouputFile, outputEncoding, noBOM)
@@ -872,22 +872,25 @@ Snowflake functions
 
     Reset the execution state of all submitted SQL statements. You should call this statement prior to executing a batch of SQL statements that you want to execute in parallel, or parallel calls to `dex::sf::GenerateAndLoadParquetIntoTable` or `dex::sf::GenerateAndLoadParquetFromTable``.  
         
-.. js:function::  dex::sf::GenerateAndLoadParquetIntoTable(mappingName,tableName,timeout,sqlString)
+.. js:function::  dex::sf::GenerateAndLoadParquetIntoTable(mappingName,tableName,timeout,query_,columns_,sqlString)
 
     The function will generate an intermediate Parquet file using the DEX mapping `mappingName`, store the Parquet file in the Azure Data Lake Storage account that comes with every AIMMS cloud account, and insert the data contained in the table `tableName` in the configured schema of the Snowflake instance connected to. The default `sqlString` executed will assume that the table will just have all the fields contained in the Parquet file, but you can specify any Snowflake SQL statement to provide a customized insert statement. The function will wait `timeout` seconds for the execution of the SQL statement to complete. If the statement is still in progress on return (202 return code), you can call `dex::sf::WaitForSQLStatements` to wait for the completion of the insert statement. When `timeout` is 0, the function will return immediately, and you can call the function multiple times to load multiple files into Snowflake in parallel. 
     
     :param mappingName: name of a DEX mapping used to generate a Parquet file to upload from the current model data
     :param tableName: name of the table in the configured Snowflake schema to insert the data in the generated Parquet file to
     :param timeout: time to wait for the Snowflake insert statement to complete (default 50 seconds)
+	:param query_: optional query from the intermediate Parquet file, defaults to the intermediate Parquet file
+	:param columns_: optional argument for specifying which columns to copy into the table from the query/Parquet file
     :param sqlString: optional string argument containing the SQL statement to execute.
    
-.. js:function::  dex::sf::GenerateAndLoadParquetFromTable(mappingName,tableName,timeout,sqlString,emptyIdentifiers,emptySets)
+.. js:function::  dex::sf::GenerateAndLoadParquetFromTable(mappingName,tableName,timeout,query_,sqlString,emptyIdentifiers,emptySets)
 
     The function will execute the `sqlString` statement to generate a Parquet file from Snowflake select statement. The default statement will generate a Parquet file from all fields in the Snowflake table `tableName`. The function will wait `timeout` seconds for the execution of the SQL statement to complete. If the statement is still in progress on return (202 return code), you can call `dex::sf::WaitForSQLStatements` to wait for the completion of the insert statement. After the statement has completed, the data in the generated Parquet file will be read into the current model data using the DEX mapping `mappingName`. When `timeout` is 0, the function will return immediately, and you can call the function multiple times to load multiple files into Snowflake in parallel.
     
     :param mappingName: name of a DEX mapping used to read the generated Parquet file into the current model data
     :param tableName: name of the table in the configured Snowflake schema the contents of which will be used to generate the intermediate Parquet file
     :param timeout: time to wait for the Snowflake select statement to complete (default 50 seconds)
+	:param query_: optional argument specifying a select query to copy the data from into the intermediate Parquet file, defaults to the table
     :param sqlString: optional string argument containing the SQL select statement to execute.
     :param emptyIdentifiers: optional 0/1 argument indicating whether all identifiers in the mapping should be emptied prior to reading the Parquet file
     :param emptySets: optional 0/1 argument indicating whether all sets used in the mapping should be emptied prior to reading the Parquet file

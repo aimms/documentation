@@ -13,6 +13,17 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+
+24.4.1.0 (05-08-2024)
+	- Drastically reduce DEX memory requirements by using shared data transfer buffers
+	- Add support for writing TSV files during CSV write when file extension is `.tsv`
+	- Add `__COLUMNS__` and `__QUERY__` arguments to `sqlString` argument in Snowflake functions
+	- Refactor of OpenAPI client generator to determine validation type during first stage such that more OpenAPI specs can be parsed successfully
+	- Add support for subset filtering when writing files
+	- Use `Authorization` header to pass `Bearer` token for the REST API service
+	- Add support for creating `PowerBI` Embedded tokens
+	- Add a generic data-driven REST API client to better support REST APIs without OpenAPI specs
+
 24.3.1.3 (08-07-2024)
 	- OAuth methods didn't function properly any longer because of missing request tag
 	

@@ -86,9 +86,10 @@ When not specified through the optional `sqlString` argument, the function will 
 
 	.. code::
 	
-		copy into __TABLE__ from __BLOB__ __SETTINGS__
+		copy into __TABLE__ __COLUMNS__ from __QUERY__ __SETTINGS__
 
-The tokens `__TABLE__`, `__BLOB__` and `__SETTINGS__` will be replaced by the `tableName` argument and URL of, or a stage reference to, the intermediate Parquet file and a collection of settings set by the DEX library. Optionally, you can provide your own `sqlString` argument where you can specify a custom `copy into statement <https://docs.snowflake.com/en/sql-reference/sql/copy-into-table>`_, where `__TABLE__`, `__BLOB__` and `__SETTINGS__` will be expanded as for the default statement. You can specify your own SQL statements, for instance, in case you want to add, for instance, an additional scenario column before inserting it in a Snowflake table.
+The tokens `__TABLE__`, `__COLUMNS__`, `__QUERY__` and `__SETTINGS__` will be replaced by the `tableName` argument and URL of, or a stage reference to, the `columns_` and `query_` arguments and a collection of settings set by the DEX library. 
+The `query_` argument defaults to `__BLOB__`, which will be replaced by the SAS URL of the intermediate Parquet file, but you can replace it by a select statement from the data in the intermediate Parquet file. Optionally, you can provide your own `sqlString` argument where you can specify a custom `copy into statement <https://docs.snowflake.com/en/sql-reference/sql/copy-into-table>`_, where `__TABLE__`, `__BLOB__`, `__COLUMNS__`, `__QUERY__` and `__SETTINGS__` will be expanded as for the default statement. You can specify your own SQL statements, for instance, in case you want to add, for instance, an additional scenario column before inserting it in a Snowflake table.
 
 The function will return any 200 status code of the execution of the SQL statement, or 0 in case of any failure. If the status is 201, you can call `dex::sf::WaitForSQLStatements` to wait for the completion of the executed SQL statement as before.
 
@@ -108,9 +109,9 @@ When not specified through the optional `sqlString` argument, the function will 
 
 	.. code::
 	
-		copy into __BLOB__ from __TABLE__ __SETTINGS__
+		copy into __BLOB__ from __QUERY__ __SETTINGS__
 
-The tokens `__TABLE__`, `__BLOB__` and `__SETTINGS__` will be replaced by the `tableName` argument and URL of the intermediate Parquet file and a collection of settings set by the Snowflake library. Optionally, you can provide your own `sqlString` argument where you can specify a custom `copy into statement <https://docs.snowflake.com/en/sql-reference/sql/copy-into-table>`_, where `__TABLE__`, `__BLOB__` and `__SETTINGS__` will be expanded as for the default statement. 
+The tokens `__QUERY__`, `__BLOB__` and `__SETTINGS__` will be replaced by the `tableName` argument and URL of the intermediate Parquet file and a collection of settings set by the Snowflake library. By default, `__QUERY__` will be expanded to `__TABLE__`, if you do not provide a select query to copy from yourself. Optionally, you can provide your own `sqlString` argument where you can specify a custom `copy into statement <https://docs.snowflake.com/en/sql-reference/sql/copy-into-location>`_, where `__QUERY__`, `__TABLE__`, `__BLOB__` and `__SETTINGS__` will be expanded as for the default statement. 
 
 The function will return any `2XX` status code of the execution of the SQL statement, or 0 in case of any failure. If the status is 201, you can call `dex::sf::WaitForSQLStatements` to wait for the completion of the executed SQL statement as before.
 

@@ -1,7 +1,7 @@
 Data Exchange Mappings
 **********************
 
-Each Data Exchange mapping is an XML file describing the structure of particular formats (like JSON, YAML, XML, CSV, Excel or Parquet) being mapped. Below you find the elements specific for each of the mapping types. The attributes that you can specify for each element are shared. In `this How-To article <https://how-to.aimms.com/Articles/534/534-dealing-with-the-different-data-types.html>`__ you can find some simple examples on the usages. `Here <https://documentation.aimms.com/dataexchange/api.html#methods-for-reading-and-writing-data>`__ you can find the functions related to mappings.
+Each Data Exchange mapping is an XML file describing the structure of particular formats (like JSON, YAML, XML, CSV/TSV, Excel or Parquet) being mapped. Below you find the elements specific for each of the mapping types. The attributes that you can specify for each element are shared. In `this How-To article <https://how-to.aimms.com/Articles/534/534-dealing-with-the-different-data-types.html>`__ you can find some simple examples on the usages. `Here <https://documentation.aimms.com/dataexchange/api.html#methods-for-reading-and-writing-data>`__ you can find the functions related to mappings.
 
 JSON Mapping elements
 =====================
@@ -45,12 +45,12 @@ The following are the elements allowed in a XML mapping
 Row-based Table mapping elements
 =================================
 
-For files types like CSV, Parquet, Excel and SQLite, data is organized in tables or collection of tables. This makes these table-based mapping simple 
+For files types like CSV/TSV, Parquet, Excel and SQLite, data is organized in tables or collection of tables. This makes these table-based mapping simple 
 and the same for all these file types.
 
 The root of the mapping specifies the file type. These are the possible roots of a row based table mappings
 
-* the ``AimmsCSVMapping`` element for CSV files
+* the ``AimmsCSVMapping`` element for CSV/TSV files. The Data Exchange library will output a TSV file if the file extension is .tsv, or CSV otherwise.
 * the ``AimmsParquetMapping`` element for Parquet files
 * the ``AimmsExcelMapping`` element for Excel files (.xlsx)
 * the ``AimmsDatabaseMapping`` element for SQLite files (.db)
@@ -61,7 +61,7 @@ The child elements of these root nodes are
 * the ``RowMapping`` element a single child element of the ``TableMapping`` and maps the rows
 * the ``ColumnMapping`` element maps a column and is always underneath a ``RowMapping`` element
 
-For CSV and Parquet each table is stored as one file, so if a ``TableMapping`` is specified then it will determine the name of the file.
+For CSV/TSV and Parquet each table is stored as one file, so if a ``TableMapping`` is specified then it will determine the name of the file.
 Therefore the first argument of Procedures  ``dex::WriteToFile()`` and ``dex::ReadFromFile()`` is interpreted as a folder containing the files.
 When no ``TableMapping`` is specified the first argument of Procedures  ``dex::WriteToFile()`` and ``dex::ReadFromFile()`` is the file name and only one single table can be written.
 
@@ -119,7 +119,12 @@ The ``name`` attribute specifies the name of the mapped element in the format. N
 The binds-to attribute
 ----------------------
 
-The ``binds-to`` attribute, which can be added to the mapping of any value-holding element. The ``binds-to`` attribute will also provide an index binding for all sibling mapping elements of mapping element for which it is specified, or for the parent element in case the ``binds-to`` attribute is applied to an ``AttributeMapping`` element.
+The ``binds-to`` attribute, which can be added to the mapping of any value-holding element. The ``binds-to`` attribute will also provide an index binding for all sibling mapping elements of mapping element for which it is specified, or for the parent element in case the ``binds-to`` attribute is applied to an ``AttributeMapping`` element. 
+
+Subset filtering
+++++++++++++++++
+
+If during a write the index specified in the ``binds-to`` attribute is an index into a subset of the index domain an identifier specified in a ``maps-to`` attribute, then all values outside of the subset will not be written even though data may be available in the identifier. You can use subset filtering to output just the subset of values you are interested in. 
 
 .. note::
 	
@@ -136,9 +141,9 @@ The ``name-regex`` attribute should be used in conjunction with a ``name-binds-t
 
 As the name suggests, you can use any accepted `regular expression <https://regex101.com/>`_ within these attributes' definitions. For example, using ``name-regex=".*"`` in your ColumnMapping will accept *any* column name, which makes it a very useful expression if you're iterating over data with different column names binding to the same index.
 
-With the ``name-regex-prefix`` attribute you can specify a prefix that is used in the JSON, XML, CSV, Excel, Parquet file or database, but which should not be included in the element names in the model. Note that the value of the ``name-regex-prefix`` attribute is automatically prepended to the regular expression specified in the ``name-regex`` attribute, and subsequently removed from the match if a match has been found.
+With the ``name-regex-prefix`` attribute you can specify a prefix that is used in the JSON, XML, CSV/TSV, Excel, Parquet file or database, but which should not be included in the element names in the model. Note that the value of the ``name-regex-prefix`` attribute is automatically prepended to the regular expression specified in the ``name-regex`` attribute, and subsequently removed from the match if a match has been found.
 
-By default, when writing CSV files, Excel sheets, Parquet files and databases, AIMMS will first generate columns generated on the basis of the current contents associated with the ``name-binds-to`` index. Subsequently, it will fill individual fields, on a row-per-row basis, based on the presence of data in the ``maps-to`` identifier. If that identifier contains data for tuples which do not currently lie in the set associated with the ``name-binds-to`` index, such data will not be written, and may potentially lead to rows without any data. 
+By default, when writing CSV/TSV files, Excel sheets, Parquet files and databases, AIMMS will first generate columns generated on the basis of the current contents associated with the ``name-binds-to`` index. Subsequently, it will fill individual fields, on a row-per-row basis, based on the presence of data in the ``maps-to`` identifier. If that identifier contains data for tuples which do not currently lie in the set associated with the ``name-binds-to`` index, such data will not be written, and may potentially lead to rows without any data. 
 
 The iterative-binds-to attribute
 --------------------------------
@@ -187,7 +192,7 @@ The maps-to attribute
 
 You can assign the ``maps-to`` attribute to any value-holding mapping element. Its value should be a reference to an identifier in your model, including the indices bound at this location in the mapping tree *in the exact order in which they are bound in the mapping, including any external bindings present*. Note that this implies that the dimension of the identifier must be matched exactly with the number of bound indices, and that the root domain of the identifier should match the root domains of the indices. Also this requirement prevents you from permuting the bound indices bound in the identifier reference specified in the ``maps-to`` attribute.
 
-The ``write-filter`` attribute can be specified at any node in the mapping tree, and should be a reference to an identifier in the model including the bound indices at this location as for the ``maps-to`` attribute. For any tuple of bound indices for which the ``write-filter`` attribute does not hold a non-default value, the corresponding part of the generate JSON, XML or CSV file will be skipped. 
+The ``write-filter`` attribute can be specified at any node in the mapping tree, and should be a reference to an identifier in the model including the bound indices at this location as for the ``maps-to`` attribute. For any tuple of bound indices for which the ``write-filter`` attribute does not hold a non-default value, the corresponding part of the generate JSON, XML or CSV/TSV file will be skipped. 
 
 When writing numerical data, you can use the ``precision`` attribute to specify the number of decimals with which the numerical data should be written. The attribute should hold a value between 0 and 16, and the numerical value will be rounded to the specified number of decimals.
 
@@ -196,7 +201,7 @@ By default, the Data Exchange library assumes that all string values will hold u
 The write-defaults attribute
 ----------------------------
 
-For all row-based formats (CSV, Excel, Parquet or database), cells for which no data is present in the ``maps-to`` identifier will be left empty by default. With the ``write-defaults`` attribute you can indicate that you want the default value of that identifier to be written to such cells instead. You can specify the value 1 to the ``write-defaults`` attribute on a ``ColumnMapping``, or on the ``RowMapping`` or ``ExcelSheetMapping``. For the latter, the ``write-defaults`` attribute will be applied to all underlying ``ColumnMappings``. The default value for the ``write-defaults`` attribute is 0.
+For all row-based formats (CSV/TSV, Excel, Parquet or database), cells for which no data is present in the ``maps-to`` identifier will be left empty by default. With the ``write-defaults`` attribute you can indicate that you want the default value of that identifier to be written to such cells instead. You can specify the value 1 to the ``write-defaults`` attribute on a ``ColumnMapping``, or on the ``RowMapping`` or ``ExcelSheetMapping``. For the latter, the ``write-defaults`` attribute will be applied to all underlying ``ColumnMappings``. The default value for the ``write-defaults`` attribute is 0.
 
 Similarly, for JSON and XML mappings, you can set the ``write-defaults`` attribute for any value-holding mapping element. On its own it will never cause an element which contains a value with the  ``write-defaults`` attribute set to generated, but if such an element is generated because another child holds a non-default value, then the value with `` write-defaults`` attribute will also be generated, even if it holds no non-default value. 
 
@@ -210,7 +215,7 @@ The force-dense attribute
 
 The ``force-dense`` attribute should also contain a reference to an identifier plus bound indices as for the ``maps-to`` attribute. Through this attribute you can force a specific density pattern by specifying a domain for which nodes *should* be generated, regardless of whether non-default data is present to fill such nodes, e.g. because the identifier specified in the ``maps-to`` attribute of the node itself, or any of its sub-nodes, holds no non-default data. Note that a density pattern enforced through the ``force-dense`` attribute is still subject to a write filter specified in a ``write-filter`` attribute.
 
-Enforcing a density pattern may be important when the bound indices are generated through the ``iterative-binds-to`` attribute, and not explicitly represented through data-holding node bound to a regular ``binds-to`` attribute. In such cases, not writing nodes that hold no non-default data, may lead to inconsistent numbering of generated elements when reading the generated JSON or XML files back in. *When reading a JSON, XML, CSV, Excel, Parquet file or database, the library will assign a value of 1 for the identifier specified in the* ``force-dense`` *attribute to any tuple encountered, such that the same file will be generated when writing back the file using the same mapping based on the data just read in.* 
+Enforcing a density pattern may be important when the bound indices are generated through the ``iterative-binds-to`` attribute, and not explicitly represented through data-holding node bound to a regular ``binds-to`` attribute. In such cases, not writing nodes that hold no non-default data, may lead to inconsistent numbering of generated elements when reading the generated JSON or XML files back in. *When reading a JSON, XML, CSV/TSV, Excel, Parquet file or database, the library will assign a value of 1 for the identifier specified in the* ``force-dense`` *attribute to any tuple encountered, such that the same file will be generated when writing back the file using the same mapping based on the data just read in.* 
 
 .. note::
     
@@ -221,7 +226,7 @@ Enforcing a density pattern may be important when the bound indices are generate
 The dense-children attribute
 ----------------------------
 
-With the ``dense-children`` you can indicate that when a node will be written, because of the density pattern of all of its children, all direct *value-holding* child elements with the same bound indices as the parent node, will be written in a dense manner. For example, with this attribute you can cause all columns in a table row to be written to a CSV, Excel, Parquet file or database, whenever at least one of the columns holds a non-default value.
+With the ``dense-children`` you can indicate that when a node will be written, because of the density pattern of all of its children, all direct *value-holding* child elements with the same bound indices as the parent node, will be written in a dense manner. For example, with this attribute you can cause all columns in a table row to be written to a CSV/TSV, Excel, Parquet file or database, whenever at least one of the columns holds a non-default value.
 
 With this attribute you cannot cause an array to be written in a dense manner, as the array elements need to bind an additional index. To enforce writing an array in a dense manner, you have to use the ``force-dense`` attribute.
 
@@ -267,14 +272,14 @@ You can use external bindings in combination with included mappings to break a l
 The embedded-mapping attribute
 ------------------------------
 
-Through the ``embedded-mapping`` attribute, you can indicate that a value-holding element in the given JSON or XML file should hold a string that can be read or written using the mapping specified in this attribute. Note that the mapping element to which this attribute is attached may not have bound indices. The mapping specified in this attribute may be of any type (e.g. XML, JSON, CSV or Excel) and will be represented as a single (base64 encoded) string.
+Through the ``embedded-mapping`` attribute, you can indicate that a value-holding element in the given JSON or XML file should hold a string that can be read or written using the mapping specified in this attribute. Note that the mapping element to which this attribute is attached may not have bound indices. The mapping specified in this attribute may be of any type (e.g. XML, JSON, CSV/TSV or Excel) and will be represented as a single (base64 encoded) string.
 
 Assigning a value of 1 to the ``base64-encoded`` attribute indicates whether embedded mapped string is or should be base64 encoded.
 
 Unicode normalization
 =====================
 
-The Data Exchange library can read and write the text-based formats JSON, XML and CSV files which are encoded as UTF-8. However, in Unicode there multiple ways to represent composed characters such as characters with accents. In the Unicode standard these representations are considered equivalent, although their binary representations are different (see for instance `Unicode equivalence <https://en.wikipedia.org/wiki/Unicode_equivalence>`_) When you are reading data from multiple data sources, this may present a problem in your AIMMS model. Set elements may be read from a data source using one representation, while data defined over these sets may come from data sources using another representation. 
+The Data Exchange library can read and write the text-based formats JSON, XML and CSV/TSV files which are encoded as UTF-8. However, in Unicode there multiple ways to represent composed characters such as characters with accents. In the Unicode standard these representations are considered equivalent, although their binary representations are different (see for instance `Unicode equivalence <https://en.wikipedia.org/wiki/Unicode_equivalence>`_) When you are reading data from multiple data sources, this may present a problem in your AIMMS model. Set elements may be read from a data source using one representation, while data defined over these sets may come from data sources using another representation. 
 
 The Unicode standard provides several normalization procedures to normalize different text representations to various normalized forms. By itself, AIMMS will not normalize any incoming Unicode characters, as this may lead to problems when, for instance, you are trying to write back data to a database which was read in a different normalized form and then re-normalized in AIMMS. 
 Instead the Data Exchange library offers support for normalizing Unicode data from and to the NFC (representing composed characters as a single character, preferred) and the NFD representation (representing composed characters decomposed as the character itself and separate characters for the accents). In addition, it offers an option to remove all diacritics completely, as well as trim the string from leading and trailing spaces.
@@ -311,7 +316,7 @@ During write
 When generating a file or database for a given mapping, at any given node, the Data Exchange library will examine all multi-dimensional identifiers associated with the node or any of its sub-nodes through either the ``maps-to``, ``write-filter`` or ``force-dense`` attributes, and will try to find the lowest sub-tuple associated with all these identifiers, for all indices bound at this level (through the ``binds-to``, ``name-binds-to``, ``iterative-binds-to``, or ``implicit-binds-to`` attributes) while fixing the indices already found at a previous level. If such a sub-tuple can be found, the new indices at this level will be stored, and any mapped value-holding nodes at this level will be written the associated values of any multi-dimensional identifiers matching with the value of the currently bound indices, and the Data Exchange library will iterate over all any structural or iterative child nodes recursively. If no further multi-dimensional data can be found for a particular node, the Data Exchange library will track back to the parent node, and try to progress there. 
 
 
-The message here is that an JSON, XML, CSV, Excel sheet, Parquet file tree or database is generated solely on the basis of multi-dimensional identifiers in the mapping, and *never* on the basis of any of the ``binds-to`` attributes. Such nodes will be generated based on indices bound by iterating over multi-dimensional data.
+The message here is that an JSON, XML, CSV/TSV, Excel sheet, Parquet file tree or database is generated solely on the basis of multi-dimensional identifiers in the mapping, and *never* on the basis of any of the ``binds-to`` attributes. Such nodes will be generated based on indices bound by iterating over multi-dimensional data.
 
 Thus, for instance, to generate a JSON array containing only all element names of a set in your model, you must combine a ``binds-to`` attribute, together with a ``force-dense`` attribute consisting an identifier over the index you want to generate the elements for, holding a value of 1 for every element you want to be contained in the array.
 

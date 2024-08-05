@@ -211,6 +211,14 @@ Once you have generated a runtime library to integrate a third-party service int
 
 Not only will this save you time, as you don't have to generate the runtime library on every run of the model, but using identifiers and procedures from a regular library is much easier than using identifiers and procedures from a runtime library using the ``Uses runtime libs`` attribute. Especially, it is impossible to use indices from the runtime library in the index domain of identifiers in your model, or to use a set from the runtime library as the range of an element parameter in your model. By including the library saved to disk, this will be no problem any longer.
 
+Data-driven generic API client
+------------------------------
+
+If an API does not provide an OpenAPI specification, the Data Exchange library also offers a completely data-driven generic REST API client in the ``dex::client::rest`` namespace. This generic client follows exactly the same flow as REST clients generated from an OpenAPI specification, but relies on you to provide mappings for request and response bodies, and the REST client uses identifiers in the ``dex::client::rest`` namespace to specify URLs and methods for API operations and which query, header and path arguments are avaliable, and to provide data for these parameters.
+
+To use the generic REST client, please consult the ``dex::client::rest`` module in the Data Exchange library to find out which data needs to the specified. When all operations have been configured, and all argument data has been provided, you can call the methods ``dex::client::rest::GenericAPICallSync`` or ``dex::client::rest::GenericAPICallASync`` to make REST API calls in a synchronous or asynchronous manner.
+
+
 .. spelling:word-list::
 
 	AWS
