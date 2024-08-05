@@ -879,8 +879,8 @@ Snowflake functions
     :param mappingName: name of a DEX mapping used to generate a Parquet file to upload from the current model data
     :param tableName: name of the table in the configured Snowflake schema to insert the data in the generated Parquet file to
     :param timeout: time to wait for the Snowflake insert statement to complete (default 50 seconds)
-	:param query: optional query from the intermediate Parquet file, defaults to the intermediate Parquet file
-	:param columns: optional argument for specifying which columns to copy into the table from the query/Parquet file
+    :param query: optional query from the intermediate Parquet file, defaults to the intermediate Parquet file
+    :param columns: optional argument for specifying which columns to copy into the table from the query/Parquet file
     :param sqlString: optional string argument containing the SQL statement to execute.
    
 .. js:function::  dex::sf::GenerateAndLoadParquetFromTable(mappingName,tableName,timeout,query,sqlString,emptyIdentifiers,emptySets)
@@ -890,7 +890,7 @@ Snowflake functions
     :param mappingName: name of a DEX mapping used to read the generated Parquet file into the current model data
     :param tableName: name of the table in the configured Snowflake schema the contents of which will be used to generate the intermediate Parquet file
     :param timeout: time to wait for the Snowflake select statement to complete (default 50 seconds)
-	:param query: optional argument specifying a select query to copy the data from into the intermediate Parquet file, defaults to the table
+    :param query: optional argument specifying a select query to copy the data from into the intermediate Parquet file, defaults to the table
     :param sqlString: optional string argument containing the SQL select statement to execute.
     :param emptyIdentifiers: optional 0/1 argument indicating whether all identifiers in the mapping should be emptied prior to reading the Parquet file
     :param emptySets: optional 0/1 argument indicating whether all sets used in the mapping should be emptied prior to reading the Parquet file
