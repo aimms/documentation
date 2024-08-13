@@ -13,6 +13,26 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.6 Release (August 13, 2024 - build 24.5.6.9).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The following conversion specifiers: %Am|set-identifier| and %Aw|set-identifier| no longer add extra spaces, which would happen if the element was shorter than the longest element in the set.
+-  Fixed a problem with the subsetof wizard when the attribute already contained a long reference to a set.
+-  Fixed buffer overflow in Val.
+-  The option "Equality relative tolerance" will no longer show while it is set as default in the "Options with nondefault value" folder.
+-  Gurobi 11.0 has been upgraded to version 11.0.3.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.5 Release (July 17, 2024 - build 24.5.5.4).
 ------------------------------------------------------------------------------------------
 
