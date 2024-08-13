@@ -11344,3 +11344,4 @@ Improvements
   utf8
   utf
   StringToTimeslot
+  subsetof
