@@ -42,7 +42,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  AIMMS could crash when using CPLEX parameter files for multi-objective optimization.
--  Assigning sets to an indexed set could lead to a crash. This is fixed now.
+-  Assigning sets to an indexed set could lead to a crash.
 -  The scaling tool did not handle extreme values like 1e100 correctly.
 
 --------------
@@ -59,8 +59,8 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  SetAsString now uses the set ordering.
--  Always recompile after using the drop down menu from variable to parameter and back.
+-  The function 'SetAsString' did not always respect the set ordering.
+-  Changing a parameter to a variable or the other way around sometimes made AIMMS crash.
 
 --------------
 
