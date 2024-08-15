@@ -21,10 +21,10 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  The following conversion specifiers: %Am|set-identifier| and %Aw|set-identifier| no longer add extra spaces, which would happen if the element was shorter than the longest element in the set.
--  Fixed a problem with the subsetof wizard when the attribute already contained a long reference to a set.
--  Fixed buffer overflow in Val.
--  The option "Equality relative tolerance" will no longer show while it is set as default in the "Options with nondefault value" folder.
+-  The  conversion specifiers '%Am|set-identifier|' and '%Aw|set-identifier|' no longer add extra spaces, which would happen if the element was shorter than the longest element in the set.
+-  The 'Subset of' wizard could make AIMMS crash when opening it if the attribute already contained a long reference to a set, like 'a::b::c::d::the_set'.
+-  When passing a somewhat larger string to the Val function, which did not only contain numeric characters, AIMMS could crash in some cases.
+-  The project option 'Equality relative tolerance' would always show up in the 'Options with nondefault value' section of the options dialog, even when it was set to its default value.
 -  Gurobi 11.0 has been upgraded to version 11.0.3.
 
 --------------
