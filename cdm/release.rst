@@ -7,6 +7,11 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+24.2.1.5 [22-08-2024]
+	- `loopcount` did not produce the correct value in an `onerror` clause, leading to errors not being propagated properly
+	- CDMService could crash on empty changesets for sets
+	- Location of Windows `CDMService` download location had changed and was shown incorrectly
+
 24.2.1.2 [15-05-2024]
 	- Increase number of dispatcher threads from 16 to 64 in CDM service
 	- Improve handling of heartbeat message by making them priority messages
