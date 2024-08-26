@@ -255,6 +255,13 @@ For Excel workbooks, you can set the color of the tab for a sheet, or the color 
 * `yellow`
 * `lightblue`
 * `green`
+* `pink`
+* `lightyellow`
+* `brown`
+* `purple`
+* `teal`
+* `red`
+
 
 The included-mapping attribute
 ------------------------------
