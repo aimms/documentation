@@ -11,10 +11,10 @@ On August 1, 2024, we released AIMMS PRO 24.8.2(24.8.2.1)
 
 **Improvements**
 
-- **PRO REST API:Task Service**:
-  - It is possible to get the TaskID inside AIMMS while the procedure called by the task is running.
-  - The ``appVersion`` query parameter is now optional in the ``GET pro-api/v2/tasks`` endpoint.
-     If 'appVersion' is not provided, the version with the latest tag will be used by default. However, if 'appVersion' is not provided and the latest tag is not set for the app, an error will occur.
+* **PRO REST API:Task Service**:
+  * It is possible to get the TaskID inside AIMMS while the procedure called by the task is running.
+  * The ``appVersion`` query parameter is now optional in the ``GET pro-api/v2/tasks`` endpoint.
+    If 'appVersion' is not provided, the version with the latest tag will be used by default. However, if 'appVersion' is not provided and the latest tag is not set for the app, an error will occur.
 
 **Resolved Issues**
 
