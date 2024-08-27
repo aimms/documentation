@@ -13,6 +13,23 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.7 Release (August 27, 2024 - build 24.5.7.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The range check for constraints (controlled by the option 'Warning row range left hand side') did not handle semi-continuous variables with a negative range correctly.
+-  The AIMMS scaling tool did not scale indicator constraints correctly.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.6 Release (August 13, 2024 - build 24.5.6.9).
 ------------------------------------------------------------------------------------------
 
