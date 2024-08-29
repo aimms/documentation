@@ -7,7 +7,7 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
-24.2.1.6 [25-08-2024]
+24.3.1.1 [25-08-2024]
 	- Set `MySQL` ``net_write_timeout`` variable to 3600 seconds on all connections to prevent lost connections when pulling data for identifiers with a huge amount of data in a lot of revisions
 	- Database exceptions were not always properly propagated, potentially leading to incorrect pull change sets and/or cached snapshots
 	
