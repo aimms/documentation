@@ -13,6 +13,26 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.8 Release (September 12, 2024 - build 24.5.8.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Superfluous ErrorCollectorStack warning messages are no longer logged in the solver session log.
+-  Because of the new default setting of the option case_string_character_set there were problems reading back case files created on Linux in a Windows AIMMS, and vice versa. This has been fixed in the latest release, but cases need to be recreated to work correctly.
+-  AIMMS could crash when using the option 'Display most violated constraints and bounds'.
+-  Using Windows path separators (\\\\) in file functions like FileCopy now also works on Linux and on the AIMMS cloud.
+-  Deleting variables with a definition could lead to problems when trying to re-solve a mathematical program afterwards.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.7 Release (August 27, 2024 - build 24.5.7.2).
 ------------------------------------------------------------------------------------------
 
