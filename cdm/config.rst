@@ -144,6 +144,17 @@ After connecting to the CDM service, the ``cdm::ConnectToApplicationDB`` functio
 
 If this steps succeeds, the ``cdm::ConnectToApplicationDB`` function will perform a check-out of all categories in your model to the latest revision on the branch marked as *global* in the CDM database. By default, this will be the ``master`` branch. You can modify the global branch through the low-level API function :any:`cdm::SetGlobalBranch`.
 
+Reconnecting to the CDM service
+-------------------------------
+
+CDM uses a stateful connection model to connect to the CDM service. This means that you need to reconnect to the CDM service when the existing connection is lost. You can accomplish this by making a call to the procedure ``cdm::ReconnectToApplicationDB``. This will setup a new connection to the CDM service, or in case you're running in the AIMMS cloud, it will make sure the corresponding on-demand CDM service is still running or being restarted. After reconnecting it will not checkout all categories, but rather set the revision to the previously pulled revision and bring all categories up-to-date. This means that any changes in the local application will remain intact and can be committed after reconnecting. 
+
+Automatic reconnect logic
+-------------------------
+
+By setting ``cdm::AutoReconnectToCDMService`` to 1, the connected state callback ``cdm::SetCDMConnectedState`` will automatically try to reconnect to the CDM service whenever the connection has been dropped, and the callback is called. 
+
+
 Logging CDM actions
 -------------------
 

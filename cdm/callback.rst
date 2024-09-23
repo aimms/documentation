@@ -41,9 +41,9 @@ Changes in connected state
 
 Whenever a change in connected state the CDM service takes place, the CDM DLL will call the pre-defined procedure ``cdm::SetCDMConnectedState``. The callback will be called initially when the CDM library initially connects to the CDM service, and it will subsequently be called whenever you disconnect explicitly, or when the heartbeat mechanism included in the CDM library reports a failing connection to the CDM service.
 
-By default, the only action taken by ``cdm::SetCDMConnectedState`` is to set the parameter ``cdm::ConnectedToCDMService`` to the appropriate value. It will in no way try to re-connect to the CDM service, if the connection has fallen away.
+By default, the only action taken by ``cdm::SetCDMConnectedState`` is to set the parameter ``cdm::ConnectedToCDMService`` to the appropriate value. By setting ``cdm::AutoReconnectToCDMService`` to 1, the callback will try to re-connect to the CDM service automatically, whenever the connection has fallen away.
 
-You can modify the behavior of ``cdm::SetCDMConnectedState`` by assigning the a procedure to the global hook ``cdm::ConnectedStateProcedureHook``, which will be called at the end of ``cdm::SetCDMConnectedState``. In such a hook, you can, for instance, try to reconnect to the CDM service, or take any other measure to notify your end-users of the fact the connection has been dropped or has come up again.
+You can modify the behavior of ``cdm::SetCDMConnectedState`` by assigning the a procedure to the global hook ``cdm::ConnectedStateProcedureHook``, which will be called at the end of ``cdm::SetCDMConnectedState``. In such a hook, you can, for instance, take any other measure to notify your end-users of the fact the connection has been dropped or has come up again. You can detect that a re-connect has taken place by observing that the installed hook has been called in the connected state multiple times in sequence.
 
 Getting notified of errors
 ==========================
