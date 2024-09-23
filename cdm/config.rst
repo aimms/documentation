@@ -222,3 +222,6 @@ Typically, using AIMMS CDM will increase concurrency compared to an app that doe
 
 Alternatively, you can can forfeit the use of counter-based element names altogether and use the function :any:`cdm::CreateUuid` to create UUIDs (36-character globally unique hexadecimal strings) to uniquely represent set elements for all clients. This approach does not necessitate an additional call to the CDM service to create a globally unique element name. You can then use a string parameter to define a more user-friendly display name for such elements.
 
+.. spelling:word-list::
+
+	stateful
