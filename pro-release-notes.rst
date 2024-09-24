@@ -1,6 +1,18 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.9
+########
+
+AIMMS PRO 24.9.1 Release
+------------------------
+
+On September 24, 2024, we released AIMMS PRO 24.9.1(24.9.1.3)
+
+**Improvements**
+
+Many of the 3rd party libraries and dependancy libraries used by AIMMS PRO (for both on-prem and cloud) are upgraded to newer versions. 
+
 PRO 24.8
 ########
 
