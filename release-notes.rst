@@ -13,6 +13,25 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.9 Release (September 24, 2024 - build 24.5.9.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The Solvers General option 'Solution batch size' has been added to retrieve the solution from the solver more efficiently.
+-  Closing AIMMS while the Math Program Inspector was still open could result in a crash.
+-  The scaling tool sometimes failed to scale a model because it terminated prematurely.
+-  In the latest release, calling either of the functions FileTime, FileSelect or FileSelectNew resulted in a severe error.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.8 Release (September 12, 2024 - build 24.5.8.5).
 ------------------------------------------------------------------------------------------
 
