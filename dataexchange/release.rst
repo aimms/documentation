@@ -13,6 +13,11 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.4.1.3 (29-09-2024)
+	- Subset filtering did not work correctly for row-based formats
+	- The set `dex::ExcelColors` was not filled with all colors that were allowed in the `color` mapping attribute
+	- Basic authentication did not work properly in OAuth requests
+
 24.4.1.2 (26-08-2024)
 	- Extended the set of colors for tables and table headers in Excel
 
