@@ -11348,30 +11348,30 @@ Improvements
 
 .. spelling:word-list::
 
-    presolved
-    iODBC
-    linux
-    keypress
-    keypresses
-    unassigning
-    unclickable
-    nonlocal
-    storable
-    updatability
-    awf
-    misrenderings
-    parameterized
-    dockable
-    unary
-    parallelization
-    unixODBC
-    gridlines
-    unicode
-    uninstalling
-    namechanges
-    stylesheet
-    whitespace
-    unitless
+  presolved
+  iODBC
+  linux
+  keypress
+  keypresses
+  unassigning
+  unclickable
+  nonlocal
+  storable
+  updatability
+  awf
+  misrenderings
+  parameterized
+  dockable
+  unary
+  parallelization
+  unixODBC
+  gridlines
+  unicode
+  uninstalling
+  namechanges
+  stylesheet
+  whitespace
+  unitless
 	dom
 	myMP
 	myModel
@@ -11418,3 +11418,8 @@ Improvements
   utf
   StringToTimeslot
   subsetof
+  parametric
+  myFactor
+  DerivedUnit
+  BaseUnit
+  myFactor
