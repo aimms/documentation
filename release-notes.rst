@@ -13,6 +13,23 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.10 Release (October 08, 2024 - build 24.5.10.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If a parameter has a unit parameter as unit, and that unit parameter refers to a derived unit with a parametric conversion factor (like in  DerivedUnit->BaseUnit : #-># * myFactor), then if myFactor changed to another value the value of the parameter was not displayed accordingly in the WebUI.
+-  The FFRead.dll has been extended upon request of a customer.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.9 Release (September 24, 2024 - build 24.5.9.4).
 ------------------------------------------------------------------------------------------
 
