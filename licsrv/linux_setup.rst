@@ -13,9 +13,11 @@ Setting up a license
 The easiest way to install a license is to use the nodelock activation mechanism. This requires that you have an activation code and the license number acquired from AIMMS. Next you can activate the license using the following commands:
 
 .. code:: bash
-  cd /usr/local/Aimms/Bin
-  ./licman --nodelock-activate  <aaa.bbb.ccc.ddd> --type machine --activation-code <xxxxx-xxxxx-xxxxx-xxxxx-xxxxx> --add-license
-  ./licman --profile-add <profilename> --license <aaa.bbb.ccc.ddd>
+
+    cd /usr/local/Aimms/Bin
+    ./licman --nodelock-activate  <aaa.bbb.ccc.ddd> --type machine --activation-code <xxxxx-xxxxx-xxxxx-xxxxx-xxxxx> --add-license
+    ./licman --profile-add <profilename> --license <aaa.bbb.ccc.ddd>
+
 
 The first command activates the license on the machine. The second command adds the license to a profile. The profile is used to group licenses together. The profile name is used in the AIMMS client to select the license to use.
 
