@@ -66,6 +66,7 @@
    cloud/index  
    dataintegration/index   
    library-repository
+   licsrv/index  
    infosec/index
    release-notes
    pro-release-notes
