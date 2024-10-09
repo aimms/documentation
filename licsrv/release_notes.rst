@@ -22,7 +22,7 @@ Resolved Issues
 +++++++++++++++++++++++++
 
 -  On Linux systems, the AIMMS Network License Server could crash when the license server was started on a machine with IPV6 disabled.
--  On Windows systems the AIMMS Network License Server could not start due to missing Visual C++ Redistributable dlls.
+-  On Windows systems the AIMMS Network License Server could not start due to missing Visual C++ Redistributables.
 
 
 
