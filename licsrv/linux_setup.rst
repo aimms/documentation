@@ -4,8 +4,7 @@ Linux Setup
 
 This chapter describes how to set up the AIMMS Network License Server on a Linux machine. 
 
-The AIMMS Network License Server on Linux consist of two binary components: the deamon (licsrv) and the manager (licman). The daemon is the actual license server that listens for license requests from AIMMS clients. The manager is a command line tool that allows you to manage the license server. Both the daemon and the manager are installed when you install the AIMMS Network License Server.
-The AIMMS Network License Server is a daemon that runs in the background and listens for license requests from AIMMS clients. The daemon is started automatically after installation and when the machine is booted using systemd.
+The AIMMS Network License Server on Linux consist of two binary components: the daemon (licsrv) and the manager (licman). The daemon is the actual license server that listens for license requests from AIMMS clients. The manager is a command line tool that allows you to manage the license server. Both the daemon and the manager are installed when you install the AIMMS Network License Server. The daemon is started automatically after installation and when the machine is booted using systemd.
 
 Setting up a license
 ---------------------
@@ -34,6 +33,6 @@ The license server listen ports 3400 and 3401 by default. In the current version
   linux
   keypress
   keypresses
-  deamon
+  daemon
   licman
   systemd
