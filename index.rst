@@ -48,6 +48,11 @@
                 <h1>Library Repository</h1>
                 <div>Documentation for the AIMMS Library repository</div>
             </a>
+            <a class="box_home_page" href="licsrv/index.html">
+                <img alt="licsrv" src="_images/cloud-checked-32.png">
+                <h1>Aimms Network License Server</h1>
+                <div>Documentation for the AIMMS Network License Server</div>
+            </a>
         </div>
     </div>
     
@@ -66,6 +71,7 @@
    cloud/index  
    dataintegration/index   
    library-repository
+   licsrv/index  
    infosec/index
    release-notes
    pro-release-notes

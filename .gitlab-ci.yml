@@ -41,6 +41,10 @@ build:
   script:
     - sphinx-build -W --keep-going -b html . _build/html
 
+  artifacts:
+    paths:
+      - _build/html/**/*
+
 deploy:
   <<: *run_on_dockerhost
   stage: build-and-deploy
