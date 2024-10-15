@@ -15,6 +15,7 @@ You may notice that the documentation in itself (the text) is located in the fol
 Build Locally the HTML documentation
 --------------------------------------
 
+
 **Requirements:**
  - [Python 3.X](https://www.python.org/downloads/)
  - [Sphinx package](http://www.sphinx-doc.org/en/master/) (run `python3 -m pip install sphinx`)
@@ -33,6 +34,10 @@ After installing all the above requirements, please go to the location of your p
 <summary>
 <b>Click me to show more info on console output 👇</b>
 </summary>
+
+**Alternative**
+
+Use a docker container, see https://aimmsopt.sharepoint.com/sites/InternalSupportDocumentation/SitePages/Using-docker-to-build-the-documentation-locally.aspx
 
 
 * As you may see at the bottom of the wonderfully colored prompt, **your html pages are in `_build\html` folder**, located in the current working directory (the same as always). You may check the build by opening any of those.
