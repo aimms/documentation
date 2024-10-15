@@ -91,7 +91,41 @@ Service end-points exposed
 * ``/api/v2/tasks/{id}/status``
     
     * ``GET``: will return a ``404 Not found`` if there is no task with the given id, or ``200 OK`` with an intermediate status response body stored as stored in the file ``dex::api::RequestAttribute('status-data-path')`` by the service handler procedure.
-   
+	
+	
+Standard REST Task Service
+--------------------------
+
+The Data Exchange library will come with a standardized REST service called ``StandardTaskService`` pre-configured, which you can use to handle request whose request and response bodies consists merely of a list of string key-value pairs. This will allow you, for instance, to specify an (authenticated) URL where the input data for the request can be found, authentication tokens to retrieve from other databases and services, and names of datasets and scenarios. Thus, it will enable a range of services to be implemented in a very convenient manner. You can link your own model procedures to this standardized REST service through the ``dex::TaskName`` annotation that you can use to name tasks you want to be executed through the ``StandardTaskService`` service. When calling the ``StandardTaskService`` service, the request body needs to be of the form
+
+.. code-block:: json
+	
+	{
+		"task-name" : "<name-of-task>",
+		"properties" : {
+			"key-1" : "value-1", 
+			"..."  : "..."
+			"key-m" : "value-m"
+		}
+	}
+	
+where `<name-of-task>` is the value of the ``dex::TaskName`` annotation of the procedure inside your model that needs to be run to execute the request. If the specified task name is not present, the call to the ``StandardTaskService`` service will fail.
+
+If successful, the response of the service request is a key-value list of the form
+ 
+.. code-block:: json
+	
+	{
+
+		"key-1" : "value-1", 
+		"..."  : "..."
+		"key-n" : "value-n"
+	}
+
+The procedure implementing the task should have two one-dimensional string parameter arguments defined over the set ``dex::api::TaskProperties`` with index ``dex::api::taskProp``, an input argument for the request properties, and an output argument for the response properties.
+
+You can use the empty procedure ``dex::api::StandardTaskHandlerPrototype`` as a template for implementing the task handlers you wish to implement using the ``StandardTaskService`` REST service.
+
 Activating the REST service
 ---------------------------
 

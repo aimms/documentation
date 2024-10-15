@@ -20,12 +20,7 @@ We support following services(functionality) through the AIMMS PRO REST API:
     - `Managing API Keys <rest-api.html#managing-api-keys>`__
 
 	
-The full OpenAPI specification of the AIMMS PRO REST API itself can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v1/``. 
-
-.. note::
-
-	Starting with *PRO 24.2.1*, the latest version *v2* of AIMMS PRO REST API covers all the services(functionality) provided by version v1, this will allow you to generate single and complete OpenAPI interface and you do not have to worry about changing your client applications because a version is end-of-life. Please use ``https://[account-name].aimms.cloud/pro-api/v2/`` for full OpenAPI specification.
-
+The full OpenAPI specification of the AIMMS PRO REST API itself can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v2/``. 
 
 API Keys and Scopes
 -------------------
@@ -65,6 +60,16 @@ authentication/authorization.
 
 Please note that the maximum expiration date for any API key is 1 Year.
 
+An API user also needs to fulfill some other requirements together with having a valid API key and scope
+
+.. csv-table:: 
+   :header: "API Service", "Requirements"
+   :widths: 30, 30
+
+    Running Tasks , Create/Interrupt/Delete requires RX app permission; Retrieve requires R app permission
+	Managing Environments Groups and Users , Create/Delete requires Admin rights
+	Managing Apps , AppPublishers rights 
+
 Managing Environments, Groups and Users
 ---------------------------------------
 
@@ -94,9 +99,9 @@ Examples of the URL:
 
 .. code-block:: php
 
-        https://[account-name].aimms.cloud/pro-api/v1/applications
+        https://[account-name].aimms.cloud/pro-api/v2/applications
 
-        https://[account-name].aimms.cloud/pro-api/v1/applications/{projectName}/{projectVersion}
+        https://[account-name].aimms.cloud/pro-api/v2/applications/{projectName}/{projectVersion}
 
 To know what URL should be used, check the corresponding API spec.
 
@@ -141,6 +146,16 @@ The ``metadata`` example is provided below:
             "projectCategory": "cat_1"
         }  
 
+* Starting with **AIMMS PRO 24.2.2** above metadata to publish an application is extended with:
+
+.. code-block:: php
+
+	publishBehavior
+	oldProjectName
+	oldProjectVersion
+		
+This allows to publish a new application and also publish a new version of an existing App(update an application). PublishBehavior is either 0 (new publish), 1 (keep old version), 2 (hide old version).
+
 
 Example: Using Postman to Update an Application (PATCH)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -157,7 +172,7 @@ the "raw" format.
 
 * **Project category** ("projectCategory")
 
-* **Latest app tag** ("isLatest"): latest app tag cannot be explicitly disabled for the selected app. When assigning the latest tag to an app ("isLatest": true), it will be automatically removed from all other app with the same name.  
+* **Latest app tag** ("isLatest"): latest app tag cannot be explicitly disabled for the selected app. When assigning the latest tag to an app ("isLatest": true), it will be automatically removed from all other app with the same name. 
 
 * **Project attributes** ("attributes"): project attributes represent a list of key-value pairs that allow to store additional information about the project. There are two reserved keywords: 
 

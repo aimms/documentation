@@ -8,6 +8,496 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 24.5
+#############
+
+
+
+AIMMS 24.5.10 Release (October 08, 2024 - build 24.5.10.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If a parameter has a unit parameter as unit, and that unit parameter refers to a derived unit with a parametric conversion factor (like in  DerivedUnit->BaseUnit : #-># * myFactor), then if myFactor changed to another value the value of the parameter was not displayed accordingly in the WebUI.
+-  The FFRead.dll has been extended upon request of a customer.
+
+--------------
+
+
+
+
+
+AIMMS 24.5.9 Release (September 24, 2024 - build 24.5.9.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The Solvers General option 'Solution batch size' has been added to retrieve the solution from the solver more efficiently.
+-  Closing AIMMS while the Math Program Inspector was still open could result in a crash.
+-  The scaling tool sometimes failed to scale a model because it terminated prematurely.
+-  In the latest release, calling either of the functions FileTime, FileSelect or FileSelectNew resulted in a severe error.
+
+--------------
+
+
+
+
+
+AIMMS 24.5.8 Release (September 12, 2024 - build 24.5.8.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Superfluous ErrorCollectorStack warning messages are no longer logged in the solver session log.
+-  Because of the new default setting of the option case_string_character_set there were problems reading back case files created on Linux in a Windows AIMMS, and vice versa. This has been fixed in the latest release, but cases need to be recreated to work correctly.
+-  AIMMS could crash when using the option 'Display most violated constraints and bounds'.
+-  Using Windows path separators (\\\\) in file functions like FileCopy now also works on Linux and on the AIMMS cloud.
+-  Deleting variables with a definition could lead to problems when trying to re-solve a mathematical program afterwards.
+
+--------------
+
+
+
+
+
+AIMMS 24.5.7 Release (August 27, 2024 - build 24.5.7.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The range check for constraints (controlled by the option 'Warning row range left hand side') did not handle semi-continuous variables with a negative range correctly.
+-  The AIMMS scaling tool did not scale indicator constraints correctly.
+
+--------------
+
+
+
+
+
+AIMMS 24.5.6 Release (August 13, 2024 - build 24.5.6.9).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The  conversion specifiers '%Am|set-identifier|' and '%Aw|set-identifier|' no longer add extra spaces, which would happen if the element was shorter than the longest element in the set.
+-  The 'Subset of' wizard could make AIMMS crash when opening it if the attribute already contained a long reference to a set, like 'a::b::c::d::the_set'.
+-  When passing a somewhat larger string to the Val function, which did not only contain numeric characters, AIMMS could crash in some cases.
+-  The project option 'Equality relative tolerance' would always show up in the 'Options with nondefault value' section of the options dialog, even when it was set to its default value.
+-  Gurobi 11.0 has been upgraded to version 11.0.3.
+
+--------------
+
+
+
+
+
+AIMMS 24.5.5 Release (July 17, 2024 - build 24.5.5.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS could crash when using CPLEX parameter files for multi-objective optimization.
+-  Assigning sets to an indexed set could lead to a crash.
+-  The scaling tool did not handle extreme values like 1e100 correctly.
+
+--------------
+
+
+
+
+
+AIMMS 24.5.4 Release (July 09, 2024 - build 24.5.4.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The function 'SetAsString' did not always respect the set ordering.
+-  Changing a parameter to a variable or the other way around sometimes made AIMMS crash.
+
+--------------
+
+
+
+
+
+AIMMS 24.5.3 Release (July 04, 2024 - build 24.5.3.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Trying to open an old application that still has compound set constructs in it now works properly.
+-  Reading data from a text file which referred to a non existing index could get into an endless loop. This will now end immediately with an appropriate error message.
+-  Leaving an argument to a function empty could cause a crash.
+
+--------------
+
+
+
+
+
+AIMMS 24.5.2 Release (June 06, 2024 - build 24.5.2.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The AIMMS function MemoryInUse now shows the accurate value.
+
+--------------
+
+
+
+
+
+AIMMS 24.5.1 Release (May 30, 2024 - build 24.5.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+- An extra (optional) binary argument has been added to the procedure GMP::Solution::Check. If set to 1, the procedure will also check for bound violations and integrality violations.
+- The default for the option case_string_character_set has been changed from "utf8" to "native". From experiments it shows that the native character set has the best performance. This option only affects newly created cases and all these cases remain compatible with older AIMMS versions.
+- Gurobi 11.0 has been upgraded to version 11.0.2.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+- A defined parameter with a unit for which the conversion from the base unit contained a parameter (like in: localCurrency->€ : # -> # * exchangeRate) did not show the correct value in WebUI if the value of exchangeRate was changed.
+- A performance issue was fixed for iterative operators like mean.
+- The new option 'Row range violation left hand side tolerance' has been added. This option is used by the AIMMS generator to check individual constraints for feasibility by computing the range of the left hand side and comparing it to the right hand side, as controlled by the option 'Row range violation left hand side'. (Previously, this tolerance was controlled by the option 'Constraint listing feasibility tolerance'.)
+- Callbacks aren't called anymore when calculating Substructure Causing Infeasibility or Substructure Causing Unboundedness in the Math Program Inspector.
+- In functions like StringToTimeslot where a date time string is matched against a date time format, an error could occur when the match was not successful.
+
+--------------
+
+
+#############
+AIMMS 24.4
+#############
+
+
+
+AIMMS 24.4.3 Release (May 23, 2024 - build 24.4.3.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS crashed when changing WebUI versions through the Library Manager.
+-  In a WebUI table widget, showing the contents of a Set next to some other identifiers could lead to a crash in the underlying AIMMS system.
+-  We made a small performance improvement that could make generation of a mathematical program a bit faster.
+
+--------------
+
+
+
+
+
+AIMMS 24.4.2 Release (May 09, 2024 - build 24.4.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS RPM installer for Linux did not contain the correct dependencies.
+-  Newly created projects now set the option case_compatibility to AIMMS_4_80. It is recommended to set this option in existing projects as well.
+-  The AIMMSAPI function AimmsSetNameToElement no longer triggers an error message in the error/warning window if a calendar element name does not adhere to the format of the calendar. The return value of the API function will simply be 0.
+-  The model generation times are now reported in the log file using the AIMMS.GENERATOR logger.
+
+--------------
+
+
+
+
+
+AIMMS 24.4.1 Release (May 02, 2024 - build 24.4.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  From AIMMS 24.4 onwards, the WebUI will be released separately in the form of a Repository Library. Next to advantages for the developers at AIMMS themselves, this offers the benefit that we will be able to increase our WebUI release frequency, while retaining a very stable AIMMS engine. It also allows you to combine a (slightly) older tried-and-tested AIMMS version that works well in your situation, with the latest WebUI improvements. All this means that the WebUI has been assigned `its own part on our documentation website <https://documentation.aimms.com/webui/index.html>`__, which also includes `the release notes <https://documentation.aimms.com/webui/release-notes.html>`__ of the WebUI. In `this section <https://documentation.aimms.com/webui/creating.html#in-aimms-24-4-and-higher>`__ you can read how to work with the WebUI as a Repository Library.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The irreducible infeasibility set (IIS) could be incomplete for models containing semi-continuous or semi-integer variables.
+-  Calling a procedure with missing arguments, like in FormatString("%n %n", a, ), could cause a severe internal error.
+-  A "Read from file" did not work correctly if the file contained multi-dimensional sliced assignment statements, like A('i1','i2') := 3; and the quoted elements did not exist in the corresponding sets.
+-  If you removed the Stochastic property of a variable for which the Stage attribute was also specified, the Stage attribute was not completely removed and was still present in the saved .ams file, which could lead to unexpected errors.
+
+--------------
+
+
+#############
+AIMMS 24.3
+#############
+
+
+
+AIMMS 24.3.2 Release (April 04, 2024 - build 24.3.2.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When adding new arguments to a procedure or function via the wizard, a rather strange error message appeared.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When creating a new AIMMS model and opening the WebUI for the first time in that same first session, you would get an error about the WebUI page not being found. Saving, closing and reopening the model would mitigate this problem, but in this version we properly addressed the problem and now it does not happen anymore.
+
+--------------
+
+
+
+
+
+AIMMS 24.3.1 Release (April 03, 2024 - build 24.3.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  You can now print information about constraints, variable bounds and integrality violations to the listing file. This is controlled by the new Solvers general option 'Display most violated constraints and bounds'.
+-  The scaling score has been added to the Matrix Statistics tab in the Math Program Inspector.
+-  The compilation and execution of constant and symbolic list expressions is now picked up by the new compiler and the parallel engine. This may lead to some compilation errors in your application for constructs that were unintentionally accepted by the old compiler. An example is: 'DATA { 'a' : 3, 'b' : 4, 'c' }' where the last entry is missing a colon and a corresponding value. The old compiler just accepted this and assumed a value of 1.0.
+-  Gurobi 11.0 has been upgraded to version 11.0.1.
+-  Many of the time related functions are now handled by the new compiler within AIMMS. This may introduce some compiler warnings that were not given in previous AIMMS versions. If the warnings do not make any sense, or if you notice any other unexpected behavior related to these functions, please let us know.
+-  It is now possible to wait longer than the default 30 seconds for the Python service to start by specifying the 'startWaitTime' argument of the LaunchService method. Please note that this will only have effect when run on AIMMS PRO 24.5 or higher.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  Two new WebUI library functions, `webui::RequestFileUpload` and `webui::RequestFileDownload`, have been introduced that allow you to trigger file uploads and downloads from within an AIMMS procedure, allowing you to put those behind a button, item-action or widget action. For more information, please have a look at `the documentation <https://documentation.aimms.com/webui/library.html#public-upload-and-download-procedures>`__.
+-  It is now possible to add HTML content in Table cells, allowing for much flexibility in your data presentation. For details, see `the documentation <https://documentation.aimms.com/webui/widget-options.html#webui-ishtml>`__.
+-  We created a new option 'Header Visibility' in the Table widget. With this option, you can hide the rows and/or columns header(s), as there are situations where omitting either of those will give a cleaner presentation of your Table data. For details, please see `the documentation <https://documentation.aimms.com/webui/table-widget.html#support-to-hide-row-and-column-headers>`__.
+-  The brand new Diagram widget is now available as an experimental feature. It provides a very straightforward and eye-pleasing way to create and/or display any kind of network in your apps. For details, please refer to `the documentation <https://documentation.aimms.com/webui/diagram-widget.html>`__.
+-  The previous restriction limiting Combination chart to only show up to 1000 data points has been lifted. While we continue to advocate for concise and clear data presentation, users now have the flexibility to load more data points onto the chart if necessary. For details, please see `the documentation <https://documentation.aimms.com/webui/combination-chart-widget.html#developer-option-for-threshold-of-data-points>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  Previously, sometimes the WebUI was not always updated when the function `webui::RefreshAllWidgets` was called from within an AIMMS procedure. The behavior of this function has been significantly improved.
+
+--------------
+
+
+#############
+AIMMS 24.2
+#############
+
+
+
+AIMMS 24.2.10 Release (March 29, 2024 - build 24.2.10.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  The 't' icon, signifying derivation, was absent on the Identifier Settings option editor tab of a named view derived from a template, potentially leading to confusion.
+-  If there was just one job in the Gantt Chart widget that was read-only, the whole Gantt Chart became read-only.
+-  In some situations, a 'vector<T> too long' error message could appear when working in WebUI tables which had a sorting applied.
+
+--------------
+
+
+
+
+
+AIMMS 24.2.9 Release (March 27, 2024 - build 24.2.9.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  A WebUI table with a single identifier as its contents and for which the pivoting was such that the identifier index was put in the totals group, showed the wrong (i.e. all zeroes) values.
+
+--------------
+
+(we skipped AIMMS 24.2.8 due to internal technical reasons.)
+
+
+
+
+AIMMS 24.2.7 Release (March 20, 2024 - build 24.2.7.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We addressed the "error: could not find '/apps/...'" when launching an app on PRO. This was caused by PRO being able to connect to the webserver before it was fully initialized.
+
+--------------
+
+
+
+
+
+AIMMS 24.2.6 Release (March 15, 2024 - build 24.2.6.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  PRO debug sessions did not work any longer due to an incorrect session type.
+
+--------------
+
+
+
+
+
+AIMMS 24.2.5 Release (March 14, 2024 - build 24.2.5.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  There was a regression problem with caching in the GMP::...Multi() functionality.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When having a literally specified default Named View in your widget, in combination with the UIEditable option set to 0, then on PRO the Named View selector in the widget header did not react to the selection made there.
+
+--------------
+
+
+
+
+
+AIMMS 24.2.4 Release (March 08, 2024 - build 24.2.4.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Calling GMP::Instance::GenerateStochasticProgram twice for the same generated math program could result in a crash if GMP::Coefficient::Set(Multi) was called in between.
+-  Option assignments to a specific solver option (example: Option 'solver name'.anOption := 8;) was not working correctly.
+
+--------------
+
+
+
+
+
+AIMMS 24.2.3 Release (February 29, 2024 - build 24.2.3.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If the option 'warning_range_violation' was set to off, you could get an incorrect error in the WebUI when you assigned a new value to an identifier.
+
+--------------
+
+
+
+
+
+AIMMS 24.2.2 Release (February 21, 2024 - build 24.2.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The function GMP::Solution::RandomlyGenerate resulted in an error if the optional argument was not specified.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  On a sorted WebUI Table column, when hovering over the "v" header cell context button, the context menu was not always displayed.
+-  Some WebUI widgets were not able to deal correctly with custom annotations (i.e. those specified by the app developer as the webui::IdentifierAnnotation attribute) for set elements. In case these custom annotations were specified as a string value with some words separated by spaces, these would be put in the DOM incorrectly. For example, "ABC DEF" would be put as "annotation-ABC DEF". With this fix, it will be put as "annotation-ABC annotation-DEF".
+
+--------------
+
+
+
+
+
+AIMMS 24.2.1 Release (February 14, 2024 - build 24.2.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Non-default Gurobi option settings can now be written to the Gurobi log by enabling the new Gurobi 11.0 option 'Parameter display' (default 'yes'). The default for the CPLEX option 'Parameter display' has been changed to 'yes' for CPLEX 22.1.
+
+WebUI Improvements
++++++++++++++++++++++++++
+
+-  A new function "RequestQueueSize" has been added to the public interface of the WebUI library. Amongst others, you can use this function to find out whether a dialog is open in WebUI. For details, see `the documentation <https://documentation.aimms.com/webui/library.html>`__.
+-  The dropdown list for selecting an element parameter for the Store Focus option of a widget has been improved. Now this list only shows the entries which are compatible with the corresponding index.
+
+Resolved WebUI Issues
++++++++++++++++++++++++++
+
+-  When saving a case using the Data Manager in WebUI, execution errors during updating identifier definitions could lead to a saved case which was non-shareable to the end users. In these situations, AIMMS now saves a case without the defined identifiers.
+-  The Multiselect widget and the (compact) Scalar widget got some involuntary scrollbars after Google released Chrome 121. Along with the remediation of this, we improved the overall consistency of scrollbar sizing and colors too.
+
+--------------
+
+
+#############
 AIMMS 24.1
 #############
 
@@ -1046,7 +1536,7 @@ WebUI Improvements
 +++++++++++++++++++++++++
 
 -  The app developer can now define multiple Named Views for a widget. Each of these views represents a specific state of the widget. The end-user can select either of these named views to have a different look at the widget. For example, there could be named views for different pivotings of the data, or even completely different widget types, such that you can present the data in a Bar chart or a Line chart, according to which named view the end-user selects. Please refer to `the documentation <https://documentation.aimms.com/webui/widget-options.html#widget-named-views>`__ for all the possibilities.
--  Now the Table title header cells support custom tooltips using `webui::IdentifierTooltip  <https://documentation.aimms.com/webui/table-widget.html#tooltips-for-identifier-names>`__.
+-  Now the Table title header cells support custom tooltips using `webui::IdentifierTooltip  <https://documentation.aimms.com/webui/table-widget.html#custom-tooltips-for-identifier-and-indices>`__.
 -  Now Identifier names in the Scalar widget also support custom tooltips using `webui::IdentifierTooltip  <https://documentation.aimms.com/webui/scalar-widget.html#tooltips-for-identifier-names>`__.
 -  The WebUI library was extended with two procedures: `RefreshAllWidgets <https://documentation.aimms.com/webui/library.html#webui::RefreshAllWidgets>`__ and `UseTransparentVeil <https://documentation.aimms.com/webui/library.html#webui::UseTransparentVeil>`__.
 -  Up until now the most recent Theming options could not be considered 'complete' yet: despite the number of custom CSS properties available, there were several elements not subject to any theming (using fixed values to achieve an AIMMS Theme) or only pretty coarse theming was achieved at the best, leaving you with the need to add application specific stylesheets like before... With the help of customer feedback and by going through virtually all components, we have added a whole range of additional CSS properties *and* made sure they are applied in all logical locations. Please review the latest base theme file to see how Theming should now 'reach' all parts of a WebUI application much better. For more information, please see `this documentation <https://documentation.aimms.com/webui/understanding-theming.html>`__.
@@ -1376,7 +1866,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows. Also, we added more direct data validation to the workflow definition data, such that you get clear feedback in case of inconsistencies there. For details, see `the documentation <https://documentation.aimms.com/webui/workflow-panels.html#configuring-the-workflow-panel>`__. 
+-  We enhanced the Workflow panel with the possibility to have sub-levels, so that parent-child relationships can be integrated into your workflows. Also, we added more direct data validation to the workflow definition data, such that you get clear feedback in case of inconsistencies there. For details, see `the documentation <https://documentation.aimms.com/webui/workflow-panels.html#configuring-workflow-panels>`__. 
 -  The Table widget now has an improved keyboard navigation (more like Excel, see `the documentation <https://documentation.aimms.com/webui/table-widget.html#table-widget>`__).
 -  Block selection on the Table widget is now also possible using the SHIFT + ARROW keys.
 -  Block selection on the Table widget is now possible using a SHIFT + Mouse click combination.
@@ -1991,7 +2481,7 @@ Resolved AIMMS Issues
 WebUI Improvements
 +++++++++++++++++++++++++
 
--  On Grid Layout pages, from the Page Configurator in the sidebar, you can now add your widgets directly to a Grid Area. So without having to drag each of them from the bottom of the list of Unassigned Widgets. For details, please see `the documentation <https://documentation.aimms.com/webui/widget-manager.html#adding-a-widget>`__.
+-  On Grid Layout pages, from the Page Configurator in the sidebar, you can now add your widgets directly to a Grid Area. So without having to drag each of them from the bottom of the list of Unassigned Widgets. For details, please see `the documentation <https://documentation.aimms.com/webui/widget-manager.html#adding-a-widget-aimms-4-88-and-higher>`__.
 -  The Table widget has a new 'Show Upload/Download Data Controls' option, with which you can control whether you allow your end-users to upload/download the table data. In case of sensitive data you would probably want to prevent this. The default of the option is Off, so please be aware that you may need to make some changes to your existing applications. For more details, see `the documentation <https://documentation.aimms.com/webui/table-widget.html#controlling-the-csv-and-excel-functionality>`__.
 
 
@@ -3535,7 +4025,7 @@ Resolved WebUI Issues
 -  Now you can click anywhere in a Table/Scalar cell to set a checkbox. You do not need to click specifically inside the checkbox anymore.
 -  Widget actions now also work when a widget is in full screen mode. Previously the widget actions menu did not appear when the button was clicked and the widget was in full screen mode.
 -  In a few Grid Layout templates, the selection box stretched to the complete area that it was assigned to instead of maintaining the actual height of the widget.
--  There was an issue with the :doc:`Barline widget <../webui/bar-line-chart-widget>` aggregating data for elements that had the same element text attribute. The behavior is now consistent with other widgets.
+-  There was an issue with the `Barline widget <https://documentation.aimms.com/webui/bar-line-chart-widget.html>` aggregating data for elements that had the same element text attribute. The behavior is now consistent with other widgets.
 
 
 --------------
@@ -3781,7 +4271,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  Uploading a file using the :doc:`webui/upload-widget` in the WebUI to a folder that contained special Unicode characters did not work on Windows.
+-  Uploading a file using the `upload-widget <https://documentation.aimms.com/webui/upload-widget.html>`__ in the WebUI to a folder that contained special Unicode characters did not work on Windows.
 
 
 --------------
@@ -3843,8 +4333,8 @@ Resolved WebUI Issues
 +++++++++++++++++++++++++
 
 -  Maps may draw slightly faster when showing overlays with large amounts of straight line sections.
--  Workflow configurations that redirect to a page using :doc:`webui/webui-grid-pages` did not work correctly in previous versions.
--  A WebUI case could incorrectly not be marked as dirty after running a procedure from WebUI, resulting in the 'Save case as...' option to not appear.
+-  Workflow configurations that redirect to a page using `webui-grid-pages <https://documentation.aimms.com/webui/webui-grid-pages.html>`__ did not work correctly in previous versions.
+-  A WebUI case could incorrectly not be marked as dirty after running a procedure from WebUI, resulting in the 'Save case as...' option to not appear. 
 
 
 --------------
@@ -3864,7 +4354,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  The experimental 'webui state support' feature will now also work for pages using :doc:`the new Grid Layout <webui/webui-grid-pages>` (but some limitations to setting it up correctly will still apply).
+-  The experimental 'webui state support' feature will now also work for pages using `the new Grid Layout <https://documentation.aimms.com/webui/webui-grid-pages.html>`__ (but some limitations to setting it up correctly will still apply).
 -  In some rare situations (in which you use similar totals in tables on more than one WebUI page), you could receive errors like 'Some of the attributes of runtime parameter ``webui_runtime::Exprxxx`` are not yet successfully compiled.'.
 -  Editing or changing a latitude or longitude identifier using the identifier selector from `the Map widget options <https://documentation.aimms.com/webui/map-widget.html#adding-node-sets>`__ used to clear any previously made selection.
 
@@ -3889,7 +4379,7 @@ Resolved AIMMS Issues
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  The edit menu of the :doc:`webui/text-widget` was not always visible when having a Text widget on :doc:`webui/dialog-pages`.
+-  The edit menu of the `text-widget <https://documentation.aimms.com/webui/text-widget.html>`__ was not always visible when having a Text widget on `dialog-pages <https://documentation.aimms.com/webui/dialog-pages.html>`__.
 
 
 --------------
@@ -4102,7 +4592,7 @@ WebUI Improvements
 +++++++++++++++++++++++++
 -  In this release, we present a whole new mechanism for creating the layout of your WebUI pages: Grid Layouts. It offers far more control on where widgets will be located on your pages. Currently, this is offered as an experimental feature. We are eager to hear your feedback. For details, please see the `documentation <https://manual.aimms.com/webui/webui-grid-pages.html>`__.
 -  We have added filtering for Table columns, rows and headers. This feature allows you to easily show just the data that your end-users are interested in. For details, see the `documentation <https://manual.aimms.com/webui/table-widget.html#data-filtering-on-the-table>`__.
--  It is now possible (as an experimental feature) to select dates and/or times by using a dedicated date/time picker whenever a Table or a Scalar widget displays date/time-related values. For details, see the documentation for `Scalars <https://manual.aimms.com/webui/scalar-widget.html#date-and-time-picker-for-element-parameters>`__ and `Tables <https://manual.aimms.com/webui/table-widget.html#date-and-time-picker-for-calendar-elements>`__.
+-  It is now possible (as an experimental feature) to select dates and/or times by using a dedicated date/time picker whenever a Table or a Scalar widget displays date/time-related values. For details, see the documentation for `Scalars <https://manual.aimms.com/webui/scalar-widget.html#date-and-time-picker-for-element-parameters-with-a-calendar-range>`__ and `Tables <https://manual.aimms.com/webui/table-widget.html#date-and-time-picker-for-calendar-elements>`__.
 -  As another experimental feature, the AIMMS WebUI now offers support for working with the same WebUI App from different time zones. For details, see the `documentation <https://manual.aimms.com/webui/time-zone-setting.html>`__.
 -  We changed the Widget Actions icon to better suit the new UX.
 
@@ -6458,7 +6948,7 @@ Build 4.57.1.0
 AIMMS Improvements
 ++++++++++++++++++++
 
--  For each subset of Integers you can now specify either of the two properties 'ElementsAreNumerical' or 'ElementsAreLabels' to have full control on how elements of these sets behave in an expression. See the Language Reference for more information on this, or read the `tech blog <https://techblog.aimms.com/2018/07/27/integer-set-expressions-2-new-properties/>`__ about it.
+-  For each subset of Integers you can now specify either of the two properties 'ElementsAreNumerical' or 'ElementsAreLabels' to have full control on how elements of these sets behave in an expression. See the Language Reference for more information on this.
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -10858,30 +11348,30 @@ Improvements
 
 .. spelling:word-list::
 
-    presolved
-    iODBC
-    linux
-    keypress
-    keypresses
-    unassigning
-    unclickable
-    nonlocal
-    storable
-    updatability
-    awf
-    misrenderings
-    parameterized
-    dockable
-    unary
-    parallelization
-    unixODBC
-    gridlines
-    unicode
-    uninstalling
-    namechanges
-    stylesheet
-    whitespace
-    unitless
+  presolved
+  iODBC
+  linux
+  keypress
+  keypresses
+  unassigning
+  unclickable
+  nonlocal
+  storable
+  updatability
+  awf
+  misrenderings
+  parameterized
+  dockable
+  unary
+  parallelization
+  unixODBC
+  gridlines
+  unicode
+  uninstalling
+  namechanges
+  stylesheet
+  whitespace
+  unitless
 	dom
 	myMP
 	myModel
@@ -10917,3 +11407,19 @@ Improvements
   .aimms
 	RefreshAllWidgets
   ganttchart
+  IdentifierAnnotation
+  anOption
+  webserver
+  startWaitTime
+  LaunchService
+  localCurrency
+  exchangeRate
+  utf8
+  utf
+  StringToTimeslot
+  subsetof
+  parametric
+  myFactor
+  DerivedUnit
+  BaseUnit
+  myFactor

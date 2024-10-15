@@ -69,7 +69,7 @@ The following JSON data contains the data of an instance of two datasets, each c
     }
     
 Uses of the row-based format
-+++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++
 
 The standard Data Exchange format discussed above is flexible enough to support a range of scenarios for integrating an AIMMS model into the wider IT landscape:
 
@@ -110,11 +110,11 @@ With the ``dex::ExtraAttributeList`` annotation you can specify any additional m
     
     <annotation>=<value>[;<annotation>=<value];...
 
-where ``<value>`` is the literal text that you want assign to the annotation ``<annotation>``. If you want to set the extra attributes for columns in a table associated with indices, you can either create a separate index node, and use the ``dex::ExtraAttributeList`` attribute, of assign the column name to be used for the index to the *string parameter* ``dex::ExtraAttributeList``.
+where ``<value>`` is the literal text that you want assign to the annotation ``<annotation>``. If you want to set the extra attributes for columns in a table associated with indices, you can either create a separate index node, and use the ``dex::ExtraAttributeList`` attribute, of assign the column name to be used for the index to the *string parameter* ``dex::ExtraAttributeList``. When you add ``name-binds-to`` and ``name-regex`` attributes to an multi-dimensional identifier, the Data Exchange library will pick this up, and use the dimension reduced by one to compare with the number of bound indices of each row, because using the ``name-binds-to`` index will cause the values of the last index to appear as columns in the generated table. If you have specified multiple identifiers with a ``name-binds-to`` attribute over the same set, you should use the ``name-regex-prefix`` or ``name-regex-postfix`` attributes to distinguish which columns are associated with which identifier. 
 
 You can use the annotation ``dex::RowFilter`` to specify an identifier that should serve as a ``write-filter`` attribute for the rows being generated in the mapping. The identifier should have the same indices as all identifiers in the table. The ``RowFilter`` annotation should be the same for all identifiers in a specific table. If all identifiers in a table are contained in a single section in your model, you can best add the annotation to that section, in which case all identifiers in the section will inherit it. With the row filter you can limit the number of rows being generated when writing a file using the mapping.
 
-To generate all annotation-based mapping, you can call the procedure :js:func:`dex::GenerateDatasetMappings`.
+To generate all annotation-based mapping, you can call the procedure :js:func:`dex::GenerateDatasetMappings`. 
 This will generate Data Exchange mappings in the subfolder ``Mappings/Generated`` in the main project folder. The following mappings will become available for every ``<dataset>``  and ``<table>``:
 
 .. csv-table:: 
@@ -135,6 +135,19 @@ This will generate Data Exchange mappings in the subfolder ``Mappings/Generated`
     ``Generated/<dataset>-<table>-XML-DenseAttribute``, table ``<table>`` in dataset ``<dataset>`` in a single dense XML file (indices and values as elements; also default data)
     ``Generated/<dataset>-<table>-CSV``, table ``<table>`` in dataset ``<dataset>`` in a single CSV file
 
+Adding extra columns
+++++++++++++++++++++
+
+Through the parameter `dex::ExtraTableValueColumns` you can add extra string columns to a table with the ``value`` attribute set to the string value of this parameter. If that string value starts with the `#` character, it will be replaced with the content of the memory stream whose name matches the string value when writing files using these generated mappings.
+
+For the special case where you want to add the name of the dataset instance, you can also set the string parameter `dex::DatasetColumnName` to the column name to be added to every generated table to hold the name of the dataset instance. The ``value`` attribute of these columns will be set to ``#<dataset>-instance``, where ``<dataset>`` is the name of the appropriate dataset for each table. Prior to writing you have to provide the instance name for in the memory stream named ``#<dataset>-instance``.
+
+Limiting the mappings generated
++++++++++++++++++++++++++++++++
+
+Through the parameter ``dex::DatasetGeneratorFilter(gt,mm,amt)`` you can indicate which mappings you want the Data Exchange library to generate. By default, only Excel, CSV and Parquet will be generated. The parameter ``dex::DatasetGeneratorFilterDomain(gt,mm,amt)`` holds all the allowed formats, and you can copy the values of it to obtain all possible mappings.
+
+
 Generating dataset mappings containing external bindings
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -144,7 +157,6 @@ Generating multiple mappings
 ++++++++++++++++++++++++++++
 
 You can generated multiple collections of dataset mappings by setting the string parameter `dex::MappingPrefix` to a prefix that will be used for every generated mapping. You can use this for instance to create a mapping with and without external bindings.
-
 
 A document-based JSON format
 ----------------------------

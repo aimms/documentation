@@ -23,5 +23,6 @@ The AIMMS Cloud Platform is a fully managed AIMMS PRO environment. It is secure,
    rest-api
    launch-service
    tasks
+   privacy
 
 

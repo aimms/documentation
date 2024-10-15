@@ -15,10 +15,17 @@ stages:
 linkcheck:
   <<: *run_on_dockerhost
   stage: test
+  variables:
+    SPHINX_IGNORE_EXTERNAL_LINKS: "true"
+  script:
+    - python3 -msphinx -W --keep-going -b linkcheck . _build/linkcheck
+
+linkcheck_external:
+  <<: *run_on_dockerhost
+  stage: test
   script:
     - python3 -msphinx -W --keep-going -b linkcheck . _build/linkcheck
   allow_failure: true
-  retry: 1
 
 spellcheck:
   <<: *run_on_dockerhost
@@ -33,6 +40,10 @@ build:
   stage: test
   script:
     - sphinx-build -W --keep-going -b html . _build/html
+
+  artifacts:
+    paths:
+      - _build/html/**/*
 
 deploy:
   <<: *run_on_dockerhost

@@ -176,7 +176,7 @@ Where '*TunnelName*' is URI Context Path and '*Local Port*' can be any port betw
 
 You can Start/Stop Tunnel using **Start** and **Stop** buttons. Once you have provided '*TunnelName*' and '*Local Port*', you do not need to click **Start** or **Stop** each time. You can check '*Automatically connect at startup*' parameter, after which the tunnel will be started automatically upon launching the application. 
 
-When you close the application, the tunnel will also be closed. You can download the DB Tunnel App from `here <https://download.aimms.com/aimms/download/data/PRO/DBTunnel/>`_. 
+When you close the application, the tunnel will also be closed. You can download the DB Tunnel App from `here <https://download.aimms.com/aimms/download/data/PRO/DBTunnel/DBTunnel.aimmspack>`_.
 
 We have further enhanced the DB Tunnel App such that it can report errors when it can not start the tunnel. Example scenarios/error messages are:  
 

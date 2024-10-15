@@ -101,14 +101,14 @@ Methods for reading and writing data
     
 .. js:function::  dex::GenerateDatasetMappings
 
-    Generate standardized table and Excel sheet mappings based on the :token:`dex::Dataset`, :token:`dex::TableName`, and :token:`dex::ColumnName` annotations. The generated mappings will be stored in the :token:`Mappings/Generated` subfolder of the project folder. All generated mappings will automatically be added to the set of available mappings, and can be directly used to read and write the standardized JSON, XML, CSV or Excel data sources based on the data exchange annotations. The function will return 1 on success, or 0 on failure. Through the global option ``dex::PrefixAutoTableWithDataset`` you can prefix the generated table names with the specified dataset name, to prevent potential name clashes when the same table name is generated for multiple data categories. Through the global parameter ``dex::DatasetGeneratorFilter`` you can restrict the formats for which mappings will be generated, the default will be to generate mappings for all available formats.
+    Generate standardized table and Excel sheet mappings based on the :token:`dex::Dataset`, :token:`dex::TableName`, and :token:`dex::ColumnName` annotations. The generated mappings will be stored in the :token:`Mappings/Generated` subfolder of the project folder. All generated mappings will automatically be added to the set of available mappings, and can be directly used to read and write the standardized JSON, XML, CSV/TSV or Excel data sources based on the data exchange annotations. The function will return 1 on success, or 0 on failure. Through the global option ``dex::PrefixAutoTableWithDataset`` you can prefix the generated table names with the specified dataset name, to prevent potential name clashes when the same table name is generated for multiple data categories. Through the global parameter ``dex::DatasetGeneratorFilter`` you can restrict the formats for which mappings will be generated, the default will be to generate mappings for all available formats.
     
     You can use the generated mappings directly with the functions :js:func:`dex::WriteToFile` and :js:func:`dex::ReadFromFile` as with any manually created mapping.
 	
 Changing encodings and normalizations
 -------------------------------------
 
-The Data Exchange library only accepts UTF-8 JSON, XML and CSV files. Through the following functions you can change the encoding of a file prior to reading or after writing its contents.
+The Data Exchange library only accepts UTF-8 JSON, XML and CSV/TSV files. Through the following functions you can change the encoding of a file prior to reading or after writing its contents.
 The library also contains a number of functions to normalize composed Unicode characters in strings and sets in your model to either the NFC or NFD normalization.
 
 .. js:function:: dex::ConvertFileToEncoding(inputFile, inputEncoding, ouputFile, outputEncoding, noBOM)
@@ -231,6 +231,13 @@ The Data Exchange library contains collection of functions implemented using ``l
     :param headers: string parameter holding the header name to add
     :param headerValue: string parameter holding the header value to add
 
+.. js:function::  dex::client::AddRequestTag
+
+    Using the function :token:`dex::client::AddRequestTag` you can add a tag to request :token:`theRequest`, which can be used to more selectively wait for responses. The function will return 1 on success, or 0 on failure.
+    
+    :param theRequest: string parameter holding the unique identification of the request to add a request header to.
+    :param tag: string parameter holding the tag to add
+
 .. js:function::  dex::client::AddMimePart
 
     Using the function :token:`dex::client::AddMimePart` you can create a multi-part MIME body for a :token:`POST` request. The function will return 1 on success, or 0 on failure.
@@ -294,8 +301,11 @@ The Data Exchange library contains collection of functions implemented using ``l
 
     Using this function you can block the execution of the calling procedure for a maximum of :token:`timeout` milliseconds to wait for incoming responses of any outstanding HTTP requests.
     As soon as a first response is available for any of the outstanding requests within the given timeout, its associated callback will be called, as well as for any other available responses. If there are no further responses, the function will return. The function will return 1 if one or more responses came in within the given timeout, or 0 on timeout.
+	
+	By specifying a `tag` you can limit the responses for which the method will wait to those requests that have been tagged through the function :token:`dex::client::AddRequestTag` with the specified tag. You can use this, for instance, to make sure that callbacks for different HTTP requests that are executed asynchronously are called in the right order. 
     
     :param timeout: the maximum time in milliseconds to wait for any incoming responses.
+    :param tag: optional tag to indicate to only wait for responses of requests tagged with this tag.
 
 .. js:function::  dex::client::SetParallelConnections
 
@@ -429,12 +439,14 @@ Any file
 * read by :js:func:`dex::ReadFromFile`, 
 * serving as a request or response file to :js:func:`dex::client::NewRequest` 
 
-can also be a memory stream, i.e. a file stored in memory. Memory streams can be up to 1 MB big. Memory streams can help
+can also be a memory stream, i.e. a file stored in memory. Memory streams can have arbitrary length. Memory streams can help
 
 * improve performance because they do not incur disk I/O, or delay because of virus scanning generated files on disk,
 * reduce clutter in your project folder.
 
 If the file name starts with a `#`, the Data Exchange library will assume that the specified file name is to be interpreted as a memory stream. Memory streams for the output file of the function :js:func:`dex::WriteToFile` and the response file of the function :js:func:`dex::client::NewRequest` will create a memory stream with the given file name as its key, while the input file of the function :js:func:`dex::ReadFromFile` and the request file of the function :js:func:`dex::client::NewRequest` will assume an existing memory stream with the given key. 
+
+In addition, when a mapping contains a string parameter, and the value of the string starts with `#`, then the Data Exchange library will verify whether the entire string is the name of an existing memory stream, and if so, output the content of that memory stream. If the string does not denote the name of an existing memory stream, just the content of the string parameter will be output.
 
 Memory streams with keys starting with `##` used as request or response files will be *automatically deleted* when the corresponding `dex::client` request is closed. 
 
@@ -458,7 +470,7 @@ The following functions are available for management of the memory streams.
 
 .. js:function:: dex::ImportStreamContent
 
-	Import the content of a string parameter into a new memory stream. The name of the stream should start with a `#`, to allow the stream to be used by other functions of the Data Exchange library. This function supports string parameters up to 16 KB of content. 
+	Import the content of a string parameter into a new memory stream. The name of the stream should start with a `#`, to allow the stream to be used by other functions of the Data Exchange library. This function supports string parameters up to 1 MB of content. 
 	
 	:param streamName: name of memory stream to import content into
 	:param content: input string parameter holding the string to import into the memory stream
@@ -476,14 +488,25 @@ The following functions are available for management of the memory streams.
 	
 	:param streamName: name of memory stream to export content from
 	:param content: output string parameter to hold the content (up to 16 KB) exported from the memory stream	
+	:param base64: (optional) argument indicating whether the content of the memory stream should be base64-decoded
 	
 .. js:function:: dex::WriteStreamToFile
 
 	Write the content of an existing memory stream to a file. 
 	
 	:param streamName: name of memory stream to write content from
-	:param fileName: name of the to which the content of the stream needs to be written.
+	:param fileName: name of the file to which the content of the stream needs to be written.
+	:param base64: (optional) argument indicating whether the content of the memory stream should be base64-decoded
 	
+.. js::function:: dex::ReadStreamFromFile
+
+	Read the content of a file into a memory stream. 
+	
+	:param streamName: name of memory stream to write content to
+	:param fileName: name of the file from which the content of the stream needs to be read.
+	:param base64: (optional) argument indicating whether the content of the memory stream should be base64-encoded
+
+
 Generators
 ----------
 
@@ -506,7 +529,7 @@ For JSON schema and OpenAPI specifications, the Data Exchange library can genera
 
 	The library will be stored to disk, along with all generated mappings, in a subfolder of the folder located to by the string parameter ``dex::schema::libprj::LibraryRootFolder``. The ``LibraryInitialization`` procedure from the generated library will read initialization data from a library-specific file in the folder located to by the string parameter ``dex::schema::libprj::ApiInitFolder``. In that file you can, for instance, initialize settings such as the server URL, the API key to be used, or the OAuth2 credentials to be used.
 
-	:param schemaPath: absolute or relative path where to find the OpenAPI specification file from which to generate the runtime library
+	:param schemaPath: absolute or relative path where to find the OpenAPI specification file from which to generate the runtime library. The OpenAPI specification file can either be in JSON or YAML format.
 	:param schemaName_: name of the OpenAPI specification for which to create a runtime library and mapping, will also serve as the name of the runtime library.
 	:param schemaPrefix: prefix of the runtime library to generate
 	:param explodeDefault: flag to indicate whether to add references to an instance of a subschema (0), to explode subschemas into a schema but still maintaining an `instance` index to allow multiple instances of the data (1, default),  or to explode without an additional `instance` index (2). Values of 0 and 1 create asynchronous methods, that allow multiple API calls to be executed in parallel, while a value of 2 will generate a completely synchronous library, allowing only one API call to be executed at any time.
@@ -797,25 +820,105 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	:param directory: local directory to which to download files
 	:param recursive: optional parameter indicating whether only files within the given path prefix should be downloaded, or recursively.
 
-Reading, writing and iterating arbitrary JSON documents
--------------------------------------------------------
+.. js:function:: dex::dls::WriteDatasetInstanceByTable
 
-The Data Exchange library offers programmatic support for reading, writing and iterating any JSON file using a pre-defined generic `JSONAny/JSONAny` mapping. The following functions are available. 
+	For a given generated dataset `dataset` generate Parquet files for all tables in the dataset, and store these Parquet files in the container in the configured Azure Data Lake Storage account in the container pointed to by ``dex::dls::DatasetsByTableContainer``. 	Within the container the Parquet files are stored using the pattern `<dataset>/<table>/<instance>.parquet`, where `<instance>` is the given `instance`.
+
+	:param dataset: element parameter holding the name of the dataset to write.
+	:param instance: string parameter holding instance name of the dataset to write.
+
+.. js:function:: dex::dls::ReadDatasetInstanceByTable
+
+	For a given generated dataset `dataset` and dataset instance, transfer Parquet files from the container in the configured Azure Data Lake Storage account in the container pointed to by ``dex::dls::DatasetsByTableContainer`` from the location `<dataset>/<table>/<instance>.parquet`, where `<instance>` is the given `instance`, to the current session and read the content of the Parquet files into the model.
+
+	:param dataset: element parameter holding the name of the dataset to read.
+	:param instance: string parameter holding instance name of the dataset to read.
+
+.. js:function:: dex::dls::WriteDatasetInstanceByInstance
+
+	For a given generated dataset `dataset` generate Parquet files for all tables in the dataset, and store these Parquet files in the container in the configured Azure Data Lake Storage account in the container pointed to by ``dex::dls::DatasetsByTableContainer``. 	Within the container the Parquet files are stored using the pattern `<dataset>/<instance>/<table>.parquet`, where `<instance>` is the given `instance`.
+
+	:param dataset: element parameter holding the name of the dataset to write.
+	:param instance: string parameter holding instance name of the dataset to write.
+
+.. js:function:: dex::dls::ReadDatasetInstanceByInstance
+
+	For a given generated dataset `dataset` and dataset instance, transfer Parquet files from the container in the configured Azure Data Lake Storage account in the container pointed to by ``dex::dls::DatasetsByTableContainer`` from the location `<dataset>/<instance>/<table>.parquet`, where `<instance>` is the given `instance`, to the current session and read the content of the Parquet files into the model.
+
+	:param dataset: element parameter holding the name of the dataset to read.
+	:param instance: string parameter holding instance name of the dataset to read.
+
+Snowflake functions
+-------------------
+
+.. js:function::  dex::sf::ExecuteSQLStatement(stmt,timeout)
+
+    Execute a SQL statement `stmt` in the configured schema of the configured Snowflake instance. By default, the function will wait for a maximum of 50 seconds for the execution of the statement to complete. If the execution is completed, the function will return a code of 200, if the execution is still in progress, the function will return 202. In case of any failure the function will return 0. If the execution is still in progress, you can call the function `dex::sf::WaitForSQLStatements` to wait for any SQL statements still in progress. When `timeout` is 0, the function returns immediately, and you can execute other SQL statements in parallel and use `dex::sf::WaitForSQLStatement` for all SQL statements to complete.
+    
+    :param stmt: SQL statement to be executed (up to 64KB characters)
+    :param timeout: time to wait for the statement execution to complete (default 50 seconds)
+
+.. js:function::  dex::sf::WaitForSQLStatements(timeout)
+
+    Wait for `timeout` seconds for all outstanding SQL statements that are still in progress to complete. The function returns 1 if all statements have completed, or 0 otherwise.
+        
+    :param timeout: time in seconds to wait for all outstanding statements still in progress to complete
+
+.. js:function::  dex::sf::StatementsAllExecutedSuccessfully
+
+    Return whether all executed SQL statement that have completed where successful.
+        
+.. js:function::  dex::sf::ClearExecutionState
+
+    Reset the execution state of all submitted SQL statements. You should call this statement prior to executing a batch of SQL statements that you want to execute in parallel, or parallel calls to `dex::sf::GenerateAndLoadParquetIntoTable` or `dex::sf::GenerateAndLoadParquetFromTable``.  
+        
+.. js:function::  dex::sf::GenerateAndLoadParquetIntoTable(mappingName,tableName,timeout,query,columns,sqlString)
+
+    The function will generate an intermediate Parquet file using the DEX mapping `mappingName`, store the Parquet file in the Azure Data Lake Storage account that comes with every AIMMS cloud account, and insert the data contained in the table `tableName` in the configured schema of the Snowflake instance connected to. The default `sqlString` executed will assume that the table will just have all the fields contained in the Parquet file, but you can specify any Snowflake SQL statement to provide a customized insert statement. The function will wait `timeout` seconds for the execution of the SQL statement to complete. If the statement is still in progress on return (202 return code), you can call `dex::sf::WaitForSQLStatements` to wait for the completion of the insert statement. When `timeout` is 0, the function will return immediately, and you can call the function multiple times to load multiple files into Snowflake in parallel. 
+    
+    :param mappingName: name of a DEX mapping used to generate a Parquet file to upload from the current model data
+    :param tableName: name of the table in the configured Snowflake schema to insert the data in the generated Parquet file to
+    :param timeout: time to wait for the Snowflake insert statement to complete (default 50 seconds)
+    :param query: optional query from the intermediate Parquet file, defaults to the intermediate Parquet file
+    :param columns: optional argument for specifying which columns to copy into the table from the query/Parquet file
+    :param sqlString: optional string argument containing the SQL statement to execute.
+   
+.. js:function::  dex::sf::GenerateAndLoadParquetFromTable(mappingName,tableName,timeout,query,sqlString,emptyIdentifiers,emptySets)
+
+    The function will execute the `sqlString` statement to generate a Parquet file from Snowflake select statement. The default statement will generate a Parquet file from all fields in the Snowflake table `tableName`. The function will wait `timeout` seconds for the execution of the SQL statement to complete. If the statement is still in progress on return (202 return code), you can call `dex::sf::WaitForSQLStatements` to wait for the completion of the insert statement. After the statement has completed, the data in the generated Parquet file will be read into the current model data using the DEX mapping `mappingName`. When `timeout` is 0, the function will return immediately, and you can call the function multiple times to load multiple files into Snowflake in parallel.
+    
+    :param mappingName: name of a DEX mapping used to read the generated Parquet file into the current model data
+    :param tableName: name of the table in the configured Snowflake schema the contents of which will be used to generate the intermediate Parquet file
+    :param timeout: time to wait for the Snowflake select statement to complete (default 50 seconds)
+    :param query: optional argument specifying a select query to copy the data from into the intermediate Parquet file, defaults to the table
+    :param sqlString: optional string argument containing the SQL select statement to execute.
+    :param emptyIdentifiers: optional 0/1 argument indicating whether all identifiers in the mapping should be emptied prior to reading the Parquet file
+    :param emptySets: optional 0/1 argument indicating whether all sets used in the mapping should be emptied prior to reading the Parquet file
+    
+.. js:function::  dex::sf::GenerateTableCreateStatements
+
+    When you are using DEX model annotations to create the Parquet mapping, then you can use this function to generate a Snowflake create table statement that exactly matches the generated Parquet file mapping. The generated statements are stored in the string parameter `dex::sf::TableCreateStatements`.
+	
+
+Reading, writing and iterating arbitrary JSON or YAML documents
+---------------------------------------------------------------
+
+The Data Exchange library offers programmatic support for reading, writing and iterating any JSON or YAML file using a pre-defined generic `JSONAny/JSONAny` mapping. The following functions are available. 
 
 .. js:function:: dex::json::ReadInstance
 
-	Read an arbitrary JSON file using the pre-defined `JSONAny/JSONAny` mapping into identifiers within the `dex::json` namespace.
+	Read an arbitrary JSON or YAML file using the pre-defined `JSONAny/JSONAny` mapping into identifiers within the `dex::json` namespace.
 
 	:param instName: string parameter holding the name of the element within the set `dex::json::JSONInstances`.
-	:param instFile: string parameter holding the file name of the JSON document to read.
+	:param instFile: string parameter holding the file name of the JSON or YAML document to read.
 
 .. js:function:: dex::json::WriteInstance
 
-	Write an arbitrary JSON file using the pre-defined `JSONAny/JSONAny` mapping using the content of the identifiers within the `dex::json` namespace, for the slice corresponding to the `_inst` argument. 
+	Write an arbitrary JSON or YAML file using the pre-defined `JSONAny/JSONAny` mapping using the content of the identifiers within the `dex::json` namespace, for the slice corresponding to the `_inst` argument. 
 
 	:param _inst: element parameter holding the element within the set `dex::json::JSONInstances` for which to write a JSON file.
-	:param instFile: string parameter holding the file name of the JSON document to read.
-	:param pretty: optional parameter indicating whether the generated JSON file should be pretty-printed.
+	:param instFile: string parameter holding the file name of the JSON or YAML document to write.
+	:param pretty: optional parameter indicating whether the generated JSON/YAML file should be pretty-printed.
 
 .. js:function:: dex::json::EmptyInstance
 
@@ -825,172 +928,172 @@ The Data Exchange library offers programmatic support for reading, writing and i
 
 .. js:function:: dex::json::CreateInstance
 
-	Create a new JSON instance in the set `dex::json::JSONInstances`, and prepare the identifiers in the `dex::json` namespace to programmatically create a new JSON document. The function returns the element in the set `dex::json::Nodes` representing the root node of the newly created JSON document.
+	Create a new JSON/YAML instance in the set `dex::json::JSONInstances`, and prepare the identifiers in the `dex::json` namespace to programmatically create a new JSON/YAML document. The function returns the element in the set `dex::json::Nodes` representing the root node of the newly created JSON/YAML document.
 	
-	:param instName: string parameter holding the name of JSON instance to create.
+	:param instName: string parameter holding the name of JSON/YAML instance to create.
 
 .. js:function:: dex::json::SetBool
 
-	Assign a boolean value to either the JSON root node of a JSON document or an array member of an array value in the JSON document.
+	Assign a boolean value to either the JSON/YAML root node of a JSON/YAML document or an array member of an array value in the JSON/YAML document.
 	
-	:param _nde: element parameter holding the node in the JSON document for which to set the value.
+	:param _nde: element parameter holding the node in the JSON/YAML document for which to set the value.
 	:param bool: boolean value to assign to the `_nde`
 
 .. js:function:: dex::json::SetInt
 
-	Assign an integer value to either the JSON root node of a JSON document or an array member of an array value in the JSON document.
+	Assign an integer value to either the JSON/YAML root node of a JSON/YAML document or an array member of an array value in the JSON/YAML document.
 	
-	:param _nde: element parameter holding the node in the JSON document for which to set the value.
+	:param _nde: element parameter holding the node in the JSON/YAML document for which to set the value.
 	:param int: integer value to assign to the `_nde`
 
 .. js:function:: dex::json::SetNumber
 
-	Assign a double value to either the JSON root node of a JSON document or an array member of an array value in the JSON document.
+	Assign a double value to either the JSON/YAML root node of a JSON/YAML document or an array member of an array value in the JSON/YAML document.
 	
-	:param _nde: element parameter holding the node in the JSON document for which to set the value.
+	:param _nde: element parameter holding the node in the JSON/YAML document for which to set the value.
 	:param number: double value to assign to the `_nde`
 
 .. js:function:: dex::json::SetString
 
-	Assign a string value to either the JSON root node of a JSON document or an array member of an array value in the JSON document.
+	Assign a string value to either the JSON/YAML root node of a JSON/YAML document or an array member of an array value in the JSON/YAML document.
 	
-	:param _nde: element parameter holding the node in the JSON document for which to set the value.
+	:param _nde: element parameter holding the node in the JSON/YAML document for which to set the value.
 	:param _string: double value to assign to the `_nde`, the assigned value can be up to 256 KB in size.
 
 .. js:function:: dex::json::SetObject
 
-	Assign an object value to either the JSON root node of a JSON document or an array member of an array value in the JSON document. The function returns the element in the set `dex::json::Nodes` representing the added object.
+	Assign an object value to either the JSON/YAML root node of a JSON/YAML document or an array member of an array value in the JSON/YAML document. The function returns the element in the set `dex::json::Nodes` representing the added object.
 	
-	:param _nde: element parameter holding the node in the JSON document for which to set the value.
+	:param _nde: element parameter holding the node in the JSON/YAML document for which to set the value.
 
 .. js:function:: dex::json::SetArray
 
-	Assign an array value to either the JSON root node of a JSON document or an array member of an array value in the JSON document. The function returns the element in the set `dex::json::Nodes` representing the added array.
+	Assign an array value to either the JSON/YAML root node of a JSON/YAML document or an array member of an array value in the JSON/YAML document. The function returns the element in the set `dex::json::Nodes` representing the added array.
 	
-	:param _nde: element parameter holding the node in the JSON document for which to set the value.
+	:param _nde: element parameter holding the node in the JSON/YAML document for which to set the value.
 
 .. js:function:: dex::json::AddArrayMember
 
-	Assign a new member to a `_nde` representing an array valuer. The function will return the element of `dex::json::Nodes` representing the array member.
+	Assign a new member to a `_nde` representing an array value. The function will return the element of `dex::json::Nodes` representing the array member.
 	
-	:param _nde: element parameter holding the node in the JSON document representing the array value.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the array value.
 
 .. js:function:: dex::json::AddBoolProperty
 
-	Add a new boolean property to a `_nde` representing an object in the JSON document. 
+	Add a new boolean property to a `_nde` representing an object in the JSON/YAML document. 
 	
-	:param _nde: element parameter holding the node in the JSON document representing the object to which to add the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object to which to add the property.
 	:param prop: string parameter holding the name of the property to add to the object
 	:param bool: parameter holding the boolean value of the property to add.
 	
 .. js:function:: dex::json::AddIntProperty
 
-	Add a new integer property to a `_nde` representing an object in the JSON document. 
+	Add a new integer property to a `_nde` representing an object in the JSON/YAML document. 
 	
-	:param _nde: element parameter holding the node in the JSON document representing the object to which to add the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object to which to add the property.
 	:param prop: string parameter holding the name of the property to add to the object
 	:param int: parameter holding the integer value of the property to add.
 	
 .. js:function:: dex::json::AddNumberProperty
 
-	Add a new double property to a `_nde` representing an object in the JSON document. 
+	Add a new double property to a `_nde` representing an object in the JSON/YAML document. 
 	
-	:param _nde: element parameter holding the node in the JSON document representing the object to which to add the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object to which to add the property.
 	:param prop: string parameter holding the name of the property to add to the object
 	:param number: parameter holding the double value of the property to add.
 	
 .. js:function:: dex::json::AddStringProperty
 
-	Add a new string property to a `_nde` representing an object in the JSON document. 
+	Add a new string property to a `_nde` representing an object in the JSON/YAML document. 
 	
-	:param _nde: element parameter holding the node in the JSON document representing the object to which to add the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object to which to add the property.
 	:param prop: string parameter holding the name of the property to add to the object
 	:param _string: parameter holding the string value of the property to add.
 	
 .. js:function:: dex::json::AddObjectProperty
 
-	Add a new object property to a `_nde` representing an object in the JSON document. The function will return the element in the set `dex::json::Nodes` representing the newly added object.
+	Add a new object property to a `_nde` representing an object in the JSON/YAML document. The function will return the element in the set `dex::json::Nodes` representing the newly added object.
 	
-	:param _nde: element parameter holding the node in the JSON document representing the object to which to add the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object to which to add the property.
 	:param prop: string parameter holding the name of the property to add to the object
 	
 .. js:function:: dex::json::AddArrayProperty
 
-	Add a new array property to a `_nde` representing an object in the JSON document. The function will return the element in the set `dex::json::Nodes` representing the newly added array. You can use the function :js:func:`dex::json::AddArrayMember` to add new members to the array.
+	Add a new array property to a `_nde` representing an object in the JSON/YAML document. The function will return the element in the set `dex::json::Nodes` representing the newly added array. You can use the function :js:func:`dex::json::AddArrayMember` to add new members to the array.
 	
-	:param _nde: element parameter holding the node in the JSON document representing the object to which to add the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object to which to add the property.
 	:param prop: string parameter holding the name of the property to add to the object
 	
 .. js:function:: dex::json::RootNode
 
-	Return the root node of the last JSON document read using :js:func:`dex::json::ReadInstance`. If the root node is an object or array, you can directly access the object properties or array members.
+	Return the root node of the last JSON/YAML document read using :js:func:`dex::json::ReadInstance`. If the root node is an object or array, you can directly access the object properties or array members.
 	
 .. js:function: dex::json::BoolVal
 
-	Return the bool value of the root node of a JSON document, or of an array item within the JSON document.
+	Return the bool value of the root node of a JSON/YAML document, or of an array item within the JSON/YAML document.
 
-	:param _nde: element parameter holding the node in the JSON document from which to retrieve the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document from which to retrieve the property.
 
 .. js:function: dex::json::IntVal
 
-	Return the integer value of the root node of a JSON document, or of an array item within the JSON document.
+	Return the integer value of the root node of a JSON/YAML document, or of an array item within the JSON/YAML document.
 
-	:param _nde: element parameter holding the node in the JSON documentfrom which to retrieve the property.
+	:param _nde: element parameter holding the node in the JSON/YAML documentfrom which to retrieve the property.
 	
 .. js:function: dex::json::NumberVal
 
-	Return the double value of the root node of a JSON document, or of an array item within the JSON document.
+	Return the double value of the root node of a JSON/YAML document, or of an array item within the JSON/YAML document.
 
-	:param _nde: element parameter holding the node in the JSON document from which to retrieve the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document from which to retrieve the property.
 
 .. js:function: dex::json::StringVal
 
-	Return the string value of the root node of a JSON document, or of an array item within the JSON document.
+	Return the string value of the root node of a JSON/YAML document, or of an array item within the JSON/YAML document.
 
-	:param _nde: element parameter holding the node in the JSON document from which to retrieve the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document from which to retrieve the property.
 	
 .. js:function: dex::json::BoolProperty
 
-	Return the bool value of a property of an object node within the JSON document.
+	Return the bool value of a property of an object node within the JSON/YAML document.
 
-	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object from which to retrieve the property.
 	
 	
 .. js:function: dex::json::IntProperty
 
-	Return the integer value of  a property of an object node within the JSON document.
+	Return the integer value of  a property of an object node within the JSON/YAML document.
 
-	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object from which to retrieve the property.
 	
 .. js:function: dex::json::NumberProperty
 
-	Return the double value of a property of an object node within the JSON document.
+	Return the double value of a property of an object node within the JSON/YAML document.
 
-	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object from which to retrieve the property.
 	
 .. js:function: dex::json::StringProperty
 
-	Return the string value of a property of an object node within the JSON document.
+	Return the string value of a property of an object node within the JSON/YAML document.
 
-	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object from which to retrieve the property.
 	
 .. js:function: dex::json::ObjectProperty
 
-	Return the node representing the object value of a property of an object node within the JSON document.
+	Return the node representing the object value of a property of an object node within the JSON/YAML document.
 
-	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object from which to retrieve the property.
 	
 .. js:function: dex::json::ArrayProperty
 
-	Return the node representing the array value of a property of an object node within the JSON document. You can use the function :js:func:`dex::json::ArrayItem` to retrieve a specific member of the array.
+	Return the node representing the array value of a property of an object node within the JSON/YAML document. You can use the function :js:func:`dex::json::ArrayItem` to retrieve a specific member of the array.
 
-	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object from which to retrieve the property.
 	
 .. js:function: dex::json::ArrayItem
 
-	Return the node representing the `n`-th item from a node representing an array within the JSON document. 
+	Return the node representing the `n`-th item from a node representing an array within the JSON/YAML document. 
 
-	:param _nde: element parameter holding the node in the JSON document representing the object from which to retrieve the property.
+	:param _nde: element parameter holding the node in the JSON/YAML document representing the object from which to retrieve the property.
 	:param n: the  (1-based) number of the item to retrieve from the array.
 
 .. spelling:word-list::

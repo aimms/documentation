@@ -1,8 +1,169 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.9
+########
+
+AIMMS PRO 24.9.1 Release
+------------------------
+
+On September 24, 2024, we released AIMMS PRO 24.9.1(24.9.1.3)
+
+**Improvements**
+
+Many of the 3rd party libraries and dependency libraries used by AIMMS PRO (for both on-premise and cloud) are upgraded to newer versions. 
+
+PRO 24.8
+########
+
+AIMMS PRO 24.8.2 Release
+------------------------
+
+On August 1, 2024, we released AIMMS PRO 24.8.2(24.8.2.1)
+
+**Improvements**
+
+- **PRO REST API:Task Service**:
+   - It is possible to get the TaskID inside AIMMS while the procedure called by the task is running.
+   - The ``appVersion`` query parameter is now optional in the ``GET pro-api/v2/tasks`` endpoint.
+     If 'appVersion' is not provided, the version with the latest tag will be used by default. However, if 'appVersion' is not provided and the latest tag is not set for the app, an error will occur.
+
+**Resolved Issues**
+
+- Fixed an issue where a session could stuck in a crash loop and fail due to intermittent network issues.
+
+AIMMS PRO 24.8.1 Release
+------------------------
+
+On June 27, 2024, we released AIMMS PRO 24.8.1(24.8.1.1)
+
+**Improvements**
+
+   - Portal Customization (under configuration menu) is now available for SC Navigator accounts, which allows them to customize login page background and some other settings.
+
+**Resolved Issues**
+
+- **PRO REST API:Task Service**: Fixed an issue where task session could finish with an error when accessing data to/from dls (Data Lake Storage) storage.
+- **PRO REST API:Task Service**: Added more information about the selected AIMMS version in logs.
+
+PRO 24.7
+########
+
+AIMMS PRO 24.7.2 Release
+------------------------
+
+On June 18, 2024, we released AIMMS PRO 24.7.2(24.7.2.7)
+
+**Resolved Issues**
+
+   - The *GetObjectInfo* did not give an error when the file did not exist.
+   - Fixed an issue where an update of the Spring Framework in AIMMS PRO 24.7.1 caused a too much load on Azure Service Bus.
+
+AIMMS PRO 24.7.1 Release
+------------------------
+
+On June 11, 2024, we released AIMMS PRO 24.7.1(24.7.1.4)
+
+**Improvements**
+
+   - Several potential security exploits were found in 3rd party libraries used by AIMMS PRO. These libraries have been removed (log4j) or updated (ActiveMQ and the Spring framework) to newer versions thereby resolving this security issues.
+
+PRO 24.6
+########
+
+AIMMS PRO 24.6.2 Release
+------------------------
+
+On May 24, 2024, we released AIMMS PRO 24.6.2(24.6.2.1)(Cloud only release)
+
+**Resolved Issues**
+
+   - Changed the wait for session start timeout from 1 minute to 3 minutes to fix session launch failures.
+
+
+AIMMS PRO 24.6.1 Release
+------------------------
+
+On April 26, 2024, we released AIMMS PRO 24.6.1(24.6.1.2)
+
+**Improvements**
+
+   - Some internal technical improvements.
+
+**Resolved Issues**
+
+   - **On-Premise**: Under heavy load a backwards compatibility feature for older AIMMS versions would potentially cause a webui session not to start. Starting with the combination of **AIMMS PRO 24.6** and **AIMMS 24.4** this feature will no longer be needed and thereby resolve the occasional not starting webui session under heavy load.
+
+PRO 24.5
+########
+
+AIMMS PRO 24.5.1 Release
+------------------------
+
+On April 5, 2024, we released AIMMS PRO 24.5.1(24.5.1.1)
+
+**Improvements**
+
+   - It is now possible to wait longer than the default 30 seconds for the Python service to start by specifying the *startWaitTime* argument of the LaunchService method. Please note that this does require **AIMMS Version 24.3** or higher.
+   - **On-Premise**: AIMMS PRO Postgres database is upgraded to **Postgres 16.2** for Windows installation. This means upgrading to AIMMS PRO 24.5.1 will require a database migration of your AIMMS PRO database. Please contact AIMMS Customer Support to help you with this upgrade.
+
+**Resolved Issues**
+
+   - Fixed an issue where external Python service was not accessible within AIMMS session on AIMMS Cloud Platform.
+
+PRO 24.4
+########
+
+AIMMS PRO 24.4.2 Release
+------------------------
+
+On March 26, 2024, we released AIMMS PRO 24.4.2(24.4.2.1)
+ 
+**Resolved Issues**
+
+   - **PRO REST API**: Publishing an app could fail when *publishBehavior = 0*
+
+AIMMS PRO 24.4.1 Release
+------------------------
+
+On March 14, 2024, we released AIMMS PRO 24.4.1(24.4.1.2)
+ 
+**Improvements**
+
+   - AIMMS Cloud Platform `Privacy Statement <https://documentation.aimms.com/cloud/privacy.html>`__ and `Responsible Disclosure Policy <https://documentation.aimms.com/infosec/responsible-disclosure.html>`__ are available on PRO Portal.
+
+**Resolved Issues**
+
+   - Fixed a permission issue where an App could be available to all users in some specific scenario.
+
+PRO 24.3
+########
+
+AIMMS PRO 24.3.1 Release
+------------------------
+
+On February 27, 2024, we released AIMMS PRO 24.3.1(24.3.1.1)
+ 
+**Improvements**
+
+   - Some internal improvement to handle AIMMS hotfix releases on cloud.
+
 PRO 24.2
 ########
+
+AIMMS PRO 24.2.2 Release
+------------------------
+
+On February 22, 2024, we released AIMMS PRO 24.2.2(24.2.2.1)
+ 
+**Improvements**
+
+   - **PRO REST API:Task Service**: Task REST API is extended with a call back feature which will allow you to request a call back that informs you when your task is completed, without polling all jobs continuously. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#request-a-task-call-back>`__ for more details. 
+   - **PRO REST API:Managing Apps**: We have made some changes in 'Managing Apps' API service,
+
+       - Publish app(POST request) returns application json instead of an empty response when app is successfully published.
+       - Update app(PATCH request) returns application json instead of an empty response when app is successfully updated.
+       - Metadata for POST request (Publish an App) is extended with *publishBehavior*, which will allow you to publish a new version of an existing application. Please see the `documentation <https://documentation.aimms.com/cloud/rest-api.html#example-using-postman-to-publish-an-application-post>`__ for more details.
 
 AIMMS PRO 24.2.1 Release
 ------------------------
@@ -50,7 +211,7 @@ On December 1, 2023, we released AIMMS PRO 2.52.2(2.52.2.1).
 
 **Improvements**
 
-   - Tasks REST API v2 is extended with the 'latest' appVersion support. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#Run-a-task-from-the-'latest'-version-of-an-app>`__ for more details 
+   - Tasks REST API v2 is extended with the 'latest' appVersion support. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#run-a-task-from-the-latest-version-of-an-app>`__ for more details 
  
 **Resolved Issues**
 
@@ -64,7 +225,7 @@ On November 21, 2023, we released AIMMS PRO 2.52.1(2.52.1.1).
  
 **Improvements**
 
-   - We have released a newly designed Tasks REST API Service(v2) with this PRO Version. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#tasks-rest-api-v1-and-v2>`__ for more details.  
+   - We have released a newly designed Tasks REST API Service(v2) with this PRO Version. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#tasks-rest-api-v2>`__ for more details.  
 
 PRO 2.51
 ########
@@ -133,7 +294,7 @@ On May 19, 2023, we released AIMMS PRO 2.49.1(2.49.1.1).
 
    - Starting with this PRO version each session recorded in the PRO Database will also record GBHour consumed (i.e memory consumed) per session.
    - PRO REST API: *projectVersionId* query parameter has been changed to *projectVersion* for GET Tasks.
-   - PRO REST API: Starting with this version it is possible to configure *REST session idle time* at account level. Please see the `documentation <https://documentation.aimms.com/cloud/rest-api.html#running-tasks>`__ for more details. (Please note that this feature can be avail fully only when all cloud accounts are moved to AIMMS PRO 2.49.1)
+   - PRO REST API: Starting with this version it is possible to configure *REST session idle time* at account level. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#running-tasks>`__ for more details. (Please note that this feature can be avail fully only when all cloud accounts are moved to AIMMS PRO 2.49.1)
    
 **Resolved Issues**
 
@@ -223,7 +384,7 @@ On October 13, 2022, we released AIMMS PRO 2.45.1 (2.45.1.5).
 
 **New Features**
 
-   - CRUD on Tasks: An extension to the AIMMS PRO REST API which allows users to perform CRUD operations on DEX-exposed tasks. Please see the `documentation <https://documentation.aimms.com/pro/rest-api.html#running-tasks>`__ for more details.   
+   - CRUD on Tasks: An extension to the AIMMS PRO REST API which allows users to perform CRUD operations on DEX-exposed tasks.
 
 **Improvements**
 
@@ -2928,4 +3089,5 @@ AIMMS PRO 2.1 Release
     refactored
     kb
     usernames
-	hotfix
+    hotfix
+    appVersion

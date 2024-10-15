@@ -58,6 +58,42 @@ It describes a JSON file with an object with four children, one of which is an a
         ]
     }
 
+Example: YAML mapping
+---------------------
+
+Look at the following mapping for a YAML format
+
+.. code-block:: xml
+
+    <AimmsYAMLMapping>
+        <ObjectMapping>
+            <ValueMapping name="scalarValue" maps-to="a"/>
+            <ValueMapping name="scalarElement" maps-to="b"/>
+            <ValueMapping name="scalarString" maps-to="c"/>
+            <ArrayMapping name="array">
+                <ObjectMapping>
+                    <ValueMapping name="k" binds-to="k"/>
+                    <ValueMapping name="val" maps-to="d(k)"/>
+                </ObjectMapping>
+            </ArrayMapping>
+        </ObjectMapping>
+    </AimmsYAMLMapping>
+
+It describes a YAML file with an object with four children, one of which is an array holding multiple structurally identical objects, bound to an index ``k``. A matching YAML file could look like: 
+
+.. code-block:: yaml
+
+	scalarValue: 123.45
+	scalarElement: 1
+	scalarString: a string
+	array:
+	- k: Amsterdam
+	  val: 1
+	- k: London
+	  val: 2
+	- k: New York
+	  val: 3
+
 Example: XML Mapping
 ---------------------
 

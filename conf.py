@@ -47,7 +47,9 @@ intersphinx_mapping = {'functionreference': ('https://documentation.aimms.com/fu
                         'lr': ('https://documentation.aimms.com/language-reference/', None),
                         'howto': ('https://how-to.aimms.com/', None),
                         'ug': ('https://documentation.aimms.com/user-guide/', None),
-                        'axll': ('https://documentation.aimms.com/aimmsxllibrary/', None),}
+                        'axll': ('https://documentation.aimms.com/aimmsxllibrary/', None),
+                        'webui': ('https://documentation.aimms.com/webui/', None),
+                        }
 	
 if os.name != 'nt':
 
@@ -57,7 +59,57 @@ if os.name != 'nt':
 
 # A list of regular expressions that match URIs that should not be checked when doing a linkcheck build.   
 linkcheck_ignore = [r'http://localhost:\d+/?', r'http://0\.0\.0\.0[:/]\d+/?', r'\b[\w-]+\.html', r'\.\..+\.html#?\w*', 
-r'_downloads/\w+\.pdf', r'http://your-server-name:\d+', r'http://example.com/?.*', r'https://yourproportal/?.*',r'https://your.*', r'https://icomoon.io/#preview-ultimate', r'https://cloud-name\.aimms\.cloud', r'https://cloud-name\.cloud\.aimms\.com']
+    r'_downloads/\w+\.pdf', r'http://your-server-name:\d+', r'http://example.com/?.*', r'https://yourproportal/?.*',r'https://your.*', r'https://icomoon.io/#preview-ultimate', r'https://cloud-name\.aimms\.cloud', r'https://cloud-name\.cloud\.aimms\.com']
+# get env variable SPHINX_EXTERNAL_SPELLCHECK to check external links
+if os.environ.get('SPHINX_IGNORE_EXTERNAL_LINKS') == 'true':
+    linkcheck_ignore += [
+        r'https://www\.flaticon\.com/.*',
+        r'https://en\.wikipedia\.org/.*',
+        r'https://www\.gurobi\.com/?', 
+        r'https://www\.urlencoder\.org/?', 
+        r'https://www\.postman\.com/?', 
+        r'https://www\.ibm\.com/?', 
+        r'https://www\.openapis\.org/?', 
+        r'https://techcommunity\.microsoft\.com/?', 
+        r'https://technet\.microsoft\.com/?', 
+        r'https://swagger\.io/?', 
+        r'https://oauth\.net/?', 
+        r'https://msdn\.microsoft\.com/?', 
+        r'https://support\.microsoft\.com/?', 
+        r'https://octeract\.com/?', 
+        r'https://regex101\.com/?', 
+        r'https://license\.gurobi\.com/?', 
+        r'https://learn\.microsoft\.com/?', 
+        r'https://jwt\.io/?', 
+        r'https://json-schema\.org/?',
+        r'https://guide\.coap\.online/?',
+        r'https://github\.com/?',
+        r'https://ec\.europa\.eu/?',
+        r'https://fastapi\.tiangolo\.com/?',
+        r'https://docs\.snowflake\.com/?',
+        r'https://azure\.microsoft\.com/?',
+        r'https://cve\.mitre\.org/?',
+        r'https://docs\.microsoft\.com/?',
+        r'https://docs\.aws\.amazon\.com/?',
+        r'https://curl\.se/?',
+        r'https://cran\.r-project\.org/?',
+        r'http://www\.coin-or\.org/?',
+        r'https://aws\.amazon\.com/?',
+        r'http://www\.theoptimizationfirm\.com/?',
+        r'http://www\.optimizationdirect\.com/?',
+        r'http://www\.artelys\.com/?',
+        r'http://www\.conopt\.com/?',
+        r'http://pages\.cs\.wisc\.edu/?',
+        r'http://sbsi-sol-optimize\.com/?',
+        r'http://logback\.qos\.ch/?',
+        r'http://activemq\.apache\.org/?',
+        r'http://www\.log4view\.com/?',
+        r'http://en\.wikipedia\.org/?',
+        r'http://www\.gurobi\.com/?',
+        r'https://www\.otexts\.org/?'
+    ]
+
+
     
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -152,6 +204,7 @@ html_theme_options = {
     'algolia_appid': 'O7P0H7XDLZ', 
     'algolia_appkey': 'acafdefd4d3b6319f20faf2c9052a24b', 
     'algolia_indexname': 'aimms',
+    'algolia_hitsperpage': 10,
     'aimms_support_menu_id': 'documentation',
     'generate_aimms_support_menu' : True,
     'display_help_and_feedback' : True,

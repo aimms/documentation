@@ -7,6 +7,33 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+24.4.1.1 [23-09-2024]
+	- Implement reconnect logic to (automatically) reconnect to (and/or, in the AIMMS cloud, start a new on-demand) CDM service in case of disconnect. This can be accomplished via the new function `cdm::ReconnectToApplicationDB` and `cdm::AutoReconnectToCDMService`
+	- The CDM schema upgrade could fail in case multiple schema upgrades were executed at once.
+	
+24.3.1.1 [25-08-2024]
+	- Set `MySQL` ``net_write_timeout`` variable to 3600 seconds on all connections to prevent lost connections when pulling data for identifiers with a huge amount of data in a lot of revisions
+	- Database exceptions were not always properly propagated, potentially leading to incorrect pull change sets and/or cached snapshots
+	
+24.2.1.5 [22-08-2024]
+	- `loopcount` did not produce the correct value in an `onerror` clause, leading to errors not being propagated properly
+	- CDMService could crash on empty changesets for sets
+	- Location of Windows `CDMService` download location had changed and was shown incorrectly
+
+24.2.1.2 [15-05-2024]
+	- Increase number of dispatcher threads from 16 to 64 in CDM service
+	- Improve handling of heartbeat message by making them priority messages
+	- Improve fix in version 24.1.1.3 by setting locale in CDM service
+
+24.1.1.4 [17-04-2024]
+	- During checkout CDM would complain unnecessarily about non-existing elements when using AIMMS 24, where AIMMS >= 4.84 should have prevented this
+
+24.1.1.3 [16-04-2024]
+	- Set labels with non-ASCII Unicode characters might result in duplicate entries in namespace tables due to incorrect lower case conversion
+
+24.1.1.1 [30-03-2024]
+	- Categories are now traversed in the dependency order, to make sure changes for categories are committed in the order in which they should be pulled.
+	
 23.1.0.8 [09-12-2023]
 	- A warning is issued for identifiers with a non-zero identifier order, but without assigned to a CDM category. When these identifiers are referenced as root set in the index domain of multi-dimensional data or of the range of an element parameter, as the begin/end date of a calendar, or in the definition of a root set, such identifiers may give problems when checking out data, and hence need to be assigned to a category themselves. Because of the broadness of the dependency checks in CDM, the warning may also point to harmless identifiers. After investigation, the user can suppress any further warning for such identifiers by setting `cdm::SuppressDependencyWarning` to 1.
 	

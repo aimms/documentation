@@ -63,14 +63,8 @@ When the appVersion is specified in create task request it schedule a task with 
 		
 For above request, it will schedule a task for TestApp version 1.0.
 
-Tasks REST API V1 and V2
-------------------------
-
-Currently we have two REST APIs for Tasks: v1 and v2, where **v2** is the latest implementation with more reliable and robust design which supports all the functionality provided by v1. We recommend the use of v2 for all new applications or please consider switching to v2 if you are already using v1.
-
-.. important::
-
-   Tasks REST API **v1** is available only till **January 31, 2024**. Please consider migrating to **v2** as soon as possible.
+Tasks REST API V2
+-----------------
 
 The full OpenAPI specification of this service can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v2/``.
 
@@ -103,6 +97,39 @@ Service Endpoint: ``https://[account-name].aimms.cloud/pro-api/v2/tasks``
 	statuses , current_batch
 	total_size , total_tasks
 	
+Request a task call back
+------------------------
+
+When users create tasks (POST), they can specify an optional HTTP header named *taskStateHook* specifying the hook URL which task service will call on any changes in the created task state starting from queued to completed or failed. The task scheduler will call this hook semi-passively, meaning there's a strict timeout, no retry, and no redirect. This is to reduce the load incurred to our service when a hook target is unavailable or not responsive.
+
+The following query parameters are added to the hook URL which is called using the HTTP **PUT** method:
+  
+    - *task_uuid*: Identifies the task that its state is changed.
+    - *task_state*: The new state of the task.
+    - *at*: The time point that the hook is being invoked. This is to prevent potential replay attacks.
+    - *hmac*: If the hook URL contains a query parameter with the name 'key', then an HMAC is calculated based the the value of it and the task's UUID. The hook receiver can use this HMAC to validate the authenticity of the call. The original 'key' query parameter will be removed from the call.
+	
+Schedule Task(s)
+----------------
+
+3 new query parameters are added to **create-task** endpoint:
+
+	- *scheduleFor*: This optional parameter indicates the time point a task should run after it. The task won't start until after the time point is passed. The format of this parameter is YYYY-MM-DD hh:mm:ss.ms +/-HH:MM. After the minutes, everything else is optional. If the timezone offset is not specified, the time will be considered in UTC.
+	- *scheduleIn*: This optional parameter indicates the interval a task should run after. The task won't start until after the interval is passed. The format of this parameter is either ISO8601 format like P1DT2H3M4S or human-readable format for example 1 day or 2 weeks.
+	- *scheduleInterval*: This optional parameter indicates that the task should be repeated in the given intervals. For example, if it's set to 1 day, the task will be scheduled for the next day after the initial schedule. Also a new property called *groupIndex* is added to the task object indicating its index within the group starting from zero. The first task with *scheduleInterval* will have *groupIndex=0* and subsequent runs will have the next groupIndexes in order. To stop the automated scheduling, the last scheduled task should be deleted. See below for how to delete the latest task in the group.
+  
+A new query parameter is added to **get-task**, **interrupt-task**, **delete-task**, and **get-task-response** endpoints.
+
+	*groupIndex*:
+		- This optional parameter indicates which index within the group should be used.
+		- For tasks without *scheduleInterval*, this parameter can be avoided, and the previous behavior will be kept.	
+		- For tasks with *scheduleInterval*, this parameter can be used to point to a specific index. If *groupIndex* is not set then last index will be used. For example, to delete the last task in the group and stop the automated scheduling, simply call the delete-task endpoint without specifying *groupIndex*.
+  
+The task object is extended with following new properties:
+
+	- *scheduleFor*: Indicates when the task is scheduled to run. For tasks without *scheduleFor*, this property is set to null.
+	- *scheduleInterval*: Indicates at what interval task should be repeated. For tasks without *scheduleInterval*, this property is set to null.
+	- *groupIndex*: Indicates the index of the task within its group. All tasks within a group have the same UUID but different indexes. For tasks without *scheduleInterval*, this property is set to null.
 
 
 
