@@ -4,6 +4,15 @@ AIMMS PRO Release Notes
 PRO 24.9
 ########
 
+AIMMS PRO 24.9.2 Release
+------------------------
+
+On October 8, 2024, we released AIMMS PRO 24.9.2(24.9.2.2)
+
+**Resolved Issues**
+
+   - Fixed an issue where solver session could not finish and result in error when using solver lease.
+
 AIMMS PRO 24.9.1 Release
 ------------------------
 
@@ -11,7 +20,7 @@ On September 24, 2024, we released AIMMS PRO 24.9.1(24.9.1.3)
 
 **Improvements**
 
-Many of the 3rd party libraries and dependency libraries used by AIMMS PRO (for both on-premise and cloud) are upgraded to newer versions. 
+   - Many of the 3rd party libraries and dependency libraries used by AIMMS PRO (for both on-premise and cloud) are upgraded to newer versions. 
 
 PRO 24.8
 ########
