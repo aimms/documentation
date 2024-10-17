@@ -12,6 +12,7 @@ On October 8, 2024, we released AIMMS PRO 24.9.2(24.9.2.2)
 **Resolved Issues**
 
    - Fixed an issue where solver session could not finish and result in error when using solver lease.
+   - Prevent sessions to get restarted when they get OOM killed.
 
 AIMMS PRO 24.9.1 Release
 ------------------------
