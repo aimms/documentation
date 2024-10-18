@@ -4,6 +4,15 @@ AIMMS PRO Release Notes
 PRO 24.9
 ########
 
+AIMMS PRO 24.9.3 Release
+------------------------
+
+On October 18, 2024, we released AIMMS PRO 24.9.3(24.9.3.1)
+
+**Resolved Issues**
+
+   - Fixed a performance issue related to having many object versions (file versions) in the same folder. This performance issue could cause in extreme situations (over 300K+ object versions) result in an application not starting.
+
 AIMMS PRO 24.9.2 Release
 ------------------------
 
