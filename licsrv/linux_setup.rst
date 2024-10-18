@@ -9,7 +9,7 @@ The AIMMS Network License Server on Linux consist of two binary components: the 
 Setting up a license
 ---------------------
 
-The easiest way to install a license is to use the nodelock activation mechanism. This requires that you have an activation code and the license number acquired from AIMMS. Next you can activate the license using the following commands:
+The easiest way to install a license is to use the nodelock activation mechanism. This requires that you have an activation code and the license number acquired from AIMMS. The license files (.lic and potentially .cpx) need to be stored in the ``/usr/local/Aimma/Licenses`` folder. Next you can activate the license using the following commands:
 
 .. code:: bash
 
