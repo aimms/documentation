@@ -36,3 +36,5 @@ The license server listen ports 3400 and 3401 by default. In the current version
   daemon
   licman
   systemd
+  lic
+  cpx
