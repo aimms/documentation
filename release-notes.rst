@@ -13,6 +13,23 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.12 Release (October 22, 2024 - build 24.5.12.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The functions in the AimmsAPI now check whether a handle refers to a deleted symbol. This may fix some crashes that happen in combination with the DEX library.
+-  Special values like INF or -INF were not handled correctly when a unit conversion was applied.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.11 Release (October 15, 2024 - build 24.5.11.1).
 ------------------------------------------------------------------------------------------
 
