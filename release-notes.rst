@@ -13,6 +13,22 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.13 Release (October 23, 2024 - build 24.5.13.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Adapted FFRead DLL to customer wishes.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.12 Release (October 22, 2024 - build 24.5.12.2).
 ------------------------------------------------------------------------------------------
 
