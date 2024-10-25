@@ -135,6 +135,11 @@ This will generate Data Exchange mappings in the subfolder ``Mappings/Generated`
     ``Generated/<dataset>-<table>-XML-DenseAttribute``, table ``<table>`` in dataset ``<dataset>`` in a single dense XML file (indices and values as elements; also default data)
     ``Generated/<dataset>-<table>-CSV``, table ``<table>`` in dataset ``<dataset>`` in a single CSV file
 
+Adding extra attributes to tables
++++++++++++++++++++++++++++++++++
+
+In addition to adding extra attributes to columns via the ``dex::ExtraAttributeList`` annotation, you can also add additional attributes to tables in generated mappings, via the string parameter ``dex::DatasetTableExtraAttribute(ds,tbl,attr)``. You can use this, for instance, to assign colors to sheets in a generated Excel mapping.
+
 Adding extra columns
 ++++++++++++++++++++
 

@@ -13,6 +13,11 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.5.1.1 (25-10-2024)
+	- Add support for installing and running Jupyter notebooks on Databricks
+	- Add support for installing and including PBI Embedded reports into WebUI applications
+	- Allow specifying extra attributes on generated tables for datasets
+	
 24.4.1.3 (29-09-2024)
 	- Subset filtering did not work correctly for row-based formats
 	- The set `dex::ExcelColors` was not filled with all colors that were allowed in the `color` mapping attribute

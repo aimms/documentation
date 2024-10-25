@@ -506,6 +506,40 @@ The following functions are available for management of the memory streams.
 	:param fileName: name of the file from which the content of the stream needs to be read.
 	:param base64: (optional) argument indicating whether the content of the memory stream should be base64-encoded
 
+.. js::function:: dex::ReadStreamFromFile
+
+	Read the content of a file into a memory stream. 
+	
+	:param streamName: name of memory stream to write content to
+	:param fileName: name of the file from which the content of the stream needs to be read.
+	:param base64: (optional) argument indicating whether the content of the memory stream should be base64-encoded
+
+.. js::function:: dex::StreamLength
+
+	Return the size of the content of a memory stream 
+	
+	:param streamName: name of memory stream
+
+.. js::function:: dex::Base64EncodeStream
+
+	Replace the content of a stream by the base64 encoded content currently in the memory stream. 
+	
+	:param streamName: name of memory stream to base64 encode
+
+.. js::function:: dex::Base64DecodeStream
+
+	Replace the content of a stream by the base64 decoded content currently in the memory stream. 
+	
+	:param streamName: name of memory stream to base64 decode
+
+.. js::function:: dex::RegexReplaceStream
+
+	Replace the content of a stream by content currently in the memory stream with all regular expression replacements applied to it.
+	
+	:param streamName: name of memory stream to base64 decode
+	:param regexIdentifier: string parameter defined over a set of regular expressions holding the replacement text for each regular expression
+
+
 
 Generators
 ----------
