@@ -66,7 +66,7 @@
    User's Guide <https://documentation.aimms.com/user-guide/index.html>
    Language Reference <https://documentation.aimms.com/language-reference/index.html>
    aimms_modeling
-   webui
+   webui <https://documentation.aimms.com/webui/index.html>
    pro/index
    cloud/index  
    dataintegration/index   
