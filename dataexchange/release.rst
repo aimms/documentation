@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.5.1.2 (29-10-2024)
+	- 64-bit integer fields in a Parquet file got truncated to 32-bit when converted to a set label
+
 24.5.1.1 (25-10-2024)
 	- Add support for installing and running Jupyter notebooks on Databricks
 	- Add support for installing and including PBI Embedded reports into WebUI applications
