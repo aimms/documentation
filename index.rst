@@ -59,7 +59,6 @@
 -----------------------------------------------------------
       
 .. toctree::
-   :hidden:
 
    platform/index
    Function Reference <https://documentation.aimms.com/functionreference/index.html>
