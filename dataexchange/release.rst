@@ -13,6 +13,11 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+
+24.6.1.1 (03-11-2024)
+	- Allow display names for all set elements thru `binds-to-display-name` and `range-display-name` attributes
+	- Fix to running Jupyter notebooks on Databricks
+
 24.5.1.2 (29-10-2024)
 	- 64-bit integer fields in a Parquet file got truncated to 32-bit when converted to a set label
 

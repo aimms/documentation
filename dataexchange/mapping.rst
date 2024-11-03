@@ -80,7 +80,8 @@ The available mapping attributes are:
 
 * name
 * alt-name              
-* binds-to          
+* binds-to
+* binds-to-display-name          
 * name-binds-to
 * name-binds-to-display-name     
 * name-regex
@@ -97,7 +98,8 @@ The available mapping attributes are:
 * skip-empty-rows
 * maps-to
 * precision
-* max-string-size    
+* max-string-size  
+* range-display-name  
 * range-existing
 * value
 * number-type
@@ -120,6 +122,12 @@ The binds-to attribute
 ----------------------
 
 The ``binds-to`` attribute, which can be added to the mapping of any value-holding element. The ``binds-to`` attribute will also provide an index binding for all sibling mapping elements of mapping element for which it is specified, or for the parent element in case the ``binds-to`` attribute is applied to an ``AttributeMapping`` element. 
+
+Through the ``binds-to-display-name`` attribute you can specify the display name to be used for elements created via a ``binds-to`` attribute. The value of the attribute should be a one-dimensional string parameter defined over the index used in the ``binds-to`` attribute. When writing a file, the Data Exchange library will use this name for the elements to be created rather than the set label.  When reading a file, the Data Exchange library will both support elements that hold the original index label as well as the display name specified through the ``binds-to-display-name`` attribute. Note that the display names will be collected during the call to :js:func:`dex::AddMapping`.
+
+.. note::
+
+		You should only use a single identifier for specifying display names per index, thru either the ``binds-to-display-name`` or ``name-binds-to-display-name``. When collecting the display names during the call to :js:func:`dex::AddMapping`, these will be stored in a global index-specific structure, that is used for any instance of the index that has a display name attribute specified.
 
 Subset filtering
 ++++++++++++++++
@@ -195,6 +203,12 @@ You can assign the ``maps-to`` attribute to any value-holding mapping element. I
 The ``write-filter`` attribute can be specified at any node in the mapping tree, and should be a reference to an identifier in the model including the bound indices at this location as for the ``maps-to`` attribute. For any tuple of bound indices for which the ``write-filter`` attribute does not hold a non-default value, the corresponding part of the generate JSON, XML or CSV/TSV file will be skipped. 
 
 When writing numerical data, you can use the ``precision`` attribute to specify the number of decimals with which the numerical data should be written. The attribute should hold a value between 0 and 16, and the numerical value will be rounded to the specified number of decimals.
+
+When writing element data, you can specify the display name to be used for element values through the ``range-display-name`` attribute. The value of the attribute should be a one-dimensional string parameter defined over the index into the range set of the element parameter. When writing a file, the Data Exchange library will use this name for the elements to be created rather than the set label.  When reading a file, the Data Exchange library will both support elements that hold the original label as well as the display name specified through the ``range-display-name`` attribute. Note that the display names will be collected during the call to :js:func:`dex::AddMapping`.
+
+.. note::
+
+		You should only use a single identifier for specifying display names per range set. When collecting the display names during the call to :js:func:`dex::AddMapping`, these will be stored in a global range-set-specific structure, that is used for any instance of the range set of element parameters that have a display name attribute specified.
 
 By default, the Data Exchange library assumes that all string values will hold up to 1024 characters. Through the ``max-string-size`` attribute a maximum string size up to 1 MB can be specified.
 
