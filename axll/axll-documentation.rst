@@ -29,15 +29,15 @@ AIMMSXL Documentation
     
         block
 
-          axll::OpenWorkbook("mybook.xlsx");
+            axll::OpenWorkbook("mybook.xlsx");
       
-          ! .. read or write the sheets in the workbook ..
+            ! .. read or write the sheets in the workbook ..
       
         onerror err do
       
-          ! .. handle the error or warning ..
+            ! .. handle the error or warning ..
       
-          errh::MarkAsHandled(err);
+            errh::MarkAsHandled(err);
       
         endblock;
       
@@ -433,7 +433,7 @@ Sets Read Write
         
         - 2 : elements not in the parent set are skipped
         
-        If :any:`SetReference` does not refer to a set that has the subsetOf attribute specified, then this argument is ignored.
+        If :any:`SetReference` does not refer to a set that has the ``Subset of`` attribute specified, then this argument is ignored.
     
     .. aimms:parameter:: MergeWithExistingElements
     
@@ -462,11 +462,12 @@ Utilities
     
     **Examples:**
 
-        .. code::
-        
-          ConstructRange("C2",2,10,myString) 
-        
-      sets myString to "C2:D11" 
+    .. code-block:: aimms
+        :linenos:
+    
+        ConstructRange("C2",2,10,myString) 
+    
+    sets ``myString`` to "C2:D11" 
 
     .. aimms:stringparameter:: StartCell
     
@@ -1352,3 +1353,6 @@ Multi Dimensional Data
         any other existing data in the identifier will remain unmodified.
 
 
+.. spelling:word-list::
+    
+    th
