@@ -1,14 +1,13 @@
-
-
 AIMMSXL Documentation
-####################################
+======================
+
 .. aimms:module:: axll
 
 .. aimms:librarymodule:: Library_AimmsXLLibrary
 
     :attribute Prefix: ``axll``
 
-    :attribute Interface: :doc:`PublicSection`
+    :attribute Interface: ``PublicSection``
 
     This library allows you to read from and write to .xlsx or .xls (Excel) files.
     
@@ -25,8 +24,8 @@ AIMMSXL Documentation
     
     A typical usage looks like:
     
-      .. code::
-        :lineos:
+    .. code-block:: aimms
+        :linenos:
     
         block
 
@@ -43,6 +42,73 @@ AIMMSXL Documentation
         endblock;
       
         axll::CloseAllWorkbooks;  ! save and close any open workbook
+
+Public Section
+----------------
+
+.. aimms:parameter:: CalendarElementsAsStrings
+
+    :attribute Default: 0
+
+    :attribute Property: NoSave
+
+
+    Allowed values: 0 (=default) or 1.
+    
+    By default, when writing elements of a calendar set to a sheet, the written cells will be formatted as a Date (which always includes at least a year, a month and a day).
+    If the format of the calendar does not included all these parts, it might be more convenient to write the elements as simple strings according to the calendar format.
+    For example a calendar with elements { 2016, 2017, 2018 } will then be written as "2016", "2017", "2018" instead of 2016/1/1, 2017/1/1, 2018/1/1
+    
+    Similarly when reading calendar elements, by default the library expects cells formatted as Date, but when this option is set to 1 it expects strings according to the 
+    date format of the calendar.
+
+.. aimms:parameter:: WriteInfValueAsString
+
+    :attribute Default: 0
+
+    :attribute Property: NoSave
+
+
+    Allowed values: 0 (=default) or 1.
+    
+    By default, when writing numerical data that contains the value `INF` or `-INF`, 
+    these values are written to a cell as the number 1E+150 and -1E+150 respectively.
+    If you set this option to 1, these values will be written not a as numbers but as strings ("INF" and "-INF").
+    This might be convenient to visually inspect the values in Excel, but please be aware that Excel formulas that 
+    operates on a range with both numerical and string values present, might not work as expected.
+
+.. aimms:parameter:: KeepExistingCellFormats
+
+    :attribute Default: 0
+
+    :attribute Property: NoSave
+
+
+    Allowed values: 0 (=default) or 1.
+    
+    By default, when writing data into a cell, AIMMS checks whether the specified format of that cell matches the value that is written.
+    If it does not match (for example if a string value is written into a cell that is formatted as Number) then it changes the format 
+    of the cell such that the value can be correctly written.
+    If you set this option to 1, the format will *not* be checked and values are just copied to the cell, leaving the format as is.
+    
+    Setting this option to 1 is especially useful when your sheet contains cells with a custom format for which it unclear what 
+    type of values can be written into it.
+
+.. aimms:parameter:: TrimLeadingAndTrailingSpaces
+
+    :attribute Default: 0
+
+    :attribute Property: NoSave
+
+
+    Allowed values: 0 (=default) or 1.
+    
+    By default, when reading string valued cells, any leading or trailing spaces in a cell are interpreted by AIMMS as part of string (or element name).
+    If you set this option to 1 prior to reading any data these leading and/pr trailing spaces will be removed.
+    In other words: a cell with value "  my cell value " will be passed to AIMMS as "my cell value".
+    
+    This option does not have an effect on strings or elements that are written to the spreadsheet.
+
 
 Workbook Management
 ---------------------------
@@ -211,6 +277,417 @@ Workbook Management
         The path name of an .xlsx or .xls file.
     
 
+Scalar Read Write
+--------------------
+
+   
+.. aimms:externalprocedure:: ReadSingleValue(ScalarReference,Cell)
+
+    This function reads a cell from the active excel sheet into the given identifier.
+    
+    The type of the identifier (numerical, string, element) should match with the content of the cell.
+
+    .. aimms:handle:: ScalarReference
+    
+        :attribute Property: Output
+    
+    
+        (output) The scalar identifier to be changed. This can also be a multi dimensional 
+        identifier where all indices are fixed, such that the resulting slice is a scalar.
+    
+    .. aimms:stringparameter:: Cell
+    
+        :attribute Property: Input
+    
+    
+        The cell in the active sheet to read from.
+        Examples: "A1", "G4" 
+    
+.. aimms:externalprocedure:: WriteSingleValue(ScalarReference,Cell)
+
+    This function writes a scalar to the active excel sheet 
+    
+    The type of the identifier (numerical, string, element) determines whether
+    the cell will be formatted as a number or as text.
+
+    .. aimms:handle:: ScalarReference
+    
+        :attribute Property: Input
+    
+    
+        The scalar identifier to be written. This can also be a multi dimensional 
+        identifier where all indices are fixed, such that the resulting slice is a scalar.
+    
+    .. aimms:stringparameter:: Cell
+    
+        :attribute Property: Input
+    
+    
+        The cell in the active sheet to write to.
+        Examples: "A1", "G4\
+    
+.. aimms:externalprocedure:: WriteFormula(FormulaString,Cell)
+
+    This function creates a formula in the active sheet.
+    
+    The given string should be a valid formula representation in Excel. It is copied as is.
+    
+    Please note that the AimmsXLLibrary is not capable of evaluating any formula. 
+    It can only read and write .xls or .xlsx files and does not have access to the full
+    calculation engine of Excel.
+    To evaluate a formula you must open the sheet in Excel. Excel does store the result
+    of a formula in the cell and these calculated results of a formula can be
+    read back using the AimmsXLLibrary.
+    
+    **Examples:**
+    
+        .. code-block:: none
+
+            WriteFormula("=SUM(B2:B6)","B7");
+    
+            WriteFormula("=HYPERLINK(\\"#B7\\",\\"Goto Sum\\")", "A8");
+
+    .. aimms:stringparameter:: FormulaString
+    
+        :attribute Property: Input
+    
+        A string containing a valid Excel formula.
+    
+    .. aimms:stringparameter:: Cell
+    
+        :attribute Property: Input
+    
+        The cell in the active sheet to write to.
+
+Sets Read Write
+-----------------------
+   
+.. aimms:externalprocedure:: WriteSet(SetReference,SetRange,AllowRangeOverflow)
+
+    This function writes the elements of a set to the active Excel sheet.
+    
+    .. note::
+    
+      - An error occurs if the range is too small, except when :any:`AllowRangeOverflow` is set to 1.
+    
+      - Remaining cells are emptied if the there are more cells than set elements.
+    
+      - When writing a calendar set, the cells will be formatted as Date/Time unless the option :any:`CalendarElementsAsStrings` is set to 1.
+
+    .. aimms:set:: SetReference
+    
+        :attribute Property: Input
+    
+        The (simple) set to be written to excel.
+    
+    .. aimms:stringparameter:: SetRange
+    
+        :attribute Property: Input
+    
+        The 1 dimensional excel range where the data should be written, either horizontal or vertical.
+        
+        **Examples:** "A1:A10" or "B2:M2" 
+    
+    .. aimms:parameter:: AllowRangeOverflow
+    
+        :attribute Range: :aimms:set:`[0, 1]`
+    
+        :attribute Property: Optional
+    
+        (optional) Default is 0. If set to 1 and the cardinality of the set is greater than the size of the range,
+        then the write operation is allowed to extend the range to the needed size.
+    
+.. aimms:externalprocedure:: ReadSet(SetReference,SetRange,ExtendSuperSets,MergeWithExistingElements,SkipEmptyCells)
+
+    This function reads the cells of a range from the active excel sheet and converts them to
+    elements in the given set reference.
+
+    .. aimms:set:: SetReference
+    
+        :attribute Property: InOut
+    
+        The (simple) set to which the elements should be added. 
+        If the argument :any:`MergeWithExistingElements` is set to 0, the set will first be emptied.
+    
+    .. aimms:stringparameter:: SetRange
+    
+        :attribute Property: Input
+
+        The 1 dimensional excel range where the data resides, either horizontal or vertical.
+        
+        **Examples:** "A1:A10" or "B2:M2" 
+    
+    .. aimms:parameter:: ExtendSuperSets
+    
+        :attribute Range: :aimms:set:`[0, 2]`
+    
+        :attribute Property: Input
+    
+        This determines what should happen with elements that are not present in the super set of the given set.
+        
+        Values:
+        
+        - 0 : elements not in the parent set result in an error
+        
+        - 1 : elements not in the parent set are added recursively
+        
+        - 2 : elements not in the parent set are skipped
+        
+        If :any:`SetReference` does not refer to a set that has the subsetOf attribute specified, then this argument is ignored.
+    
+    .. aimms:parameter:: MergeWithExistingElements
+    
+        :attribute Property: Optional
+    
+        (optional) Default is 0.  
+        If this option is set to 1 then the elements from the range are added to the current content of the set.
+        If set to 0, the set is first emptied and then the elements are added.
+    
+    .. aimms:parameter:: SkipEmptyCells
+    
+        :attribute Property: Optional
+    
+        (optional) Default is 0.
+        
+        - If set to 0, reading of the range stops as soon as an empty cell is encountered and a warning is raised.
+        - If set to 1, an empty cell in the range is simply skipped.
+
+
+Utilities
+-----------------
+   
+.. aimms:externalprocedure:: ConstructRange(startCell,width,height,ResultingRange)
+
+    This support function creates a range string given a starting cell and sizes.
+    
+    **Examples:**
+
+        .. code::
+        
+          ConstructRange("C2",2,10,myString) 
+        
+      sets myString to "C2:D11" 
+
+    .. aimms:stringparameter:: StartCell
+    
+        :attribute Property: Input
+    
+        A string representing the top left cell of the range. 
+        **Examples:** "A1" or "D15".
+    
+    .. aimms:parameter:: Width
+    
+        :attribute Property: Input, Integer
+    
+        The number of columns of the range. It should be an integer value >= 1.
+    
+    .. aimms:parameter:: Height
+    
+        :attribute Property: Input, Integer
+    
+        The number of rows of the range. It should be an integer value >= 1.
+    
+    .. aimms:stringparameter:: ResultingRange
+    
+        :attribute Property: Output
+    
+        (Output) The constructed range representation. 
+        **Examples:** "C2:D11" 
+    
+.. aimms:externalprocedure:: GetAllSheetNames(SheetNames)
+
+    This function reads all existing sheet names of the active workbook and adds them as elements to the give set.
+
+    .. aimms:set:: SheetNames
+    
+        :attribute Property: Output
+    
+        (Output) This argument should refer to an (empty) root set. On return the set will contain elements 
+        that are named according to all sheets in the workbook.
+    
+    
+.. aimms:externalprocedure:: GetNamedRanges(RangeNames,SheetName)
+
+    This function reads all the named ranges for the given sheet (both local and global scope).
+    The names of the ranges will be added as elements to the given set.
+
+    .. aimms:set:: RangeNames
+    
+        :attribute Property: Output
+    
+        (Output) This argument should refer to an (empty) root set. On return the set will contain elements 
+        that are named according to the named ranges.
+    
+    
+    .. aimms:stringparameter:: SheetName
+    
+        :attribute Property: Optional
+    
+        (optional) The name of an existing sheet in the active workbook.
+        If not specified the active sheet will be used.
+    
+.. aimms:externalprocedure:: ClearActiveSheet
+
+    This function clears the entire content of the currently active sheet.
+
+.. aimms:externalprocedure:: ClearRange(RangeToClear)
+
+    This function clears all cells in the given range in the currently active sheet.
+
+    .. aimms:stringparameter:: RangeToClear
+    
+        :attribute Property: Input
+    
+        The (named) range to be cleared.
+        Examples: "A3:G10", "MyNamedRange\
+    
+.. aimms:externalprocedure:: ColumnNumber(colName)
+
+    :attribute ReturnType: integer
+
+    This utility function will return the sequence number of the column passed in.
+    
+    **Examples:**
+    
+    - ColumnNumber("A") will return 1
+
+    - ColumnNumber("B") will return 2
+
+    - ColumnNumber("AB") will return 28
+    
+    The name passed in can only contain characters in the range 'A' to 'Z' (or 'a' to 'z').
+    
+    Please note that there are limits on the number of columns in Excel:
+    The maximum column name for an .xlsx file is "XFD" (16,384) and for an .xls file it is "IV" (256).
+
+    .. aimms:stringparameter:: colName
+    
+        :attribute Property: Input
+    
+        The name of a column.
+        Examples: "A", "AB\
+    
+.. aimms:externalprocedure:: ColumnName(colNumber,colName)
+
+    This utility function gives you the name that corresponds to the n-th column
+    
+    **Examples:**
+    
+    - ColumnName(1,name) will set name to "A"
+
+    - ColumnName(2,name) will set name to "B"
+
+    - ColumnName(28,name) will set name to "AB"
+    
+    The column number should be an integer greater or equal to 1.
+    
+    Please note that there are limits on the number of columns in Excel:
+    The maximum number of columns an .xlsx file is 16,384 ("XFD") and for an .xls file it is 256 ("IV").
+
+    .. aimms:parameter:: colNumber
+    
+        :attribute Property: Input
+    
+        The column number (should be >= 1)
+    
+    .. aimms:stringparameter:: colName
+    
+        :attribute Property: Output
+    
+        (output) The name of the column.
+    
+.. aimms:externalprocedure:: CopyRange(DestinationRange,SourceRange,SourceSheet,AllowRangeOverflow)
+
+    This function will copy all cells in a range to another range within the same workbook. All cell formatting is copied as well.
+    
+    If copying within the same sheet, it is not allowed to specify ranges that (partly) overlap.
+    
+    **Examples:**
+    
+    .. code-block:: aimms
+        :linenos:
+
+        CopyRange("B2", "A1:D10", SourceSheet:"OtherSheet", AllowRangeOverflow:1)
+    
+     This copies all the cells in the range A1:D10 of sheet OtherSheet to the range B2:E11 in the active sheet.
+
+    .. aimms:stringparameter:: DestinationRange
+    
+        :attribute Property: Input
+    
+    
+    .. aimms:stringparameter:: SourceRange
+    
+        :attribute Property: Input
+    
+    
+    .. aimms:stringparameter:: SourceSheet
+    
+        :attribute Property: Optional
+    
+    
+    .. aimms:parameter:: AllowRangeOverflow
+    
+        :attribute Default: 1
+    
+        :attribute Property: Optional
+    
+    
+.. aimms:externalprocedure:: FirstUsedRowNumber
+
+    :attribute ReturnType: integer
+
+    This function returns the first row in the current sheet that contains a cell with data.
+
+.. aimms:externalprocedure:: LastUsedRowNumber
+
+    :attribute ReturnType: integer
+
+    This function returns the last row in the current sheet that contains a cell with data.
+
+.. aimms:externalprocedure:: FirstUsedColumnNumber
+
+    :attribute ReturnType: integer
+
+    This function returns the number of the first column in the current sheet that contains a cell with data.
+    If you need the corresponding column name you can use the function :any:`ColumnName`.
+
+.. aimms:externalprocedure:: LastUsedColumnNumber
+
+    :attribute ReturnType: integer
+
+    This function returns the number of the last column in the current sheet that contains a cell with data.
+    If you need the corresponding column name you can use the function :any:`ColumnName`.
+
+.. aimms:externalprocedure:: SetRangeBackgroundColor(RangeToColor,red,green,blue)
+
+    With this function you can specify a background color for the given cell range.
+
+    .. aimms:stringparameter:: RangeToColor
+    
+        :attribute Property: Input
+    
+        The (named) range for which you want to specify the background color.
+        Examples: "A3:G10", "C1", "MyNamedRange" 
+    
+    .. aimms:parameter:: red
+    
+        :attribute Property: Input
+    
+        The 'red' value of an RGB color value [0 .. 255]
+    
+    .. aimms:parameter:: green
+    
+        :attribute Property: Input
+    
+        The 'green' value of an RGB color value [0 .. 255]
+    
+    .. aimms:parameter:: blue
+    
+        :attribute Property: Input
+    
+        The 'blue' value of an RGB color value [0 .. 255]
+    
 Multi Dimensional Data
 ------------------------------
    
@@ -225,27 +702,31 @@ Multi Dimensional Data
     
     - 2-dimensional with one index in rows and one index in columns: 
     
-      .. code::
+        .. code-block:: aimms
+            :linenos:
       
-        ReadTable( P2(i,j), "A2:A12", "B1:H2", "B2:H12" )
+            ReadTable( P2(i,j), "A2:A12", "B1:H2", "B2:H12" )
     
     - 1-dimensional with the single index as rows: 
     
-      .. code::
+        .. code-block:: aimms
+            :linenos:
       
-        ReadTable( P1(i), "A1:A10", "", "B1:B10" )
+            ReadTable( P1(i), "A1:A10", "", "B1:B10" )
     
     - 1-dimensional with the single index as columns: 
     
-      .. code::
+        .. code-block:: aimms
+            :linenos:
       
-        ReadTable( P1(i), "", "A1:H1", "A2:H2" )
+            ReadTable( P1(i), "", "A1:H1", "A2:H2" )
     
     - 5-dimensional with first 3 indices as row tuples and the last 2 indices as column tuples:
     
-      .. code::
-      
-        ReadTable( P5(i,j,k,l,m), "A3:C10", "D1:M2", "D3:M10" )
+        .. code-block:: aimms
+            :linenos:
+            
+            ReadTable( P5(i,j,k,l,m), "A3:C10", "D1:M2", "D3:M10" )
 
     .. aimms:handle:: IdentifierReference
     
@@ -340,27 +821,31 @@ Multi Dimensional Data
     
     - 2-dimensional with one index in rows and one index in columns: 
     
-      .. code::
+        .. code-block:: aimms
+            :linenos:
       
-        WriteTable( P2(i,j), "A2:A12", "B1:H2", "B2:H12" )
+            WriteTable( P2(i,j), "A2:A12", "B1:H2", "B2:H12" )
     
     - 1-dimensional with the single index as rows: 
     
-      .. code::
+        .. code-block:: aimms
+            :linenos:
       
-        WriteTable( P1(i), "A1:A10", "", "B1:B10" )
+            WriteTable( P1(i), "A1:A10", "", "B1:B10" )
     
     - 1-dimensional with the single index as columns: 
     
-      .. code::
+        .. code-block:: aimms
+            :linenos:
       
-        WriteTable( P1(i), "", "A1:H1", "A2:H2" )
+            WriteTable( P1(i), "", "A1:H1", "A2:H2" )
     
     - 5-dimensional with first 3 indices as row tuples and the last 2 indices as column tuples:
     
-      .. code::
+        .. code-block:: aimms
+            :linenos:
       
-        WriteTable( P5(i,j,k,l,m), "A3:C10", "D1:M2", "D3:M10" )
+            WriteTable( P5(i,j,k,l,m), "A3:C10", "D1:M2", "D3:M10" )
 
     .. aimms:handle:: IdentifierReference
     
@@ -552,33 +1037,35 @@ Multi Dimensional Data
     
     - 1-dimensional, vertically oriented: 
     
-      .. code::
+        .. code-block:: aimms
+            :linenos:
       
-        FillList( P1(i), "A1:A10", "B1:B10" )
+            FillList( P1(i), "A1:A10", "B1:B10" )
     
     - 1-dimensional, horizontally oriented: 
                         
-      .. code::
+        .. code-block:: aimms
+            :linenos:
       
-        FillList( P1(i), "A1:J1", "A2:J2" )
+            FillList( P1(i), "A1:J1", "A2:J2" )
     
     - 2-dimensional, vertically oriented: 
                         
-      .. code::
+        .. code-block:: aimms
+            :linenos:
 
-        FillList( P2(i,j), "A1:B20", "C1:C20" )
+            FillList( P2(i,j), "A1:B20", "C1:C20" )
     
     - 2-dimensional, horizontally oriented: 
                         
-      .. code::
+        .. code-block:: aimms
+            :linenos:
       
-        FillList( P2(i,j), "A1:Z2", "A3:Z3" )
+            FillList( P2(i,j), "A1:Z2", "A3:Z3" )
 
     .. aimms:handle:: IdentifierReference
     
         :attribute Property: Input
-    
-    
     
         The (non scalar) identifier of which the data will be written as a list in the active sheet.
     
@@ -633,7 +1120,8 @@ Multi Dimensional Data
     
     **Examples:**
     
-      .. code::
+    .. code-block:: aimms
+        :linenos:
     
         WriteTableQuick(P(i,j,k), "A1", 2) 
     
@@ -650,9 +1138,8 @@ Multi Dimensional Data
         WriteTable(P(i,j,k), "A3:A10", "B1:H2", AllowRangeOverflow:1)
     
     
-    **Example:** 
-    
-      .. code::
+    .. code-block:: aimms
+        :linenos:
     
         WriteTable( P(i,j,k,'l1'), "A1", 2 )
         
@@ -732,9 +1219,10 @@ Multi Dimensional Data
     
     **Example:** 
     
-    Assume identifiers P(i,j) and Q(i,j), and set Contents = { P, Q }, then
+    Assume identifiers ``P(i,j)`` and ``Q(i,j)``, and set ``Contents = { P, Q }``, then
     
-      .. code::
+    .. code-block:: aimms
+        :linenos:
       
         WriteCompositeTable( Contents, "A1", 1 )
              
@@ -821,14 +1309,15 @@ Multi Dimensional Data
     
     Please note that the result is unpredictable if the domain sets of the identifier do not have an explicit or implicit ordering.
     
-    **Example:** 
+    **Examples:** 
     
     If i references an (ordered) set with elements { i1 .. i10 },
     and j references an (ordered) set with elements { j1 .. j10 }, then
     
-    .. code::
+    .. code-block:: aimms
+        :linenos:
     
-      ReadRawValues( P(i,j), "E2:G5" )
+        ReadRawValues( P(i,j), "E2:G5" )
       
     assigns E3 to P('i2','j1') and F5 to P('i4','j2')
     here E3 stands for the content of cell E3 in the excel sheet (etc.)
@@ -863,557 +1352,3 @@ Multi Dimensional Data
         any other existing data in the identifier will remain unmodified.
 
 
-PublicSection
-*********************
-
-.. aimms:parameter:: CalendarElementsAsStrings
-
-    :attribute Default: 0
-
-    :attribute Property: NoSave
-
-
-    Allowed values: 0 (=default) or 1.
-    
-    By default, when writing elements of a calendar set to a sheet, the written cells will be formatted as a Date (which always includes at least a year, a month and a day).
-    If the format of the calendar does not included all these parts, it might be more convenient to write the elements as simple strings according to the calendar format.
-    For example a calendar with elements { 2016, 2017, 2018 } will then be written as "2016", "2017", "2018" instead of 2016/1/1, 2017/1/1, 2018/1/1
-    
-    Similarly when reading calendar elements, by default the library expects cells formatted as Date, but when this option is set to 1 it expects strings according to the 
-    date format of the calendar.
-
-.. aimms:parameter:: WriteInfValueAsString
-
-    :attribute Default: 0
-
-    :attribute Property: NoSave
-
-
-    Allowed values: 0 (=default) or 1.
-    
-    By default, when writing numerical data that contains the value `INF` or `-INF`, 
-    these values are written to a cell as the number 1E+150 and -1E+150 respectively.
-    If you set this option to 1, these values will be written not a as numbers but as strings ("INF" and "-INF").
-    This might be convenient to visually inspect the values in Excel, but please be aware that Excel formulas that 
-    operates on a range with both numerical and string values present, might not work as expected.
-
-.. aimms:parameter:: KeepExistingCellFormats
-
-    :attribute Default: 0
-
-    :attribute Property: NoSave
-
-
-    Allowed values: 0 (=default) or 1.
-    
-    By default, when writing data into a cell, AIMMS checks whether the specified format of that cell matches the value that is written.
-    If it does not match (for example if a string value is written into a cell that is formatted as Number) then it changes the format 
-    of the cell such that the value can be correctly written.
-    If you set this option to 1, the format will *not* be checked and values are just copied to the cell, leaving the format as is.
-    
-    Setting this option to 1 is especially useful when your sheet contains cells with a custom format for which it unclear what 
-    type of values can be written into it.
-
-.. aimms:parameter:: TrimLeadingAndTrailingSpaces
-
-    :attribute Default: 0
-
-    :attribute Property: NoSave
-
-
-    Allowed values: 0 (=default) or 1.
-    
-    By default, when reading string valued cells, any leading or trailing spaces in a cell are interpreted by AIMMS as part of string (or element name).
-    If you set this option to 1 prior to reading any data these leading and/pr trailing spaces will be removed.
-    In other words: a cell with value "  my cell value " will be passed to AIMMS as "my cell value".
-    
-    This option does not have an effect on strings or elements that are written to the spreadsheet.
-
-
-Scalar Read Write
--------------------------
-
-   
-.. aimms:externalprocedure:: ReadSingleValue(ScalarReference,Cell)
-
-
-
-    This function reads a cell from the active excel sheet into the given identifier.
-    
-    The type of the identifier (numerical, string, element) should match with the content of the cell.
-
-    .. aimms:handle:: ScalarReference
-    
-        :attribute Property: Output
-    
-    
-        (output) The scalar identifier to be changed. This can also be a multi dimensional 
-        identifier where all indices are fixed, such that the resulting slice is a scalar.
-    
-    .. aimms:stringparameter:: Cell
-    
-        :attribute Property: Input
-    
-    
-        The cell in the active sheet to read from.
-        Examples: "A1", "G4" 
-    
-.. aimms:externalprocedure:: WriteSingleValue(ScalarReference,Cell)
-
-
-
-    This function writes a scalar to the active excel sheet 
-    
-    The type of the identifier (numerical, string, element) determines whether
-    the cell will be formatted as a number or as text.
-
-    .. aimms:handle:: ScalarReference
-    
-        :attribute Property: Input
-    
-    
-        The scalar identifier to be written. This can also be a multi dimensional 
-        identifier where all indices are fixed, such that the resulting slice is a scalar.
-    
-    .. aimms:stringparameter:: Cell
-    
-        :attribute Property: Input
-    
-    
-        The cell in the active sheet to write to.
-        Examples: "A1", "G4\
-    
-.. aimms:externalprocedure:: WriteFormula(FormulaString,Cell)
-
-
-
-    This function creates a formula in the active sheet.
-    
-    The given string should be a valid formula representation in Excel. It is copied as is.
-    
-    Please note that the AimmsXLLibrary is not capable of evaluating any formula. 
-    It can only read and write .xls or .xlsx files and does not have access to the full
-    calculation engine of Excel.
-    To evaluate a formula you must open the sheet in Excel. Excel does store the result
-    of a formula in the cell and these calculated results of a formula can be
-    read back using the AimmsXLLibrary.
-    
-    **Examples:**
-    
-        .. code-block:: none
-
-            WriteFormula("=SUM(B2:B6)","B7");
-    
-            WriteFormula("=HYPERLINK(\\"#B7\\",\\"Goto Sum\\")", "A8");
-
-    .. aimms:stringparameter:: FormulaString
-    
-        :attribute Property: Input
-    
-    
-    
-        A string containing a valid Excel formula.
-    
-    .. aimms:stringparameter:: Cell
-    
-        :attribute Property: Input
-    
-    
-    
-        The cell in the active sheet to write to.
-
-Sets Read Write
------------------------
-
-   
-.. aimms:externalprocedure:: WriteSet(SetReference,SetRange,AllowRangeOverflow)
-
-
-
-    This function writes the elements of a set to the active Excel sheet.
-    
-    .. note::
-    
-      - An error occurs if the range is too small, except when :any:`AllowRangeOverflow` is set to 1.
-    
-      - Remaining cells are emptied if the there are more cells than set elements.
-    
-      - When writing a calendar set, the cells will be formatted as Date/Time unless the option :any:`CalendarElementsAsStrings` is set to 1.
-
-    .. aimms:set:: SetReference
-    
-        :attribute Property: Input
-    
-    
-    
-        The (simple) set to be written to excel.
-    
-    
-    .. aimms:stringparameter:: SetRange
-    
-        :attribute Property: Input
-    
-    
-        The 1 dimensional excel range where the data should be written, either horizontal or vertical.
-        
-        Examples: "A1:A10" or "B2:M2" 
-    
-    .. aimms:parameter:: AllowRangeOverflow
-    
-        :attribute Range: :aimms:set:`[0, 1]`
-    
-        :attribute Property: Optional
-    
-    
-        optional (default 0): if set to 1 and the cardinality of the set is greater than the size of the range,
-        then the write operation is allowed to extend the range to the needed size.
-    
-.. aimms:externalprocedure:: ReadSet(SetReference,SetRange,ExtendSuperSets,MergeWithExistingElements,SkipEmptyCells)
-
-
-
-    This function reads the cells of a range from the active excel sheet and converts them to
-    elements in the given set reference.
-
-    .. aimms:set:: SetReference
-    
-        :attribute Property: InOut
-    
-    
-        The (simple) set to which the elements should be added. 
-        If the argument :any:`MergeWithExistingElements` is set to 0, the set will first be emptied.
-    
-    
-    .. aimms:stringparameter:: SetRange
-    
-        :attribute Property: Input
-    
-    
-        The 1 dimensional excel range where the data resides, either horizontal or vertical.
-        
-        Examples: "A1:A10" or "B2:M2" 
-    
-    .. aimms:parameter:: ExtendSuperSets
-    
-        :attribute Range: :aimms:set:`[0, 2]`
-    
-        :attribute Property: Input
-    
-    
-        This determines what should happen with elements that are not present in the super set of the given set.
-        
-        Values:
-        
-        - 0 : elements not in the parent set result in an error
-        
-        - 1 : elements not in the parent set are added recursively
-        
-        - 2 : elements not in the parent set are skipped
-        
-        If :any:`SetReference` does not refer to a set that has the subsetOf attribute specified, then this argument is ignored.
-    
-    .. aimms:parameter:: MergeWithExistingElements
-    
-        :attribute Property: Optional
-    
-    
-        (optional) Default is 0.  
-        If this option is set to 1 then the elements from the range are added to the current content of the set.
-        If set to 0, the set is first emptied and then the elements are added.
-    
-    .. aimms:parameter:: SkipEmptyCells
-    
-        :attribute Property: Optional
-    
-    
-        (optional) Default is 0.
-        
-        - If set to 0, reading of the range stops as soon as an empty cell is encountered and a warning is raised.
-        - If set to 1, an empty cell in the range is simply skipped.
-
-
-Utilities
------------------
-   
-.. aimms:externalprocedure:: ConstructRange(startCell,width,height,ResultingRange)
-
-
-
-    This support function creates a range string given a starting cell and sizes.
-    
-    **Example:**
-
-        .. code::
-        
-          ConstructRange("C2",2,10,myString) 
-        
-      sets myString to "C2:D11" 
-
-    .. aimms:stringparameter:: StartCell
-    
-        :attribute Property: Input
-    
-    
-        A string representing the top left cell of the range. 
-        For example: "A1" or "D15".
-    
-    .. aimms:parameter:: Width
-    
-        :attribute Property: Input, Integer
-    
-    
-    
-        The number of columns of the range. It should be an integer value >= 1.
-    
-    .. aimms:parameter:: Height
-    
-        :attribute Property: Input, Integer
-    
-    
-    
-        The number of rows of the range. It should be an integer value >= 1.
-    
-    .. aimms:stringparameter:: ResultingRange
-    
-        :attribute Property: Output
-    
-    
-        (Output) The constructed range representation. 
-        Example: "C2:D11" 
-    
-.. aimms:externalprocedure:: GetAllSheetNames(SheetNames)
-
-
-
-
-    This function reads all existing sheet names of the active workbook and adds them as elements to the give set.
-
-    .. aimms:set:: SheetNames
-    
-        :attribute Property: Output
-    
-    
-        (Output) This argument should refer to an (empty) root set. On return the set will contain elements 
-        that are named according to all sheets in the workbook.
-    
-    
-.. aimms:externalprocedure:: GetNamedRanges(RangeNames,SheetName)
-
-
-
-    This function reads all the named ranges for the given sheet (both local and global scope).
-    The names of the ranges will be added as elements to the given set.
-
-    .. aimms:set:: RangeNames
-    
-        :attribute Property: Output
-    
-    
-        (Output) This argument should refer to an (empty) root set. On return the set will contain elements 
-        that are named according to the named ranges.
-    
-    
-    .. aimms:stringparameter:: SheetName
-    
-        :attribute Property: Optional
-    
-    
-        (optional) The name of an existing sheet in the active workbook.
-        If not specified the active sheet will be used.
-    
-.. aimms:externalprocedure:: ClearActiveSheet
-
-
-
-    This function clears the entire content of the currently active sheet.
-
-.. aimms:externalprocedure:: ClearRange(RangeToClear)
-
-
-
-
-    This function clears all cells in the given range in the currently active sheet.
-
-    .. aimms:stringparameter:: RangeToClear
-    
-        :attribute Property: Input
-    
-    
-        The (named) range to be cleared.
-        Examples: "A3:G10", "MyNamedRange\
-    
-.. aimms:externalprocedure:: ColumnNumber(colName)
-
-
-    :attribute ReturnType: integer
-
-
-    This utility function will return the sequence number of the column passed in.
-    
-    **For example:**
-    
-     - ColumnNumber("A") will return 1
-    
-     - ColumnNumber("B") will return 2
-    
-     - ColumnNumber("AB") will return 28
-    
-    The name passed in can only contain characters in the range 'A' to 'Z' (or 'a' to 'z').
-    
-    Please note that there are limits on the number of columns in Excel:
-    The maximum column name for an .xlsx file is "XFD" (16,384) and for an .xls file it is "IV" (256).
-
-    .. aimms:stringparameter:: colName
-    
-        :attribute Property: Input
-    
-    
-        The name of a column.
-        Examples: "A", "AB\
-    
-.. aimms:externalprocedure:: ColumnName(colNumber,colName)
-
-
-
-    This utility function gives you the name that corresponds to the n-th column
-    
-    **For example:**
-    
-     - ColumnName(1,name) will set name to "A"
-    
-     - ColumnName(2,name) will set name to "B"
-    
-     - ColumnName(28,name) will set name to "AB"
-    
-    The column number should be an integer greater or equal to 1.
-    
-    Please note that there are limits on the number of columns in Excel:
-    The maximum number of columns an .xlsx file is 16,384 ("XFD") and for an .xls file it is 256 ("IV").
-
-    .. aimms:parameter:: colNumber
-    
-        :attribute Property: Input
-    
-    
-    
-        The column number (should be >= 1)
-    
-    .. aimms:stringparameter:: colName
-    
-        :attribute Property: Output
-    
-    
-    
-        (output) The name of the column.
-    
-.. aimms:externalprocedure:: CopyRange(DestinationRange,SourceRange,SourceSheet,AllowRangeOverflow)
-
-
-
-    This function will copy all cells in a range to another range within the same workbook. All cell formatting is copied as well.
-    
-    If copying within the same sheet, it is not allowed to specify ranges that (partly) overlap.
-    
-    **Example:**
-    
-      .. code::
-        
-        CopyRange("B2", "A1:D10", SourceSheet:"OtherSheet", AllowRangeOverflow:1)
-    
-     This copies all the cells in the range A1:D10 of sheet OtherSheet to the range B2:E11 in the active sheet.
-
-    .. aimms:stringparameter:: DestinationRange
-    
-        :attribute Property: Input
-    
-    
-    .. aimms:stringparameter:: SourceRange
-    
-        :attribute Property: Input
-    
-    
-    .. aimms:stringparameter:: SourceSheet
-    
-        :attribute Property: Optional
-    
-    
-    .. aimms:parameter:: AllowRangeOverflow
-    
-        :attribute Default: 1
-    
-        :attribute Property: Optional
-    
-    
-.. aimms:externalprocedure:: FirstUsedRowNumber
-
-    :attribute ReturnType: integer
-
-
-
-
-    This function returns the first row in the current sheet that contains a cell with data.
-
-.. aimms:externalprocedure:: LastUsedRowNumber
-
-    :attribute ReturnType: integer
-
-
-
-
-    This function returns the last row in the current sheet that contains a cell with data.
-
-.. aimms:externalprocedure:: FirstUsedColumnNumber
-
-    :attribute ReturnType: integer
-
-
-
-    This function returns the number of the first column in the current sheet that contains a cell with data.
-    If you need the corresponding column name you can use the function :any:`ColumnName`.
-
-.. aimms:externalprocedure:: LastUsedColumnNumber
-
-    :attribute ReturnType: integer
-
-
-
-    This function returns the number of the last column in the current sheet that contains a cell with data.
-    If you need the corresponding column name you can use the function :any:`ColumnName`.
-
-.. aimms:externalprocedure:: SetRangeBackgroundColor(RangeToColor,red,green,blue)
-
-
-
-
-    With this function you can specify a background color for the given cell range.
-
-    .. aimms:stringparameter:: RangeToColor
-    
-        :attribute Property: Input
-    
-    
-        The (named) range for which you want to specify the background color.
-        Examples: "A3:G10", "C1", "MyNamedRange" 
-    
-    .. aimms:parameter:: red
-    
-        :attribute Property: Input
-    
-    
-    
-        The 'red' value of an RGB color value [0 .. 255]
-    
-    .. aimms:parameter:: green
-    
-        :attribute Property: Input
-    
-    
-    
-        The 'green' value of an RGB color value [0 .. 255]
-    
-    .. aimms:parameter:: blue
-    
-        :attribute Property: Input
-    
-        The 'blue' value of an RGB color value [0 .. 255]
-    
