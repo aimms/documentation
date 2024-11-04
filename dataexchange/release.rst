@@ -13,6 +13,8 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.6.1.3 (04-11-2024)
+	- Attributes specified via the ``dex::ExtraAttributeList`` string parameter will now extend or override attributes via ``dex::ExtraAttributeList`` annotations.
 
 24.6.1.1 (03-11-2024)
 	- Allow display names for all set elements thru `binds-to-display-name` and `range-display-name` attributes
