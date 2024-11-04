@@ -38,7 +38,9 @@ AIMMSXL Documentation
             ! .. handle the error or warning ..
 
             errh::MarkAsHandled(err);
+            
         endblock;
+        
         axll::CloseAllWorkbooks;  ! save and close any open workbook
 
 
