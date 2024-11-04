@@ -6,6 +6,7 @@ The AimmsXL Library can communicate with Excel files in server environments wher
 
 
 .. toctree::
+  :maxdepth: 1
   
   using
   example

@@ -7,7 +7,7 @@ The workflow for integrating external Excel files with your AIMMS model is illus
 
 |axll-workflow|
 
-Import the library in your project
+Import the Library in your Project
 ------------------------------------
 
 The ``AimmsXLLibrary`` is a collection of functions to do this and more. It is provided as a system library and you can add it to your project from the library manager, as detailed in :doc:`Articles/84/84-using-libraries`
@@ -19,7 +19,7 @@ The functions in this library can be accessed by their prefix, ``axll::`` which 
 .. image:: images/axll-docs.png
     :align: center
 
-Open and close files
+Open and Close Files
 -----------------------------
 
 When using the ``axll`` functions, the Excel file will be loaded into memory. This loading will happen in the background and you will not see any file opened on your computer, as this library works without using an Excel installation. 
@@ -61,7 +61,7 @@ After opening a file, you must select the sheet your data is in before you can r
 
     axll::SelectSheet(SheetName : "SheetName" );
     
-Reading data
+Reading Data
 -----------------
 
 Many functions are available to read different kinds of data from an Excel file. Most commonly used are:
@@ -105,7 +105,7 @@ By setting a different value for the :any:`ModeForUnknownElements <axll::ReadLis
 
     The :any:`IdentifierReference <axll::ReadTable::IdentifierReference>` in :any:`axll::ReadTable` must be an AIMMS identifier with 2+ (at least 2) indices in its index domain.
 
-Writing data
+Writing Data
 -----------------------
 
 Similar to reading data, many functions are available to write out data to Excel files. Commonly used are:

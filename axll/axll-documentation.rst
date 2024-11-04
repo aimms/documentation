@@ -342,11 +342,11 @@ Scalar Read Write
     
     **Examples:**
     
-        .. code-block:: none
+    .. code-block:: none
 
-            WriteFormula("=SUM(B2:B6)","B7");
-    
-            WriteFormula("=HYPERLINK(\\"#B7\\",\\"Goto Sum\\")", "A8");
+        WriteFormula("=SUM(B2:B6)","B7");
+
+        WriteFormula("=HYPERLINK(\\"#B7\\",\\"Goto Sum\\")", "A8");
 
     .. aimms:stringparameter:: FormulaString
     
@@ -608,10 +608,10 @@ Utilities
     
     .. code-block:: aimms
         :linenos:
-
+        
         CopyRange("B2", "A1:D10", SourceSheet:"OtherSheet", AllowRangeOverflow:1)
     
-     This copies all the cells in the range A1:D10 of sheet OtherSheet to the range B2:E11 in the active sheet.
+    This copies all the cells in the range A1:D10 of sheet OtherSheet to the range B2:E11 in the active sheet.
 
     .. aimms:stringparameter:: DestinationRange
     
@@ -704,31 +704,31 @@ Multi Dimensional Data
     
     - 2-dimensional with one index in rows and one index in columns: 
     
-        .. code-block:: aimms
-            :linenos:
-      
-            ReadTable( P2(i,j), "A2:A12", "B1:H2", "B2:H12" )
+    .. code-block:: aimms
+        :linenos:
+    
+        ReadTable( P2(i,j), "A2:A12", "B1:H2", "B2:H12" )
     
     - 1-dimensional with the single index as rows: 
     
-        .. code-block:: aimms
-            :linenos:
-      
-            ReadTable( P1(i), "A1:A10", "", "B1:B10" )
+    .. code-block:: aimms
+        :linenos:
+    
+        ReadTable( P1(i), "A1:A10", "", "B1:B10" )
     
     - 1-dimensional with the single index as columns: 
     
-        .. code-block:: aimms
-            :linenos:
-      
-            ReadTable( P1(i), "", "A1:H1", "A2:H2" )
+    .. code-block:: aimms
+        :linenos:
+    
+        ReadTable( P1(i), "", "A1:H1", "A2:H2" )
     
     - 5-dimensional with first 3 indices as row tuples and the last 2 indices as column tuples:
     
-        .. code-block:: aimms
-            :linenos:
-            
-            ReadTable( P5(i,j,k,l,m), "A3:C10", "D1:M2", "D3:M10" )
+    .. code-block:: aimms
+        :linenos:
+        
+        ReadTable( P5(i,j,k,l,m), "A3:C10", "D1:M2", "D3:M10" )
 
     .. aimms:handle:: IdentifierReference
     
@@ -823,31 +823,31 @@ Multi Dimensional Data
     
     - 2-dimensional with one index in rows and one index in columns: 
     
-        .. code-block:: aimms
-            :linenos:
-      
-            WriteTable( P2(i,j), "A2:A12", "B1:H2", "B2:H12" )
+    .. code-block:: aimms
+        :linenos:
+    
+        WriteTable( P2(i,j), "A2:A12", "B1:H2", "B2:H12" )
     
     - 1-dimensional with the single index as rows: 
     
-        .. code-block:: aimms
-            :linenos:
-      
-            WriteTable( P1(i), "A1:A10", "", "B1:B10" )
+    .. code-block:: aimms
+        :linenos:
+    
+        WriteTable( P1(i), "A1:A10", "", "B1:B10" )
     
     - 1-dimensional with the single index as columns: 
     
-        .. code-block:: aimms
-            :linenos:
-      
-            WriteTable( P1(i), "", "A1:H1", "A2:H2" )
+    .. code-block:: aimms
+        :linenos:
+    
+        WriteTable( P1(i), "", "A1:H1", "A2:H2" )
     
     - 5-dimensional with first 3 indices as row tuples and the last 2 indices as column tuples:
     
-        .. code-block:: aimms
-            :linenos:
-      
-            WriteTable( P5(i,j,k,l,m), "A3:C10", "D1:M2", "D3:M10" )
+    .. code-block:: aimms
+        :linenos:
+    
+        WriteTable( P5(i,j,k,l,m), "A3:C10", "D1:M2", "D3:M10" )
 
     .. aimms:handle:: IdentifierReference
     
@@ -1039,31 +1039,31 @@ Multi Dimensional Data
     
     - 1-dimensional, vertically oriented: 
     
-        .. code-block:: aimms
-            :linenos:
-      
-            FillList( P1(i), "A1:A10", "B1:B10" )
+    .. code-block:: aimms
+        :linenos:
+    
+        FillList( P1(i), "A1:A10", "B1:B10" )
     
     - 1-dimensional, horizontally oriented: 
                         
-        .. code-block:: aimms
-            :linenos:
-      
-            FillList( P1(i), "A1:J1", "A2:J2" )
+    .. code-block:: aimms
+        :linenos:
+    
+        FillList( P1(i), "A1:J1", "A2:J2" )
     
     - 2-dimensional, vertically oriented: 
                         
-        .. code-block:: aimms
-            :linenos:
+    .. code-block:: aimms
+        :linenos:
 
-            FillList( P2(i,j), "A1:B20", "C1:C20" )
+        FillList( P2(i,j), "A1:B20", "C1:C20" )
     
     - 2-dimensional, horizontally oriented: 
                         
-        .. code-block:: aimms
-            :linenos:
-      
-            FillList( P2(i,j), "A1:Z2", "A3:Z3" )
+    .. code-block:: aimms
+        :linenos:
+    
+        FillList( P2(i,j), "A1:Z2", "A3:Z3" )
 
     .. aimms:handle:: IdentifierReference
     
