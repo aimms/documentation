@@ -1,0 +1,256 @@
+{
+  "version": "4.67.0",
+  "application": {
+    "aimms.widget.type": {
+      "literal": "application"
+    },
+    "theme.classic": {
+      "literal": "NOT_ALLOWED"
+    }
+  },
+  "pages/home": {
+    "maxcolumns": {
+      "literal": 10
+    },
+    "widgets": {
+      "literal": [
+        {
+          "uri": "NFL Teams",
+          "layoutInfo": {
+            "width": "7",
+            "height": "3",
+            "customPosition": ""
+          }
+        },
+        {
+          "uri": "Distance",
+          "layoutInfo": {
+            "width": "3",
+            "height": "3",
+            "customPosition": ""
+          }
+        },
+        {
+          "uri": "Read Data",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        },
+        {
+          "uri": "Write Data",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        }
+      ]
+    }
+  },
+  "widgets/Distance": {
+    "aimms.widget.type": {
+      "literal": "table"
+    },
+    "contents": {
+      "aimms": {
+        "contents": [
+          "pDistance"
+        ],
+        "prefix": "aimms",
+        "slices": [
+          {
+            "identifier": "pDistance",
+            "slice": [
+              {
+                "index": "iTeam",
+                "type": "element-parameter",
+                "value": "SelectedTeam"
+              },
+              {
+                "index": "jTeam",
+                "type": "free",
+                "value": "jTeam"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "contents.partition": {
+      "literal": {
+        "rowHeader": [
+          "jTeam"
+        ],
+        "colHeader": [
+          "<IDENTIFIER-SET>"
+        ],
+        "aggregated": []
+      }
+    },
+    "custom.column.widths": {
+      "literal": [
+        {
+          "type": "colHeader",
+          "colKey": {
+            "<IDENTIFIER-SET>": "pDistance"
+          },
+          "width": 32.518409425625929
+        },
+        {
+          "type": "rowHeader",
+          "colKey": "jTeam",
+          "width": 34.35267857142857
+        }
+      ]
+    },
+    "title": {
+      "aimms": {
+        "contents": [
+          "TitleDistance"
+        ],
+        "slices": []
+      }
+    }
+  },
+  "widgets/NFL Teams": {
+    "aimms.widget.type": {
+      "literal": "map-v2"
+    },
+    "center.latitude": {
+      "literal": 37.92686760148135
+    },
+    "center.longitude": {
+      "literal": -95.625
+    },
+    "nodes.__display_order__": {
+      "literal": [
+        "nodes.0"
+      ]
+    },
+    "nodes.0": {
+      "aimms": {
+        "contents": [
+          "pLongitude",
+          "pLatitude",
+          "pCapacity"
+        ],
+        "slices": [
+          {
+            "identifier": "pLongitude",
+            "slice": [
+              {
+                "index": "iTeam",
+                "type": "free",
+                "value": "iTeam"
+              }
+            ]
+          },
+          {
+            "identifier": "pLatitude",
+            "slice": [
+              {
+                "index": "iTeam",
+                "type": "free",
+                "value": "iTeam"
+              }
+            ]
+          },
+          {
+            "identifier": "pCapacity",
+            "slice": [
+              {
+                "index": "iTeam",
+                "type": "free",
+                "value": "iTeam"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "nodes.0.index": {
+      "literal": {
+        "identifier": "iTeam",
+        "focus": [
+          {
+            "index": "iTeam",
+            "value": "SelectedTeam"
+          }
+        ]
+      }
+    },
+    "nodes.0.latitude": {
+      "literal": {
+        "identifier": "pLatitude",
+        "slice": [
+          {
+            "index": "iTeam",
+            "type": "free",
+            "value": "iTeam"
+          }
+        ]
+      }
+    },
+    "nodes.0.longitude": {
+      "literal": {
+        "identifier": "pLongitude",
+        "slice": [
+          {
+            "index": "iTeam",
+            "type": "free",
+            "value": "iTeam"
+          }
+        ]
+      }
+    },
+    "nodes.0.maximumreferencesize": {
+      "literal": 300000
+    },
+    "nodes.0.size": {
+      "literal": {
+        "identifier": "pCapacity",
+        "slice": [
+          {
+            "index": "iTeam",
+            "type": "free",
+            "value": "iTeam"
+          }
+        ]
+      }
+    },
+    "title": {
+      "literal": "NFL Team Map"
+    },
+    "zoom": {
+      "literal": 4
+    }
+  },
+  "widgets/Read Data": {
+    "action": {
+      "literal": {
+        "type": "procedure",
+        "value": "prReadFromExcel"
+      }
+    },
+    "aimms.widget.type": {
+      "literal": "button"
+    },
+    "title": {
+      "literal": "Read Data"
+    }
+  },
+  "widgets/Write Data": {
+    "action": {
+      "literal": {
+        "type": "procedure",
+        "value": "prWriteToExcel"
+      }
+    },
+    "aimms.widget.type": {
+      "literal": "button"
+    },
+    "title": {
+      "literal": "Write Data"
+    }
+  }
+}
