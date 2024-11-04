@@ -30,18 +30,19 @@ AIMMSXL Documentation
         block
 
             axll::OpenWorkbook("mybook.xlsx");
-      
+
             ! .. read or write the sheets in the workbook ..
-      
+
         onerror err do
-      
+
             ! .. handle the error or warning ..
-      
+
             errh::MarkAsHandled(err);
-      
+
         endblock;
-      
+
         axll::CloseAllWorkbooks;  ! save and close any open workbook
+
 
 Public Section
 ----------------
