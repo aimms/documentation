@@ -5,6 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+24.0.0.9 [05-11-2024]
+	- Prevented unnecessary uninitialized warnings
+
 23.1.0.2 [06-12-2023]
 	- Update ``AIMMSUnitTest.py``. 
 
