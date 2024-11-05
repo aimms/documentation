@@ -1,6 +1,20 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.10
+#########
+
+AIMMS PRO 24.10.1 Release
+-------------------------
+
+On October 29, 2024, we released AIMMS PRO 24.10.1(24.10.1.1)
+
+**Improvements**
+
+   - Introduction of auth-server, a new authentication and authorization service, to enhance compatibility with modern platforms.
+   - Modernization of our proxy infrastructure by replacing the legacy web-router component with the new pro-proxy service.
+   - Support for Portal3(new PRO Portal). 
+
 PRO 24.9
 ########
 
