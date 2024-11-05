@@ -15,7 +15,7 @@ BARON guarantees to provide global optima under fairly general assumptions, but 
 
 About BARON
 -----------
-BARON is developed and supported by `The Optimization Firm, LLC <http://www.theoptimizationfirm.com/>`_. Parts of the BARON Software were created at the University of Illinois at Urbana-Champaign.
+BARON is developed and supported by The Optimization Firm, LLC. Parts of the BARON Software were created at the University of Illinois at Urbana-Champaign.
 
 
 BARON Supported Versions
