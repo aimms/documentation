@@ -22,7 +22,7 @@ If you select a library here, it will downloaded from the library repository, ca
    :maxdepth: 1
    
    general-library/getting-started
-   axll/index
+   aimmsxllibrary/index
    cdm/index
    dataexchange/index
    datalink/index
