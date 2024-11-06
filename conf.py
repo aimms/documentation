@@ -262,6 +262,7 @@ html_show_sourcelink = False
 
 # index page for your site
 html_baseurl = 'https://documentation.aimms.com/'
+sitemap_url_scheme = '{link}'
 
 # adding path to non-rst files that go to the build
 html_extra_path = ['robots.txt', 'meta-index-file.txt','siteindex.xml']
