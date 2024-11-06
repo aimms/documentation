@@ -13,6 +13,22 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.14 Release (November 06, 2024 - build 24.5.14.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In some situations, when WebUI was active, doing mouse-clicks in the Model Explorer tree could lead to a 'non responding' AIMMS.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.13 Release (October 23, 2024 - build 24.5.13.1).
 ------------------------------------------------------------------------------------------
 
