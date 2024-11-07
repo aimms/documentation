@@ -58,6 +58,15 @@ deploy:
     - rsync -rt _build/html/ support@data.aimms.com:/home/aimms/www/documentation.aimms.com
   retry: 1
 
+internal_documentation_deploy:
+  <<: *run_on_dockerhost
+  stage: build-and-deploy
+  script:
+    - sphinx-build -b html . _build/html
+    - bash load_ssh_key_for_deploy.sh
+    - ssh support@data.aimms.com mkdir -p /home/aimms/www/documentation-staging/${CI_COMMIT_BRANCH}
+    - rsync -r --omit-dir-times --delete-excluded _build/html/ support@data.aimms.com:/home/aimms/www/documentation-staging/${CI_COMMIT_BRANCH}
+
 az_deploy:
   <<: *run_on_dockerhost
   stage: build-and-deploy
