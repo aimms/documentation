@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.7.1.1 (14-11-2024)
+	- Display names will be automatically updated when necessary on every call to `dex::ReadFromFile` or `dex::WriteToFile`.
+	
 24.6.1.4 (05-11-2024)
 	- Attributes specified via the ``dex::ExtraAttributeList`` string parameter will now extend or override attributes via ``dex::ExtraAttributeList`` annotations
 	- Display-name attributes without a corresponding `binds-to`, `name-binds-to` or element parameter `maps-to` attribute will return an error
