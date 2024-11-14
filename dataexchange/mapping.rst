@@ -205,6 +205,7 @@ The ``write-filter`` attribute can be specified at any node in the mapping tree,
 When writing numerical data, you can use the ``precision`` attribute to specify the number of decimals with which the numerical data should be written. The attribute should hold a value between 0 and 16, and the numerical value will be rounded to the specified number of decimals.
 
 When writing element data, you can specify the display name to be used for element values through the ``range-display-name`` attribute. The value of the attribute should be a one-dimensional string parameter defined over the index into the range set of the element parameter. When writing a file, the Data Exchange library will use this name for the elements to be created rather than the set label.  When reading a file, the Data Exchange library will both support elements that hold the original label as well as the display name specified through the ``range-display-name`` attribute. Display names for the ``range-display-name`` attribute will be automatically updated when necessary on every call to :js:func:`dex::ReadFromFile` and :js:func:`dex::WriteToFile`.
+
 .. note::
 
 		You should only use a single identifier for specifying display names per range set. When collecting the display names during the call to :js:func:`dex::AddMapping`, these will be stored in a global range-set-specific structure, that is used for any instance of the range set of element parameters that have a display name attribute specified.
