@@ -15,6 +15,7 @@ New Features and Bug Fixes
 --------------------------
 24.7.1.1 (14-11-2024)
 	- Display names will be automatically updated when necessary on every call to `dex::ReadFromFile` or `dex::WriteToFile`.
+	- Adding a mapping will file if the display name identifier for an index/range set is different than previously specified for the same index/range set.
 	
 24.6.1.4 (05-11-2024)
 	- Attributes specified via the ``dex::ExtraAttributeList`` string parameter will now extend or override attributes via ``dex::ExtraAttributeList`` annotations
