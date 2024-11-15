@@ -13,6 +13,24 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.15 Release (November 15, 2024 - build 24.5.15.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The progress window could show duplicate lines if the option 'Scale model' was switched on.
+-  The math program suffix .NumberOfNonzeros was showing an incorrect value if the option 'Linear presolve' was switched on.
+-  The procedure GMP::Coefficient::SetQuadratic could result in a failure if the quadratic coefficient value was set to 0.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.14 Release (November 06, 2024 - build 24.5.14.1).
 ------------------------------------------------------------------------------------------
 
