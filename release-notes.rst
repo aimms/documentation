@@ -22,7 +22,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  The progress window could show duplicate lines if the option 'Scale model' was switched on.
--  The math program suffix .NumberOfNonzeros was showing an incorrect value if the option 'Linear presolve' was switched on.
+-  The math program suffix 'NumberOfNonzeros' was showing an incorrect value if the option 'Linear presolve' was switched on.
 -  The procedure GMP::Coefficient::SetQuadratic could result in a failure if the quadratic coefficient value was set to 0.
 
 --------------
