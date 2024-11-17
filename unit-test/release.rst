@@ -5,6 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+24.0.0.10 [17-11-2024]
+	- Parameters with the ``Integer`` property set would result in wrongly filled cloned parameters because of added support for 64-bit integers
+	
 24.0.0.9 [05-11-2024]
 	- Prevented unnecessary uninitialized warnings
 

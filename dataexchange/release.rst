@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.7.1.2 (17-11-2024)
+	- Display name identifiers would not be taken into account in all cases
+	- The `regex-prefix`/`regex-postfix` would not work well with display names
+	
 24.7.1.1 (14-11-2024)
 	- Display names will be automatically updated when necessary on every call to `dex::ReadFromFile` or `dex::WriteToFile`.
 	- Adding a mapping will file if the display name identifier for an index/range set is different than previously specified for the same index/range set.
