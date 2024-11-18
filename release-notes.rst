@@ -13,6 +13,22 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.16 Release (November 18, 2024 - build 24.5.16.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In latest release the drag&drop features in the model tree were accidentally disabled.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.15 Release (November 15, 2024 - build 24.5.15.3).
 ------------------------------------------------------------------------------------------
 
