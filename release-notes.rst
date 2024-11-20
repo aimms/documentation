@@ -13,6 +13,22 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.17 Release (November 20, 2024 - build 24.5.17.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Removing some data from an identifier (either by setting it to 0, or using the Empty statement), could in some specific situations result in a crash of AIMMS.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.16 Release (November 18, 2024 - build 24.5.16.2).
 ------------------------------------------------------------------------------------------
 
