@@ -13,6 +13,22 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.18 Release (November 21, 2024 - build 24.5.18.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Fixed an issue with project creation. If AIMMS cannot retrieve a repository library due to reasons such as no internet connection or an incorrect certificate, it would previously leave an incorrect .aimms file.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.17 Release (November 20, 2024 - build 24.5.17.1).
 ------------------------------------------------------------------------------------------
 
