@@ -13,6 +13,23 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.19 Release (November 22, 2024 - build 24.5.19.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In WebUI the warning message "WinUI pages are not available when project is setup for WebUI." was sometimes incorrectly triggered.
+-  If a procedure argument is element valued with a range being a set in the global namespace (for example "::MySet"), and that same set name also exists in another namespace (for example "MyLib::MySet") then in some situations an incorrect compilation error was triggered when trying to call this procedure.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.18 Release (November 21, 2024 - build 24.5.18.1).
 ------------------------------------------------------------------------------------------
 
