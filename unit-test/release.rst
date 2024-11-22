@@ -5,6 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+24.0.0.11 [22-11-2024]
+	- In cloned parameters with a unit containing unit parameters, the unit parameters should be fully qualified (this fix requires AIMMS 24.5.20+)
+
 24.0.0.10 [17-11-2024]
 	- Parameters with the ``Integer`` property set would result in wrongly filled cloned parameters because of added support for 64-bit integers
 	
