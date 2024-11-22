@@ -22,7 +22,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  In WebUI the warning message "WinUI pages are not available when project is setup for WebUI." was sometimes incorrectly triggered.
--  If a procedure argument is element valued with a range being a set in the global namespace (for example "::MySet"), and that same set name also exists in another namespace (for example "MyLib::MySet") then in some situations an incorrect compilation error was triggered when trying to call this procedure.
+-  If a procedure argument is element valued with a range being a set in the global namespace (for example '::MySet'), and that same set name also exists in another namespace (for example 'MyLib::MySet') then in some situations an incorrect compilation error was triggered when trying to call this procedure.
 
 --------------
 
