@@ -13,6 +13,23 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.20 Release (November 25, 2024 - build 24.5.20.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Added better support for the cloning of identifiers in the library AimmsUnitTest. If the identifier has a unit attribute that contained references to other identifiers, the cloned identifier did not always get the correct same unit.
+-  The option 'warning_not_initialized' is now set to OFF by default. This option has been quite annoying in the past and actually there never is 'uninitialized' data in AIMMS, because the data of an identifier will just have its default value when no initial data is explicitly assigned.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.19 Release (November 22, 2024 - build 24.5.19.2).
 ------------------------------------------------------------------------------------------
 
