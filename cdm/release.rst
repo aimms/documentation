@@ -7,6 +7,12 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+24.5.1.1 [27-11-2024]
+	- Set `warning_range_violation` option during startup to prevent incorrect range violation errors when checking out when elements are added and deleted in multiple commits after a snapshot
+	- Refactored database connection sharing logic to prevent race condition when multiple thread update the database in parallel
+	- Allowed commit to retry `cdm::CommitRetries` times in case of failure
+	- Refactored `cdm::NextUniqueInteger` to prevent SQL error on `SQLServer` databases
+
 24.4.1.1 [23-09-2024]
 	- Implement reconnect logic to (automatically) reconnect to (and/or, in the AIMMS cloud, start a new on-demand) CDM service in case of disconnect. This can be accomplished via the new function `cdm::ReconnectToApplicationDB` and `cdm::AutoReconnectToCDMService`
 	- The CDM schema upgrade could fail in case multiple schema upgrades were executed at once.
