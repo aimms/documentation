@@ -1,6 +1,18 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.11
+#########
+
+AIMMS PRO 24.11.1 Release
+-------------------------
+
+On November 29, 2024, we released AIMMS PRO 24.11.1(24.11.1.1)
+
+**Resolved Issues**
+
+   - Fixed an issue where *pro::sessionmanager::ListSessionsUsage* could not return any data. 
+
 PRO 24.10
 #########
 
