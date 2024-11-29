@@ -13,6 +13,22 @@ AIMMS 24.5
 
 
 
+AIMMS 24.5.21 Release (November 29, 2024 - build 24.5.21.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The improved support for the cloning of identifiers in the previous version (24.5.20) did not add the correct prefixes to the indices in the unit specification.
+
+--------------
+
+
+
+
+
 AIMMS 24.5.20 Release (November 25, 2024 - build 24.5.20.2).
 ------------------------------------------------------------------------------------------
 
