@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.7.1.4 (30-11-2024)
+	- Shortened paths inside library to help staying within 260 character limit for Windows paths, when the library is embedded in an `.aimmspack` file.
+
 24.7.1.2 (17-11-2024)
 	- Display name identifiers would not be taken into account in all cases
 	- The `regex-prefix`/`regex-postfix` would not work well with display names
