@@ -4,6 +4,15 @@ AIMMS PRO Release Notes
 PRO 24.11
 #########
 
+AIMMS PRO 24.11.2 Release
+-------------------------
+
+On December 3, 2024, we released AIMMS PRO 24.11.2(24.11.2.1)
+
+**Resolved Issues**
+
+   - App could not be started when the user is trying to launch same app several times. 
+
 AIMMS PRO 24.11.1 Release
 -------------------------
 
