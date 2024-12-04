@@ -735,25 +735,38 @@ Data Lake Storage file systems
 
 The following functions are available for managing Azure Data Lake Storage file systems (also known as containers), and for listing their contents.
 
-These functions all require that the `dex::dls::StorageAccount` and `dex::dls::StorageAccessKey` parameters have been set. This happens automatically in the AIMMS Cloud, on your desktop you can set these parameters manually via the file `api-init/Data_Lake_Storage.txt`.
+These functions all use a storage account set via the function ``dex::dls::StoreAccountInfo``. The ``default`` account takes it settings via the string parameters `dex::dls::StorageAccount` and `dex::dls::StorageAccessKey`, which are filled automatically in the AIMMS Cloud. On your desktop you can set these parameters manually via the file `api-init/Data_Lake_Storage.txt`.
 
+.. js:function:: dex::dls::StoreAccountInfo
+
+	Store the credentials for a new storage account. You must provide provide a storage `account`, and either a `accessKey`, or a `accountSAS` and/or `containerSAS` token. The storage account and access key for the DLS account available in the AIMMS cloud will be automatically added as the ``default`` account. On your desktop this account will be set from the file `api-init/Data_Lake_Storage.txt`.
+	
+	:param name_: the name through which the storage account info will become available.
+	:param account: the storage account name to be added
+	:param accessKey: the access key for the storage account
+	:param accountSAS: a fixed account SAS token to be used if no access key is provided to generate one
+	:param containerSAS: a fixed container SAS token to be used if no access key is provided to generate one
+	
 .. js:function:: dex::dls::ListFileSystems
 
 	List all file systems within an Azure Data Lake Storage account. The function will return 1 upon success, or an error on failure.
 
 	:param FileSystems: output set argument holding the file systems present in the storage account.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 	
 .. js:function:: dex::dls::CreateFileSystem
 
 	Create a new file system within an Azure Data Lake Storage account. The function will return 1 upon success, or an error on failure.
 
 	:param fileSystem: string parameter holding the name of the file systems to create.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 	
 .. js:function:: dex::dls::DeleteFileSystem
 
 	Delete an existing file system within an Azure Data Lake Storage account. The function will return 1 upon success, or an error on failure.
 
 	:param fileSystem: string parameter holding the name of the file systems to delete.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 	
 .. js:function:: dex::dls::ListFiles
 
@@ -766,6 +779,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	:param fileSize: output numeric parameter over `Paths` holding the file size of all files found.
 	:param isDirectory: output binary parameter over `Paths` indicating whether a given path is a directory and not a file.
 	:param recursive: optional parameter indicating whether only files within the given path prefix should be listed, or recursively.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 .. js:function:: dex::dls::DeletePath
 
@@ -773,6 +787,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param path: string parameter holding the name of the file or directory within the file system to be deleted.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 .. js:function:: dex::dls::SetAccessPolicy
 
@@ -784,6 +799,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	:param Start_: 1-dimensional string parameter holding the start dates of all stored access policies
 	:param Expiry: 1-dimensional string parameter holding the expiry dates of all stored access policies
 	:param Permission: 1-dimensional string parameter holding the permissions of all stored access policies
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 	
 .. js:function:: dex::dls::GetAccessPolicy
 
@@ -794,6 +810,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	:param Start_: 1-dimensional string parameter holding the start dates of all stored access policies
 	:param Expiry: 1-dimensional string parameter holding the expiry dates of all stored access policies
 	:param Permission: 1-dimensional string parameter holding the permissions of all stored access policies
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 Data Lake Storage file transfer
 -------------------------------
@@ -806,6 +823,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	Create an account SAS query string for the storage account associated with an AIMMS cloud account.
 	
+	:param accountName: input element parameter holding the name of the storage account to be used.
 	:param queryString: output string parameter holding the generated SAS query string
 	:param permissions: the permission string used in creating the SAS query string
 	:param expiry: the expiry in seconds from now for the generated SAS query string
@@ -814,6 +832,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	Create a container SAS query string for a container in the storage account associated with an AIMMS cloud account.
 
+	:param accountName: input element parameter holding the name of the storage account to be used.
 	:param queryString: output string parameter holding the generated SAS query string
 	:param fileSystem: the container for which the SAS query string is generated
 	:param permissions: the permissions of the SAS query string
@@ -827,6 +846,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param _file: local file path of the file to upload
 	:param pathPrefix: string parameter holding the path prefix of the directory within the file system to which the file must be uploaded
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 .. js:function:: dex::dls::UploadFiles
 
@@ -836,6 +856,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	:param directory: local directory from which to upload files
 	:param pathPrefix: string parameter holding the path prefix of the directory within the file system to which the file must be uploaded.
 	:param recursive: optional parameter indicating whether only files within the given directory should be uploaded, or recursively.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 .. js:function:: dex::dls::DownloadFile
 
@@ -844,6 +865,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param urlPath: path of the file within the file system to download.
 	:param directory: string parameter holding the local directory to which the file must be downloaded.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 .. js:function:: dex::dls::DownloadFiles
 
@@ -853,6 +875,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	:param pathPrefix: string parameter holding the path prefix of the directory within the file system from which to download files.
 	:param directory: local directory to which to download files
 	:param recursive: optional parameter indicating whether only files within the given path prefix should be downloaded, or recursively.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 .. js:function:: dex::dls::WriteDatasetInstanceByTable
 
@@ -860,6 +883,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	:param dataset: element parameter holding the name of the dataset to write.
 	:param instance: string parameter holding instance name of the dataset to write.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 .. js:function:: dex::dls::ReadDatasetInstanceByTable
 
@@ -867,6 +891,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	:param dataset: element parameter holding the name of the dataset to read.
 	:param instance: string parameter holding instance name of the dataset to read.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 .. js:function:: dex::dls::WriteDatasetInstanceByInstance
 
@@ -874,6 +899,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	:param dataset: element parameter holding the name of the dataset to write.
 	:param instance: string parameter holding instance name of the dataset to write.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 .. js:function:: dex::dls::ReadDatasetInstanceByInstance
 
@@ -881,6 +907,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	:param dataset: element parameter holding the name of the dataset to read.
 	:param instance: string parameter holding instance name of the dataset to read.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 Snowflake functions
 -------------------
@@ -906,7 +933,7 @@ Snowflake functions
 
     Reset the execution state of all submitted SQL statements. You should call this statement prior to executing a batch of SQL statements that you want to execute in parallel, or parallel calls to `dex::sf::GenerateAndLoadParquetIntoTable` or `dex::sf::GenerateAndLoadParquetFromTable``.  
         
-.. js:function::  dex::sf::GenerateAndLoadParquetIntoTable(mappingName,tableName,timeout,query,columns,sqlString)
+.. js:function::  dex::sf::GenerateAndLoadParquetIntoTable(mappingName,tableName,timeout,query,columns,sqlString,accountName)
 
     The function will generate an intermediate Parquet file using the DEX mapping `mappingName`, store the Parquet file in the Azure Data Lake Storage account that comes with every AIMMS cloud account, and insert the data contained in the table `tableName` in the configured schema of the Snowflake instance connected to. The default `sqlString` executed will assume that the table will just have all the fields contained in the Parquet file, but you can specify any Snowflake SQL statement to provide a customized insert statement. The function will wait `timeout` seconds for the execution of the SQL statement to complete. If the statement is still in progress on return (202 return code), you can call `dex::sf::WaitForSQLStatements` to wait for the completion of the insert statement. When `timeout` is 0, the function will return immediately, and you can call the function multiple times to load multiple files into Snowflake in parallel. 
     
@@ -916,8 +943,9 @@ Snowflake functions
     :param query: optional query from the intermediate Parquet file, defaults to the intermediate Parquet file
     :param columns: optional argument for specifying which columns to copy into the table from the query/Parquet file
     :param sqlString: optional string argument containing the SQL statement to execute.
-   
-.. js:function::  dex::sf::GenerateAndLoadParquetFromTable(mappingName,tableName,timeout,query,sqlString,emptyIdentifiers,emptySets)
+  	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
+ 
+.. js:function::  dex::sf::GenerateAndLoadParquetFromTable(mappingName,tableName,timeout,query,sqlString,emptyIdentifiers,emptySets,accountName)
 
     The function will execute the `sqlString` statement to generate a Parquet file from Snowflake select statement. The default statement will generate a Parquet file from all fields in the Snowflake table `tableName`. The function will wait `timeout` seconds for the execution of the SQL statement to complete. If the statement is still in progress on return (202 return code), you can call `dex::sf::WaitForSQLStatements` to wait for the completion of the insert statement. After the statement has completed, the data in the generated Parquet file will be read into the current model data using the DEX mapping `mappingName`. When `timeout` is 0, the function will return immediately, and you can call the function multiple times to load multiple files into Snowflake in parallel.
     
@@ -928,6 +956,7 @@ Snowflake functions
     :param sqlString: optional string argument containing the SQL select statement to execute.
     :param emptyIdentifiers: optional 0/1 argument indicating whether all identifiers in the mapping should be emptied prior to reading the Parquet file
     :param emptySets: optional 0/1 argument indicating whether all sets used in the mapping should be emptied prior to reading the Parquet file
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
     
 .. js:function::  dex::sf::GenerateTableCreateStatements
 

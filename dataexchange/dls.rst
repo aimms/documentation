@@ -21,7 +21,7 @@ You can create file systems for multiple purposes, such as
 Authorization
 -------------
 
-The easiest way to provide access to file systems within Azure Data Lake Storage is through `SAS tokens <https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview>`_. SAS tokens will allow you to set permissions for an entire storage account, for individual file systems, or even directories within Data Lake Storage file systems. The Data Exchange library will create SAS tokens for you, given an account name and access key. 
+The easiest way to provide access to file systems within Azure Data Lake Storage is through `SAS tokens <https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview>`_. SAS tokens will allow you to set permissions for an entire storage account, for individual file systems, or even directories within Data Lake Storage file systems. The Data Exchange library will create SAS tokens for you, given an account name and access key. The DLS functions allow the use of multiple storage accounts at the same time, which you can add through the function ``dex::dls::AddAccountInfo``.
 
 The Data Exchange library offers a number of functions to create SAS tokens to generate either Account or Service SAS tokens, with various permissions and lifetimes. As only Service SAS tokens allow limiting access to a single file system or directory within a file system, we advise to only distribute Service SAS tokens to setting up data integration with external applications.
 

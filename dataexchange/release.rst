@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.8.1.1 (04-12-2024)
+	- Add support for interrupting the execution of task in the cloud
+	- Add support for multiple storage accounts simultaneously in the DLS functions
+
 24.7.1.4 (30-11-2024)
 	- Shortened paths inside library to help staying within 260 character limit for Windows paths, when the library is embedded in an `.aimmspack` file.
 
