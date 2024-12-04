@@ -11653,3 +11653,6 @@ Improvements
   myFactor
   MyLib
   MySet
+  nonvar
+  nonzeros
+  coredump
