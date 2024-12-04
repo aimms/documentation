@@ -943,7 +943,7 @@ Snowflake functions
     :param query: optional query from the intermediate Parquet file, defaults to the intermediate Parquet file
     :param columns: optional argument for specifying which columns to copy into the table from the query/Parquet file
     :param sqlString: optional string argument containing the SQL statement to execute.
-  	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
+    :param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
  
 .. js:function::  dex::sf::GenerateAndLoadParquetFromTable(mappingName,tableName,timeout,query,sqlString,emptyIdentifiers,emptySets,accountName)
 
@@ -956,7 +956,7 @@ Snowflake functions
     :param sqlString: optional string argument containing the SQL select statement to execute.
     :param emptyIdentifiers: optional 0/1 argument indicating whether all identifiers in the mapping should be emptied prior to reading the Parquet file
     :param emptySets: optional 0/1 argument indicating whether all sets used in the mapping should be emptied prior to reading the Parquet file
-	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
+    :param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
     
 .. js:function::  dex::sf::GenerateTableCreateStatements
 
