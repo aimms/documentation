@@ -26,13 +26,11 @@ AIMMS Improvements
 -  If an application is using a version of a Repository Library for which a newer version has been released, this is now shown in the Model Explorer and Library Manager. The latest version number will be displayed at the right hand side margin. In the Library Manager dialog you can then easily update to the latest version via a single button click.
 -  AIMMS dialogs used for licensing have been updated from ASCII to UTF-8 encoding. This change enhances compatibility and ensures better handling of diverse character sets.
 
-Improvements in the New Generator
-=================================
+Improvements in the New Generator:
 
 With this release, the LP/MIP generator has received a significant makeover. This redesign addresses long-standing issues and introduces several improvements, including enhanced parallelization and performance enhancements that vary based on your model.
 
-Changed Behavior in the New Generator
-=====================================
+Changed Behavior in the New Generator:
 
 - Previously, if the lower bound of a variable was equal to the upper bound, it was treated the same as setting nonvar=1 (the variable was removed from the model). Now, it is treated as nonvar=-1 see nonvar `<https://documentation.aimms.com/functionreference/suffices/variable-suffices/nonvar.html>`_.
 
