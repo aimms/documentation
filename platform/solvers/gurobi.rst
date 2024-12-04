@@ -33,6 +33,10 @@ Gurobi can be used to solve Quadratic Programming (QP) problems which are proble
 
 The QCP and MIQCP solvers support second-order cone constraints, rotated second-order cone constraints, and more general convex quadratic constraints. Starting with version 9.0, Gurobi can also be used to solve problems with a non-convex quadratic objective and/or non-convex quadratic constraints.
 
+Gurobi Global Optimization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Gurobi 12.0 can solve global nonlinear optimization models with integer variables (MINLP) or without (NLP). 
+
 Parallel Gurobi
 ----------------------------
 Gurobi provides a parallel Gurobi option allowing you to take advantage of the availability of additional CPUs to speed up performance while it solves a specific model. Parallel algorithms are included at no additional charge.
@@ -52,4 +56,4 @@ Gurobi requires that the computer’s CPU supports SSE2. Most modern computers s
 
 Gurobi Supported Versions
 ----------------------------
-AIMMS supports Gurobi 9.5 – 11.0.
+AIMMS supports Gurobi 10.0 – 12.0.
