@@ -8,6 +8,56 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 24.6
+#############
+
+
+
+AIMMS 24.6.1 Release (December 4, 2024 - build 24.6.1.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Improvements in the New Generator:
+++++++++++++++++++++++++++++++++++
+
+With this release, the LP/MIP generator has received a significant makeover. This redesign addresses long-standing issues and introduces several improvements, including enhanced parallelization and performance enhancements that vary based on your model.
+
+Changed behavior in the New Generator:
+
+- Previously, if the lower bound of a variable was equal to the upper bound, it was treated the same as setting nonvar=1 (the variable was removed from the model). Now, it is treated as nonvar=-1. See `nonvar <https://documentation.aimms.com/functionreference/suffices/variable-suffices/nonvar.html>`_.
+
+- Variables not part of the GMP are no longer altered during the solve generation. They retain their .level values. Previously, these values were set to the bound closest to zero, even if the .level value was within bounds.
+
+- When generating with the new generator, the progress window will at first only show the increasing number of constraints. The number of variables and the number of nonzeros are shown only in a later stage.
+
+- If a variable is marked as nonvar, its level value will not be changed (not even if it is out of bounds). The idea behind this is that there is probably a good reason why you want to make the variable nonvar with the current value.
+
+- Any individual variable (scalar or multidimensional), that is not part of the generated mathematical program (meaning that there is no column in the GMP that refers to this variable) will keep the level value as it was prior to the solve. It is not set within its current bounds or moved towards the closest bound. What the level values of such variables should be is rather arbitrary theoretically and anything that AIMMS would do with it is just taking extra time.
+
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Gurobi 12.0 has been added. Gurobi 12.0 comes with performance improvements for LP, MIP, MIQP and MIQCP models, and adds support for (global) nonlinear optimization for models with integer variables (MINLP) or without (NLP).
+-  The new compiler for the body of procedures and functions will now try to handle the For, Block, If-Then-Else, While and Repeat statements. Especially in the condition of the For statements this may lead to some new warnings if this condition contains deprecated constructs. It is recommended to fix these warnings as they might cause errors in future AIMMS versions.
+-  The Find All (Ctrl-Shift-F) functionality now also searches for occurrences in the webui.json file. This may help to figure out whether identifiers are referenced in the WebUI.
+-  If an application is using a version of a Repository Library for which a newer version has been released, this is now shown in the Model Explorer and Library Manager. The latest version number will be displayed at the right hand side margin. In the Library Manager dialog you can then easily update to the latest version via a single button click.
+-  AIMMS dialogs used for licensing have been updated from ASCII to UTF-8 encoding. This change enhances compatibility and ensures better handling of diverse character sets.
+-  We added GMP functions and procedures to get and set string-valued options for GMP::Instance and GMP::SolverSession.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The option distribution_compatibility can no longer be used to switch back to the old syntax of the distributions LogNormal, Gamma, Pareto, Triangular, Weibull, Beta and Exponential.  If your model relies on this option you will get an error and you should adapt the calls to these distributions using the comment that is given in the corresponding documentation. After adapting the calls, you should set the option back to its default.
+-  AIMMS would crash when executing a procedure using the 'Run Procedure' right-click context menu item that would eventually call the AIMMS intrinsic function 'ExitAimms'.
+-  We changed how we handle SIGPIPE: users of AimmsCmd will no longer get a coredump for this signal.
+-  AIMMS now asks for confirmation if you are trying to reuse the name of an existing intrinsic function name (like 'max') as the name of a new symbol. It is recommended to not do this and use a non existing name.
+
+--------------
+
+
+#############
 AIMMS 24.5
 #############
 
@@ -11605,3 +11655,6 @@ Improvements
   myFactor
   MyLib
   MySet
+  nonvar
+  nonzeros
+  coredump
