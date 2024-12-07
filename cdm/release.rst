@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+24.6.1.1 [07-12-2024]
+	- Improve CDM performance by storing snapshots automatically and also storing deltas for every commit, such that checkouts do not require expensive SQL queries any longer
+	
 24.5.1.1 [27-11-2024]
 	- Set the AIMMS option `warning_range_violation` to `off` during CDM startup to prevent incorrect range violation errors when checking out elements that are added and deleted in multiple commits after a snapshot
 	- Refactored the database connection sharing logic to prevent race conditions from happening when multiple threads update the database in parallel

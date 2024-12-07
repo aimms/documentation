@@ -368,7 +368,11 @@ Commit and Pull Functions
 
 Snapshot Functions
 ==================
-   
+
+.. note::
+
+	As of version 24.6.1.1, CDM stores snapshots automatically for checkouts on branches for which no checkout currently exists. As the deltas for every commit are also stored, this makes it possible to perform a checkout without the need to execute expensive SQL queries, considerably increasing performance. This makes the functions in this section mostly obsolete.
+	
 .. js:function::  cdm::CreateSnapshot(category,branch,revid,cacheUpdate)
    
    Create a cached data snapshot in the database for all identifiers the specified category from the application database, for a given branch and revision. Through the argument ``cacheUpdate``, you indicate how often the cached snapshot needs to be updated in an automated fashion. By specifying a value >= 0, you indicate the interval in seconds since creation after which you want to snapshot to be updated with the latest data on the given category and branch. A value of 0 indicates that the snapshot will be created, but never updated. You can use the latter option for instance to create a cached snapshot that can be used for all branches branching off a given revision higher than the cached snapshot revision.
