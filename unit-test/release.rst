@@ -5,6 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+24.0.0.13 [07-12-2024]
+	- The Unit Test Library would not work with encrypted models. This fix requires AIMMS versions > 24.6.1.
+
 24.0.0.11 [22-11-2024]
 	- In cloned parameters with a unit containing unit parameters, the unit parameters should be fully qualified (this fix requires AIMMS 24.5.20+)
 
