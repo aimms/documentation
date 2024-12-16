@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+24.9.1.1 (16-12-2024)
+	- Allow rebinding PBI report to new semantic model
+	- When obtaining a SAS container token, fall back to a SAS account token if no access key or SAS container token is available
+	
 24.8.1.1 (04-12-2024)
 	- Add support for interrupting the execution of task in the cloud
 	- Add support for multiple storage accounts simultaneously in the DLS functions
