@@ -1,6 +1,18 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.12
+#########
+
+AIMMS PRO 24.12.2 Release
+-------------------------
+
+On December 13, 2024, we released AIMMS PRO 24.12.2(24.12.2.1)
+
+**Improvements**
+
+- **PRO REST API:Task Service**: Task REST API is extended with the support for *interrupt-execution*. It is possible to interrupt the task execution itself outside of the solve. Please see the `documentation <https://documentation.aimms.com/cloud/tasks.html#interrupting-a-task>`__ for more details.
+
 PRO 24.11
 #########
 
