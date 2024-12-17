@@ -13,6 +13,22 @@ AIMMS 24.6
 
 
 
+AIMMS 24.6.3 Release (December 17, 2024 - build 24.6.3.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Executing a SWITCH statement in some situations caused a severe error.
+
+--------------
+
+
+
+
+
 AIMMS 24.6.2 Release (December 13, 2024 - build 24.6.2.10).
 ------------------------------------------------------------------------------------------
 
