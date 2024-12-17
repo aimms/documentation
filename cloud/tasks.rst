@@ -9,13 +9,12 @@ The AIMMS PRO REST API allows users to perform operations on DEX-exposed tasks, 
 
 1. Creating tasks (POST). Once a task is created, it will eventually run on the PRO Cloud infrastructure.
 2. Retrieving a task's status/results (GET).
-3. Interrupting a task (PUT). This allows the task to complete earlier.
+3. `Interrupting a task (PUT). <tasks.html#interrupting-a-task>`__ This allows the task to complete earlier or terminate it.
 4. Deleting a task (DELETE). It can delete 'QUEUED' or 'COMPLETED' tasks.
 
-These Task operations supported by the AIMMS PRO REST API closely mirror the REST API exposed by DEX, with the exception of
-the PUT command: while DEX supports both ``interrupt-execution`` and ``interrupt-solve`` in the PUT body, the PRO REST
-API only supports ``interrupt-solve``. The reason for this is that ``interrupt-execution`` terminates the AIMMS session
-running the task, and on PRO Cloud such sessions are not controllable by the API user, but rather directly managed by PRO.
+`Managing Apps <rest-api.html#managing-apps>`__
+
+These Task operations supported by the AIMMS PRO REST API closely mirror the REST API exposed by DEX.
 
 Tasks will be queued by PRO in the creation order. PRO will launch these tasks to run on Cloud infrastructure in the order they
 are queued. PRO will attempt to parallelize task execution, potentially having multiple tasks running at the same time up to
@@ -34,6 +33,11 @@ has with respect to the AIMMS App that is exposing the DEX REST API:
 
 1. Create/Interrupt/Delete operations require that user to have ``Read`` and ``Execute`` permissions on that app.
 2. Retrieve operations require that user to have ``Read`` permissions on that app.
+
+**Interrupting a task**
+
+1. interrupt-solve: interrupting the solves that are running within the tasks. This can be achieved by sending ``"setstatus": "interrupt-solve"`` message to DEX in the body of the PUT request. As a result, task will be finished early and task status will be 'completed'.  
+2. interrupt-execution: interrupting the task execution itself outside of the solve. This can be achieved by sending ``"setstatus": "interrupt-execution"`` message to DEX in the body of the PUT request. As a result, task execution will be interrupted and task status will be 'failed'.
 
 **REST Session Idle Time**
 
