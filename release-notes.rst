@@ -22,6 +22,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Executing a SWITCH statement in some situations caused a severe error.
+-  The function DialogGetNumber triggered an incorrect error.
 
 --------------
 
@@ -11700,3 +11701,4 @@ Improvements
   nonvar
   nonzeros
   coredump
+  DialogGetNumber
