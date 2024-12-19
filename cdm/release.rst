@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+24.6.1.2 [19-12-2024]
+	- Checking out data from an empty snapshot would stop the client from retrieving subsequent delta change sets
+	
 24.6.1.1 [07-12-2024]
 	- Improve CDM performance by storing snapshots automatically and also storing deltas for every commit, such that checkouts do not require expensive SQL queries any longer
 	
