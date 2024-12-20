@@ -1,6 +1,18 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 24.13
+#########
+
+AIMMS PRO 24.13.1 Release
+-------------------------
+
+On December 20, 2024, we released AIMMS PRO 24.13.1(24.13.1.1)
+
+**Improvements**
+
+- As informed in the `Product update <https://community.aimms.com/product-updates/new-look-for-aimms-cloud-1803>`__, with this PRO Release you will have a new look of AIMMS PRO Portal. (**Note**: As we are using phased approach for roll-out to customers, not all the customers will experience it after moving to this release. For more information and questions, please contact our `Customer Support <support@aimms.com>`__)
+
 PRO 24.12
 #########
 
