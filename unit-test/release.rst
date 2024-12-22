@@ -5,6 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+24.0.0.15 [22-12-2024]
+	- Deleting runtime nodes would leave the model in an unrunnable state, preventing the model termination procedures from being executed
+	
 24.0.0.14 [17-12-2024]
 	- The Unit Test Library would not work correctly when running in the AIMMS cloud.
 

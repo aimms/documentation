@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+24.6.1.6 [22-12-2024]
+	- When disconnecting from an application database, the embedded server would also be stopped
+	- Destroying the CDM runtime library would leave the model in an unrunnable state, prevent the model termination procedures from being executed
+	
 24.6.1.4 [19-12-2024]
 	- Checking out data from an empty snapshot would stop the client from retrieving subsequent delta change sets
 	
