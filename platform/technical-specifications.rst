@@ -76,17 +76,17 @@ Linux x64
 
 Requirements for the portable Intel Linux AIMMS component release:
 
-+------------+-------------------------------------------------------------+
-| Attribute  | Requirement                                                 |
-+============+=============================================================+
-| OS         | Red Hat 7, or Ubuntu 16.04 or higher Linux operating system |
-+------------+-------------------------------------------------------------+
-| Processor  | Intel x64 compatible system                                 |
-+------------+-------------------------------------------------------------+
-| RAM        | 1 GB                                                        |
-+------------+-------------------------------------------------------------+
-| Free space | 1 GB                                                        |
-+------------+-------------------------------------------------------------+
++------------+------------------------------------------------------------------+
+| Attribute  | Requirement                                                      |
++============+==================================================================+
+| OS         | Red Hat 8 or higher, Alma Linux 8.10 or higher, or Ubuntu 20.04  |
++------------+------------------------------------------------------------------+
+| Processor  | Intel x64 compatible system                                      |
++------------+------------------------------------------------------------------+
+| RAM        | 2 GB                                                             |
++------------+------------------------------------------------------------------+
+| Free space | 1 GB                                                             |
++------------+------------------------------------------------------------------+
 
 The portable component version has initially been ported to the Intel Linux operating system. Please contact AIMMS Support if you would like to have the portable component available on a specific 64-bit Linux/Unix operating system.
 
