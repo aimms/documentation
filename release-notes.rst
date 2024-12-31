@@ -13,6 +13,30 @@ AIMMS 24.6
 
 
 
+AIMMS 24.6.4 Release (December 31, 2024 - build 24.6.4.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The new math program generator, introduced in 24.6, now supports Indicator Constraints as well.
+-  NodelockTool on Linux did not work properly.
+
+NodelockTool now connects to license.aimms.com via HTTPS.
+
+RPM installer now installs in /usr/local/Aimms, not in /usr/local/Aimms/<version>.
+
+Linux IFA .run file will set the LD_LIBRARY_PATH to set allow libraries to find .so files that are shared with AIMMS.
+-  Compiler errors in the index domain attribute of an identifier now point to the correct location, while previously they sometimes incorrectly pointed to a location in the definition attribute.
+
+--------------
+
+
+
+
+
 AIMMS 24.6.3 Release (December 17, 2024 - build 24.6.3.3).
 ------------------------------------------------------------------------------------------
 
