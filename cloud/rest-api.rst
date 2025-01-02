@@ -221,7 +221,7 @@ The resource profile feature allows us to manage and apply resource limits (e.g.
 * **Account Level Limits**: These limits can be specified at the account level through our Cloud Account Management Tool.
 * **Application Level Limits**: Our data model and services already support resource limits at the application level. These limits override the account-level values. Instead of manually entering these values, they are defined in terms of predefined resource profiles.
 
-**Resource Profiles**: Resource profiles are predefined configurations specifying all supported resource limits, such as CPU and memory limits. Each profile is assigned a unique name and is stored globaly in PRO Database.
+**Resource Profiles**: Resource profiles are predefined configurations specifying all supported resource limits, such as CPU and memory limits. Each profile is assigned a unique name and is stored globally in PRO Database.
 
 **Usage**: When publishing or editing an app via the REST API, a resource profile can be selected, and the resource limits defined in the selected profile will be applied to the app.
 
