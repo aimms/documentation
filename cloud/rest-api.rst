@@ -17,8 +17,8 @@ We support following services(functionality) through the AIMMS PRO REST API:
     - `Managing Environments, Groups and Users <rest-api.html#managing-users-and-groups>`__
     - `Managing Apps <rest-api.html#managing-apps>`__
     - `Managing AIMMS <rest-api.html#managing-aimms>`__
-    - `Managing API Keys <rest-api.html#managing-api-keys>`__
-	- `Managing Sessions <https://documentation.aimms.com/cloud/session-manager.html>`__
+    - `Managing API Keys <rest-api.html#managing-api-keys>`__ 
+	- `Managing Sessions <https://documentation.aimms.com/cloud/session-manager.html>`__ 
 
 	
 The full OpenAPI specification of the AIMMS PRO REST API itself can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v2/``. 
