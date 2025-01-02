@@ -212,6 +212,29 @@ In order to completely remove permissions from an app, assign permissions to an 
 .. code-block:: php
 
         "authorizations": []
+		
+Setting Resource Profiles at Application level
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The resource profile feature allows us to manage and apply resource limits (e.g. CPU and memory limits of Solver and Data sessions) at the application level. Resource limits can be applied at Account level or Application level.
+
+* **Account Level Limits**: These limits can be specified at the account level through our Cloud Account Management Tool.
+* **Application Level Limits**: Our data model and services already support resource limits at the application level. These limits override the account-level values. Instead of manually entering these values, they are defined in terms of predefined resource profiles.
+
+**Resource Profiles**: Resource profiles are predefined configurations specifying all supported resource limits, such as CPU and memory limits. Each profile is assigned a unique name and is stored globaly in PRO Database.
+
+**Usage**: When publishing or editing an app via the REST API, a resource profile can be selected, and the resource limits defined in the selected profile will be applied to the app.
+
+
+	* ``GET /pro-api/v1/customization/resource-profiles`` - retrieves the list of profiles. 
+	* ``PATCH /pro-api/v1/applications/{projectName}/{projectVersion}`` - now has an additional parameter called "resourceProfile". 
+	* ``POST /pro-api/v1/applications`` - now accept a new JSON metadata field called "resourceProfile".
+	 
+**Special Profiles**:
+	* "<account>": Indicates that the app should use the account-level resource limits.
+	* "<unknown>": Indicates that the app has custom resource limits not tied to any profile. This is the default profile. When editing an app with the "<unknown>" profile, the service will retain the existing resource limits without modifying them. This is designed to ensure the UI can display the correct profile name and send it back to the service if necessary.
+	
+Currently, resource profiles can only be set for an app through the REST API. In the future, we plan to extend this functionality to Portal 3's Publish and Edit App UI, making it more user-friendly.
      
 
 Managing AIMMS
