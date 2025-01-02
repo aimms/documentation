@@ -18,6 +18,7 @@ We support following services(functionality) through the AIMMS PRO REST API:
     - `Managing Apps <rest-api.html#managing-apps>`__
     - `Managing AIMMS <rest-api.html#managing-aimms>`__
     - `Managing API Keys <rest-api.html#managing-api-keys>`__
+	- `Managing Sessions <https://documentation.aimms.com/cloud/session-manager.html>`__
 
 	
 The full OpenAPI specification of the AIMMS PRO REST API itself can be downloaded in YAML/JSON format from the link ``https://[account-name].aimms.cloud/pro-api/v2/``. 
@@ -43,6 +44,7 @@ subsets of the PRO REST API:
 3. The *PublishApp* scope allows operations on AIMMS apps.
 4. The *Tasks* scope allows operations on Tasks.
 5. The *API Key* scope allows operations on API Keys.
+6. The *Session* scope allows operations on WebUI and Task sessions.
 
 .. image:: images/key2.jpg
     :align: center
