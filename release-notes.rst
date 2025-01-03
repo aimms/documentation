@@ -22,6 +22,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  The new math program generator, introduced in 24.6, now supports Indicator Constraints as well.
+-  The new math program generator, introduced in 24.6, now supports SOS Constraints as well.
 -  NodelockTool on Linux did not work properly.
 -  NodelockTool now connects to license.aimms.com via HTTPS.
 -  RPM installer now installs in `/usr/local/Aimms`, not in `/usr/local/Aimms/<version>`.
