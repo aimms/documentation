@@ -12,6 +12,8 @@ On December 20, 2024, we released AIMMS PRO 24.13.1(24.13.1.1)
 **Improvements**
 
 - As informed in the `Product update <https://community.aimms.com/product-updates/new-look-for-aimms-cloud-1803>`__, with this PRO Release you will have a new look of AIMMS PRO Portal. (**Note**: As we are using phased approach for roll-out to customers, not all the customers will experience it after moving to this release. For more information and questions, please contact our `Customer Support <support@aimms.com>`__)
+- **Session-Manager**: A new REST API Service to interact with WebUI and Task sessions on AIMMS Cloud Platform. Please see the `documentation <https://documentation.aimms.com/cloud/session-manager.html>`__ for more details.
+- **PRO REST API:Managing Apps**: It is possible to set resource profile (CPU and Memory limits) while publishing and updating an app using REST API. Please see the `documentation <https://documentation.aimms.com/cloud/rest-api.html#setting-resource-profiles-at-application-level>`__ for more details.
 
 PRO 24.12
 #########
