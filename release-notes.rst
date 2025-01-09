@@ -13,6 +13,23 @@ AIMMS 24.6
 
 
 
+AIMMS 24.6.5 Release (January 09, 2025 - build 24.6.5.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In the WinUI Gantt Chart, if the parameter to store Store Selection was declared as binary, an unexpected warning could occur.
+-  The constraint properties "IncludeInCutPool" and "IncludeInLazyConstraintPool" are now supported by the new Mathematical Program generator.
+
+--------------
+
+
+
+
+
 AIMMS 24.6.4 Release (December 31, 2024 - build 24.6.4.3).
 ------------------------------------------------------------------------------------------
 
