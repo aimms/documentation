@@ -38,7 +38,6 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  In the WinUI Gantt Chart, if the parameter to store Store Selection was declared as binary, an unexpected warning could occur.
 -  The constraint properties "IncludeInCutPool" and "IncludeInLazyConstraintPool" are now supported by the new Mathematical Program generator.
 
 --------------
