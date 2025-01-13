@@ -13,6 +13,23 @@ AIMMS 24.6
 
 
 
+AIMMS 24.6.6 Release (January 13, 2025 - build 24.6.6.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Reduced AIMMS linux artifacts size.
+-  In the WinUI Gantt Chart, if the parameter to store Store Selection was declared as binary, an unexpected warning could occur.
+
+--------------
+
+
+
+
+
 AIMMS 24.6.5 Release (January 09, 2025 - build 24.6.5.4).
 ------------------------------------------------------------------------------------------
 
