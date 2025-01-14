@@ -522,7 +522,7 @@ Resolved AIMMS Issues
 - Callbacks aren't called anymore when calculating Substructure Causing Infeasibility or Substructure Causing Unboundedness in the Math Program Inspector.
 - In functions like StringToTimeslot where a date time string is matched against a date time format, an error could occur when the match was not successful.
 
-**Note**: Using AIMMS version 24.5 or higher with on-premise PRO does require **AIMMS PRO 24.7** or higher. 
+**Note**: Using AIMMS version 24.5 or higher with on-premise PRO does require **AIMMS PRO 24.7** or higher for WebUI applications. 
 
 --------------
 
