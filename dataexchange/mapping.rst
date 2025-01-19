@@ -98,6 +98,7 @@ The available mapping attributes are:
 * skip-empty-rows
 * maps-to
 * precision
+* number-type
 * max-string-size  
 * range-display-name  
 * range-existing
@@ -211,6 +212,17 @@ When writing element data, you can specify the display name to be used for eleme
 		You should only use a single identifier for specifying display names per range set. When collecting the display names during the call to :js:func:`dex::AddMapping`, these will be stored in a global range-set-specific structure, that is used for any instance of the range set of element parameters that have a display name attribute specified.
 
 By default, the Data Exchange library assumes that all string values will hold up to 1024 characters. Through the ``max-string-size`` attribute a maximum string size up to 1 MB can be specified.
+
+The number-type attribute
+-------------------------
+
+Through the ``number-type`` attribute you can specify the specific format in which numerical data will be represented. The possible values are:
+
+* `integer`
+* `boolean`
+* `double`
+
+You can apply this attribute to a ``map-to`` attribute referring to a numerical parameter, or an element parameter into an integer set, or to a ``binds-to`` attribute referring to an index into an integer set. Alternatively, you can apply the ``number-type`` attribute when a ``binds-to-display-name`` or ``range-display-name`` attribute specifies display names that represent integers. 
 
 The write-defaults attribute
 ----------------------------
