@@ -13,8 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
-25.1.0.1 (19-01-2025)
+25.1.1.1 (20-01-2025)
 	- Add support for specifying the specific numeric format to be used through the `number-type` attribute.
+	- Increased the robustness of the methods for reading/writing entire datasets to a container in Azure Data Lake Storage
 
 24.9.1.4 (17-12-2024)
 	- Fixed support for interrupting task, and continuing to accept new tasks
