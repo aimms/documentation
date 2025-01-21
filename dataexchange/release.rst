@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.1.1.2 (21-01-2025)
+	- Regular expression originating from `name-regex-from` and `name-binds-to-display-name` attributes are now automatically updated on every ``dex::ReadFromFile`` call	
+	
 25.1.1.1 (20-01-2025)
 	- Add support for specifying the specific numeric format to be used through the `number-type` attribute.
 	- Increased the robustness of the methods for reading/writing entire datasets to a container in Azure Data Lake Storage
