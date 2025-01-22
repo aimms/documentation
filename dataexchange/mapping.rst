@@ -96,6 +96,7 @@ The available mapping attributes are:
 * binds-existing
 * skip-non-existing
 * skip-empty-rows
+* skip-column
 * maps-to
 * precision
 * number-type
@@ -103,7 +104,6 @@ The available mapping attributes are:
 * range-display-name  
 * range-existing
 * value
-* number-type
 * write-defaults           
 * write-filter      
 * force-dense
@@ -114,6 +114,7 @@ The available mapping attributes are:
 * read-normalize
 * write-normalize
 * color
+
 
 The name and alt-name attributes
 --------------------------------
@@ -181,6 +182,11 @@ The skip-empty-rows attribute
 -----------------------------
 
 With the ``skip-empty-rows`` attribute you can let the Data Exchange library skip completely empty rows in row-based mappings. When specified, all columns present in the mapping will be checked, while non-mapped columns will be not be checked. You can use this to allow reading data from e.g. Excel sheets where the user inserted empty lines in between data. When ``skip-non-existing`` is set to 0, the Data Exchange library will still pick up empty fields for columns that bind to indices in your model on non-empty lines.
+
+The skip-column attribute
+-------------------------
+
+Via the ``skip-column`` attribute you can instruct the Data Exchange library to *dynamically* skip writing specific columns in the row-based formats. The value of the attribute should be a numeric *scalar* parameter. The column will not be written when the parameter holds a non-zero value. When reading the data, the attribute will be ignored. The attribute will also be ignored by the JSON, XML and YAML formats. In the latter case, the library will issue a warning when parsing the mapping.
 
 External bindings in mappings
 -----------------------------
@@ -264,11 +270,6 @@ With the ``value`` attribute you can specify that, when writing a file, the valu
 .. note::
 
         Any value-holding mapping element may have only one of the ``binds-to``, ``maps-to`` or ``value`` attributes specified. 
-
-The number-type attribute
--------------------------
-
-For JSON mappings you can specify a ``number-type`` attribute for every numerical value-holding node to be used when writing a JSON file. The possible values for the ``number-type`` attribute are ``integer``, ``double`` or ``boolean``.
 
 The color attribute
 -------------------
