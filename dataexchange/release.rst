@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.1.1.3 (22-01-2025)
+	- You can now dynamically skip columns when writing row-based formats by using the `skip-column` attribute.
+	- Specifying a `name-binds-to` attribute in the `dex::ExtraAttributeList` annotation in combination with a regular `maps-to` column in the same table caused the wrong index domain to be specified for either in the generated mappings
+	
 25.1.1.2 (21-01-2025)
 	- Regular expression originating from `name-regex-from` and `name-binds-to-display-name` attributes are now automatically updated on every ``dex::ReadFromFile`` call	
 	
@@ -145,7 +149,7 @@ New Features and Bug Fixes
 	- Transfer of a large number of files with Azure DLS could cause a crash
 
 24.1.1.3 [16-02-2024]
-	- The OAuth callback URL in on-premise installations of PRO can now take into account a non-default HTTPS port of the PRO service
+	- The OAuth callback URL in installations of PRO on-premise can now take into account a non-default HTTPS port of the PRO service
 
 24.1.1.2 [12-02-2024]
 	- Automatically generated mappings via :js:func:`dex::WriteToFile` will now take the ``name-binds-to`` extra attribute value into account in determining and checking the row dimension of a generated table mapping
@@ -211,7 +215,7 @@ New Features and Bug Fixes
 
 2.1.2.42 [06-10-2023]
 	- The mapping attribute ``value`` may now also hold a memory stream name to allow dynamically set values
-	- Introduced new session and task callbacks to be used when a DEX session is being called as part of a PRO task service. 
+	- Introduced new session and task callbacks to be used when a DEX session is being called as part of a AIMMS Cloud task service. 
 	- Introduced ``--dex::listenPort`` and ``--dex::serviceTimeOut`` command line arguments for externally setting API service configuration parameters.
 	- Introduce a new function :js:func:`dex::GetOptionValues`.
 	
@@ -483,7 +487,7 @@ New Features and Bug Fixes
 	- Field names offered for Regex search for a ``name-binds-to`` attribute will first be right trimmed. 
 
 1.3.0.30 [17-01-2022]
-	- Add support for the OAuth Authorization Code flow for WebUI applications on the PRO/CLoud platform (requires AIMMS 4.84 and PRO/Cloud 2.42)
+	- Add support for the OAuth Authorization Code flow for WebUI applications on the PRO on-premise/AIMMS CLoud (requires AIMMS 4.84 and PRO on-premise/AIMMS Cloud 2.42)
 	- Introduce ``alt-name`` and ``name-regex-from`` attributes for mapping files.
 	
 1.3.0.22 [02-01-2022]
