@@ -13,6 +13,24 @@ AIMMS 24.6
 
 
 
+AIMMS 24.6.7 Release (January 24, 2025 - build 24.6.7.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If during the 'Project Close' sequence, you clicked the Cancel button in one of the dialog boxes that could appear, the WebUI was in an invalid state afterwards.
+-  Constraints or Variables with a simple (index in subSet) restriction in the IndexDomain, could not be used in the new math program generator.
+-  An inlined variable with an IndexDomain that is specified over multiple lines was not picked up by the new math program generator, and thus the old generator was used because of that.
+
+--------------
+
+
+
+
+
 AIMMS 24.6.6 Release (January 13, 2025 - build 24.6.6.1).
 ------------------------------------------------------------------------------------------
 
