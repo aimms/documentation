@@ -11775,5 +11775,5 @@ Improvements
   nonzeros
   coredump
   DialogGetNumber
-  subset
+  subSet
   inlined
