@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.1.1.4 (28-01-2025)
+	- When skipping a column the data still needed to be traversed
+
 25.1.1.3 (22-01-2025)
 	- You can now dynamically skip columns when writing row-based formats by using the `skip-column` attribute.
 	- Specifying a `name-binds-to` attribute in the `dex::ExtraAttributeList` annotation in combination with a regular `maps-to` column in the same table caused the wrong index domain to be specified for either in the generated mappings
