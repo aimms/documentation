@@ -1,5 +1,5 @@
-AIMMS Platform Introduction
-==================================
+AIMMS optimization tooling introduction
+=======================================
 
 Get to know the basics about the AIMMS Development & Deployment Platform.
 
