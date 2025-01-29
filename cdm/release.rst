@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+24.6.1.8 [29-01-2025]
+	- The reconnect logic contained a procedure call within an if-then-else expression, which might cause the auto-reconnect to fail
+
 24.6.1.7 [27-01-2025]
 	- If a database transaction failed when committing a change set, a thread in the CDM service would crash when trying to delete the database connection
 	- The commit delta was stored outside of the commit transaction
