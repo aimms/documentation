@@ -13,6 +13,25 @@ AIMMS 24.6
 
 
 
+AIMMS 24.6.8 Release (January 29, 2025 - build 24.6.8.7).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Re-compiling the entire model after deleting a runtime library could fail.
+-  In 24.6 a new implementation of the For statement is enabled. Because of that an extra warning is triggered when the set ordering of a loop index is changed within the inner statements of a for statement, which may result in different behavior as before.
+-  The basis (if any) was not passed correctly to the solver in case the AIMMS Presolver is activated.
+-  Inline variables with a definition containing multiple lines sometimes resulted in that the math program was not accepted by the new math program generator.
+
+--------------
+
+
+
+
+
 AIMMS 24.6.7 Release (January 24, 2025 - build 24.6.7.5).
 ------------------------------------------------------------------------------------------
 
