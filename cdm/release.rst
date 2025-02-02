@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+24.6.1.9 [03-02-2025]
+	- Changing the category order would trigger a warning in AIMMS 24.6
+	- The commit changeset would sometimes be deleted prematurely on Linux, leading to crashes.
+
 24.6.1.8 [29-01-2025]
 	- The reconnect logic contained a procedure call within an if-then-else expression, which might cause the auto-reconnect to fail
 
