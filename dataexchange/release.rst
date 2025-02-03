@@ -13,6 +13,12 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.2.1.1 (03-02-2025)
+	- Add `dex::pbi::ListItems` to allow retrieving reports
+	- Add `dex::pbi::GetDefinition` to allow retrieving report definition
+	- Add `dex::pbi::CloneItem` to allow cloning an existing report
+	- Use a different method to retrieve an `PBIE` embed token that enables to `save as` functionality in the edit mode of `PBIE`
+
 25.1.1.4 (28-01-2025)
 	- When skipping a column the data still needed to be traversed
 
