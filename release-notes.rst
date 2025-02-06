@@ -13,6 +13,22 @@ AIMMS 24.6
 
 
 
+AIMMS 24.6.9 Release (February 06, 2025 - build 24.6.9.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The new warning on the FOR statement that was introduced in the previous release was triggered too often. You now only get the warning if a loop index refers to an ordered set and that set changes during the iteration.
+
+--------------
+
+
+
+
+
 AIMMS 24.6.8 Release (January 29, 2025 - build 24.6.8.7).
 ------------------------------------------------------------------------------------------
 
