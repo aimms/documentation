@@ -1,6 +1,19 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 25.1
+#########
+
+AIMMS PRO 25.1.1 Release
+-------------------------
+
+On February 3, 2024, we released AIMMS PRO 25.1.1(25.1.1.1)
+
+**Improvements**
+
+- **On-Premise**: Updated the java version that is shipped with PRO On-Premise from version 8 to version 23, solving various issues and potential security exploits found in the Java 8 version.
+- **Portal3**: Design and performance improvements for Apps page.
+
 PRO 24.13
 #########
 
