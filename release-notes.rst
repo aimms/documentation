@@ -24,7 +24,7 @@ Resolved AIMMS Issues
 
 - The procedure GMP::Solution::RetrieveFromModel did not retrieve the basis correctly if the AIMMS Presolver was used.
 - The obsolete Gurobi option 'Parameter display' has been removed.
-- The linux AimmsCmd executable did not handle closing of stdin correctly resulting in an error. Additionally when pressing Ctrl-C or Ctrl-Z resulted in callstack dumps being displayed. Both issues have been adressed by this fix.
+- The linux AimmsCmd executable did not handle closing of stdin correctly resulting in an error. Additionally when pressing Ctrl-C or Ctrl-Z resulted in callstack dumps being displayed. Both issues have been addressed by this fix.
 - The new math program generator did not filter out coefficients that were close to zero, as the old generator did.
 - Internal dependencies updated to resolve potential security exploits.
 
@@ -11843,3 +11843,5 @@ Improvements
   DialogGetNumber
   subSet
   inlined
+  stdin
+  callstack
