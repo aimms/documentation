@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.3.1.1 (07-02-2025)
+	- Upgrade to Arrow 18.1, libCurl 8.10.1, OpenSSL 3.3.2
+
 25.2.1.1 (03-02-2025)
 	- Add `dex::pbi::ListItems` to allow retrieving reports
 	- Add `dex::pbi::GetDefinition` to allow retrieving report definition
