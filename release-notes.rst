@@ -21,7 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
-- A new feature has been added that can be used to help end-users diagnose and resolve infeasibilities caused by input data issues. The new procedure `GMP::Instance::GetInfeasibleData <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_instance-procedures-and-functions/gmp_instance_getinfeasibledata.html>`__ should be used to enable this feature. This procedure will output a message describing the cause of the infeasibility. If can also be used to leverage graphical insights for iterative resolution. This feature is only available for linear models.
+- A new feature has been added that can be used to help end-users diagnose and resolve infeasibilities caused by input data issues. The new procedure `GMP::Instance::GetInfeasibleData <https://documentation.aimms.com/language-reference/optimization-modeling-components/implementing-advanced-algorithms-for-mathematical-programs/managing-generated-mathematical-program-instances.html#explainability>`__ should be used to enable this feature. This procedure will output a message describing the cause of the infeasibility. If can also be used to leverage graphical insights for iterative resolution. This feature is only available for linear models.
 - Gurobi 12.0 has been upgraded to version 12.0.1.
 - The default keyword for the Solvers General option 'Remove doubletons' has been renamed. By default doubletons will now always be removed by the AIMMS Presolver for linear models.
 
