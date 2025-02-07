@@ -7,9 +7,8 @@ AIMMS Release Notes
 
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
-
 #############
-AIMMS 25
+AIMMS 25.1
 #############
 
 
