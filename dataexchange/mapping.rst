@@ -17,7 +17,7 @@ The following are the elements allowed in a JSON mapping
 * the ``ColumnMapping`` element (underneath an ``ObjectMapping``), a mapping element used to map all underlying mapping nodes as an array of column arrays (containing homogeneous value types)
 * the ``ColumnMapping`` element (underneath a ``RowMapping``), a mapping element used to map the value of a particular element in a ``RowMapping`` to a specific identifier in the model.
 
-The represent row-oriented data, the ``RowMapping`` and ``ColumnMapping`` will provide the most compact JSON representations and will execute the fastest.
+To represent row-oriented data, the ``RowMapping`` and ``ColumnMapping`` will provide the most compact JSON representations and will execute the fastest.
 
 YAML Mapping elements
 =====================
@@ -50,7 +50,7 @@ and the same for all these file types.
 
 The root of the mapping specifies the file type. These are the possible roots of a row based table mappings
 
-* the ``AimmsCSVMapping`` element for CSV/TSV files. The Data Exchange library will output a TSV file if the file extension is .tsv, or CSV otherwise.
+* the ``AimmsCSVMapping`` element for CSV files. The Data Exchange library will output a TSV file if the file extension is .tsv. Otherwise, you can set the delimiter through the ``csv-delimiter`` attribute, it can hold the values ``comma`` or ``,`` (default), ``semicolon`` or ``;``, or ``tab``, which will create or read comma-, semicolon- or tab-separated files.
 * the ``AimmsParquetMapping`` element for Parquet files
 * the ``AimmsExcelMapping`` element for Excel files (.xlsx)
 * the ``AimmsDatabaseMapping`` element for SQLite files (.db)
@@ -61,7 +61,7 @@ The child elements of these root nodes are
 * the ``RowMapping`` element a single child element of the ``TableMapping`` and maps the rows
 * the ``ColumnMapping`` element maps a column and is always underneath a ``RowMapping`` element
 
-For CSV/TSV and Parquet each table is stored as one file, so if a ``TableMapping`` is specified then it will determine the name of the file.
+For CSV and Parquet each table is stored as one file, so if a ``TableMapping`` is specified then it will determine the name of the file.
 Therefore the first argument of Procedures  ``dex::WriteToFile()`` and ``dex::ReadFromFile()`` is interpreted as a folder containing the files.
 When no ``TableMapping`` is specified the first argument of Procedures  ``dex::WriteToFile()`` and ``dex::ReadFromFile()`` is the file name and only one single table can be written.
 
@@ -114,7 +114,6 @@ The available mapping attributes are:
 * read-normalize
 * write-normalize
 * color
-
 
 The name and alt-name attributes
 --------------------------------

@@ -13,6 +13,12 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.3.1.2 (12-02-2025)
+	- CSV support is now provided through the Arrow library. As the Arrow library will deduce the type of each column of read CSV files, or use the column type of generated CSV files, this may lead to slightly different behavior of the CSV mapping compared to the old CSV reader
+	- The CSV delimiter can now be set through the ``csv-delimiter`` attribute of the ``AimmsCSVMapping`` node
+	- Parquet and CSV mappings can now be read from and written to memory streams like all the other mapping types
+	- The (old) CSV reader did not deal correctly with CSV files with just a single column
+
 25.3.1.1 (07-02-2025)
 	- Upgrade to Arrow 18.1, libCurl 8.10.1, OpenSSL 3.3.2
 
