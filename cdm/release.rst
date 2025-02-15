@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+25.1.1.1 [15-02-2025]
+	- Upgrade to latest version of build system and libraries
+
 24.6.1.10 [03-02-2025]
 	- Changing the category order would trigger a warning in AIMMS 24.6
 	- The commit changeset would sometimes be deleted prematurely on Linux, leading to crashes.
