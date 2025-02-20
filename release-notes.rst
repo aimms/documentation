@@ -11861,3 +11861,7 @@ Improvements
   inlined
   stdin
   callstack
+  dumpfile
+  dumpfiles
+  endpoints
+  https
