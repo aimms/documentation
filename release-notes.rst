@@ -13,6 +13,23 @@ AIMMS 25.1
 
 
 
+AIMMS 25.1.2 Release (February 20, 2025 - build 25.1.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If a database table contains a column for Units, and one the entries for that column happened to be an empty string (instead of an explicit NULL) the read operation for that table would stop without any warning or error. Now the empty string is treated the same as an explicit NULL.
+-  Update the dumpfile submit facility to support https endpoints, allowing dumpfiles to be submitted to AIMMS again.
+
+--------------
+
+
+
+
+
 AIMMS 25.1.1 Release (February 07, 2025 - build 25.1.1.2).
 ------------------------------------------------------------------------------------------
 
