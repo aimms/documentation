@@ -895,7 +895,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 .. js:function:: dex::dls::WriteDatasetInstanceByInstance
 
-	For a given generated dataset `dataset` generate Parquet files for all tables in the dataset, and store these Parquet files in the container in the configured Azure Data Lake Storage account in the container pointed to by ``dex::dls::DatasetsByTableContainer``. 	Within the container the Parquet files are stored using the pattern `<dataset>/<instance>/<table>.parquet`, where `<instance>` is the given `instance`.
+	For a given generated dataset `dataset` generate Parquet files for all tables in the dataset, and store these Parquet files in the container in the configured Azure Data Lake Storage account in the container pointed to by ``dex::dls::DatasetsByInstanceContainer``. 	Within the container the Parquet files are stored using the pattern `<dataset>/<instance>/<table>.parquet`, where `<instance>` is the given `instance`.
 
 	:param dataset: element parameter holding the name of the dataset to write.
 	:param instance: string parameter holding instance name of the dataset to write.
@@ -903,7 +903,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 .. js:function:: dex::dls::ReadDatasetInstanceByInstance
 
-	For a given generated dataset `dataset` and dataset instance, transfer Parquet files from the container in the configured Azure Data Lake Storage account in the container pointed to by ``dex::dls::DatasetsByTableContainer`` from the location `<dataset>/<instance>/<table>.parquet`, where `<instance>` is the given `instance`, to the current session and read the content of the Parquet files into the model.
+	For a given generated dataset `dataset` and dataset instance, transfer Parquet files from the container in the configured Azure Data Lake Storage account in the container pointed to by ``dex::dls::DatasetsByInstanceContainer`` from the location `<dataset>/<instance>/<table>.parquet`, where `<instance>` is the given `instance`, to the current session and read the content of the Parquet files into the model.
 
 	:param dataset: element parameter holding the name of the dataset to read.
 	:param instance: string parameter holding instance name of the dataset to read.
