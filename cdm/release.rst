@@ -9,6 +9,7 @@ New Features and Bug Fixes
 --------------------------
 25.1.3.3 [25-02-2025]
 	- Element parameters into subsets of `Integers` with the `ElementsAreLabels` option set, would loose data on checkout when the '0' element was assigned in newer AIMMS versions.
+	- Fixes errors reported by AIMMS 25.1.2.3+ when creating the CDM runtime library
 
 25.1.2.2 [19-02-2025]
 	- New build system failed to include SQLite DLL in released artifacts, and did not run tests in the build pipeline so it passed undetected
