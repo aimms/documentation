@@ -1,13 +1,25 @@
 AIMMS PRO Release Notes
 =======================
 
+PRO 25.2
+#########
+
+AIMMS PRO 25.2.1 Release
+-------------------------
+
+On February 25, 2025, we released AIMMS PRO 25.2.1(25.2.1.1)
+
+**Improvements**
+
+- Technical improvements to support *MFA login* and *User Settings* page for new portal.
+
 PRO 25.1
 #########
 
 AIMMS PRO 25.1.1 Release
 -------------------------
 
-On February 3, 2024, we released AIMMS PRO 25.1.1(25.1.1.1)
+On February 3, 2025, we released AIMMS PRO 25.1.1(25.1.1.1)
 
 **Improvements**
 
