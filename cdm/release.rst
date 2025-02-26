@@ -7,7 +7,7 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
-25.1.3.1 [25-02-2025]
+25.1.3.3 [25-02-2025]
 	- Element parameters into subsets of `Integers` with the `ElementsAreLabels` option set, would loose data on checkout when the '0' element was assigned in newer AIMMS versions.
 
 25.1.2.2 [19-02-2025]
