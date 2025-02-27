@@ -8,6 +8,29 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 25.2
+#############
+
+
+
+AIMMS 25.2.1 Release (February 27, 2025 - build 25.2.1.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The logical IN to check that an element is part of an Indexed Set was performing poorly in recent AIMMS versions. This has become much quicker in this AIMMS version.
+-  The construct to bind an index to an IndexedSet is now supported by the new compiler (and thus also by the new mathematical program generator).
+-  The new math program generator now supports semi-continuous variables.
+-  Procedure calls within an if then else expression were not always run correctly. An expression like (IF condition THEN myProcedure() ENDIF) did sometimes run the procedure even if the condition evaluated to false.
+-  In some situations .Level appeared as the suffix of an identifier in the WebUI, and this even caused identifiers to end up being read only.
+
+--------------
+
+
+#############
 AIMMS 25.1
 #############
 
