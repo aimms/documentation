@@ -548,7 +548,7 @@ The following functions are available for management of the memory streams.
 	:param regexIdentifier: string parameter defined over a set of regular expressions holding the replacement text for each regular expression
 
 
-. js::function:: dex::LoadCaseFromMemoryStream
+.. js::function:: dex::LoadCaseFromMemoryStream
 
 	Load an AIMMS case from a memory stream, the content of which may, for instance, be retrieved from an API call.
 	
