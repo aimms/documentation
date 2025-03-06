@@ -105,6 +105,14 @@ Methods for reading and writing data
     
     You can use the generated mappings directly with the functions :js:func:`dex::WriteToFile` and :js:func:`dex::ReadFromFile` as with any manually created mapping.
 	
+.. js:function::  dex::GetLatestReadSchema
+
+	Retrieve the schema of the latest row-based file read via :js:func:`dex::ReadFromFile`. The types will be 
+	
+	:param typeMap: 1-dimensional output string parameter containing the type map from column name to value type.
+	
+	For Arrow files, the type names correspond to the available Arrow types, for all other formats, the types will be restricted to `int32`, `double`, `bool`, `string`, and `timestamp` (for calendar labels)
+	
 Changing encodings and normalizations
 -------------------------------------
 
@@ -536,10 +544,16 @@ The following functions are available for management of the memory streams.
 
 	Replace the content of a stream by content currently in the memory stream with all regular expression replacements applied to it.
 	
-	:param streamName: name of memory stream to base64 decode
+	:param streamName: name of memory stream to replace 
 	:param regexIdentifier: string parameter defined over a set of regular expressions holding the replacement text for each regular expression
 
 
+. js::function:: dex::LoadCaseFromMemoryStream
+
+	Load an AIMMS case from a memory stream, the content of which may, for instance, be retrieved from an API call.
+	
+	:param streamName: name of memory stream to load the case from
+	:param regexIdentifier: string parameter defined over a set of regular expressions holding the replacement text for each regular expression
 
 Generators
 ----------

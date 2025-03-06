@@ -13,6 +13,12 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.4.1.1 (06-03-2025)
+	- New function `dex::LoadCaseFromMemoryStream` to read AIMMS cases from memory streams, e.g. when retrieved from Data Lake Storage or API
+	- Elements from an integer set will again be written as strings in Parquet files, unless the `value-type` attribute is set to ``integer``
+	- New function `dex::GetLatestReadSchema` to retrieve the schema from the latest row-based file read via `dex::ReadFromFile`
+	- Account SAS tokens now will be issued for `sco` resource types instead of just `sc` resource types
+	
 25.3.1.2 (12-02-2025)
 	- CSV support is now provided through the Arrow library. As the Arrow library will deduce the type of each column of read CSV files, or use the column type of generated CSV files, this may lead to slightly different behavior of the CSV mapping compared to the old CSV reader
 	- The CSV delimiter can now be set through the ``csv-delimiter`` attribute of the ``AimmsCSVMapping`` node

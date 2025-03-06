@@ -99,7 +99,7 @@ The available mapping attributes are:
 * skip-column
 * maps-to
 * precision
-* number-type
+* value-type
 * max-string-size  
 * range-display-name  
 * range-existing
@@ -218,16 +218,17 @@ When writing element data, you can specify the display name to be used for eleme
 
 By default, the Data Exchange library assumes that all string values will hold up to 1024 characters. Through the ``max-string-size`` attribute a maximum string size up to 1 MB can be specified.
 
-The number-type attribute
+The value-type attribute
 -------------------------
 
-Through the ``number-type`` attribute you can specify the specific format in which numerical data will be represented. The possible values are:
+Through the ``value-type`` attribute you can specify the specific format in which numerical data will be represented. The possible values are:
 
 * `integer`
 * `boolean`
 * `double`
+* `string`
 
-You can apply this attribute to a ``map-to`` attribute referring to a numerical parameter, or an element parameter into an integer set, or to a ``binds-to`` attribute referring to an index into an integer set. Alternatively, you can apply the ``number-type`` attribute when a ``binds-to-display-name`` or ``range-display-name`` attribute specifies display names that represent integers. 
+You can apply this attribute to a ``maps-to`` attribute referring to a numerical or string parameter, or an element parameter into a calendar or integer set, or to a ``binds-to`` attribute referring to an index into a calendar or integer set. Alternatively, you can apply the ``value-type`` attribute when a ``binds-to-display-name`` or ``range-display-name`` attribute specifies display names that represent integers. 
 
 The write-defaults attribute
 ----------------------------
