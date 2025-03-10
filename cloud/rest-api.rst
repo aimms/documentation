@@ -243,6 +243,9 @@ Managing AIMMS
 
 This REST API Service allows you to retrieve all available AIMMS Versions on Cloud and retrieve the information about specific AIMMS Version. Please see the API specs (*Publishing* section) for the detailed usage.
 
+	* ``GET /aimms-versions`` - returns official AIMMS versions
+	* ``GET /aimms-versions?dev=true`` - returns all available AIMMS versions (development, feature, internal, integration_tests)
+
 
 Managing API Keys
 -----------------
