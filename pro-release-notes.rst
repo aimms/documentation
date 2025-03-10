@@ -14,12 +14,13 @@ On February 25, 2025, we released AIMMS PRO 25.2.1(25.2.1.1)
 - **PRO REST API:Task Service**: 
    - Added support for retrieving task's **session ID** from the task API (i.e. for GET and POST endpoints). 
    - There is a change with respect to time format of *queueTime* and *runTime* in the response for GET and POST requests, as we have switched to a library-based approach for automatically generating the response JSON instead of manually crafting it as we did before. The JSON format is valid and adheres to the specifications. Any compliant JSON library should be able to parse it.
-   - Added a new query parameter for GET and POST endpoints that returns a task object in JSON format, allowing the response to be pretty-formatted. When the *prettyFormat=true* query parameter is set, the response becomes human-readable, with proper indentation and well-formatted floating-point numbers.
-   (Please see the API specs for more details on above changes)
-- **PRO REST API**: Fixed an issue where ``GET /aimms-versions`` returned non-official AIMMS Versions.
+   - Added a new query parameter for GET and POST endpoints that returns a task object in JSON format, allowing the response to be pretty-formatted. When the *prettyFormat=true* query parameter is set, the response becomes human-readable, with proper indentation and well-formatted floating-point numbers. (Please see the API specs for more details on above changes)
 - **New Portal**: Added *User Settings* (i.e. Account Settings in old Portal) and *MFA Login* pages.
 - Technical improvements to support *MFA login* and *User Settings* page for new portal.
 
+**Resolved Issues**
+
+   - **PRO REST API**: Fixed an issue where ``GET /aimms-versions`` returned non-official AIMMS Versions.
 
 PRO 25.1
 #########
