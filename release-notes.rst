@@ -13,6 +13,24 @@ AIMMS 25.2
 
 
 
+AIMMS 25.2.2 Release (March 12, 2025 - build 25.2.2.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The TestDate intrinsic method would incorrectly cause execution to be stopped when called from within an external procedure when it should just return false. This has been fixed.
+-  After updating the AIMMS cloud image the `zip` and `unzip` command line tools were no longer available. These command line tools were added again.
+-  The option matrix_block_sizes was not working for the new math program generator.
+
+--------------
+
+
+
+
+
 AIMMS 25.2.1 Release (February 27, 2025 - build 25.2.1.4).
 ------------------------------------------------------------------------------------------
 
