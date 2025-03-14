@@ -13,6 +13,22 @@ AIMMS 25.2
 
 
 
+AIMMS 25.2.3 Release (March 14, 2025 - build 25.2.3.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Fixed a bug related to a domain condition like: (i in Subset). This problem only exists in versions 24.6.7 and later.
+
+--------------
+
+
+
+
+
 AIMMS 25.2.2 Release (March 12, 2025 - build 25.2.2.4).
 ------------------------------------------------------------------------------------------
 
