@@ -234,6 +234,8 @@ Commit and Pull Functions
    
    When checking out data with the argument ``skipInactive`` set (default), the CDM service can employ an alternative domain filtering strategy on a per-category basis. This alternative strategy is slower when retrieving the data for identifiers with high cardinality and no substantial filtering due to inactive elements in one or more domain sets, but may speed up data retrieval considerably when there is substantial filtering due to inactive elements in domain sets. You can specify that you want to use the alternative domain filtering strategy for a particular category, by setting the runtime parameter ``alternativeFilterStrategy-\<category\>`` to 1 through the function :any:`cdm::SetParam`. By default, the alternative strategy is not used for any category.
    
+   The function will only create a stored snapshot if none exists, if the ``skipInactive`` argument is at its default, as snapshot updates are also created skipping inactive data.
+   
    :param category: specifies the category for which to retrieve the data snapshot
    :param branch: specifies the branch from which to retrieve the data snapshot for the category
    :param revid: specifies the (optional) specific revision on the branch from which to retrieve the snapshot, if not specified the head of the specified branch will be taken
