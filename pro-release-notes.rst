@@ -4,6 +4,15 @@ AIMMS PRO Release Notes
 PRO 25.2
 #########
 
+AIMMS PRO 25.2.2 Release
+-------------------------
+
+On March 13, 2025, we released AIMMS PRO 25.2.2(25.2.2.1)
+
+**Improvements**
+
+- Extended ``pro::management::RetrieveAccountInfo`` with REGION which allows you to retrieve your AIMMS Cloud Platform Account Region (i.e. Westeurope or Eastus).
+
 AIMMS PRO 25.2.1 Release
 -------------------------
 
