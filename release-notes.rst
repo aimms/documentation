@@ -27,7 +27,6 @@ If you still get warnings about unsupported constraints, please let us know.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  Ranged constraints and constraints with an if-then-else are now supported by the new math program generator.
 -  Fixed some problems with integer ranged parameters with a non-base unit. The range was not properly checked, and the value was not stored correctly.
 -  Fixed an error in the new math program generator when a variable was referenced using 'repeated' indices, as in MyVariable(i,i).
 -  In the Identifier Cardinalities dialog box, the Mem Usage column also includes the memory that is used to store the index domain restriction. This is now only done if the restriction is not a direct identifier reference but an expression for which additional data is kept.
@@ -11954,3 +11953,5 @@ Improvements
   endpoints
   https
   myProcedure
+  initialData
+  mathprog
