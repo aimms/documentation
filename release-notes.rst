@@ -8,6 +8,37 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 25.3
+#############
+
+
+
+AIMMS 25.3.1 Release (March 25, 2025 - build 25.3.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The last features that were still unsupported in the new math program generator have been implemented. For an LP or MIP model, the new generator should now be able to generate the GMP that is to be send to the solver. If you have set the option disable_new_mathprog_generator to get rid of 'unsupported' warnings in recent versions, it is recommended to set this option back to its default and try again whether the model generates with the new generator. We have seen that on average the generation time has improved 2 to 3 times, so it worth trying.
+If you still get warnings about unsupported constraints, please let us know.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Ranged constraints and constraints with an if-then-else are now supported by the new math program generator.
+-  Fixed some problems with integer ranged parameters with a non-base unit. The range was not properly checked, and the value was not stored correctly.
+-  Fixed an error in the new math program generator when a variable was referenced using 'repeated' indices, as in MyVariable(i,i).
+-  In the Identifier Cardinalities dialog box, the Mem Usage column also includes the memory that is used to store the index domain restriction. This is now only done if the restriction is not a direct identifier reference but an expression for which additional data is kept.
+-  The iterative operators First and Last could lead to an error if the set of the iterative index is empty.
+-  You now get a deprecation warning on the usage of construct subset(index), which is interpreted as (index in subset). The new warning comes with an auto-improve, so you can easily replace all the occurrences.
+-  Having an optional argument of a procedure with an initialData attribute filled in, could lead to an error.
+
+--------------
+
+
+#############
 AIMMS 25.2
 #############
 
