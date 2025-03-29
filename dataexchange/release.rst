@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.4.2.2 (29-03-2025)
+	- Dates like `12/31/9999` would not be accepted by the MSVC C library when reading Parquet files
+	- CSV files with duplicate column names (!) would crash the Arrows-based CSV reader
+	
 25.4.1.1 (06-03-2025)
 	- New function `dex::LoadCaseFromMemoryStream` to read AIMMS cases from memory streams, e.g. when retrieved from Data Lake Storage or API
 	- Elements from an integer set will again be written as strings in Parquet files, unless the `value-type` attribute is set to ``integer``
