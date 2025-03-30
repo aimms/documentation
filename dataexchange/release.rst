@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.5.1.1 (30-03-2025)
+	- Added support for telemetry to DEX
+	- DEX mappings will be added just-in-time, and path to DEX mappings is shortened for some components to prevent maximum path length problems on PRO on-prem
+
 25.4.2.2 (29-03-2025)
 	- Dates like `12/31/9999` would not be accepted by the MSVC C library when reading Parquet files
 	- CSV files with duplicate column names (!) would crash the Arrows-based CSV reader
