@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.5.2.1 (03-04-2025)
+	- Arrow 18.1 (used in DEX 25) would give an error on empty Parquet files
+
 25.5.1.1 (30-03-2025)
 	- Added support for telemetry to DEX
 	- DEX mappings will be added just-in-time, and path to DEX mappings is shortened for some components to prevent maximum path length problems on PRO on-premise
