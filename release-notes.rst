@@ -25,7 +25,7 @@ Resolved AIMMS Issues
 -  Fixed a problem in new math program generator for constraints with a large amount of symbolic terms that were added or subtracted.
 -  A mathematical program for which also a stochastic variant is created could give a warning on nonanticipativity constraints during the generation of the normal deterministic gmp.
 -  The function GMP::Instance::GetColumnNumbers did not always return the correct number of columns when columns were added after generation via other GMP functions like GMP::Column::Add.
--  Made a small improvement in the startup time of models with a huge amount of identifiers (like SC Navigator).
+-  Made a small improvement in the startup time of models with a huge amount of identifiers.
 -  The Identifier Cardinalities dialog box did first update all identifiers with a definition, and therefore the memory usage shown could be higher than the actual memory usage (before the dialog was opened).
 
 --------------
