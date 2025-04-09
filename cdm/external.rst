@@ -3,7 +3,7 @@
 Dealing with external and derived data
 ======================================
 
-As discussed in :ref:`data_intro` CDM is designed to manage multi-user data that is owned and managed by an AIMMS scenario planning application, and you should refrain of storing large-scale
+As discussed in :ref:`_data_intro` CDM is designed to manage multi-user data that is owned and managed by an AIMMS scenario planning application, and you should refrain of storing large-scale
 
 - external data such as data imported in the app from e.g. external databases, APIs or ERP systems. Such external data typically is quite large and the app should typically use the latest version of such data. Maintaining multiple versions of such data is not the responsibility of the AIMMS application, but rather of the external system from which the data originates.
 - derived data and optimization results that can be computed on the basis of the core data managed by the AIMMS scenario planning app and the external data sourced elsewhere. 
@@ -18,7 +18,7 @@ Different types of data
 To support external and derived data in scenario planning apps, CDM distinguishes three types of data:
 
 - `Managed` data, the core data in an AIMMS scenario planning app, which is stored completely in the CDM database and fully managed by CDM
-- `ExternalSource` data, any data that is sourced or stored completely externally of CDM, e.g. in external databases, case or Parquet files stored in cloud storage, or in a datawarehouse, and *that should be immutable to the AIMMS scenario planning application*. This could be external data that cannot be changed inside the app, but also derived or output data that must not be changed once generated.
+- `ExternalSource` data, any data that is sourced or stored completely externally of CDM, e.g. in external databases, case or Parquet files stored in cloud storage, or in a data warehouse, and *that should be immutable to the AIMMS scenario planning application*. This could be external data that cannot be changed inside the app, but also derived or output data that must not be changed once generated.
 - `ManagedExternalSource` data, any data that is sourced or stored externally of CDM, but to which the user of the scenario planning application can still make changes to, which changes are then managed by CDM. One can think of master data, where the user can temporarily fix errors before it is fixed in new official version of the master data, or where missing master data that is necessary for the planning task at hand can be temporarily added to the collection of master data before it is added to the official master data. For `ManagedExternalSource` data, CDM will store any such changes to external data in CDM, while the main data will need to be imported thru a different means.
 
 Specifying the CDM identifier mode
@@ -37,7 +37,7 @@ The idea behind external data read procedures is that the category does not cont
 - a container name or URL in cloud storage where the a case file or a collection of Parquet files containing the external data can be found, or 
 - a unique scenario name that you can use to retrieve the external data from a database or data warehouse.
 
-To assign external data read procedures, the set ``cdm::Categories`` should be filled prior to assigning the external read procudures. We therefore suggest that you use the following sequence to initialize it:
+To assign external data read procedures, the set ``cdm::Categories`` should be filled prior to assigning the external read procedures. We therefore suggest that you use the following sequence to initialize it:
 
 .. aimms::
 	cdm::ProcessAnnotations;
@@ -83,3 +83,7 @@ When checking out, pulling changes or locally committing data after a commit to 
 
 However, when external data is reset to its base value, the external data should be re-read even if the reference is not changed. One approach to accomplish this is to also store the value of an ever-increasing counter in the category, and read the data if the previous value of the counter is unequal to the value of the counter at the time of calling of the external data read procedure.
  
+ 
+.. spelling:word-list::
+
+	sizeable

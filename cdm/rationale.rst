@@ -78,7 +78,7 @@ For the outputs and other derived data of an AIMMS apps, the situation is a bit 
 
 .. note::
 
-	As of version 25.2, CDM has special provisions for dealing with external and derived data, as described in :ref:`external_data`.
+	As of version 25.2, CDM has special provisions for dealing with external and derived data, as described in :ref:`_external_data`.
 
 Complementary to regular databases, data warehouses or Parquet files
 ====================================================================
