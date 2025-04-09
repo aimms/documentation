@@ -367,6 +367,16 @@ Commit and Pull Functions
   
    :param category: specifies the category for which to remove branch data from the branch compare identifiers
    :param branch: specifies the branch for which to remove data from the branch compare identifiers
+   
+.. js:function:: cdm::ResetToBase(category,scalarRef)
+
+   Reset a scalar reference to a managed external source identifier back to its external value, read via the associated external data read procedure. The scalar reference can either be a scalar reference to a multi-dimensional identifier, in which case the tuple will assume the associated external value again, or it can be a scalar element parameter into an managed external source set, after which the element will follow the membership as read from the external source. 
+   
+   Note that the scalar reference will only be reset to its external base value after committing the category. You should also make sure that the external data read procedure should be forced to re-read the data to make sure that the scalar reference will hold it external base value.
+   
+   :param category: specifies the category for which to reset the scalar reference back to its external base value
+   :param scalarRef: the scalar reference to set back to its external base value.
+   
 
 Snapshot Functions
 ==================

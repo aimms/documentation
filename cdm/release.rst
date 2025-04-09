@@ -7,7 +7,12 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
-25.2.2.1 [31-02-2025]
+25.3.1.3 [08-04-2025]
+	- Add support for resetting overridden external data back to the base value coming from the external data
+	- Overrides and resets of external data are now properly dealt with when checking out or merging deltas
+	- After restoring a CDM schema to another service, all snapshots and deltas will be deleted
+
+25.2.2.1 [31-03-2025]
 	- Improved `cdm::RetireBranchData` to prevent foreign key errors due to incorrect revision traversal
 	
 25.2.1.1 [17-03-2025]
