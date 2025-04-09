@@ -40,11 +40,11 @@ The idea behind external data read procedures is that the category does not cont
 To assign external data read procedures, the set ``cdm::Categories`` should be filled prior to assigning the external read procedures. We therefore suggest that you use the following sequence to initialize it:
 
 .. code-block:: aimms
-	cdm::ProcessAnnotations;
-	
-	cdm::ExternalDataReadProcedure(cdm::cat) := data {
-		'MasterData' : 'ReadMasterData'
-	};
+   cdm::ProcessAnnotations;
+   
+   cdm::ExternalDataReadProcedure(cdm::cat) := data {
+      'MasterData' : 'ReadMasterData'
+   };
 
 Checking out a category with external data
 ------------------------------------------
