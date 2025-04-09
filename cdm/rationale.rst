@@ -57,7 +57,7 @@ In addition to version control, AIMMS CDM offers users *live collaboration* capa
 * allowing any changes to the data to be automatically committed as soon as they occur
 * notifying all users connected to the CDM service of any commit made to the repository, in order to allow them to automatically pull the changes of these commits into their current data.
 
-.. _data_intro
+.. _data_intro:
 
 What data to manage using AIMMS CDM
 ===================================
@@ -78,7 +78,7 @@ For the outputs and other derived data of an AIMMS apps, the situation is a bit 
 
 .. note::
 
-	As of version 25.2, CDM has special provisions for dealing with external and derived data, as described in :ref:`_external_data`.
+	As of version 25.2, CDM has special provisions for dealing with external and derived data, as described in :ref:`external_data`.
 
 Complementary to regular databases, data warehouses or Parquet files
 ====================================================================

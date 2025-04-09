@@ -1,9 +1,9 @@
-.. _external_data
+.. _external_data:
 
 Dealing with external and derived data
 ======================================
 
-As discussed in :ref:`_data_intro` CDM is designed to manage multi-user data that is owned and managed by an AIMMS scenario planning application, and you should refrain of storing large-scale
+As discussed in :ref:`data_intro` CDM is designed to manage multi-user data that is owned and managed by an AIMMS scenario planning application, and you should refrain of storing large-scale
 
 - external data such as data imported in the app from e.g. external databases, APIs or ERP systems. Such external data typically is quite large and the app should typically use the latest version of such data. Maintaining multiple versions of such data is not the responsibility of the AIMMS application, but rather of the external system from which the data originates.
 - derived data and optimization results that can be computed on the basis of the core data managed by the AIMMS scenario planning app and the external data sourced elsewhere. 
