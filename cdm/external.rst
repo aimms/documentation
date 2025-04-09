@@ -41,14 +41,6 @@ To assign external data read procedures, the set ``cdm::Categories`` should be f
 
 .. code-block:: aimms
 
-    web::request_create(requestId);                                ! add a new request
-
-    web::request_setURL(requestId, "http://localhost/file.txt" );  ! manipulate request
-    web::request_invoke(requestId, statusCode );                   ! invoke request
-    ! check statusCode and process response
-
-    web::request_close(requestId);                                 ! discard request
-
     cdm::ProcessAnnotations;
    
     cdm::ExternalDataReadProcedure(cdm::cat) := data {
