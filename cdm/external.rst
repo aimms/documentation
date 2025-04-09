@@ -43,8 +43,7 @@ To assign external data read procedures, the set ``cdm::Categories`` should be f
 	cdm::ProcessAnnotations;
 	
 	cdm::ExternalDataReadProcedure(cdm::cat) := data {
-		'MasterData' : 'ReadMasterData', 
-		...
+		'MasterData' : 'ReadMasterData'
 	};
 
 Checking out a category with external data
