@@ -66,6 +66,10 @@ When the appVersion is specified in create task request it schedule a task with 
 		
 For above request, it will schedule a task for TestApp version 1.0.
 
+.. note::
+
+The `appName` and `appVersion` parameters in the ``GET /tasks`` endpoint are now **optional**. This allows more flexible queries when retrieving tasks owned by the user.
+
 Tasks REST API V2
 -----------------
 

@@ -43,7 +43,7 @@ Please use OpenAPI specs for the exhaustive list of endpoints and supported para
 
 .. note::
 
-   Some of the enpoints are deprecated with the recent release of session-manager, please check and adapt your applications accordingly.
+   Some of the endpoints are deprecated with the recent release of session-manager, please check and adapt your applications accordingly.
    
 	* ``GET /sessions/logs/task/{session_id}``
 	* ``GET /sessions/logs/webui/{session_id}``
