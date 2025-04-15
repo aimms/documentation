@@ -32,7 +32,7 @@ Session Manager (Version 25.2.1.0 - April 15, 2025)
   
 Please see the `documentation <https://documentation.aimms.com/cloud/session-manager.html>`__ and API Specs for more details. 
 
-Task Scheduler (Version 25.2.1.0 - April 15, 2025)
+Task Scheduler (Version 25.1.1.0 - April 15, 2025)
 --------------------------------------------------
 
 - **Endpoint Update**
