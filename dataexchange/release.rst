@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.5.3.1 (11-04-2025)
+	- Casting double to integer values would lead to truncation instead of rounding
+	- Improve OAuth2 callback HTML response on localhost
+
 25.5.2.1 (03-04-2025)
 	- Arrow 18.1 (used in DEX 25) would give an error on empty Parquet files
 
