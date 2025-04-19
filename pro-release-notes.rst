@@ -1,6 +1,44 @@
 AIMMS PRO Release Notes
 =======================
 
+New Portal Updates
+##################
+  
+Version 25.3.1.0 (April 15, 2025)
+---------------------------------
+
+- Introduced a new **Sessions** page (formerly the Jobs page), now featuring:
+  - **WebUI Sessions** (previously Active Data Sessions)
+  - **Tasks**
+  - **Solver Sessions** (previously Jobs)
+
+- Added a new **Configuration** page, which includes:
+  - **Account Settings** (portal customization and retention settings)
+  - **Tunnels**
+
+**Note**: The Configuration menu is accessible to admin users via the user menu.
+
+PRO REST API Updates
+####################
+
+Session Manager (Version 25.2.1.0 - April 15, 2025)
+---------------------------------------------------
+
+- **Solve Sessions Support**
+   - The Session Manager REST API now supports Solve sessions, extending its capabilities beyond WebUI and Task sessions.
+- **Endpoint Enhancements**
+   - The ``DELETE`` endpoint is now split into two distinct actions: ``terminate`` and ``delete``, allowing for more granular session control.
+   - Endpoints for retrieving session logs have been updated for improved clarity and consistency.
+  
+Please see the `documentation <https://documentation.aimms.com/cloud/session-manager.html>`__ and API Specs for more details. 
+
+Task Scheduler (Version 25.1.1.0 - April 15, 2025)
+--------------------------------------------------
+
+- **Endpoint Update**
+   - The `appName` and `appVersion` parameters in the ``GET /tasks`` endpoint are now **optional**. This allows more flexible queries when retrieving tasks owned by the user.
+   - ``GET`` and ``POST`` endpoints now include two new response fields: `userName`, `userEnvironment`
+ 
 PRO 25.3
 ########
 

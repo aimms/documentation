@@ -13,6 +13,22 @@ AIMMS 25.3
 
 
 
+AIMMS 25.3.3 Release (April 14, 2025 - build 25.3.3.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  An inlined variable with no definition specified was causing an error at the moment that after the solve the values of that variable were calculated.
+
+--------------
+
+
+
+
+
 AIMMS 25.3.2 Release (April 04, 2025 - build 25.3.2.6).
 ------------------------------------------------------------------------------------------
 
