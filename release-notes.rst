@@ -13,6 +13,22 @@ AIMMS 25.3
 
 
 
+AIMMS 25.3.4 Release (April 25, 2025 - build 25.3.4.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS API error messages about assigning values to non-member elements would refer to element numbers rather than names, making the errors hard to interpret.
+
+--------------
+
+
+
+
+
 AIMMS 25.3.3 Release (April 14, 2025 - build 25.3.3.2).
 ------------------------------------------------------------------------------------------
 
