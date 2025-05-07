@@ -22,7 +22,8 @@ AIMMS Improvements
 +++++++++++++++++++++++++
 
 -  The time needed to sort a large set based on the order by attribute has been reduced.
--  The functions GMP::Instance::GetAttributeValue and GMP::SolverSession::GetAttributeValue have been added. These functions can be used to retrieve the value of a model, solution, quality or multi-objective attribute of a solve with CPLEX or Gurobi.
+-  The functions `GMP::Instance::GetAttributeValue <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_instance-procedures-and-functions/gmp_instance_getattributevalue.html>`__
+   and `GMP::SolverSession::GetAttributeValue https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_solversession-procedures-and-functions/gmp_solversession_getattributevalue.html>`__ have been added. These functions can be used to retrieve the value of a model, solution, quality or multi-objective attribute of a solve with CPLEX or Gurobi.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
