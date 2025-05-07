@@ -8,6 +8,31 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 25.4
+#############
+
+
+
+AIMMS 25.4.1 Release (May 07, 2025 - build 25.4.1.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The time needed to sort a large set based on the order by attribute has been reduced.
+-  The functions GMP::Instance::GetAttributeValue and GMP::SolverSession::GetAttributeValue have been added. These functions can be used to retrieve the value of a model, solution, quality or multi-objective attribute of a solve with CPLEX or Gurobi.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If a definition of a parameter or set includes a call to a procedure, then this procedure should now have the new property 'UsedInDefinition' set. This new property is used to check that no changes to global identifiers take place within the body of the procedure. If the new procedure property 'UsedInDefinition' is set, a new attribute 'Defines Identifiers' can be specified. This attribute list the identifiers that use the procedure as their definition. See [this How-To article](https://how-to.aimms.com/Articles/672/672-support-for-defining-procedure.html) for more information.
+
+--------------
+
+
+#############
 AIMMS 25.3
 #############
 
