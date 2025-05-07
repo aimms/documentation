@@ -27,7 +27,7 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  If a definition of a parameter or set includes a call to a procedure, then this procedure should now have the new property 'UsedInDefinition' set. This new property is used to check that no changes to global identifiers take place within the body of the procedure. If the new procedure property 'UsedInDefinition' is set, a new attribute 'Defines Identifiers' can be specified. This attribute list the identifiers that use the procedure as their definition. See [this How-To article](https://how-to.aimms.com/Articles/672/672-support-for-defining-procedure.html) for more information.
+-  If a definition of a parameter or set includes a call to a procedure, then this procedure should now have the new property 'UsedInDefinition' set. This new property is used to check that no changes to global identifiers take place within the body of the procedure. If the new procedure property 'UsedInDefinition' is set, a new attribute 'Defines Identifiers' can be specified. This attribute list the identifiers that use the procedure as their definition. See `this How-To article <https://how-to.aimms.com/Articles/672/672-support-for-defining-procedure.html>`__ for more information.
 
 --------------
 
