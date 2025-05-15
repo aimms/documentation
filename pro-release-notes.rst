@@ -39,6 +39,12 @@ Task Scheduler (Version 25.1.1.0 - April 15, 2025)
    - The `appName` and `appVersion` parameters in the ``GET /tasks`` endpoint are now **optional**. This allows more flexible queries when retrieving tasks owned by the user.
    - ``GET`` and ``POST`` endpoints now include two new response fields: `userName`, `userEnvironment`
 
+Task Scheduler (Version 25.2.1.0 - May 15, 2025)
+------------------------------------------------
+
+- **New Endpoint**
+   - ``GET /tasks/{id}/logs``: Introduced a new endpoint to retrieve task logs.
+
 PRO 25.4
 ########
 
