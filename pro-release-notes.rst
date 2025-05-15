@@ -38,6 +38,22 @@ Task Scheduler (Version 25.1.1.0 - April 15, 2025)
 - **Endpoint Update**
    - The `appName` and `appVersion` parameters in the ``GET /tasks`` endpoint are now **optional**. This allows more flexible queries when retrieving tasks owned by the user.
    - ``GET`` and ``POST`` endpoints now include two new response fields: `userName`, `userEnvironment`
+
+PRO 25.4
+########
+
+AIMMS PRO 25.4.2 Release
+-------------------------
+
+On May 15, 2025, we released AIMMS PRO 25.4.2(25.4.2.1)
+
+**Improvements**
+
+- Telemetry Configuration & Shared Secrets Support:
+   - Unified telemetry settings across all services and sessions
+   - Shared secrets for secure, consistent authentication and service communication
+These changes improve debugging, observability, and platform security.
+
  
 PRO 25.3
 ########
