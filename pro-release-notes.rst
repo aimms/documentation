@@ -49,11 +49,7 @@ On May 15, 2025, we released AIMMS PRO 25.4.2(25.4.2.1)
 
 **Improvements**
 
-- Telemetry Configuration & Shared Secrets Support:
-   - Unified telemetry settings across all services and sessions
-   - Shared secrets for secure, consistent authentication and service communication
-   
-These changes improve debugging, observability and platform security.
+- Telemetry Configuration: Unified telemetry settings across all services and sessions for improved debugging and observability.
 
  
 PRO 25.3
