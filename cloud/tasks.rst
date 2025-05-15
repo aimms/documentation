@@ -9,8 +9,9 @@ The AIMMS PRO REST API allows users to perform operations on DEX-exposed tasks, 
 
 1. Creating tasks (POST). Once a task is created, it will eventually run on the PRO Cloud infrastructure.
 2. Retrieving a task's status/results (GET).
-3. `Interrupting a task (PUT). <tasks.html#interrupting-a-task>`__ This allows the task to complete earlier or terminate it.
-4. Deleting a task (DELETE). It can delete 'QUEUED' or 'COMPLETED' tasks.
+3. Retrieving a task logs (GET).
+4. `Interrupting a task (PUT). <tasks.html#interrupting-a-task>`__ This allows the task to complete earlier or terminate it.
+5. Deleting a task (DELETE). It can delete 'QUEUED' or 'COMPLETED' tasks.
 
 These Task operations supported by the AIMMS PRO REST API closely mirror the REST API exposed by DEX.
 
