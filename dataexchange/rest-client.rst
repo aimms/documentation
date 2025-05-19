@@ -133,7 +133,7 @@ With these settings, you can again call the function :js:func:`dex::oauth::AddBe
 Signing AWS requests using AWS Signature V4
 -------------------------------------------
 
-The Data Exchange library supports authenticating REST requests through `AWS Signature V4 <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html>`_ through the `AWS_SIGV4 option<https://curl.se/libcurl/c/CURLOPT_AWS_SIGV4.html>`_ in libCurl.
+The Data Exchange library supports authenticating REST requests through `AWS Signature V4 <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html>`_ through the `AWS_SIGV4 option <https://curl.se/libcurl/c/CURLOPT_AWS_SIGV4.html>`_ in libCurl.
 
 To sign an AWS request you need to set two string options for the HTTP request:
 - the ``AWS_SIGV4`` option holding the value ``aws:amz:<region>:<service>`` where region is, for instance, ``eu-west-1``, and service `s3`
