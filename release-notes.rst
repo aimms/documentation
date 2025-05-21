@@ -13,6 +13,24 @@ AIMMS 25.4
 
 
 
+AIMMS 25.4.2 Release (May 21, 2025 - build 25.4.2.8).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The Solvers General option 'Constraint listing scaled model' has been added which can be used to print the scaled model in the constraint listing, in case the option 'Scale model' is switched on.
+-  When making model edits to an identifier definition, in some situations definitions that were depending on this identifier were not always re-evaluated.
+-  Elements from the predefined set ContinueAbort could no longer be assigned to the math program suffix .CallbackReturnStatus.
+
+--------------
+
+
+
+
+
 AIMMS 25.4.1 Release (May 07, 2025 - build 25.4.1.2).
 ------------------------------------------------------------------------------------------
 
