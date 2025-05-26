@@ -24,6 +24,7 @@ Resolved AIMMS Issues
 -  The Solvers General option 'Constraint listing scaled model' has been added which can be used to print the scaled model in the constraint listing, in case the option 'Scale model' is switched on.
 -  When making model edits to an identifier definition, in some situations definitions that were depending on this identifier were not always re-evaluated.
 -  Elements from the predefined set ContinueAbort could no longer be assigned to the math program suffix 'CallbackReturnStatus'.
+-  Even if all repository libraries are included in the .aimmspack, AIMMS was still making a call to the server to get information on the latest available version of a library. Getting that version was irrelevant and thus this call has been removed.
 
 --------------
 
