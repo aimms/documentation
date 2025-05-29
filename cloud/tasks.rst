@@ -9,8 +9,9 @@ The AIMMS PRO REST API allows users to perform operations on DEX-exposed tasks, 
 
 1. Creating tasks (POST). Once a task is created, it will eventually run on the PRO Cloud infrastructure.
 2. Retrieving a task's status/results (GET).
-3. `Interrupting a task (PUT). <tasks.html#interrupting-a-task>`__ This allows the task to complete earlier or terminate it.
-4. Deleting a task (DELETE). It can delete 'QUEUED' or 'COMPLETED' tasks.
+3. Retrieving a task logs (GET).
+4. `Interrupting a task (PUT). <tasks.html#interrupting-a-task>`__ This allows the task to complete earlier or terminate it.
+5. Deleting a task (DELETE). It can delete 'QUEUED' or 'COMPLETED' tasks.
 
 These Task operations supported by the AIMMS PRO REST API closely mirror the REST API exposed by DEX.
 
@@ -65,6 +66,10 @@ When the appVersion is specified in create task request it schedule a task with 
         https://[account-name].aimms.cloud/pro-api/v2/tasks/Testapp/1.0/JobSchedule
 		
 For above request, it will schedule a task for TestApp version 1.0.
+
+.. note::
+
+   The `appName` and `appVersion` parameters in the ``GET /tasks`` endpoint are now **optional**. This allows more flexible queries when retrieving tasks owned by the user.
 
 Tasks REST API V2
 -----------------

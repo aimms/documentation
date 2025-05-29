@@ -8,6 +8,133 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 25.4
+#############
+
+
+
+AIMMS 25.4.2 Release (May 21, 2025 - build 25.4.2.8).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The Solvers General option 'Constraint listing scaled model' has been added which can be used to print the scaled model in the constraint listing, in case the option 'Scale model' is switched on.
+-  When making model edits to an identifier definition, in some situations definitions that were depending on this identifier were not always re-evaluated.
+-  Elements from the predefined set ContinueAbort could no longer be assigned to the math program suffix 'CallbackReturnStatus'.
+-  Even if all repository libraries are included in the .aimmspack, AIMMS was still making a call to the server to get information on the latest available version of a library. Getting that version was irrelevant and thus this call has been removed.
+
+--------------
+
+
+
+
+
+AIMMS 25.4.1 Release (May 07, 2025 - build 25.4.1.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The time needed to sort a large set based on the order by attribute has been reduced.
+-  The functions `GMP::Instance::GetAttributeValue <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_instance-procedures-and-functions/gmp_instance_getattributevalue.html>`__
+   and `GMP::SolverSession::GetAttributeValue <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_solversession-procedures-and-functions/gmp_solversession_getattributevalue.html>`__ have been added. These functions can be used to retrieve the value of a model, solution, quality or multi-objective attribute of a solve with CPLEX or Gurobi.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  If a definition of a parameter or set includes a call to a procedure, then this procedure should now have the new property 'UsedInDefinition' set. This new property is used to check that no changes to global identifiers take place within the body of the procedure. If the new procedure property 'UsedInDefinition' is set, a new attribute 'Defines Identifiers' can be specified. This attribute list the identifiers that use the procedure as their definition. See `this How-To article <https://how-to.aimms.com/Articles/672/672-support-for-defining-procedure.html>`__ for more information.
+
+--------------
+
+
+#############
+AIMMS 25.3
+#############
+
+
+
+AIMMS 25.3.4 Release (April 25, 2025 - build 25.3.4.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  AIMMS API error messages about assigning values to non-member elements would refer to element numbers rather than names, making the errors hard to interpret.
+
+--------------
+
+
+
+
+
+AIMMS 25.3.3 Release (April 14, 2025 - build 25.3.3.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  An inlined variable with no definition specified was causing an error at the moment that after the solve the values of that variable were calculated.
+
+--------------
+
+
+
+
+
+AIMMS 25.3.2 Release (April 04, 2025 - build 25.3.2.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  An inline variable that is declared in another library or module was not always expanded correctly by the new math program generator.
+-  Fixed a problem in new math program generator for constraints with a large amount of symbolic terms that were added or subtracted.
+-  A mathematical program for which also a stochastic variant is created could give a warning on nonanticipativity constraints during the generation of the normal deterministic gmp.
+-  The function GMP::Instance::GetColumnNumbers did not always return the correct number of columns when columns were added after generation via other GMP functions like GMP::Column::Add.
+-  Made a small improvement in the startup time of models with a huge amount of identifiers.
+-  The Identifier Cardinalities dialog box did first update all identifiers with a definition, and therefore the memory usage shown could be higher than the actual memory usage (before the dialog was opened).
+
+--------------
+
+
+
+
+
+AIMMS 25.3.1 Release (March 25, 2025 - build 25.3.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The last features that were still unsupported in the new math program generator have been implemented. For an LP or MIP model, the new generator should now be able to generate the GMP that is to be send to the solver. If you have set the option disable_new_mathprog_generator to get rid of 'unsupported' warnings in recent versions, it is recommended to set this option back to its default and try again whether the model generates with the new generator. We have seen that on average the generation time has improved 2 to 3 times, so it worth trying. If you still get warnings about unsupported constraints, please let us know.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Fixed some problems with integer ranged parameters with a non-base unit. The range was not properly checked, and the value was not stored correctly.
+-  Fixed an error in the new math program generator when a variable was referenced using 'repeated' indices, as in MyVariable(i,i).
+-  In the Identifier Cardinalities dialog box, the Mem Usage column also includes the memory that is used to store the index domain restriction. This is now only done if the restriction is not a direct identifier reference but an expression for which additional data is kept.
+-  The iterative operators First and Last could lead to an error if the set of the iterative index is empty.
+-  You now get a deprecation warning on the usage of construct subset(index), which is interpreted as (index in subset). The new warning comes with an auto-improve, so you can easily replace all the occurrences.
+-  Having an optional argument of a procedure with an initialData attribute filled in, could lead to an error.
+
+--------------
+
+
+#############
 AIMMS 25.2
 #############
 
@@ -5473,7 +5600,7 @@ WebUI Improvements
 
     Because of the map upgrade, we needed to make a change in the CSS selectors for the arcs: arcs used to be **polyline**, now they are **path**. The labels on the arcs used to be **rect**, now they are **div**. If you are using these selectors in your custom CSS, you will need to make the appropriate changes. Please note that the custom style changes on arcs were not officially supported by AIMMS. We will now support some of the CSS properties for arcs that are mentioned in the CSS styling section of the manual.
 
--  You can now use a wizard to select a ``webui::UponChangeProcedure``. Please, make sure you select a procedure with the right prototype: the UponChange procedure can have 0, 1 or 2 arguments. For details on this, please see `the documentation <https://documentation.aimms.com/webui/widget-options.html#additional-identifier-properties>`__.
+-  You can now use a wizard to select a ``webui::UponChangeProcedure``. Please, make sure you select a procedure with the right prototype: the UponChange procedure can have 0, 1 or 2 arguments. For details on this, please see `the documentation <https://documentation.aimms.com/webui/widget-options.html#additional-identifier-properties-a-k-a-old-style-annotations>`__.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -11923,3 +12050,7 @@ Improvements
   endpoints
   https
   myProcedure
+  initialData
+  mathprog
+  nonanticipativity
+  gmp

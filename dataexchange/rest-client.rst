@@ -130,6 +130,21 @@ With these settings, you can again call the function :js:func:`dex::oauth::AddBe
 	
 	The OAuth2 Authorization Code flow support will work for AIMMS sessions running locally on the desktop for all AIMMS versions. For WebUI session running from an on-premise PRO server or from the AIMMS Cloud, AIMMS version 4.84+ and PRO version 2.41+ are required to support the redirect URLs to be routed back to the AIMMS session backing your WebUI session. Also, the use of OAuth requires the use of HTTPS on your PRO on-premise server, and the library will assume HTTPS traffic on port 443. If your PRO on-premise server uses a different port, then you can configure it through the parameter ``dex::oauth::WebUIOAuthCallbackPort``. 
 
+Signing AWS requests using AWS Signature V4
+-------------------------------------------
+
+The Data Exchange library supports authenticating REST requests through `AWS Signature V4 <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html>`_ through the `AWS_SIGV4 option <https://curl.se/libcurl/c/CURLOPT_AWS_SIGV4.html>`_ in libCurl.
+
+To sign an AWS request you need to set two string options for the HTTP request:
+
+- the ``AWS_SIGV4`` option holding the value ``aws:amz:<region>:<service>`` where region is, for instance, ``eu-west-1``, and service `s3`
+- the ``USERPWD`` option holding the value ``<AWS-access-id>:<AWS-secret-key>``, where you enter the access ID and key authorizing the service requested.
+
+You can set these options for a given HTTP request through the function ``dex::client::AddRequestOptions``. 
+
+For transferring files with the AWS S3 service, you can set these options through the string parameter ``dex::client::FileRequestStringOption``. When this option is set AWS Signature V4 headers will be 
+added to *all* subsequent file requests, even when not communicating with AWS S3, so you must make sure to clear the options when you are done transferring files with AWS S3.
+
 Debugging client requests
 -------------------------
 
