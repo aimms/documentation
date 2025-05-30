@@ -30,7 +30,7 @@ Methods for reading and writing data
 
 .. js:function::  dex::ResetMappingCache(mappingName)
 
-    Reset the cache holding set elements and display names associated with the mapping :token:`mappingName`. This cache is normally cleared when a mapping is used when reading and writing a file. In case a mapping has an included mapping, you may have to clear the mappiong cache manually when the set or its display names have changed, using this function. 
+    Reset the cache holding set elements and display names associated with the mapping :token:`mappingName`. This cache is normally cleared when a mapping is used when reading and writing a file. In case a mapping has an included mapping, you may have to clear the mapping cache manually when the set or its display names have changed, using this function. 
     
     :param mappingName: the name of the mapping to be reset
 	
