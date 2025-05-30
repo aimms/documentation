@@ -170,6 +170,13 @@ The implicit-binds-to attribute
 
 By default, if a node in a mapping has sibling nodes, any index bound via a ``binds-to`` attribute at such a node *n* can be used in any attribute of all nodes in the subtree starting at the *parent* node of *n*. Via the ``implicit-binds-to`` attribute you can make such an index available for use in subtrees starting at even higher parent nodes. You can use this, for instance, if an id of a JSON/XML data structure, that you intend to use as the index value for all data in such a data structure, is stored deeper in such a data structure. By means of the ``implicit-binds-to`` attribute you can make sure that the Data Exchange library will first read the entire subtree containing the index value, prior to reading the subtrees where this index is referenced in e.g. a ``maps-to`` attribute.
 
+Set element and display name caching
+------------------------------------
+
+Whenever the Data Exchange library reads or writes set elements as part of an index domain or range of a parameter, either directly or using a display name, it will internally cache such set elements and/or their corresponding display names. The caches for all indices and range sets used in a mapping used ``dex::ReadFromFile`` or ``dex::WriteToFile`` are cleared prior to reading or writing the data. This prevents changes to sets in between reading or writing files to result in errors or incorrect results. 
+
+If your mapping contains `included-mapping` attributes, element and display name caches for indices and sets contained in such included mappings will not be cleared. If you have changed the sets or display names for such sets, then you need to explicitly call the function ``dex::ResetMappingCache`` on all included mappings with sets with changed content or display names.
+
 The binds-existing and skip-non-existing attribute
 --------------------------------------------------------
 

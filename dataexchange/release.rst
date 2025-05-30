@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.6.2.1 (30-05-2025)
+	- Introduced new function `dex::ResetMappingCache` to allow users to clear the mapping cache of included mappings 
+
 25.6.1.1 (19-05-2025)
 	- Add support for signing AWS requests with AWS Signature V4 using the ``AWS_SIGV4`` option built into libCurl.
 	
