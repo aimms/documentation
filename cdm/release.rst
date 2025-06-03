@@ -8,11 +8,12 @@ Versions with the same major and minor release number use the same protocol betw
 New Features and Bug Fixes
 --------------------------
 25.4.1.1 [26-05-2025]
-	- Add support for telemetry
+	- This release requires AIMMS 25.4+
+	- Added support for telemetry
 	- Elements added to the model data followed by a checkout would not remove the newly added elements from the set
 
 25.3.1.3 [08-04-2025]
-	- Add support for resetting overridden external data back to the base value coming from the external data
+	- Added support for resetting overridden external data back to the base value coming from the external data
 	- Overrides and resets of external data are now properly dealt with when checking out or merging deltas
 	- After restoring a CDM schema to another service, all snapshots and deltas will be deleted
 
