@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.6.3.1 (10-06-2025)
+	- Table names with Unicode characters would give problems in various row-based formats
+	
 25.6.2.1 (30-05-2025)
 	- Introduced new function `dex::ResetMappingCache` to allow users to clear the mapping cache of included mappings 
 
