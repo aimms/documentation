@@ -7,6 +7,12 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+
+25.5.1.1 [10-06-2025]
+	- Deleting a branch in MySQL required temporarily switching off foreign key checks
+	- When retiring a branch snapshots and deltas could get invalid because of elements removed as part of retiring data, all snapshots and deltas are now automatically deleted when retiring data
+	- Pulling changes could end-up in and endless loop when retrieving deltas while the delta list was recombined by another client
+	
 25.4.1.1 [26-05-2025]
 	- This release requires AIMMS 25.4+
 	- Added support for telemetry
