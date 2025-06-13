@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.6.4.1 (13-06-2025)
+	- Arrow-based CSV reader would not trim spaces in column names when the first row contained spaces behind the separator
+	
 25.6.3.1 (10-06-2025)
 	- Table names with Unicode characters would give problems in various row-based formats
 	
@@ -35,7 +38,7 @@ New Features and Bug Fixes
 
 25.4.2.2 (29-03-2025)
 	- Dates like `12/31/9999` would not be accepted by the MSVC C library when reading Parquet files
-	- CSV files with duplicate column names (!) would crash the Arrows-based CSV reader
+	- CSV files with duplicate column names (!) would crash the Arrow-based CSV reader
 	
 25.4.1.1 (06-03-2025)
 	- New function `dex::LoadCaseFromMemoryStream` to read AIMMS cases from memory streams, e.g. when retrieved from Data Lake Storage or API
