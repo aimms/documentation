@@ -95,7 +95,7 @@ As an admin, you can also:
 * View the list of apps available to the selected user
 * Delete a user
 
-.. image:: images/newportal-users-4.png
+.. image:: images/newportal-users--4.png
     :align: center
 
 Global Roles
