@@ -49,9 +49,7 @@ To delete an existing API key, click the three-dot menu next to the key and sele
    :widths: 40, 40
 
 	Authentication , Allows operations on Environments; Groups and Users                                                    
-	PublishApp , Allows management of AIMMS applications (e.g., publishing, updating, editing, deleting apps)                
+	PublishApp , Allows management of AIMMS applications(e.g., publishing, updating, editing, deleting apps)                
 	Tasks , Allows management of Tasks 
-	API Key , Permits operations on API keys themselves (e.g., creating, deleting keys) 
-	Session , Enables operations related to WebUI; Solve and Task sessions. (e.g., get session information, retireve logs, terminate, delete session) 
-	
-	
+	API Key , Permits operations on API keys themselves(e.g., creating, deleting keys) 
+	Session , Enables operations related to WebUI; Solve and Task sessions(e.g., get session information, retireve logs, terminate, delete session)
