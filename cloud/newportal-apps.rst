@@ -38,7 +38,7 @@ Available options include:
 
 .. note::
 
-	*Stats* and *Publishing details* are avilable to all users.
+	*Stats* and *Publishing details* are available to all users.
 	
 .. image:: images/newportal-apps-2.png
     :align: center
