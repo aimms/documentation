@@ -32,6 +32,7 @@ Available options include:
 * Update: Upload a new version of the existing application.
 * Edit:	Change the name, icon, or description of the app.
 * App access: Manage which groups have access to the application.
+* Set as latest version: Set the 'latest' tag to the application so users always access the most up-to-date version. 
 * Select for deletion: Select an App to delete multiple Apps.
 * Delete: Delete the current app.
 
@@ -98,7 +99,7 @@ The **Users** tab shows a list of users who have access to the app through their
 Set as latest Version
 ---------------------
 
-You can tag application as 'latest' by clicking |star-latest| icon (when you hover on any App). The idea behind this is, an Admins or AppPublishers can assign the 'latest' tag to the application when they publish a newer version of the same application so that end users can always have the newer(latest) version of the app available through direct app launch. 
+You can tag application as 'latest' from the App options menu. The idea behind this is, an Admins or AppPublishers can assign the 'latest' tag to the application when they publish a newer version of the same application so that end users can always have the newer(latest) version of the app available through direct app launch. 
 
 * It's a unique tag, meaning only 1 version of the same app can be tagged as 'latest'. When you assign the 'latest' tag to other version of the app then it removes the tag from previous one.
 * When you update the 'latest' App and use option 'Update and hide old version' then 'latest' tag will be assigned to new App.
