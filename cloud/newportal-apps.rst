@@ -116,7 +116,7 @@ Update App
 
 Allows you to upload a new version of the existing application. When updating an application, after uploading a new ``.aimmspack`` file, the AIMMS PRO will already copy all the settings and app access of the application version you wish to upgrade, allowing you to change only those values that really need to be changed. You have the option to keep or to hide the previous version of the application. If you hide it, it will become invisible to all users, except those with global administrative privileges, but existing queued jobs will still be able to access it. If you delete an application, queued jobs may fail altogether. You are therefore strongly advised to select the option to hide the previous version, and only delete it after all queued requests have been completed successfully.
 
-.. image:: images/newportal-apps-7.png
+.. image:: images/newportal-apps7.png
     :align: center
 
 Direct App Launch
