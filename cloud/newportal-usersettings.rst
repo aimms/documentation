@@ -3,7 +3,7 @@ User Settings
 
 The **User Settings** page allows users to manage their *personal profile*, *security preferences*, and *API keys*.
 
-.. image:: images/newportal-usersettings.png
+.. image:: images/newportal-user-settings.png
     :align: center
 
 Profile
