@@ -8,7 +8,7 @@ In the Users area of the portal, you can perform all user management tasks relat
 * Groups
 * Users
 
-.. image:: images/newportal-users-1.png
+.. image:: images/newportal-users1.png
     :align: center
 
 .. note::
@@ -44,7 +44,7 @@ By default, AIMMS PRO includes a single pre-installed environment: the ROOT envi
 
 * **users**: A non-system group named users is also created by default. This group is optional and can be deleted if it is not needed.
 
-.. image:: images/newportal-users-2.png
+.. image:: images/newportal-users2.png
     :align: center
 
 Creating a New Environment
@@ -57,7 +57,7 @@ Within the portal, any user with an Admin role can create a new environment. By 
 
 **Group <everyone>**: In the new Portal, each environment comes with a group called <everyone>. This group controls app access at the environment level, meaning any app access assigned to it will automatically apply to all groups within the selected environment that will allow you to view and assign app permissions for every group within the chosen environment. If you have arranged access to an entire environment, this will be automatically translated into permission for the <everyone> group in that environment. If you have assigned permissions to individual users, these will continue to work for existing applications in read-only mode, but for newly published applications you will have to create a separate group to collect any individual users you want to give access to an app and who do not already have access via another authorized group.
 
-.. image:: images/newportal-users-3.png
+.. image:: images/newportal-users3.png
     :align: center
 
 Default Environment for login
@@ -95,7 +95,7 @@ As an admin, you can also:
 * View the list of apps available to the selected user
 * Delete a user
 
-.. image:: images/newportal-users--4.png
+.. image:: images/newportal-users4.png
     :align: center
 
 Global Roles

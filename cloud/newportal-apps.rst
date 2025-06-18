@@ -3,7 +3,7 @@ AIMMS Application Management
 
 The Apps page is the central hub for accessing/managing all available applications in your AIMMS Cloud environment. It allows Admins and App Publishers to interact with and manage app deployments efficiently. And end users can access the apps available to them from this page.
 
-.. image:: images/newportal-apps-1.png
+.. image:: images/newportal-app1.png
     :align: center
 
 
@@ -40,7 +40,7 @@ Available options include:
 
 	*Stats* and *Publishing details* are available to all users.
 	
-.. image:: images/newportal-apps-2.png
+.. image:: images/newportal-app2.png
     :align: center
 	
 Create and Organize Apps
@@ -49,7 +49,7 @@ Create and Organize Apps
 * New App Button: Click this to initiate the process of publishing a new app to the portal.
 * New Category Button: Group apps under custom categories for easier organization.
 
-.. image:: images/newportal-apps-3.png
+.. image:: images/newportal-app3.png
     :align: center
 
 App Categories
@@ -57,7 +57,7 @@ App Categories
 
 You can categorized your AIMMS PRO applications. Admin users can add categories using New category button and edit/delete category by hovering on category name on the apps page. There is always one default category 'other'. Once you have added some categories to your portal, category field is available while publishing, updating or editing the application. If you do not assign any category to your application then by default it has 'other' category. Also on the apps page apps are shown in the alphabetic order of categories, applications with the 'other' category comes last on the page. 
 
-.. image:: images/newportal-apps-4.png
+.. image:: images/newportal-app4.png
     :align: center
 
 Publish New App
@@ -73,7 +73,7 @@ Any PRO-enabled AIMMS project can be published onto an AIMMS PRO Portal. PRO-ena
 * App icon: icon of an app to be displayed on Apps, when not selected it will use the default app icon.
 * AIMMS version: Available AIMMS version used to deploy the AIMMS application. 
 
-.. image:: images/newportal-apps-5.png
+.. image:: images/newportal-app5.png
     :align: center
 
 App Access
@@ -93,7 +93,7 @@ The **Groups** tab displays the list of groups that currently have access to the
 
 The **Users** tab shows a list of users who have access to the app through their membership in the assigned groups. This view is automatically populated based on group membership.
 
-.. image:: images/newportal-apps-6.png
+.. image:: images/newportal-app6.png
     :align: center
 
 Set as latest Version
