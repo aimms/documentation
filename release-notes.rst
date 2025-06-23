@@ -13,6 +13,26 @@ AIMMS 25.4
 
 
 
+AIMMS 25.4.4 Release (June 23, 2025 - build 25.4.4.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  A numeric value that ends with a period (for example: 1.) was not recognized by the new compiler.
+-  Using the Math Program Inspector in combination with the new math program generator was sometimes too slow.
+-  The function GMP::Instance::GetAttributeValue was returning incorrect values for multi-objective attributes when using Gurobi.
+-  Compilation errors in the condition of a For statement did not always point the correct location, making it hard to find the error in the source text.
+-  If a For loop has a domain condition, and an identifier in this condition is affected by a CleanDependents call within the For loop, then this could lead to an error when executing the second loop.
+
+--------------
+
+
+
+
+
 AIMMS 25.4.3 Release (June 03, 2025 - build 25.4.3.3).
 ------------------------------------------------------------------------------------------
 
