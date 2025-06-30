@@ -5,6 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+25.1.1.0 [30-06-2025]
+	- Introduced ``aimmsunit::ExcludeTestSuites`` command line argument.
+	
 24.0.0.15 [22-12-2024]
 	- Deleting runtime nodes would leave the model in an unrunnable state, preventing the model termination procedures from being executed
 	
