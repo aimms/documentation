@@ -55,7 +55,7 @@ Create and Organize Apps
 App Categories
 --------------
 
-You can categorized your AIMMS PRO applications. Admin users can add categories using New category button and edit/delete category by hovering on category name on the apps page. There is always one default category 'other'. Once you have added some categories to your portal, category field is available while publishing, updating or editing the application. If you do not assign any category to your application then by default it has 'other' category. Also on the apps page apps are shown in the alphabetic order of categories, applications with the 'other' category comes last on the page. 
+You can categorize your AIMMS PRO applications. Admin users can add categories using New category button and edit/delete category by hovering on category name on the apps page. There is always one default category 'other'. Once you have added some categories to your portal, category field is available while publishing, updating or editing the application. If you do not assign any category to your application then by default it has 'other' category. Also on the apps page apps are shown in the alphabetic order of categories, applications with the 'other' category comes last on the page. 
 
 .. image:: images/newportal-app4.png
     :align: center
