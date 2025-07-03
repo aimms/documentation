@@ -51,7 +51,7 @@ The WebUI Sessions tab displays a table listing all sessions initiated by users.
    :widths: 40, 40
 
 	Session ID , Unique identifier assigned to the session.                                                    
-	State , "Status of the session (e.g., terminated)."                
+	State , "Status of the session (e.g., terminated)"                
 	Application , Name and version of the application associated with the session. 
 	Owner , The user who initiated the session.
 	"Created (GMT+2)" , Timestamp indicating when the session was started.
@@ -76,7 +76,7 @@ The Solver Sessions tab provides insight into all computational solver sessions 
    :widths: 40, 40
 
 	Session ID , Unique identifier assigned to the session.                                                    
-	State , "Status of the session (typically finished)."                
+	State , "Status of the session (typically finished)"                
 	Application , Name and version of the application associated with the session. 
 	Descrption , Typically includes case or scenario details passed during execution.
 	Owner , The user who initiated the session.
@@ -104,15 +104,15 @@ The Task tab shows scheduled or background `tasks <https://documentation.aimms.c
    :widths: 40, 40
 
 	Task ID , Unique identifier assigned to the task.                                                    
-	State , "Status of the task (typically completed or failed)."                
+	State , "Status of the task (typically completed or failed)"                
 	Application , Name and version of the application from which the task was launched.
 	Owner , The user who initiated the task.
-	Service Name , "The internal task service used (e.g., JobSchedule)."
+	Service Name , "The internal task service used (e.g., JobSchedule)"
 	"Created (GMT+2)" , Timestamp indicating when the task was created.
 	Queue Time , Time the task spent in the execution queue before starting.
 	Run Time , Total time the model was solving.
 	"Scheduled for (GMT+2)" , If scheduled this shows the future time the task is planned to run.
-	Schedule Interval , "If recurring this field shows the repeat interval (e.g., daily, hourly)."
+	Schedule Interval , "If recurring this field shows the repeat interval (e.g., daily, hourly)"
 	
 .. image:: images/task_sessions.png
     :align: center
