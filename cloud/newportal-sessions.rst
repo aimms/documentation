@@ -80,7 +80,7 @@ The Solver Sessions tab provides insight into all computational solver sessions 
 	Application , Name and version of the application associated with the session. 
 	Descrption , Typically includes case or scenario details passed during execution.
 	Owner , The user who initiated the session.
-	"Created (GMT+2)" , Timestamp indicating when the session was created.
+	Created (GMT+2) , Timestamp indicating when the session was created.
 	Run Time , Total time the model was solving.
 	Queue Time , Time the session spent in the execution queue before starting.
 	
