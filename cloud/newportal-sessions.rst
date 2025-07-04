@@ -139,7 +139,7 @@ When creating a task, you are prompted to fill in several fields that define the
    :header: "Column", "Description"
    :widths: 40, 60
 
-	App name , Dropdown to select the AIMMS application you want to run as a task. This list shows all available deployed apps.                                                   
+	App name , Dropdown to select the AIMMS application you want to schedule as a task. This list displays all applications you have access to.                                 
 	App version , "Select which version of the app to use. Typically, this will be the latest (e.g., 2.0 <latest>), but older versions may be available."                
 	Service name (required) , Enter the name of the service that should handle this task.
 	Schedule for , "(Optional) it indicates the time point a task should run after it. The task will not start until after the time point is passed."
