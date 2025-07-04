@@ -133,3 +133,17 @@ The Task Sessions tab also allows you to create/schedule tasks by clicking the â
 .. image:: images/create_task.png
     :align: center
 	
+When creating a task, you are prompted to fill in several fields that define the application, timing, and data for the task. Here is what each field means:
+
+.. csv-table:: 
+   :header: "Column", "Description"
+   :widths: 40, 60
+
+	App name , Dropdown to select the AIMMS application you want to run as a task. This list shows all available deployed apps.                                                   
+	App version , "Select which version of the app to use. Typically, this will be the latest (e.g., 2.0 <latest>), but older versions may be available."                
+	Service name (required) , Enter the name of the service that should handle this task.
+	Schedule for , "(Optional) it indicates the time point a task should run after it. The task will not start until after the time point is passed."
+	Schedule in , "(Optional) indicates the interval a task should run after. The task will not start until after the interval is passed."
+	Schedule interval , "(Optional) indicates that the task should be repeated in the given intervals. For example, if it is set to 1 day, the task will be scheduled for the next day after the initial schedule. These recurring tasks are indexd within the group starting from zero. The first task with *scheduleInterval* will have *groupIndex=0* and subsequent runs will have the next groupIndexes in order. To stop the automated scheduling, the last scheduled task should be deleted."
+	Request data , (required)	Upload the input file that contains input data for the task. This is mandatory to tell the task what data to use.
+	
