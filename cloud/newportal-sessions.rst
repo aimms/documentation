@@ -144,7 +144,7 @@ When creating a task, you are prompted to fill in several fields that define the
 	Service name (required) , Enter the name of the service that should handle this task.
 	Schedule for , "(Optional) it indicates the time point a task should run after it. The task will not start until after the time point is passed."
 	Schedule in , "(Optional) indicates the interval a task should run after. The task will not start until after the interval is passed."
-	Schedule interval , "(Optional) indicates that the task should be repeated in the given intervals. For example, if it is set to 1 day, the task will be scheduled for the next day after the initial schedule. These recurring tasks are indexd within the group starting from zero. The first task with *scheduleInterval* will have *groupIndex=0* and subsequent runs will have the next groupIndexes in order. To stop the automated scheduling, the last scheduled task should be deleted."
+	Schedule interval , "(Optional) indicates that the task should be repeated in the given intervals. For example, if it is set to 1 day, the task will be scheduled for the next day after the initial schedule. These recurring tasks are indexed within the group starting from zero. The first task with *scheduleInterval* will have *groupIndex=0* and subsequent runs will have the next groupIndexes in order. To stop the automated scheduling, the last scheduled task should be deleted."
 	Request data , (required)	Upload the input file that contains input data for the task. This is mandatory to tell the task what data to use.
 	
 Batch Operations
