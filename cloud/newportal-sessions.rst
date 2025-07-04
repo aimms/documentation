@@ -30,7 +30,7 @@ Terminated, failed, or completed sessions remain visible in the portal. This all
 Deleting Sessions
 =================
 
-Once you’ve reviewed a session’s outcome or no longer need the information, you can delete it by yourself or they will be automatically deleted after a certain period. By default, sessions older than 30 days are automatically removed. 
+Once you have reviewed a session’s outcome or no longer need the information, you can delete it by yourself or they will be automatically deleted after a certain period. By default, sessions older than 30 days are automatically removed. 
 
 To change this setting:
 * Go to Configuration > Retention Settings
