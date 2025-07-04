@@ -18,17 +18,17 @@ Usage
 ^^^^^
 
 Terminating Active Sessions
-===========================
+---------------------------
 
 You can terminate active sessions that are still running, either because they are taking too long or are no longer needed.
 
 Inspecting Sessions
-===================
+-------------------
 
 Terminated, failed, or completed sessions remain visible in the portal. This allows you to review session history, understand usage patterns, or investigate issues through associated logs.
 
 Deleting Sessions
-=================
+-----------------
 
 Once you have reviewed a session’s outcome or no longer need the information, you can delete it by yourself or they will be automatically deleted after a certain period. By default, sessions older than 30 days are automatically removed. 
 
@@ -146,4 +146,8 @@ When creating a task, you are prompted to fill in several fields that define the
 	Schedule in , "(Optional) indicates the interval a task should run after. The task will not start until after the interval is passed."
 	Schedule interval , "(Optional) indicates that the task should be repeated in the given intervals. For example, if it is set to 1 day, the task will be scheduled for the next day after the initial schedule. These recurring tasks are indexd within the group starting from zero. The first task with *scheduleInterval* will have *groupIndex=0* and subsequent runs will have the next groupIndexes in order. To stop the automated scheduling, the last scheduled task should be deleted."
 	Request data , (required)	Upload the input file that contains input data for the task. This is mandatory to tell the task what data to use.
+	
+Batch Operations
+----------------
+The Terminate and Delete buttons at the top right of the session list on WebUI and Solver tab allow you to perform batch operations on multiple selected sessions. For Tasks tab only Delete is available.
 	
