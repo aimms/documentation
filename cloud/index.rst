@@ -26,5 +26,11 @@ The AIMMS Cloud Platform is a fully managed AIMMS PRO environment. It is secure,
    privacy
    session-manager
    newportal
+   newportal-apps
+   newportal-configuration
+   newportal-sessions
+   newportal-stats
+   newportal-users
+   newportal-usersettings
   
 
