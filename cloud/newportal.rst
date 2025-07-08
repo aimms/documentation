@@ -6,9 +6,3 @@ We have built a new look of our AIMMS PRO Portal as known as New Portal, It come
 .. toctree::
    :titlesonly:
 
-    newportal-users
-	newportal-configuration
-	newportal-apps
-	newportal-sessions
-	newportal-stats
-	newportal-usersettings
