@@ -8,6 +8,33 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 25.5
+#############
+
+
+
+AIMMS 25.5.1 Release (July 10, 2025 - build 25.5.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The iterative operators Sort and NBest are now supported by the new compiler.
+-  The implementation of the OrderBy attribute of a set has been improved. The syntax has become a bit more strict in that you should now use the same free index when specifying multiple expressions.
+-  If an indexed set (indexedA) is a subset of another indexed set (indexedB), then AIMMS now shows an error when you assign individual sets to indexedA which are not subsets of the corresponding individual set in indexedB.
+-  Setting an environment variable using the EnvironmentSetString function did not result in that variable being able to be retrieved from another thread using EnvironmentGetString on linux installations (e.g. the AIMMS cloud).
+-  A READ statement using a database procedure did not first update the definition of arguments of the procedure.
+-  Trying to open an .aimms file that includes repository libraries (like WebUI) did not work when there is not internet connection. It should only fail when the repository library is not yet downloaded and thus not locally available.
+-  The solver column row mapping was not always printed correctly if the AIMMS Presolver was enabled.
+-  The solver Octeract has been removed.
+-  In some cases AIMMS could hang during a solve if the concurrent optimizer of CPLEX was used on Linux.
+
+--------------
+
+
+#############
 AIMMS 25.4
 #############
 
