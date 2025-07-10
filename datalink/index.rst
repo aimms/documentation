@@ -2,6 +2,9 @@ DataLink Library
 *****************
 
 
+.. note:: Since AIMMS 24, the DataLink Library is no longer supported.  See also `AIMMS Product Lifecycle <https://documentation.aimms.com/deprecation-table.html>`_
+
+
 .. 
     Motivation, why do we want data link
 

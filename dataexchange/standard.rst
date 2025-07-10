@@ -90,11 +90,23 @@ To create the mapping between multi-dimensional identifiers and datasets, tables
 * ``dex::ExtraAttributeList``
 * ``dex::RowFilter``
 
+Assigning a table name
+++++++++++++++++++++++
+
 Through the ``dex::TableName`` annotation you can indicate for multi-dimensional identifiers and/or sections of multi-dimensional identifiers, to which table they should belong. The Data Exchange library will verify that all identifiers share a common index domain, and return an error if this is not the case. You can use the ``dex::ColumnName`` annotation to indicate a column name for multi-dimensional identifiers and indices. If you don't specify an explicit column name, the Data Exchange library will use the identifier name as the implicit column name. Instead of using annotations, you can also directly set the column name for specific identifiers via the identifier ``dex::ColumnName``. If you want to set the column name for columns in a table associated with indices, you can either create a separate index node, and use the ``dex::ColumnName`` attribute, of assign the column name to be used for the index to the string parameter ``dex::ColumnName``.
+
+Auto-generating table names
++++++++++++++++++++++++++++
 
 Alternatively to creating table names yourself through the ``dex::TableName`` annotation, you can also let the Data Exchange library create tables names by specifying the ``dex::AutoTablePrefix`` annotation. For every identifier, with this annotation set, for which you didn't specify an explicit table name, the Data Exchange library will auto-generate a table name, by starting with the ``dex::AutoTablePrefix``, followed by all indices in the declaration of the identifier, separated by underscores. This will create tables where all identifiers with the same collection of indices will end up in the same table. All scalar identifiers will be assigned to the table ``dex::AutoTablePrefix`` followed by ``_scalar``. Through the global option ``dex::PrefixAutoTableWithDataset`` you can prefix the generated table names with the specified dataset name, to prevent potential name clashes when the same table name is generated for multiple data categories. 
 
+Associating the table with a dataset
+++++++++++++++++++++++++++++++++++++
+
 By assigning the ``dex::Dataset`` annotation to specific identifiers or sections of identifiers, the Data Exchange library will deduce the mapping between datasets and tables. Typically one would assign the ``dex::TableName`` and ``dex::Dataset`` to sections of identifiers with identical domains. If any identifier is both mapped to a table and a dataset, the combination will be assigned to ``dex::DatasetTableMapping``. Instead of using the ``dex::Dataset`` annotation, you can also assign 1 to specific combinations of tables and datasets in the identifier ``dex::DatasetTableMapping`` directly. 
+
+Mapping extra suffices
+++++++++++++++++++++++
 
 Through the ``dex::SuffixList`` annotation you can specify the extra suffices (next to the level value) that you want to add the to the set of columns of the table to which the identifier itself is added. The format of the of the ``dex::SuffixList`` is as follows
 
@@ -104,6 +116,9 @@ Through the ``dex::SuffixList`` annotation you can specify the extra suffices (n
     
 If you do not explicitly specify column names in the semi-colon-separated list of suffices, the column names will be ``<identifier>.<suffix>``. 
 
+Specifying extra mapping attributes
++++++++++++++++++++++++++++++++++++
+
 With the ``dex::ExtraAttributeList`` annotation you can specify any additional mapping attributes that you want to have added to the mapping generated for a specific identifier. The value of the ``dex::ExtraAttributeList`` annotation is a semi-colon-separated list.
 
 .. code-block::
@@ -112,9 +127,15 @@ With the ``dex::ExtraAttributeList`` annotation you can specify any additional m
 
 where ``<value>`` is the literal text that you want assign to the annotation ``<annotation>``. If you want to set the extra attributes for columns in a table associated with indices, you can either create a separate index node, and use the ``dex::ExtraAttributeList`` attribute, or assign the column name to be used for the index to the *string parameter* ``dex::ExtraAttributeList``. When you add ``name-binds-to`` and ``name-regex`` attributes to an multi-dimensional identifier, the Data Exchange library will pick this up, and use the dimension reduced by one to compare with the number of bound indices of each row, because using the ``name-binds-to`` index will cause the values of the last index to appear as columns in the generated table. If you have specified multiple identifiers with a ``name-binds-to`` attribute over the same set, you should use the ``name-regex-prefix`` or ``name-regex-postfix`` attributes to distinguish which columns are associated with which identifier. 
 
+Defining a row filter
++++++++++++++++++++++
+
 You can use the annotation ``dex::RowFilter`` to specify an identifier that should serve as a ``write-filter`` attribute for the rows being generated in the mapping. The identifier should have the same indices as all identifiers in the table. The ``RowFilter`` annotation should be the same for all identifiers in a specific table. If all identifiers in a table are contained in a single section in your model, you can best add the annotation to that section, in which case all identifiers in the section will inherit it. With the row filter you can limit the number of rows being generated when writing a file using the mapping.
 
-To generate all annotation-based mapping, you can call the procedure :js:func:`dex::GenerateDatasetMappings`. 
+Generating the mappings
++++++++++++++++++++++++
+
+To generate all annotation-based mappings, you can call the procedure :js:func:`dex::GenerateDatasetMappings`. 
 This will generate Data Exchange mappings in the subfolder ``Mappings/Generated`` in the main project folder. The following mappings will become available for every ``<dataset>``  and ``<table>``:
 
 .. csv-table:: 
@@ -135,8 +156,8 @@ This will generate Data Exchange mappings in the subfolder ``Mappings/Generated`
     ``Generated/<dataset>-<table>-XML-DenseAttribute``, table ``<table>`` in dataset ``<dataset>`` in a single dense XML file (indices and values as elements; also default data)
     ``Generated/<dataset>-<table>-CSV``, table ``<table>`` in dataset ``<dataset>`` in a single CSV file
 
-Adding extra attributes to tables
-+++++++++++++++++++++++++++++++++
+Adding extra attributes to tables programmatically
+++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In addition to adding extra attributes to columns via the ``dex::ExtraAttributeList`` annotation, you can also add additional attributes to tables in generated mappings, via the string parameter ``dex::DatasetTableExtraAttribute(ds,tbl,attr)``. You can use this, for instance, to assign colors to sheets in a generated Excel mapping.
 

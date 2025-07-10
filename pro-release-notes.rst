@@ -51,11 +51,15 @@ PRO 25.4
 AIMMS PRO 25.4.2 Release
 -------------------------
 
-On May 15, 2025, we released AIMMS PRO 25.4.2(25.4.2.1)
+On May 15, 2025, we released AIMMS PRO 25.4.2(*Cloud build*: 25.4.2.1, *On-Premise build*: 25.4.2.3)
 
 **Improvements**
 
 - Telemetry Configuration: Unified telemetry settings across all services and sessions for improved debugging and observability.
+
+**Resolved Issues**
+
+- **On-Premise**: Fixed an issue where Apps cannot be published on AIMMS PRO 25.1.1.1 when using AIMMS 25.4 or higher.
 
  
 PRO 25.3

@@ -170,6 +170,13 @@ The implicit-binds-to attribute
 
 By default, if a node in a mapping has sibling nodes, any index bound via a ``binds-to`` attribute at such a node *n* can be used in any attribute of all nodes in the subtree starting at the *parent* node of *n*. Via the ``implicit-binds-to`` attribute you can make such an index available for use in subtrees starting at even higher parent nodes. You can use this, for instance, if an id of a JSON/XML data structure, that you intend to use as the index value for all data in such a data structure, is stored deeper in such a data structure. By means of the ``implicit-binds-to`` attribute you can make sure that the Data Exchange library will first read the entire subtree containing the index value, prior to reading the subtrees where this index is referenced in e.g. a ``maps-to`` attribute.
 
+Set element and display name caching
+------------------------------------
+
+Whenever the Data Exchange library reads or writes set elements as part of an index domain or range of a parameter, either directly or using a display name, it will internally cache such set elements and/or their corresponding display names. The caches for all indices and range sets used in a mapping used ``dex::ReadFromFile`` or ``dex::WriteToFile`` are cleared prior to reading or writing the data. This prevents changes to sets in between reading or writing files to result in errors or incorrect results. 
+
+If your mapping contains `included-mapping` attributes, element and display name caches for indices and sets contained in such included mappings will not be cleared. If you have changed the sets or display names for such sets, then you need to explicitly call the function ``dex::ResetMappingCache`` on all included mappings with sets with changed content or display names.
+
 The binds-existing and skip-non-existing attribute
 --------------------------------------------------------
 
@@ -208,7 +215,7 @@ You can assign the ``maps-to`` attribute to any value-holding mapping element. I
 
 The ``write-filter`` attribute can be specified at any node in the mapping tree, and should be a reference to an identifier in the model including the bound indices at this location as for the ``maps-to`` attribute. For any tuple of bound indices for which the ``write-filter`` attribute does not hold a non-default value, the corresponding part of the generate JSON, XML or CSV/TSV file will be skipped. 
 
-When writing numerical data, you can use the ``precision`` attribute to specify the number of decimals with which the numerical data should be written. The attribute should hold a value between 0 and 16, and the numerical value will be rounded to the specified number of decimals.
+When writing numerical data, you can use the ``precision`` attribute to specify the number of decimals with which the numerical data should be written. The attribute should hold a value between 0 and 16 (default 16), and the numerical value will be rounded to the specified number of decimals.
 
 When writing element data, you can specify the display name to be used for element values through the ``range-display-name`` attribute. The value of the attribute should be a one-dimensional string parameter defined over the index into the range set of the element parameter. When writing a file, the Data Exchange library will use this name for the elements to be created rather than the set label.  When reading a file, the Data Exchange library will both support elements that hold the original label as well as the display name specified through the ``range-display-name`` attribute. Display names for the ``range-display-name`` attribute will be automatically updated when necessary on every call to :js:func:`dex::ReadFromFile` and :js:func:`dex::WriteToFile`.
 
