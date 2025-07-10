@@ -1,5 +1,5 @@
-AIMMS Application Management
-============================
+Apps (AIMMS Application Management)
+===================================
 
 The Apps page is the central hub for accessing/managing all available applications in your AIMMS Cloud environment. It allows Admins and App Publishers to interact with and manage app deployments efficiently. And end users can access the apps available to them from this page.
 

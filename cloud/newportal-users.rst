@@ -1,5 +1,5 @@
-User Management
-===============
+Users (User Management)
+=======================
 
 In the Users area of the portal, you can perform all user management tasks related to AIMMS PRO. The following user management concepts are supported:
 
