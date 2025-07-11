@@ -76,7 +76,6 @@ if os.environ.get('SPHINX_IGNORE_EXTERNAL_LINKS') == 'true':
         r'https://oauth\.net/?', 
         r'https://msdn\.microsoft\.com/?', 
         r'https://support\.microsoft\.com/?', 
-        r'https://octeract\.com/?', 
         r'https://regex101\.com/?', 
         r'https://license\.gurobi\.com/?', 
         r'https://learn\.microsoft\.com/?', 

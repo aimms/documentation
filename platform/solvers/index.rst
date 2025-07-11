@@ -18,7 +18,6 @@ Here you can find detailed information about the solvers available with the AIMM
    ipopt
    knitro
    minos
-   octeract
    odh-cplex
    path
    snopt
