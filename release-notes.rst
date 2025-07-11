@@ -29,7 +29,7 @@ Resolved AIMMS Issues
 -  If an indexed set (indexedA) is a subset of another indexed set (indexedB), then AIMMS now shows an error when you assign individual sets to indexedA which are not subsets of the corresponding individual set in indexedB.
 -  Setting an environment variable using the EnvironmentSetString function did not result in that variable being able to be retrieved from another thread using EnvironmentGetString on linux installations (e.g. the AIMMS cloud).
 -  A READ statement using a database procedure did not first update the definition of arguments of the procedure.
--  Trying to open an .aimms file that includes repository libraries (like WebUI) did not work when there is not internet connection. It should only fail when the repository library is not yet downloaded and thus not locally available.
+-  Trying to open a .aimms file that includes repository libraries (like WebUI) did not work when there is no internet connection. It should only fail when the repository library is not yet downloaded and thus not locally available.
 -  The solver column row mapping was not always printed correctly if the AIMMS Presolver was enabled.
 -  In some cases AIMMS could hang during a solve if the concurrent optimizer of CPLEX was used on Linux.
 
