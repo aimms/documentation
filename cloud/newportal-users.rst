@@ -106,6 +106,9 @@ AIMMS PRO defines three Global Roles, each with different levels of access and r
 * **App Publisher**: Can publish and manage their own applications. Has full access to the apps they own but limited access (i.e. can view and launch) for the apps made available to them based on their group level app access.
 * **User**: An end user who can view and launch applications made available to them, based on their group level app access.
 
+.. note::
+
+	In new portal, *Admin* is a global role so there is no more admin user per environment.
 
 
 
