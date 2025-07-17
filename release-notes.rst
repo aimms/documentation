@@ -21,12 +21,12 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  The function errh::CreationTime is now following the same rules with respect to daylight saving time as the function CurrentToString.
+-  The function :any:`errh::CreationTime` is now following the same rules with respect to daylight saving time as the function CurrentToString.
 -  Assigning the empty element to an element parameter that currently holds a value outside the set range did not work correctly.
 -  Fixed a bug when using a free index in an argument of a procedure or function call.
 -  Only in latest version 25.5.1, the procedure FindUsedElements did not empty the contents of the output set first.
 -  The number of warnings that are generated from within an external function is now limited by the option 'Maximal Number of Warnings Reported'.
--  In some rare situations the function me::SetAttribute did not work correctly.
+-  In some rare situations the function ``me::SetAttribute`` did not work correctly.
 
 --------------
 
