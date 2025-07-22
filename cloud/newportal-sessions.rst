@@ -8,11 +8,11 @@ If you are an administrator, you will not only see your own sessions but also al
 Tabs Overview
 ^^^^^^^^^^^^^
 
-WebUI: View and manage sessions involving the the use of AIMMS WebUI applications.
+**WebUI**: View and manage sessions involving the the use of AIMMS WebUI applications.
 
-Solver: View and manage sessions related to solver activities (e.g., optimization sessions).
+**Solver**: View and manage sessions related to solver activities (e.g., optimization sessions).
 
-Task: View, manage and create tasks.
+**Task**: View, manage and create tasks.
 
 Usage
 ^^^^^
@@ -33,8 +33,9 @@ Deleting Sessions
 Once you have reviewed a session’s outcome or no longer need the information, you can delete it by yourself or they will be automatically deleted after a certain period. By default, sessions older than 30 days are automatically removed. 
 
 To change this setting:
-* Go to Configuration > Retention Settings
-* Adjust the Session retention time to your preferred duration. 
+
+	* Go to Configuration > Retention Settings
+	* Adjust the Session retention time to your preferred duration. 
 
 .. note::
 
@@ -149,5 +150,6 @@ When creating a task, you are prompted to fill in several fields that define the
 	
 Batch Operations
 ----------------
+
 The Terminate and Delete buttons at the top right of the session list on WebUI and Solver tab allow you to perform batch operations on multiple selected sessions. For Tasks tab only Delete is available.
 	
