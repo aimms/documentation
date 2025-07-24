@@ -31,6 +31,9 @@ In addition to reviewing session details, you now have access to two new options
 
 **Session log**: Opens a detailed log of activities that occurred during the session. This is useful for troubleshooting errors, tracking execution steps, and understanding session behavior. Within the session log view, you also have the option to Download log, allowing you to save the log content for offline analysis or sharing with others.
 
+.. image:: images/session_logs.png
+    :align: center
+
 **App stats**: Display various performance metrics for an app related to WebUI, Solver and Task session executions, such as launch time, queuetime and runtime duration, and active count (if applicable). For more details on App stats, please visit the detailed `documentation <https://documentation.aimms.com/cloud/newportal-stats.html>`__ 
 
 These options enhance your ability to analyze individual sessions more effectively.
