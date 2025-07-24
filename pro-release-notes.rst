@@ -4,7 +4,7 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
-Version 25.3.1.0 (July 24, 2025)
+Version 25.6.1.0 (July 24, 2025)
 ---------------------------------
 
 - We are excited to introduce two new tools to help you better understand and troubleshoot your sessions:
