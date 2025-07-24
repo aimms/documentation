@@ -12,6 +12,7 @@ Operations supported by session-manager REST API to interact with WebUI sessions
 * ``GET /pro/session-manager/v1/sessions/webui`` - To get the list of WebUI sessions. It accepts various filters and pagination.
 * ``GET /pro/session-manager/v1/sessions/webui/{session-id}`` - To get the information of the specified WebUI session.
 * ``GET /pro/session-manager/v1/sessions/webui/{session_id}/logs`` - To retrieve the WebUI session logs. It accepts various filters and pagination.
+* ``GET /pro/session-manager/v1/sessions/webui/{session_id}/logs/download`` - To download webui session logs.
 * ``PATCH /pro/session-manager/v1/sessions/webui/{session_id}/terminate`` - To terminate a running WebUI session.
 * ``DELETE /pro/session-manager/v1/sessions/webui/{session-id}`` - To delete the WebUI session.
 
@@ -24,6 +25,7 @@ Operations supported by session-manager REST API to interact with Task sessions,
 * ``GET /pro/session-manager/v1/sessions/task`` - To get the list of Task sessions. It accepts various filters and pagination.
 * ``GET /pro/session-manager/v1/sessions/task/{session-id}`` - To get the information of the specified task session.
 * ``GET /pro/session-manager/v1/sessions/task/{session-id}/logs`` - To retrieve the task session logs. It accepts various filters and pagination.
+* ``GET /pro/session-manager/v1/sessions/task/{session_id}/logs/download`` - To download task session logs.
 * ``PATCH /pro/session-manager/v1/sessions/task/{session-id}/terminate`` - To terminate a running task session.
 * ``DELETE /pro/session-manager/v1/sessions/task/{session-id}`` - To delete the task session.
 
@@ -36,6 +38,7 @@ Operations supported by session-manager REST API to interact with Solve sessions
 * ``GET /pro/session-manager/v1/sessions/solve`` - To get the list of solve sessions. It accepts various filters and pagination.
 * ``GET /pro/session-manager/v1/sessions/solve/{session-id}`` - To get the information of the specified solve session.
 * ``GET /pro/session-manager/v1/sessions/solve/{session-id}/logs`` - To retrieve the solve session logs. It accepts various filters and pagination.
+* ``GET /pro/session-manager/v1/sessions/solve/{session_id}/logs/download`` - To download solve session logs.
 * ``PATCH /pro/session-manager/v1/sessions/solve/{session-id}/terminate`` - To terminate a running solve session.
 * ``DELETE /pro/session-manager/v1/sessions/solve/{session-id}`` - To delete the solve session.
 	

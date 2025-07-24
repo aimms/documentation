@@ -3,18 +3,26 @@ AIMMS PRO Release Notes
 
 New Portal Updates
 ##################
+
+Version 25.3.1.0 (July 24, 2025)
+---------------------------------
+
+- We are excited to introduce two new tools to help you better understand and troubleshoot your sessions:
+	- **Session log**: You can now view detailed logs for each session directly from the session menu. Includes a new Download log option to save the log for offline analysis or sharing with support teams.
+	- **App stats**: Display various performance metrics for an app related to WebUI, Solver and Task session executions. Please visit the detailed `documentation <https://documentation.aimms.com/cloud/newportal-stats.html>`__
+	- These enhancements are available for all completed, failed, or terminated sessions and are accessible from the context menu in the session list.
   
 Version 25.3.1.0 (April 15, 2025)
 ---------------------------------
 
 - Introduced a new **Sessions** page (formerly the Jobs page), now featuring:
-  - **WebUI Sessions** (previously Active Data Sessions)
-  - **Tasks**
-  - **Solver Sessions** (previously Jobs)
+	- **WebUI Sessions** (previously Active Data Sessions)
+	- **Tasks**
+	- **Solver Sessions** (previously Jobs)
 
 - Added a new **Configuration** page, which includes:
-  - **Account Settings** (portal customization and retention settings)
-  - **Tunnels**
+	- **Account Settings** (portal customization and retention settings)
+	- **Tunnels**
 
 **Note**: The Configuration menu is accessible to admin users via the user menu.
 
