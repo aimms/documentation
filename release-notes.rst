@@ -13,6 +13,29 @@ AIMMS 25.5
 
 
 
+AIMMS 25.5.3 Release (July 29, 2025 - build 25.5.3.5).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Gurobi 12.0 has been upgraded to version 12.0.3.
+-  The PRO library has a new function GetSessionOBOAuthorizationHeader. This function returns a bearer token, which can be used in the Authorization header to authorize PRO REST API requests on behalf of the user.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Fixed a regression in the function DepreciationLinearRate.
+-  AIMMS could hang when solving multiple models asynchronously with Gurobi 10.0 or 11.0, if the Gurobi option 'Output file' was enabled.
+
+--------------
+
+
+
+
+
 AIMMS 25.5.2 Release (July 17, 2025 - build 25.5.2.6).
 ------------------------------------------------------------------------------------------
 
