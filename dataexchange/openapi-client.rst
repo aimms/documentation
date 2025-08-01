@@ -173,6 +173,7 @@ The generated API client supports both API keys and OAuth2 for authorizing your 
 - ``<schemaName>::api::RequestTracing``: a flag to indicate whether you want to the actual API call generate a libCurl trace file, which you can use of debug the particular sequence of network calls being made by libCurl. 
 - ``<schemaName>::api::APIKey``: a string parameter in which you can store the API key to be used in all API calls for this client. The API key will be transmitted through a security-scheme dependent header.
 - ``<schemaName>::api::OAuth2APIClient``: If the service used OAuth2 for authorization, you can use this configuration parameter to point to an element of the set ``dex::oauth::APIClients`` (see section :ref:`Using OAuth2 for API authorization <OAuth2>`). The client will then automatically call the :js:func:`dex::oauth::AddBearerToken` before making any API call.
+- ``<schemaName>::api::UsePROBearerToken``: a binary parameter indicating that the API can use the internal AIMMS cloud authorization, making API calls on behalf of the user currently running the AIMMS app. You can use this setting for calling the AIMMS REST APIs.
 
 Setting libCurl-specific options
 ++++++++++++++++++++++++++++++++

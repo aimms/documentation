@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.7.1.1 (29-07-2025)
+	- Added support for automatically adding a bearer token to generated AIMMS REST API to make calls on behalf of the authorized AIMMS cloud user running an AIMMS app
+	
 25.6.4.1 (13-06-2025)
 	- Arrow-based CSV reader would not trim spaces in column names when the first row contained spaces behind the separator
 	
