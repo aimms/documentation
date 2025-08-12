@@ -13,6 +13,26 @@ AIMMS 25.5
 
 
 
+AIMMS 25.5.4 Release (August 12, 2025 - build 25.5.4.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Changing the dimension of an indexed set could result in a crash.
+-  Since AIMMS 24 the webserver was always started listening on all interfaces, causing the Windows Firewall exception dialog to appear. From this release on, unless specified differently, by default the webserver will only listen on the loopback interface, preventing the Windows Firewall exception dialog to appear.
+-  Since AIMMS 24 the webserver was always started listening on all interfaces, causing the Windows Firewall exception dialog to appear. From this release on, unless specified differently, by default the webserver will only listen on the loopback interface, preventing the Windows Firewall exception dialog to appear.
+-  A unit override operator in a constraint definition is now supported by the new math program generator.
+-  A constraint with an empty set in its index domain could lead to an error in the new math program generator.
+
+--------------
+
+
+
+
+
 AIMMS 25.5.3 Release (July 29, 2025 - build 25.5.3.5).
 ------------------------------------------------------------------------------------------
 
