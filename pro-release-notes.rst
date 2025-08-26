@@ -64,7 +64,11 @@ On August 21, 2025, we released AIMMS PRO 25.5.1(*Cloud build*: 25.5.1.10)
 **Improvements**
 
 - It is possible to call task from an AIMMS application.
-- When publishing an app using REST API, verification step is skipped to speed up the publishing.   
+- When publishing an app using REST API, verification step is skipped to speed up the publishing.
+- **New Deployment Model** for Cloud: We have introduced a new deployment model that enables more flexible microservices deployment through multi-release services and bundling. It also:
+	- Improves account upgrade performance and reliability.
+	- Resolves ingress crashes previously seen during bulk upgrades.
+  
 
 PRO 25.4
 ########
