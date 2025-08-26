@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.8.1.1 (25-08-2025)
+	- When reading and writing datasets to Azure Data Lake Storage, tables with no data would not create a Parquet file, which could lead to various problems
+	
 25.7.1.1 (29-07-2025)
 	- Added support for automatically adding a bearer token to generated AIMMS REST API to make calls on behalf of the authorized AIMMS cloud user running an AIMMS app
 	
