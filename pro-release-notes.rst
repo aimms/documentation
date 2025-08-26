@@ -63,7 +63,7 @@ On August 21, 2025, we released AIMMS PRO 25.5.1(*Cloud build*: 25.5.1.10)
 
 **Improvements**
 
-- It is possible to call task from AIMMS application.
+- It is possible to call task from an AIMMS application.
 - When publishing an app using REST API, verification step is skipped to speed up the publishing.   
 
 PRO 25.4
