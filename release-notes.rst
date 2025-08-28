@@ -13,6 +13,26 @@ AIMMS 25.5
 
 
 
+AIMMS 25.5.5 Release (August 28, 2025 - build 25.5.5.7).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  An external procedure or external function for which the body call attribute is not specified resulted in a crash instead of a proper error message.
+-  Stored procedures in MySQL databases that did not have explicit result sets, resulted in a transaction failure. This has been fixed.
+-  Change the value of the option `listing_and_temporary_files` using the Option statement could lead to a crash when AIMMS tried to write to the listing file afterwards.
+-  Passing an invalid entry as first argument to GMP::Instance::Generate could lead to a severe error.
+-  Calling the procedure GMP::Instance::CalculateSubgradient could result in a crash, if before the math program was solved using a different solver.
+
+--------------
+
+
+
+
+
 AIMMS 25.5.4 Release (August 12, 2025 - build 25.5.4.3).
 ------------------------------------------------------------------------------------------
 
