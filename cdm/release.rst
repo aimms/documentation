@@ -7,6 +7,8 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+25.5.2.1 [29-08-2025]
+	- Addressed some issues in the refactored handling of sets for dealing with external data, when changing the contents of a set during e.g. a branch change would re-introduce the elements just replaced.
 
 25.5.1.1 [10-06-2025]
 	- Deleting a branch in MySQL required temporarily switching off foreign key checks
