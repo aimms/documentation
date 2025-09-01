@@ -409,7 +409,7 @@ Snapshot Functions
 
 .. js:function::  cdm::SetSnapshotUpdateInterval(db,snapshotId,updateInterval)
 
-   Set the update interval for a given snapshot from the collection of checkout snapshots stored in the current database. The function returns 1 if successful, or 0 otherwise. By setting the update interval to a value <= 0, you can force an immediate update, afterwards the update interval will be reset to the value of the parameter *defaultUpdateInterval*, which you can set using the function ``cdm::SetParam``. If the parameter is not set, the update interval will be reset to 24*60*60.
+   Set the update interval for a given snapshot from the collection of checkout snapshots stored in the current database. The function returns 1 if successful, or 0 otherwise. By setting the update interval to a value <= 0, you can force an immediate update, afterwards the update interval will be reset to the value of the parameter *defaultSnapshotUpdateInterval*, which you can set using the function ``cdm::SetParam``. If the parameter is not set, the update interval will be reset to 24*60*60.
  
    :param db: specifies the name of the application database in which to delete the given snapshot
    :param snapshotId: specifies the id of the snapshot to be deleted.
