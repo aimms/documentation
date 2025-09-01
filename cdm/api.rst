@@ -417,7 +417,7 @@ Snapshot Functions
 
 .. js:function::  cdm::TriggerSnapshotsUpdate(db)
 
-   Trigger the update of all snapshots in the given ``db` for which the update interval has passed.
+   Trigger the update of all snapshots in the given ``db`` for which the update interval has passed.
    
    :param db: specifies the name of the application database in which to trigger the update of all relevant snapshots.
 
