@@ -13,6 +13,23 @@ AIMMS 25.5
 
 
 
+AIMMS 25.5.6 Release (September 01, 2025 - build 25.5.6.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  An error in a unit expression was not always positioned at the correct location in the text.
+-  Added MySQL ODBC 9.4 driver to our cloud AIMMS image. The default is (when you have specified the driver to be 'MySQL' in the connection string) to use the MySQL ODBC 9.4 driver. You can fall back to the old driver by using the value 'MySQL8.0' for the driver, in case of compatibility issues.
+
+--------------
+
+
+
+
+
 AIMMS 25.5.5 Release (August 28, 2025 - build 25.5.5.7).
 ------------------------------------------------------------------------------------------
 
