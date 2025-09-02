@@ -13,6 +13,22 @@ AIMMS 25.5
 
 
 
+AIMMS 25.5.7 Release (September 02, 2025 - build 25.5.7.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The previous 25.5.6.2 release by accident reverted the fix in 25.5.5.7 for working with stored procedures in MySQL. In this release that fix is added again.
+
+--------------
+
+
+
+
+
 AIMMS 25.5.6 Release (September 01, 2025 - build 25.5.6.2).
 ------------------------------------------------------------------------------------------
 
