@@ -8,6 +8,26 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 25.6
+#############
+
+
+
+AIMMS 25.6.1 Release (September 03, 2025 - build 25.6.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The solver COPT has been upgraded to version 7.2.
+-  The Help is now available online (as part of the User's Guide). Requesting Help on options in the Project Settings dialog box will now open a page in the online documentation.
+
+--------------
+
+
+#############
 AIMMS 25.5
 #############
 
