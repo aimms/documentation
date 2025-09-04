@@ -53,6 +53,39 @@ To change this setting:
 	* Retention settings are applied to WebUI and Solver sessions.
 	* Deletion is only possible for terminated/finished/completed sessions.
 	
+Filtering & Sorting Sessions
+----------------------------
+
+The **Sessions** page provides filtering and sorting tools to help you quickly locate the sessions you need.
+
+**Sorting Sessions**
+
+1. Open the column menu by clicking on the filter/sort icon next to a column header.
+2. Under **Sorting**, choose one of the options: No sorting, Ascending, Descending.
+3. Click **Apply** to update the table.
+
+.. note::
+
+	Sorting can only be applied on **one column at a time**. If you apply sorting on another column, the previous sorting is automatically cleared.
+
+**Filtering Sessions**
+
+1. Open the column menu by clicking on the filter/sort icon next to a column header.
+2. Under **Filter**, enter or select a value for that column. For example, you can filter by Session ID, State, Application Name/Version, or created(date/time).
+3. Multiple filters can be applied across different columns at the same time.
+4. Use **Clear all** to remove filters for that column.
+
+**Table Settings**
+
+Each tab in the Sessions offers **Table settings** to customize how many rows are displayed.
+
+* **Page size**: Defines how many rows are shown per page.
+* The **default page size** is **17 rows**.
+* You can adjust the page size from the **Table settings menu** to show more or fewer rows, depending on your preference.
+* Please note that page size resets to the default when switching between tabs.
+
+This setting is applied per tab and helps you control how much data is visible at once.
+	
 WebUI Sessions
 ^^^^^^^^^^^^^^
 
