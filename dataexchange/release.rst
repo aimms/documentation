@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+25.8.2.1 (04-09-2025)
+	- The Arrow CSV reader currently used by DEX to read CSV files converted fields like ``001`` to integer values, even though ``value-type`` was set to ``string``
+	
 25.8.1.1 (25-08-2025)
 	- When reading and writing datasets to Azure Data Lake Storage, tables with no data would not create a Parquet file, which could lead to various problems
 	
