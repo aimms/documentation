@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+25.6.2.1 [05-09-2025]
+	- When checking out a branch, while elements were deleted from a previous checkout, CDM would call an AIMMS API method that would produce a runtime error that could not be prevented.
+	
 25.6.1.1 [01-09-2025]
 	- Add functionality to change update interval for snapshots, and trigger snapshot updates.
 	
