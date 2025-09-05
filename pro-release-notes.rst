@@ -4,8 +4,17 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 25.8.1.0 (September 4, 2025)
+------------------------------------
+
+- We are excited to introduce Filter & Sort for  Sessions. You can now easily organize your session list using built-in filtering and sorting tools:
+	- **Filter** sessions per column (e.g., Session ID, State, Application Name/Version, Created date) to quickly locate specific runs.
+	- **Sort** sessions by any column in ascending or descending order.
+   
+For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-sessions.html#filtering-sorting-sessions>`__
+
 Version 25.6.1.0 (July 24, 2025)
----------------------------------
+--------------------------------
 
 - We are excited to introduce two new tools to help you better understand and troubleshoot your sessions:
 	- **Session log**: You can now view detailed logs for each session directly from the session menu. Includes a new Download log option to save the log for offline analysis or sharing with support teams.
