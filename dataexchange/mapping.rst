@@ -325,7 +325,33 @@ The Data Exchange library can read and write the text-based formats JSON, XML an
 The Unicode standard provides several normalization procedures to normalize different text representations to various normalized forms. By itself, AIMMS will not normalize any incoming Unicode characters, as this may lead to problems when, for instance, you are trying to write back data to a database which was read in a different normalized form and then re-normalized in AIMMS. 
 Instead the Data Exchange library offers support for normalizing Unicode data from and to the NFC (representing composed characters as a single character, preferred) and the NFD representation (representing composed characters decomposed as the character itself and separate characters for the accents). In addition, it offers an option to remove all diacritics completely, as well as trim the string from leading and trailing spaces.
 
-In a mapping you can specify a normalization to apply before writing any string data to AIMMS through the ``read-normalize`` attribute, while the attribute ``write-normalize`` indicates the normalization to apply when writing out data to a data source. You can specify these attributes for any string-valued tree node in the mapping that binds to an index or maps to a string or element parameter. The value of these attributes can be ``nfc``, ``nfd`` or ``no-diacritics``, indicating whether to apply the NFC or NFD normalization or to remove all diacritics before reading the data from or writing the data to a data source. For additional trimming it also supports the values ``trim``, ``nfc-trim``, ``nfd-trim`` and ``no-diacritics-trim``. 
+In a mapping you can specify a normalization to apply before writing any string data to AIMMS through the ``read-normalize`` attribute, while the attribute ``write-normalize`` indicates the normalization to apply when writing out data to a data source. You can specify these attributes for any string-valued tree node in the mapping that binds to an index or maps to a string or element parameter. The value of these attributes can be 
+
+	- ``nfc`` 
+	- ``nfd``
+	- ``no-diacritics``
+	- ``trim``
+	- ``nfc-trim``
+	- ``nfd-trim``
+	- ``no-diacritics-trim``
+	- ``to-lower``
+	- ``nfc-to-lower`` 
+	- ``nfd-to-lower``
+	- ``no-diacritics-to-lower``
+	- ``trim-to-lower``
+	- ``nfc-trim-to-lower``
+	- ``nfd-trim-to-lower``
+	- ``no-diacritics-trim-to-lower``
+	- ``to-upper``
+	- ``nfc-to-upper`` 
+	- ``nfd-to-upper``
+	- ``no-diacritics-to-upper``
+	- ``trim-to-upper``
+	- ``nfc-trim-to-upper``
+	- ``nfd-trim-to-upper``
+	- ``no-diacritics-trim-to-upper``
+
+	The various normalizations apply Unicode NFC or NFD normalization, remove all diacritics before reading the data from or writing the data to a data source, trim spaces at the begin and end of strings, and convert to lower or upper case.
 
 In addition, the Data Exchange library offers the functions :js:func:`dex::NormalizeString` and :js:func:`dex::NormalizeSet` to normalize strings and set elements that are already present in the model.
 
