@@ -66,7 +66,7 @@
    Language Reference <https://documentation.aimms.com/language-reference/index.html>
    aimms_modeling
    webui <https://documentation.aimms.com/webui/index.html>
-   python-bridge <https://documentation.aimms.com/aimmspy/index.html>
+   python-bridge <https://documentation.aimms.com/python-bridge/index.html>
    pro/index
    cloud/index  
    dataintegration/index   
