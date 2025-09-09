@@ -4,6 +4,16 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 25.9.1.0 (September 9, 2025)
+------------------------------------
+
+**Improvements**
+	- Added support for time selection in the Begin and End filters, enabling more precise log searches.
+   - Added a direct link to SC Navigator documentation on the About page of New Portal (for SCNavigator accounts).
+	- It is now possible to add descriptions for user groups.
+   
+For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-sessions.html#filtering-sorting-sessions>`__
+
 Version 25.8.1.0 (September 4, 2025)
 ------------------------------------
 
