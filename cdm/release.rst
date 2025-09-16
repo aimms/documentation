@@ -7,6 +7,14 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+25.7.1.1 [16-09-2025]
+	- Snapshots would be created using a multi-threaded and buffered approach, which could lead to connection starvation by the MySQL server when the time to resume fetching the data of a particular identifier in order to fill the next buffer would become too big due to increased application data size, or due to multiple clients creating too much load on either the CDM or MySQL server. This could lead to server crashes when updating snapshots. Data for a single identifier will now be fetched in one go, and intermediately stored in a new blob table, before being delivered to clients in batches
+	- When committing data, the revision number in the committing client is now properly set to the commit revision
+	- Very large commits for a single identifier that is sent in multiple batches, could lead to duplicate entry errors in the database
+	- When starting a new database, initially loading data into the database could lead to runtime errors about inconsistent state transitions for defined sets
+	- When the set contents of defined sets was not already registered in CDM, the external data refactor would prevent defined set elements from being committed to CDM, potentially leading to negative CDM labels for data defined over such sets.
+	
+	
 25.6.2.1 [05-09-2025]
 	- When checking out a branch, while elements were deleted from a previous checkout, CDM would call an AIMMS API method that would produce a runtime error that could not be prevented.
 	
