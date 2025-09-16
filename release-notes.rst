@@ -8,6 +8,38 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 25.7
+#############
+
+
+
+AIMMS 25.7.1 Release (September 16, 2025 - build 25.7.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The procedure GMP::SolverSession::Delete has been added. It replaces the procedure GMP::Instance::DeleteSolverSession, which has become deprecated.
+-  The procedure GMP::SolverSession::SetOptionValue can now be used to set a small set of options, including 'Time limit', inside a callback procedure of Gurobi 12.0.
+-  The procedures GMP::SolverSession::SetOptionValue and GMP::SolverSession::GetOptionValue can now also be used for several Solvers General options, including 'Time limit'.
+-  The new math program generator has a new option move_nonvar_level_within_bounds which makes sure that a variable with a nonvar status uses a level value that is within the current lower and upper bound. With this option switched on the new math program generator behaves more like the old generator.
+-  The new math program generator now uses the option eliminate_nonvar_columns to decide whether variables are just frozen or are eliminated from the math program.
+-  The new math program generator has a new option equal_bounds_imply_nonvar which makes sure that variables for which the lower bound equals the upper bound are now treated as if the nonvar status is larger than 0. With this option switched on the new math program generator behaves more like the old generator.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The predefined parameters CurrentMatrixRowCount, CurrentMatrixColumnCount and CurrentMatrixBlockSizes are now filled properly when using the new generator.
+-  Updated the application used to make the installation free / SFX image because there was an issue with spaces in the extracting path.
+-  The partial regeneration of a math program is disabled for the new math program generator.
+-  A domain restriction on a simple set is no longer supported and leads to a compilation error. If a model has a domain restriction on a simple set and that set also has a definition then you can easily add the restriction as a $ condition in the definition.  For a simple set without a definition the restriction was allowed in earlier AIMMS versions but it did not have any effect.
+
+--------------
+
+
+#############
 AIMMS 25.6
 #############
 
