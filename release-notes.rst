@@ -13,6 +13,23 @@ AIMMS 25.7
 
 
 
+AIMMS 25.7.2 Release (September 17, 2025 - build 25.7.2.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  All AIMMS installers are now consistently digitally signed.
+We discovered that a change in our installer packaging (SFX) caused last artifacts to be published without a valid signature. We’ve corrected the process and added safeguards in our build pipeline to prevent unsigned releases.
+
+--------------
+
+
+
+
+
 AIMMS 25.7.1 Release (September 16, 2025 - build 25.7.1.0).
 ------------------------------------------------------------------------------------------
 
