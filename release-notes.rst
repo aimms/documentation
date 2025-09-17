@@ -21,8 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  All AIMMS installers are now consistently digitally signed.
-We discovered that a change in our installer packaging (SFX) caused last artifacts to be published without a valid signature. We’ve corrected the process and added safeguards in our build pipeline to prevent unsigned releases.
+-  All AIMMS installers are now consistently digitally signed. We discovered that a change in our installer packaging (SFX) caused last artifacts to be published without a valid signature. We've corrected the process and added safeguards in our build pipeline to prevent unsigned releases.
 
 --------------
 
