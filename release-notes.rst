@@ -12,11 +12,24 @@ AIMMS 25.7
 #############
 
 
+AIMMS 25.7.3 Release (September 19, 2025 - build 25.7.3.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The .rpm file for the Linux version of AIMMS was not present in previous release.
+
+--------------
+
+
 
 AIMMS 25.7.2 Release (September 17, 2025 - build 25.7.2.6).
 ------------------------------------------------------------------------------------------
 
-Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+Please skip this version and download 25.7.3.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
@@ -32,7 +45,7 @@ Resolved AIMMS Issues
 AIMMS 25.7.1 Release (September 16, 2025 - build 25.7.1.0).
 ------------------------------------------------------------------------------------------
 
-Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+Please skip this version and download 25.7.3.
 
 AIMMS Improvements
 +++++++++++++++++++++++++
