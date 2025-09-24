@@ -12,6 +12,22 @@ AIMMS 25.7
 #############
 
 
+
+AIMMS 25.7.4 Release (September 24, 2025 - build 25.7.4.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Since version 25.5, sometimes during a load case, sets that have an orderBy specified are not read from the case at all.
+
+--------------
+
+
+
+
 AIMMS 25.7.3 Release (September 19, 2025 - build 25.7.3.1).
 ------------------------------------------------------------------------------------------
 
