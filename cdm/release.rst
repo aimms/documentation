@@ -13,7 +13,7 @@ New Features and Bug Fixes
 	- Very large commits for a single identifier that is sent in multiple batches, could lead to duplicate entry errors in the database
 	- When starting a new database, initially loading data into the database could lead to runtime errors about inconsistent state transitions for defined sets
 	- When the set contents of defined sets was not already registered in CDM, the external data refactor would prevent defined set elements from being committed to CDM, potentially leading to negative CDM labels for data defined over such sets
-	- prevent unnecessary re-mapping of CDM labels and set elements in the model.
+	- Prevent unnecessary re-mapping of CDM labels and set elements in the model.
 	
 	
 25.6.2.1 [05-09-2025]
