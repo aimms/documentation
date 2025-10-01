@@ -21,8 +21,8 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  Reverted a changing the value of the 'Name' attribute in .rpm files to lower case again.
--  Removed dependency on gcc-toolset-11-runtime from linux rpm packages as it is not needed and causes problems installing on recent linux distributions.
+-  Reverted a change to the value of the 'Name' attribute in .rpm files to lower case again.
+-  Removed dependency on gcc-toolset-11-runtime from Linux rpm packages as it is not needed and causes problems installing on recent Linux distributions.
 
 --------------
 
@@ -12358,3 +12358,5 @@ Improvements
   nonanticipativity
   gmp
   orderBy
+  gcc
+  toolset
