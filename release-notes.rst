@@ -13,6 +13,22 @@ AIMMS 25.7
 
 
 
+AIMMS 25.7.6 Release (October 01, 2025 - build 25.7.6.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The AIMMS linux rpm package now depends on libgfortran instead of gfortran. This incorrect dependency was introduced in AIMMS 25.7.5.
+
+--------------
+
+
+
+
+
 AIMMS 25.7.5 Release (October 01, 2025 - build 25.7.5.3).
 ------------------------------------------------------------------------------------------
 
