@@ -83,9 +83,9 @@ Please skip this version and download 25.7.3.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  The procedure GMP::SolverSession::Delete has been added. It replaces the procedure GMP::Instance::DeleteSolverSession, which has become deprecated.
--  The procedure GMP::SolverSession::SetOptionValue can now be used to set a small set of options, including 'Time limit', inside a callback procedure of Gurobi 12.0.
--  The procedures GMP::SolverSession::SetOptionValue and GMP::SolverSession::GetOptionValue can now also be used for several Solvers General options, including 'Time limit'.
+-  The procedure :any:`GMP::SolverSession::Delete` has been added. It replaces the procedure GMP::Instance::DeleteSolverSession, which has become deprecated.
+-  The procedures :any:`GMP::SolverSession::SetOptionValue` and :any:`GMP::SolverSession::GetOptionValue` can now also be used for several Solvers General options, including 'Time limit'.
+-  The procedure :any:`GMP::SolverSession::SetOptionValue` can now be used to set a small set of options, including 'Time limit', inside a callback procedure of Gurobi 12.0.
 -  The new math program generator has a new option move_nonvar_level_within_bounds which makes sure that a variable with a nonvar status uses a level value that is within the current lower and upper bound. With this option switched on the new math program generator behaves more like the old generator.
 -  The new math program generator now uses the option eliminate_nonvar_columns to decide whether variables are just frozen or are eliminated from the math program.
 -  The new math program generator has a new option equal_bounds_imply_nonvar which makes sure that variables for which the lower bound equals the upper bound are now treated as if the nonvar status is larger than 0. With this option switched on the new math program generator behaves more like the old generator.
