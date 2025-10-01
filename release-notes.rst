@@ -13,6 +13,23 @@ AIMMS 25.7
 
 
 
+AIMMS 25.7.5 Release (October 01, 2025 - build 25.7.5.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Reverted a changing the value of the 'Name' attribute in .rpm files to lower case again.
+-  Removed dependency on gcc-toolset-11-runtime from linux rpm packages as it is not needed and causes problems installing on recent linux distributions.
+
+--------------
+
+
+
+
+
 AIMMS 25.7.4 Release (September 24, 2025 - build 25.7.4.1).
 ------------------------------------------------------------------------------------------
 
