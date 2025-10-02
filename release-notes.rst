@@ -39,6 +39,8 @@ Resolved AIMMS Issues
 
 -  Reverted a change to the value of the 'Name' attribute in .rpm files to lower case again.
 -  Removed dependency on gcc-toolset-11-runtime from Linux rpm packages as it is not needed and causes problems installing on recent Linux distributions.
+-  If a declaration of a set is changed into a set relation, then the OrderBy attribute is no longer applicable. However, if it was specified before, this could result in a crash.
+-  An indexed set with an orderBy: user, could result in a crash during a case save.
 
 --------------
 
@@ -12376,3 +12378,5 @@ Improvements
   orderBy
   gcc
   toolset
+  libgfortran
+  gfortran
