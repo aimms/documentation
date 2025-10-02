@@ -21,7 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  The AIMMS linux rpm package now depends on libgfortran instead of gfortran. This incorrect dependency was introduced in AIMMS 25.7.5.
+-  The AIMMS Linux rpm package now depends on libgfortran instead of gfortran. This incorrect dependency was introduced in AIMMS 25.7.5.
 
 --------------
 
@@ -275,7 +275,7 @@ Resolved AIMMS Issues
 
 -  The iterative operators Sort and NBest are now supported by the new compiler.
 -  If an indexed set (indexedA) is a subset of another indexed set (indexedB), then AIMMS now shows an error when you assign individual sets to indexedA which are not subsets of the corresponding individual set in indexedB.
--  Setting an environment variable using the EnvironmentSetString function did not result in that variable being able to be retrieved from another thread using EnvironmentGetString on linux installations (e.g. the AIMMS cloud).
+-  Setting an environment variable using the EnvironmentSetString function did not result in that variable being able to be retrieved from another thread using EnvironmentGetString on Linux installations (e.g. the AIMMS cloud).
 -  A READ statement using a database procedure did not first update the definition of arguments of the procedure.
 -  Trying to open a .aimms file that includes repository libraries (like WebUI) did not work when there is no internet connection. It should only fail when the repository library is not yet downloaded and thus not locally available.
 -  The solver column row mapping was not always printed correctly if the AIMMS Presolver was enabled.
@@ -549,7 +549,7 @@ Resolved AIMMS Issues
 
 - The procedure GMP::Solution::RetrieveFromModel did not retrieve the basis correctly if the AIMMS Presolver was used.
 - The obsolete Gurobi option 'Parameter display' has been removed.
-- The linux AimmsCmd executable did not handle closing of stdin correctly resulting in an error. Additionally when pressing Ctrl-C or Ctrl-Z resulted in callstack dumps being displayed. Both issues have been addressed by this fix.
+- The Linux AimmsCmd executable did not handle closing of stdin correctly resulting in an error. Additionally when pressing Ctrl-C or Ctrl-Z resulted in callstack dumps being displayed. Both issues have been addressed by this fix.
 - The new math program generator did not filter out coefficients that were close to zero, as the old generator did.
 - Internal dependencies have been updated to resolve potential security exploits.
 
@@ -623,7 +623,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  Reduced AIMMS linux artifacts size.
+-  Reduced AIMMS Linux artifacts size.
 -  In the WinUI Gantt Chart, if the parameter to store Store Selection was declared as binary, an unexpected warning could occur.
 
 --------------
