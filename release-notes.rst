@@ -13,6 +13,24 @@ AIMMS 25.7
 
 
 
+AIMMS 25.7.7 Release (October 03, 2025 - build 25.7.7.4).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Fixed an issue in which the dropdown of an element parameter (that had been defined over an indexed set) showed wrong values after elements had been removed from some of the ranges (i.e. the indexed sets) of this element parameter.
+-  In some rare situations, internal garbage collection that may run prior to running a solve, could lead to faulty data being displayed in WebUI.
+-  An execution error in a defining procedure during a case load sequence could result in a 'severe internal error' message and the case load was interrupted.
+
+--------------
+
+
+
+
+
 AIMMS 25.7.6 Release (October 01, 2025 - build 25.7.6.2).
 ------------------------------------------------------------------------------------------
 
