@@ -11,7 +11,7 @@ New Features and Bug Fixes
 	- Elements added to a root set for which a client already knew an existing CDM label number to label name mapping, would not add this mapping to the change set during a commit.
       When pulling such a change set, other clients that did not already have these label-to-name mappings cached in their session, would experience data loss because use of such a label number in the the change set would prevent such clients from re-creating to the corresponding root set element because of the missing mapping.
       After updating the corresponding snapshot, all clients would see the complete data again, as snapshots contain the complete mapping for all active labels.
-	  Special thanks to Ben Hermans of Ortec for uncovering this use case.
+      Special thanks to Ben Hermans of Ortec for uncovering this use case.
 
 25.7.1.1 [16-09-2025]
 	- Snapshots would be created using a multi-threaded and buffered approach, which could lead to connection starvation by the MySQL server when the time to resume fetching the data of a particular identifier in order to fill the next buffer would become too big due to increased application data size, or due to multiple clients creating too much load on either the CDM or MySQL server. This could lead to server crashes when updating snapshots. Data for a single identifier will now be fetched in one go, and intermediately stored in a new blob table, before being delivered to clients in batches
