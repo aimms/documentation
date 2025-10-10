@@ -4,6 +4,14 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 25.10.1.4 (October 10, 2025)
+------------------------------------
+
+**Improvements**
+
+	- **Export Sessions Table**: Added an Export table option on the Sessions page, allowing users to download session data as a CSV file for offline analysis.
+	- **Resource Profiles**: Introduced Resource Profiles to manage CPU and memory allocation for applications. Admins/App publishers can now select predefined resource configurations when publishing,updating or editing apps. The Resource Profiles feature can be enabled or disabled through database settings in the PRO Cloud Database. To enable this feature for your AIMMS Cloud Platform, please contact AIMMS User Support. 
+   
 Version 25.9.1.0 (September 9, 2025)
 ------------------------------------
 
