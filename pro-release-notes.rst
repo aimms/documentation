@@ -79,6 +79,30 @@ Task Scheduler (Version 25.2.1.0 - May 15, 2025)
 - **New Endpoint**
    - ``GET /tasks/{id}/logs``: Introduced a new endpoint to retrieve task logs.
 
+PRO 25.7
+########
+
+AIMMS PRO 25.7.1 Release
+-------------------------
+
+On October 9, 2025, we released AIMMS PRO 25.7.1(*Cloud build*: 25.7.1.1)
+
+**Improvements**
+
+- Added support for the creation of implicit tunnels for external services when running on a cloud.
+
+PRO 25.6
+########
+
+AIMMS PRO 25.6.1 Release
+-------------------------
+
+On September 17, 2025, we released AIMMS PRO 25.6.1(*Cloud build*: 25.6.1.0)
+
+**Resolved Issues**
+
+- Fixed an issue with the app launch failures caused by the third-party container image (bitnami/kubectl) changed its registry prefix.
+
 PRO 25.5
 ########
 
