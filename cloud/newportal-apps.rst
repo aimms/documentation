@@ -18,6 +18,7 @@ Key Features
 * Stats: View usage statistics and performance data for any available application.
 * Publishing Details: View AIMMS version and architecture details of the application.
 
+
 *For Admin or App Publishers*
 
 By clicking the three-dot menu on any app tile:
@@ -30,7 +31,7 @@ Available options include:
 * Stats: View usage statistics and performance data for the selected application.
 * Publishing details: View AIMMS Version and architecture info.
 * Update: Upload a new version of the existing application.
-* Edit:	Change the name, icon, or description of the app.
+* Edit:	Change the name, icon, description or resource profile of the app.
 * App access: Manage which groups have access to the application.
 * Set as latest version: Set the 'latest' tag to the application so users always access the most up-to-date version. 
 * Select for deletion: Select an App to delete multiple Apps.
@@ -71,7 +72,9 @@ Any PRO-enabled AIMMS project can be published onto an AIMMS PRO Portal. PRO-ena
 * App description: a descriptive text to be displayed in the portal.
 * App category: using this you can categorized your AIMMS PRO applications. This field is available only if you have added categories on your Portal.
 * App icon: icon of an app to be displayed on Apps, when not selected it will use the default app icon.
-* AIMMS version: Available AIMMS version used to deploy the AIMMS application. 
+* AIMMS version: Available AIMMS version used to deploy the AIMMS application.
+* Resource profiles:  select the size of resources (e.g. memory / vCPU) for the application version. The options include a set of predefined profiles or the account-level default. If no resource profile is specified, the account-level default will be used.
+	
 
 .. image:: images/newportal-app5.png
     :align: center
@@ -130,6 +133,23 @@ By default it will open default start page of an App. It is also possible to ope
 
 	This URL is case sensitive. i.e. MainProject(folder name), ``pagename`` specified in the link should match in case sensitive manner with the folder name, ``pagename`` inside your App for AIMMS PRO to recognize it correctly.
 
- Once you have bookmarked this link or created a desktop shortcut then you can directly open an app. This means AD/SAML users can start an AIMMS application in a single click (as login would be automatic for them) and other users will be first redirected to login page and after successful login it will directly load that particular app. 
+ Once you have bookmarked this link or created a desktop shortcut then you can directly open an app. This means AD/SAML users can start an AIMMS application in a single click (as login would be automatic for them) and other users will be first redirected to login page and after successful login it will directly load that particular app.
+ 
+Resource Profiles
+-----------------
 
+Resource Profiles define the compute resources allocated to your application (such as CPU and memory) when it runs. They ensure that each app has the right capacity to handle its workload.
+
+When publishing or updating an app, Admins or App Publishers can select a resource profile (for example, a combination of memory size and vCPU count) or use the account-level default. This selection determines the compute resources assigned to that app version.
+
+* The Resource Profiles feature can be enabled or disabled through database settings in the PRO Cloud Database. To enable this feature for your AIMMS Cloud Platform, please contact AIMMS User Support. 
+* Resource profiles are predefined configurations specifying all supported resource limits, such as CPU and memory limits.
+* Each profile is assigned a unique name and is stored globally in the PRO Database.
+* Profiles appear as a dropdown selection when publishing or updating or editing an application.
+
+In addition, the following special profiles exist:
+
+* "<account>": Uses the account-level resource limits configured for your AIMMS Cloud account. This is the default profile.
+* "<unknown>": Indicates that the app has custom resource limits not tied to any of the predefined profile. When editing an app with the "<unknown>" profile, the service will retain the existing resource limits without modifying them.
+* Apps that already had custom resource settings will appear with the <unknown> profile. These apps retain their existing limits unless explicitly changed.
 

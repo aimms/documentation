@@ -85,6 +85,10 @@ Each tab in the Sessions offers **Table settings** to customize how many rows ar
 * Please note that page size resets to the default when switching between tabs.
 
 This setting is applied per tab and helps you control how much data is visible at once.
+
+**Exporting Session Data**
+
+You can now export the session data displayed on the Sessions page for offline analysis or reporting. The **Export Table** option is available under the three-dot menu(⋮) on each tab of the Sessions page. The session data will be downloaded as a CSV file containing all columns.
 	
 WebUI Sessions
 ^^^^^^^^^^^^^^
