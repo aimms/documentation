@@ -27,6 +27,12 @@ The Linux artifacts are also available as signed RPMs signed with `this key <htt
 * `Download SDK 1.4.2.90 (signed RPM for Linux x64) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-1.4.2-90.x86_64.rpm>`_
 * `Download SDK 1.4.2.90 Server (signed RPM for Linux x64, gcc 6.1) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-gcc61-1.4.2-90.x86_64.rpm>`_
 
+For Linux, signed RPM files are available for version 2.0:
+
+* `Download SDK 2.0.0 (signed RPM for Linux x64) <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-2.0.0-1.x86_64.rpm>`_
+* `Download SDK 2.0.0 Server (signed RPM for Linux x64, gcc 6.1) <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-gcc11-2.0.0-1.x86_64.rpm>`_
+
+
 Older versions:
 
 * `Download SDK 1.4.2.26 (Windows x86/x64) <http://download.aimms.com/aimms/download/data/SDK/AimmsSDK-1.4.2.26.msi>`_
@@ -42,6 +48,13 @@ Older versions:
 
 Release history
 ---------------
+
+Version 2.0.0
+++++++++++++++++
+Works with AIMMS 25.
+
+    .. note:: For this version, only Linux RPM files are distributed.
+
 
 Version 1.4.2.90
 ++++++++++++++++
