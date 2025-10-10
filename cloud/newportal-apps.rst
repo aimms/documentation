@@ -142,7 +142,10 @@ Resource Profiles define the compute resources allocated to your application (su
 
 When publishing or updating an app, Admins or App Publishers can select a resource profile (for example, a combination of memory size and vCPU count) or use the account-level default. This selection determines the compute resources assigned to that app version.
 
-* The Resource Profiles feature can be enabled or disabled through database settings in the PRO Cloud Database. To enable this feature for your AIMMS Cloud Platform, please contact AIMMS User Support. 
+.. note::
+
+	The Resource Profiles feature can be enabled or disabled through database settings in the PRO Cloud Database. To enable this feature for your AIMMS Cloud Platform, please contact AIMMS User Support. 
+	
 * Resource profiles are predefined configurations specifying all supported resource limits, such as CPU and memory limits.
 * Each profile is assigned a unique name and is stored globally in the PRO Database.
 * Profiles appear as a dropdown selection when publishing or updating or editing an application.
