@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+25.7.3.1 [13-20-2025]
+	- Deleting elements from a set would not persists in CDM
+
 25.7.2.1 [06-10-2025]
 	- Elements added to a root set for which a client already knew an existing CDM label number to label name mapping, would not add this mapping to the change set during a commit. When pulling such a change set, other clients that did not already have these label-to-name mappings cached in their session, would experience data loss because use of such a label number in the the change set would prevent such clients from re-creating to the corresponding root set element because of the missing mapping. After updating the corresponding snapshot, all clients would see the complete data again, as snapshots contain the complete mapping for all active labels. Special thanks to Ben Hermans of Ortec for uncovering this use case.
 
