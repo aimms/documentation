@@ -201,13 +201,15 @@ If you run into this situation, you can simply replace the call to the :any:`Clo
 Deleting elements and calling the CleanDependents operator
 ----------------------------------------------------------
 
-When deleting elements from root sets in your model, this will cause all data defined over that set element to become inactive, or even to be deleted when the ``CleanDependents`` operator is called. Because the CDM library keeps the state of root sets used in a CDM category within data structures maintained within the DLL that accompanies the CDM library, CDM is still able to pick the element deletion, and also remove the element from the set in the data repository. However, this will by no means give you the certainty that the inactive data defined over that element will also be reset to their default value in the CDM database. The effect of this could be, that you will encounter data to possibly re-appear unexpectedly into your model, when checking out the data after the deleted element has been re-introduced in the data of the model.
+When deleting elements from root sets in your model, this will cause all data defined over that set element to become inactive, or even to be deleted when the ``CleanDependents`` operator is called. However, this will by no means give you the certainty that the inactive data defined over that element will also be reset to their default value in the CDM database, The effect of this could be, that you will encounter data to possibly re-appear unexpectedly into your model, when checking out the data after the deleted element has been re-introduced in the data of the model.
 
 If you want to be certain that all inactive data is removed from the branch on which you want to delete the element, you can follow the approach described below:
 
-* Call the function :any:`cdm::EmptyElementsInCategory`. This will remove all data for the elements of a given set from all multi-dimensional identifiers in the given CDM category, *but will not yet delete the elements from the root set*. If you now commit the category, the data in the CDM database will be reset to their default value for the given branch. You may have to repeat this for other categories in which the elements has been used as well. 
+* Call the function :any:`cdm::EmptyElementsInCategory`. This will remove all data for the elements of a given set from all multi-dimensional identifiers in the given CDM category, *but will not yet delete the elements from the root set*. If you now commit the category, the data in the CDM database will be reset to their default value for the given branch. You may have to repeat this for other categories in which the elements has been used as well. You can skip this step, if resetting the the data to default in the CDM database is not important to you.
 
-* You can subsequently delete the elements from the root set, and remove the element in the CDM data repository as well through a final commit.
+* Subsequently delete the elements from the root set, and remove the element in the CDM data repository as well through a final commit.
+
+* You can now call ``CleanDependents`` to remove all data remnants related to the removed elements from your model data. Calling ``CleanDependents`` prematurely will result in data and/or set elements not being removed from the CDM database.
 
 .. seealso::
   
