@@ -13,6 +13,25 @@ AIMMS 25.7
 
 
 
+AIMMS 25.7.8 Release (October 28, 2025 - build 25.7.8.14).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In some rare situation, the WebUI did not show the correct data of an identifier. This was caused by an earlier procedure call in which the identifier was assigned new values via multiple statements but the end result was that the data was not different from the original data.
+-  Fixed running the post install script in the AIMMS self extracting archive installer for linux.
+-  The AIMMS Presolver did not always handle indicator constraints correctly, which could result in a crash in the solver.
+-  Having a File identifier in the selection of identifiers in a Write statement was causing a crash.
+
+--------------
+
+
+
+
+
 AIMMS 25.7.7 Release (October 03, 2025 - build 25.7.7.4).
 ------------------------------------------------------------------------------------------
 
