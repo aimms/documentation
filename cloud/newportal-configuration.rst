@@ -42,7 +42,7 @@ Administrators can manage MFA enforcement through the Account Settings page unde
 
 When an administrator enforces MFA for a cloud account:
 
-* All users in that account are required to set up MFA upon their next login.
+* All users (who have not yet configured MFA) in that account are required to set up MFA upon their next login.
 * The Security section under each user's User Settings will display a message indicating that MFA is required by the administrator.
 * Users cannot disable MFA while enforcement is active. The Disable MFA option will be unavailable.
 * Users can reset their own MFA, if they lose access to their authenticator device.
