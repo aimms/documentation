@@ -8,6 +8,25 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 25.8
+#############
+
+
+
+AIMMS 25.8.1 Release (November 06, 2025 - build 25.8.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The AIMMS memory manager can now use the Microsoft mimalloc (see https://github.com/microsoft/mimalloc) general purpose allocator which in several circumstances results in less memory fragmentation and usage over time. This is an opt-in option that can be specified in the option editor in AIMMS by searching for 'mimalloc'.
+
+--------------
+
+
+#############
 AIMMS 25.7
 #############
 
