@@ -173,6 +173,8 @@ unmark
 granularities
 microservices
 authenticator
+mimalloc
+allocator
 #########
 
 
