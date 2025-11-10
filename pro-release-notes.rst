@@ -79,6 +79,20 @@ Task Scheduler (Version 25.2.1.0 - May 15, 2025)
 - **New Endpoint**
    - ``GET /tasks/{id}/logs``: Introduced a new endpoint to retrieve task logs.
 
+
+PRO 25.13
+#########
+
+AIMMS PRO 25.13.1 Release
+-------------------------
+
+On October 30, 2025, we released AIMMS PRO 25.13.1(*Cloud build*: 25.13.1.1)
+
+**Improvements**
+
+- The Job Runner now runs the reconciliation process in a separate thread instead of the main one. This change helps improve throughput and new session creation is not delayed by reconciliation process. (Please note that this is a temporary optimization while we wait for the new Session Manager to handle this more efficiently.)
+
+
 PRO 25.7
 ########
 

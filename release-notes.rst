@@ -8,8 +8,46 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 25.8
+#############
+
+
+
+AIMMS 25.8.1 Release (November 06, 2025 - build 25.8.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The AIMMS memory manager can now use the Microsoft mimalloc (see https://github.com/microsoft/mimalloc) general purpose allocator which in several circumstances results in less memory fragmentation and usage over time. This is an opt-in option that can be specified in the option editor in AIMMS by searching for 'mimalloc'.
+
+--------------
+
+
+#############
 AIMMS 25.7
 #############
+
+
+
+AIMMS 25.7.8 Release (October 28, 2025 - build 25.7.8.14).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  In some rare situation, the WebUI did not show the correct data of an identifier. This was caused by an earlier procedure call in which the identifier was assigned new values via multiple statements but the end result was that the data was not different from the original data.
+-  Fixed running the post install script in the AIMMS self extracting archive installer for linux.
+-  The AIMMS Presolver did not always handle indicator constraints correctly, which could result in a crash in the solver.
+-  Having a File identifier in the selection of identifiers in a Write statement was causing a crash.
+
+--------------
+
+
 
 
 

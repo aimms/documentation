@@ -22,9 +22,9 @@ Security
 
 Manage your account’s security settings:
 
-* **MFA (Multi-Factor Authentication)** – Indicates whether MFA is enabled.
+* **MFA (Multi-Factor Authentication)** – Indicates whether MFA is enforced by Admin and enabled/disabled currently.
 * **Change Password** – Click to update your current password.
-* **Enable/Disable MFA** – Click to set up multi-factor authentication for an added layer of security.
+* **Enable/Disable/Reset MFA** – Click to enable or disable MFA when it is configured as optional at account level. If MFA is enforced by Admin, the disable option is unavailable instead Reset MFA option is available.
 
 .. note::
 

@@ -6,7 +6,7 @@ Configuration lets administrators manage Account level settings and configure tu
 Account Settings
 ----------------
 
-The Account Settings page allows administrators to manage portal appearance and retention settings for sessions.
+The Account Settings page allows administrators to manage portal appearance, retention settings for sessions and MFA enforcement.
 
 .. image:: images/newportal-configuration.png
     :align: center
@@ -27,6 +27,25 @@ Retention Settings
 ^^^^^^^^^^^^^^^^^^
 
 This section allows you to set retention time (in days) after which a sessions (WebUI and Solve sessions) will be removed from the list. Default retention time is 30 days.
+
+Multi-Factor Authentication (MFA)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Multi-Factor Authentication (MFA) enhances account security by requiring a second verification factor during sign-in. MFA can be configured either by individual users or enforced at the account level by an administrator for all users within the same AIMMS Cloud account.
+
+**Admin Configuration**
+
+Administrators can manage MFA enforcement through the Account Settings page under the Configuration. Admin can choose one of the following options:
+
+* Optional for everyone – Users can decide individually whether to enable MFA.
+* Required for everyone - MFA is enforced for all users in the cloud account.
+
+When an administrator enforces MFA for a cloud account:
+
+* All users (who have not yet configured MFA) in that account are required to set up MFA upon their next login.
+* The Security section under each user's User Settings will display a message indicating that MFA is required by the administrator.
+* Users cannot disable MFA while enforcement is active. The Disable MFA option will be unavailable.
+* Users can reset their own MFA, if they lose access to their authenticator device.
 
 Tunnels
 -------

@@ -7,6 +7,14 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+25.7.5.1 [10-11-2025]
+	- Setting a value to 0.0 for a managed external data identifier, would lead to the value being reset to its (external) base value via a knock-on effect
+	- Resetting a managed external data element parameter to is base value would lead to a crash in the CDM service.
+
+25.7.4.2 [19-10-2025]
+	- Server-side category objects shared by multiple clients would dynamically attach and detach shared database connections from a pool to objects executing queries on identifier tables. When two clients performed a CDM action simultaneously, this could lead to the connections being detached prematurely, leading to server-side crashes.
+	- Hashes in authorization tokens would be computed differently on Linux and Windows, leading to failed CDM connections when connecting from a Windows client to a server running on Linux.
+	
 25.7.3.1 [13-20-2025]
 	- Deleting elements from a set would not persists in CDM
 

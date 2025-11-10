@@ -28,7 +28,7 @@ We highly recommend utilizing the ADLS.
 Further reading
 ----------------------------------------------------
 
-#.	Read all about `our Data Exchange Library <https://documentation.aimms.com/cloud/db-config.html>`_ here. It includes a section about the `the Azure Data Lake Storage <https://documentation.aimms.com/dataexchange/dls.html>`_.
+#.	Read all about `our Data Exchange Library <https://documentation.aimms.com/dataexchange/index.html>`_ here. It includes a section about the `the Azure Data Lake Storage <https://documentation.aimms.com/dataexchange/dls.html>`_.
 #.	On our `AIMMS Cloud Database + VPN page <https://documentation.aimms.com/cloud/db-config.html>`_ you will find all the details on this integration method. 
 #.	`Our how-to platform <https://how-to.aimms.com/C_Developer/Sub_Connectivity/index.html>`_ provides a wide range of articles with examples on data integration.
 
