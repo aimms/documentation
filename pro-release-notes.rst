@@ -4,6 +4,13 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 25.11.1.1 (November 11, 2025)
+------------------------------------
+
+**Improvements**
+
+	- **Account-Level MFA Enforcement:**: Admin users can now enforce MFA for all users within a cloud account from the Configuration → Account Settings page. When enabled, all users are required to configure MFA upon their next login. For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-configuration.html#multi-factor-authentication-mfa>`__
+
 Version 25.10.1.4 (October 10, 2025)
 ------------------------------------
 
