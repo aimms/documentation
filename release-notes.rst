@@ -21,7 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  Update the cloud image to use a recent version of cURL to download the bootstrapper images.
+-  Updated the AIMMS cloud image to use a recent version of curl (see https://curl.se/) to download the PRO bootstrapper images.
 
 --------------
 

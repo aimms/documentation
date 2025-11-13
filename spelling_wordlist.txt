@@ -175,6 +175,8 @@ microservices
 authenticator
 mimalloc
 allocator
+curl
+bootstrapper
 #########
 
 
