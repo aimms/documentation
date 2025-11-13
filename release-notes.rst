@@ -13,6 +13,22 @@ AIMMS 25.8
 
 
 
+AIMMS 25.8.2 Release (November 13, 2025 - build 25.8.2.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Update the cloud image to use a recent version of cURL to download the bootstrapper images.
+
+--------------
+
+
+
+
+
 AIMMS 25.8.1 Release (November 06, 2025 - build 25.8.1.0).
 ------------------------------------------------------------------------------------------
 
