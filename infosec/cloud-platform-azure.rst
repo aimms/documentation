@@ -84,7 +84,7 @@ Logging
 * Azure *Log Analytics* and Azure *Table Storage* are used for logging configuration changes to record all changes to infrastructure configuration.
 * User logons, logon failures and other events potentially indicating security incidents are logged by AIMMS PRO.
 * No users have permissions for changing or removing logs.
-* Log retention times: indefinite for audit and security logs, 6 months for our cloud operations tool, 1 month for other application logs.
+* Log retention times: 1 year for audit and security logs, 6 months for our cloud operations tool, 1 month for other application logs.
 
 Third-party security assessments
 -------------------------------------
