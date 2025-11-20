@@ -13,6 +13,22 @@ AIMMS 25.8
 
 
 
+AIMMS 25.8.3 Release (November 20, 2025 - build 25.8.3.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Running a procedure that changes an ordered set could sometimes result in a crash when at the same time the content of that set was accessed from within a WebUI widget.
+
+--------------
+
+
+
+
+
 AIMMS 25.8.2 Release (November 13, 2025 - build 25.8.2.1).
 ------------------------------------------------------------------------------------------
 
