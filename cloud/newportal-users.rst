@@ -17,31 +17,53 @@ In the Users area of the portal, you can perform all user management tasks relat
 Environments
 ------------
 
-An *environment* within AIMMS PRO denotes an entity of users which is clearly separated from the users in all other environments. For instance, through the concept of environments you may provide AIMMS applications to multiple companies or departments within a company, where you can (but need not) delegate the user administration of a particular environment to a user within that environment. Each environment can make its own distinguishable set of AIMMS applications available to its users. Each environment can be linked to a SAML identity provider (e.g. ADFS), to allow a single sign-on experience for the users of that environment. AIMMS PRO supports up to 127 environments.
+An environment within AIMMS PRO represents a distinct collection of users separated from users in other environments. Environments allow you to provide AIMMS applications to multiple companies or departments, and optionally delegate user administration to specific users within that environment.
+
+* Each environment can make its own distinguishable set of AIMMS applications available to its users.
+* Environments can be linked to a SAML identity provider (e.g., ADFS) for Single Sign-On (SSO).
+* AIMMS PRO supports up to 127 environments.
 
 Groups
 ------
 
-Within each environment, you can define one or more user groups, to which you can assign one or more users from within the same or other environment. Groups allow you to introduce *role-based* authorization within AIMMS PRO, because the authorizations of all AIMMS PRO objects are defined in terms of users groups.
+Within each environment, you can define one or more user groups, to which you can assign one or more users from within the same or other environment.
+
+* Users must belong to at least one group.
+* Only Admin and App Publisher groups are system-defined under ROOT environment.
+* Groups can be used to organize users and assign app access.
 
 Users
 -----
 
-Users are individuals who access and interact with the AIMMS PRO Framework. Each user can be assigned a specific role through Global Roles, such as Admin, App Publisher, or User. Every user must belong to at least one user group. User accounts can be password-protected (for standalone environments), or authenticated via a Linked Environment to enable a single sign-on (SSO) experience.
+Users are individuals who access and interact with AIMMS PRO.
+
+* Each user must belong to at least one group.
+* A user’s Roles are automatically derived from their group membership (Admin or App Publisher).
+* The Roles column is read-only. Users cannot be assigned roles directly anymore.
+
+Roles (Account-Level)
+---------------------
+
+Roles define the level of access and privileges a user has within the AIMMS PRO portal. All roles are account-level; there are no global roles anymore.
+
+A user’s roles are **automatically derived from their group membership**. For example:
+
+* If a user is a member of the *Admin* group, they are assigned the Admin role.
+* If a user is a member of the *App Publisher* group, they are assigned the App Publisher role.
+
+Available Roles
+
+* **Admin**: Full access across AIMMS PRO, including user management and configuration.
+* **App Publisher**: Can publish and manage their own applications. Access to apps is determined by group membership.
 
 The ROOT Environment
 --------------------
 
-By default, AIMMS PRO includes a single pre-installed environment: the ROOT environment. The Global Admin account is part of the ROOT environment, along with two system groups: **Admin** and **App Publisher**, one non-system group: **users**.
+By default, AIMMS PRO includes a pre-installed ROOT environment with system-defined groups:
 
-* **Admin**: Any user with the *admin* global role is automatically a member of this group and has global administrative privileges equivalent to the Global Admin account.
-* **App Publisher**: Any user with the *app publisher* global role is a member of this group and is authorized to publish AIMMS applications. They also have full access to the applications published by them.
-
-.. note::
-
-	These system groups and global admin user are integral to the platform and cannot be deleted.
-
-* **users**: A non-system group named users is also created by default. This group is optional and can be deleted if it is not needed.
+* **Admin**: Users with Admin group membership have full administrative privilege
+* **App Publisher**: Users with App Publisher group membership can publish and manage their applications.
+* **Users**: Optional non-system group, can be deleted if not needed.
 
 .. image:: images/newportal-users2.png
     :align: center
@@ -49,12 +71,14 @@ By default, AIMMS PRO includes a single pre-installed environment: the ROOT envi
 Creating a New Environment
 --------------------------
 
-Within the portal, any user with an Admin role can create a new environment. By default, each environment includes the <everyone> group. Users with the Admin role have full administrative privileges. They can:
+Admin users can create new environments. Each environment includes the <everyone> group: 
+
+**Group <everyone>**: In the new Portal, each environment comes with a group called <everyone>. This group controls app access at the environment level, meaning any app access assigned to it will automatically apply to all groups within the selected environment that will allow you to view and assign app permissions for every group within the chosen environment. If you have arranged access to an entire environment, this will be automatically translated into permission for the <everyone> group in that environment. If you have assigned permissions to individual users, these will continue to work for existing applications in read-only mode, but for newly published applications you will have to create a separate group to collect any individual users you want to give access to an app and who do not already have access via another authorized group.
+
+Admins can:
 
 * Add, edit, or delete users and groups
 * Assign app access
-
-**Group <everyone>**: In the new Portal, each environment comes with a group called <everyone>. This group controls app access at the environment level, meaning any app access assigned to it will automatically apply to all groups within the selected environment that will allow you to view and assign app permissions for every group within the chosen environment. If you have arranged access to an entire environment, this will be automatically translated into permission for the <everyone> group in that environment. If you have assigned permissions to individual users, these will continue to work for existing applications in read-only mode, but for newly published applications you will have to create a separate group to collect any individual users you want to give access to an app and who do not already have access via another authorized group.
 
 .. image:: images/newportal-users3.png
     :align: center
@@ -76,39 +100,27 @@ For detailed instructions on configuring a SAML environment, please refer to the
 Creating a new Group
 --------------------
 
-Any admin user can create or delete a group. Once a group is created, the admin can:
+Admins can create or delete groups within an environment. After creating a group, they can:
 
-* Add apps under **App Access**
+* Assign apps under **App Access**
 * Add existing users to the group
 * Create and add new users to the group
 
 Creating a New User
 -------------------
 
-Any admin user can create a new user via Groups > Add User or through the Users tab within a selected environment. The Users tab provides an overview of all users in the selected environment, including the groups assigned to each user and their Global Role.
+Any admin user can create a new user via Groups > Add User or through the Users tab within a selected environment. The Users tab provides an overview of all users in the selected environment, including the groups assigned to each user and their Role.
 
-As an admin, you can also:
-
-* Change a user's role
-* Edit user details
-* View the list of apps available to the selected user
-* Delete a user
+* User's roles are derived from group membership (Admin or App Publisher) and cannot be set manually.
+* Admins can edit user details, view assigned apps, or delete the user.
 
 .. image:: images/newportal-users4.png
     :align: center
 
-Global Roles
-------------
-
-AIMMS PRO defines three Global Roles, each with different levels of access and responsibility within the portal:
-
-* **Admin**: Has full access and privileges across the AIMMS PRO Portal, including user management and configuration.
-* **App Publisher**: Can publish and manage their own applications. Has full access to the apps they own but limited access (i.e. can view and launch) for the apps made available to them based on their group level app access.
-* **User**: An end user who can view and launch applications made available to them, based on their group level app access.
 
 .. note::
 
-	In new portal, *Admin* is a global role so there is no more admin user per environment.
+	In new portal, there is no more admin user per environment.
 
 
 
