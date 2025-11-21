@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+25.7.6.1 [21-11-2025]
+	- Calls to `cdm::ResetToBase` for string parameters were intermittently not passed correctly to the CDM database
+	
 25.7.5.1 [10-11-2025]
 	- Setting a value to 0.0 for a managed external data identifier, would lead to the value being reset to its (external) base value via a knock-on effect
 	- Resetting a managed external data element parameter to is base value would lead to a crash in the CDM service.
