@@ -38,15 +38,13 @@ Users
 Users are individuals who access and interact with AIMMS PRO.
 
 * Each user must belong to at least one group.
-* A user’s Roles are automatically derived from their group membership (Admin or App Publisher).
+* User roles are currently limited to two system-defined roles, Admin and App Publisher. A user’s role is assigned automatically based on their membership in one of these predefined groups.
 * The Roles column is read-only. Users cannot be assigned roles directly anymore.
 
-Roles (Account-Level)
----------------------
+Roles
+-----
 
-Roles define the level of access and privileges a user has within the AIMMS PRO portal. All roles are account-level; there are no global roles anymore.
-
-A user’s roles are **automatically derived from their group membership**. For example:
+Roles determine the access and privileges a user has within the AIMMS PRO portal. User roles are currently limited to two system-defined roles — *Admin* and *App Publisher*.  A user’s role is assigned automatically based on their group membership in one of these system-defined groups. For example:
 
 * If a user is a member of the *Admin* group, they are assigned the Admin role.
 * If a user is a member of the *App Publisher* group, they are assigned the App Publisher role.
