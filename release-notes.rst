@@ -18,6 +18,12 @@ AIMMS 25.9.1 Release (November 26, 2025 - build 25.9.1.1).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Gurobi 13.0 has been added. Gurobi 13.0 comes with performance improvements for all model types.
+-  The Solvers General option 'Infeasibility finder postsolve' has been added. It can be used to print the IIS in case the LP model solved during the postsolve turns out to be infeasible. Analyzing this IIS can help with improving the robustness of the model.
+
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
@@ -12488,3 +12494,4 @@ Improvements
   toolset
   libgfortran
   gfortran
+  GetServiceAccess
