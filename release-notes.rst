@@ -28,7 +28,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Using an empty set or the empty element in a constraint or variable definition could lead to a severe error during generation.
--  The PRO library has a new function GetServiceAccess. This function takes a service port and returns a uri and bearer token, which can be used to access a service that is running inside the aimms session.
+-  The PRO library has a new function GetServiceAccess. This function takes a service port and returns a URI and bearer token, which can be used to access a service that is running inside the aimms session.
 
 --------------
 
@@ -12495,3 +12495,4 @@ Improvements
   libgfortran
   gfortran
   GetServiceAccess
+  URI
