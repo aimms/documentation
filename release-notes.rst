@@ -8,6 +8,32 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 25.9
+#############
+
+
+
+AIMMS 25.9.1 Release (November 26, 2025 - build 25.9.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Gurobi 13.0 has been added. Gurobi 13.0 comes with performance improvements for all model types.
+-  The Solvers General option 'Infeasibility finder postsolve' has been added. It can be used to print the IIS in case the LP model solved during the postsolve turns out to be infeasible. Analyzing this IIS can help with improving the robustness of the model.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Using an empty set or the empty element in a constraint or variable definition could lead to a severe error during generation.
+-  The PRO library has a new function GetServiceAccess. This function takes a service port and returns a URI and bearer token, which can be used to access a service that is running inside the aimms session.
+
+--------------
+
+
+#############
 AIMMS 25.8
 #############
 
@@ -12468,3 +12494,5 @@ Improvements
   toolset
   libgfortran
   gfortran
+  GetServiceAccess
+  URI
