@@ -4,6 +4,26 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 25.12.1.0 (December 1, 2025)
+------------------------------------
+
+**Improvements**
+
+	- **User Management**: We have introduced several enhancements to improve navigation, clarity, and overall usability,
+		- *Streamlined Creation Actions*: Create Environment, Create Group, and Create User buttons have been moved to the top of their respective pages for quicker access.
+		- *Improved Search & Filtering*: Added search fields to both the Group and User lists, making it easier to locate specific entries.
+		- *Optimized Data Loading*: Groups and users are now fetched only when you open their respective tabs within an environment. This removes the previous automatic prefetching, resulting in faster initial navigation and more intentional data loads.
+	- **Updated User Roles Model**: We have replaced the Global Roles with a new, simplified Roles model,
+		- User roles can no longer be assigned directly, the Roles column is read-only.
+		- A user’s role is assigned automatically based on their membership in one of the system-defined groups.
+		- User roles are currently limited to two system-defined roles, *Admin* and *App Publisher*.
+		
+	For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-users.html>`__	
+
+**Resolved Issues**
+
+   - Fixed an issue that prevented users from entering a value in the **Schedule For** field when creating a task.
+
 Version 25.11.1.1 (November 11, 2025)
 -------------------------------------
 
