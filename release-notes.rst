@@ -21,7 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  The PRO library has a new function GetServiceAccess. This function takes a service port and returns a uri and bearer token, which can be used to access a service that is running inside the aimms session.
+-  The PRO library has a new function GetServiceAccess. This function takes a service port and returns a URI and bearer token, which can be used to access a service that is running inside the aimms session.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
@@ -12518,4 +12518,5 @@ Improvements
   libgfortran
   gfortran
   GetServiceAccess
+  InvestmentConstantPeriodicPayment
   URI
