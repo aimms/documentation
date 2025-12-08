@@ -13,6 +13,30 @@ AIMMS 25.9
 
 
 
+AIMMS 25.9.2 Release (December 08, 2025 - build 25.9.2.6).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The PRO library has a new function GetServiceAccess. This function takes a service port and returns a uri and bearer token, which can be used to access a service that is running inside the aimms session.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The attribute Defines Identifiers of a procedure now accepts multiple lines.
+-  Starting a solve from within WebUI could give an error in the IDE if the Math Program Inspector window was still open. Now it closes the Math Program Inspector automatically.
+-  In recent AIMMS versions, the function InvestmentConstantPeriodicPayment was not using the specified units of the passed in arguments, which resulted in unexpected values.
+-  When used in a multidimensional expression, the function Element could lead to an error if the passed set is empty.
+
+--------------
+
+
+
+
+
 AIMMS 25.9.1 Release (November 26, 2025 - build 25.9.1.1).
 ------------------------------------------------------------------------------------------
 
