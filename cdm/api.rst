@@ -521,3 +521,7 @@ Utility Functions
   
    :param uuid: string output argument, in which the created UUID will be stored.
   
+.. spelling:word-list::
+
+    debounce
+	debounced
