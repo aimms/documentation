@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+25.8.1.1 [09-12-2025]
+	- Added a capability to debounce commit notifications with a certain delay in `cdm::StartListeningToDataChanges`, similar to the existing capability to debounce data changes
+	
 25.7.6.1 [21-11-2025]
 	- Calls to `cdm::ResetToBase` for string parameters were intermittently not passed correctly to the CDM database
 	
@@ -501,3 +504,4 @@ NB. This fix required a change in the format of the changesets sent over the wir
 
     performant
     unhandled
+	debounce
