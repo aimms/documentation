@@ -18,11 +18,16 @@ Library Management Functions
 
    This function closes all connections to the CDM service the CDM client is connected to, stops the embedded CDM server (if started), and removes all internal data structures for categories and identifiers in those categories in the ``libcdm.dll``.
 
-.. js:function::  cdm::StartListeningToDataChanges(timeout)
+.. js:function::  cdm::StartListeningToDataChanges(commitDelay, notificationDelay)
 
-   This function will cause ``libcdm.dll`` register itself with the AIMMS engine to be notified of changes to any identifier data, and starts separate thread to examine which CDM category (if any) are affected by these data changes, and for each of them calls an internal callback procedure specified in the :any:`cdm::CreateCategory` or :any:`cdm::ConnectToCategory` calls (with default implementation ``cdm::DataChangeProcedure``) to act upon such a change. Based on the user-specified settings for the category, the CDM library may decide to automatically commit such changes, or register the change for the user to act upon, or take the actions implemented by a user-specified callback.
+   This function will cause ``libcdm.dll`` to register itself with the AIMMS engine to be notified of changes to any identifier data, and starts separate thread to examine which CDM category (if any) are affected by these data changes, and for each of them calls an internal callback procedure specified in the :any:`cdm::CreateCategory` or :any:`cdm::ConnectToCategory` calls (with default implementation ``cdm::DataChangeProcedure``) to act upon such a change. Based on the user-specified settings for the category, the CDM library may decide to automatically commit such changes, or register the change for the user to act upon, or take the actions implemented by a user-specified callback.
+   
+   The function will also listen and handle to incoming commit notifications, and handle them whenever the AIMMS engine is not executing.
+   
+   Both events will be debounced, until no new data change or commit notification event arrives within the given delay. 
   
-   :param timeout: notifies the timeout in milliseconds, the ``libcdm.dll`` will wait before examining all CDM categories after receiving the last data change notification from the AIMMS engine
+   :param commitDelay: notifies the delay in milliseconds, with which the ``libcdm.dll`` will debounce incoming data change events before examining all CDM categories after receiving the last data change notification from the AIMMS engine
+   :param notificationDelay: notifies the delay in milliseconds, with which the ``libcdm.dll`` will debounce incoming commit notifications before handling all received commit notifications.
 
 .. js:function::  cdm::StopListeningToDataChanges
 
