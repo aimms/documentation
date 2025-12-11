@@ -159,6 +159,11 @@ Other settings are:
  * IPsec SA lifetime in seconds (default = 27000)
  * DPD timeout in seconds (default = 45)
 	
+.. seealso::
+
+    To help you diagnose and resolve common issues while connecting to our Azure Virtual Network Gateway via Site-to-Site VPN, please see `VPN Troubleshooting Guide <https://how-to.aimms.com/Articles/683/683-vpn-troubleshooting.html>`.
+  
+
 Database Tunnel Application
 ---------------------------
 We have a simple AIMMS Desktop Application available for Windows ('DB Tunnel App') which allows you to open up/close a local connection to the AIMMS Cloud App database. All you need to do is publish this application with **AIMMS Version 4.66.2 or higher** on your PRO Portal and configure the Tunnel from the `Configuration <https://manual.aimms.com/pro/admin-config-1.html#tunnels>`_ menu. See also `Tunneling Support <https://manual.aimms.com/pro/tunneling.html>`_ for more details on Tunnels.
