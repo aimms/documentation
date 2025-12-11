@@ -161,7 +161,7 @@ Other settings are:
 	
 .. seealso::
 
-    To help you diagnose and resolve common issues while connecting to our Azure Virtual Network Gateway via Site-to-Site VPN, please see `VPN Troubleshooting Guide <https://how-to.aimms.com/Articles/683/683-vpn-troubleshooting.html>`.
+  To help you diagnose and resolve common issues while connecting to our Azure Virtual Network Gateway via Site-to-Site VPN, please see `VPN Troubleshooting Guide <https://how-to.aimms.com/Articles/683/683-vpn-troubleshooting.html>`_.
   
 
 Database Tunnel Application
