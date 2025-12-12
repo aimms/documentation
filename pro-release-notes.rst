@@ -86,6 +86,26 @@ Version 25.3.1.0 (April 15, 2025)
 PRO REST API Updates
 ####################
 
+Session Manager (Version 25.6.1.0 - December 12, 2025)
+------------------------------------------------------
+
+**New**
+
+   -  **Session ID retrieval**: New procedure ``pro::sessionmanager::GetSessionId`` allows programmatic access to the active AIMMS session ID.
+   -  **Unified service access**: ``pro::sessionmanager::GetServiceAccess`` now provides both the service URI and bearer token in a single call.
+   -  **Service URI API**: New endpoint ``GET /pro/session-manager/v1/sessions/{session_id}/{service}/uri`` to retrieve service endpoints via REST.
+   -  **Token exchange API**: New endpoint ``POST /pro/auth/v1/token/exchange`` for obtaining scoped bearer tokens with configurable path and access level.
+
+**Improvements**
+
+   - 	Streamlined, consistent workflow for accessing cloud-hosted services (session → URI → token → access).
+   -  Support for predefined services such as WebUI and Dex.
+
+**Use Case**
+
+   - These enhancements directly support MCP, which relies on the new session-based access flow to securely obtain service URIs and bearer tokens. MCP can now interact with AIMMS cloud services using the standardized and fully supported API workflow. A key example of this is the upcoming release of SENSAI Pro in AIMMS SCNavigator, where these improvements enable seamless and secure integration. 
+
+
 Session Manager (Version 25.2.1.0 - April 15, 2025)
 ---------------------------------------------------
 
@@ -110,6 +130,17 @@ Task Scheduler (Version 25.2.1.0 - May 15, 2025)
 - **New Endpoint**
    - ``GET /tasks/{id}/logs``: Introduced a new endpoint to retrieve task logs.
 
+PRO 25.14
+#########
+
+AIMMS PRO 25.14.3 Release
+-------------------------
+
+On December 11, 2025, we released AIMMS PRO 25.14.3(*Cloud build*: 25.14.3.0)
+
+**Improvements**
+   -  Cloud: Extended AIMMS PRO Library with ``pro::sessionmanager::GetSessionId`` which allows you to retrieve the active AIMMS session ID.
+   -  Cloud: ``pro::sessionmanager::GetServiceAccess`` now provides both the service URI and bearer token in a single call.
 
 PRO 25.13
 #########
