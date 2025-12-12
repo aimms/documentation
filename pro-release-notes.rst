@@ -140,10 +140,7 @@ On December 11, 2025, we released AIMMS PRO 25.14.3(*Cloud build*: 25.14.3.0)
 
 **Improvements**
    -  Cloud: Extended AIMMS PRO Library with ``pro::sessionmanager::GetSessionId`` which allows you to retrieve the active AIMMS session ID.
-   -  Cloud: ``pro::sessionmanager::GetServiceAccess`` now provides both the service URI and bearer token in a single call. 
-
-   Please see the `session-manager updates <https://documentation.aimms.com/pro-release-notes.html#session-manager-version-25-6-1-0-december-11-2025>`__ for more details.
-
+   -  Cloud: ``pro::sessionmanager::GetServiceAccess`` now provides both the service URI and bearer token in a single call.
 
 PRO 25.13
 #########
