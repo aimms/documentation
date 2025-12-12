@@ -122,6 +122,10 @@ bitnami
 kubectl
 authenticator
 prefetching
+serviceUri
+bearerToken
+sessionId
+
 
 ####the following words wore excepted when running under ubuntu 16.04 with python 3.8.9 but somehow the underlying enchant does not recognize these while it did before
 atomicity
@@ -179,6 +183,9 @@ allocator
 curl
 bootstrapper
 prefetching
+serviceUri
+bearerToken
+sessionId
 #########
 
 
