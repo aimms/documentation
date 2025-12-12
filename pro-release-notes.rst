@@ -101,6 +101,8 @@ Session Manager (Version 25.6.1.0 - December 12, 2025)
    - 	Streamlined, consistent workflow for accessing cloud-hosted services (session → URI → token → access).
    -  Support for predefined services such as WebUI and Dex.
 
+   Please refer to the detailed `documentation <https://documentation.aimms.com/cloud/accesing-cloud-hosted-services.html>`__ for usage instructions.
+
 **Use Case**
 
    - These enhancements directly support MCP, which relies on the new session-based access flow to securely obtain service URIs and bearer tokens. MCP can now interact with AIMMS cloud services using the standardized and fully supported API workflow. A key example of this is the upcoming release of SENSAI Pro in AIMMS SCNavigator, where these improvements enable seamless and secure integration. 
