@@ -24,8 +24,10 @@ Service end-points exposed
 
       * ``id``: the id assigned to the request by the Data Exchange library
       * ``request-data-path``: the file path containing the request body 
-      * ``response-data-path``: the file path in which to store the final response body
+      * ``response-data-path``: the file path in which to store the final
       * ``status-data-path``: the file path in which to store any (regularly updated) intermediate model status you want to communicate to the caller while handling the request, prior to completion
+      
+      The value of the ``response-data-path`` attribute defaults to ``<request>.response``, but you can change it to any other file path you like. This is especially important if you need the correct mime-type to be set when the file is stored for client retrieval in Azure Blob storage, as the mime-type is determined based on the file extension of the response file path.
 
       In addition, you can access the request headers via the string parameter ``dex::api::RequestHeader``, while the string parameter ``dex::api::RequestParameter`` will hold any query parameters added to the request. 
       
