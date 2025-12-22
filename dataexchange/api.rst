@@ -971,7 +971,7 @@ Azure Blob Storage allows you to add meta data to existing blobs. The following 
 	:param blobPath: output string parameter holding the paths for all retrieved blobs
 	:param blobMeta: output string parameter holding the meta data values for all retrieved blobs
 	:param listPrefix: optional string argument holding a path prefix to use as a filter for retrieving blob meta data
-	:param showonly: optional stringparameter indicating whether to retrieve meta data for `directories` only, or all `files` 
+	:param showonly: optional string parameter indicating whether to retrieve meta data for `directories` only, or all `files` 
 	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 Snowflake functions
