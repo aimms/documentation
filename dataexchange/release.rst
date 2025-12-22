@@ -14,6 +14,11 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 New Features and Bug Fixes
 --------------------------
 
+25.10.1.2 (22-12-2025)
+	- Add support for `AppendBlob` objects in Azure Blob Storage
+	- Add support for keeping metadata for objects in Azure Blob Storage
+	- When opening a database table, an error in de `dexcon` file that prevented it from being read successfully would lead to an application crash.
+
 25.9.1.2 (06-09-2025)
 	- Display names now do a case-insensitive comparison during ``dex::ReadFromFile``
 	- Introduced additional conversion to lower and upper case as new normalizations

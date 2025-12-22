@@ -861,12 +861,17 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	
 .. js:function:: dex::dls::UploadFile
 
-	Upload a single file to a path within a file system. The function will return 1 upon success, or an error on failure. The method will wait for the upload to succeed for `dex::dls::WaitRetries` seconds, with a default of 500 seconds. In case of a slow internet connection, you can increase this value to make the upload succeed. 
+	Upload a single file or memory stream to a path within a file system. The function will return 1 upon success, or an error on failure. The method will wait for the upload to succeed for `dex::dls::WaitRetries` seconds, with a default of 500 seconds. In case of a slow internet connection, you can increase this value to make the upload succeed. 
+	
+	The `_file` argument is interpreted to be a memory stream if it starts with the `#` character. The `#` character(s) at the beginning of the `_file` argument will be stripped of to determine the name of corresponding blob in the file system.
+	
+	The `_mode` argument indicates whether the file should be uploaded as a `BlockBlob` blob (default, uploading a file in a single go), as an `AppendBlob` blob, or as a `appendBlock` to an existing `AppendBlob` blob. For the `AppendBlob` mode, you are only allowed to 'upload' an empty blob, after which you can append actual blocks by using `appendBlock` mode.
 
 	:param fileSystem: string parameter holding the name of the file systems.
-	:param _file: local file path of the file to upload
+	:param _file: local file path or the memory stream to upload
 	:param pathPrefix: string parameter holding the path prefix of the directory within the file system to which the file must be uploaded
-	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``)
+	:param _mode: optional element parameter holding one of the modes `BlockBlob` (default), `AppendBlob`, or `appendBlock`.
 
 .. js:function:: dex::dls::UploadFiles
 
@@ -877,6 +882,7 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	:param pathPrefix: string parameter holding the path prefix of the directory within the file system to which the file must be uploaded.
 	:param recursive: optional parameter indicating whether only files within the given directory should be uploaded, or recursively.
 	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
+	:param _mode: optional element parameter holding one of the modes `BlockBlob` (default), `AppendBlob`, or `appendBlock`.
 
 .. js:function:: dex::dls::DownloadFile
 
@@ -927,6 +933,45 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	:param dataset: element parameter holding the name of the dataset to read.
 	:param instance: string parameter holding instance name of the dataset to read.
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
+
+Managing Meta Data
+------------------
+
+Azure Blob Storage allows you to add meta data to existing blobs. The following functions in the Data Exchange library allow you to read and manipulate blob meta data. You can use meta data to store additional AIMMS-related information with blobs, such as author, case description, etc.
+
+.. js:function:: dex::dls::WriteBlobMetadata
+
+	Write meta data for a particular file in Azure Blob Storage.
+	
+	:param fileSystem: string parameter holding the name of the file system
+	:param path: string parameter holding the path of the blob within the file system to add meta data to
+	:param metadataKeys: set holding the meta data keys to add
+	:param metadataValue: string parameter holding the meta data value to add for each key
+	:param keepcurrent:	optional binary parameter indicating whether or to extend or replace the current collection of meta data values
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
+	
+.. js:function:: dex::dls::ReadBlobMetadata
+
+	Read the meta data for a particular file in Azure Blob Storage.
+	
+	:param fileSystem: string parameter holding the name of the file system
+	:param path: string parameter holding the path of the blob within the file system to retrieve meta data for
+	:param metadataKeys: set holding the meta data keys retrieved
+	:param metadataValue: string parameter holding the meta data value retrieved for each key
+	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
+
+.. js:function:: dex::dls::ListPathsWithMetadata
+
+	Read all meta data for a given collection of files with a file system.
+	
+	:param fileSystem: string parameter holding the name of the file system
+	:param Paths: integer output set argument representing all blobs in the retrieved collection 
+	:param Metas: output set argument holding the collection of all meta data keys retrieved
+	:param blobPath: output string parameter holding the paths for all retrieved blobs
+	:param blobMeta: output string parameter holding the meta data values for all retrieved blobs
+	:param listPrefix: optional string argument holding a path prefix to use as a filter for retrieving blob meta data
+	:param showonly: optional stringparameter indicating whether to retrieve meta data for `directories` only, or all `files` 
 	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
 
 Snowflake functions
