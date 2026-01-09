@@ -1,5 +1,5 @@
-Running Tasks
-=============
+Managing Tasks
+==============
 
 The Data Exchange (DEX) library is capable of exposing procedures in an AIMMS model as a REST API. Invoking such
 procedures via this (DEX-exposed) REST API creates ``tasks`` which run in the same AIMMS session as the DEX library

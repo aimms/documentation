@@ -21,12 +21,12 @@ The AIMMS Cloud Platform is a fully managed AIMMS PRO environment. It is secure,
    gurobi-support
    aimms-releases
    rest-api
-   launch-service
-   tasks
-   privacy
-   session-manager
    newportal
    accesing-cloud-hosted-services
+   launch-service
+   privacy
+   
+   
    
   
 
