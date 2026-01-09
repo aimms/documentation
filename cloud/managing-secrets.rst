@@ -19,6 +19,10 @@ Operations supported by secret-manager REST API to manage items,
 * ``PATCH /pro/secret-manager/v1/item/{path}`` - To modify an item
 * ``DELETE /pro/secret-manager/v1/item/{path}`` - To delete an item
 
+.. note::
+
+	By default root directory(/) is already created and available to all Admin users. Non-admin user has access to nothing, so access must be given to the root directory first of all.
+
 Items can be accessed by AIMMS PRO users and groups. Only **Admin** users are allowed to manage access of any item using following operations,
 
 * ``GET /pro/secret-manager/v1/access/{path}`` - To get entities with access to an item
