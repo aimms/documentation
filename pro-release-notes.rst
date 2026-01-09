@@ -286,7 +286,7 @@ On December 20, 2024, we released AIMMS PRO 24.13.1(24.13.1.1)
 
 - As informed in the `Product update <https://community.aimms.com/product-updates/new-look-for-aimms-cloud-1803>`__, with this PRO Release you will have a new look of AIMMS PRO Portal. (**Note**: As we are using phased approach for roll-out to customers, not all the customers will experience it after moving to this release. For more information and questions, please contact our `Customer Support <support@aimms.com>`__)
 - **Session-Manager**: A new REST API Service to interact with WebUI and Task sessions on AIMMS Cloud. Please see the `documentation <https://documentation.aimms.com/cloud/session-manager.html>`__ for more details.
-- **PRO REST API:Managing Apps**: It is possible to set resource profile (CPU and Memory limits) while publishing and updating an app using REST API. Please see the `documentation <https://documentation.aimms.com/cloud/rest-api.html#setting-resource-profiles-at-application-level>`__ for more details.
+- **PRO REST API:Managing Apps**: It is possible to set resource profile (CPU and Memory limits) while publishing and updating an app using REST API. Please see the `documentation <https://documentation.aimms.com/cloud/managing-apps.html#setting-resource-profiles-at-application-level>`__ for more details.
 
 PRO 24.12
 #########
@@ -516,7 +516,7 @@ On February 22, 2024, we released AIMMS PRO 24.2.2(24.2.2.1)
 
        - Publish app(POST request) returns application json instead of an empty response when app is successfully published.
        - Update app(PATCH request) returns application json instead of an empty response when app is successfully updated.
-       - Metadata for POST request (Publish an App) is extended with *publishBehavior*, which will allow you to publish a new version of an existing application. Please see the `documentation <https://documentation.aimms.com/cloud/rest-api.html#example-using-postman-to-publish-an-application-post>`__ for more details.
+       - Metadata for POST request (Publish an App) is extended with *publishBehavior*, which will allow you to publish a new version of an existing application. Please see the `documentation <https://documentation.aimms.com/cloud/managing-apps.html#example-using-postman-to-publish-an-application-post>`__ for more details.
 
 AIMMS PRO 24.2.1 Release
 ------------------------
