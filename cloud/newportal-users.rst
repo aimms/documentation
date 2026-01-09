@@ -17,7 +17,7 @@ In the Users area of the portal, you can perform all user management tasks relat
 Environments
 ------------
 
-An environment within AIMMS PRO represents a distinct collection of users separated from users in other environments. Environments allow you to provide AIMMS applications to multiple companies or departments, and optionally delegate user administration to specific users within that environment.
+An environment within AIMMS PRO represents a distinct collection of users separated from users in other environments. Environments allow you to provide AIMMS applications to multiple companies or departments, and optionally delegate cloud user administration to specific users, assigning them ROOT admin privileges
 
 * Each environment can make its own distinguishable set of AIMMS applications available to its users.
 * Environments can be linked to a SAML identity provider (e.g., ADFS) for Single Sign-On (SSO).
