@@ -13,7 +13,12 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
-
+26.1.1.1 (11-01-2025)
+	- Add support for automatically detecting multiple value types for properties in JSON schema/OpenAPI specifications, and generating a client that will add identifiers for all types.
+	- After editing the model, the AIMMS compiler would produce an unnecessary warning for the Data Exchange library
+	- When creating an application database using `dex::CreateOrModifyDataSource`, tables would only be created when there was data present in the model for the columns in the tables, even though no data will be written.
+	- OAuth Authorization Code grant calls in the Developer IDE on Windows would fail because the call to open a browser window to authenticate with the identity provider was inadvertently removed from the source code. 
+	
 25.10.1.2 (22-12-2025)
 	- Add support for `AppendBlob` objects in Azure Blob Storage
 	- Add support for keeping metadata for objects in Azure Blob Storage

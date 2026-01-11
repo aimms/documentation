@@ -30,6 +30,11 @@ To call this method, you need to provide a number of arguments
 - an additional index to be prefixed to the domain of every generated identifier in the runtime library (optional)
 - an external binding for this additional index
 
+Support for multiple value types for properties
+-----------------------------------------------
+
+When the generator detects that a JSON schema specifies multiple validation types for properties in a schema, it will generate separate identifiers for each of the validation types. Null validation types will be ignored.
+
 Exploding subschema
 +++++++++++++++++++
 
@@ -48,7 +53,7 @@ Adding instructions to the JSON schema to steer the generator
 You can influence the behavior of :js:func:`dex::schema::ParseJSONSchema` at a more granular level by adding additional `x-aimms-...` properties to any schema in the JSON schema file. The following properties are available: 
 
 - `x-aimms-name`: use this name instead of the name of the schema in the JSON schema file when creating identifiers or sections in the runtime library. 
-- `x-aimms-type-switch`: in some occasions a JSON schema can define a single property as multiple types depending on some conditions specified in the JSON schema. Normally, the Data Exchange library assumes a single type for a property. By setting this property to `true`, the Data Exchange library will create multiple identifiers, one for each type attainable.
+- `x-aimms-type-switch`: in some occasions a JSON schema can define a single property as multiple types depending on some conditions specified in the JSON schema. As the Data Exchange library assumes now detects multiple value types from the schema itself, this attribute now has become obsolete. 
 - `x-aimms-ref`: use this reference instead of the `$ref` property in the schema file
 - `x-aimms-enum`: when creating the range of an element parameter from a property with a string type, the possible enum values may come from various branches of the schema, from which the Data Exchange library will only use one. With this property you can concentrate all possible enum values in a single location.
 - `x-aimms-namespace`: set to `true` to add a namespace in 5e runtime library
