@@ -86,6 +86,13 @@ Version 25.3.1.0 (April 15, 2025)
 PRO REST API Updates
 ####################
 
+Secret Manager (Version 26.1.1.1 - January 9, 2026)
+---------------------------------------------------
+
+The AIMMS PRO REST API is extended with the secret-manager service, enabling secure management of customer and user secrets within the PRO environment. 
+  
+Please see the `documentation <https://documentation.aimms.com/cloud/managing-secrets.html>`__ and API Specs for more details. 
+
 Session Manager (Version 25.6.1.0 - December 12, 2025)
 ------------------------------------------------------
 
