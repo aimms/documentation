@@ -13,6 +13,22 @@ AIMMS 25.9
 
 
 
+AIMMS 25.9.4 Release (January 16, 2026 - build 25.9.4.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Due to some internal issues we had to retract the previous release and release this new release.
+
+--------------
+
+
+
+
+
 AIMMS 25.9.3 Release (January 15, 2026 - build 25.9.3.3).
 ------------------------------------------------------------------------------------------
 
