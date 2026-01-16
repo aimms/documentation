@@ -13,6 +13,29 @@ AIMMS 25.9
 
 
 
+AIMMS 25.9.3 Release (January 15, 2026 - build 25.9.3.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The PRO library has a new function GetSessionId. This function returns the id of the session, which can be used with the PRO REST API.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Running a FOR statement sometimes triggered incorrect warnings stating that the sets or the condition of the loop were changed during an iteration.
+-  Changing the range attribute of a function was not picked up correctly.
+-  Using the function GMP::Column::Delete on an NLP model could sometimes result in incorrect results when used in combination with Gurobi.
+-  Inside a heuristic callback of CPLEX or Gurobi, AIMMS was sometimes retrieving an incumbent solution from the solver instead of a (fractional) node solution.
+-  In some cases, solving a stochastic programming model could fail if the model contained (stochastic) matrix coefficients with value 0.
+
+--------------
+
+
+
 AIMMS 25.9.2 Release (December 08, 2025 - build 25.9.2.6).
 ------------------------------------------------------------------------------------------
 
@@ -12518,5 +12541,6 @@ Improvements
   libgfortran
   gfortran
   GetServiceAccess
+  GetSessionId
   InvestmentConstantPeriodicPayment
   URI
