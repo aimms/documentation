@@ -21,7 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  The PRO library has a new function GetSessionId. This function returns the id of the session, which can be used with the PRO REST API.
+-  The PRO library has a new function GetSessionId. This function returns the Session ID, which can be used with the PRO REST API.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
@@ -32,7 +32,7 @@ Resolved AIMMS Issues
 -  Inside a heuristic callback of CPLEX or Gurobi, AIMMS was sometimes retrieving an incumbent solution from the solver instead of a (fractional) node solution.
 -  In some cases, solving a stochastic programming model could fail if the model contained (stochastic) matrix coefficients with value 0.
 
-(We skipped or retracted AIMMS 25.9.3 - 25.9.5 due to internal technical issues.)
+(AIMMS versions 25.9.3-25.9.5 were skipped or retracted due to internal technical considerations.)
 
 --------------
 
