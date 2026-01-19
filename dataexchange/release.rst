@@ -13,7 +13,7 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
-26.1.1.1 (11-01-2025)
+26.1.1.1 (11-01-2026)
 	- Add support for automatically detecting multiple value types for properties in JSON schema/OpenAPI specifications, and generating a client that will add identifiers for all types.
 	- After editing the model, the AIMMS compiler would produce an unnecessary warning for the Data Exchange library
 	- When creating an application database using `dex::CreateOrModifyDataSource`, tables would only be created when there was data present in the model for the columns in the tables, even though no data will be written.

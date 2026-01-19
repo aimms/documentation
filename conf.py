@@ -130,7 +130,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'AIMMS Documentation'
-copyright = u'2018-2021, AIMMS'
+copyright = u'2018-2026, AIMMS'
 author = u'AIMMS'
 
 # The version info for the project you're documenting, acts as replacement for
