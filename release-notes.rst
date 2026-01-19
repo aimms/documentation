@@ -18,38 +18,6 @@ AIMMS 25.9.6 Release (January 16, 2026 - build 25.9.6.1).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
-Resolved AIMMS Issues
-+++++++++++++++++++++++++
-
--  Due to some internal build pipeline issues we had to retract the previous release(s) and create this new release.
-
---------------
-
-
-
-
-
-AIMMS 25.9.4 Release (January 16, 2026 - build 25.9.4.2).
-------------------------------------------------------------------------------------------
-
-Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
-
-Resolved AIMMS Issues
-+++++++++++++++++++++++++
-
--  Due to some internal issues we had to retract the previous release and release this new release.
-
---------------
-
-
-
-
-
-AIMMS 25.9.3 Release (January 15, 2026 - build 25.9.3.3).
-------------------------------------------------------------------------------------------
-
-Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
-
 AIMMS Improvements
 +++++++++++++++++++++++++
 
@@ -64,8 +32,9 @@ Resolved AIMMS Issues
 -  Inside a heuristic callback of CPLEX or Gurobi, AIMMS was sometimes retrieving an incumbent solution from the solver instead of a (fractional) node solution.
 -  In some cases, solving a stochastic programming model could fail if the model contained (stochastic) matrix coefficients with value 0.
 
---------------
+(We skipped or retracted AIMMS 25.9.3 - 25.9.5 due to internal technical issues.)
 
+--------------
 
 
 AIMMS 25.9.2 Release (December 08, 2025 - build 25.9.2.6).
@@ -1480,7 +1449,7 @@ Resolved WebUI Issues
 
 --------------
 
-(we skipped AIMMS 24.2.8 due to internal technical reasons.)
+(We skipped AIMMS 24.2.8 due to internal technical reasons.)
 
 
 
@@ -1868,7 +1837,7 @@ Resolved WebUI Issues
 
 --------------
 
-(we skipped AIMMS 4.98.3 due to internal technical reasons.)
+(We skipped AIMMS 4.98.3 due to internal technical reasons.)
 
 
 
@@ -2094,7 +2063,7 @@ Resolved WebUI Issues
 
 --------------
 
-(we skipped AIMMS 4.97.2 due to internal technical reasons.)
+(We skipped AIMMS 4.97.2 due to internal technical reasons.)
 
 
 
@@ -2514,7 +2483,7 @@ Resolved WebUI Issues
 --------------
 
 
-(we skipped AIMMS 4.95.9 due to internal technical reasons)
+(We skipped AIMMS 4.95.9 due to internal technical reasons)
 
 
 AIMMS 4.95.8 Release (June 13, 2023 - build 4.95.8.1).
