@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+26.1.2.1 (19-01-2026)
+	- An XML attribute mapping with a `name-binds-to` attribute with unmapped sibling XML element nodes, could crash AIMMS.
+	
 26.1.1.1 (11-01-2026)
 	- Add support for automatically detecting multiple value types for properties in JSON schema/OpenAPI specifications, and generating a client that will add identifiers for all types.
 	- After editing the model, the AIMMS compiler would produce an unnecessary warning for the Data Exchange library
