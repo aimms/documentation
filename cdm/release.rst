@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+26.1.1.1 [20-01-2026]
+	- Add new capability to clone a cloud CDM database to a SQLite database uploaded to Azure Blob Storage container.
+	
 25.8.1.1 [09-12-2025]
 	- Added a capability to debounce commit notifications with a certain delay in `cdm::StartListeningToDataChanges`, similar to the existing capability to debounce data changes
 	

@@ -55,11 +55,18 @@ ApplicationDB Functions
 
 .. js:function::  cdm::CloneApplicationDatabase(dbName, dbTo, configFile)
 
-   Clone the given application database ``dbName`` to application database ``dbTo`` running on the database server specified through ``configFile``. This function may be used to change a CDM database between any of the supported database backends. 
+   Clone the given application database ``dbName`` to application database ``dbTo`` running on the database server specified through ``configFile``. This function may be used to change a CDM database between any of the supported database backends. The clone functionality is subject to `CloneDB` authorization.
   
    :param dbName: specifies the name of the application database to clone.
    :param dbTo: specifies the schema to which the existing application database is cloned.
    :param configFile: CDM configuration file which specifies the database type and settings, and user credentials of the database (server) to which to clone the existing database.
+
+.. js:function::  cdm::CloneApplicationDatabaseToSQLite(dbName, uploadURL)
+
+   Clone the given application database ``dbName`` to a SQLite database and, subsequently, compress it using `zstd` upload it to the given upload URL. The generated SQLite database will have the original database name appended with the clone date-time. The `uploadURL` should be a SAS URL to (a folder within) an Azure Blob Storage container. If you want to use this function in on-premise installations, the service host machine should have `zstd` installed. To prevent unauthorized data exports, the clone functionality is subject to the `CloneDB` authorization.
+  
+   :param dbName: specifies the name of the application database to clone.
+   :param uploadURL: the URL to upload the cloned and compressed SQLite database.
 
 .. js:function:: cdm::RemoveElementsFromDatabase(dbName, setName)
 

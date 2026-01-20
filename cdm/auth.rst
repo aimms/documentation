@@ -48,11 +48,13 @@ The following table lists the permissions that you can set system wide, per cate
                                     database                                                                                                                                 
       ``DeleteDB``                  Delete application      Admin                x                                                                                           
                                     database                                                                                                                                 
+      ``CloneDB``                   Clone application       Admin                x                                                                                           
+                                    database                                                                                                                                 
       ``CreateCategory``            Create/update           Admin                x                                                                                           
                                     category                                                                                                                                 
       ``ReadCategory``              Create/update           User                 x                                  x                                                        
                                     category                                                                                                                                 
-      ``UpdateCategory``            Update                  Admin                x                                  x                                                        
+      ``DeleteCategory``            Delete                  Admin                x                                  x                                                        
                                     category                                                                                                                                 
       ``CreateBranch``              Create new branch       User                 x                                                               x                           
                                     on branch                                                                                                                         
