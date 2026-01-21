@@ -13,6 +13,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+26.1.3.1 (21-01-2026)
+	- Implemented a small fix to the generation of OpenAPI clients with properties with multiple validation types.
+	- The `type-switch` attribute values now exactly coincide with the JSON schema validation types.
+	
 26.1.2.1 (19-01-2026)
 	- An XML attribute mapping with a `name-binds-to` attribute with unmapped sibling XML element nodes, could crash AIMMS.
 	
