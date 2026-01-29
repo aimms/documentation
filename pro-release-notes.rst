@@ -12,7 +12,7 @@ Version 26.2.1.0 (January 29, 2026)
 	- Updated the navigation menu layout to improve clarity and accessibility, with a streamlined sidebar and easier access to core sections such as Apps, Sessions, Secrets, and Configuration.
 	- Introduced a new **Secrets** page, a centralized interface in AIMMS PRO that allows authorized users to securely organize, store, and control access to directories and secrets required by applications.
 	
-	For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-secrets.html>`__	
+	.. For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-secrets.html>`__	
 
 Version 25.12.1.1 (December 4, 2025)
 ------------------------------------
