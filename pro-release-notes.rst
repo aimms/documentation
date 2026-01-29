@@ -4,8 +4,18 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 26.2.1.0 (January 29, 2026)
+------------------------------------
+
+**New**
+
+	- Updated the navigation menu layout to improve clarity and accessibility, with a streamlined sidebar and easier access to core sections such as Apps, Sessions, Secrets, and Configuration.
+	- Introduced a new **Secrets** page, a centralized interface in AIMMS PRO that allows authorized users to securely organize, store, and control access to directories and secrets required by applications.
+	
+	.. For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-secrets.html>`__	
+
 Version 25.12.1.1 (December 4, 2025)
--------------------------------------
+------------------------------------
 
 **Improvements**
 
@@ -86,6 +96,13 @@ Version 25.3.1.0 (April 15, 2025)
 PRO REST API Updates
 ####################
 
+Secret Manager (Version 26.2.1.0 - January 29, 2026)
+----------------------------------------------------
+
+**Improvements**
+
+   -  Added support for sorting items and introduced additional item metadata.
+
 Secret Manager (Version 26.1.1.1 - January 9, 2026)
 ---------------------------------------------------
 
@@ -105,7 +122,7 @@ Session Manager (Version 25.6.1.0 - December 12, 2025)
 
 **Improvements**
 
-   - 	Streamlined, consistent workflow for accessing cloud-hosted services (session → URI → token → access).
+   -  Streamlined, consistent workflow for accessing cloud-hosted services (session → URI → token → access).
    -  Support for predefined services such as WebUI and Dex.
 
    Please refer to the detailed `documentation <https://documentation.aimms.com/cloud/accesing-cloud-hosted-services.html>`__ for usage instructions.

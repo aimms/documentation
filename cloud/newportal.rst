@@ -9,6 +9,7 @@ We have built a new look of our AIMMS PRO Portal as known as New Portal, It come
    newportal-apps
    newportal-sessions
    newportal-stats
+   newportal-secrets
    newportal-users
    newportal-usersettings
    newportal-configuration
