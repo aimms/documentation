@@ -4,6 +4,13 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 26.3.1.0 (February 2, 2026)
+------------------------------------
+
+**Improvements**
+
+	- Minor UI improvements on Secrets page.
+
 Version 26.2.1.1 (January 29, 2026)
 ------------------------------------
 
