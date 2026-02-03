@@ -4,6 +4,13 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 26.3.2.0 (February 3, 2026)
+------------------------------------
+
+**Resolved Issue**
+
+	- Resolved an issue where starting a task via the Portal did not work when using .xls files as request data.
+
 Version 26.3.1.0 (February 2, 2026)
 ------------------------------------
 
@@ -102,6 +109,14 @@ Version 25.3.1.0 (April 15, 2025)
 
 PRO REST API Updates
 ####################
+
+Task Scheduler (Version 26.1.1.0 - February 3, 2025)
+----------------------------------------------------
+
+- **Improvements**
+
+   - Added support for binary input in task requests.
+   - Increased the bearer token time-to-live (TTL) to 3 minutes to improve request reliability.
 
 Secret Manager (Version 26.2.1.0 - January 29, 2026)
 ----------------------------------------------------
