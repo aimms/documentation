@@ -595,6 +595,8 @@ File transfer functions
 The following functions in the Data Exchange library, allow you to upload, download, or delete files from a HTTP service like Azure Blob Storage, or AWS S3. 
 For uploading and downloading files there are both synchronous as asynchronous variants. In the latter case, you can use the function ``dex::client::WaitForOutstandingFileRequests`` to wait for any outstanding asynchronous file request operations.
 
+The status and error codes and error responses for individual file requests can be retrieved from identifiers in ``dex::client::File_Request_State``.
+
 .. js:function:: dex::client::GetFileAsync
 
 	Download a file from a given URL asynchronously. The function will return 1 if the HTTP request could be submitted successfully.
@@ -867,6 +869,8 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 	
 	The `_mode` argument indicates whether the file should be uploaded as a `BlockBlob` blob (default, uploading a file in a single go), as an `AppendBlob` blob, or as a `appendBlock` to an existing `AppendBlob` blob. For the `AppendBlob` mode, you are only allowed to 'upload' an empty blob, after which you can append actual blocks by using `appendBlock` mode.
 
+	The status and error codes and error responses for the underlying file requests can be retrieved from identifiers in ``dex::client::File_Request_State``.
+
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param _file: local file path or the memory stream to upload
 	:param pathPrefix: string parameter holding the path prefix of the directory within the file system to which the file must be uploaded
@@ -877,6 +881,8 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	(Recursively) upload the files within a local directory to a path within a file system. The function will return 1 upon success, or an error on failure. The method will wait for the upload to succeed for `dex::dls::WaitRetries` seconds, with a default of 500 seconds. In case of a slow internet connection, you can increase this value to make the upload succeed. 
 
+	The status and error codes and error responses for the underlying file requests can be retrieved from identifiers in ``dex::client::File_Request_State``.
+	
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param directory: local directory from which to upload files
 	:param pathPrefix: string parameter holding the path prefix of the directory within the file system to which the file must be uploaded.
@@ -888,6 +894,8 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	Download a single file from a file system to a local directory. The function will return 1 upon success, or an error on failure. The method will wait for the download to succeed for `dex::dls::WaitRetries` seconds, with a default of 500 seconds. In case of a slow internet connection, you can increase this value to make the download succeed. 
 
+	The status and error codes and error responses for the underlying file requests can be retrieved from identifiers in ``dex::client::File_Request_State``.
+	
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param urlPath: path of the file within the file system to download.
 	:param directory: string parameter holding the local directory to which the file must be downloaded.
@@ -897,6 +905,8 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	(Recursively) download the files within a path within a file system to a local directory. The function will return 1 upon success, or an error on failure. The method will wait for the download to succeed for `dex::dls::WaitRetries` seconds, with a default of 500 seconds. In case of a slow internet connection, you can increase this value to make the download succeed. 
 
+	The status and error codes and error responses for the underlying file requests can be retrieved from identifiers in ``dex::client::File_Request_State``.
+	
 	:param fileSystem: string parameter holding the name of the file systems.
 	:param pathPrefix: string parameter holding the path prefix of the directory within the file system from which to download files.
 	:param directory: local directory to which to download files
@@ -907,6 +917,8 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	For a given generated dataset `dataset` generate Parquet files for all tables in the dataset, and store these Parquet files in the container in the configured Azure Data Lake Storage account in the container pointed to by ``dex::dls::DatasetsByTableContainer``. 	Within the container the Parquet files are stored using the pattern `<dataset>/<table>/<instance>.parquet`, where `<instance>` is the given `instance`.
 
+	The status and error codes and error responses for the underlying file requests can be retrieved from identifiers in ``dex::client::File_Request_State``.
+	
 	:param dataset: element parameter holding the name of the dataset to write.
 	:param instance: string parameter holding instance name of the dataset to write.
 	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
@@ -915,6 +927,8 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	For a given generated dataset `dataset` and dataset instance, transfer Parquet files from the container in the configured Azure Data Lake Storage account in the container pointed to by ``dex::dls::DatasetsByTableContainer`` from the location `<dataset>/<table>/<instance>.parquet`, where `<instance>` is the given `instance`, to the current session and read the content of the Parquet files into the model.
 
+	The status and error codes and error responses for the underlying file requests can be retrieved from identifiers in ``dex::client::File_Request_State``.
+	
 	:param dataset: element parameter holding the name of the dataset to read.
 	:param instance: string parameter holding instance name of the dataset to read.
 	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
@@ -923,6 +937,8 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	For a given generated dataset `dataset` generate Parquet files for all tables in the dataset, and store these Parquet files in the container in the configured Azure Data Lake Storage account in the container pointed to by ``dex::dls::DatasetsByInstanceContainer``. 	Within the container the Parquet files are stored using the pattern `<dataset>/<instance>/<table>.parquet`, where `<instance>` is the given `instance`.
 
+	The status and error codes and error responses for the underlying file requests can be retrieved from identifiers in ``dex::client::File_Request_State``.
+	
 	:param dataset: element parameter holding the name of the dataset to write.
 	:param instance: string parameter holding instance name of the dataset to write.
 	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
@@ -931,6 +947,8 @@ These functions all require that the `dex::dls::StorageAccount` and `dex::dls::S
 
 	For a given generated dataset `dataset` and dataset instance, transfer Parquet files from the container in the configured Azure Data Lake Storage account in the container pointed to by ``dex::dls::DatasetsByInstanceContainer`` from the location `<dataset>/<instance>/<table>.parquet`, where `<instance>` is the given `instance`, to the current session and read the content of the Parquet files into the model.
 
+	The status and error codes and error responses for the underlying file requests can be retrieved from identifiers in ``dex::client::File_Request_State``.
+	
 	:param dataset: element parameter holding the name of the dataset to read.
 	:param instance: string parameter holding instance name of the dataset to read.
 	:param accountName: optional element parameter holding the name of the storage account to be used (default ``default``).
