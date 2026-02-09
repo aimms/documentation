@@ -4,6 +4,14 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 26.4.1.0 (February 9, 2026)
+------------------------------------
+
+**Resolved Issue**
+
+	- Fixed an unnecessary API error popup shown on the Secrets page for users with no access to secrets or directories.
+   - Updated the Secrets page icon in the Portal menu to be consistent.
+
 Version 26.3.2.0 (February 3, 2026)
 ------------------------------------
 
