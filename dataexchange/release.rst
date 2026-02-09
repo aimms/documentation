@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+26.1.7.1 [09-02-2026]
+	- HTTP status code 200 was inadvertently not included in the callbacks of generated OpenAPI clients when the response specified a `2xx` response.
+	
 26.1.6.1 [04-02-2026]
 	- File requests that ended in 403 or 404 status codes, were not picked up correctly during DLS upload and download of datasets, and lead to no errors reported during upload and unnecessary errors during download. 
 	
