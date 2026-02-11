@@ -78,7 +78,7 @@ apps
 aimmspack
 apikey
 URL
-openssl
+OpenSSL
 refactored
 scrollbar
 scrollbars
