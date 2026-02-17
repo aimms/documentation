@@ -21,7 +21,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  When executing a statement that refers to the stochastic suffix of a variable, and the index domain of the variable is not the same as the running domain of the statement, it could happen that defined sets in the declared domain were not updated in time.
+-  Using an element parameter in the OrderBy attribute or in the Sort function could sometimes lead to a severe internal error.
 -  In some rare situations a FOR statement could lead to a severe internal error when during an iterator the for loop indices and/or the data referred in the for loop condition changed.
 -  The NodelockTool was updated to link against OpenSSL 3.3.2.
 
