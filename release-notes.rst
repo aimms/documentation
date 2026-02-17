@@ -13,6 +13,23 @@ AIMMS 25.9
 
 
 
+AIMMS 25.9.8 Release (February 17, 2026 - build 25.9.8.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When executing a statement that refers to the stochastic suffix of a variable, and the index domain of the variable is not the same as the running domain of the statement, it could happen that defined sets in the declared domain were not updated in time.
+-  Gurobi 13.0 has been upgraded to version 13.0.1.
+
+--------------
+
+
+
+
+
 AIMMS 25.9.7 Release (February 11, 2026 - build 25.9.7.1).
 ------------------------------------------------------------------------------------------
 
