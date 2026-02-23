@@ -31,7 +31,7 @@ API Keys and Scopes
 -------------------
 
 Requests made to the PRO REST API are authenticated/authorized by means of *API Keys*.
-Users can generate *API Keys* from their PRO Portal's `User settings <https://documentation.aimms.com/cloud/newportal-usersettings.html>`_ page 
+.. Users can generate *API Keys* from their PRO Portal's `User api keys <https://documentation.aimms.com/cloud/newportal-user-api-keys.html>`_ page 
 
 Managing AIMMS
 --------------
