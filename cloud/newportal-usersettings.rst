@@ -35,4 +35,4 @@ API Keys
 
 API Keys have moved to a dedicated page in the Cloud Portal for easier access and management.
 
-.. To manage your API keys, navigate to the User API Keys page. See `User api keys <https://documentation.aimms.com/cloud/newportal-user-api-keys.html>`_ for more information.
+To manage your API keys, navigate to the User API Keys page. See `User api keys <https://documentation.aimms.com/cloud/newportal-user-api-keys.html>`_ for more information.
