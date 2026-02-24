@@ -33,23 +33,6 @@ Manage your account’s security settings:
 API Keys
 --------
 
-Requests made to the AIMMS PRO REST API are authenticated and authorized by using API Keys. This section lists all your active API keys used for programmatic access:
+API Keys have moved to a dedicated page in the Cloud Portal for easier access and management.
 
-* **Key Name** – The identifier of the key.
-* **Expiry Date** – When the key will no longer be valid. The maximum expiration date for any API key is **1 year** from the creation date.
-* **Scope** – The level of access the key provides (e.g., Authentication, PublishApp, Session, Task etc).
-
-To create a new API key, click **New API key**.
-To delete an existing API key, click the three-dot menu next to the key and select Delete.
-
-**Available Scopes**: Scopes allow you to limit the permissions of an API key. You can assign one or more scopes to a key based on the level of access required
-
-.. csv-table:: 
-   :header: "Scope", "Description"
-   :widths: 40, 40
-
-	Authentication , Allows operations on Environments; Groups and Users                                                    
-	PublishApp , "Allows management of AIMMS applications(e.g., publishing, updating, editing, deleting apps"                
-	Tasks , Allows management of Tasks 
-	API Key , "Permits operations on API keys themselves(e.g., creating, deleting keys)"
-	Session , "Enables operations related to WebUI; Solve and Task sessions(e.g., get session information, retrieve logs, terminate, delete session)"
+To manage your API keys, navigate to the User API Keys page. See `User api keys <https://documentation.aimms.com/cloud/newportal-user-api-keys.html>`_ for more information.

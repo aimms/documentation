@@ -30,8 +30,7 @@ The full OpenAPI specification of the AIMMS PRO REST API itself can be downloade
 API Keys and Scopes
 -------------------
 
-Requests made to the PRO REST API are authenticated/authorized by means of *API Keys*.
-Users can generate *API Keys* from their PRO Portal's `User settings <https://documentation.aimms.com/cloud/newportal-usersettings.html>`_ page 
+Requests made to the PRO REST API are authenticated/authorized by means of *API Keys*. Users can generate *API Keys* from their PRO Portal's `User api keys <https://documentation.aimms.com/cloud/newportal-user-api-keys.html>`_ page
 
 Managing AIMMS
 --------------
