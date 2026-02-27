@@ -13,6 +13,23 @@ AIMMS 25.9
 
 
 
+AIMMS 25.9.9 Release (February 27, 2026 - build 25.9.9.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The function GMP::SolverSession::GetMemoryUsed always returned 0 on Linux and AIMMS Cloud.
+-  We encountered an issue in which the WebUI stopped working (showing as messages like `AimmsMeOpenNode: the "AimmsWebUI" is not declared.`) after saving of a case. This has been fixed.
+
+--------------
+
+
+
+
+
 AIMMS 25.9.8 Release (February 17, 2026 - build 25.9.8.2).
 ------------------------------------------------------------------------------------------
 
