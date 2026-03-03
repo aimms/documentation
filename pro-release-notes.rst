@@ -11,7 +11,7 @@ Version 26.5.1.0 (February 24, 2026)
 
 	- **Dedicated User API Keys Page**: API Keys now have a dedicated page in the Cloud Portal, accessible from the left sidebar under User API Keys. Previously, API Keys were managed within the User Settings page. See `User api keys <https://documentation.aimms.com/cloud/newportal-user-api-keys.html>`_ for more information.
 	- **New Secret Scope for API Keys**: A new **Secret** scope is now available when creating an API key, allowing programmatic management of Secrets stored in the Cloud Portal.
-   - **API Key Management Endpoint**: API Key management has moved to the **User Manager API**. Both the previous and new endpoints are currently supported, however we recommend updating your integrations to use the new endpoint as the previous endpoint will be deprecated in a future release. See `Managing API Keys <https://documentation.aimms.com/cloud/managing-api-keys.html>`_ for more information.
+	- **API Key Management Endpoint**: API Key management has moved to the **User Manager API**. Both the previous and new endpoints are currently supported, however we recommend updating your integrations to use the new endpoint as the previous endpoint will be deprecated in a future release. See `Managing API Keys <https://documentation.aimms.com/cloud/managing-api-keys.html>`_ for more information.
 
 	
 Version 26.4.1.0 (February 9, 2026)
