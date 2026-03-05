@@ -17,46 +17,43 @@ You need to install the AIMMS SDK for developing and locally running Java, C# or
 
 You can download the latest version of the AIMMS SDK/SDK Server by clicking on one of the download links below.
 
-* `Download SDK 1.4.2.90 (Windows x86/x64) <https://download.aimms.com/aimms/download/data/SDK/AimmsSDK-1.4.2.90.msi>`_
-* `Download SDK 1.4.2.90 Server (Windows x64) <https://download.aimms.com/aimms/download/data/SDK/AimmsSDKServer-1.4.2.90.exe>`_
-* `Download SDK 1.4.2.90 (Linux x64) <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-1.4.2.90.tar.gz>`_
-* `Download SDK 1.4.2.90 Server (Linux x64, gcc 6.1) <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-1.4.2.90-gcc61.tar.gz>`_
-
 The Linux artifacts are also available as signed RPMs signed with `this key <https://download.aimms.com/aimms/download/data/PGP_RPM_Key/RPM-GPG-KEY-AIMMS>`_.
 
-* `Download SDK 1.4.2.90 (signed RPM for Linux x64) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-1.4.2-90.x86_64.rpm>`_
-* `Download SDK 1.4.2.90 Server (signed RPM for Linux x64, gcc 6.1) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-gcc61-1.4.2-90.x86_64.rpm>`_
 
 For Windows: 
 
 .. AimmsSDKServer-2.0.0.1.exe
-.. aimmssdk-2.0.0.1.tar.gz
-.. AimmsSDK-2.0.0.1.msi
-.. aimmssdk-2.0.0-1.x86_64.rpm
-.. aimmssdk-server-2.0.0.1.tar.gz
-.. aimmssdk-server-gcc11-2.0.0-1.x86_64.rpm
+.. aimmssdk-2.0.0.32.tar.gz
+.. AimmsSDK-2.0.0.32.msi
+.. aimmssdk-2.0.0-32.x86_64.rpm
+.. aimmssdk-server-2.0.0.32.tar.gz
+.. aimmssdk-server-gcc11-2.0.0-32.x86_64.rpm
 
 
-* `Download SDK 2.0.0 (Windows x86/x64)          <https://download.aimms.com/aimms/download/data/SDK/AimmsSDK-2.0.0.1.msi>`_
-* `Download SDK 2.0.0 Server (Windows x64)        <https://download.aimms.com/aimms/download/data/SDK/AimmsSDKServer-2.0.0.1.exe>`_
-* `Download SDK 2.0.0 (Linux x64)                 <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-2.0.0.1.tar.gz>`_
-* `Download SDK 2.0.0 Server (Linux x64, gcc 6.1) <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-2.0.0.1.tar.gz>`_
+* `Download SDK 2.0.0.32 (Windows x86/x64)          <https://download.aimms.com/aimms/download/data/SDK/AimmsSDK-2.0.0.32.msi>`_
+* `Download SDK 2.0.0.32 Server (Windows x64)        <https://download.aimms.com/aimms/download/data/SDK/AimmsSDKServer-2.0.0.32.exe>`_
+* `Download SDK 2.0.0.32 (Linux x64)                 <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-2.0.0.32.tar.gz>`_
+* `Download SDK 2.0.0.32 Server (Linux x64, gcc 6.1) <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-2.0.0.32.tar.gz>`_
 
 For Linux, signed RPM files are available for version 2.0:
 
-* `Download SDK 2.0.0 (signed RPM for Linux x64)                 <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-2.0.0-1.x86_64.rpm>`_
-* `Download SDK 2.0.0 Server (signed RPM for Linux x64, gcc 6.1) <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-gcc11-2.0.0-1.x86_64.rpm>`_
+* `Download SDK 2.0.0.32 (signed RPM for Linux x64)                 <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-2.0.0-32.x86_64.rpm>`_
+* `Download SDK 2.0.0.32 Server (signed RPM for Linux x64, gcc 6.1) <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-gcc11-2.0.0-32.x86_64.rpm>`_
 
 
 Older versions:
+* `Download SDK 1.4.2.90 (Windows x86/x64) <https://download.aimms.com/aimms/download/data/SDK/AimmsSDK-1.4.2.90.msi>`_
+* `Download SDK 1.4.2.90 Server (Windows x64) <https://download.aimms.com/aimms/download/data/SDK/AimmsSDKServer-1.4.2.90.exe>`_
+* `Download SDK 1.4.2.90 (Linux x64) <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-1.4.2.90.tar.gz>`_
+* `Download SDK 1.4.2.90 Server (Linux x64, gcc 6.1) <https://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-1.4.2.90-gcc61.tar.gz>`_
+* `Download SDK 1.4.2.90 (signed RPM for Linux x64) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-1.4.2-90.x86_64.rpm>`_
+* `Download SDK 1.4.2.90 Server (signed RPM for Linux x64, gcc 6.1) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-gcc61-1.4.2-90.x86_64.rpm>`_
 
 * `Download SDK 1.4.2.26 (Windows x86/x64) <http://download.aimms.com/aimms/download/data/SDK/AimmsSDK-1.4.2.26.msi>`_
 * `Download SDK 1.4.2.26 Server (Windows x64) <http://download.aimms.com/aimms/download/data/SDK/AimmsSDKServer-1.4.2.26.exe>`_
 * `Download SDK 1.4.2.26 (Linux x64) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-1.4.2.26.tar.gz>`_
 * `Download SDK 1.4.2.26 Server (Linux x64, gcc 6.1) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-1.4.2.26-gcc61.tar.gz>`_
 * `Download SDK 1.4.2.26 Server (Linux x64, gcc 4.9) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-1.4.2.26-gcc49.tar.gz>`_
-
-
 * `Download SDK 1.4.2.26 (signed RPM for Linux x64) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-1.4.2-26.x86_64.rpm>`_
 * `Download SDK 1.4.2.26 Server (signed RPM for Linux x64, gcc 6.1) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-gcc61-1.4.2-26.x86_64.rpm>`_
 * `Download SDK 1.4.2.26 Server (signed RPM for Linux x64, gcc 4.9) <http://download.aimms.com/aimms/download/data/SDK/aimmssdk-server-gcc49-1.4.2-26.x86_64.rpm>`_
@@ -64,7 +61,11 @@ Older versions:
 Release history
 ---------------
 
-Version 2.0.0
+Version 2.0.0.32
++++++++++++++++++
+This version of the SDK introduces a new naming convention for the former 'armi4cxx' library, which is now called 'armi4sdk', where some legacy features are still available that have been removed with recent versions of armi4cxx that are shipped with AIMMS versions 24 and above. 
+
+Version 2.0.0.1
 ++++++++++++++++
 Works with AIMMS 25.
 
