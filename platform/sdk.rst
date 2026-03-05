@@ -156,3 +156,5 @@ Version 1.1.2.8, contained json.net version 8.0.1 for the .net front end.
 
     gcc
     stdc
+    cxx
+    sdk
