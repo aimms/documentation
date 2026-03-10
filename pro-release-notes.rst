@@ -206,7 +206,7 @@ On March 10, 2026 we released AIMMS PRO 26.1.1(26.1.1.3)
 
 **Improvements**
 
--  We have updated several third-party dependencies across the legacy Java codebase to improve security and stability,
+-  As part of our SOC2 compliance initiative, we have updated several third-party dependencies across the legacy Java codebase to improve security and stability,
 
    -  Kubernetes – Updated job startup dependencies for improved compatibility and reliability.
    -  Active Directory (JSlounge) – Upgraded to address security and compatibility concerns.
