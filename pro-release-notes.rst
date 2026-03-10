@@ -196,13 +196,34 @@ Task Scheduler (Version 25.2.1.0 - May 15, 2025)
 - **New Endpoint**
    - ``GET /tasks/{id}/logs``: Introduced a new endpoint to retrieve task logs.
 
+PRO 26.1
+#########
+
+AIMMS PRO 26.1.1 Release
+-------------------------
+
+On March 10, 2026 we released AIMMS PRO 26.1.1(26.1.1.3)
+
+**Improvements**
+
+-  We have updated several third-party dependencies across the legacy Java codebase to improve security and stability,
+
+   -  Kubernetes – Updated job startup dependencies for improved compatibility and reliability.
+   -  Active Directory (JSlounge) – Upgraded to address security and compatibility concerns.
+   -  SAML (OpenSAML) – Upgraded to remediate known vulnerabilities.
+   -  Database & Core Framework – General library updates to reduce CVE exposure.
+
+**Resolved Issue**
+
+-  Security Fix: **CVE-2025-1094** – PostgreSQL 16.2 (On-Premise PRO only) is resolved by upgrading PostgreSQL to 16.11.
+
 PRO 25.15
 #########
 
 AIMMS PRO 25.15.1 Release
 -------------------------
 
-On January 6, 6, we released AIMMS PRO 25.15.1(*Cloud build*: 25.15.1.3)
+On January 6, 2026, we released AIMMS PRO 25.15.1(*Cloud build*: 25.15.1.3)
 
 **Resolved Issues**
 
