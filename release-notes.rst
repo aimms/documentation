@@ -24,7 +24,7 @@ AIMMS Improvements
 -  We modernized the Nonlinear Programming (NLP) generator. The legacy NLP generator has been replaced with the same modern architecture already powering linear model generation. This change is not intended to have any significant impact on your experience. Two things worth noting:
 
    - Solution differences are possible. The generated math program may differ slightly from the legacy generator (variable ordering, constraint ordering). Objective values will be the same if a global solver (e.g., BARON, Gurobi) is used, but might differ if a local solver (e.g., CONOPT, Knitro) is used. The specific optimal solution returned by the solver may also vary. This is normal behavior when the underlying matrix structure changes.
-   - Option: 'Equal bounds imply nonvar'. The legacy generator applied this transformation automatically. The new generator makes it opt-in, since it adds overhead that isn't always justified. For NLP models in particular, we recommend enabling it. It can reduce both model size and the number of nonlinearities, which helps solver performance.
+   - Option 'Equal bounds imply nonvar'. The legacy generator applied this transformation automatically. The new generator makes it opt-in, since it adds overhead that isn't always justified. For NLP models in particular, we recommend enabling it. It can reduce both model size and the number of nonlinearities, which helps solver performance.
 
 -  AIMMS can now also scale stochastic programming models, before sending the model to the solver, by switching on the option 'Scale model'. The Scale Model action inside the Math Program Inspector now also supports stochastic programming models.
 
