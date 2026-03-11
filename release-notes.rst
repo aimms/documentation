@@ -21,11 +21,10 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  AIMMS can now also scale stochastic programming models, before sending the model to the solver, by switching on the option 'Scale model'. The Scale Model action inside the Math Program Inspector now also supports stochastic programming models.
 -  We modernized the Nonlinear Programming (NLP) generator. The legacy NLP generator has been replaced with the same modern architecture already powering linear model generation. This change is not intended to have any significant impact on your experience. Two things worth noting:
-
-* Solution differences are possible. The generated math program may differ slightly from the legacy generator (variable ordering, constraint ordering). Objective values will be the same if a global solver (e.g., BARON, Gurobi) is used, but might differ if a local solver (e.g., CONOPT, Knitro) is used. The specific optimal solution returned by the solver may also vary. This is normal behavior when the underlying matrix structure changes.
-* Option: equals_bounds_imply_nonvar. The legacy generator applied this transformation automatically. The new generator makes it opt-in, since it adds overhead that isn't always justified. For NLP models in particular, we recommend enabling it. It can reduce both model size and the number of nonlinearities, which helps solver performance.
+   * Solution differences are possible. The generated math program may differ slightly from the legacy generator (variable ordering, constraint ordering). Objective values will be the same if a global solver (e.g., BARON, Gurobi) is used, but might differ if a local solver (e.g., CONOPT, Knitro) is used. The specific optimal solution returned by the solver may also vary. This is normal behavior when the underlying matrix structure changes.
+   * Option: equals_bounds_imply_nonvar. The legacy generator applied this transformation automatically. The new generator makes it opt-in, since it adds overhead that isn't always justified. For NLP models in particular, we recommend enabling it. It can reduce both model size and the number of nonlinearities, which helps solver performance.
+-  AIMMS can now also scale stochastic programming models, before sending the model to the solver, by switching on the option 'Scale model'. The Scale Model action inside the Math Program Inspector now also supports stochastic programming models.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
@@ -33,7 +32,7 @@ Resolved AIMMS Issues
 -  The implementation of the Read and Write statement has been changed so that it can now be used by the new compiler. If you get any unexpected errors on existing Read or Write statements, please contact support.
 -  An incorrect usage of the operators $ or | is now reported as an error. In previous versions it was a warning of a deprecated construct.
 -  In a constraint, an expression PROD(i | x(i) $ condition(i) ) was executed as if written like: PROD( i | condition(i), x(i) ). Note that the first notation will very easily result in a 0.
--  If you set the option 'equal_bounds_imply_nonvar' to 1, then this now implies that prior to a solve level values of a variable are pushed between bounds (which is otherwise controlled by the option move_nonvar_level_within_bounds).
+-  If you switch on the option 'Equal bounds imply nonvar' then this now implies that prior to a solve level values of a variable are pushed between bounds (which is otherwise controlled by the option 'Move nonvar level within bounds').
 -  An expression -10^2, was in some situations executed wrongly. It could result in (-10)^2 instead of -(10^2).
 -  Changing the lower or upper bound of a variable via the .lower and .upper suffices, now makes sure that the bound becomes a closed bound. This was not always working consistently.
 -  The function Correlation and RankCorrelation are now supported by the new compiler/engine.
@@ -355,9 +354,9 @@ AIMMS Improvements
 -  The procedure :any:`GMP::SolverSession::Delete` has been added. It replaces the procedure GMP::Instance::DeleteSolverSession, which has become deprecated.
 -  The procedures :any:`GMP::SolverSession::SetOptionValue` and :any:`GMP::SolverSession::GetOptionValue` can now also be used for several Solvers General options, including 'Time limit'.
 -  The procedure :any:`GMP::SolverSession::SetOptionValue` can now be used to set a small set of options, including 'Time limit', inside a callback procedure of Gurobi 12.0.
--  The new math program generator has a new option move_nonvar_level_within_bounds which makes sure that a variable with a nonvar status uses a level value that is within the current lower and upper bound. With this option switched on the new math program generator behaves more like the old generator.
+-  The new math program generator has a new option 'Move nonvar level within bounds' which makes sure that a variable with a nonvar status uses a level value that is within the current lower and upper bound. With this option switched on the new math program generator behaves more like the old generator.
 -  The new math program generator now uses the option eliminate_nonvar_columns to decide whether variables are just frozen or are eliminated from the math program.
--  The new math program generator has a new option equal_bounds_imply_nonvar which makes sure that variables for which the lower bound equals the upper bound are now treated as if the nonvar status is larger than 0. With this option switched on the new math program generator behaves more like the old generator.
+-  The new math program generator has a new option 'Equal bounds imply nonvar' which makes sure that variables for which the lower bound equals the upper bound are now treated as if the nonvar status is larger than 0. With this option switched on the new math program generator behaves more like the old generator.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
