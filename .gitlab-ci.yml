@@ -78,7 +78,7 @@ az_deploy:
 
 upload_html_to_rfx_blob:
   <<: *run_on_dockerhost
-  stage: deploy
+  stage: build-and-deploy
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
       when: on_success
