@@ -100,6 +100,6 @@ upload_html_to_rfx_blob:
     - >
       az storage blob sync
       --connection-string "$RALFXPROJECT_CONNECTION_STRING"
-      --container rfx-aimms-howto
+      --container rfx-aimms-doc
       --source _build/flat
       --delete-destination true
