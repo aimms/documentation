@@ -15,7 +15,7 @@ New Features and Bug Fixes
 --------------------------
 
 25.1.8.1 [17-03-2026]
-	- Element parameters into a _subset of a calendar_, from a row-based format like Parquet or CSV would not be read back in
+	- Element parameters into a *subset of a calendar*, from a row-based format like Parquet or CSV would not be read back in
 	- Refactor of set element caching lead to performance degradation. 
 	
 26.1.7.1 [09-02-2026]
