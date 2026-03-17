@@ -14,6 +14,10 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 New Features and Bug Fixes
 --------------------------
 
+25.1.8.1 [17-03-2026]
+	- Element parameters into a _subset of a calendar_, from a row-based format like Parquet or CSV would not be read back in
+	- Refactor of set element caching lead to performance degradation. 
+	
 26.1.7.1 [09-02-2026]
 	- HTTP status code 200 was inadvertently not included in the callbacks of generated OpenAPI clients when the specification specified a `2xx` response.
 	
