@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+26.1.2.1 [18-03-2026]
+	- Identifiers with integer values and non-zero defaults, would, when changed back to their default, not show the default on checkout but rather 0.0.
+	- When switching branches, overridden data for managed external data identifiers would not be reset to their external data value, but retain the overridden values from the original branch.
+
 26.1.1.1 [20-01-2026]
 	- Add new capability to clone a cloud CDM database to a SQLite database uploaded to Azure Blob Storage container.
 	
