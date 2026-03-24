@@ -128,7 +128,14 @@ Version 25.3.1.0 (April 15, 2025)
 PRO REST API Updates
 ####################
 
-Task Scheduler (Version 26.1.1.0 - February 3, 2025)
+Task Scheduler (Version 26.1.2.0 - March 24, 2026)
+----------------------------------------------------
+
+- **Resolved Issue**
+
+   - Fixed an issue where recurring tasks could fail with error - *Downloading request blob failed with a 403 status and 0 error code* due to an expired request SAS URI. The Task Scheduler now automatically renews the SAS URI on each scheduled run, which resolves the issue.
+
+Task Scheduler (Version 26.1.1.0 - February 3, 2026)
 ----------------------------------------------------
 
 - **Improvements**
