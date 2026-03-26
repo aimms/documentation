@@ -13,6 +13,24 @@ AIMMS 26.1
 
 
 
+AIMMS 26.1.2 Release (March 26, 2026 - build 26.1.2.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  An If condition containing both a call to procedure and an iterative operator could lead to a severe internal error.
+-  Adding runtime identifiers could lead to a situations where definitions were unnecessarily re-evaluated, because deep down in the dependencies of a definitions there were references to AllIdentifiers or AllSymbols. These references are now no longer there if not really necessary.
+-  The function GMP::Instance::GetattributeValue was not always returning the correct value for attribute values 'Runtime' and 'Work' when using CPLEX.
+
+--------------
+
+
+
+
+
 AIMMS 26.1.1 Release (March 11, 2026 - build 26.1.1.1).
 ------------------------------------------------------------------------------------------
 
