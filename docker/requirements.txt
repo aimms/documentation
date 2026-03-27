@@ -1,0 +1,15 @@
+sphinx-aimms-theme==0.1.46
+sphinx-sitemap==2.5.1
+sphinx-last-updated-by-git==0.3.6
+sphinxcontrib-applehelp==1.0.4
+sphinxcontrib-bibtex==2.6.1
+sphinxcontrib-devhelp==1.0.2
+sphinxcontrib-htmlhelp==2.0.1
+sphinxcontrib-jquery==4.1
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-serializinghtml==1.1.5
+sphinxcontrib-spelling==8.0.0
+sphinx_design==0.4.0
+aimms-pygments-style==2020.7.8
+sphinx==4.5.0
