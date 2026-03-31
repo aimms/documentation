@@ -15,7 +15,16 @@ from docutils.parsers.rst import directives
 from sphinx import addnodes
 from sphinx.directives import ObjectDescription
 from sphinx.domains import Domain, ObjType
-from sphinx.domains.python import _pseudo_parse_arglist
+
+def _pseudo_parse_arglist(signode, arglist):
+    """Parse a comma-separated argument list into desc_parameterlist nodes."""
+    paramlist = addnodes.desc_parameterlist()
+    for argument in arglist.split(','):
+        argument = argument.strip().strip('[]')
+        if argument:
+            paramlist += addnodes.desc_parameter(argument, argument)
+    signode += paramlist
+
 from sphinx.locale import _
 from sphinx.roles import XRefRole
 from sphinx.util.docfields import Field, GroupedField, TypedField
