@@ -39,8 +39,13 @@ extensions = ['sphinx.ext.doctest',
     'sphinx.ext.mathjax',
     'sphinx.builders.linkcheck',
     'sphinx.ext.intersphinx',
-    'sphinx_aimms_theme',
-    'sphinxcontrib.spelling']
+    'sphinx_aimms_theme']
+
+try:
+    import sphinxcontrib.spelling  # noqa: F401
+    extensions.append('sphinxcontrib.spelling')
+except Exception:
+    pass
 
 intersphinx_mapping = {'functionreference': ('https://documentation.aimms.com/functionreference/',
                                   None),
