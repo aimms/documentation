@@ -159,6 +159,11 @@ language = 'en'
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv']
 
+# Suppress warnings for broken :doc: cross-references to pages that live in
+# other repos (e.g. language-reference, user-guide). These are pre-existing
+# and cannot be fixed here without removing the links entirely.
+suppress_warnings = ['ref.doc']
+
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
@@ -188,7 +193,6 @@ else:
 # documentation.
 html_theme_options = {
     'logo_only': True,
-    'display_version': False,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
     # 'vcs_pageview_mode': '',

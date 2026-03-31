@@ -10,18 +10,18 @@ stages:
 # the .. spelling:word-list:: directive (registered by sphinxcontrib.spelling).
 # Without the extension loaded the directive is unknown and -W fails the build.
 .install_uv: &install_uv
-  - apt-get update -qq && apt-get install -y -qq libenchant-2-2
+  - apt-get update -qq && apt-get install -y -qq git libenchant-2-2
   - pip install uv --quiet
   - uv sync --quiet
 
 .install_uv_with_rsync: &install_uv_with_rsync
-  - apt-get update -qq && apt-get install -y -qq libenchant-2-2 rsync openssh-client
+  - apt-get update -qq && apt-get install -y -qq git libenchant-2-2 rsync openssh-client
   - pip install uv --quiet
   - uv sync --quiet
 
-# azure-cli image is Alpine-based; enchant package name differs
+# azure-cli image is Alpine-based; enchant and git package names differ
 .install_uv_azure: &install_uv_azure
-  - apk add --no-cache enchant2
+  - apk add --no-cache git enchant2
   - pip install uv --quiet
   - uv sync --quiet
 
