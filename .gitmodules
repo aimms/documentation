@@ -1,6 +1,0 @@
-[submodule "aimms-sphinx/aimms-pygments-style"]
-	path = aimms-sphinx/aimms-pygments-style
-	url = https://gitlab.aimms.com/aimms/doc/aimms-pygments-style.git
-[submodule "aimms-sphinx/sphinx-aimms-theme"]
-	path = aimms-sphinx/sphinx-aimms-theme
-	url = https://gitlab.aimms.com/aimms/doc/sphinx-aimms-theme.git

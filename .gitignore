@@ -12,3 +12,4 @@
 _build
 /guardserversession/model/FlowShop/log
 /venv/
+/.claude/settings.local.json
