@@ -13,3 +13,5 @@ _build
 /guardserversession/model/FlowShop/log
 /venv/
 /.claude/settings.local.json
+/aimms-plugins/aimms-pygments-style/aimms_pygments_style.egg-info
+/aimms-plugins/sphinx-aimms-theme/sphinx_aimms_theme.egg-info
