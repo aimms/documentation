@@ -8,46 +8,36 @@ AIMMS documentation site built with Sphinx (reStructuredText). Published to http
 
 ## Build Commands
 
-The preferred way to build locally is via Docker, using the image built from `docker/Dockerfile`:
+Dependencies are managed via `pyproject.toml` using [uv](https://docs.astral.sh/uv/). The two AIMMS plugins are installed directly from the in-repo `aimms-plugins/` sources — no PyPI publish step needed.
 
 ```bash
-# Build the image once (from repo root)
-docker build -t sphinx-doc-builder docker/
+# One-time setup: install uv (if not already installed)
+pip install uv          # or: winget install astral-sh.uv  (Windows)
 
-# Build HTML documentation
-docker run --rm -it -v .:/src sphinx-doc-builder sphinx-build -W --keep-going -b html /src /src/_build/html
-
-# Spell check
-docker run --rm -it -v .:/src sphinx-doc-builder sphinx-build -W --keep-going -b spelling /src /src/_build/spelling
-
-# Link check
-docker run --rm -it -v .:/src sphinx-doc-builder sphinx-build -W --keep-going -b linkcheck /src /src/_build/linkcheck
-```
-
-Alternatively, install dependencies natively and use `make`:
-
-```bash
-python3 -m pip install sphinx sphinxcontrib.spelling sphinx-aimms-theme aimms-pygments-style
+# Install all dependencies into a local .venv
+uv sync
 ```
 
 | Task | Command |
 |---|---|
-| Build HTML | `make html` |
-| Spell check | `python3 -m sphinx -b spelling . _build/spelling` |
-| Link check (internal) | `make linkcheck` |
-| Link check (with external) | `python3 -m sphinx -W --keep-going -b linkcheck . _build/linkcheck` |
-| Build PDF | `make latexpdf` (requires MikTeX on Windows) |
+| Build HTML | `uv run sphinx-build -W --keep-going -b html . _build/html` |
+| Spell check | `uv run sphinx-build -W --keep-going -b spelling . _build/spelling` |
+| Link check | `uv run sphinx-build -W --keep-going -b linkcheck . _build/linkcheck` |
+| Build PDF | `uv run make latexpdf` (requires MikTeX on Windows) |
+
+> **Spell check system dependency:** `sphinxcontrib-spelling` requires the native `enchant` library.
+> Linux: `apt install libenchant-2-2` · macOS: `brew install enchant` · Windows: usually works out of the box.
 
 **CI uses `-W --keep-going`** — any Sphinx warning fails the pipeline. Build locally and confirm zero warnings before pushing.
 
 ## Custom Sphinx Plugins
 
-Two AIMMS-owned packages are published to PyPI and installed via `docker/requirements.txt`:
+Two AIMMS-owned packages live in `aimms-plugins/` and are installed as editable installs directly from source via `pyproject.toml`:
 
 - **`sphinx-aimms-theme`** — custom HTML theme, AIMMS domain (`:aimms:set:`, etc.), AIMMS lexer for syntax highlighting, and spelling filters. Source: `aimms-plugins/sphinx-aimms-theme/`.
 - **`aimms-pygments-style`** — Pygments lexer/style for AIMMS language syntax. Source: `aimms-plugins/aimms-pygments-style/`.
 
-When changes to these plugins are needed, update the source in `aimms-plugins/`, bump the version in `setup.cfg`, build and upload to PyPI manually, then update the pinned version in `docker/requirements.txt` and rebuild the Docker image.
+When changes to these plugins are needed, update the source in `aimms-plugins/` and run `uv sync` — changes are reflected immediately without any publish step. To release a new version to PyPI (for external consumers), bump the version in `setup.py` and publish manually.
 
 ## Architecture
 
