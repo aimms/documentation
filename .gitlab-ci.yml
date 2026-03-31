@@ -6,17 +6,22 @@ stages:
   - build-and-deploy
 
 # Reusable before_script fragments
+# enchant is required in all sphinx-build jobs because RST files use
+# the .. spelling:word-list:: directive (registered by sphinxcontrib.spelling).
+# Without the extension loaded the directive is unknown and -W fails the build.
 .install_uv: &install_uv
-  - pip install uv --quiet
-  - uv sync --quiet
-
-.install_uv_with_enchant: &install_uv_with_enchant
   - apt-get update -qq && apt-get install -y -qq libenchant-2-2
   - pip install uv --quiet
   - uv sync --quiet
 
 .install_uv_with_rsync: &install_uv_with_rsync
-  - apt-get update -qq && apt-get install -y -qq rsync openssh-client
+  - apt-get update -qq && apt-get install -y -qq libenchant-2-2 rsync openssh-client
+  - pip install uv --quiet
+  - uv sync --quiet
+
+# azure-cli image is Alpine-based; enchant package name differs
+.install_uv_azure: &install_uv_azure
+  - apk add --no-cache enchant2
   - pip install uv --quiet
   - uv sync --quiet
 
@@ -48,7 +53,7 @@ spellcheck:
   <<: *on_docker_runner
   stage: test
   image: python:3.11-slim
-  before_script: *install_uv_with_enchant
+  before_script: *install_uv
   script:
     - uv run sphinx-build -W --keep-going -b spelling . _build/spelling
 
@@ -93,7 +98,7 @@ az_deploy:
   <<: *on_docker_runner
   stage: build-and-deploy
   image: mcr.microsoft.com/azure-cli
-  before_script: *install_uv
+  before_script: *install_uv_azure
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
       when: on_success
@@ -106,7 +111,7 @@ upload_html_to_rfx_blob:
   <<: *on_docker_runner
   stage: build-and-deploy
   image: mcr.microsoft.com/azure-cli
-  before_script: *install_uv
+  before_script: *install_uv_azure
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
       when: on_success
