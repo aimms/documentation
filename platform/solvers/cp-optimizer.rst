@@ -16,4 +16,4 @@ About IBM ILOG CP Optimizer
 
 CP Optimizer Supported Versions
 -------------------------------------
-AIMMS supports CP Optimizer 12.9 – 22.1.
+AIMMS supports CP Optimizer 22.1.
