@@ -30,12 +30,6 @@ RUN apt-get install -y \
         azure-cli \
         libenchant-2-2
 
-RUN apt-get install -y \
-        texlive-latex-recommended \
-        texlive-fonts-recommended \
-        texlive-latex-extra \
-        latexmk
-
 RUN wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz && cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
 
 COPY requirements.txt /tmp/requirements.txt
