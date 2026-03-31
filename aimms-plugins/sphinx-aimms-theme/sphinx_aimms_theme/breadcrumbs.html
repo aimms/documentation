@@ -1,0 +1,58 @@
+{# Support for Sphinx 1.3+ page_source_suffix, but don't break old builds. #} {% if page_source_suffix %} {% set suffix = page_source_suffix %} {% else %} {% set suffix = source_suffix %} {% endif %}
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+    {% block menu %} 
+    <nav class="main-menu">
+        <a href="https://aimms.com/" class="logo"><img src="{{ pathto('_static/AIMMS_logo_H_RGB.png', 1) }}" alt="AIMMS Logo" title="AIMMS Help &amp; Support"></a>
+    </nav>
+    {% endblock %}
+    {% block OSlink %}
+    {% if pagename != master_doc %}
+        <ul class="wy-breadcrumbs">
+            {% block breadcrumbs %}
+            <li><a href="{{ pathto(master_doc) }}">{{ theme_doc_title }}</a> &raquo;</li>
+            {% for doc in parents %}
+            <li><a href="{{ doc.link|e }}">{{ doc.title }}</a> &raquo;</li>
+            {% endfor %}
+            <li>{{ title }}</li>
+            {% endblock %} 
+            <li class="side-rate-review" style="float:right;">
+            {% if theme_display_help_and_feedback %}
+            {% if theme_is_github %}
+              <a class="fa fa-github" href="{{ theme_repo_url }}/tree/{{ "master" }}/{{ conf_py_path }}{{ pagename }}{{ ".rst" }}"> Edit on Github</a>
+            {% elif theme_is_gitlab %}
+              <a class="fa fa-gitlab" href="{{ theme_repo_url }}/-/blob/{{ "master" }}/{{ conf_py_path }}{{ pagename }}{{ ".rst" }}"> Edit on Gitlab</a>
+            {% endif %}
+            {% endif %}
+            </li>
+        </ul>
+
+        {% if (theme_prev_next_buttons_location == 'top' or theme_prev_next_buttons_location == 'both') and (next or prev) %}
+        <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+            {% if next %}
+            <a href="{{ next.link|e }}" class="btn btn-neutral float-right" title="{{ next.title|striptags|e }}" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a> {% endif %} {% if prev %}
+            <a href="{{ prev.link|e }}" class="btn btn-neutral float-left" title="{{ prev.title|striptags|e }}" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a> {% endif %}
+        </div>
+        {% endif %}
+    {% endif %}
+    {% endblock %}
+</div>
+
+{% block right_side_panel %}
+{% if pagename == master_doc or not theme_display_local_toc %} {% set display_toc = False %} {% endif %}
+
+{% if display_toc %}
+<div class="localtoc">
+    {% block local_toc %}
+    <div class="caption"> 
+      {% if theme_display_help_and_feedback %}
+      <a class="fa fa-exclamation-circle" href="#help-&-feedback" > Help & feedback</a>
+      <br><br>
+      {% endif %}
+      {{ _('Table Of Contents') }}</div>
+    {{ toc }}
+    {% endblock %}
+</div>
+{% endif %} 
+{% endblock %}

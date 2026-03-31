@@ -1,0 +1,41 @@
+<footer>
+    {% if (theme_prev_next_buttons_location == 'bottom' or theme_prev_next_buttons_location == 'both') and (next or prev) %}
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        {% if next %}
+        <a href="{{ next.link|e }}" class="btn btn-neutral float-right" title="{{ next.title|striptags|e }}" accesskey="n" rel="next">{{ _('Next') }} <span class="fa fa-arrow-circle-right"></span></a> 
+        {% endif %} 
+        {% if prev %}
+        <a href="{{ prev.link|e }}" class="btn btn-neutral float-left" title="{{ prev.title|striptags|e }}" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> {{ _('Previous') }}</a> 
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <hr class="footer-separator"/>
+
+    <div class="footer-container">
+        
+        <div class="footer-left">
+            <a href="https://aimms.com">
+                <img src="{{ pathto('_static/AIMMS_logo_S_RGB.png', 1) }}" alt="AIMMS Logo" class="footer-logo">
+            </a>
+        </div>
+
+        <div class="footer-center">
+            <ul class="social-icons">
+                <li><a href="https://facebook.com/aimms" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/aimms" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://x.com/aimms" target="_blank"><i class="fa fa-twitter"></i></a></li> 
+                <li><a href="https://www.youtube.com/user/AIMMSChannel" target="_blank"><i class="fa fa-youtube"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="footer-right">
+            <a href="https://aimms.com/english/disclaimer/">Disclaimer</a>
+            <a href="https://aimms.com/english/privacy-statement/">Privacy Policy</a>
+            <span class="copyright">© 1989 - {{ current_year() }} AIMMS B.V.</span>
+        </div>
+
+    </div>
+
+    {%- block extrafooter %} {% endblock %}
+</footer>
