@@ -33,4 +33,4 @@ Knitro is developed and supported by `Artelys <http://www.artelys.com/en/optimiz
 
 Knitro Supported Versions
 -----------------------------
-AIMMS supports Knitro 12.3 – 14.0.
+AIMMS supports Knitro 13.2 – 14.0.

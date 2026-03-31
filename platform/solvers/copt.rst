@@ -30,4 +30,4 @@ About Cardinal Operations
 
 COPT Supported Versions
 -------------------------------------
-AIMMS supports COPT 6.0.
+AIMMS supports COPT 7.2.
