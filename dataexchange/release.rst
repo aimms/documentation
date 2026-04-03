@@ -14,7 +14,12 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 New Features and Bug Fixes
 --------------------------
 
-25.1.8.1 [17-03-2026]
+26.1.9.1 [03-04-2026]
+	- Display names for a subset that were actually defined over a parent set, would lead to an unexpected error message for a failed `ReadFromFile` call when a display name for a parent, but not sub-set, element was encountered and the `binds-existing` attribute was set. 
+	- Dataset annotations handling for large models with many data categories and tables was unnecessarily slow because of dense string comparison.
+	- Add support for only generating dataset mappings for selected datasets.
+
+26.1.8.1 [17-03-2026]
 	- Element parameters into a *subset of a calendar*, from a row-based format like Parquet or CSV would not be read back in
 	- Refactor of set element caching lead to performance degradation. 
 	
