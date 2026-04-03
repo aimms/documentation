@@ -13,6 +13,24 @@ AIMMS 26.1
 
 
 
+AIMMS 26.1.3 Release (April 03, 2026 - build 26.1.3.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Since version 26.1.1 there was a strange error when reading/writing to an indexed database in which one of the domain sets is a subset of Integers.
+-  If the .ams file contains duplicate names for certain model nodes, you now get a warning on this and the nodes are automatically renamed to a unique name. Within the IDE itself it is not possible to create duplicate names, but because of merging or manual editing of the .ams file, this could happen and it could cause problems at various places.
+-  Since version 25.5.1, using an index in the OrderBy of a subset of Integers, incorrectly resulted in a lexicographical ordering of integers, like in { 1, 10, 100, 2, 3 }.
+
+--------------
+
+
+
+
+
 AIMMS 26.1.2 Release (March 26, 2026 - build 26.1.2.1).
 ------------------------------------------------------------------------------------------
 
