@@ -203,6 +203,18 @@ Task Scheduler (Version 25.2.1.0 - May 15, 2025)
 - **New Endpoint**
    - ``GET /tasks/{id}/logs``: Introduced a new endpoint to retrieve task logs.
 
+PRO 26.2
+#########
+
+AIMMS PRO 26.2.2 Release
+-------------------------
+
+On April 8, 2026 we released AIMMS PRO 26.2.2(26.2.2.5)
+
+**Improvements**
+
+-  As part of our SOC2 compliance initiative, upgraded the platform from Java 8 to Java 25, updating several third-party dependencies across 18+ Maven modules to improve security and stability.
+
 PRO 26.1
 #########
 
