@@ -214,6 +214,7 @@ On April 8, 2026 we released AIMMS PRO 26.2.2(26.2.2.5)
 **Improvements**
 
 -  As part of our SOC2 compliance initiative, upgraded the platform from Java 8 to Java 25, updating several third-party dependencies across 18+ Maven modules to improve security and stability.
+-  The AIMMS PRO On premise JDK distribution switched from Oracle JDK to Eclipse Temurin (Adoptium) OpenJDK (25.0.2+10).
 
 PRO 26.1
 #########
