@@ -118,7 +118,7 @@ Version 25.8.1.0 (September 4, 2025)
 	- **Filter** sessions per column (e.g., Session ID, State, Application Name/Version, Created date) to quickly locate specific runs.
 	- **Sort** sessions by any column in ascending or descending order.
    
-For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-sessions.html#filtering-sorting-sessions>`__
+For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-sessions.html#filtering-and-sorting-sessions>`__
 
 Version 25.6.1.0 (July 24, 2025)
 --------------------------------

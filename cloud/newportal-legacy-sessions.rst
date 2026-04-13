@@ -19,8 +19,9 @@ Tabs Overview
 
 **Solver**: View and manage sessions related to solver activities (e.g., optimization sessions).
 
-.. image:: images/newportal-legacy-sessions.png
+.. image:: images/newportal-leagcy-sessions.png
     :align: center
+
 
 Usage
 ^^^^^

@@ -35,6 +35,7 @@ The Sessions page is divided into two tabs:
 .. image:: images/newportal-new-sessions-page.png
     :align: center
 
+
 The Data Tab
 ^^^^^^^^^^^^
 
