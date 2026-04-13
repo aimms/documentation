@@ -7,6 +7,10 @@ The Sessions page in the AIMMS Cloud Portal gives you a centralized overview of 
 	
 	* If you need to access sessions from before this update, click **Show legacy sessions** in the top-right corner of the page.
 	* **Task** sessions are currently available on the dedicated Tasks page. Support for Tasks will be added to the Sessions page in a future update.
+	* The following sessions will still appear under Legacy Sessions > Solver until the release of **AIMMS PRO 26.3**, which will be available shortly:
+		
+		* Solver sessions started from WinUI apps.
+		* Solver sessions started from WebUI apps published with **AIMMS version lower than 4.88**.
 	
 Key Features
 ^^^^^^^^^^^^
@@ -19,7 +23,6 @@ The new Sessions page introduces:
 * **Session Stats** — A dedicated tab with aggregated insights into session usage and performance across your applications.
 * **Session Events** — A new context menu option to view a chronological timeline of events for any session.
 * **Improved filtering** — A flexible filter bar to narrow down sessions across any column.
-* **Bulk actions** — Terminate or delete multiple sessions at once.
 
 Page Overview
 ^^^^^^^^^^^^^
@@ -96,10 +99,3 @@ Legacy Sessions
 ^^^^^^^^^^^^^^^^
 
 To access sessions recorded before the new Sessions page was introduced, click `Show legacy sessions <https://documentation.aimms.com/cloud/newportal-legacy-sessions.html>`_ in the top-right corner. This opens the previous session view with the WebUI and Solver tabs.
-
-.. note::
-	
-	The following sessions will still appear under Legacy Sessions > Solver until the release of **AIMMS PRO 26.3**, which will be available shortly:
-
-	* Solver sessions started from WinUI apps.
-	* Solver sessions started from WebUI apps published with AIMMS version lower than **4.88**.

@@ -5,6 +5,13 @@ The WebUI and Solve sessions recorded before the new Sessions page was introduce
 
 If you are an administrator, you will not only see your own sessions but also all sessions created by other users.
 
+.. note::
+
+	The following sessions will still appear under Legacy Sessions > Solver until the release of **AIMMS PRO 26.3**, which will be available shortly:
+
+		* Solver sessions started from WinUI apps.
+		* Solver sessions started from WebUI apps published with **AIMMS version lower than 4.88**.
+
 Tabs Overview
 ^^^^^^^^^^^^^
 
