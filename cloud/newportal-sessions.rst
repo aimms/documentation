@@ -96,3 +96,10 @@ Legacy Sessions
 ^^^^^^^^^^^^^^^^
 
 To access sessions recorded before the new Sessions page was introduced, click `Show legacy sessions <https://documentation.aimms.com/cloud/newportal-legacy-sessions.html>`_ in the top-right corner. This opens the previous session view with the WebUI and Solver tabs.
+
+.. note::
+	
+	The following sessions will still appear under Legacy Sessions > Solver until the release of **AIMMS PRO 26.3**, which will be available shortly:
+
+	* Solver sessions started from WinUI apps.
+	* Solver sessions started from WebUI apps published with AIMMS version lower than **4.88**.
