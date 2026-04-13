@@ -4,7 +4,7 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
-Version 26.6.1.1 (April 10, 2026)
+Version 26.6.1.0 (April 10, 2026)
 ---------------------------------
 
 **New**
@@ -14,11 +14,11 @@ Version 26.6.1.1 (April 10, 2026)
 	- **Session Stats Tab**: A new Stats tab on the Sessions page provides aggregated metrics on session usage and performance, including queue and launch time statistics. Results can be broken down by Year, Month, Account, Environment, User, App Name, or App Version.
 	- **GbHour Consumption**: GbHour resource usage is now visible per session directly in the Sessions table and Stats tab, giving you insight into the computational cost of your sessions without navigating to a separate report.
 
+See `Sessions documentation <https://documentation.aimms.com/cloud/newportal-sessions.html>`_ for more information.
 
-	
 **Improvements**
 
-	- **Session log download**: Session logs are now directly streamed from the source during download, meaning there is no size limit on the log content you can retrieve.
+	- **Session log download**: Session logs are now directly streamed from the source during download, meaning there is no size limit when downloading logs on the log content you can retrieve.
 	- **Tasks moved to a dedicated page**: Task sessions are no longer part of the Sessions page. They are now accessible from the Tasks page in the left sidebar. Task sessions will be integrated into the Sessions page in a future update.
 
 Version 26.5.1.1 (February 24, 2026)
