@@ -32,6 +32,9 @@ The Sessions page is divided into two tabs:
 * **Data** — The main session table with all session records and management actions.
 * **Stats** — Aggregated statistics and performance insights across your applications.
 
+.. image:: images/newportal-new-sessions-page.png
+    :align: center
+
 The Data Tab
 ^^^^^^^^^^^^
 

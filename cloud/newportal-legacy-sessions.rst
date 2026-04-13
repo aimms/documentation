@@ -1,4 +1,4 @@
-Legasy Sessions
+Legacy Sessions
 ===============
 
 The WebUI and Solve sessions recorded before the new Sessions page was introduced can be found under Legacy Sessions. Task sessions are listed on a separate page, Tasks.
@@ -18,6 +18,9 @@ Tabs Overview
 **WebUI**: View and manage sessions involving the the use of AIMMS WebUI applications.
 
 **Solver**: View and manage sessions related to solver activities (e.g., optimization sessions).
+
+.. image:: images/newportal-legacy-sessions.png
+    :align: center
 
 Usage
 ^^^^^
