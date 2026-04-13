@@ -13,6 +13,7 @@ Version 26.6.1.0 (April 10, 2026)
 	- **Session Events Timeline**: Each session now includes a Session events option in the context menu, providing a chronological timeline of events that occurred during the session's lifecycle. This makes it easier to trace and understand session behavior.
 	- **Session Stats Tab**: A new Stats tab on the Sessions page provides aggregated metrics on session usage and performance, including queue and launch time statistics. Results can be broken down by Year, Month, Account, Environment, User, App Name, or App Version.
 	- **GbHour Consumption**: GbHour resource usage is now visible per session directly in the Sessions table and Stats tab, giving you insight into the computational cost of your sessions without navigating to a separate report.
+	- **Launch Details**: When launching an app, you can now click Details to view a live breakdown of Events, Metrics, and Logs as the session starts up — making it much easier to see exactly what's happening during launch.
 
 See `Sessions documentation <https://documentation.aimms.com/cloud/newportal-sessions.html>`_ for more information.
 
