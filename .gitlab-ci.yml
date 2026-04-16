@@ -5,86 +5,119 @@ stages:
   - test
   - build-and-deploy
 
-.run_on_dockerhost: &run_on_dockerhost
+# Reusable before_script fragments
+# enchant is required in all sphinx-build jobs because RST files use
+# the .. spelling:word-list:: directive (registered by sphinxcontrib.spelling).
+# Without the extension loaded the directive is unknown and -W fails the build.
+.install_uv: &install_uv
+  - apt-get update -qq && apt-get install -y -qq git libenchant-2-2
+  - pip install uv --quiet
+  - uv sync --quiet
+
+.install_uv_with_rsync: &install_uv_with_rsync
+  - apt-get update -qq && apt-get install -y -qq git libenchant-2-2 rsync openssh-client
+  - pip install uv --quiet
+  - uv sync --quiet
+
+# azure-cli image is Alpine-based; enchant and git package names differ
+.install_uv_azure: &install_uv_azure
+  - apk add --no-cache git enchant2
+  - pip install uv --quiet
+  - uv sync --quiet
+
+# Runner tag (selects GitLab runner with Docker executor)
+.on_docker_runner: &on_docker_runner
   tags:
     - docker20
-  image: "${DOCKER_ACCESS_URL}/other/dockerdev/documentation:latest"
 
 linkcheck:
-  <<: *run_on_dockerhost
+  <<: *on_docker_runner
   stage: test
+  image: python:3.11-slim
   variables:
     SPHINX_IGNORE_EXTERNAL_LINKS: "true"
+  before_script: *install_uv
   script:
-    - python3 -msphinx -W --keep-going -b linkcheck . _build/linkcheck
+    - uv run sphinx-build -W --keep-going -b linkcheck . _build/linkcheck
 
 linkcheck_external:
-  <<: *run_on_dockerhost
+  <<: *on_docker_runner
   stage: test
+  image: python:3.11-slim
+  before_script: *install_uv
   script:
-    - python3 -msphinx -W --keep-going -b linkcheck . _build/linkcheck
+    - uv run sphinx-build -W --keep-going -b linkcheck . _build/linkcheck
   allow_failure: true
 
 spellcheck:
-  <<: *run_on_dockerhost
+  <<: *on_docker_runner
   stage: test
+  image: python:3.11-slim
+  before_script: *install_uv
   script:
-    - python3 --version
-    - pip freeze
-    - python3 -msphinx -W --keep-going -b spelling . _build/spelling
+    - uv run sphinx-build -W --keep-going -b spelling . _build/spelling
 
 build:
-  <<: *run_on_dockerhost
+  <<: *on_docker_runner
   stage: test
+  image: python:3.11-slim
+  before_script: *install_uv
   script:
-    - sphinx-build -W --keep-going -b html . _build/html
-
+    - uv run sphinx-build -W --keep-going -b html . _build/html
   artifacts:
     paths:
       - _build/html/**/*
 
 deploy:
-  <<: *run_on_dockerhost
+  <<: *on_docker_runner
   stage: build-and-deploy
+  image: python:3.11-slim
+  before_script: *install_uv_with_rsync
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
       when: on_success
     - when: never
   script:
-    - sphinx-build -b html . _build/html
+    - uv run sphinx-build -b html . _build/html
     - bash load_ssh_key_for_deploy.sh
     - rsync -rt _build/html/ support@data.aimms.com:/home/aimms/www/documentation.aimms.com
   retry: 1
 
 internal_documentation_deploy:
-  <<: *run_on_dockerhost
+  <<: *on_docker_runner
   stage: build-and-deploy
+  image: python:3.11-slim
+  before_script: *install_uv_with_rsync
   script:
-    - sphinx-build -b html . _build/html
+    - uv run sphinx-build -b html . _build/html
     - bash load_ssh_key_for_deploy.sh
     - ssh support@data.aimms.com mkdir -p /home/aimms/www/documentation-staging/${CI_COMMIT_BRANCH}
     - rsync -r --omit-dir-times --delete-excluded _build/html/ support@data.aimms.com:/home/aimms/www/documentation-staging/${CI_COMMIT_BRANCH}
 
 az_deploy:
-  <<: *run_on_dockerhost
+  <<: *on_docker_runner
   stage: build-and-deploy
+  image: mcr.microsoft.com/azure-cli
+  before_script: *install_uv_azure
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
       when: on_success
     - when: never
   script:
-    - sphinx-build -b html . _build/html
+    - uv run sphinx-build -b html . _build/html
     - az storage copy -s '_build/html' --recursive --destination-container '$web' -- --overwrite=true --as-subdir=false
 
 upload_html_to_rfx_blob:
-  <<: *run_on_dockerhost
+  <<: *on_docker_runner
   stage: build-and-deploy
+  image: mcr.microsoft.com/azure-cli
+  before_script: *install_uv_azure
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
       when: on_success
     - when: never
   script:
-    - sphinx-build -b html . _build/html
+    - uv run sphinx-build -b html . _build/html
     - mkdir -p _build/flat
     - |
       set -eo pipefail

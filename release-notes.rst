@@ -12672,3 +12672,4 @@ Improvements
   GetSessionId
   InvestmentConstantPeriodicPayment
   URI
+  emailclient

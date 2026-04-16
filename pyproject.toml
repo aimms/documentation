@@ -1,0 +1,21 @@
+[project]
+name = "aimms-documentation"
+version = "0.1.0"
+requires-python = ">=3.9"
+dependencies = [
+    "sphinx>=7.2",
+    "sphinx-sitemap",
+    "sphinx-last-updated-by-git",
+    "sphinxcontrib-bibtex",
+    "sphinxcontrib-spelling",
+    "sphinx-design>=0.5",
+    "sphinx-aimms-theme",
+    "aimms-pygments-style",
+]
+
+# Override the two AIMMS packages with the local in-repo sources.
+# This means changes to aimms-plugins/* are reflected immediately
+# without publishing to PyPI first.
+[tool.uv.sources]
+sphinx-aimms-theme = { path = "aimms-plugins/sphinx-aimms-theme", editable = true }
+aimms-pygments-style = { path = "aimms-plugins/aimms-pygments-style", editable = true }

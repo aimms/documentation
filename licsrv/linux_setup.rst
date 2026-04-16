@@ -58,3 +58,4 @@ The license server listen ports 3400 and 3401 by default. In the current version
   systemd
   lic
   cpx
+  licsrv

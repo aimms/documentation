@@ -1,0 +1,19 @@
+
+.run_on_dockerhost: &run_on_dockerhost
+  tags:
+    - docker20
+  image: "${DOCKER_ACCESS_URL}/other/dockerdev/documentation:latest"
+
+deploy:
+  <<: *run_on_dockerhost
+  stage: deploy
+  variables:
+    TWINE_USERNAME: $PYPI_USERNAME
+    TWINE_PASSWORD: $PYPI_PASSWORD
+  script:
+    # - apt-get install -y gcc musl-dev libffi-dev openssl libssl-dev cargo rustc
+    - pip install twine
+    - python3 setup.py sdist
+    - twine upload dist/*
+  only:
+    - master
