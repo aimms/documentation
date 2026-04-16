@@ -1,209 +1,105 @@
 Sessions
 ========
 
-The Sessions page of the portal provides an overview and management interface for all your active and historical sessions initiated on your AIMMS Cloud Platform across three tabs: WebUI, Solver, and Task. These tabs provide insights into past and current sessions initiated via the cloud environment.
+The Sessions page in the AIMMS Cloud Portal gives you a centralized overview of all application sessions that have run in your environment. The new Sessions page replaces the previous three-tab view (WebUI, Solver, Task) with a unified session list, bringing all session types i.e. WebUI, solve, external, verify sessions together in one place with significantly more data, filtering capabilities, and new analysis tools. 
 
-If you are an administrator, you will not only see your own sessions but also all sessions created by other users.
+.. note::
+	
+	* If you need to access sessions from before this update, click **Show legacy sessions** in the top-right corner of the page.
+	* **Task** sessions are currently available on the dedicated Tasks page. Support for Tasks will be added to the Sessions page in a future update.
+	* The following sessions will still appear under Legacy Sessions > Solver until the release of **AIMMS PRO 26.3**, which will be available shortly:
+		
+		* Solver sessions started from WinUI apps.
+		* Solver sessions started from WebUI apps published with **AIMMS version lower than 4.88**.
+	
+Key Features
+^^^^^^^^^^^^
 
-Tabs Overview
+The new Sessions page introduces:
+
+* **Unified session list** — All sessions are now displayed in a single table, including **External** and **Verify** sessions together with WebUI and Solver sessions.
+* **More data at a glance** — New columns including session kind, environment, app version, and detailed timing metrics.
+* **GbHour consumption** — See resource usage per session directly in the table.
+* **Session Stats** — A dedicated tab with aggregated insights into session usage and performance across your applications.
+* **Session Events** — A new context menu option to view a chronological timeline of events for any session.
+* **Improved filtering** — A flexible filter bar to narrow down sessions across any column.
+
+Page Overview
 ^^^^^^^^^^^^^
 
-**WebUI**: View and manage sessions involving the the use of AIMMS WebUI applications.
+The Sessions page is divided into two tabs:
 
-**Solver**: View and manage sessions related to solver activities (e.g., optimization sessions).
+* **Data** — The main session table with all session records and management actions.
+* **Stats** — Aggregated statistics and performance insights across your applications.
 
-**Task**: View, manage and create tasks.
-
-Usage
-^^^^^
-
-Terminating Active Sessions
----------------------------
-
-You can terminate active sessions that are still running, either because they are taking too long or are no longer needed.
-
-Inspecting Sessions
--------------------
-
-Terminated, failed, or completed sessions remain visible in the portal. This allows you to review session history, understand usage patterns, or investigate issues through associated logs.
-
-In addition to reviewing session details, you now have access to two new options in the session context menu:
-
-**Session log**: Opens a detailed log of activities that occurred during the session. This is useful for troubleshooting errors, tracking execution steps, and understanding session behavior. Within the session log view, you also have the option to Download log, allowing you to save the log content for offline analysis or sharing with others.
-
-.. image:: images/session_logs.png
+.. image:: images/newportal-new-sessions-page.png
     :align: center
 
-**App stats**: Display various performance metrics for an app related to WebUI, Solver and Task session executions, such as launch time, queuetime and runtime duration, and active count (if applicable). For more details on App stats, please visit the detailed `documentation <https://documentation.aimms.com/cloud/newportal-stats.html>`__ 
 
-These options enhance your ability to analyze individual sessions more effectively.
+The Data Tab
+^^^^^^^^^^^^
 
-Deleting Sessions
+Session Table
+-------------
+
+The Data tab displays all sessions — regardless of type — in a single unified table. Each row includes details such as the session name, kind, state, creation time, account, environment, user, app name and version, timing metrics (queue, launch, and run time), and GbHour consumption. Administrators see all sessions across all users. Regular users see only their own sessions.
+
+* The table displays sessions in pages. The number of rows shown per page is automatically adjusted based on your screen resolution.
+
+External Sessions
 -----------------
 
-Once you have reviewed a session’s outcome or no longer need the information, you can delete it by yourself or they will be automatically deleted after a certain period. By default, sessions older than 30 days are automatically removed. 
+External sessions are now visible in the Sessions page as part of the unified session list. All users can view external sessions, however only the session owner or an administrator can terminate them.
 
-To change this setting:
+Filtering and Sorting Sessions
+------------------------------
 
-	* Go to Configuration > Retention Settings
-	* Adjust the Session retention time to your preferred duration. 
+Click **+ Add filter** at the top of the page to filter the session list. You can apply multiple filters simultaneously across different columns (e.g., filter by state, user, account, or date range). To remove all active filters, use the **Clear all** option in the filter bar.
 
-.. note::
+Each column in both the Data and Stats tabs can be sorted by clicking the column header. Note that applied filters are preserved when switching between the Data and Stats tabs, but sorting is reset when switching tabs.
 
-	* Retention settings are applied to WebUI and Solver sessions.
-	* Deletion is only possible for terminated/finished/completed sessions.
-	
-Filtering & Sorting Sessions
+Customizing the Table
+---------------------
+
+Click **Manage columns** in the top-right toolbar to show or hide specific columns, tailoring the table to your needs. You can search for a column by name, toggle individual columns on or off, use Show/Hide All to quickly toggle all columns at once, or click Reset to restore the default column visibility.
+
+Exporting Session Data
+----------------------
+
+Click Download in the top-right toolbar to export the current session list for offline analysis or reporting.
+
+Managing Individual Sessions
 ----------------------------
 
-The **Sessions** page provides filtering and sorting tools to help you quickly locate the sessions you need.
+**Context Menu Actions** 
 
-**Sorting Sessions**
+Right-click a session row to open the context menu with the following options:
 
-1. Open the column menu by clicking on the filter/sort icon next to a column header.
-2. Under **Sorting**, choose one of the options: No sorting, Ascending, Descending.
-3. Click **Apply** to update the table.
+* **Session events** — Opens a chronological timeline of all events that occurred during the session's lifecycle, from queued to finished. Useful for understanding exactly what happened and when.
+* **Session logs** — Opens the full output log generated during the session. You can also download the log from this view for offline analysis or sharing with support.
+* **Delete** — Permanently removes the session record. Only available for sessions that are no longer active.
+* **Terminate** — Stops an active (running) session. Greyed out for sessions that have already finished or crashed.
 
-.. note::
+Bulk Actions
+------------
 
-	Sorting can only be applied on **one column at a time**. If you apply sorting on another column, the previous sorting is automatically cleared.
+To act on multiple sessions at once, select the rows you want and use the toolbar buttons(Terminate/Delete) that appear.
 
-**Filtering Sessions**
-
-1. Open the column menu by clicking on the filter/sort icon next to a column header.
-2. Under **Filter**, enter or select a value for that column. For example, you can filter by Session ID, State, Application Name/Version, or created(date/time).
-3. Multiple filters can be applied across different columns at the same time.
-4. Use **Clear all** to remove filters for that column.
-
-**Table Settings**
-
-Each tab in the Sessions offers **Table settings** to customize how many rows are displayed.
-
-* **Page size**: Defines how many rows are shown per page.
-* The **default page size** is **17 rows**.
-* You can adjust the page size from the **Table settings menu** to show more or fewer rows, depending on your preference.
-* Please note that page size resets to the default when switching between tabs.
-
-This setting is applied per tab and helps you control how much data is visible at once.
-
-**Exporting Session Data**
-
-You can now export the session data displayed on the Sessions page for offline analysis or reporting. The **Export Table** option is available under the three-dot menu(⋮) on each tab of the Sessions page. The session data will be downloaded as a CSV file containing all columns.
-	
-WebUI Sessions
-^^^^^^^^^^^^^^
-
-The WebUI Sessions tab displays a table listing all sessions initiated by users. Each row contains the following information:
-
-.. csv-table:: 
-   :header: "Column", "Description"
-   :widths: 40, 40
-
-	Session ID , Unique identifier assigned to the session.                                                    
-	State , "Status of the session (e.g., terminated)"                
-	Application , Name and version of the application associated with the session. 
-	Owner , The user who initiated the session.
-	Created (GMT+2) , Timestamp indicating when the session was started.
-	
-.. image:: images/webui_sessions.png
-    :align: center
-	
-**Manage WebUI Sessions**:
-
-To manage individual sessions open the Action Menu i.e. three-dot menu (⋮) at the end of a session row to access session options,
- 
-	* Session log (*disabled for queued sessions*): View or download detailed logs of the session’s activity.
-	* App stats: View performance metrics for the WebUI session.
-	* Terminate (*disabled for already terminated sessions*): Ends an active session.
-	* Delete: Permanently removes the session record from the list.
-	
-Solver Sessions
-^^^^^^^^^^^^^^^
-
-The Solver Sessions tab provides insight into all computational solver sessions triggered by users or applications. Each row contains the following information:
-
-.. csv-table:: 
-   :header: "Column", "Description"
-   :widths: 40, 40
-
-	Session ID , Unique identifier assigned to the session.                                                    
-	State , "Status of the session (typically finished)"                
-	Application , Name and version of the application associated with the session. 
-	Descrption , Typically includes case or scenario details passed during execution.
-	Owner , The user who initiated the session.
-	Created (GMT+2) , Timestamp indicating when the session was created.
-	Run Time , Total time the model was solving.
-	Queue Time , Time the session spent in the execution queue before starting.
-	
-.. image:: images/solver_sessions.png
-    :align: center
-	
-**Manage Solver Sessions**:
-
-To manage individual sessions open the Action Menu i.e. three-dot menu (⋮) at the end of a session row to access session options,
- 
-	* Session log (*disabled for queued sessions*): View or download detailed logs of the session’s activity.
-	* App stats: View performance metrics for the Solver session.
-	* Terminate (*disabled for already terminated sessions*): Ends an active session.
-	* Delete: Permanently removes the session record from the list.
-	
-Task Sessions
+The Stats Tab
 ^^^^^^^^^^^^^
 
-The Task tab shows scheduled or background `tasks <https://documentation.aimms.com/cloud/tasks.html>`_ configured within the AIMMS app. Each task entry includes following information:
+The Stats tab provides aggregated metrics on session usage and performance across your applications, including timing statistics such as min, max, and average queue and launch times. Use it to understand consumption patterns, identify performance trends, and get a high-level view of how sessions are being used across your environment.
 
-.. csv-table:: 
-   :header: "Column", "Description"
-   :widths: 40, 40
+To slice the data further, click **+ Add breakdown** to group the results by one or more dimensions: Year, Month, Account, Environment, User, App Name, or App Version. This allows you to compare performance and consumption across different segments of your environment.
 
-	Task ID , Unique identifier assigned to the task.                                                    
-	State , "Status of the task (typically completed or failed)"                
-	Application , Name and version of the application from which the task was launched.
-	Owner , The user who initiated the task.
-	Service Name , "The internal task service used (e.g., JobSchedule)"
-	Created (GMT+2) , Timestamp indicating when the task was created.
-	Queue Time , Time the task spent in the execution queue before starting.
-	Run Time , Total time the model was solving.
-	Scheduled for (GMT+2) , If scheduled this shows the future time the task is planned to run.
-	Schedule Interval , "If recurring this field shows the repeat interval (e.g., daily, hourly)"
-	
-.. image:: images/task_sessions.png
-    :align: center
+Similar to Manage columns on the Data tab, **Manage stats** lets you show or hide specific metric columns in the Stats table. You can also Download the aggregated data for offline analysis.
 
-**Manage Task Sessions**:
+GbHour Consumption
+^^^^^^^^^^^^^^^^^^
 
-Each task listed in the Tasks tab includes a three-dot menu on the far right, offering the following actions:
+The GbHour column is available in both the Data and Stats tabs, allowing you to monitor resource consumption per session and across aggregated views — without needing to navigate to a separate report.
 
-	* Download response data: Allows you to download the output or results generated by the completed task. This includes any response files or solution data returned by the model.
-	* Session log (*disabled for queued sessions*): View or download detailed logs of the session’s activity.
-	* App stats: View performance metrics for the Task session.
-	* Interrupt solve (*available only while a task is still running*): Stops the solve process of the task while allowing the rest of the task execution (e.g., post-solve steps) to proceed. Useful if you want to stop the optimization early. Task status will be 'completed'. (This option is disabled for completed tasks.)
-	* Interrupt execution (*also only available for running tasks*): Immediately stops the entire task, interrupting the task execution itself outside of the solve. Task status will be 'failed'(Also disabled for completed tasks.)
-	* Delete: Removes the task and its associated data (input/output/logs) from the portal. Use this to keep your task list clean once you've inspected the results.
-	
-**Create Task**:
+Legacy Sessions
+^^^^^^^^^^^^^^^^
 
-The Task Sessions tab also allows you to create/schedule tasks by clicking the “+ New task” button, you can define a task that will be executed immediately, at a future time, or on a recurring basis.
-
-.. image:: images/create_task.png
-    :align: center
-	
-When creating a task, you are prompted to fill in several fields that define the application, timing, and data for the task. Here is what each field means:
-
-.. csv-table:: 
-   :header: "Column", "Description"
-   :widths: 40, 60
-
-	App name , Dropdown to select the AIMMS application you want to schedule as a task. This list displays all applications you have access to.                                 
-	App version , "Select which version of the app to use. Typically, this will be the latest (e.g., 2.0 <latest>), but older versions may be available."                
-	Service name (required) , Enter the name of the service that should handle this task.
-	Schedule for , "(Optional) it indicates the time point a task should run after it. The task will not start until after the time point is passed."
-	Schedule in , "(Optional) indicates the interval a task should run after. The task will not start until after the interval is passed."
-	Schedule interval , "(Optional) indicates that the task should be repeated in the given intervals. For example, if it is set to 1 day, the task will be scheduled for the next day after the initial schedule. These recurring tasks are indexed within the group starting from zero. The first task with *scheduleInterval* will have *groupIndex=0* and subsequent runs will have the next groupIndexes in order. To stop the automated scheduling, the last scheduled task should be deleted."
-	Request data , (required)	Upload the input file that contains input data for the task. This is mandatory to tell the task what data to use.
-	
-Batch Operations
-----------------
-
-The Terminate and Delete buttons at the top right of the session list on WebUI and Solver tab allow you to perform batch operations on multiple selected sessions. For Tasks tab only Delete is available.
-	
+To access sessions recorded before the new Sessions page was introduced, click `Show legacy sessions <https://documentation.aimms.com/cloud/newportal-legacy-sessions.html>`_ in the top-right corner. This opens the previous session view with the WebUI and Solver tabs.

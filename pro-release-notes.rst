@@ -4,6 +4,24 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 26.6.1.0 (April 10, 2026)
+---------------------------------
+
+**New**
+
+	- **Redesigned Sessions Page**: The Sessions page has been completely redesigned with a unified session list, bringing all session types — WebUI, Solver, External, and Verify — together in a single table. The new page introduces additional data columns (including environment, app version, and timing metrics), GbHour consumption per session, improved filtering, column customization, bulk actions, and a dedicated Stats tab with breakdown support. Previously, sessions were split across separate WebUI, Solver, and Task tabs. See Sessions for more information.
+	- **Session Events Timeline**: Each session now includes a Session events option in the context menu, providing a chronological timeline of events that occurred during the session's lifecycle. This makes it easier to trace and understand session behavior.
+	- **Session Stats Tab**: A new Stats tab on the Sessions page provides aggregated metrics on session usage and performance, including queue and launch time statistics. Results can be broken down by Year, Month, Account, Environment, User, App Name, or App Version.
+	- **GbHour Consumption**: GbHour resource usage is now visible per session directly in the Sessions table and Stats tab, giving you insight into the computational cost of your sessions without navigating to a separate report.
+	- **Launch Details**: When launching an app, you can now click Details to view a live breakdown of Events, Metrics, and Logs as the session starts up — making it much easier to see exactly what's happening during launch.
+
+See `Sessions documentation <https://documentation.aimms.com/cloud/newportal-sessions.html>`_ for more information.
+
+**Improvements**
+
+	- **Session log download**: Session logs are now directly streamed from the source during download, meaning there is no size limit when downloading logs on the log content you can retrieve.
+	- **Tasks moved to a dedicated page**: Task sessions are no longer part of the Sessions page. They are now accessible from the Tasks page in the left sidebar. Task sessions will be integrated into the Sessions page in a future update.
+
 Version 26.5.1.1 (February 24, 2026)
 ------------------------------------
 
@@ -101,7 +119,7 @@ Version 25.8.1.0 (September 4, 2025)
 	- **Filter** sessions per column (e.g., Session ID, State, Application Name/Version, Created date) to quickly locate specific runs.
 	- **Sort** sessions by any column in ascending or descending order.
    
-For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-sessions.html#filtering-sorting-sessions>`__
+For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-sessions.html#filtering-and-sorting-sessions>`__
 
 Version 25.6.1.0 (July 24, 2025)
 --------------------------------
@@ -202,6 +220,19 @@ Task Scheduler (Version 25.2.1.0 - May 15, 2025)
 
 - **New Endpoint**
    - ``GET /tasks/{id}/logs``: Introduced a new endpoint to retrieve task logs.
+
+PRO 26.2
+#########
+
+AIMMS PRO 26.2.2 Release
+-------------------------
+
+On April 8, 2026 we released AIMMS PRO 26.2.2(26.2.2.5)
+
+**Improvements**
+
+-  As part of our SOC2 compliance initiative, upgraded the platform from Java 8 to Java 25, updating several third-party dependencies across 18+ Maven modules to improve security and stability.
+-  The AIMMS PRO On premise JDK distribution switched from Oracle JDK to Eclipse Temurin (Adoptium) OpenJDK (25.0.2+10).
 
 PRO 26.1
 #########

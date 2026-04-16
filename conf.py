@@ -64,7 +64,7 @@ if os.name != 'nt':
 
 # A list of regular expressions that match URIs that should not be checked when doing a linkcheck build.   
 linkcheck_ignore = [r'http://localhost:\d+/?', r'http://0\.0\.0\.0[:/]\d+/?', r'\b[\w-]+\.html', r'\.\..+\.html#?\w*', 
-    r'_downloads/\w+\.pdf', r'http://your-server-name:\d+', r'http://example.com/?.*', r'https://yourproportal/?.*',r'https://your.*', r'https://icomoon.io/#preview-ultimate', r'https://cloud-name\.aimms\.cloud', r'https://cloud-name\.cloud\.aimms\.com', r'https://documentation\.aimms\.com/cloud/newportal-user-api-keys.*']
+    r'_downloads/\w+\.pdf', r'http://your-server-name:\d+', r'http://example.com/?.*', r'https://yourproportal/?.*',r'https://your.*', r'https://icomoon.io/#preview-ultimate', r'https://cloud-name\.aimms\.cloud', r'https://cloud-name\.cloud\.aimms\.com', r'https://documentation\.aimms\.com/cloud/newportal-legacy-sessions.*']
 # get env variable SPHINX_EXTERNAL_SPELLCHECK to check external links
 if os.environ.get('SPHINX_IGNORE_EXTERNAL_LINKS') == 'true':
     linkcheck_ignore += [
@@ -82,7 +82,8 @@ if os.environ.get('SPHINX_IGNORE_EXTERNAL_LINKS') == 'true':
         r'https://msdn\.microsoft\.com/?', 
         r'https://support\.microsoft\.com/?', 
         r'https://regex101\.com/?', 
-        r'https://license\.gurobi\.com/?', 
+        r'https://license\.gurobi\.com/?',
+        r'https://support\.gurobi\.com/?',
         r'https://learn\.microsoft\.com/?', 
         r'https://jwt\.io/?', 
         r'https://json-schema\.org/?',
