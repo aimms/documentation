@@ -19,9 +19,9 @@ stages:
   - pip install uv --quiet
   - uv sync --quiet
 
-# azure-cli image is Alpine-based; enchant and git package names differ
+# azure-cli image is CBL-Mariner-based (not Alpine); uses tdnf as package manager
 .install_uv_azure: &install_uv_azure
-  - apk add --no-cache git enchant2
+  - tdnf install -y git enchant2
   - pip install uv --quiet
   - uv sync --quiet
 
