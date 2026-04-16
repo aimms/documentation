@@ -22,7 +22,7 @@ stages:
 # azure-cli image is CBL-Mariner-based (not Alpine); uses tdnf as package manager
 .install_uv_azure: &install_uv_azure
   - tdnf install -y git enchant2 tar
-  - curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/usr/local/bin sh
+  - curl -LsSf https://github.com/astral-sh/uv/releases/latest/download/uv-x86_64-unknown-linux-musl.tar.gz | tar -xz --strip-components=1 -C /usr/local/bin uv-x86_64-unknown-linux-musl/uv
   - uv sync --quiet
 
 # Runner tag (selects GitLab runner with Docker executor)
