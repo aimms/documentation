@@ -21,7 +21,7 @@ stages:
 
 # azure-cli image is CBL-Mariner-based (not Alpine); uses tdnf as package manager
 .install_uv_azure: &install_uv_azure
-  - tdnf install -y git enchant2
+  - tdnf install -y git enchant2 tar
   - curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/usr/local/bin sh
   - uv sync --quiet
 
