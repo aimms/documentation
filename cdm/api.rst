@@ -33,6 +33,14 @@ Library Management Functions
 
    This function will cause ``libcdm.dll`` to stop reacting to data change notifications by the AIMMS engine.
 
+.. js:function::  cdm::BlockEventListener
+
+   This function will temporarily block the event listener to handle incoming data change and commit notification events. When called in a nested manner, the calls should be matched by an equal amount of calls to `cdm::UnblockEventListener` calls.
+
+.. js:function::  cdm::UnblockEventListener
+
+   This function will decrease the block count of the event listener by one. When the counter reaches 0, the event listener will be unblocked.
+
 ApplicationDB Functions
 =======================
 

@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+26.2.1.1 [21-04-2026]
+	- Add `cdm::BlockEventListener` and `cdm::UnblockEventListener` methods to allow modal WebUI dialogs to run uninterrupted. 
+	
 26.1.2.1 [18-03-2026]
 	- Identifiers with integer values and non-zero defaults, would, when changed back to their default, not show the default on checkout but rather 0.0.
 	- When switching branches, overridden data for managed external data identifiers would not be reset to their external data value, but retain the overridden values from the original branch.
