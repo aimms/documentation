@@ -4,8 +4,8 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
-Version (auth-server) 26.2.1.0 (April 21, 2026)
-----------------------------------------------
+Auth-server 26.2.1.0 (April 21, 2026)
+-------------------------------------
 
 **New**
 
