@@ -4,6 +4,15 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version (auth-server) 26.2.1.0 (April 21, 2026)
+----------------------------------------------
+
+**New**
+
+	- **Login Protection**: The AIMMS PRO Portal authentication service now includes brute-force login protection. The authentication server monitors login attempts and applies progressive safeguards when repeated failures are detected from the same source. Users who sign in normally are not affected.
+
+For more information, see `Portal Login Protection <https://documentation.aimms.com/cloud/newportal-login-protection.html>`_ for more information.
+
 Version 26.6.1.0 (April 10, 2026)
 ---------------------------------
 
