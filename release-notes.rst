@@ -12694,3 +12694,6 @@ Improvements
   InvestmentConstantPeriodicPayment
   URI
   emailclient
+  venv
+  pycache
+  pyi
