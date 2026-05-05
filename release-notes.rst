@@ -13,6 +13,27 @@ AIMMS 26.1
 
 
 
+AIMMS 26.1.4 Release (May 05, 2026 - build 26.1.4.12).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When the procedure trace logger (AIMMS.Trace.Procedure) is set to INFO level, procedure call tracing inside FOR loops compiled by the new compiler was not suppressed. This could result in excessive "Starting Procedure ..." log messages. The behavior now matches the old FOR loop implementation: procedure tracing is automatically suppressed inside loops at INFO level, with a one-time notification message.
+-  "Read from file x;" did no longer work when x is an element parameter in AllFiles. This has been fixed.
+-  Improved case writing stability for sets with unresolvable master or domain sets. In unsupported cases, AIMMS now safely skips element marking instead of failing.
+-  Library settings can no longer be changed while the model has compilation errors. You must first fix the errors before adding or updating libraries. In addition, several checks were strengthened to improve stability when no model is loaded.
+-  Fixed exporting of libraries and folders stored with absolute paths. AIMMS now exports these folders using the correct source path and keeps only the folder name in the destination, preventing incorrect nested paths.
+-  Temporary Python artifacts (like .venv, pycache, .pyi) are now automatically excluded from aimmspack files.
+
+--------------
+
+
+
+
+
 AIMMS 26.1.3 Release (April 03, 2026 - build 26.1.3.1).
 ------------------------------------------------------------------------------------------
 
