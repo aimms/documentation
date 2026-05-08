@@ -9,12 +9,12 @@ Version 26.6.2.3 (May 4, 2026)
 
 **New**
 
-	- **User Management API** – New endpoints for listing and filtering environments and users are now available. See `Managing Environments, Groups and Users <https://documentation.aimms.com/cloud/managing-users.html>`_ for more information.
+   - **User Management API** – New endpoints for listing and filtering environments and users are now available. See `Managing Environments, Groups and Users <https://documentation.aimms.com/cloud/managing-users.html>`_ for more information.
    - The portal now integrates with the updated User Manager API, bringing improved user and environment management capabilities.
 
 **Improvements**
 
-	- **Sessions** - As of AIMMS PRO 26.3, solver sessions started from WinUI apps and solver sessions started from WebUI or WinUI apps published with AIMMS version lower than 4.88 are now also managed by the new Session Manager and will no longer appear under Legacy Sessions > Solver.
+	- **Sessions** - As of **AIMMS PRO 26.3.1**, solver sessions started from WinUI apps and solver sessions started from WebUI or WinUI apps published with AIMMS version lower than 4.88 are now also managed by the new Session Manager and will no longer appear under Legacy Sessions > Solver.
 
 **Resolved Issue**
 
