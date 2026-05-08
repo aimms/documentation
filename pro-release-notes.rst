@@ -4,6 +4,22 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 26.6.2.3 (May 4, 2026)
+---------------------------------
+
+**New**
+
+	- **User Management API** – New endpoints for listing and filtering environments and users are now available. See `Managing Environments, Groups and Users <https://documentation.aimms.com/cloud/managing-users.html>`_ for more information.
+   - The portal now integrates with the updated User Manager API, bringing improved user and environment management capabilities.
+
+**Improvements**
+
+	- **Sessions** - As of AIMMS PRO 26.3, solver sessions started from WinUI apps and solver sessions started from WebUI or WinUI apps published with AIMMS version lower than 4.88 are now also managed by the new Session Manager and will no longer appear under Legacy Sessions > Solver.
+
+**Resolved Issue**
+
+	- Searching for users in accounts with a large number of users no longer results in a get_all_user: runtime error
+  
 Auth-server 26.2.1.0 (April 21, 2026)
 -------------------------------------
 
@@ -11,7 +27,7 @@ Auth-server 26.2.1.0 (April 21, 2026)
 
 	- **Login Protection**: The AIMMS PRO Portal authentication service now includes brute-force login protection. The authentication server monitors login attempts and applies progressive safeguards when repeated failures are detected from the same source. Users who sign in normally are not affected.
 
-For more information, see `Portal Login Protection <https://documentation.aimms.com/cloud/newportal-login-protection.html>`_ for more information.
+See `Portal Login Protection <https://documentation.aimms.com/cloud/newportal-login-protection.html>`_ for more information.
 
 Version 26.6.1.0 (April 10, 2026)
 ---------------------------------
