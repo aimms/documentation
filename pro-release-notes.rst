@@ -21,7 +21,8 @@ Version 26.6.2.3 (May 4, 2026)
       
 **Resolved Issue**
 
-	- Searching for users in accounts with a large number of users no longer results in a get_all_user: runtime error
+	- **User Management**: Resolved an error (``get_all_user: runtime error``) encountered when searching for users in accounts with a large number of users.
+	- **Sessions**: Resolved an internal server error that occurred when downloading large session logs.
   
 Auth-server 26.2.1.0 (April 21, 2026)
 -------------------------------------
