@@ -18,6 +18,7 @@ Version 26.6.2.3 (May 4, 2026)
 		- *Legacy Solver Sessions*: Solver sessions started from WinUI apps and solver sessions started from WebUI or WinUI apps published with AIMMS version lower than 4.88 are now also managed by the new Session Manager and will no longer appear under **Legacy Sessions > Solver**.
 		- *Peak Resource Columns*: Added four new columns to the Sessions **Data** overview: **Peak Memory [Mi]**, **Peak CPU [m]**, **Peak Memory Utilization [%]** and **Peak CPU Utilization [%]**, providing better insight into resource consumption per session. Columns can be toggled via **Manage Columns**.
 		- *Peak Resource Stats*: Added corresponding statistical aggregates for the above columns in the Sessions **Stats** tab: avg, min, max, p50 and p95 variants are available and can be toggled via **Manage Stats**.
+      
 **Resolved Issue**
 
 	- Searching for users in accounts with a large number of users no longer results in a get_all_user: runtime error
