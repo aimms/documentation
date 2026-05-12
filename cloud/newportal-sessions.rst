@@ -47,6 +47,27 @@ External Sessions
 
 External sessions are now visible in the Sessions page as part of the unified session list. All users can view external sessions, however only the session owner or an administrator can terminate them.
 
+Resource Utilization
+--------------------
+ 
+The Sessions page provides several columns to help you understand the resource consumption of each session.
+ 
+**GbHour Consumption**
+
+The GbHour column is available in both the Data and Stats tabs, allowing you to monitor resource consumption per session and across aggregated views — without needing to navigate to a separate report.
+ 
+**Peak Resource Columns**
+ 
+The following columns provide a more granular view of resource usage during a session and can be toggled via **Manage Columns**:
+ 
+- **Peak Memory [Mi]** — The highest amount of memory used at any point during the session.
+- **Peak CPU [m]** — The highest amount of CPU used at any point during the session.
+- **Peak Memory Utilization [%]** — Peak memory usage as a percentage of the session's memory limit.
+- **Peak CPU Utilization [%]** — Peak CPU usage as a percentage of the session's CPU limit.
+ 
+The **Stats** tab provides corresponding statistical aggregates for each of the above peak columns:
+avg, min, max, p50 and p95 variants are available and can be toggled via **Manage Stats**.
+
 Filtering and Sorting Sessions
 ------------------------------
 
@@ -89,11 +110,6 @@ The Stats tab provides aggregated metrics on session usage and performance acros
 To slice the data further, click **+ Add breakdown** to group the results by one or more dimensions: Year, Month, Account, Environment, User, App Name, or App Version. This allows you to compare performance and consumption across different segments of your environment.
 
 Similar to Manage columns on the Data tab, **Manage stats** lets you show or hide specific metric columns in the Stats table. You can also Download the aggregated data for offline analysis.
-
-GbHour Consumption
-^^^^^^^^^^^^^^^^^^
-
-The GbHour column is available in both the Data and Stats tabs, allowing you to monitor resource consumption per session and across aggregated views — without needing to navigate to a separate report.
 
 Legacy Sessions
 ^^^^^^^^^^^^^^^^
