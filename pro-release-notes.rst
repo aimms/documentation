@@ -4,8 +4,22 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 26.7.1.0 (May 15, 2026)
+-------------------------------
+
+**Improvements**
+ 
+	- **Sessions**:
+		- *Column Units in Manage Stats*: Column units are now displayed in the **Manage Stats** dropdown (e.g. ``[core·h]``, ``[m]``, ``[Mi]``), making it easier to identify the correct metric at a glance.
+		- *Local Timezone in Session Events*: Event timestamps in the **Session Events** dialog are now displayed in the user's local timezone.
+ 
+**Resolved Issue**
+ 
+	- **Sessions**: Resolved a 500 error that occurred when selecting all columns under **Manage Stats**.
+	- **Security**: Resolved a security response header misconfiguration in the login service.
+
 Version 26.6.2.3 (May 4, 2026)
----------------------------------
+------------------------------
 
 **New**
 
