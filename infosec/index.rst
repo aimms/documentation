@@ -10,8 +10,13 @@ ISO 27001 Certified
 
 AIMMS is ISO 27001 certified for 'Development, maintenance, delivery, and support of software and cloud service': 
 
-* :download:`Certificate, 26 Nov 2023<resources//AIMMS-ISOIEC-27001-C634240-20231126.pdf>` 
-* :download:`Statement of Applicability, 5 Sep 2023<resources//AIMMS_Statement_of_Applicability_-_Version_2.0_-_Dated_05-09-2023.pdf>` 
+* :download:`Certificate, 13 December 2025<resources//ISO-IEC_27001-ENG-C634240-1-20251203.pdf>` 
+* :download:`Statement of Applicability, 13 August 2024, as referenced in the Certificate of 13 December 2025<resources//AIMMS_ISO27001_Statement_of_Applicability_-_Version_3.0_-_Dated_13-8-2024.pdf>` 
+
+SOC2
+-------------------
+
+Our SOC2 Type I report, dated 15 December 2025, is available upon request.
 
 Cloud Security Alliance Questionnaires
 --------------------------------------
