@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+26.2.2.2 [19-05-2026]
+	- Explicitly handling commit notifications prior to committing outstanding changes could lead element spaces ending up in a state that was flagged as erroneous
+	- Recombination of deltas or recreation of a snapshot both leading to the removal of existing deltas, could leave a pull request traversing a list of now-removed deltas in an infinite loop.
+	
 26.2.1.1 [21-04-2026]
 	- Add `cdm::BlockEventListener` and `cdm::UnblockEventListener` methods to allow modal WebUI dialogs to run uninterrupted. 
 	
