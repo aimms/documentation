@@ -8,6 +8,35 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 26.2
+#############
+
+
+
+AIMMS 26.2.1 Release (May 20, 2026 - build 26.2.1.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The solver COPT has been upgraded to version 8.0.
+-  Gurobi 13.0 has been upgraded to version 13.0.2.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Mathematical Programs for Robust Optimization are now supported by the new math program generator.
+-  AIMMS sometimes tried to load an invalid MIP start if the Solvers General option 'Scale Model' was switched on.
+-  Removed bundled OpenSSL 3 dynamic libraries from RPM installation, to allow for OS provided variants. On older Linux distributions (RHEL 8 or older) this may require manual installation of the OpenSSL 3 packages.
+-  In version 26.1 the handling of read/write statements has been taken over by the new compiler. Unfortunately, some of the Mode specifications were not handled in the same way as before. For example 'in row replace mode' was not working correctly. All modes are now handled similarly as in earlier versions.
+-  The tooltip text in the editor on the usage of procedures or functions has been changed slightly.
+
+--------------
+
+
+#############
 AIMMS 26.1
 #############
 
