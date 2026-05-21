@@ -4,6 +4,14 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 26.8.1.0 (May 21, 2026)
+-------------------------------
+
+**Improvements**
+ 
+	- **Service Manager & Account Manager**: Internal improvements to improve reliability and maintainability of service and account management. No customer-facing changes.
+	- **Sessions**: Minor visual improvements to the **Session Events** dialog, including adjusted sizing of the Events, Metrics and Logs sections.
+
 Version 26.7.1.0 (May 15, 2026)
 -------------------------------
 
