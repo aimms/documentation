@@ -14,6 +14,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 New Features and Bug Fixes
 --------------------------
 
+26.1.10.1 [22-05-2026]
+	- Display names for a subset that were actually defined over a parent set, would extend the set when the `binds-existing` attribute is not set during `ReadFromFile`.
+
 26.1.9.1 [03-04-2026]
 	- Display names for a subset that were actually defined over a parent set, would lead to an unexpected error message for a failed `ReadFromFile` call when a display name for a parent, but not sub-set, element was encountered and the `binds-existing` attribute was set. 
 	- Dataset annotations handling for large models with many data categories and tables was unnecessarily slow because of dense string comparison.
