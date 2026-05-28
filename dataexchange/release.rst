@@ -14,7 +14,7 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 New Features and Bug Fixes
 --------------------------
 26.1.11.1 [28-05-2026]
-	- Removed superfluous `Output` property of procedure argument demoted to local identifier release 26.1.9.1.
+	- Removed superfluous `Output` property of procedure argument demoted to local identifier in release 26.1.9.1.
 	
 26.1.10.1 [22-05-2026]
 	- Display names for a subset that were actually defined over a parent set, would extend the set when the `binds-existing` attribute is not set during `ReadFromFile`.
