@@ -4,6 +4,20 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Version 26.8.2.0 (June 2, 2026)
+-------------------------------
+ 
+**Improvements**
+ 
+- Long usernames and application tile text are now truncated when they don't fit, with the full text shown on hover via a tooltip.
+- The Apps page now shows an empty-state banner when no apps are available, consistent with the Secrets page.
+- The date picker now uses a compact dropdown that takes up less space and works better on mobile.
+ 
+**Resolved Issues**
+ 
+- The Secrets page tree view has been updated for consistency with the Account Configuration tree.
+- Fixed alignment and line rendering issues in tree views across the portal.
+
 Version 26.8.1.1 (May 22, 2026)
 -------------------------------
 
@@ -21,7 +35,7 @@ Version 26.7.1.0 (May 15, 2026)
 		- *Column Units in Manage Stats*: Column units are now displayed in the **Manage Stats** dropdown (e.g. ``[core·h]``, ``[m]``, ``[Mi]``), making it easier to identify the correct metric at a glance.
 		- *Local Timezone in Session Events*: Event timestamps in the **Session Events** dialog are now displayed in the user's local timezone.
  
-**Resolved Issue**
+**Resolved Issues**
  
 	- **Sessions**: Resolved a 500 error that occurred when selecting all columns under **Manage Stats**.
 	- **Security**: Resolved a security response header misconfiguration in the login service.
@@ -41,7 +55,7 @@ Version 26.6.2.3 (May 4, 2026)
 		- *Peak Resource Columns*: Added four new columns to the Sessions **Data** overview: **Peak Memory [Mi]**, **Peak CPU [m]**, **Peak Memory Utilization [%]** and **Peak CPU Utilization [%]**, providing better insight into resource consumption per session. Columns can be toggled via **Manage Columns**.
 		- *Peak Resource Stats*: Added corresponding statistical aggregates for the above columns in the Sessions **Stats** tab: avg, min, max, p50 and p95 variants are available and can be toggled via **Manage Stats**.
       
-**Resolved Issue**
+**Resolved Issues**
 
 	- **User Management**: Resolved an error (``get_all_user: runtime error``) encountered when searching for users in accounts with a large number of users.
 	- **Sessions**: Resolved an internal server error that occurred when downloading large session logs.
@@ -271,6 +285,19 @@ Task Scheduler (Version 25.2.1.0 - May 15, 2025)
 
 - **New Endpoint**
    - ``GET /tasks/{id}/logs``: Introduced a new endpoint to retrieve task logs.
+
+PRO 26.3
+#########
+
+AIMMS PRO 26.3.3 Release
+-------------------------
+
+On June 4, 2026 we released AIMMS PRO 26.3.3(26.3.3.1)(**On-premise Release**)
+
+**Resolved Issue**
+
+-  Fixed an issue in the AIMMS PRO Configurator where performing a restore operation resulted in an error, preventing the process from
+   completing successfully.
 
 PRO 26.2
 #########
