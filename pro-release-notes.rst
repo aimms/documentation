@@ -4,6 +4,22 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Portal 26.8.3.0 (June 8, 2026)
+-------------------------------
+ 
+**Improvements**
+ 
+- The **Sessions > Stats** page now supports two aggregation types for session state metrics:
+
+   - **Count** — shows the number of sessions per state value (e.g. queued, launching, running, finished). Each state gets its own column, giving you a clear breakdown of session distribution across all possible states.
+   - **Count Unique** — shows the number of distinct state values present in the current result set. Useful for quickly understanding how many different states are active within a given bucket.
+
+These aggregations can be combined with breakdowns for more granular insights.
+ 
+**Resolved Issues**
+ 
+- **Session Log Time Filtering** — Fixed an issue where setting a time range filter on the Session Log had no effect and the full log was always retrieved instead.
+
 Version 26.8.2.0 (June 2, 2026)
 -------------------------------
  
