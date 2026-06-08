@@ -15,14 +15,15 @@ Data security
 * All AIMMS projects and data files are encrypted and stored on Azure *Storage* with server-side encryption enabled. Azure *Storage* is encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant.  
 * The application databases use Azure MySQL *Flexible Server* AES-256 encryption function, also for logs, backups and snapshots.
 * Encryption keys are managed using *Azure Key Vault*, including key rotation with Microsoft Azure *Managed Identity*.
+* All data in transit is encrypted using TLS 1.2 or 1.3.
 * Application databases are single-customer and are placed in a single-customer Vnet, accessible via VPN or via an AIMMS-provided application.
 
 Single-tenancy / Multi-tenancy
 ------------------------------
 * Application databases (optional service) are single-tenant (exclusive to one customer account) and placed in a separate Vnet.
-* User sessions and solve sessions run in single-session Docker containers (exclusive to one user/app combination).
+* User sessions, task and solve sessions, Python services and CDM services run in single-session Docker containers (exclusive to one user/app combination).
 * File storage is single-tenant using strong logical separation.
-* The following software modules are multi-tenant and do not contain any customer business or model data: portal, session management.
+* The other software modules are multi-tenant and do not contain any customer business or model data.
 
 Password security
 -----------------------
@@ -32,6 +33,7 @@ Password security
 * AIMMS staff does not have access to your password, and cannot retrieve it for you. The only option if you lose it is to reset it yourself. 
 * Login credentials are always transmitted securely over HTTPS. 
 * Our cloud platform supports SSO via ADFS or SAML. 
+* MFA can be enabled per organization account.
 
 User management
 ---------------------
@@ -43,7 +45,7 @@ Staff access
 ---------------
 * Background checks are performed for AIMMS staff and for staff of our managed service partner Intercept. Staff are contractually bound to confidentiality and to information security policies with an option for disciplinary action in case of non-compliance.
 * AIMMS staff or staff of our managed service partner Intercept cannot sign into customer accounts and/or access customer projects and data, unless the customer provides us with access credentials.
-* AIMMS staff does have access to all log files, which contain activity logs.
+* Selected AIMMS staff does have access to log files, which contain activity logs.
 * Selected AIMMS staff and selected staff of our managed service partner Intercept can only access the Azure console using MFA and Azure *Active Directory*. 
 * Production environment configuration changes are only made through scripts. Change access to production environments requires explicit and temporary permission elevation (using Azure *Privileged Identity Management*), only to be used in case of severe incidents. Any manual access by AIMMS or Intercept staff is logged and logs can be made available to customers. 
 
@@ -77,7 +79,7 @@ Network defense
 * Network firewalls protect network traffic, including protection against DDoS attacks.
 * Azure *Web Application Firewall* is configured to use the Azure default rule sets to monitor web traffic.
 * The Azure *Kubernetes Cluster* and its access to all components are protected by the web application firewall within *NGINX* and are based on the OWASP-top-10 rule sets.
-* Azure’s intrusion detection services, including *Microsoft Defender for Cloud*, help detect intrusions. Intercept and AIMMS staff will be alerted 24/7 in case of ‘High’ or ‘Critical’ alerts.
+* *Microsoft Defender for Cloud* is used for vulnerability scanning and intrusion detection. Intercept and AIMMS staff will be alerted 24/7 in case of ‘High’ or ‘Critical’ alerts.
 
   
 Logging
@@ -103,7 +105,7 @@ Personal data
 ---------------------------
 * For the operation of the SaaS service, AIMMS stores username, password, email address and full name of all users. AIMMS will honor the individual's rights granted under GDPR for reviewing, modifying, or removing of their personal data.
 * AIMMS has no knowledge of what personal data customers store and process in the applications that they publish on the AIMMS Cloud Platform. 
-* The AIMMS Cloud Platform complies with the information security requirements for a *Processor* in the GDPR context. A standard processing agreement is available, on request. 
+* The AIMMS Cloud Platform complies with the information security requirements for a *Processor* in the GDPR context. A standard processing agreement is part of the AIMMS Software License Agreement and available on request. 
 * Through Microsoft the AIMMS Cloud Platform on Azure offers its customers the EU Standard Contractual Clauses (SCC) (also known as EU Model Clauses) that provide specific guarantees around transfers of personal data. The EU Model Clauses (`EU Standard Contractual Clauses <https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en>`_) are used in agreements between service providers (such as Microsoft) and their customers, in this case AIMMS, to ensure that any personal data leaving the EEA will be transferred in compliance with the GDPR. More details can be found `here <https://docs.microsoft.com/en-us/compliance/regulatory/offering-eu-model-clauses>`_.
 
 Technology stack
