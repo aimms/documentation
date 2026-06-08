@@ -3,24 +3,25 @@ Information security for the AIMMS Cloud Platform (on Azure)
 
 Backups / Business Continuity / Disaster Recovery
 ----------------------------------------------------
-* File storage is on Azure *Storage*, an Azure service with a durability of ‘twelve nines’. The data is replicated across 3 *Data Centers* within the Azure *Region* and an additional copy is stored in the Azure *Partner Region*. **Backups** are made every 24 hours to an isolated account and are retained for at least 30 days.
-* The optional, account-specific Application Databases use Azure’s *Flexible Server* MySQL service. The data is replicated across at least two Availability Zones (group of data centers). **Backups** of the transaction logs are taken every 5 minutes and retained for at least 30 days. These permit restores at each 5-minute interval. **Backups** are made every 24 hours to an isolated account and are retained for at least 30 days. You can contact our support team to restore any of those backups on your live database (or on the side).
+* File storage is on Azure *Blob Storage*, an Azure service with a durability of ‘twelve nines’. This storage is also used for the *Azure Data Lake Storage Gen2* service available to each account. The data is replicated across at least two *Availability Zones* (Data Centers) within the Azure *Region* and an additional copy is stored in the Azure *Partner Region*. **Backups** are made every 24 hours to an isolated *Vault Region* and are retained for at least 30 days.
+* The optional, account-specific Application Databases use Azure’s *Flexible Server* MySQL service. The data is replicated across at least two Availability Zones (group of data centers). **Backups** of the transaction logs are taken every 5 minutes and retained for at least 30 days. These permit restores at each 5-minute interval. **Backups** are made every 24 hours to an isolated *Vault Region* and are retained for at least 30 days. You can contact our support team to restore any of those backups on your live database (or on the side).
 * **Hardware failover:** Hardware failure will hardly ever cause an outage because all software services are using redundant hardware components. Failed hardware is automatically replaced by Azure, typically within minutes.
-* **Software failover:** Almost all software services are run redundantly, typically in Docker containers on a cluster of virtual machines and are automatically restarted in case of unplanned termination.
-* **Disaster recovery:** Targets are an RPO of 15 minutes and an RTO of 2 business hours. In almost all cases we will stay well within these targets as almost all disaster recovery is automated. In case of complete loss/wipe-out of all of our platform accounts (this has never happened to date and can only be caused by a targeted cyber attack or the simultaneous loss of at least two data centers), the infrastructure will be restored by running our automated scripts and the data will be retrieved from the separate isolated backups. For this scenario, the RPO is 24 hours and the RTO is around 2 business days.
+* **Software failover:** Almost all software services are run redundantly, typically in Docker containers on an AKS (Kubernetes) cluster of virtual machines and are automatically restarted in case of unplanned termination.
+* **Disaster recovery:** Targets are an RPO of 15 minutes and an RTO of 2 business hours. In almost all cases we will stay well within these targets as almost all disaster recovery is automated. In case of complete loss/wipe-out of all of our platform accounts (this has never happened to date and can only be caused by a targeted cyber attack or the simultaneous loss of at least two data centers), the infrastructure will be restored by running our automated scripts and the data will be retrieved from the separate isolated backups. For this scenario, the RPO is 24 hours and the RTO is around 2 business days.  
 * **Uptime:** Uptime target for our cloud platform is 99.5%, measured as the total number of hours downtime, including planed downtime, per month divided over the total number of hours in a month.
 
 Data security
 -----------------
-* All AIMMS projects and data files are encrypted and stored on Azure *Storage* with server-side encryption enabled. Azure *Storage* is encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Encryption keys are managed by Microsoft, including key rotation with Microsoft Azure *Managed Identity*. 
+* All AIMMS projects and data files are encrypted and stored on Azure *Storage* with server-side encryption enabled. Azure *Storage* is encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant.  
 * The application databases use Azure MySQL *Flexible Server* AES-256 encryption function, also for logs, backups and snapshots.
+* Encryption keys are managed using *Azure Key Vault*, including key rotation with Microsoft Azure *Managed Identity*.
 * Application databases are single-customer and are placed in a single-customer Vnet, accessible via VPN or via an AIMMS-provided application.
 
 Single-tenancy / Multi-tenancy
 ------------------------------
 * Application databases (optional service) are single-tenant (exclusive to one customer account) and placed in a separate Vnet.
 * User sessions and solve sessions run in single-session Docker containers (exclusive to one user/app combination).
-* File storage is multi-tenant and uses strong logical separation between customer accounts.
+* File storage is single-tenant using strong logical separation.
 * The following software modules are multi-tenant and do not contain any customer business or model data: portal, session management.
 
 Password security
