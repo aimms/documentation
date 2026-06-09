@@ -1,5 +1,5 @@
-Portal
-******
+AIMMS Cloud Portal
+******************
 
 The AIMMS Cloud Portal provides a modern, intuitive interface for managing your apps, sessions, tasks, secrets, and users. Behind the scenes, the architecture has been built for reliability and ease of maintenance.
 

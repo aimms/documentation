@@ -1,7 +1,7 @@
 User API Keys
 =============
 
-Requests made to the AIMMS PRO REST API are authenticated and authorized using API Keys. The **User API Keys** page is now a dedicated section in the Cloud Portal, providing a centralized place to manage all your API keys for programmatic access.
+Requests made to the AIMMS PRO REST API are authenticated and authorized using API Keys. The **User API Keys** page is now a dedicated section in the AIMMS Cloud Portal, providing a centralized place to manage all your API keys for programmatic access.
 
 .. note::
 
@@ -45,10 +45,10 @@ Available scopes that can be assigned to an API key,
 
 * **Authentication** - Allows operations on Environments, Groups, and Users
 * **PublishApp** - Allows management of AIMMS applications (e.g., publishing, updating, editing, and deleting apps)
-* **PublishAimms** - Allows publishing of AIMMS versions to the Cloud Portal
+* **PublishAimms** - Allows publishing of AIMMS versions to the AIMMS Cloud Portal
 * **Tasks** - Allows management of Tasks
 * **APIKey** - Permits operations on API keys themselves (e.g., creating and deleting keys)
 * **Session** - Enables operations related to WebUI, Solve, and Task sessions (e.g., retrieving session information, logs, terminating, or deleting a session)
-* **Secret** - Allows management of Secrets stored in the Cloud Portal
+* **Secret** - Allows management of Secrets stored in the AIMMS Cloud Portal
 * **User** - Allows user specific operations. Reserved for future use.
 * **Account** - Allows operations related to account-level management and configuration

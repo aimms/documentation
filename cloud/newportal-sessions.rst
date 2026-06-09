@@ -8,6 +8,13 @@ The Sessions page in the AIMMS Cloud Portal gives you a centralized overview of 
 	* If you need to access sessions from before this update, click **Show legacy sessions** in the top-right corner of the page.
 	* **Task** sessions are currently available on the dedicated Tasks page. Support for Tasks will be added to the Sessions page in a future update.
 	
+How Concurrent Users are Counted
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Client license sessions on the AIMMS Cloud Platform are counted per **user per device** combination, not per session. This means that a single user running multiple apps simultaneously from the same device occupies only one client license session — not one per app.
+
+For example, if a user opens App A and App B at the same time on their laptop, that counts as one concurrent user. A second user opening any app on their own device counts as a second concurrent user.
+
 Key Features
 ^^^^^^^^^^^^
 
