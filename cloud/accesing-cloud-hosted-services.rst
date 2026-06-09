@@ -1,3 +1,5 @@
+:orphan:
+
 Workflow for accessing cloud-hosted services
 ============================================
 

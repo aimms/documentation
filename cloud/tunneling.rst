@@ -87,7 +87,7 @@ To use a WebSockets tunnel in your AIMMS model, you need to:
 3. Close the tunnel when it is no longer needed.
 
 Important things to check when setting up a database tunnel
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 * The correct ODBC driver must be installed on the Cloud server.
 * The correct driver must be specified in the connection string as available on the server.

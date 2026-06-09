@@ -1,5 +1,5 @@
-Project Setup
-*************
+App Development & Publishing
+****************************
 
 To prepare an AIMMS project for use on the AIMMS Cloud Platform, perform the following steps:
 
@@ -12,6 +12,7 @@ Each of these steps is described in the sections below. In addition, we describe
 
 .. toctree::
 
+    aimms-releases
     library
     basic-workflow
     pro-data-man

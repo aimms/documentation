@@ -1,3 +1,5 @@
+:orphan:
+
 Activate AIMMS Version
 ======================
 
