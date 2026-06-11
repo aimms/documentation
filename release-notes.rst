@@ -13,6 +13,26 @@ AIMMS 26.2
 
 
 
+AIMMS 26.2.2 Release (June 11, 2026 - build 26.2.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  We improved the behavior of the wizard for the range attribute (in the IDE) when it comes to dealing with integer ranges.
+-  Setting the value of an integer identifier with a unit other than the base unit, could lead to 'false' out-of-range warnings. This behavior could be triggered in several situations (e.g. restoring a CDM snapshot).
+-  In some rare situations, after a Case Load, some sets in the model could incorrectly still have elements that already existed before the Load.
+-  The error message for a missing semi-colon in the Action attribute of an Assertion has been improved.
+-  When triggering a solve from within the WebUI while the Math Program Inspector is opened in the developer IDE, could lead to a crash. Now the Math Program Inspector is closed automatically.
+
+--------------
+
+
+
+
+
 AIMMS 26.2.1 Release (May 20, 2026 - build 26.2.1.0).
 ------------------------------------------------------------------------------------------
 
