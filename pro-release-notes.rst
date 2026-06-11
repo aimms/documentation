@@ -4,6 +4,13 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Portal 26.8.4.0 (June 11, 2026)
+-------------------------------
+
+**Resolved Issues**
+ 
+- **SAML User Group Membership** — Fixed an issue where editing a SAML user's group membership caused their SAML-linked group to be removed.
+
 Portal 26.8.3.0 (June 8, 2026)
 -------------------------------
  
