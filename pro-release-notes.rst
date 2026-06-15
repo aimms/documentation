@@ -278,7 +278,7 @@ Session Manager (Version 25.6.1.0 - December 12, 2025)
    -  Streamlined, consistent workflow for accessing cloud-hosted services (session → URI → token → access).
    -  Support for predefined services such as WebUI and Dex.
 
-   Please refer to the detailed `documentation <https://documentation.aimms.com/cloud/accesing-cloud-hosted-services.html>`__ for usage instructions.
+   Please refer to the detailed `documentation <https://documentation.aimms.com/cloud/accessing-cloud-hosted-services.html>`__ for usage instructions.
 
 **Use Case**
 
