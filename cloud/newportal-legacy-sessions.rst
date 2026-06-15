@@ -36,8 +36,6 @@ In addition to reviewing session details, you now have access to two new options
 .. image:: images/session_logs.png
     :align: center
 
-**App stats**: Display various performance metrics for an app related to WebUI, Solver and Task session executions, such as launch time, queuetime and runtime duration, and active count (if applicable). For more details on App stats, please visit the detailed `documentation <https://documentation.aimms.com/cloud/newportal-stats.html>`__ 
-
 These options enhance your ability to analyze individual sessions more effectively.
 
 Deleting Sessions
@@ -104,7 +102,6 @@ The WebUI Sessions tab displays a table listing all sessions initiated by users.
 To manage individual sessions, right-click a session row to open the context menu with the following options:
  
 	* Session log (*disabled for queued sessions*): View or download detailed logs of the session’s activity.
-	* App stats: View performance metrics for the WebUI session.
 	* Terminate (*disabled for already terminated sessions*): Ends an active session.
 	* Delete: Permanently removes the session record from the list.
 	
@@ -134,7 +131,6 @@ The Solver Sessions tab provides insight into all computational solver sessions 
 To manage individual sessions, right-click a session row to open the context menu with the following options:
  
 	* Session log (*disabled for queued sessions*): View or download detailed logs of the session’s activity.
-	* App stats: View performance metrics for the Solver session.
 	* Terminate (*disabled for already terminated sessions*): Ends an active session.
 	* Delete: Permanently removes the session record from the list.
 	

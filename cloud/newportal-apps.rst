@@ -28,7 +28,7 @@ By clicking the three-dot menu on any app tile:
 
 Available options include:
 
-* Stats: View usage statistics and performance data for the selected application.
+* Stats: View usage statistics and performance data for the selected application. See :doc:`newportal-stats` for details.
 * Publishing details: View AIMMS Version and architecture info.
 * Update: Upload a new version of the existing application.
 * Edit:	Change the name, icon, description or resource profile of the app.

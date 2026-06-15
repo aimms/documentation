@@ -1,7 +1,7 @@
 App Stats (Application Statistics)
 ==================================
 
-The Stats page provides a graphical representation of various performance metrics related to WebUI, Solver and Task session executions. It is primarily used for monitoring execution trends, performance statistics, and historical activity over a selectable time period. Both from the Apps and the Sessions page of the PRO portal, you can retrieve statistics about the end-user applications that you are working with.
+The Stats page provides a graphical representation of various performance metrics related to WebUI, Solver and Task session executions. It is primarily used for monitoring execution trends, performance statistics, and historical activity over a selectable time period. App Stats is accessible from the Apps page via the context menu on any app tile.
 
 .. image:: images/newportal-stats.png
     :align: center
@@ -14,9 +14,6 @@ WebUI / Solver / Task:
 Select the context for which you want to view statistics,
 
 * When the Stats page is opened from the Apps page, it defaults to the WebUI tab.
-* When opened from the Sessions page, it automatically opens the tab that corresponds to the selected session (e.g., WebUI, Solver, or Task).
-
-This ensures that the stats view aligns with the user's navigation path for a more intuitive experience.
 
 Filters and Controls
 --------------------
