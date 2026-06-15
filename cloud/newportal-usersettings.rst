@@ -1,7 +1,7 @@
 User Settings
 =============
 
-The **User Settings** page allows users to manage their *personal profile*, *security preferences*, and *API keys*.
+The **User Settings** page allows users to manage their *personal profile* and *security preferences*.
 
 .. image:: images/newportal-user-settings.png
     :align: center
@@ -30,9 +30,3 @@ Manage your account’s security settings:
 
 	MFA is not available for ActiveDirectory and SAML Users(i.e. users with SSO).
 
-API Keys
---------
-
-API Keys have moved to a dedicated page in the Cloud Portal for easier access and management.
-
-To manage your API keys, navigate to the User API Keys page. See `User api keys <https://documentation.aimms.com/cloud/newportal-user-api-keys.html>`_ for more information.

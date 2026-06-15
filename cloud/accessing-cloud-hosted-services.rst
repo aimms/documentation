@@ -1,5 +1,3 @@
-:orphan:
-
 Workflow for accessing cloud-hosted services
 ============================================
 
@@ -24,7 +22,7 @@ Endpoint: ``POST /pro/auth/v1/token/exchange``
 * Request Body: json
 
 .. code-block:: php
-    
+
 	{
 		"target_list": [
 		{
