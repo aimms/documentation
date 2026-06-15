@@ -309,6 +309,19 @@ Task Scheduler (Version 25.2.1.0 - May 15, 2025)
 - **New Endpoint**
    - ``GET /tasks/{id}/logs``: Introduced a new endpoint to retrieve task logs.
 
+PRO 26.4
+#########
+
+AIMMS PRO 26.4.1 Release
+-------------------------
+
+On June 15, 2026 we released AIMMS PRO 26.4.1(26.4.1.3)
+
+**Resolved Issue**
+
+   - Resolved some stability issues in the WebUI publish and session lifecycle flows, including connection pool exhaustion, inconsistent storage authorization on updating an app, and session lookup failures.
+   - Fixed an on-premise upgrade issue where the Logback package migration did not run on re-install.
+
 PRO 26.3
 #########
 
@@ -321,6 +334,15 @@ On June 4, 2026 we released AIMMS PRO 26.3.3(26.3.3.1)(**On-premise Release**)
 
 -  Fixed an issue in the AIMMS PRO Configurator where performing a restore operation resulted in an error, preventing the process from
    completing successfully.
+
+AIMMS PRO 26.3.1 Release
+-------------------------
+
+On June 4, 2026 we released AIMMS PRO 26.3.1(26.3.1.6)(**Cloud Release**)
+
+**Improvements**
+
+-  Added Session Manager support in the PRO backend.
 
 PRO 26.2
 #########
