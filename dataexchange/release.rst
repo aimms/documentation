@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+26.1.12.1 [16-06-2026]
+	- A call to `dex::dls::ListFiles` in `dex::dls::DownloadFiles` did not propagate the `accountName` argument
+
 26.1.11.1 [28-05-2026]
 	- Removed superfluous `Output` property of procedure argument demoted to local identifier in release 26.1.9.1.
 	
