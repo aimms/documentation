@@ -320,6 +320,7 @@ On June 15, 2026 we released AIMMS PRO 26.4.1(26.4.1.3)
 **Resolved Issue**
 
    - Resolved some stability issues in the WebUI publish and session lifecycle flows, including connection pool exhaustion, inconsistent storage authorization on updating an app, and session lookup failures.
+   - Fixed a publish failure occurring when updating a project.
    - Fixed an on-premise upgrade issue where the Logback package migration did not run on re-install.
 
 PRO 26.3
