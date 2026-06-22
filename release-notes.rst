@@ -13,6 +13,23 @@ AIMMS 26.2
 
 
 
+AIMMS 26.2.3 Release (June 22, 2026 - build 26.2.3.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The [continued solve](https://how-to.aimms.com/Articles/685/685-continued-solve.html) feature for CPLEX and Gurobi did not work for models with indicator constraints or semi-continuous variables.
+-  On the introduction of mi_malloc as an optional allocator, the default allocator on Linux was changed from malloc to dlmalloc in AIMMS 25.8.1, which could lead to crashes during combined execution of multi-threaded external functions and the AIMMS engine in concurrent memory requests.
+
+--------------
+
+
+
+
+
 AIMMS 26.2.2 Release (June 11, 2026 - build 26.2.2.3).
 ------------------------------------------------------------------------------------------
 
