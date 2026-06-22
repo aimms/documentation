@@ -12763,3 +12763,5 @@ Improvements
   venv
   pycache
   pyi
+  malloc
+  dlmalloc
