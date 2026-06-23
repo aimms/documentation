@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+26.1.13.1 [23-06-2026]
+	- HTTP PUT file request that runs into a server-side RST event and is automatically retried by libcurl would fail, because the uploaded file pointer needs resetting before retrying
+	
 26.1.12.1 [16-06-2026]
 	- A call to `dex::dls::ListFiles` in `dex::dls::DownloadFiles` did not propagate the `accountName` argument
 
