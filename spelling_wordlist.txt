@@ -133,7 +133,7 @@ iconUrl
 codebase
 durations
 misconfiguration
-pdAdmin
+pgAdmin
 libcurl
 
 
@@ -203,7 +203,7 @@ iconUrl
 codebase
 durations
 misconfiguration
-pdAdmin
+pgAdmin
 libcurl
 #########
 
