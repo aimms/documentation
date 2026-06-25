@@ -315,13 +315,17 @@ PRO 26.4
 AIMMS PRO 26.4.1 Release
 -------------------------
 
-On June 15, 2026 we released AIMMS PRO 26.4.1(26.4.1.3)
+On June 15, 2026 we released AIMMS PRO 26.4.1(*Cloud build*: 26.4.1.3, *On-premise build*: 26.4.1.4)
 
-**Resolved Issue**
+**Resolved Issues**
 
-   - Resolved some stability issues in the WebUI publish and session lifecycle flows, including connection pool exhaustion, inconsistent storage authorization on updating an app, and session lookup failures.
-   - Fixed a publish failure occurring when updating a project.
-   - Fixed an on-premise upgrade issue where the Logback package migration did not run on re-install.
+   -  Resolved some stability issues in the WebUI publish and session lifecycle flows, including connection pool exhaustion, inconsistent storage authorization on updating an app, and session lookup failures.
+   -  Fixed a publish failure occurring when updating a project.
+   -  **On-Premise**: 
+
+      - Fixed an upgrade issue where the Logback package migration did not run on re-install.
+      - Upgraded bundled PostgreSQL from 16.11 to 16.14, resolving CVE-2026-2005.
+      - Removed pgAdmin 4 from the Windows MSI installer, resolving CVE-2026-3087 and CVE-2026-7210.
 
 PRO 26.3
 #########
