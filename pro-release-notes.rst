@@ -4,6 +4,13 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Portal 26.8.5.0 (June 29, 2026)
+-------------------------------
+
+**Improvement**
+ 
+- The column order on the Sessions page is now preserved across both the Data and Stats tabs.
+
 Portal 26.8.4.0 (June 11, 2026)
 -------------------------------
 
