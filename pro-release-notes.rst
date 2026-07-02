@@ -241,8 +241,15 @@ Version 25.3.1.0 (April 15, 2025)
 PRO REST API Updates
 ####################
 
+Task Scheduler (Version 26.1.3.0 - June 29, 2026)
+--------------------------------------------------
+
+- **Resolved Issue**
+
+   - Task Scheduler now downloads the bootstrapper from the correct regional CDN.
+
 Task Scheduler (Version 26.1.2.0 - March 24, 2026)
-----------------------------------------------------
+--------------------------------------------------
 
 - **Resolved Issue**
 
