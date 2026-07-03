@@ -329,12 +329,11 @@ PRO 26.6
 AIMMS PRO 26.6.7 Release
 -------------------------
 
-On June 26, 2026 we released AIMMS PRO 26.6.7(*On-prem build*: 26.6.7.1)
+On July 3, 2026 we released AIMMS PRO 26.6.7(*On-prem build*: 26.6.7.1)
 
 **Improvements**
 
-   -  Internal build process improvements for on-premise. No functional or behavioral changes
-  in this release.
+   -  Internal build process improvements for on-premise. No functional or behavioral changes in this release.
 
 PRO 26.5
 ########
