@@ -323,6 +323,19 @@ Task Scheduler (Version 25.2.1.0 - May 15, 2025)
 - **New Endpoint**
    - ``GET /tasks/{id}/logs``: Introduced a new endpoint to retrieve task logs.
 
+PRO 26.6
+########
+
+AIMMS PRO 26.6.7 Release
+-------------------------
+
+On June 26, 2026 we released AIMMS PRO 26.6.7(*On-prem build*: 26.6.7.1)
+
+**Improvements**
+
+   -  Internal build process improvements for on-premise. No functional or behavioral changes
+  in this release.
+
 PRO 26.5
 ########
 
