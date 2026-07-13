@@ -12466,7 +12466,7 @@ Improvements
 +++++++++++++++++++
 
 
--  The performance of the function :any:`GMP::Stochastic::CreateBendersRootproblem` has been improved.
+-  The performance of the function ``GMP::Stochastic::CreateBendersRootproblem`` has been improved.
 -  In the Case dialog, a shortcut to the My Documents folder has been added.
 
 Resolved issues
