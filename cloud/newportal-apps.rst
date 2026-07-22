@@ -13,7 +13,7 @@ Key Features
 *For All Users*
 
 * View Available Applications: Browse all deployed applications organized by name or category.
-* Search Bar: Use the search bar to find a specific app among the list of available applications.
+* Search Bar: Use the search bar to find a specific app among the list of available applications. You can filter results by **Tags**, **App name**, **App version**, **App description** or **Category** to quickly narrow down the list.
 * Launch App: Click on any app tile to launch it directly (based on your access permissions).
 * Stats: View usage statistics and performance data for any available application.
 * Publishing Details: View AIMMS version and architecture details of the application.
