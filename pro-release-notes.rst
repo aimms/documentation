@@ -4,10 +4,17 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Portal 26.9.1.1 (July 22, 2026)
+-------------------------------
+
+**Improvements**
+ 
+- **Enhanced search on the Apps page:** The search bar on the **Apps** page now supports filtering by **Tags**, **App name**, **App version**, **App description** and **Category**, making it easier to find a specific application when many apps are published.
+
 Portal 26.8.5.0 (June 29, 2026)
 -------------------------------
 
-**Improvement**
+**Improvements**
  
 - The column order on the Sessions page is now preserved across both the Data and Stats tabs.
 
