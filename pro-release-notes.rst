@@ -10,6 +10,7 @@ Portal 26.9.1.1 (July 22, 2026)
 **Improvements**
  
 - **Enhanced search on the Apps page:** The search bar on the **Apps** page now supports filtering by **Tags**, **App name**, **App version**, **App description** and **Category**, making it easier to find a specific application when many apps are published.
+- **Sessions page column rename:** The session category column on the **Sessions** page is now labeled **Type** instead of **Kind**, for clarity (values remain: ``webui``, ``verify``, ``solve``, ``external``).
 
 Portal 26.8.5.0 (June 29, 2026)
 -------------------------------
