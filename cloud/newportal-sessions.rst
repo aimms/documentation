@@ -21,7 +21,7 @@ Key Features
 The new Sessions page introduces:
 
 * **Unified session list** — All sessions are now displayed in a single table, including **External** and **Verify** sessions together with WebUI and Solver sessions.
-* **More data at a glance** — New columns including session kind, environment, app version, and detailed timing metrics.
+* **More data at a glance** — New columns including session type, environment, app version, and detailed timing metrics.
 * **GbHour consumption** — See resource usage per session directly in the table.
 * **Session Stats** — A dedicated tab with aggregated insights into session usage and performance across your applications.
 * **Session Events** — A new context menu option to view a chronological timeline of events for any session.
@@ -45,7 +45,7 @@ The Data Tab
 Session Table
 -------------
 
-The Data tab displays all sessions — regardless of type — in a single unified table. Each row includes details such as the session name, kind, state, creation time, account, environment, user, app name and version, timing metrics (queue, launch, and run time), and GbHour consumption. Administrators see all sessions across all users. Regular users see only their own sessions.
+The Data tab displays all sessions — regardless of type — in a single unified table. Each row includes details such as the session name, type, state, creation time, account, environment, user, app name and version, timing metrics (queue, launch, and run time), and GbHour consumption. Administrators see all sessions across all users. Regular users see only their own sessions.
 
 * The table displays sessions in pages. The number of rows shown per page is automatically adjusted based on your screen resolution.
 
