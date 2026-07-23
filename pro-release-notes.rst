@@ -343,6 +343,16 @@ On July 13, 2026 we released AIMMS PRO 26.6.7(*On-prem build*: 26.6.7.7)
 
    -  Internal build process improvements for on-premise. No functional or behavioral changes in this release.
 
+AIMMS PRO 26.6.1 Release
+-------------------------
+
+On July 23, 2026 we released AIMMS PRO 26.6.1(*Cloud build*: 26.6.1.1)
+
+**Improvements**
+
+- **New toolset support:** Added support for a new compiler toolset, in preparation for upcoming AIMMS and AutoLib releases that will use it.
+- **Frozen binaries updated for the old toolset:** The frozen binaries used for the old toolset have been updated.
+
 PRO 26.5
 ########
 
