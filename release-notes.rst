@@ -22,7 +22,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Fixed a crash that was caused by a specified unit in which a scalar element parameter was empty.
--  Extended the PRO library with the `GetEntityDirectory` method, to more efficiently list all grooup/user/env relations.
+-  Extended the PRO library with the `GetEntityDirectory` method, to more efficiently list all group/user/environment relations.
 -  The Truncate Table statement did not update the dependencies of the specified database table.
 -  A Relation set could not be defined via a defining procedure.
 -  Running MySQL stored procedures with data-dependent branching could leave trailing result sets unread when not all branches produced the same number of result sets. This caused subsequent queries to fail with Commands out of sync errors. All pending result sets are now properly flushed.
