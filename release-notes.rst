@@ -13,6 +13,29 @@ AIMMS 26.2
 
 
 
+AIMMS 26.2.4 Release (July 31, 2026 - build 26.2.4.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Fixed a crash that was caused by a specified unit in which a scalar element parameter was empty.
+-  Extended the PRO library with the `GetEntityDirectory` method, to more efficiently list all grooup/user/env relations.
+-  The Truncate Table statement did not update the dependencies of the specified database table.
+-  A Relation set could not be defined via a defining procedure.
+-  Running MySQL stored procedures with data-dependent branching could leave trailing result sets unread when not all branches produced the same number of result sets. This caused subsequent queries to fail with Commands out of sync errors. All pending result sets are now properly flushed.
+-  A definition that consists of a DATA list expression now reports a warning or error if one of the domain sets is empty when it is evaluated. This warning or error is controlled by the option warning_domain_check_empty_domain_set.
+-  Resolved a crash that could occur in data sessions when a model contained an annotation on an indexed set whose value referred to one of that set's own indices.
+-  Calling GMP::Row::SetRightHandSide multiple times for the same GMP could result in a crash.
+
+--------------
+
+
+
+
+
 AIMMS 26.2.3 Release (June 22, 2026 - build 26.2.3.3).
 ------------------------------------------------------------------------------------------
 
