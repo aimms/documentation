@@ -8,6 +8,45 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 26.3
+#############
+
+
+
+AIMMS 26.3.1 Release (August 07, 2026 - build 26.3.1.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The infeasibility diagnosis feature using [GMP::Instance::GetInfeasibleData](https://documentation.aimms.com/language-reference/optimization-modeling-components/implementing-advanced-algorithms-for-mathematical-programs/managing-generated-mathematical-program-instances.html#explainability) now recursively handles parameters whose definitions reference other parameters, so diagnoses trace back through chains of defined parameters to the underlying input data.
+-  We modernized the feature that helps end-users diagnose and resolve infeasibilities caused by input data issues. The legacy generator behind [GMP::Instance::GetInfeasibleData](https://documentation.aimms.com/language-reference/optimization-modeling-components/implementing-advanced-algorithms-for-mathematical-programs/managing-generated-mathematical-program-instances.html#explainability) has been replaced with the same modern architecture already powering linear model generation. This change is not intended to have any significant impact on your experience.
+-  ODH-CPLEX 8.2 has been added.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  A sub-expression (i in SomeIndexedSet(j)) used in a constraint or variable was not always working correctly in the new math program generator.
+-  The error message on accidentally re-using an already bound index in an iterative min or max has been improved.
+-  The new math program generator had a memory leak in the handling of the accept_basis solve option. Besides the memory leak it was also not working as expected.
+-  The scenario probabilities in a stochastic model are now normalized in the stochastic objective, assuring that they add up 1.0.  This may have the effect that the optimal solution differs a bit from earlier versions.
+-  GMP::Row::Generate can now also generate rows for a stochastic constraint.
+-  The nonvar status of stochastic variables set via x.stochastic.nonvar is now working as expected: setting it to -1 makes the variable frozen, setting it to 1 eliminates the variable from the generated math program.
+-  The procedures GMP::Row::Generate and GMP::Row::GenerateMulti have a new optional argument ignoreConstraintDomainCondition with a default of 1. The default matches the old behavior which allows that rows can be generated outside of the domain of the constraint.
+-  The unit analysis of the iterative PROD operator has been improved.
+-  The Composite Table statement has been implemented in the new compiler. The syntax is more strict than before: it is no longer allowed to specify a set name as the header of an index column, it must be an index name.
+-  AIMMS is now built with a newer toolchain: Microsoft Visual C++ 194 on Windows and GCC 11.5 on Linux. This is a hard cut-off. AIMMS libraries have to be updated to the versions built for this runtime, and any DLL of your own that is loaded into AIMMS has to be rebuilt. Libraries and DLLs built for the runtime of earlier AIMMS versions cannot be used with this release.
+
+Downloading AIMMS libraries now works behind a corporate proxy on Windows. The proxy configured for the system is discovered automatically, including through a proxy configuration script (PAC/WPAD), and authentication as the currently logged-on user is supported. When a proxy refuses the connection, the reported message now identifies the proxy as the cause.
+
+As part of ongoing SOC 2 compliance work, the third-party components that AIMMS ships have been reviewed and brought up to date, and the set of libraries linked into the product has been reduced. OpenSSL has been upgraded to version 3.5.7, which is a long-term support release, and libcurl to version 8.21.0, resolving several reported vulnerabilities.
+
+--------------
+
+
+#############
 AIMMS 26.2
 #############
 
