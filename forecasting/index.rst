@@ -17,4 +17,5 @@ this library is discussed in this chapter.
    intro
    notational-conventions
    functions
+   release
 

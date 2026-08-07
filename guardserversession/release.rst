@@ -7,6 +7,9 @@ The first public release of GuardServerSession was version 1.0.0.9, release date
 New Features and Bug Fixes
 --------------------------
 
+26.1.1.0 [07-08-2026]
+	- Rebuilt with the updated AIMMS toolset. This version requires AIMMS 26.3.1 or later and cannot be used with earlier AIMMS versions.
+
 24.0.0.7
 	- End user acceptable names in GSS specific pages are set during library post initialization; no need for a GSS specific .properties file in the MainProject/WebUI/resources folder anymore.
 

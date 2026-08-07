@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+26.2.1.0 [06-08-2026]
+	- Rebuilt with the updated AIMMS toolset. This version requires AIMMS 26.3.1 or later and cannot be used with earlier AIMMS versions.
+
 26.1.13.1 [23-06-2026]
 	- HTTP PUT file request that runs into a server-side RST event and is automatically retried by libcurl would fail, because the uploaded file pointer needs resetting before retrying
 	

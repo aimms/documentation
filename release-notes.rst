@@ -20,7 +20,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
 .. important::
 
-  AIMMS is now built with a newer toolchain: Microsoft Visual C++ 194 on Windows and GCC 11.5 on Linux. This is a hard cut-off. AIMMS libraries have to be updated to the versions built for this runtime, and any DLL of your own that is loaded into AIMMS has to be rebuilt. Libraries and DLLs built for the runtime of earlier AIMMS versions cannot be used with this release.
+  We have updated the internal toolset of AIMMS to the latest dependencies and the most modern compiler features that allow us to enable better performance and remain compliant with the information security requirements of our customers. Autolibs (CDM, DEX, WebUI, etc) released before this AIMMS release cannot be used with this version. Make sure to upgrade the versions of the autolibs used in your projects when upgrading to this version of AIMMS.
 
 AIMMS Improvements
 +++++++++++++++++++++++++
