@@ -13,6 +13,23 @@ AIMMS 26.3
 
 
 
+AIMMS 26.3.2 Release (August 07, 2026 - build 26.3.2.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Projects that use a repository library again pick up a newer available version when the version they were saved with is no longer in the library repository. AIMMS reports which libraries were upgraded when the project opens. Since AIMMS 26.3.1 such projects failed to open with "Library not found in repository".
+-  The option `warning_stochastic_programming_parameter_without_variable` is now visible in the options tree, under AIMMS - Progress, Error & Warnings - Warnings - Optimization. The option already worked, but could not be found or changed from the AIMMS IDE.
+
+--------------
+
+
+
+
+
 AIMMS 26.3.1 Release (August 07, 2026 - build 26.3.1.3).
 ------------------------------------------------------------------------------------------
 
