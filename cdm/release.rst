@@ -7,6 +7,10 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+26.3.1.3 [07-08-2026]
+	- When a second CDM service instance was started (this shouldn't happen normally), it would empty temporary tables used during a checkout query causing snapshots to become corrupted. 
+	- Rewrote select queries to make to mitigate MySQL 8.0 performance regression due to `TempTable` change, making the select queries faster overall
+
 26.2.2.2 [19-05-2026]
 	- Explicitly handling commit notifications prior to committing outstanding changes could lead element spaces ending up in a state that was flagged as erroneous
 	- Recombination of deltas or recreation of a snapshot both leading to the removal of existing deltas, could leave a pull request traversing a list of now-removed deltas in an infinite loop.
