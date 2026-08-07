@@ -5,6 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+26.1.1.0 [06-08-2026]
+	- Rebuilt with the updated AIMMS toolset. This version requires AIMMS 26.3.1 or later and cannot be used with earlier AIMMS versions.
+
 25.1.1.0 [30-06-2025]
 	- Introduced ``aimmsunit::ExcludeTestSuites`` command line argument.
 	
