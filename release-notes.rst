@@ -22,7 +22,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Projects that use a repository library again pick up a newer available version when the version they were saved with is no longer in the library repository. AIMMS reports which libraries were upgraded when the project opens. Since AIMMS 26.3.1 such projects failed to open with "Library not found in repository".
--  The option `warning_stochastic_programming_parameter_without_variable` is now visible in the options tree, under AIMMS - Progress, Error & Warnings - Warnings - Optimization. The option already worked, but could not be found or changed from the AIMMS IDE.
+-  The new option `Warning stochastic programming parameter without variable` is now visible in the Option Tree, under AIMMS - Progress, Error & Warnings - Warnings - Optimization.
 
 --------------
 
@@ -45,6 +45,7 @@ AIMMS Improvements
 -  We modernized the Stochastic Programming (SP) generator. The legacy SP generator has been replaced with the same modern architecture already powering linear and nonlinear model generation. This change is not intended to have any significant impact on your experience. 
 
    - The nonvar status of stochastic variables set via x.stochastic.nonvar is now working as expected: setting it to -1 makes the variable frozen, setting it to 1 eliminates the variable from the generated math program.
+   - By default, AIMMS now throws a warning if a stochastic parameter is used in a constraint without a stochastic variable. This is controlled by the new option `Warning stochastic programming parameter without variable`.
    - The scenario probabilities in a stochastic model are now normalized in the stochastic objective, assuring that they add up 1.0.  This may have the effect that the optimal solution differs a bit from earlier versions.
    - GMP::Row::Generate can now also generate rows for a stochastic constraint.
 
@@ -88,7 +89,7 @@ Resolved AIMMS Issues
 -  The Truncate Table statement did not update the dependencies of the specified database table.
 -  A Relation set could not be defined via a defining procedure.
 -  Running MySQL stored procedures with data-dependent branching could leave trailing result sets unread when not all branches produced the same number of result sets. This caused subsequent queries to fail with Commands out of sync errors. All pending result sets are now properly flushed.
--  A definition that consists of a DATA list expression now reports a warning or error if one of the domain sets is empty when it is evaluated. This warning or error is controlled by the option warning_domain_check_empty_domain_set.
+-  A definition that consists of a DATA list expression now reports a warning or error if one of the domain sets is empty when it is evaluated. This warning or error is controlled by the option `Warning domain check empty domain set`.
 -  Resolved a crash that could occur in data sessions when a model contained an annotation on an indexed set whose value referred to one of that set's own indices.
 -  Calling GMP::Row::SetRightHandSide multiple times for the same GMP could result in a crash.
 
@@ -565,7 +566,7 @@ AIMMS Improvements
 -  The procedures :any:`GMP::SolverSession::SetOptionValue` and :any:`GMP::SolverSession::GetOptionValue` can now also be used for several Solvers General options, including 'Time limit'.
 -  The procedure :any:`GMP::SolverSession::SetOptionValue` can now be used to set a small set of options, including 'Time limit', inside a callback procedure of Gurobi 12.0.
 -  The new math program generator has a new option 'Move nonvar level within bounds' which makes sure that a variable with a nonvar status uses a level value that is within the current lower and upper bound. With this option switched on the new math program generator behaves more like the old generator.
--  The new math program generator now uses the option eliminate_nonvar_columns to decide whether variables are just frozen or are eliminated from the math program.
+-  The new math program generator now uses the option 'Eliminate nonvar columns' to decide whether variables are just frozen or are eliminated from the math program.
 -  The new math program generator has a new option 'Equal bounds imply nonvar' which makes sure that variables for which the lower bound equals the upper bound are now treated as if the nonvar status is larger than 0. With this option switched on the new math program generator behaves more like the old generator.
 
 Resolved AIMMS Issues
@@ -648,7 +649,7 @@ Resolved AIMMS Issues
 
 -  An external procedure or external function for which the body call attribute is not specified resulted in a crash instead of a proper error message.
 -  Stored procedures in MySQL databases that did not have explicit result sets, resulted in a transaction failure. This has been fixed.
--  Change the value of the option `listing_and_temporary_files` using the Option statement could lead to a crash when AIMMS tried to write to the listing file afterwards.
+-  Change the value of the option `Listing and temporary files` using the Option statement could lead to a crash when AIMMS tried to write to the listing file afterwards.
 -  Passing an invalid entry as first argument to GMP::Instance::Generate could lead to a severe error.
 -  Calling the procedure GMP::Instance::CalculateSubgradient could result in a crash, if before the math program was solved using a different solver.
 
@@ -897,7 +898,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  The last features that were still unsupported in the new math program generator have been implemented. For an LP or MIP model, the new generator should now be able to generate the GMP that is to be send to the solver. If you have set the option disable_new_mathprog_generator to get rid of 'unsupported' warnings in recent versions, it is recommended to set this option back to its default and try again whether the model generates with the new generator. We have seen that on average the generation time has improved 2 to 3 times, so it worth trying. If you still get warnings about unsupported constraints, please let us know.
+-  The last features that were still unsupported in the new math program generator have been implemented. For an LP or MIP model, the new generator should now be able to generate the GMP that is to be send to the solver. If you have set the option 'Disable new mathprog generator' to get rid of 'unsupported' warnings in recent versions, it is recommended to set this option back to its default and try again whether the model generates with the new generator. We have seen that on average the generation time has improved 2 to 3 times, so it worth trying. If you still get warnings about unsupported constraints, please let us know.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
@@ -944,7 +945,7 @@ Resolved AIMMS Issues
 
 -  The TestDate intrinsic method would incorrectly cause execution to be stopped when called from within an external procedure when it should just return false. This has been fixed.
 -  After updating the AIMMS cloud image the `zip` and `unzip` command line tools were no longer available. These command line tools were added again.
--  The option matrix_block_sizes was not working for the new math program generator.
+-  The option 'Matrix block sizes' was not working for the new math program generator.
 
 --------------
 
@@ -1160,7 +1161,7 @@ Resolved AIMMS Issues
 -  The 'IN REPLACE MODE' of a solve statement was not working correctly in new generator.
 -  A mathematical program that is initially generated by the new compiler, can now be used to do a resolve (and thus a partial generate).
 -  The constraint properties 'Basic' and 'ShadowPriceRange' are now supported by the new generator.
--  The option 'scale_model' is now supported by the new generator.
+-  The option 'Scale model' is now supported by the new generator.
 -  In the model explorer, the Latest version number of a repository library was not entirely readable because of an overlap with the vertical scroll bar.
 -  New generator now supports constraints and variables that need runtime unit checking during generation. Which is required when unit parameters without a specified quantity are used.
 -  Variables with open finite bounds were not handled correctly in new generator code.
@@ -1207,7 +1208,7 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  The option distribution_compatibility can no longer be used to switch back to the old syntax of the distributions LogNormal, Gamma, Pareto, Triangular, Weibull, Beta and Exponential.  If your model relies on this option you will get an error and you should adapt the calls to these distributions using the comment that is given in the corresponding documentation. After adapting the calls, you should set the option back to its default.
+-  The option 'Distribution compatibility' can no longer be used to switch back to the old syntax of the distributions LogNormal, Gamma, Pareto, Triangular, Weibull, Beta and Exponential.  If your model relies on this option you will get an error and you should adapt the calls to these distributions using the comment that is given in the corresponding documentation. After adapting the calls, you should set the option back to its default.
 -  AIMMS would crash when executing a procedure using the 'Run Procedure' right-click context menu item that would eventually call the AIMMS intrinsic function 'ExitAimms'.
 -  We changed how we handle SIGPIPE: users of AimmsCmd will no longer get a coredump for this signal.
 -  AIMMS now asks for confirmation if you are trying to reuse the name of an existing intrinsic function name (like 'max') as the name of a new symbol. It is recommended to not do this and use a non existing name.
@@ -1246,7 +1247,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Added better support for the cloning of identifiers in the library AimmsUnitTest. If the identifier has a unit attribute that contained references to other identifiers, the cloned identifier did not always get the correct same unit.
--  The option 'warning_not_initialized' is now set to OFF by default. This option has been quite annoying in the past and actually there never is 'uninitialized' data in AIMMS, because the data of an identifier will just have its default value when no initial data is explicitly assigned.
+-  The option 'Warning not initialized' is now set to OFF by default. This option has been quite annoying in the past and actually there never is 'uninitialized' data in AIMMS, because the data of an identifier will just have its default value when no initial data is explicitly assigned.
 
 --------------
 
@@ -1446,7 +1447,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Superfluous ErrorCollectorStack warning messages are no longer logged in the solver session log.
--  Because of the new default setting of the option case_string_character_set there were problems reading back case files created on Linux in a Windows AIMMS, and vice versa. This has been fixed in the latest release, but cases need to be recreated to work correctly.
+-  Because of the new default setting of the option 'Case string character set' there were problems reading back case files created on Linux in a Windows AIMMS, and vice versa. This has been fixed in the latest release, but cases need to be recreated to work correctly.
 -  AIMMS could crash when using the option 'Display most violated constraints and bounds'.
 -  Using Windows path separators (\\\\) in file functions like FileCopy now also works on Linux and on the AIMMS cloud.
 -  Deleting variables with a definition could lead to problems when trying to re-solve a mathematical program afterwards.
@@ -1572,7 +1573,7 @@ AIMMS Improvements
 +++++++++++++++++++++++++
 
 - An extra (optional) binary argument has been added to the procedure GMP::Solution::Check. If set to 1, the procedure will also check for bound violations and integrality violations.
-- The default for the option case_string_character_set has been changed from "utf8" to "native". From experiments it shows that the native character set has the best performance. This option only affects newly created cases and all these cases remain compatible with older AIMMS versions.
+- The default for the option 'Case string character set' has been changed from "utf8" to "native". From experiments it shows that the native character set has the best performance. This option only affects newly created cases and all these cases remain compatible with older AIMMS versions.
 - Gurobi 11.0 has been upgraded to version 11.0.2.
 
 Resolved AIMMS Issues
@@ -1622,7 +1623,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  AIMMS RPM installer for Linux did not contain the correct dependencies.
--  Newly created projects now set the option case_compatibility to AIMMS_4_80. It is recommended to set this option in existing projects as well.
+-  Newly created projects now set the option 'Case compatibility' to AIMMS_4_80. It is recommended to set this option in existing projects as well.
 -  The AIMMSAPI function AimmsSetNameToElement no longer triggers an error message in the error/warning window if a calendar element name does not adhere to the format of the calendar. The return value of the API function will simply be 0.
 -  The model generation times are now reported in the log file using the AIMMS.GENERATOR logger.
 
@@ -1831,7 +1832,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  If the option 'warning_range_violation' was set to off, you could get an incorrect error in the WebUI when you assigned a new value to an identifier.
+-  If the option 'Warning range violation' was set to off, you could get an incorrect error in the WebUI when you assigned a new value to an identifier.
 
 --------------
 
@@ -2149,7 +2150,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  If a parameter with a Definition is used to define a unit in the Conversion attribute of a Quantity (which is sometimes used in the currency quantity to deal with changing exchange rates), then in some situations this definition was not evaluated at the right time leading to unexpected unit conversion results.
--  Missing values have been added for the Gurobi options ‘Barrier crossover basis’, 'Presolve aggregation', 'Presolve sparsify reduction' and 'Scale'. For the latter two options, some option values have been renamed.
+-  Missing values have been added for the Gurobi options '�Barrier crossover basis', 'Presolve aggregation', 'Presolve sparsify reduction' and 'Scale'. For the latter two options, some option values have been renamed.
 
 --------------
 
@@ -2435,7 +2436,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved WebUI Issues
 +++++++++++++++++++++++++
 
--  We resolved a compilation error in the AIMMS WebUI (system) library, that occurred when the option 'case sensitive element comparison' was turned on.
+-  We resolved a compilation error in the AIMMS WebUI (system) library, that occurred when the option 'Case sensitive element comparison' was turned on.
 
 --------------
 
@@ -3027,7 +3028,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  The new option 'presolve remove duplicate variables' has been added to the AIMMS Presolver.
+-  The new option 'Presolve remove duplicate variables' has been added to the AIMMS Presolver.
 -  The new procedure GMP::Instance::AddLimitBinaryDeviationRow adds a constraint to a generated math program that sets a limit on the number of binary variables of which the solution value is allowed to vary. That way you can re-optimize an MIP problem after making some modifications and limit the impact of those modifications on the solution. Adding this constraint can have a negative impact on the objective value and therefore you have to make a trade-off between the solution quality and how much the solution is allowed to vary. For details, see `here <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_instance-procedures-and-functions/gmp_instance_addlimitbinarydeviationrow.html>`__.
 
 
@@ -3494,7 +3495,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  Saving cases where the option 'case_contains_runtime_libraries' is set to 'On' could result in a crash. Especially when some runtime libraries had the 'NoSave' property set.
+-  Saving cases where the option 'Case contains runtime libraries' is set to 'On' could result in a crash. Especially when some runtime libraries had the 'NoSave' property set.
 -  In the AIMMSPro library, some function arguments were not declared in the correct way. This led to a warning in the latest AIMMS version.
 -  SetElementRename did give an incorrect error message when trying to rename an element in a set that was defined as the union of some other subsets. Renaming an element in such a set is allowed unless one of the subsets itself has a definition and the element is in that subset.
 
@@ -4275,7 +4276,7 @@ AIMMS Improvements
 -  The layout of the Math Program Inspector tool is now remembered when you close and re-open the tool. This holds for both the sizes of the sub-windows and the sizes of the columns in the various lists. This new feature can be disabled via the option MPI_Remember_Layout in the Project Options.
 -  The new global solver Octeract has been added. Octeract can be used to find a global optimal solution for NLP, MINLP and non-convex quadratic or quadratically constrained problems. Octeract can handle models with trigonometric functions. Currently Octeract is only available for Windows.
 -  If an expression contains a reference to a Macro, it can now be handled by the new compiler and execution engine.
--  AIMMS Postsolve is now less strict on bound violations of continuous variables. The new option Postsolve Bound Tolerance specifies the allowed bound violation, and uses a default value of 1e-10. Set this option to 0 to get the old behavior.
+-  AIMMS Postsolve is now less strict on bound violations of continuous variables. The new option 'Postsolve bound tolerance' specifies the allowed bound violation, and uses a default value of 1e-10. Set this option to 0 to get the old behavior.
 -  Most of the simple procedure call statements in a body of a procedure or function are now handled by the new compiler and engine. Because of that it may happen that your model produces more warnings for "uninitialized data", which are valid warnings but somehow they were not noticed before. Besides these extra warnings, there should be no difference in how a model behaves because of this change.
 -  CPLEX 22.1 has been added.
 -  CP Optimizer 22.1 has been added. CP Optimizer 22.1 comes with a new experimental local search method which works best on lightly constrained problems. It is activated by setting the CP Optimizer option 'Search method' to 'Neighborhood'.
@@ -4966,7 +4967,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  There is a new option 'case_save_defined_identifiers'. If you set this option to 'Off' you easily exclude all identifiers with a definition from a case during saving. When you only create cases for standard save and load sequences and not use any of the multiple case comparison features in the language or WebUI, this option may help to decrease both the time to write a case file and the size of a case file.
+-  There is a new option 'Case save defined identifiers'. If you set this option to 'Off' you easily exclude all identifiers with a definition from a case during saving. When you only create cases for standard save and load sequences and not use any of the multiple case comparison features in the language or WebUI, this option may help to decrease both the time to write a case file and the size of a case file.
 -  When saving a case, any identifier that (indirectly) depends on the pre-defined set :any:`AllDataFiles` or :any:`AllCases` will no longer be included in the case. Besides that this gave unexpected errors during the save operation, it seems rather useless to store data of other cases inside a case and it is not really defined how this data will be read back. If you encounter problems with this new behavior, please let us know.
 -  The optional argument ``evalInline`` has been added to the procedures :any:`GMP::Solution::SendToModel` and :any:`GMP::Solution::SendToModelSelection`. It can be used to disable the evaluation of inline variables (if any).
 
@@ -5004,7 +5005,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  Writing a case file with the option value 'Case_Compatibility' set to the new value 'AIMMS_4_80' did not always produce a correct case on Linux.
+-  Writing a case file with the option 'Case compatibility' set to the new value 'AIMMS_4_80' did not always produce a correct case on Linux.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
@@ -5057,7 +5058,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  A new option, called "Use Quadratic Structure", was added to the Solvers General category. If this option is active, quadratic structures are passed to Knitro 12.3 or higher versions. See the AIMMS Help for more information.
+-  A new option, called 'Use quadratic structure', was added to the Solvers General category. If this option is active, quadratic structures are passed to Knitro 12.3 or higher versions. See the AIMMS Help for more information.
 -  This AIMMS version adds functionality to run Gurobi on the AIMMS Cloud using the new Gurobi `Web License Service <https://www.gurobi.com/web-license-service/>`__. The new procedures :any:`GMP::Solver::SetEnvironmentStringParameter` and :any:`GMP::Solver::SetEnvironmentIntegerParameter` can be used to specify the required connection parameters. See the `AIMMS Cloud documentation <https://manual.aimms.com/cloud/gurobi-support.html>`__ for more information.
 -  If the coefficient matrix of a math program contains several independent block submatrices then the new function :any:`GMP::Instance::CreateBlockMatrices` can be used to decompose the math program into several generated math programs, each containing an independent block submatrix. Each of these blocks can be solved separately, and by combining the solutions of these blocks a solution of the original math program can be obtained. This approach can be more efficient than solving the original math program.
 
@@ -5177,7 +5178,7 @@ AIMMS Improvements
 
 -  In order to activate the logging configuration (LoggerConfig.xml), in addition to using the `--logcfg` command line option there is now another possibility. When AIMMS is started directly with a project name (for example, double-clicking on a ``.aimms`` project file) and there is a LoggerConfig.xml file in the same folder with the project file, then this LoggerConfig.xml file will be picked up automatically and no `--logcfg` option is needed anymore.   
 -  When exporting an end-user version (creating an ``.aimmspack``) if your application uses libraries from the online library repository, you can now choose to include the sources of these libraries in the ``.aimmspack``. This was already possible for the Windows part but not for the Linux part. So now, also when running on the (Linux) cloud, the sources don't need to be downloaded during startup.
--  The time needed to read or write a case file has been improved. This has been achieved by a slightly different case format for which you can select the character encoding to be used to store strings and element names. Especially on Linux this leads to a much a faster read. To use this you should set the option `case_compatibility` to `AIMMS_4_80` and specify the most suitable value for option `case_string_character_set`.
+-  The time needed to read or write a case file has been improved. This has been achieved by a slightly different case format for which you can select the character encoding to be used to store strings and element names. Especially on Linux this leads to a much a faster read. To use this you should set the option `Case compatibility` to `AIMMS_4_80` and specify the most suitable value for option `Case string character set`.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
@@ -5431,7 +5432,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  AIMMS now gives a warning message when you use a lag/lead operator while the right hand side is not unit-less. AIMMS will interpret the right hand side in the base unit, which may not always be what you expect.
--  There is a new option 'Post_Compilation_Procedure'. This option specifies a procedure that is run automatically after each explicit and successful compilation (via F5). It has been created to offer an easy way to run a set of tests on your model.
+-  There is a new option 'Post compilation procedure'. This option specifies a procedure that is run automatically after each explicit and successful compilation (via F5). It has been created to offer an easy way to run a set of tests on your model.
 -  Reading a 'relation' set from a case file could lead to a crash when the data of that relation was not yet accessed before the read.
 -  There is a new function :any:`RegexReplace` that uses regular expressions to do replacements in a string.
 
@@ -5587,7 +5588,7 @@ AIMMS Improvements
 -  CONOPT 4.1 has been added. CONOPT 4.1 comes with a few bug fixes.
 -  The code to read and write case files has been completely re-written. This should not have any negative impact on existing models. The format of the case files has not been changed and thus is still compatible with older AIMMS versions. The new code fixes a few problems related to the order in which data was read in and the in between evaluation of definitions. If you encounter any problems because of this change, please let us know as soon as possible. For more details, see `here <https://community.aimms.com/product-updates-roadmap-36/cases-and-runtime-libraries-834>`__.
 -  The Help On menu command in the attribute window of the model editor are now linked to the online version of the Language and the Function Reference.
--  There is a new option "JIT_Body_Compilation". With this option you can enable the new feature: Just-In-Time body compilation. This means that the compilation of the body attributes of procedures and functions is skipped at startup and thus that startup time decreases. The procedures and functions are compiled just before they are first run.
+-  There is a new option 'JIT body compilation'. With this option you can enable the new feature: Just-In-Time body compilation. This means that the compilation of the body attributes of procedures and functions is skipped at startup and thus that startup time decreases. The procedures and functions are compiled just before they are first run.
 
 
 Resolved AIMMS Issues
@@ -5764,7 +5765,7 @@ AIMMS 4.76.5 Release (October 30, 2020 - build 4.76.5.8)
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  In case stochastic data is present and the option 'Show Stochastic Data if Available' is set to an appropriate value, AIMMS will now show a dialog asking you whether you want to see the deterministic or stochastic values of a variable or parameter on a data page.
+-  In case stochastic data is present and the option 'Show stochastic data if available' is set to an appropriate value, AIMMS will now show a dialog asking you whether you want to see the deterministic or stochastic values of a variable or parameter on a data page.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++++
@@ -5851,7 +5852,7 @@ Resolved AIMMS Issues
 -  In some rare cases when using the Mod function with arguments that have units of measurement, the result could have a precision lower than double precision for the floating point format.
 -  In AIMMS 4.75, the 'Subset of' wizard was not working as it should.
 -  An attempt to switch to the Profiler while the execution is stopped on a breakpoint in the Debugger is no longer allowed. It resulted in an error situation in earlier versions.
--  The option `Show_Stochastic_Data_if_Available` now does an additional check whether the :any:`.stochastic` variant is completely empty while the original identifier is not. If so, AIMMS will display the data of the original identifier and not the empty stochastic data.
+-  The option `Show stochastic data if available` now does an additional check whether the :any:`.stochastic` variant is completely empty while the original identifier is not. If so, AIMMS will display the data of the original identifier and not the empty stochastic data.
 
 
 
@@ -6166,7 +6167,7 @@ AIMMS Improvements
 -  The logical iterative operators Atleast, Atmost, Exactly are now handled by the new compiler and execution engine. AIMMS took the opportunity to make their behavior more consistent: their second argument now has a restriction to be a non-negative integer (there were no restrictions before). An error will be issued if this is not the case. Furthermore, when the Atleast and Exactly operators have an empty domain as their first argument and zero as their second, the return value is 1 (this was not the case before, which was incorrect).
 -  When requesting help on a function in the model editor using the right mouse menu command Help-On, you are now re-directed to a help topic in the online Function Reference.
 -  When writing data to a database via the ODBC Driver, parameters can be used for each row, but for some vendors and ODBC drivers this can be slow. Therefore, AIMMS offers an alternative flat-string technique for a few vendors. This alternative was already available (and the default) for MySQL databases and is now also implemented for MS SQLServer and PostgreSQL. There is a new option `Database insert as flatstring` (under AIMMS\Database interface) with which one can control whether this technique is used for the mentioned vendors. Based on performance experiments, the default for MySQL and PostgreSQL is to use this flat-string technique, and for MS SQL Server not to use it.
--  The default value of the option 'Database String Valued Foreign Keys' has changed from 'Check' to 'Ignore'. See also the help documentation on this option. The default is changed because checking the foreign key information can be very expensive (depending on database vendor) whilst for most models this is not relevant. **IMPORTANT:** When your model writes to a database table which has string valued foreign key columns to another table, you may need to consider the best value for this option. When the value is 'Ignore' (now the default) and an empty string would be written to such a column, a runtime error will be reported.
+-  The default value of the option 'Database string valued foreign keys' has changed from 'Check' to 'Ignore'. See also the help documentation on this option. The default is changed because checking the foreign key information can be very expensive (depending on database vendor) whilst for most models this is not relevant. **IMPORTANT:** When your model writes to a database table which has string valued foreign key columns to another table, you may need to consider the best value for this option. When the value is 'Ignore' (now the default) and an empty string would be written to such a column, a runtime error will be reported.
 -  From now on, in new models only, Aimms interprets reference dates as UTC times by default i.s.o. local-no-DST times.
 
 	What is affected:
@@ -6189,7 +6190,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  There was a situation in which renaming an identifier 's' in the main model also changed the unit [s] in the WebUI library.
--  If the CPLEX option 'print presolve status' was switched on, any action in the Math Program Inspector that triggered a solve (e.g., Resolve) would result in a crash. This bug was introduced in AIMMS version 4.71.1.
+-  If the CPLEX option 'Print presolve status' was switched on, any action in the Math Program Inspector that triggered a solve (e.g., Resolve) would result in a crash. This bug was introduced in AIMMS version 4.71.1.
 -  The warning "The maximum of 20 warnings reached, further warnings suppressed. See also option maximal_number_of_warnings_reported" was not shown in the error window of AIMMS.
 -  The properties ElementsAreNumerical and ElementsAreLabels did not always have the intended effect when the logical value of a corresponding element was checked as part of an OR/AND/XOR expression.
 -  Clicking a checkbox in the WinUI Pivot Table while having the WebUI open could lead to a crash.
@@ -6344,7 +6345,7 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  If the CPLEX option `print presolve status` was switched on, any action in the Math Program Inspector that triggered a solve (e.g., Resolve) would result in a crash. This bug was introduced in AIMMS version 4.71.1.
+-  If the CPLEX option `Print presolve status` was switched on, any action in the Math Program Inspector that triggered a solve (e.g., Resolve) would result in a crash. This bug was introduced in AIMMS version 4.71.1.
 -  In previous AIMMS versions it was allowed to use the function :any:`ElementRange` to specify the initial data of a set. For the new compiler and execution engine, this turned out to be a serious problem as it does not expect function calls in a constant data expression. If you use this construct in your model, you will get an error on it now and you need to either change it to a DATA statement or move the initialization to the MainInitialization procedure. Please note that 
 
       .. code:: 
@@ -6451,7 +6452,7 @@ AIMMS Improvements
 -  Knitro 12.1 has been added.
 -  The "Jose" support package for the BoxR library was added to AIMMS.
 -  The "Caret" package has been put on the cloud.
--  There is a new option `display_elements_with_quotes` that can be used to indicate whether element names that are printed during a Display statement should be surrounded with single quotes.
+-  There is a new option `Display elements with quotes` that can be used to indicate whether element names that are printed during a Display statement should be surrounded with single quotes.
 -  The option `Repeat postsolve` has been added which can be used to instruct the postsolve step to find a solution that is inside the variable bounds.
 
 Resolved AIMMS Issues
@@ -6461,7 +6462,7 @@ Resolved AIMMS Issues
 -  AIMMS no longer prints unnecessary line breaks in the CPLEX status file.
 -  FileCopy in a Linux environment did not work when the destination file already existed.
 -  The model solved during the postsolve step would almost always be marked as infeasible after a user interrupt. (Please note that the postsolve will only be triggered after an interrupt if the option `Do postsolve after interrupt` is switched on.).
--  During the postsolve of a MIP model with the option `Postsolve Continuous Variables` set to 'Round to nearest bound and resolve LP', continuous variables were not always fixed on the nearest bound if the level value was outside the bounds.
+-  During the postsolve of a MIP model with the option `Postsolve continuous variables` set to 'Round to nearest bound and resolve LP', continuous variables were not always fixed on the nearest bound if the level value was outside the bounds.
 
 WebUI Improvements
 ++++++++++++++++++++
@@ -6522,7 +6523,7 @@ Resolved AIMMS Issues
 -  When applying the suffix .unit on an index of AllIdentifiers sometimes the unit parameter was returned instead of the actual unit value.
 -  When reading multiple cases in sequence, the time to read a case sometimes became unexpectedly long. AIMMS now uses a different memory allocation algorithm during the case read and this can drastically improve the performance.
 -  The profiler values that are shown in the margin of the model editor were not updating correctly when the line numbers were also displayed.
--  If the option `matrix block sizes` was switched on, any action in the Math Program Inspector that triggered a solve (e.g., Substructure Causing Infeasibility) would result in a crash. This bug was introduced in AIMMS version 4.71.1.
+-  If the option `Matrix block sizes` was switched on, any action in the Math Program Inspector that triggered a solve (e.g., Substructure Causing Infeasibility) would result in a crash. This bug was introduced in AIMMS version 4.71.1.
 
 Resolved WebUI Issues
 +++++++++++++++++++++++
@@ -6649,9 +6650,9 @@ Resolved AIMMS Issues
 -  In previous versions, AIMMS accepted that the Initial Data attribute of a set contained references to other sets in the model. This was not according to what the Language Reference stated and it also was not always working as expected. From now on this incorrect specification will be gradually deprecated, starting with giving a warning when it is encountered in a model. In a future version this usage will become just an error, so you are advised to spend some time fixing it. Fixing means that you either change the Initial Data in a Definition, or that you move the initialization of the set to one the initialization procedures in your model.
 -  The missing options 'Sifting algorithm' and 'Benders worker algorithm' have been added for CPLEX 12.9 and 12.10.
 -  The missing option `MIP priority order type` has been added for CPLEX 12.10. The option `Use order` has been renamed to 'MIP priority order switch' in CPLEX 12.10.
--  The irreducible infeasibility set (IIS) was sometimes not printed in the listing file when running a project on PRO. (Printing of the IIS is controlled by the option `Infeasibility Finder`.)
+-  The irreducible infeasibility set (IIS) was sometimes not printed in the listing file when running a project on PRO. (Printing of the IIS is controlled by the option `Infeasibility finder`.)
 -  The "Index Domain Wizard" was made a bit larger, to accommodate for more text to be visible.
--  If a large value (> 1000) was assigned to the option `solver workspace`, no extra memory was allocated for MINOS.
+-  If a large value (> 1000) was assigned to the option `Solver workspace`, no extra memory was allocated for MINOS.
 -  The AIMMS API now uses the local time of the convention, if specified, when translating dates to calendar elements.
 
 Resolved WebUI Issues
@@ -7118,7 +7119,7 @@ Resolved AIMMS Issues
 -  A crash could occur when deleting specific libraries from within the Library Manager dialog.
 -  Moving a node in the model tree from global to local procedure scope (or vice versa) could lead to a crash during subsequent model editor actions.
 -  In a runtime library, moving a node into a procedure or function incorrectly marked the complete application as 'edited'.
--  The default value of the option `Warning_empty_iterative_domain` is changed from 'Error in develop else off' to 'Off'. Although not mathematically correct, in most of the existing AIMMS models the fact that the Mean over an empty iterative domain set results in 0.0 is accepted behavior.
+-  The default value of the option `Warning empty iterative domain` is changed from 'Error in develop else off' to 'Off'. Although not mathematically correct, in most of the existing AIMMS models the fact that the Mean over an empty iterative domain set results in 0.0 is accepted behavior.
 -  The SolutionTime suffix of a math program would contain a negative value (after a solve) if the solver used multiple threads (e.g., if CPLEX used the concurrent optimizer).
 
 Resolved WebUI Issues
@@ -7199,7 +7200,7 @@ Resolved WebUI Issues
 -  On a WebUI page that has a PageLeaveProcedure with a ``requestid``, executing a WebUI::OpenPage procedure would throw a "WebUI cannot run nested dialogs" message.
 -  Text inside Gantt Chart bars on pages with multiple Gantt Charts are now shown properly.
 -  Not all buttons were visible when placed in a Group Widget.
--  When running under PRO/Cloud, the value of the project option `WebUI_maximum_number_of_entries_in_widget` was not correctly initialized.
+-  When running under PRO/Cloud, the value of the project option `WebUI maximum number of entries in widget` was not correctly initialized.
 
 
 
@@ -7458,7 +7459,7 @@ WebUI Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++
 
--  The names of the branching variables displayed in the CPLEX status file could be incorrect. (Branching variables are displayed if the CPLEX option `MIP display` is set to 'Display each nth node', the CPLEX option `MIP Search Strategy` to 'Apply branch-and-cut' and the Solvers General option Solver Listing Messages to 'All'.)
+-  The names of the branching variables displayed in the CPLEX status file could be incorrect. (Branching variables are displayed if the CPLEX option `MIP display` is set to 'Display each nth node', the CPLEX option `MIP search strategy` to 'Apply branch-and-cut' and the Solvers General option `Solver listing messages` to 'All'.)
 -  We fixed an error where the iterative operators First and Last were accepted by the compiler when having two arguments, like in First(i, condition(i)). The compiler did not raise an error and the second argument was just ignored. The correct way to write this is: First(i | condition(i)). If your model now gives an error on this, please correct the syntax and be aware that the expression was never evaluated in the way you probably intended.
 -  In very specific circumstances, the current working folder that AIMMS works with could change unexpectedly, leading to error messages about files not being found. Now the proper working folder is re-initialized more often, minimizing the chance that this problem shows up.
 -  An unexpected message like 'The local set local set "S" is passed implicitly and therefore it cannot be modified' could occur when running a procedure.
@@ -7513,7 +7514,7 @@ Resolved AIMMS Issues
 -  Writing in dense mode was never supported for writing to files (only to databases), but did not give a compile error and it could have unexpected results. Using this construction now this gives a compile error. The Language Reference is also more explicit on this than before.
 -  Running Knitro's multistart algorithm or multi-algorithm could result in a solver failure or a crash if parallel threads were used. This issue has been fixed for Knitro version 11.0 and higher.
 -  The AIMMS Language Reference file was damaged in version 4.64.4.
--  The tooltip for string manipulation intrinsic functions (like FindString) was corrected. The ``caseSensitive`` optional argument default value is displayed in the tooltip (which depends on the 'case_sensitive_string_comparison' project option).
+-  The tooltip for string manipulation intrinsic functions (like FindString) was corrected. The ``caseSensitive`` optional argument default value is displayed in the tooltip (which depends on the 'Case sensitive string comparison' project option).
 -  There was a problem when using an indexed function with an ordered set as the result.
 -  The Linux version of AIMMS would do many needless calls to a memory function, which in some cases had a negative impact on the performance.
 
@@ -7732,7 +7733,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++
 
 -  The check whether a value was an integer according to the tolerances was not always returning the correct result.
--  The warning "The use of a for around these statement(s) is unnecessary and probably inefficient" was not always issued when possible due to a bug. This bug is now resolved. Depending on the setting of the option "warning efficient for", you may now get some warnings or errors.
+-  The warning "The use of a for around these statement(s) is unnecessary and probably inefficient" was not always issued when possible due to a bug. This bug is now resolved. Depending on the setting of the option 'Warning efficient for', you may now get some warnings or errors.
 -  AIMMS did not always give a compilation error when a procedure was called within a numerical expression in a statement in a for loop (see the language reference chapter 10.3, "Using the return value"). This has been corrected. If you have used a procedure within a numerical expression and you get a compile error now, you may consider whether the called procedure should actually be a function.
 -  A crash could occur when the binary Ord operator was used with a numeric parameter as the first argument.
 -  When copying a newly created procedure or function, the index domains of locally declared identifiers were not always copied.
@@ -8199,7 +8200,7 @@ WebUI Improvements
 -  The Barchart and the Linechart widget now offer the possibility to specify a minimum bound, a maximum bound and the step size for the Y-axis. This allows you to provide the end-user of your WebUI apps with more focus on specific parts of your data.
 -  We offer a new option `WebUI maximum number of entries in widget` in the AIMMS project options, to specify how many values will be displayed in a WebUI widget. The default value is 50.000, which has always been the default behind the scenes. In cases of extreme data, you might want to increase this limit. Be aware though that performance may be lower when doing so.
 -  The Map-V2 widget (which is still behind a feature toggle) now offers Store Focus support.
--  The new option ``Save webUI state`` controls whether the WebUI state is saved when run under PRO. See the help in the options dialog in AIMMS for details.
+-  The new option `Save webUI state` controls whether the WebUI state is saved when run under PRO. See the help in the options dialog in AIMMS for details.
 -  When hovering over one of the chart widgets in the WebUI, the hovered over item is now displayed more prominently and the other elements are rendered more light, in order to add even more focus on the current one.
 -  When using the space bar or a mouse-click to change the value of a checkbox in a Table widget, the focus is not set to the cell below anymore.
 
