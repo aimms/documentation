@@ -47,7 +47,7 @@ Gurobi provides indicators constraints. Indicator constraints are a new constrai
 
 About Gurobi
 ----------------------------
-Gurobi is developed and supported by `Gurobi Optimization, Inc <http://www.gurobi.com>`_. a company founded in 2008 by Robert Bixby, Zonghao Gu and Edward Rothberg.
+Gurobi is developed and supported by `Gurobi Optimization, Inc <https://www.gurobi.com>`_. a company founded in 2008 by Robert Bixby, Zonghao Gu and Edward Rothberg.
 
 
 Gurobi Requirements

@@ -12,7 +12,7 @@ CP Optimizer provides a parallel option allowing you to take advantage of the av
 
 About IBM ILOG CP Optimizer
 -------------------------------------
-`IBM ILOG CP Optimizer <https://www.ibm.com/analytics/cplex-cp-optimizer>`_ is developed and supported by IBM, Inc. IBM ILOG CP Optimizer is a registered trademark of IBM, Inc.
+`IBM ILOG CP Optimizer <https://www.ibm.com/products/ilog-cplex-optimization-studio/cplex-cp-optimizer>`_ is developed and supported by IBM, Inc. IBM ILOG CP Optimizer is a registered trademark of IBM, Inc.
 
 CP Optimizer Supported Versions
 -------------------------------------
