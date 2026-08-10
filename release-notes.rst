@@ -13,6 +13,22 @@ AIMMS 26.3
 
 
 
+AIMMS 26.3.3 Release (August 10, 2026 - build 26.3.3.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Database procedures with OUTPUT/INOUT arguments could silently return their default (empty/zero) value instead of the actual value produced by the procedure, when called against a database whose driver returns such arguments via an implicit trailing result set (e.g. MySQL) rather than native output parameters. Two related issues have been resolved: AIMMS was discarding that result set before reading it, and a subsequent generic copy-back step then overwrote the value that had been correctly retrieved. Output and in/out arguments of database procedures are now returned reliably.
+
+--------------
+
+
+
+
+
 AIMMS 26.3.2 Release (August 07, 2026 - build 26.3.2.1).
 ------------------------------------------------------------------------------------------
 
