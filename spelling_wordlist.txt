@@ -212,3 +212,13 @@ toolchain
 #########
 autolib
 autolibs
+webmvc
+activemq
+bcprov
+jdk
+keystream
+mina
+deserialization
+httpcore
+msvc
+runtimes
