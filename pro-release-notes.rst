@@ -337,7 +337,7 @@ PRO 26.6
 AIMMS PRO 26.6.8 Release
 -------------------------
 
-On August 15, 2026 we released AIMMS PRO 26.6.8(*On-prem build*: 26.6.8.1)
+On August 14, 2026 we released AIMMS PRO 26.6.8(*On-prem build*: 26.6.8.1)
 
 **Security Fixes**
 
