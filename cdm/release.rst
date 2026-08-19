@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+26.4.2.2 [19-08-2026]
+	- When auto-terminating the CDM service in the AIMMS cloud, a snapshot update running at the same time would lead to a crash.
+
 26.4.1.1 [07-08-2026]
 	- Rebuilt with the updated AIMMS toolset. This version requires AIMMS 26.3.1 or later and cannot be used with earlier AIMMS versions.
 	
