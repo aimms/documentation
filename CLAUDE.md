@@ -65,4 +65,4 @@ Unknown words go in `spelling_wordlist.txt` (one word per line). Custom filters 
 
 - Work on a feature branch; merge to `develop` for weekly review cycle.
 - `master` branch triggers production deployment — do not push directly unless urgent.
-- Each push to a non-master branch deploys to a staging URL at `documentation-staging/<branch-name>`.
+- Each push to a non-master branch deploys to its own GitLab Pages staging URL at `<CI_PAGES_URL>/<branch-slug>/`. Branch deployments run in parallel and expire after three months of inactivity; the job's environment link in the pipeline points at the published site.
