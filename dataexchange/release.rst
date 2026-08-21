@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+26.2.2.1 [21-08-2026]
+	- Concurrent curl calls could lead to a crash due to a race condition managing curl handles.
+	
 26.2.1.0 [06-08-2026]
 	- Rebuilt with the updated AIMMS toolset. This version requires AIMMS 26.3.1 or later and cannot be used with earlier AIMMS versions.
 
