@@ -83,16 +83,38 @@ deploy:
     - rsync -rt _build/html/ support@data.aimms.com:/home/aimms/www/documentation.aimms.com
   retry: 1
 
+# Every branch gets its own parallel Pages deployment at:
+#   <CI_PAGES_URL>/<branch-slug>/
 internal_documentation_deploy:
   <<: *on_docker_runner
   stage: build-and-deploy
   image: python:3.11-slim
-  before_script: *install_uv_with_rsync
+  before_script: *install_uv
+  rules:
+    - if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != "master"
+      when: on_success
+    - when: never
+  # The "pages" keyword - not the job name - is what makes this a Pages job
+  # (GitLab 17.9+). Keep it, or staging stops publishing.
+  pages:
+    path_prefix: "$CI_COMMIT_REF_SLUG"
+    # Doc branches can stay open for months. Every push to the branch
+    # republishes and resets this clock, so only branches that go quiet for a
+    # full quarter expire - and re-running this job republishes them at the
+    # same URL.
+    expire_in: 3 months
+  environment:
+    name: docs-staging/$CI_COMMIT_REF_SLUG
+    url: $CI_PAGES_URL
   script:
     - uv run sphinx-build -b html . _build/html
-    - bash load_ssh_key_for_deploy.sh
-    - ssh support@data.aimms.com mkdir -p /home/aimms/www/documentation-staging/${CI_COMMIT_BRANCH}
-    - rsync -r --omit-dir-times --delete-excluded _build/html/ support@data.aimms.com:/home/aimms/www/documentation-staging/${CI_COMMIT_BRANCH}
+    # Pages publishes the "public" directory at the repository root
+    - rm -rf public
+    - mv _build/html public
+    - echo "Staging documentation published to ${CI_PAGES_URL}"
+  artifacts:
+    paths:
+      - public
 
 az_deploy:
   <<: *on_docker_runner
