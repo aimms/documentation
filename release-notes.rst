@@ -81,7 +81,7 @@ Resolved AIMMS Issues
 
 -  A sub-expression (i in SomeIndexedSet(j)) used in a constraint or variable was not always working correctly in the new math program generator.
 -  The error message on accidentally re-using an already bound index in an iterative min or max has been improved.
--  The new math program generator had a memory leak in the handling of the accept_basis solve option. Besides the memory leak it was also not working as expected.
+-  The new math program generator had a memory leak in the handling of the option 'Accept basis'. Besides the memory leak it was also not working as expected.
 -  The procedures GMP::Row::Generate and GMP::Row::GenerateMulti have a new optional argument ``ignoreConstraintDomainCondition`` with a default of 1. The default matches the old behavior which allows that rows can be generated outside of the domain of the constraint.
 -  The unit analysis of the iterative PROD operator has been improved.
 -  The Composite Table statement has been implemented in the new compiler. The syntax is more strict than before: it is no longer allowed to specify a set name as the header of an index column, it must be an index name.
@@ -129,7 +129,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  The `continued solve <https://how-to.aimms.com/Articles/685/685-continued-solve.html>`__ feature for CPLEX and Gurobi did not work for models with indicator constraints or semi-continuous variables.
--  On the introduction of mi_malloc as an optional allocator, the default allocator on Linux was changed from malloc to dlmalloc in AIMMS 25.8.1, which could lead to crashes during combined execution of multi-threaded external functions and the AIMMS engine in concurrent memory requests.
+-  On the introduction of mimalloc as an optional allocator, the default allocator on Linux was changed from malloc to dlmalloc in AIMMS 25.8.1, which could lead to crashes during combined execution of multi-threaded external functions and the AIMMS engine in concurrent memory requests.
 
 --------------
 
@@ -4294,7 +4294,7 @@ AIMMS Improvements
 
 -  The CPLEX options 'Node file size' and 'Tree memory limit' have been renamed to 'MIP tree memory limit' and 'Working memory limit' respectively. AIMMS can still read in the old option names but will use the new option names if the project is saved.
 -  The progress window information for BARON has been changed such that it is more inline with other solvers.
--  The layout of the Math Program Inspector tool is now remembered when you close and re-open the tool. This holds for both the sizes of the sub-windows and the sizes of the columns in the various lists. This new feature can be disabled via the option MPI_Remember_Layout in the Project Options.
+-  The layout of the Math Program Inspector tool is now remembered when you close and re-open the tool. This holds for both the sizes of the sub-windows and the sizes of the columns in the various lists. This new feature can be disabled via the option 'MPI remember layout' in the Project Options.
 -  The new global solver Octeract has been added. Octeract can be used to find a global optimal solution for NLP, MINLP and non-convex quadratic or quadratically constrained problems. Octeract can handle models with trigonometric functions. Currently Octeract is only available for Windows.
 -  If an expression contains a reference to a Macro, it can now be handled by the new compiler and execution engine.
 -  AIMMS Postsolve is now less strict on bound violations of continuous variables. The new option 'Postsolve bound tolerance' specifies the allowed bound violation, and uses a default value of 1e-10. Set this option to 0 to get the old behavior.
@@ -7397,7 +7397,7 @@ WebUI Improvements
 -  We made a fundamental change in the storage of WebUI pages and widgets. For details, see the `New Features page <https://www.aimms.com/support/new-features/#SingleJSON>`__. **IMPORTANT:** if you plan to publish your existing AIMMS app(s) using AIMMS 4.67, you first need to re-export your model using AIMMS 4.67. This step creates the expected ``webui.json`` file. If you omit this step, you will get an error message upon publishing.
 -  Minimum and Maximum Resource Height have been introduced for the Gantt Chart. The Minimum Resource Height option adjusts the resource height such that when the height of all resources exceeds the height of the Gantt Chart widget, a vertical scroll bar appears on the right and the user can scroll down in order to see the resources below. When a batch is dragged down, the chart automatically scrolls to reveal the resources below. The Maximum Resource Height option will condense the resources to the set value such that the batches are not spread to fit the size of the Gantt Chart.
 -  As of this release, Gantt Chart jobs can now also be resized from the left side in case the duration of the job is editable (i.e. changing the start time while keeping the end time the same). A special cursor will appear if you hover on the sides of the job to signal that you can adjust its duration.
--  There is a new option that allows developers to automatically open the WebUI upon project startup. It can be found in the AIMMS Options dialog in the category Project - Startup & Authorization, and is called Open_WebUI_on_startup.
+-  There is a new option that allows developers to automatically open the WebUI upon project startup. It can be found in the AIMMS Options dialog in the category Project - Startup & Authorization, and is called 'Open WebUI on startup'.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++
