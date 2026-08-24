@@ -13,6 +13,29 @@ AIMMS 26.3
 
 
 
+AIMMS 26.3.4 Release (August 24, 2026 - build 26.3.4.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  COPT 8.0 has been upgraded to version 8.0.6. The procedure GMP::Instance::CalculateSubGradient is now supported by COPT 8.0.
+-  The Solvers General option 'Generate all stage 0 stochastic rows' has been added. If it is switched on then the procedure GMP::Instance::GenerateStochasticProgram will generate all stochastic rows if a constraint contains a stochastic parameter but no stochastic variable, or if all stochastic variables are multiplied by 0 (zero).
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  An option statement could cause a crash after deleting a solver from the solver configuration.
+-  Hardened the encryption of model source files.
+
+--------------
+
+
+
+
+
 AIMMS 26.3.3 Release (August 10, 2026 - build 26.3.3.1).
 ------------------------------------------------------------------------------------------
 
