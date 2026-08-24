@@ -222,3 +222,4 @@ deserialization
 httpcore
 msvc
 runtimes
+flatstring
