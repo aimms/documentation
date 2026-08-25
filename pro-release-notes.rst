@@ -334,6 +334,19 @@ Task Scheduler (Version 25.2.1.0 - May 15, 2025)
 PRO 26.6
 ########
 
+AIMMS PRO 26.6.9 Release
+-------------------------
+
+On August 25, 2026 we released AIMMS PRO 26.6.9(*On-prem build*: 26.6.9.1)
+
+**Security Fixes**
+
+   -  Upgraded mchange-commons-java to 0.6.1, resolving a JNDI injection / deserialization gadget vulnerability. The prior c3p0 upgrade only brought in mchange-commons-java 0.4.0 transitively, which remained vulnerable.
+
+**Resolved Issues**
+
+   -  Fixed nightly Configurator backups failing with ``STATUS_DLL_NOT_FOUND``, caused by a missing ``libiconv-2.dll`` in the bundled PostgreSQL EDB 16.14-2 build; the bundled PostgreSQL was bumped to EDB 16.15-1, which restores the missing DLL.
+
 AIMMS PRO 26.6.8 Release
 -------------------------
 
