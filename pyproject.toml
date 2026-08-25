@@ -2,13 +2,30 @@
 name = "aimms-documentation"
 version = "0.1.0"
 requires-python = ">=3.9"
+# Sphinx is pinned to 4.5.0 - the version shipped by the shared
+# documentation:latest CI image - so that every AIMMS docs repo builds on one
+# Sphinx, whether it runs from that image or from this uv project. The only other
+# repo with a pyproject.toml is aimmspy/documentation, which carries the same
+# pins; the remaining five docs repos take Sphinx straight from the image.
+#
+# The companion pins below are the newest releases of each package that still
+# support Sphinx 4.5; without them pip resolves forward and drags Sphinx up with
+# it. sphinx-rtd-theme is the one to watch: it is an unpinned dependency of
+# sphinx-aimms-theme, and 2.0 onwards requires Sphinx >= 6.
 dependencies = [
-    "sphinx>=7.2",
+    "sphinx==4.5.0",
+    "sphinx-rtd-theme<2",
     "sphinx-sitemap",
     "sphinx-last-updated-by-git",
-    "sphinxcontrib-bibtex",
-    "sphinxcontrib-spelling",
-    "sphinx-design>=0.5",
+    "sphinxcontrib-bibtex==2.5.0",
+    "sphinxcontrib-spelling==8.0.0",
+    "sphinxcontrib-applehelp==1.0.4",
+    "sphinxcontrib-devhelp==1.0.2",
+    "sphinxcontrib-htmlhelp==2.0.1",
+    "sphinxcontrib-qthelp==1.0.3",
+    "sphinxcontrib-serializinghtml==1.1.5",
+    "alabaster==0.7.13",
+    "sphinx-design==0.3.0",
     "sphinx-aimms-theme",
     "aimms-pygments-style",
 ]

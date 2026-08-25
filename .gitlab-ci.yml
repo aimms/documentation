@@ -3,7 +3,8 @@ variables:
 
 stages:
   - test
-  - build-and-deploy
+  - build
+  - deploy
 
 # Reusable before_script fragments
 # enchant is required in all sphinx-build jobs because RST files use
@@ -11,17 +12,24 @@ stages:
 # Without the extension loaded the directive is unknown and -W fails the build.
 .install_uv: &install_uv
   - apt-get update -qq && apt-get install -y -qq git libenchant-2-2
+  # The runner only marks safe.directory in the get_sources helper container; the
+  # sphinx build runs in a different image and HOME, so git still rejects the
+  # checkout as dubious ownership. That breaks sphinx_last_updated_by_git, which
+  # this project enables, and the failure is fatal under -W.
+  - git config --global --add safe.directory "$CI_PROJECT_DIR"
   - pip install uv --quiet
   - uv sync --quiet
 
 .install_uv_with_rsync: &install_uv_with_rsync
   - apt-get update -qq && apt-get install -y -qq git libenchant-2-2 rsync openssh-client
+  - git config --global --add safe.directory "$CI_PROJECT_DIR"
   - pip install uv --quiet
   - uv sync --quiet
 
 # azure-cli image is CBL-Mariner-based (not Alpine); uses tdnf as package manager
 .install_uv_azure: &install_uv_azure
   - tdnf install -y git enchant2 tar
+  - git config --global --add safe.directory "$CI_PROJECT_DIR"
   - curl -LsSf https://github.com/astral-sh/uv/releases/latest/download/uv-x86_64-unknown-linux-musl.tar.gz | tar -xz --strip-components=1 -C /usr/local/bin uv-x86_64-unknown-linux-musl/uv
   - uv sync --quiet
 
@@ -70,7 +78,7 @@ build:
 
 deploy:
   <<: *on_docker_runner
-  stage: build-and-deploy
+  stage: deploy
   image: python:3.11-slim
   before_script: *install_uv_with_rsync
   rules:
@@ -85,9 +93,19 @@ deploy:
 
 # Every branch gets its own parallel Pages deployment at:
 #   <CI_PAGES_URL>/<branch-slug>/
-internal_documentation_deploy:
+build_staging:
   <<: *on_docker_runner
-  stage: build-and-deploy
+  stage: build
+  # Depend on the three gating checks by name rather than on the whole test
+  # stage. Stage ordering alone would also make linkcheck_external a
+  # prerequisite: it is allow_failure so it can never fail the pipeline, but the
+  # stage would still wait for it to finish, and checking every external URL is
+  # by far the slowest job here. spellcheck is listed even where it is
+  # allow_failure - a needed job that fails but is allowed to does not block.
+  needs:
+    - job: build
+    - job: linkcheck
+    - job: spellcheck
   image: python:3.11-slim
   before_script: *install_uv
   rules:
@@ -118,7 +136,7 @@ internal_documentation_deploy:
 
 az_deploy:
   <<: *on_docker_runner
-  stage: build-and-deploy
+  stage: deploy
   image: mcr.microsoft.com/azure-cli
   before_script: *install_uv_azure
   rules:
@@ -131,7 +149,7 @@ az_deploy:
 
 upload_html_to_rfx_blob:
   <<: *on_docker_runner
-  stage: build-and-deploy
+  stage: deploy
   image: mcr.microsoft.com/azure-cli
   before_script: *install_uv_azure
   rules:
