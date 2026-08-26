@@ -334,6 +334,15 @@ Task Scheduler (Version 25.2.1.0 - May 15, 2025)
 PRO 26.6
 ########
 
+AIMMS PRO 26.6.10 Release
+--------------------------
+
+On August 26, 2026 we released AIMMS PRO 26.6.10(*On-prem build*: 26.6.10.1)
+
+**Security Fixes**
+
+   -  Upgraded the bundled ``net4cxx`` networking library to 2.2.1-44 (``net4cxx-dev`` 2.1.1-35), which now disables TLS 1.0 and TLS 1.1 by default, reducing exposure to legacy, insecure TLS protocol handshakes.
+
 AIMMS PRO 26.6.9 Release
 -------------------------
 
