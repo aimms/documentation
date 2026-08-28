@@ -3,6 +3,9 @@
 Launching Python, R and other services
 ======================================
 
+.. warning::
+
+   ``pro::service::LaunchService`` and ``pro::service::LaunchServiceJson`` described on this page are deprecated. See the :doc:`/deprecation-table` for details. We recommend migrating to `Python Bridge <https://documentation.aimms.com/python-bridge/index.html>`__.
 
 Starting with AIMMS version 24.1 and PRO version 24.1 it is possible to launch Python, R and other services on the AIMMS PRO platform. This allows you to run Python and R scripts on the AIMMS PRO platform, and to use the results in your AIMMS models. This document describes how to set up and use these services.
 
