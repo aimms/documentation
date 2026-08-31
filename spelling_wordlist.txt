@@ -226,3 +226,4 @@ flatstring
 mchange
 #########
 unescaped
+checkable
