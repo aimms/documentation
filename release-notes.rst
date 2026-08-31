@@ -23,7 +23,6 @@ Resolved AIMMS Issues
 
 -  Fixed a crash that was triggered when closing the database Tunnel app.
 -  AIMMS again reaches the library repository from networks where a proxy inspects HTTPS traffic. A TLS handshake that fails against such a proxy is now retried once with TLS capped at 1.2, which clears the "TLS handshake failed. The proxy or server may be intercepting HTTPS with an unsupported configuration." error that stopped projects using repository libraries from opening and stopped libraries being added from the repository. The failure message now also carries the underlying TLS detail, and the cap can be applied up front with `tlsmaxversion=1.2` via the `AIMMSAUTOLIB` environment variable or `setConfig`.
--  Fixed an issue where opening a project (or adding a library from the repository) that referenced an older library version no longer available in the repository would fail with "Library not found in repository". AIMMS now falls forward to the next compatible newer version, as it did before AIMMS 26.3.1, and reports the version it installed.
 
 --------------
 
@@ -62,6 +61,7 @@ Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  Database procedures with OUTPUT/INOUT arguments could silently return their default (empty/zero) value instead of the actual value produced by the procedure, when called against a database whose driver returns such arguments via an implicit trailing result set (e.g. MySQL) rather than native output parameters. Two related issues have been resolved: AIMMS was discarding that result set before reading it, and a subsequent generic copy-back step then overwrote the value that had been correctly retrieved. Output and in/out arguments of database procedures are now returned reliably.
+-  Fixed an issue where opening a project (or adding a library from the repository) that referenced an older library version no longer available in the repository would fail with "Library not found in repository". AIMMS now falls forward to the next compatible newer version, as it did before AIMMS 26.3.1, and reports the version it installed.
 
 --------------
 
