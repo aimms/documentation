@@ -14,8 +14,9 @@ Before you start
 
 You need:
 
-- **SENSAI Apps enabled for your account**, on an AIMMS version that supports it.
-  AIMMS arranges both.
+- **SENSAI Apps enabled on the cloud account you sign in to**, on an AIMMS
+  version that supports it. AIMMS arranges both. If it is not enabled on that
+  account, **SENSAI chat** does not appear in the **Tools** menu (see below).
 - **A model that compiles**, open in a developer or editing session. The
   assistant works on the model with you in such a session, and the annotation
   checks only run there.
@@ -32,9 +33,10 @@ your project. Opening it takes a one-time cloud sign-in per AIMMS session:
 
 #. **Open Tools › Cloud login.** In the IDE, open the **Tools** menu and choose
    **Cloud login**. A red dot means you are not signed in yet.
-#. **Enter your cloud account.** Type your cloud account address and press
-   **Sign in**. If you are not signed in to that account yet, you will be
-   prompted to do so.
+#. **Enter your cloud account.** Type the address of the cloud account that has
+   SENSAI Apps enabled and press **Sign in**. If you are not signed in to that
+   account yet, you will be prompted to do so. Signing in to a different account
+   works, but **SENSAI chat** will not be offered in step 5.
 #. **Approve the device in your browser.** Your browser opens the cloud portal.
    Check the request and press **Approve**.
 #. **Close the browser tab.** Once the page says the device is authorized, close
