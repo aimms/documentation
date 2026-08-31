@@ -13,6 +13,24 @@ AIMMS 26.3
 
 
 
+AIMMS 26.3.5 Release (August 31, 2026 - build 26.3.5.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Fixed a crash that was triggered when closing the database Tunnel app.
+-  AIMMS again reaches the library repository from networks where a proxy inspects HTTPS traffic. A TLS handshake that fails against such a proxy is now retried once with TLS capped at 1.2, which clears the "TLS handshake failed. The proxy or server may be intercepting HTTPS with an unsupported configuration." error that stopped projects using repository libraries from opening and stopped libraries being added from the repository. The failure message now also carries the underlying TLS detail, and the cap can be applied up front with `tlsmaxversion=1.2` via the `AIMMSAUTOLIB` environment variable or `setConfig`.
+-  Fixed an issue where opening a project (or adding a library from the repository) that referenced an older library version no longer available in the repository would fail with "Library not found in repository". AIMMS now falls forward to the next compatible newer version, as it did before AIMMS 26.3.1, and reports the version it installed.
+
+--------------
+
+
+
+
+
 AIMMS 26.3.4 Release (August 24, 2026 - build 26.3.4.1).
 ------------------------------------------------------------------------------------------
 
