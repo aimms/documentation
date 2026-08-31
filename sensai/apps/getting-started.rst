@@ -63,9 +63,10 @@ session builds on this description.
 
 When it is right:
 
-    *Add that as the app context.*
+    *Generate the system prompt for this application from that description.*
 
-The assistant writes a string parameter something like this:
+The assistant writes a string parameter, marked as the system prompt, something
+like this:
 
 .. code-block:: aimms
 
