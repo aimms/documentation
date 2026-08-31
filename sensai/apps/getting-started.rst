@@ -24,18 +24,29 @@ You need:
   *"recalculate the summary after I change the forecast."* The rest of this page
   uses these two questions.
 
-Open the assistant from your application's toolbar — the panel button on the
-left:
+Sign in and open the assistant
+------------------------------
 
-.. figure:: /sensai/images/open-sensai.png
-   :align: center
-   :alt: An AIMMS WebUI toolbar with the button that opens SENSAI highlighted on the left
+You work with the assistant in the AIMMS IDE, in a SENSAI chat that docks beside
+your project. Opening it takes a one-time cloud sign-in per AIMMS session:
 
-   The highlighted button on the left of the toolbar opens SENSAI.
+#. **Open Tools › Cloud login.** In the IDE, open the **Tools** menu and choose
+   **Cloud login**. A red dot means you are not signed in yet.
+#. **Enter your cloud account.** Type your cloud account address and press
+   **Sign in**. If you are not signed in to that account yet, you will be
+   prompted to do so.
+#. **Approve the device in your browser.** Your browser opens the cloud portal.
+   Check the request and press **Approve**.
+#. **Close the browser tab.** Once the page says the device is authorized, close
+   the tab and return to the IDE.
+#. **Open Tools › SENSAI chat.** The dot turns green and the **Tools** menu now
+   offers **SENSAI chat**. Open it.
+#. **Good to go.** The assistant docks beside your project.
 
-If the button is not there, enable it in the WebUI
-`application settings <https://documentation.aimms.com/webui/application-settings.html>`_,
-which has a toggle for showing the assistant in end-user applications.
+.. note::
+
+   Every new AIMMS session needs the cloud login again, so start from step 1 each
+   time you reopen your project.
 
 Step 1 — Ask it to look at the model
 ------------------------------------

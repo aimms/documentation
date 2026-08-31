@@ -37,7 +37,8 @@ Selecting it opens the assistant next to your application:
 
 If you cannot find the button, ask whoever looks after the application whether it
 has been switched on for you. It is enabled per application, in the WebUI
-`application settings <https://documentation.aimms.com/webui/application-settings.html>`_.
+`application settings <https://documentation.aimms.com/webui/application-settings.html>`_,
+and needs a WebUI version newer than 26.11.
 
 What you can ask it to do
 -------------------------
