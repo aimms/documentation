@@ -24,7 +24,18 @@ You need:
   *"recalculate the summary after I change the forecast."* The rest of this page
   uses these two questions.
 
-Open the assistant from your application's toolbar.
+Open the assistant from your application's toolbar — the panel button on the
+left:
+
+.. figure:: /sensai/images/open-sensai.png
+   :align: center
+   :alt: An AIMMS WebUI toolbar with the button that opens SENSAI highlighted on the left
+
+   The highlighted button on the left of the toolbar opens SENSAI.
+
+If the button is not there, enable it in the WebUI
+`application settings <https://documentation.aimms.com/webui/application-settings.html>`_,
+which has a toggle for showing the assistant in end-user applications.
 
 Step 1 — Ask it to look at the model
 ------------------------------------

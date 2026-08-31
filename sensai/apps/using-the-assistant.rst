@@ -18,8 +18,26 @@ Opening it
 ----------
 
 The assistant appears in your application, usually as a chat panel you open from
-the toolbar. If you cannot find it, ask whoever looks after the application
-whether it has been switched on for you.
+the toolbar. Look for the panel button on the left of the toolbar:
+
+.. figure:: /sensai/images/open-sensai.png
+   :align: center
+   :alt: An AIMMS WebUI toolbar with the button that opens SENSAI highlighted on the left
+
+   The highlighted button on the left of the toolbar opens SENSAI.
+
+Selecting it opens the assistant next to your application:
+
+.. figure:: /sensai/images/sensai-chat-ui.png
+   :scale: 70
+   :align: center
+   :alt: The SENSAI chat panel showing the "Welcome to SENSAI" screen and a message box at the bottom
+
+   The SENSAI chat panel. Type your question in the box at the bottom.
+
+If you cannot find the button, ask whoever looks after the application whether it
+has been switched on for you. It is enabled per application, in the WebUI
+`application settings <https://documentation.aimms.com/webui/application-settings.html>`_.
 
 What you can ask it to do
 -------------------------
