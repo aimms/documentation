@@ -86,8 +86,8 @@ Building it with the assistant
 ------------------------------
 
 You do not write the annotations by hand, and you do not need to know the
-annotation syntax. In a developer session the assistant knows it, reads the
-model, and makes the change. You say what you want in the terms you would use
+annotation syntax. In a developer or editing session the assistant knows it,
+reads the model, and makes the change. You say what you want in the terms you would use
 with a colleague, and you review the result.
 
 There is no need to explain how to annotate. What the assistant cannot get from
@@ -141,15 +141,23 @@ Review the descriptions even when the assistant drafted them.
 Developer sessions and end-user sessions
 ----------------------------------------
 
-A **developer or editing session** is one where you may change the model. This is
-where the assistant works on the model with you, and where the annotation checks
-run. Annotations take effect when the model compiles in such a session.
+You can only build with the assistant in a session that allows model changes.
+There are two kinds:
+
+- A **developer session** — your project open in the AIMMS IDE on your own
+  machine.
+- An **editing session** — the app opened for editing in AIMMS PRO or the AIMMS
+  Cloud Platform, rather than run as an end user.
+
+In either, the assistant works on the model with you and the annotation checks
+run; annotations take effect when the model compiles. Throughout this
+documentation, "developer or editing session" means either of these.
 
 An **end-user session** is what your users get. The assistant works with the
-application there and does not change the model.
+application there, does not change the model, and the checks do not run.
 
-Inside a developer session you can also ask the assistant to **switch to end
-user mode**, which gives you the view your users get, and to **go back to
+Inside a developer or editing session you can also ask the assistant to **switch
+to end user mode**, which gives you the view your users get, and to **go back to
 developer mode** to return. The mode changes what the assistant will do for you.
 It does not change which session you are in.
 

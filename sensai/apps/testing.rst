@@ -35,7 +35,8 @@ editing session. An end-user session does not run the checks.
 
 **Switch to the business-user view.** Tell the assistant to *switch to end user
 mode* — the wording is flexible. This is the view your users get, and in a
-developer session the assistant has capabilities your users will not have.
+developer or editing session the assistant has capabilities your users will not
+have.
 
 **Ask the questions your users will ask.** Write two or three down before you
 start, in their words, and use the same ones each time you change something. Ask
@@ -58,7 +59,7 @@ apply to.
 
 **The semantic check** runs in a developer or editing session after each
 recompile, and catches what the compiler cannot see. To read its findings, ask
-the assistant in a developer session to **describe its diagnostics**. It replies
+the assistant in a developer or editing session to **describe its diagnostics**. It replies
 with a list of the errors and warnings below, naming the identifier in each case,
 and it can fix most of them if you ask it to.
 

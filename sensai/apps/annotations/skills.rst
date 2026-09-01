@@ -98,8 +98,9 @@ critique its own draft once.
 
 .. note::
 
-   In a developer session the assistant can rewrite a skill, and shows you the
-   change before it makes it. In an end-user session it cannot, so a user's
+   In a developer or editing session the assistant can rewrite a skill, and shows
+   you the change before it makes it. In an end-user session it cannot, so a
+   user's
    suggested improvement comes back to you.
 
 Skill, procedure, or flow?

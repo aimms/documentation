@@ -4,8 +4,8 @@ Exposing procedures and data
 Everything the assistant can do in your application comes from the procedures and
 identifiers you expose, and from the descriptions attached to them.
 
-The assistant writes these annotations for you in a developer session. You do
-not name identifiers to it. You describe what your users need to do and how they
+The assistant writes these annotations for you in a developer or editing session.
+You do not name identifiers to it. You describe what your users need to do and how they
 want to interact — the questions they ask and the tasks they carry out, in their
 own words — and from that the assistant works out which procedures and
 identifiers are involved and writes the annotations on them. For example:

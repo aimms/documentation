@@ -4,8 +4,8 @@ Annotating your model
 .. note::
 
    You do not need to know the annotation syntax to use SENSAI Apps. In a
-   developer session the assistant knows it, reads your model, and writes the
-   annotations. Describe what you want in the terms you would use with a
+   developer or editing session the assistant knows it, reads your model, and
+   writes the annotations. Describe what you want in the terms you would use with a
    colleague — *"planners keep asking which weeks we are short on capacity,
    expose what is needed to answer that"* — and it works out which identifiers
    are involved and what to write on each.
