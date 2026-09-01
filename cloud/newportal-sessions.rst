@@ -25,7 +25,8 @@ The new Sessions page introduces:
 * **GbHour consumption** — See resource usage per session directly in the table.
 * **Session Stats** — A dedicated tab with aggregated insights into session usage and performance across your applications.
 * **Session Events** — A new context menu option to view a chronological timeline of events for any session.
-* **Improved filtering** — A flexible filter bar to narrow down sessions across any column.
+* **Improved filtering** — A flexible filter bar to narrow down sessions across any column, including a **Latest** quick filter and automatic loading of your last-used filter.
+* **Sticky table header** — The column header row stays visible while you scroll through the session list, so column titles remain in view.
 
 Page Overview
 ^^^^^^^^^^^^^
@@ -79,8 +80,10 @@ Filtering and Sorting Sessions
 ------------------------------
 
 Click **+ Add filter** at the top of the page to filter the session list. You can apply multiple filters simultaneously across different columns (e.g., filter by state, user, account, or date range). To remove all active filters, use the **Clear all** option in the filter bar.
-
-Each column in both the Data and Stats tabs can be sorted by clicking the column header. Note that applied filters are preserved when switching between the Data and Stats tabs, but sorting is reset when switching tabs.
+ 
+Use the **Latest** quick filter to instantly narrow the list to the most recent sessions. The Sessions page also remembers your last-used filter and reloads it automatically the next time you visit, so you don't have to reapply it manually.
+ 
+Each column in both the Data and Stats tabs can be sorted by clicking the column header, which opens a small menu with **Sort ascending**, **Sort descending**, and **Hide column** options — letting you sort or hide a column directly from the header without opening Manage columns. Note that applied filters are preserved when switching between the Data and Stats tabs, but sorting is reset when switching tabs.
 
 Customizing the Table
 ---------------------
