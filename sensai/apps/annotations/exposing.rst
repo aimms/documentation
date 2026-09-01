@@ -5,8 +5,9 @@ Everything the assistant can do in your application comes from the procedures an
 identifiers you expose, and from the descriptions attached to them.
 
 The assistant writes these annotations for you in a developer session, and works
-out which identifiers each one belongs on. This page is what each annotation
-means, for checking its work and for asking it for something specific by name.
+out which identifiers each one belongs on. This page explains what each
+annotation means — for checking its work, and for asking it for something
+specific by name.
 
 Exposing a procedure
 --------------------
@@ -105,9 +106,11 @@ guessing from the identifier name alone. The semantic check warns about it.
 Titles
 ------
 
-``bridge::Title`` is the label a person sees for a tool or an item of data. It
-may contain spaces. The assistant does not read it, and calls the procedure by
-its identifier name.
+``bridge::Title`` sets the label a person sees for a tool or an item of data —
+the name shown in the assistant's interface when it refers to that tool or data.
+It may contain spaces. It affects display only: the assistant itself works from
+the description and calls the procedure by its identifier name, so the title
+never changes what the assistant does.
 
 .. code-block:: aimms
 
@@ -117,7 +120,7 @@ its identifier name.
         bridge::Title: "Compute summary statistics";
     }
 
-Without a title, the assistant shows the identifier name.
+Without a title, the identifier name is shown instead.
 
 Marking read-only and read-write procedures
 -------------------------------------------
