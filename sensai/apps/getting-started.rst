@@ -9,6 +9,14 @@ You direct the work and the assistant writes the annotations. You do not need to
 know the annotation syntax to follow this page — the code shown here is what the
 assistant produces, included so that you can recognize and check it.
 
+.. warning::
+
+   The assistant can change the model itself, not only its annotations, while you
+   work — writing a new procedure, for example. Editing the model this way is not
+   the intended use of SENSAI Apps today, so review every change before accepting
+   it and work in a copy you can roll back. Fully fledged model-editing
+   functionality is planned for 2026.
+
 Before you start
 ----------------
 

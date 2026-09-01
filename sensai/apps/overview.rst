@@ -106,8 +106,9 @@ A working session looks like this:
   finds the relevant procedures and identifiers, writes the annotations, and
   tells you what it chose. Naming identifiers is not necessary.
 - **Ask for what is missing.** If answering a question needs a procedure that
-  does not exist, ask for it. The assistant writes the procedure and exposes it,
-  and you review it before accepting it.
+  does not exist, the assistant can write one and expose it. This changes your
+  model rather than only annotating it, so review it carefully before accepting
+  it — see the warning below.
 - **Review what it did.** It shows you the change before it makes it, and you can
   ask why it chose one identifier over another.
 - **Ask it to test its own work.** *"Ask yourself five questions a planner would
@@ -115,6 +116,15 @@ A working session looks like this:
   wrong."* This surfaces thin descriptions and missing tools.
 - **Ask it to improve what it found.** Give it the results of its own test and
   ask it to fix what it flagged.
+
+.. warning::
+
+   In a developer or editing session the assistant can change the model itself,
+   not only its annotations — for example, writing a new procedure when you ask
+   for one. Editing the model this way is not the intended use of SENSAI Apps
+   today. Review every change before you accept it, keep its changes to what you
+   are annotating, and work in a copy you can roll back. Fully fledged
+   model-editing functionality is planned for 2026.
 
 You decide what belongs in the exposed set and whether a description is right.
 :doc:`getting-started` walks through a first session, and :doc:`design-guide`
