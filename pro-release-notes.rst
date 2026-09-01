@@ -21,6 +21,8 @@ Portal 26.11.1.0 (September 1, 2026)
  
 - **Sortable, filterable data grid columns:** Column headers in data grids are now clickable, letting you switch between ascending and descending sort. You can also hide columns and apply quick filters directly from the grid.
 
+- **New Usage page:** All users can now view the features and quotas included in their Cloud Platform contract, if one is configured for their account, from the new **Usage** page in the left sidebar. It shows the features available under your contract (e.g. IDE AI Assistant, Portal AI Assistant, SENSAI Apps) along with any configured quotas and their limits. *Active usage against these quotas will be added to this page in an upcoming release*.
+
 - **Security Fixes:** Resolved an issue where CDM database credentials could be exposed in the session log file.
 
 Portal 26.9.1.1 (July 22, 2026)
