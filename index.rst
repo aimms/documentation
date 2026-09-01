@@ -10,6 +10,9 @@
 .. image:: Images/webui-design-32.png
    :scale: 0
 
+.. image:: Images/sensai-sparkle-32.svg
+   :scale: 0
+
 .. raw:: html
 
     <br>
@@ -53,6 +56,11 @@
                 <h1>Aimms Network License Server</h1>
                 <div>Documentation for the AIMMS Network License Server</div>
             </a>
+            <a class="box_home_page" href="sensai/index.html">
+                <img alt="sensai" src="_images/sensai-sparkle-32.svg">
+                <h1>SENSAI</h1>
+                <div>Documentation for the AIMMS SENSAI family of AI assistants</div>
+            </a>
         </div>
     </div>
     
@@ -66,6 +74,7 @@
    Language Reference <https://documentation.aimms.com/language-reference/index.html>
    aimms_modeling
    webui <https://documentation.aimms.com/webui/index.html>
+   sensai/index
    python-bridge <https://documentation.aimms.com/python-bridge/index.html>
    pro/index
    cloud/index  
