@@ -4,6 +4,25 @@ AIMMS PRO Release Notes
 New Portal Updates
 ##################
 
+Portal 26.11.1.0 (September 1, 2026)
+------------------------------------
+
+**Improvements**
+ 
+- **Dark mode:** The Portal now supports dark mode, built on a unified MUI color palette. Toggle it from the quick bar (next to the SensAI icon), with **Light**, **Dark**, and **System** options. Dark mode is also available on the About page, before logging in.
+ 
+- **Right-click context menus:** You can now right-click a row across the Groups, Group Users, Users, Tunnels, Service Overrides, Secret Access, User API Keys, Application Access (Groups/Users tabs), and User Application Access lists to open a context menu at the cursor with quick actions.
+ 
+- **Sticky table headers:** Column headers in tables across the Portal now stay visible while scrolling, making it easier to read data in long lists.
+ 
+- **App Stats removed from the app context menu:** The **App Stats** option has been removed from the app context menu on the Apps page. This data was already available under **Sessions > Stats**, from where it can be exported to other tools for visual reporting.
+ 
+- **Sessions page quick filters:** The Sessions page now offers a **Latest** quick filter, and automatically loads your last-used filter (or lets you reapply it with one click) the next time you visit.
+ 
+- **Sortable, filterable data grid columns:** Column headers in data grids are now clickable, letting you switch between ascending and descending sort. You can also hide columns and apply quick filters directly from the grid.
+
+- **Security Fixes:** Resolved an issue where CDM database credentials could be exposed in the session log file.
+
 Portal 26.9.1.1 (July 22, 2026)
 -------------------------------
 
@@ -248,6 +267,13 @@ Version 25.3.1.0 (April 15, 2025)
 
 PRO REST API Updates
 ####################
+
+Task Scheduler (Version 26.2.1.0 - September 1, 2026)
+-----------------------------------------------------
+
+- **Resolved Issue**
+
+   - Task sessions now use the correct account-specific ``pro-aimms-session`` bootstrap artifact, matching the one used by the Session Manager for interactive sessions, instead of a single static default. This ensures accounts pinned to a specific session artifact (e.g. one with a custom injected DLL) get consistent behavior across task and interactive sessions.
 
 Task Scheduler (Version 26.1.3.0 - June 29, 2026)
 --------------------------------------------------
