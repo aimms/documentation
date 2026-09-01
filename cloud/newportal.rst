@@ -18,7 +18,6 @@ The following sections are available to all users of the AIMMS Cloud Platform.
    newportal-secrets
    newportal-usersettings
    newportal-user-api-keys
-   newportal-stats
 
 Administrators
 --------------
