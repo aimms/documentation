@@ -13,6 +13,14 @@ Annotating your model
    These pages cover the requirements the assistant cannot work out from the
    model, and what each annotation means when you are checking what it wrote.
 
+.. toctree::
+
+   exposing
+   agents
+   skills
+   flows
+   reference
+
 What the assistant works out, and what comes from you
 -----------------------------------------------------
 
@@ -92,14 +100,6 @@ the IDE message window. A second, semantic check runs in a developer or editing
 session after each recompile, and catches what the compiler cannot see, such as a
 missing description or a skill pointing at something that does not exist.
 :doc:`/sensai/apps/testing` covers how to read both.
-
-.. toctree::
-
-   exposing
-   agents
-   skills
-   flows
-   reference
 
 .. spelling:word-list::
 
