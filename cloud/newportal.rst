@@ -8,12 +8,13 @@ The AIMMS Cloud Portal provides a modern, intuitive interface for managing your 
 
    newportal-apps
    newportal-sessions
+   newportal-usage
    newportal-tasks
    newportal-legacy-sessions
    newportal-secrets
+   newportal-sensai-chat
    newportal-usersettings
    newportal-user-api-keys
-   newportal-stats
    newportal-users
    newportal-configuration
 
@@ -24,12 +25,13 @@ The following sections are available to all users of the AIMMS Cloud Platform.
 
 * :doc:`newportal-apps`
 * :doc:`newportal-sessions`
+* :doc:`newportal-usage`
 * :doc:`newportal-tasks`
 * :doc:`newportal-legacy-sessions`
 * :doc:`newportal-secrets`
+* :doc:`newportal-sensai-chat`
 * :doc:`newportal-usersettings`
 * :doc:`newportal-user-api-keys`
-* :doc:`newportal-stats`
 
 Administrators
 --------------
