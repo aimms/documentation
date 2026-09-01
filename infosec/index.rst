@@ -5,6 +5,13 @@ In this section of our documentation we provide self-service information on our 
 
 At the bottom of this page and in the navigation pane on the left you find the links to subsequent documentation pages with more details on information security management for both the AIMMS Cloud Platform and for the AIMMS software.
 
+.. toctree::
+    :hidden:
+
+    cloud-platform-azure
+    aimms-software
+    responsible-disclosure
+
 ISO 27001 Certified
 -------------------
 
@@ -31,10 +38,7 @@ Shared responsibility
 Documentation pages with more details
 -------------------------------------
 
-.. toctree::
-    :maxdepth: 1
-
-    cloud-platform-azure
-    aimms-software
-    responsible-disclosure
+* :doc:`cloud-platform-azure`
+* :doc:`aimms-software`
+* :doc:`responsible-disclosure`
     
