@@ -8,6 +8,26 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 26.4
+#############
+
+
+
+AIMMS 26.4.1 Release (September 01, 2026 - build 26.4.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Solver logging is now enabled by default. The Solvers General options 'Solver listing messages' and 'Solver window messages' have a new setting, 'Automatic', which is now the default. The defaults of several solver logging options have changed accordingly — for example, 'MIP display' for CPLEX now defaults to 'Nth node + info on node cuts', and 'Output file' for Gurobi now defaults to 'Yes'. Solver logging has a negligible effect on performance.
+-  SENSAI Apps (Preview): SENSAI Apps lets you add an AI assistant to an AIMMS application. Users ask about the plan in plain language, change input data, run the model, and have the results explained, all from a chat panel inside the app, with every answer coming from the application's own optimization model. You decide what the assistant may see and change, and in a developer session it can edit the model itself, writing the annotations and making the changes you describe, for you to review. Available as a Preview. See `Getting started <https://documentation.aimms.com/sensai/apps/getting-started.html>`__, and contact your account manager to learn more.
+
+--------------
+
+
+#############
 AIMMS 26.3
 #############
 
