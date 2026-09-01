@@ -4,10 +4,17 @@ Exposing procedures and data
 Everything the assistant can do in your application comes from the procedures and
 identifiers you expose, and from the descriptions attached to them.
 
-The assistant writes these annotations for you in a developer session, and works
-out which identifiers each one belongs on. This page explains what each
-annotation means — for checking its work, and for asking it for something
-specific by name.
+The assistant writes these annotations for you in a developer session. You do
+not name identifiers to it. You describe what your users need to do and how they
+want to interact — the questions they ask and the tasks they carry out, in their
+own words — and from that the assistant works out which procedures and
+identifiers are involved and writes the annotations on them. For example:
+*"Planners keep asking which weeks we are short on capacity — find what is needed
+to answer that and expose it."* :doc:`/sensai/apps/getting-started` walks through
+this in a first session.
+
+This page explains what each annotation means — for checking its work, and for
+asking it for something specific by name.
 
 Exposing a procedure
 --------------------
