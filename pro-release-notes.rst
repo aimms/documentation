@@ -23,8 +23,6 @@ Portal 26.11.1.0 (September 1, 2026)
 
 - **New Usage page:** All users can now view the features and quotas included in their Cloud Platform contract, if one is configured for their account, from the new **Usage** page in the left sidebar. It shows the features available under your contract (e.g. IDE AI Assistant, Portal AI Assistant, SENSAI Apps) along with any configured quotas and their limits. *Active usage against these quotas will be added to this page in an upcoming release*. See `Usage <https://documentation.aimms.com/cloud/newportal-usage.html>`_ for details.
 
-- **SENSAI Chat in the Portal:** Accounts with the **Portal AI Assistant** feature under their contract now have access to SENSAI Chat directly within the Portal -- an AI-powered assistant to help you navigate AIMMS and its ecosystem. See `SENSAI Chat <https://documentation.aimms.com/cloud/newportal-sensai-chat.html>`_ for details.
-
 **Resolved Issues**
 
 -  Resolved an issue where CDM database credentials could be exposed in the session log file.
