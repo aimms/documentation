@@ -97,6 +97,13 @@ Safety
      - ``"readonly"``
      - The platform enforces this. Exposed data is readable and not writable
        until you say otherwise.
+   * - ``bridge::WriteApproval``
+     - data identifier
+     - ``"none"`` / ``"required"``
+     - ``"required"``
+     - ``"none"`` lets the assistant write this identifier without asking the
+       user first. Needs ``SafeMode: "readwrite"``; it has no effect otherwise,
+       and none on a procedure.
    * - ``bridge::ReadOnlyHint``
      - procedure
      - ``"true"`` / ``"false"``
@@ -122,6 +129,12 @@ A read-only procedure should carry both ``bridge::SafeMode: "readonly"`` and
 ``bridge::ReadOnlyHint: "true"``. The semantic check reports contradictions, such
 as ``ReadOnlyHint: "true"`` with ``DestructiveHint: "true"``, or with
 ``SafeMode: "readwrite"``.
+
+``bridge::SafeMode`` and ``bridge::WriteApproval`` answer two different
+questions. ``SafeMode`` decides whether the identifier may be written at all;
+``WriteApproval`` decides whether a person confirms each write. That is why they
+are separate keys rather than one. See
+:ref:`sensai-write-without-confirmation`.
 
 Prompts, agents, skills and flows
 ---------------------------------
