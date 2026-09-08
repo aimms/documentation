@@ -1,7 +1,7 @@
 AIMMS PRO On-Premise Release Notes
 ==================================
 
-This page lists everything released on the AIMMS PRO on-premise build pipeline going forward. For Cloud Platform releases (Portal, PRO Cloud builds, and REST API), see `AIMMS Cloud Platform Release Notes <../cloud/release-notes.html>`_. For everything released before the Cloud and on-premise pipelines diverged, see the `AIMMS PRO Release Notes Archive <../pro-release-notes.html>`_.
+This page lists everything released on the AIMMS PRO on-premise build pipeline going forward. For Cloud Platform releases (Portal, PRO Cloud builds, and REST API), see :doc:`AIMMS Cloud Platform Release Notes </cloud/release-notes>`. For everything released before the Cloud and on-premise pipelines diverged, see the :doc:`AIMMS PRO Release Notes Archive </pro-release-notes>`.
 
 PRO 26.6
 ########

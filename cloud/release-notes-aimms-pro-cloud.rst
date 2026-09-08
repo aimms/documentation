@@ -1,7 +1,7 @@
 AIMMS PRO Cloud Updates
 =======================
 
-PRO Cloud build release notes for the AIMMS Cloud Platform pipeline, starting from the point where AIMMS PRO Cloud and on-premise builds diverged. For releases before that split, see the `AIMMS PRO Release Notes Archive <../pro-release-notes.html>`_.
+PRO Cloud build release notes for the AIMMS Cloud Platform pipeline, starting from the point where AIMMS PRO Cloud and on-premise builds diverged. For releases before that split, see the :doc:`AIMMS PRO Release Notes Archive </pro-release-notes>`.
 
 PRO 26.6
 ########
