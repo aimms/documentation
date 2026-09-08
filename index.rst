@@ -83,5 +83,7 @@
    licsrv/index  
    infosec/index
    release-notes
+   AIMMS Cloud Platform Release Notes <cloud/release-notes>
+   AIMMS PRO On-premise Release Notes <pro/release-notes>
    pro-release-notes
    deprecation-table
