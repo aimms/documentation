@@ -21,11 +21,11 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
+-  In the new math program generator a ranged constraint in which a right bound of INF appeared was scaled incorrectly based on its specified unit. It resulted in an incorrect error stating that left-hand-side value was greater than the right-hand-side value.
+-  The new implementation of GMP::Row::Generate that is based on the new math program generator was not handling the situation correctly when a variable instead of a constraint was passed to it. This eventually could lead to a crash.
 -  The SENSAI chat in the AIMMS IDE could report that it has no connection, and offer none of your model's tools, for the rest of a session. This happened when the connection to the AIMMS Cloud completed while a project was still being opened. Recovering meant restarting AIMMS or signing out of the cloud and back in, and even that did not always help. The chat now connects reliably in this situation, with no restart needed.
 -  Renaming a procedure or function through the AIMMS API no longer deletes its arguments. Every such rename removed them and left the argument declarations behind, which then produced compile warnings. This is what happened when SENSAI was asked to rename a procedure.
--  In the new math program generator a ranged constraint in which a right bound of INF appeared was scaled incorrectly based on its specified unit. It resulted in an incorrect error stating that lhs was greater than the rhs.
 -  An attribute written as a single long line, such as the Definition of a string parameter holding an AI system prompt, was shown as empty in the attribute form once that line reached 511 characters. The text itself was never lost, but it could not be edited or saved from the form, and renaming an identifier could clear it. Long attribute values are now displayed, edited and saved correctly.
--  The new implementation of GMP::Row::Generate that is based on the new math program generator was not handling the situation correctly when a variable instead of a constraint was passed to it. This eventually could lead to a crash.
 
 --------------
 
@@ -2994,7 +2994,7 @@ Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 AIMMS Improvements
 +++++++++++++++++++++++++
 
--  The AIMMS presolver will now also remove duplicate rows with unequal right-hand side values, unless the rows are incompatible. In that case, the presolver will detect the infeasibility of the model.
+-  The AIMMS presolver will now also remove duplicate rows with unequal right-hand-side values, unless the rows are incompatible. In that case, the presolver will detect the infeasibility of the model.
 -  The image running AIMMS in the cloud has been upgraded:
     -  It is based on ubuntu 22.04 
     -  Available ODBC driver for MySQL : 'MySQL8.0'. The 'MySQL' driver which was 5.3 under the hood is no longer supported
