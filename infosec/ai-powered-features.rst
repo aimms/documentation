@@ -60,6 +60,7 @@ This page covers what applies across AIMMS's AI-powered features generically. Fe
 
     SENSAI
     agentic
+    anonymized
     deployer
     evals
     OWASP
