@@ -47,7 +47,7 @@ AIMMS Improvements
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
--  SENSAI now shows the AIMMS special values na, inf, -inf and undf as such instead of as 0, and it includes values that are equal to the identifier's default instead of leaving those cells blank. Rows in which every value is a default are still left out, so sparse data stays sparse.
+-  SENSAI now shows the AIMMS special values ``NA``, ``INF``, ``-INF`` and ``UNDF`` as such instead of as 0, and it includes values that are equal to the identifier's default instead of leaving those cells blank. Rows in which every value is a default are still left out, so sparse data stays sparse.
 -  When asked about an objective or a solution, SENSAI now first checks whether the mathematical program has actually been solved and reports its status, instead of quoting a value from a program that was never solved. For an infeasible program it can name the constraints involved.
 -  When SENSAI requested a sorted table of results, the rows came back in their original order even though the requested order had already been used to decide which rows to keep. The rows are now returned in the requested order.
 -  The bridge annotations that take a true or false value, such as bridge::Exposed and bridge::ReadOnlyHint, can now be written with or without quotes. Quoting them no longer produces the warning "Not a valid keyword" when the model is compiled. Also fixed a crash when jumping from such an annotation warning in the message window to the identifier.
