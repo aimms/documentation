@@ -10,6 +10,7 @@ At the bottom of this page and in the navigation pane on the left you find the l
 
     cloud-platform-azure
     aimms-software
+    ai-powered-features
     responsible-disclosure
 
 ISO 27001 Certified
@@ -40,5 +41,6 @@ Documentation pages with more details
 
 * :doc:`cloud-platform-azure`
 * :doc:`aimms-software`
+* :doc:`ai-powered-features`
 * :doc:`responsible-disclosure`
     
