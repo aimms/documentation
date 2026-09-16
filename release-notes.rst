@@ -13,6 +13,34 @@ AIMMS 26.4
 
 
 
+AIMMS 26.4.3 Release (September 16, 2026 - build 26.4.3.0).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The SENSAI chat starts faster. The capability descriptor the assistant reads when a session opens now walks the model once instead of five times; on a model with 135 annotated identifiers a descriptor read dropped from 90-110 ms to 20-45 ms.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  After a successful re-solve, the SENSAI chat could still report infeasibility figures left over from the previous, infeasible solve, so the assistant announced an optimal plan and then contradicted itself. A solve status now describes only the solve just done: the number and sum of infeasibilities are no longer reported, because for a linear program they are meaningless if the model is infeasible.
+-  In a deployed application, the SENSAI assistant could read the data and the names of identifiers that had not been exposed, whenever the model file itself happened to be writable. Reading an identifier now applies the same exposure check everywhere, name completion no longer discloses the names of hidden skills, flows and prompt parameters, and a session started as an end-user session is treated as one regardless of the model file. Developer sessions in the AIMMS IDE keep full access to their own model.
+-  Improved behavior of SENSAI when adding annotations to the model. Exposing an identifier now works on the first attempt instead of taking several tries, because SENSAI can look up what each `bridge::` annotation accepts rather than guessing at a value. SENSAI also reports honestly when a model edit changed nothing, so it no longer tells you an edit succeeded when it did not.
+-  When SENSAI writes a skill into your model, and likewise an app system prompt or an agent prompt, it now puts the text in the identifier's Definition, so the text is part of the model and is still there after you save the model and reopen the project. Previously it could end up as run-time data instead, where it worked for the rest of the session and then disappeared, and SENSAI now also keeps the text within the lengths an attribute can actually hold, splitting it into shorter quoted pieces rather than writing one long line the attribute form shows as empty.
+-  Downloading libraries from the AIMMS library repository could fail when behind a proxy that inspects TLS traffic but does not support CRL (certificate revocation list) checking. There is now an opt-in to skip CRL checking. You can opt in by adding `crlcheck=besteffort` to the `AIMMSAUTOLIB` environment variable, e.g. ```AIMMSAUTOLIB=host=https://library-repository.aimms.com/;crlcheck=besteffort```.
+-  AIMMS could crash during startup when you were signed in to the AIMMS Cloud: either while the main window was still being created (the signed-in state was applied to the Tools menu too early), or when a project was opened right after start (the cloud connection announced the project to the SENSAI IDE bridge before the model was loaded). Both happened in roughly one out of five to ten starts.
+-  Fixed the unsaved-changes indicator appearing for a project you had not changed. Opening the WebUI marked the project as changed, showing the asterisk in the title bar and on the taskbar icon, so closing AIMMS offered to save a project nobody had edited. The WebUI creates run-time libraries, and those are never saved, so they no longer mark a project as changed.
+-  Fixed a hang that could occur when closing a project or exiting AIMMS, and AIMMS had to be ended from the Task Manager. It happened when pending screen updates were still being handled while the main window was already closing, so it occurred only occasionally.
+
+--------------
+
+
+
+
+
 AIMMS 26.4.2 Release (September 10, 2026 - build 26.4.2.0).
 ------------------------------------------------------------------------------------------
 
