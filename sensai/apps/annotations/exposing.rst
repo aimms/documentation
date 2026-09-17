@@ -88,6 +88,47 @@ A procedure is usually the better thing to expose. One that applies a single
 specific change can validate the input and refuse a change that makes no sense.
 :doc:`/sensai/apps/design-guide` covers that choice.
 
+.. _sensai-write-without-confirmation:
+
+Writing without asking the user
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before changing data, the assistant says what it is about to do and waits for the
+user to confirm. On an identifier where that confirmation is only noise, such as
+an input a planner changes twenty times an hour while exploring, add
+``bridge::WriteApproval: "none"`` and the assistant writes it without asking:
+
+.. code-block:: aimms
+
+    Parameter PlanningHorizonWeeks {
+        bridge::Exposed: "true";
+        bridge::Description: "How many weeks ahead the plan runs. Planners change this constantly while exploring.";
+        bridge::SafeMode: "readwrite";
+        bridge::WriteApproval: "none";
+    }
+
+The default is ``"required"``, so leaving it out keeps the confirmation. It needs
+``bridge::SafeMode: "readwrite"`` to do anything, and it does nothing on a
+procedure, which is called rather than written. The semantic check reports both
+mistakes.
+
+This is your decision as the application author, and it cannot be overridden per
+user. Use it only where an unsupervised change is genuinely fine, and read the
+three points below before you do.
+
+**The identifier name must match.** The exemption is matched against the
+identifier name as declared, and the match is case-sensitive. A write that names
+the identifier with different capitalization still succeeds, but is not exempt,
+so the confirmation reappears.
+
+**On a set it also covers the consequences.** Removing an element from a set
+removes the data of every identifier indexed over that set. Exempting a set
+therefore waives confirmation for clearing data in identifiers you did not
+exempt.
+
+**Saving always asks.** Writing the session to a case file is confirmed whatever
+you annotate, because it writes a file rather than an identifier.
+
 Writing descriptions
 --------------------
 
