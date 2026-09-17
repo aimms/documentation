@@ -22,6 +22,7 @@ AIMMS Improvements
 +++++++++++++++++++++++++
 
 -  The SENSAI chat starts faster. The capability descriptor the assistant reads when a session opens now walks the model once instead of five times; on a model with 135 annotated identifiers a descriptor read dropped from 90-110 ms to 20-45 ms.
+-  An application author can now add bridge::WriteApproval: "none" to a writable data identifier so that SENSAI changes it without asking the user to confirm every time; see the `annotation reference <https://documentation.aimms.com/sensai/apps/annotations/reference.html#safety>`__ for details.
 
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
