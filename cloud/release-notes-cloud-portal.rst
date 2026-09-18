@@ -1,6 +1,13 @@
 AIMMS Cloud Portal Updates
 ==========================
 
+Portal 26.12.1.0 (September 17, 2026)
+------------------------------------
+
+**Improvements**
+
+- **Active usage on the Usage page:** The Quotas table on the Usage page now shows your current usage against each quota (e.g. "1 / 5 requests (20.0%)"), with a progress bar and a refresh control, alongside the existing Feature and Exceed action columns.
+
 Portal 26.11.1.0 (September 1, 2026)
 ------------------------------------
 
