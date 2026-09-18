@@ -32,15 +32,15 @@ Quotas
 
 The **Quotas** table lists any quotas configured for your account,
 with the following columns:
-
-- **Quota** — the name of the quota
-- **Feature** — the feature the quota applies to
-- **Limit** — the maximum allowed usage
-- **Exceed action** — what happens when the limit is reached
-
+ 
+- **Quota** -- the name of the quota
+- **Feature** -- the feature the quota applies to
+- **Usage** -- your current usage against the quota, shown as a count
+  and percentage (e.g. ``1 / 5 requests (20.0%)``) with a progress bar
+- **Exceed action** -- what happens when the limit is reached
+ 
+Use the refresh icon next to **Quotas** to update the usage figures
+without reloading the page.
+ 
 If no quotas are configured for your account, this table will be
 empty.
-
-.. note::
-   Active usage against configured quotas will be shown on this page
-   in an upcoming release.
