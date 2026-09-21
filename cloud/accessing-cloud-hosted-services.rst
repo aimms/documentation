@@ -42,6 +42,15 @@ Endpoint: ``POST /pro/auth/v1/token/exchange``
 	* read_write: Authorize all HTTP methods
 * Response: The bearer token is set in the Authorization header of the response as: `Bearer <token>`
 
+This endpoint only accepts a credential that already identifies a signed-in
+PRO user: a PRO session cookie (``com.aimms.pro.session``), a PRO ticket
+cookie, or a bearer token previously issued by this same endpoint. An API
+key is not accepted; presenting one returns:
+
+.. code-block:: text
+
+	403 Invalid authentication method for token exchange.
+
 Accessing a Service from within AIMMS Session or via API
 --------------------------------------------------------
 
@@ -78,6 +87,31 @@ The API way
 
 6. Response: ``Authorization: Bearer anexamplebearertoken123``
 7. Accessing the service: ``curl -H 'Authorization: Bearer anexamplebearertoken123' https://example.aimms.cloud/session/12004@68ce8ce7c4a6fd1afa97672e7080d645``
+
+Calling from outside a session
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The two ways above assume you already have a running AIMMS session
+(``GetSessionId``, ``GetServiceAccess``). A script or automated harness
+with no session — one authenticating with an API key, for example — does
+not need the token exchange step at all.
+
+An API key already authorizes requests as the user it belongs to, within
+that key's granted scopes, so there is nothing for
+``/pro/auth/v1/token/exchange`` to narrow. Call the service URI directly,
+replacing the ``Authorization: Bearer ...`` header with an ``apiKey``
+header:
+
+.. code-block:: text
+
+	curl -H 'apiKey: <your-api-key>' https://example.aimms.cloud/session/12004@68ce8ce7c4a6fd1afa97672e7080d645
+
+.. note::
+
+	For unattended automation, OAuth 2.0 is also available (discovery at
+	``/.well-known/oauth-authorization-server``, tokens from
+	``POST /pro/auth/v1/token``). Using it requires a client registration
+	arranged with the PRO team.
 
 
 AIMMS Implementation
