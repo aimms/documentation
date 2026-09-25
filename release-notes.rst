@@ -8,6 +8,48 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 26.5
+#############
+
+
+
+AIMMS 26.5.1 Release (September 25, 2026 - build 26.5.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  A local application on the same machine, such as the AIMMS IDE launcher, can now reach the SENSAI bridge's REST interface with a shared key that it hands to AIMMS at start-up, also when AIMMS is not signed in to the AIMMS Cloud. The chat connection itself still requires a signed-in session.
+-  Skills that an app developer asks SENSAI to remember are now stored as files in the project, in ``sensai/skills``, one Markdown file per skill, so they are versioned and reviewed together with the application instead of living only in a per-user database. In a developer session SENSAI lists and uses them like skills declared in the model; end users of a deployed application never see them.
+-  The SENSAI chat now also works in a WebUI that you open from the AIMMS IDE while signed in to the AIMMS Cloud. The chat panel in such a WebUI used to stay empty, because only the AIMMS Cloud could serve it; AIMMS now passes the chat through to the AIMMS Cloud on behalf of the signed-in IDE, using the proxy settings of Windows.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The annotation ``bridge::DisplayName`` has been removed. It was offered and accepted by the IDE but read by nobody, so it never had any effect; use ``bridge::Title`` instead, which is now correctly described as the human-facing label for a tool, a skill or a data identifier, never the name the AI uses to call it.
+-  The annotations ``bridge::Description`` and ``bridge::OutputSchema`` are now edited in a multi-line field in the attribute form, so a longer text stays fully visible and can be laid out over several lines. Only the line breaks you type are shown, there is no automatic word wrap, so an existing single-line value looks unchanged until you break it up yourself.
+-  Putting ``bridge::AgentName`` somewhere it cannot work, on the model root, a section, a module or a library, or on an indexed string parameter, now gives a warning when you compile instead of being silently ignored. Its explanation in the IDE is also corrected: the annotation declares an agent on a scalar string parameter, where the value is the agent's name and the parameter's body is its system prompt.
+-  Right-clicking in the SENSAI chat pane no longer opens the browser context menu, whose entries such as Save as, Print and Share did not do anything sensible inside AIMMS. Copying selected chat text still works with Ctrl+C.
+-  The annotation ``bridge::WriteApproval`` is now known to the AIMMS IDE: the annotation editor offers it, and SENSAI can set it when asked to expose an identifier, so an application author no longer has to type it into the model by hand. The annotation itself, which lets SENSAI change a writable identifier without asking for confirmation each time, shipped in AIMMS 26.4.3; see the `annotation reference <https://documentation.aimms.com/sensai/apps/annotations/reference.html#safety>`_ for details.
+-  SENSAI could fail to filter or sort a table of results, and then keep trying again with a different guess, because nothing in the model information it receives said what the table's index is called. It now receives each quantity's kind, number of dimensions and index names, so it uses the real name instead of inventing one.
+-  A misspelled value in a bridge annotation, for example ``readwrit`` for ``bridge::SafeMode``, was silently replaced by the default, so the annotation did not have the intended effect and nothing reported it. Such a value is now reported when SENSAI checks the annotations of the model.
+-  In an application session, SENSAI saved and loaded cases with every identifier of the model, and loading a case also replaced read-only data. SENSAI now saves and loads only the data the application exposes, merges a loaded case into the current data instead of replacing it, never overwrites an existing case file, and can undo a case load.
+-  The functions ``AimmsMeFirst`` and ``AimmsMeNext`` did not work correctly in a model with two declaration sections of the same name: for the second section they returned the identifiers of the first one, so SENSAI could not see or find the identifiers declared in the second section. Each section now returns its own identifiers.
+-  On Linux, an AIMMS session with a WebUI, such as an application on the AIMMS Cloud, could stop with a severe internal error in ``webui::RefreshAllWidgets`` when data changed while a procedure was running. This no longer happens.
+-  When AIMMS was started with a project on the command line, SENSAI could keep reporting that no project was open, and offer none of the model's tools, for as long as AIMMS ran. This happened when the connection to the AIMMS Cloud was not available at start-up, because only that connection told the assistant about the open project. The open project is now announced to SENSAI as soon as the bridge starts.
+-  When SENSAI changed the elements of a set, for example to add a warehouse in SC Navigator, its first attempts usually failed, and a change could also lose data. SENSAI now makes such a change in one step, and says which data is cleared when it removes an element.
+-  When SENSAI created identifiers that did not compile, it kept them in the model, which left the model unable to run. Such a batch is now removed again, as already happened when SENSAI edited identifiers.
+-  When SENSAI loaded a case, the choice between loading and merging was reversed, so asking to merge a case replaced the current data instead. SENSAI also reported that a case had been saved or loaded when nothing had happened, for example when the case file did not exist; it now reports an error in that situation.
+-  SENSAI could report wrong numbers when it filtered or summarized data. A filter on a numeric value compared against a rounded copy of it, so filtering on a value SENSAI had just read could find nothing, and a total over whole-number values could come back as a meaningless number.
+-  Several functions of the AIMMS API reported success when they had not done what was asked: ``AimmsValueAssign`` accepted an element outside the range of a scalar element parameter, ``AimmsMeCloseNode`` reported success for a node that was not open, ``AimmsMeGetAttribute`` returned an empty text for an attribute code that does not exist, and the nodes returned by ``AimmsMeCompileErrors`` could not be used. These functions now return an error, and the nodes of compile errors can be used.
+-  On large models SENSAI could take several seconds to answer a simple question about the data, because every request made the SENSAI IDE bridge go through the whole model. Such questions are now answered in tens of milliseconds, also on a model with close to 50,000 nodes.
+
+--------------
+
+
+#############
 AIMMS 26.4
 #############
 
