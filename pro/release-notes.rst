@@ -6,6 +6,23 @@ This page lists everything released on the AIMMS PRO on-premise build pipeline g
 PRO 26.6
 ########
 
+AIMMS PRO 26.6.11 Release
+--------------------------
+
+On October 5, 2026 we released AIMMS PRO 26.6.11(*On-prem build*: 26.6.11.1)
+
+You can download the installer `here <https://download.aimms.com/aimms/download/data/PRO/AimmsPRO-26.6.11.1.exe>`__.
+
+**Security Fixes**
+
+   -  Upgraded the bundled OpenSSL library from 3.5.7 to 3.5.9, staying on the 3.5 long-term support line, resolving multiple vulnerabilities, including a critical integrity-check validation issue (**CVE-2026-75803**) and an out-of-bounds read (**CVE-2026-84782**).
+   -  Upgraded the bundled Expat XML parser from 2.8.2 to 2.8.5, resolving four vulnerabilities, including an out-of-bounds read (**CVE-2026-76641**) and a use-after-free (**CVE-2026-76957**).
+   -  Upgraded Netty to 4.1.137.Final, resolving a critical TLS server-name routing bypass caused by fragmented handshake messages.
+   -  Upgraded Jackson to 2.18.11, resolving several denial-of-service vulnerabilities in Jackson Core and Jackson Databind (including **CVE-2026-68497**).
+   -  Upgraded FreeMarker in the Configurator to 2.3.35, resolving **CVE-2026-84939**.
+   -  Upgraded BouncyCastle (``bcpkix-jdk18on`` and ``bcutil-jdk18on``) to 1.85, replacing older versions that were still pulled in transitively.
+   -  Upgraded the ``c3p0`` connection pool library to 0.14.2, resolving a known vulnerability.
+
 AIMMS PRO 26.6.10 Release
 --------------------------
 
