@@ -18,23 +18,14 @@ AIMMS 26.6.1 Release (October 05, 2026 - build 26.6.1.1).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
-AIMMS Improvements
+SENSAI Improvements
 +++++++++++++++++++++++++
 
--  Passing large multidimensional parameters to and from procedures (through Input, Output and InOut arguments) now uses considerably less memory and is noticeably faster, also when the arguments have a ``Range`` such as ``nonnegative``.
 -  SENSAI reads data from the model faster. A small query now takes about a millisecond instead of 3 to 5 ms, a query of 10,000 values about 3 ms instead of 16 ms, and showing the first 100 of a million sorted rows takes 93 ms instead of 340 ms.
 -  Changes that SENSAI makes to a large model are much faster, because AIMMS now recompiles only the parts of the model that a change affects instead of the whole model. On a model of about 14,000 nodes, such as SC Navigator, creating a section or deleting an identifier now takes a tenth of a second instead of about 20 seconds, a rename about a second instead of 20 seconds, deleting 1,500 identifiers in one go about a second instead of 26 seconds, and a change to a comment or a definition about 10 ms instead of a second.
--  The new procedure ``GMP::Instance::SolveWithRoundAndRepair`` solves a MIP or MIQP model using a round-and-repair heuristic to find good integer solutions faster. During the solve, it repeatedly rounds the binary variables of a fractional solution, repairs the rounded solution by solving two auxiliary MIPs, and passes the result to the solver as a heuristic solution. The procedure requires a solver that supports continued solves, which are CPLEX and Gurobi.
-
-Resolved AIMMS Issues
-+++++++++++++++++++++++++
-
 -  While the SENSAI chat assistant was working on a model, tasks that AIMMS runs in the background, such as procedures scheduled to run at a given time, a project close requested by the assistant, or an update of the cloud connection status, could be postponed indefinitely. These tasks now run as soon as the assistant has finished its step.
 -  Common browser shortcuts such as F5, F6, F7 and Ctrl+P could cause unexpected behaviour in the SENSAI chat (in the AIMMS IDE), for example a black chat panel or a dialog appearing out of nowhere. The SENSAI chat now ignores these shortcuts.
--  The function ``SubString`` returned an empty string when one position was positive and the other negative, as in ``SubString(myString, 1, -4)``, or a wrong part of the string when the start position was negative and the end position positive. A positive position now always counts from the start of the string and a negative position from the end, and the result is only empty when the start lies after the end.
 -  In SENSAI, finding text in a large model and changing part of a long text, such as a skill or system prompt, could take several minutes. Searches now also find sentences that run over several lines, and small changes to long texts are made much faster, without compiling the model more often than needed.
--  The memory use of AIMMS could keep growing during a session when the same large assignment was executed many times, for example in a loop, in particular for string-valued assignments. The memory use now stays the same however often the assignment is executed.
--  Running a procedure through the AIMMS API function ``AimmsProcedureRun`` leaked memory on every call when an Output or InOut argument was passed as a handle to a slice of an identifier. This no longer happens.
 -  When SENSAI read data from a model, every query kept its complete result in memory after it had finished, so the memory use of AIMMS kept growing for as long as SENSAI was used: repeating the same query 3,000 times took AIMMS from about 200 MB to almost 4 GB. A finished query now releases its memory.
 -  SENSAI could fail to group or total data by an index, with the error "Referenced column not found", when another index of the same data ranged over a set with more than 100 elements. Such summaries now work.
 -  When SENSAI filtered data on a value, a filter that referred to the data through an alias could return different rows than the same filter on the identifier itself, or fail for element parameters. Both now return the same rows.
@@ -51,6 +42,19 @@ Resolved AIMMS Issues
 -  SENSAI could lose its connection to AIMMS during a request that ran longer than the idle time-out, such as a long solve. A running request now keeps the connection open.
 -  Closing AIMMS while SENSAI was still waiting for an answer could make AIMMS hang, so that it had to be ended from the Task Manager. AIMMS now waits at most two seconds for open requests and then closes.
 -  While SENSAI was connected, AIMMS sent the same model-change notice to the AIMMS Cloud over and over again, and every model edit sent three notices, each of which made SENSAI read the model information again. AIMMS now sends a notice only when something SENSAI reads has changed, and repeats an old notice at most once.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  The new procedure :any:`GMP::Instance::SolveWithRoundAndRepair` solves a MIP or MIQP model using a rounding heuristic to find good integer solutions faster. During the solve, it repeatedly rounds the binary variables of a fractional solution, uses the rounded values to construct an integer solution by solving auxiliary MIPs, and passes that solution to the solver as a heuristic solution. The procedure requires a solver that supports continued solves, i.e., CPLEX or Gurobi.
+-  Passing large multidimensional parameters to and from procedures (through Input, Output and InOut arguments) now uses considerably less memory and is noticeably faster, also when the arguments have a ``Range`` such as ``nonnegative``.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The function ``SubString`` returned an empty string when one position was positive and the other negative, as in ``SubString(myString, 1, -4)``, or a wrong part of the string when the start position was negative and the end position positive. A positive position now always counts from the start of the string and a negative position from the end, and the result is only empty when the start lies after the end.
+-  The memory use of AIMMS could keep growing during a session when the same large assignment was executed many times, for example in a loop, in particular for string-valued assignments. The memory use now stays the same however often the assignment is executed.
+-  Running a procedure through the AIMMS API function ``AimmsProcedureRun`` leaked memory on every call when an Output or InOut argument was passed as a handle to a slice of an identifier. This no longer happens.
 -  Every full recompile of a model lost a small amount of memory for each indexed identifier, so the memory use of AIMMS grew a little with every recompile during a long session. This happened since AIMMS 26.3.1 and is now fixed.
 
 --------------
@@ -67,16 +71,12 @@ AIMMS 26.5.1 Release (September 25, 2026 - build 26.5.1.1).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
-AIMMS Improvements
+SENSAI Improvements
 +++++++++++++++++++++++++
 
 -  A local application on the same machine, such as the AIMMS IDE launcher, can now reach the SENSAI bridge's REST interface with a shared key that it hands to AIMMS at start-up, also when AIMMS is not signed in to the AIMMS Cloud. The chat connection itself still requires a signed-in session.
 -  Skills that an app developer asks SENSAI to remember are now stored as files in the project, in ``sensai/skills``, one Markdown file per skill, so they are versioned and reviewed together with the application instead of living only in a per-user database. In a developer session SENSAI lists and uses them like skills declared in the model; end users of a deployed application never see them.
 -  The SENSAI chat now also works in a WebUI that you open from the AIMMS IDE while signed in to the AIMMS Cloud. The chat panel in such a WebUI used to stay empty, because only the AIMMS Cloud could serve it; AIMMS now passes the chat through to the AIMMS Cloud on behalf of the signed-in IDE, using the proxy settings of Windows.
-
-Resolved AIMMS Issues
-+++++++++++++++++++++++++
-
 -  The annotation ``bridge::DisplayName`` has been removed. It was offered and accepted by the IDE but read by nobody, so it never had any effect; use ``bridge::Title`` instead, which is now correctly described as the human-facing label for a tool, a skill or a data identifier, never the name the AI uses to call it.
 -  The annotations ``bridge::Description`` and ``bridge::OutputSchema`` are now edited in a multi-line field in the attribute form, so a longer text stays fully visible and can be laid out over several lines. Only the line breaks you type are shown, there is no automatic word wrap, so an existing single-line value looks unchanged until you break it up yourself.
 -  Putting ``bridge::AgentName`` somewhere it cannot work, on the model root, a section, a module or a library, or on an indexed string parameter, now gives a warning when you compile instead of being silently ignored. Its explanation in the IDE is also corrected: the annotation declares an agent on a scalar string parameter, where the value is the agent's name and the parameter's body is its system prompt.
@@ -85,15 +85,19 @@ Resolved AIMMS Issues
 -  SENSAI could fail to filter or sort a table of results, and then keep trying again with a different guess, because nothing in the model information it receives said what the table's index is called. It now receives each quantity's kind, number of dimensions and index names, so it uses the real name instead of inventing one.
 -  A misspelled value in a bridge annotation, for example ``readwrit`` for ``bridge::SafeMode``, was silently replaced by the default, so the annotation did not have the intended effect and nothing reported it. Such a value is now reported when SENSAI checks the annotations of the model.
 -  In an application session, SENSAI saved and loaded cases with every identifier of the model, and loading a case also replaced read-only data. SENSAI now saves and loads only the data the application exposes, merges a loaded case into the current data instead of replacing it, never overwrites an existing case file, and can undo a case load.
--  The functions ``AimmsMeFirst`` and ``AimmsMeNext`` did not work correctly in a model with two declaration sections of the same name: for the second section they returned the identifiers of the first one, so SENSAI could not see or find the identifiers declared in the second section. Each section now returns its own identifiers.
--  On Linux, an AIMMS session with a WebUI, such as an application on the AIMMS Cloud, could stop with a severe internal error in ``webui::RefreshAllWidgets`` when data changed while a procedure was running. This no longer happens.
 -  When AIMMS was started with a project on the command line, SENSAI could keep reporting that no project was open, and offer none of the model's tools, for as long as AIMMS ran. This happened when the connection to the AIMMS Cloud was not available at start-up, because only that connection told the assistant about the open project. The open project is now announced to SENSAI as soon as the bridge starts.
 -  When SENSAI changed the elements of a set, for example to add a warehouse in SC Navigator, its first attempts usually failed, and a change could also lose data. SENSAI now makes such a change in one step, and says which data is cleared when it removes an element.
 -  When SENSAI created identifiers that did not compile, it kept them in the model, which left the model unable to run. Such a batch is now removed again, as already happened when SENSAI edited identifiers.
 -  When SENSAI loaded a case, the choice between loading and merging was reversed, so asking to merge a case replaced the current data instead. SENSAI also reported that a case had been saved or loaded when nothing had happened, for example when the case file did not exist; it now reports an error in that situation.
 -  SENSAI could report wrong numbers when it filtered or summarized data. A filter on a numeric value compared against a rounded copy of it, so filtering on a value SENSAI had just read could find nothing, and a total over whole-number values could come back as a meaningless number.
--  Several functions of the AIMMS API reported success when they had not done what was asked: ``AimmsValueAssign`` accepted an element outside the range of a scalar element parameter, ``AimmsMeCloseNode`` reported success for a node that was not open, ``AimmsMeGetAttribute`` returned an empty text for an attribute code that does not exist, and the nodes returned by ``AimmsMeCompileErrors`` could not be used. These functions now return an error, and the nodes of compile errors can be used.
 -  On large models SENSAI could take several seconds to answer a simple question about the data, because every request made the SENSAI IDE bridge go through the whole model. Such questions are now answered in tens of milliseconds, also on a model with close to 50,000 nodes.
+-  The functions ``AimmsMeFirst`` and ``AimmsMeNext`` did not work correctly in a model with two declaration sections of the same name: for the second section they returned the identifiers of the first one, so SENSAI could not see or find the identifiers declared in the second section. Each section now returns its own identifiers.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  On Linux, an AIMMS session with a WebUI, such as an application on the AIMMS Cloud, could stop with a severe internal error in ``webui::RefreshAllWidgets`` when data changed while a procedure was running. This no longer happens.
+-  Several functions of the AIMMS API reported success when they had not done what was asked: ``AimmsValueAssign`` accepted an element outside the range of a scalar element parameter, ``AimmsMeCloseNode`` reported success for a node that was not open, ``AimmsMeGetAttribute`` returned an empty text for an attribute code that does not exist, and the nodes returned by ``AimmsMeCompileErrors`` could not be used. These functions now return an error, and the nodes of compile errors can be used.
 
 --------------
 
@@ -109,21 +113,21 @@ AIMMS 26.4.3 Release (September 16, 2026 - build 26.4.3.0).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
-AIMMS Improvements
+SENSAI Improvements
 +++++++++++++++++++++++++
 
 -  The SENSAI chat starts faster. The capability descriptor the assistant reads when a session opens now walks the model once instead of five times; on a model with 135 annotated identifiers a descriptor read dropped from 90-110 ms to 20-45 ms.
 -  An application author can now add bridge::WriteApproval: "none" to a writable data identifier so that SENSAI changes it without asking the user to confirm every time; see the `annotation reference <https://documentation.aimms.com/sensai/apps/annotations/reference.html#safety>`__ for details.
-
-Resolved AIMMS Issues
-+++++++++++++++++++++++++
-
 -  After a successful re-solve, the SENSAI chat could still report infeasibility figures left over from the previous, infeasible solve, so the assistant announced an optimal plan and then contradicted itself. A solve status now describes only the solve just done: the number and sum of infeasibilities are no longer reported, because for a linear program they are meaningless if the model is infeasible.
 -  In a deployed application, the SENSAI assistant could read the data and the names of identifiers that had not been exposed, whenever the model file itself happened to be writable. Reading an identifier now applies the same exposure check everywhere, name completion no longer discloses the names of hidden skills, flows and prompt parameters, and a session started as an end-user session is treated as one regardless of the model file. Developer sessions in the AIMMS IDE keep full access to their own model.
 -  Improved behavior of SENSAI when adding annotations to the model. Exposing an identifier now works on the first attempt instead of taking several tries, because SENSAI can look up what each `bridge::` annotation accepts rather than guessing at a value. SENSAI also reports honestly when a model edit changed nothing, so it no longer tells you an edit succeeded when it did not.
 -  When SENSAI writes a skill into your model, and likewise an app system prompt or an agent prompt, it now puts the text in the identifier's Definition, so the text is part of the model and is still there after you save the model and reopen the project. Previously it could end up as run-time data instead, where it worked for the rest of the session and then disappeared, and SENSAI now also keeps the text within the lengths an attribute can actually hold, splitting it into shorter quoted pieces rather than writing one long line the attribute form shows as empty.
--  Downloading libraries from the AIMMS library repository could fail when behind a proxy that inspects TLS traffic but does not support CRL (certificate revocation list) checking. There is now an opt-in to skip CRL checking. You can opt in by adding `crlcheck=besteffort` to the `AIMMSAUTOLIB` environment variable, e.g. ```AIMMSAUTOLIB=host=https://library-repository.aimms.com/;crlcheck=besteffort```.
 -  AIMMS could crash during startup when you were signed in to the AIMMS Cloud: either while the main window was still being created (the signed-in state was applied to the Tools menu too early), or when a project was opened right after start (the cloud connection announced the project to the SENSAI IDE bridge before the model was loaded). Both happened in roughly one out of five to ten starts.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Downloading libraries from the AIMMS library repository could fail when behind a proxy that inspects TLS traffic but does not support CRL (certificate revocation list) checking. There is now an opt-in to skip CRL checking. You can opt in by adding `crlcheck=besteffort` to the `AIMMSAUTOLIB` environment variable, e.g. ```AIMMSAUTOLIB=host=https://library-repository.aimms.com/;crlcheck=besteffort```.
 -  Fixed the unsaved-changes indicator appearing for a project you had not changed. Opening the WebUI marked the project as changed, showing the asterisk in the title bar and on the taskbar icon, so closing AIMMS offered to save a project nobody had edited. The WebUI creates run-time libraries, and those are never saved, so they no longer mark a project as changed.
 -  Fixed a hang that could occur when closing a project or exiting AIMMS, and AIMMS had to be ended from the Task Manager. It happened when pending screen updates were still being handled while the main window was already closing, so it occurred only occasionally.
 
@@ -138,12 +142,16 @@ AIMMS 26.4.2 Release (September 10, 2026 - build 26.4.2.0).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
+SENSAI Improvements
++++++++++++++++++++++++++
+
+-  The SENSAI chat in the AIMMS IDE could report that it has no connection, and offer none of your model's tools, for the rest of a session. This happened when the connection to the AIMMS Cloud completed while a project was still being opened. Recovering meant restarting AIMMS or signing out of the cloud and back in, and even that did not always help. The chat now connects reliably in this situation, with no restart needed.
+
 Resolved AIMMS Issues
 +++++++++++++++++++++++++
 
 -  In the new math program generator a ranged constraint in which a right bound of INF appeared was scaled incorrectly based on its specified unit. It resulted in an incorrect error stating that left-hand-side value was greater than the right-hand-side value.
 -  The new implementation of GMP::Row::Generate that is based on the new math program generator was not handling the situation correctly when a variable instead of a constraint was passed to it. This eventually could lead to a crash.
--  The SENSAI chat in the AIMMS IDE could report that it has no connection, and offer none of your model's tools, for the rest of a session. This happened when the connection to the AIMMS Cloud completed while a project was still being opened. Recovering meant restarting AIMMS or signing out of the cloud and back in, and even that did not always help. The chat now connects reliably in this situation, with no restart needed.
 -  Renaming a procedure or function through the AIMMS API no longer deletes its arguments. Every such rename removed them and left the argument declarations behind, which then produced compile warnings. This is what happened when SENSAI was asked to rename a procedure.
 -  An attribute written as a single long line, such as the Definition of a string parameter holding an AI system prompt, was shown as empty in the attribute form once that line reached 511 characters. The text itself was never lost, but it could not be edited or saved from the form, and renaming an identifier could clear it. Long attribute values are now displayed, edited and saved correctly.
 
@@ -158,15 +166,10 @@ AIMMS 26.4.1 Release (September 01, 2026 - build 26.4.1.1).
 
 Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
 
-AIMMS Improvements
+SENSAI Improvements
 +++++++++++++++++++++++++
 
--  Solver logging is now enabled by default. The Solvers General options 'Solver listing messages' and 'Solver window messages' have a new setting, 'Automatic', which is now the default. The defaults of several solver logging options have changed accordingly — for example, 'MIP display' for CPLEX now defaults to 'Nth node + info on node cuts', and 'Output file' for Gurobi now defaults to 'Yes'. Solver logging has a negligible effect on performance.
 -  SENSAI Apps (Preview): SENSAI Apps lets you add an AI assistant to an AIMMS application. Users ask about the plan in plain language, change input data, run the model, and have the results explained, all from a chat panel inside the app, with every answer coming from the application's own optimization model. You decide what the assistant may see and change, and in a developer session it can edit the model itself, writing the annotations and making the changes you describe, for you to review. Available as a Preview. See `Getting started <https://documentation.aimms.com/sensai/apps/getting-started.html>`__, and contact your account manager to learn more.
-
-Resolved AIMMS Issues
-+++++++++++++++++++++++++
-
 -  SENSAI now shows the AIMMS special values ``NA``, ``INF``, ``-INF`` and ``UNDF`` as such instead of as 0, and it includes values that are equal to the identifier's default instead of leaving those cells blank. Rows in which every value is a default are still left out, so sparse data stays sparse.
 -  When asked about an objective or a solution, SENSAI now first checks whether the mathematical program has actually been solved and reports its status, instead of quoting a value from a program that was never solved. For an infeasible program it can name the constraints involved.
 -  When SENSAI requested a sorted table of results, the rows came back in their original order even though the requested order had already been used to decide which rows to keep. The rows are now returned in the requested order.
@@ -174,6 +177,11 @@ Resolved AIMMS Issues
 -  Working with SENSAI in a large model, such as SC Navigator, is now much faster. Finding identifiers and reading model data no longer takes minutes, and reading the model no longer marks the project as changed.
 -  An attribute form that is open while SENSAI changes the identifier it shows is now refreshed immediately. It used to keep showing the previous contents until it was closed and reopened.
 -  You could be signed out of the AIMMS Cloud unexpectedly while working in the IDE with SENSAI, when two AIMMS sessions on the same machine refreshed the login at the same moment. The refresh is now coordinated between sessions, and a session that signs out no longer overwrites the login of another session.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Solver logging is now enabled by default. The Solvers General options 'Solver listing messages' and 'Solver window messages' have a new setting, 'Automatic', which is now the default. The defaults of several solver logging options have changed accordingly — for example, 'MIP display' for CPLEX now defaults to 'Nth node + info on node cuts', and 'Output file' for Gurobi now defaults to 'Yes'. Solver logging has a negligible effect on performance.
 
 --------------
 
