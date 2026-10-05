@@ -8,6 +8,55 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 26.6
+#############
+
+
+
+AIMMS 26.6.1 Release (October 05, 2026 - build 26.6.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  Passing large multidimensional parameters to and from procedures (through Input, Output and InOut arguments) now uses considerably less memory and is noticeably faster, also when the arguments have a ``Range`` such as ``nonnegative``.
+-  SENSAI reads data from the model faster. A small query now takes about a millisecond instead of 3 to 5 ms, a query of 10,000 values about 3 ms instead of 16 ms, and showing the first 100 of a million sorted rows takes 93 ms instead of 340 ms.
+-  Changes that SENSAI makes to a large model are much faster, because AIMMS now recompiles only the parts of the model that a change affects instead of the whole model. On a model of about 14,000 nodes, such as SC Navigator, creating a section or deleting an identifier now takes a tenth of a second instead of about 20 seconds, a rename about a second instead of 20 seconds, deleting 1,500 identifiers in one go about a second instead of 26 seconds, and a change to a comment or a definition about 10 ms instead of a second.
+-  The new procedure ``GMP::Instance::SolveWithRoundAndRepair`` solves a MIP or MIQP model using a round-and-repair heuristic to find good integer solutions faster. During the solve, it repeatedly rounds the binary variables of a fractional solution, repairs the rounded solution by solving two auxiliary MIPs, and passes the result to the solver as a heuristic solution. The procedure requires a solver that supports continued solves, which are CPLEX and Gurobi.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  While the SENSAI chat assistant was working on a model, tasks that AIMMS runs in the background, such as procedures scheduled to run at a given time, a project close requested by the assistant, or an update of the cloud connection status, could be postponed indefinitely. These tasks now run as soon as the assistant has finished its step.
+-  Common browser shortcuts such as F5, F6, F7 and Ctrl+P could cause unexpected behaviour in the SENSAI chat (in the AIMMS IDE), for example a black chat panel or a dialog appearing out of nowhere. The SENSAI chat now ignores these shortcuts.
+-  The function ``SubString`` returned an empty string when one position was positive and the other negative, as in ``SubString(myString, 1, -4)``, or a wrong part of the string when the start position was negative and the end position positive. A positive position now always counts from the start of the string and a negative position from the end, and the result is only empty when the start lies after the end.
+-  In SENSAI, finding text in a large model and changing part of a long text, such as a skill or system prompt, could take several minutes. Searches now also find sentences that run over several lines, and small changes to long texts are made much faster, without compiling the model more often than needed.
+-  The memory use of AIMMS could keep growing during a session when the same large assignment was executed many times, for example in a loop, in particular for string-valued assignments. The memory use now stays the same however often the assignment is executed.
+-  Running a procedure through the AIMMS API function ``AimmsProcedureRun`` leaked memory on every call when an Output or InOut argument was passed as a handle to a slice of an identifier. This no longer happens.
+-  When SENSAI read data from a model, every query kept its complete result in memory after it had finished, so the memory use of AIMMS kept growing for as long as SENSAI was used: repeating the same query 3,000 times took AIMMS from about 200 MB to almost 4 GB. A finished query now releases its memory.
+-  SENSAI could fail to group or total data by an index, with the error "Referenced column not found", when another index of the same data ranged over a set with more than 100 elements. Such summaries now work.
+-  When SENSAI filtered data on a value, a filter that referred to the data through an alias could return different rows than the same filter on the identifier itself, or fail for element parameters. Both now return the same rows.
+-  After an element had been renamed during a session, for example when an ``ElementRange`` widened ``e5`` to ``e05``, SENSAI could still show and filter it under its old name. It now uses the current name.
+-  SENSAI could fail to read a large identifier from a case other than the active one, because the read was sized by the data of the active case. Such reads now work.
+-  When a unit convention was active, SENSAI labelled the values it read with the unit declared for the identifier, while the numbers themselves were in the unit of the convention: under a convention in kilometers, a length declared in meters with the value 1500 was read as 1.5 and reported as 1.5 m. The unit that SENSAI reports now matches the numbers.
+-  When SENSAI read the same identifier from two cases in one request, for example to compare the demand in two scenarios, both columns showed the values of the first case. Each column now shows the values of its own case.
+-  In a model with two declaration sections of the same name, SENSAI could not change the second one: an edit, move, rename or delete through the name reached the first section instead, renaming the first section renamed both, and a move could place two sections of that name under one parent. SENSAI now addresses each section on its own, and refuses a rename or a move that would leave two nodes of one name side by side.
+-  SENSAI did not know that the identifiers in system libraries, such as ``AimmsProLibrary``, cannot be changed, and could try to edit them. These identifiers are now marked as read-only, so SENSAI no longer attempts such changes.
+-  After a change to a bridge annotation, for example a new ``bridge::WriteApproval`` value or an edited skill, SENSAI could keep working with the old annotation for up to ten minutes, which made a correct annotation look broken. The change now reaches SENSAI as soon as the model has been compiled.
+-  Moving an identifier, a section or a procedure to another position through SENSAI could put it one place too far or one place short, a move one place down could make the next change to that node fail with an internal error, and undoing such a move could leave the order changed. Moves now land exactly where asked.
+-  When SENSAI created an identifier inside a module or a library under a name that already existed there, the error said that the name was probably a reserved word. SENSAI now reports that an identifier of that name already exists, and names it.
+-  When two AIMMS sessions ran on the same Windows computer, the second one could take over the network port of the SENSAI IDE bridge of the first, so that requests meant for the first session were answered by the second. A port that is in use is now never shared.
+-  SENSAI could lose its connection to AIMMS during a request that ran longer than the idle time-out, such as a long solve. A running request now keeps the connection open.
+-  Closing AIMMS while SENSAI was still waiting for an answer could make AIMMS hang, so that it had to be ended from the Task Manager. AIMMS now waits at most two seconds for open requests and then closes.
+-  While SENSAI was connected, AIMMS sent the same model-change notice to the AIMMS Cloud over and over again, and every model edit sent three notices, each of which made SENSAI read the model information again. AIMMS now sends a notice only when something SENSAI reads has changed, and repeats an old notice at most once.
+-  Every full recompile of a model lost a small amount of memory for each indexed identifier, so the memory use of AIMMS grew a little with every recompile during a long session. This happened since AIMMS 26.3.1 and is now fixed.
+
+--------------
+
+
+#############
 AIMMS 26.5
 #############
 
