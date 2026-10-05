@@ -11,6 +11,8 @@ AIMMS PRO 26.6.11 Release
 
 On October 5, 2026 we released AIMMS PRO 26.6.11(*On-prem build*: 26.6.11.1)
 
+You can download the installer `here <https://download.aimms.com/aimms/download/data/PRO/AimmsPRO-26.6.11.1.exe>`__.
+
 **Security Fixes**
 
    -  Upgraded the bundled OpenSSL library from 3.5.7 to 3.5.9, staying on the 3.5 long-term support line, resolving multiple vulnerabilities, including a critical integrity-check validation issue (**CVE-2026-75803**) and an out-of-bounds read (**CVE-2026-84782**).
