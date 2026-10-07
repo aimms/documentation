@@ -5,6 +5,9 @@ The first public release of AIMMSUnitTest was version 1.0.0.32, release date Dec
 
 New Features and Bug Fixes
 --------------------------
+26.1.2.1 [07-10-2026]
+	- Changed semantics of the `SubString` function in AIMMS 26.6.1 caused `aimmsunit::DeterminePrefixes` to end up in an infinite loop.
+
 26.1.1.0 [06-08-2026]
 	- Rebuilt with the updated AIMMS toolset. This version requires AIMMS 26.3.1 or later and cannot be used with earlier AIMMS versions.
 
