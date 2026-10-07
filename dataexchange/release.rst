@@ -13,6 +13,12 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+26.2.3.4 [07-10-2026]
+	- String output arguments of external procedures that could return values greater than 2KB, would be truncated.
+	- Writing Parquet and CSV files with string columns whose values would accumulate to more than 2GB for 1M rows, would fail.
+	- The `dense-children` attribute for the root element of generated dataset mappings for Excel, CSV and Parquet files can now be selected via `dex::DatasetModelDenseChildren`.
+	- Sheet names for Excel mappings, and file names for CSV and Parquet files will now be matched in a case-insensitive manner.
+
 26.2.2.1 [21-08-2026]
 	- Concurrent curl calls could lead to a crash due to a race condition managing curl handles.
 	
