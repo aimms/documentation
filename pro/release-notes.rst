@@ -16,12 +16,12 @@ You can download the installer `here <https://download.aimms.com/aimms/download/
 **Security Fixes**
 
    -  Upgraded BouncyCastle (``bcprov-jdk18on``, ``bcpkix-jdk18on`` and ``bcutil-jdk18on``) from 1.85 to 1.86, resolving a BLS12-381 key validation issue (**CVE-2026-71891**) and an NTRU timing side channel (**CVE-2026-18036**).
-   -  Upgraded jsoup from 1.18.3 to 1.23.2, picking up a fix in its HTML Cleaner.
+   -  Upgraded ``jsoup`` from 1.18.3 to 1.23.2, picking up a fix in its HTML Cleaner.
 
 **Resolved Issues**
 
    -  Fixed uploading a PKCS#12 (``.pfx``) certificate in the Configurator failing with ``Illegal char <:>`` when the browser (for example Internet Explorer, or Edge in IE mode) sends the full client-side path as the file name. Only the file name itself is now used.
-   -  A failed certificate upload in the Configurator no longer removes the previously configured certificate; the old keystore is only replaced after the new file has been stored successfully.
+   -  A failed certificate upload in the Configurator no longer removes the previously configured certificate; the old certificate file is only replaced after the new file has been stored successfully.
 
 AIMMS PRO 26.6.11 Release
 --------------------------
