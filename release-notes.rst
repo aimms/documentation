@@ -13,6 +13,37 @@ AIMMS 26.6
 
 
 
+AIMMS 26.6.2 Release (October 08, 2026 - build 26.6.2.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+SENSAI Improvements
++++++++++++++++++++++++++
+
+-  When SENSAI changed part of a procedure, it could replace the tab indentation of the whole procedure with spaces. SENSAI now keeps the existing tabs and only changes the lines it was asked to change.
+-  When SENSAI was asked to change data for a selection that included an element name with a quote, it refused and had to change those values one by one. Such changes now go through in a single step.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  COPT 8.0 has been upgraded to version 8.0.7. Support for MIQP and MIQCP models and non-convex QP and QCP models has been added for COPT 8.0.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  On Linux, exporting a project with ```AimmsCmd --export-to``` silently left most of the project out of the ```.aimmspack``` when the project folder contained a broken symbolic link, for example in a ```.venv``` folder left behind by an earlier run of a model that uses the ```pyaimms``` library. The export still reported success, and starting the published app in AIMMS PRO then failed with "Library not found in the model". Broken links and folders that cannot be read are now left out with a warning in the log, the rest of the project is always exported, and an export that cannot collect the project files fails with an error instead of writing an incomplete pack. ```.venv``` folders are no longer included in an ```.aimmspack```.
+-  Fixed a crash that could occur in a WebUI session after an identifier shown on a page was removed from the model, for example by deleting a runtime library, or by closing or reopening the project, or closing AIMMS, with a page still open.
+-  The compiler has become a bit faster: syntactically correct procedure bodies and definitions are now parsed in a single, cheaper pass.
+-  In a DATA TABLE, a value or label containing non-ASCII characters (e.g. accented characters) could wrongly be reported to overlap multiple column headers, or be assigned to the wrong column.
+-  A small change to a composite table to prevent an error on "Value does not align with any column header.".
+
+--------------
+
+
+
+
+
 AIMMS 26.6.1 Release (October 05, 2026 - build 26.6.1.1).
 ------------------------------------------------------------------------------------------
 
