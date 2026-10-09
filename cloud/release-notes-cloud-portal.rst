@@ -1,6 +1,13 @@
 AIMMS Cloud Portal Updates
 ==========================
 
+Portal 26.14.1.0 (October 8, 2026)
+-------------------------------------
+
+**Improvements**
+
+- **New AI Skills page:** You can now manage AI skills from the new **AI Skills** page in the Portal sidebar. A skill is a set of instructions the AI assistant follows for a specific task. Users see and manage their own skills, and can also use skills shared with their account or environment. Administrators see and manage the skills of all users in the account. See `AI Skills <https://documentation.aimms.com/cloud/ai-skills.html>`_ for details.
+
 Portal 26.12.1.0 (September 17, 2026)
 -------------------------------------
 
