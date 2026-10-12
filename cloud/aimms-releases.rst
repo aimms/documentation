@@ -1,19 +1,21 @@
 Getting the latest AIMMS Releases on AIMMS Cloud Platform
 *********************************************************
 
-Starting with AIMMS PRO 2.47.1, we have made the change to provide you with every AIMMS major feature release automatically and will also guarantee that you will always work on the most recent hotfix on that version, with all the benefits of bugfixes. This is how it will work:
+On the AIMMS Cloud Platform, AIMMS version management is handled automatically. Every AIMMS major feature release is made available to you without any manual activation step, and you are always guaranteed to run on the most recent hotfix of your chosen release.
 
-1. You will not need to activate AIMMS versions anymore. When you publish an app, you will see all AIMMS major releases available. Your list of options will decrease significantly since you will not need to check for hotfix versions or check if there is a newer version available. We take care of it! 
+How it works
+------------
 
-2. Whenever you run an app, it will select the latest hotfix of the selected AIMMS major release. This will guarantee you get bugfixes without re-publishing the apps.
-For example, when you have published an app with AIMMS 4.88 and then when you run it, it will select the latest hotfix from 4.88, so in this case, it will run on 4.88.6, even if this hotfix was not available during publishing. We will never change the feature release association.
+**No version activation needed.** When you publish an app via the Portal, you will see all available AIMMS major releases in the version selector. You no longer need to check for hotfix versions or verify whether a newer version is available — we take care of that for you.
 
-3. This change will directly impacts the speed in which our servers can scale up, since it simplifies AIMMS versions that need to be available to start the session. You may see job queues being processed faster from this.
+**Automatic hotfix updates.** Whenever an app session starts, the Cloud Platform automatically selects the latest hotfix of the major release you chose at publish time. For example, if you published with AIMMS 4.88, your app will run on 4.88.6 (or whichever is the latest hotfix) without you needing to republish. The feature release association is never changed without your action.
 
-4. This does not impact your apps. They will always continue to work with the selected feature release and already benefit from any hotfixes available. You do not need to change anything.
+**Faster session start-up.** Because the set of AIMMS versions that must be available on Cloud servers is simpler, session queues are processed faster and servers can scale up more quickly.
+
+**No action needed on your existing apps.** All previously published apps continue to work with their selected feature release and automatically benefit from any hotfixes that have been released since publishing.
 
 .. spelling:word-list::
 
     hotfix
-	hotfixes
-	bugfixes
+    hotfixes
+    bugfixes

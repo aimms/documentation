@@ -1,182 +1,106 @@
-AIMMS PRO Release Notes
-=======================
+AIMMS PRO Release Notes Archive
+===============================
 
-New Portal Updates
-##################
+.. note::
 
-Version 26.3.2.0 (February 3, 2026)
-------------------------------------
+   Starting from AIMMS PRO 26.6.7, the Cloud Platform and on-premise installations are
+   built and released on separate pipelines, and their release notes are documented on
+   separate pages going forward:
+
+   - :doc:`AIMMS Cloud Platform Release Notes </cloud/release-notes>` — Portal updates,
+     Cloud platform builds, and PRO REST API updates.
+   - :doc:`AIMMS PRO On-Premise Release Notes </pro/release-notes>` — on-premise platform
+     builds.
+
+   This page remains as the historical archive of everything released before AIMMS PRO 26.6.7,
+   including all Portal updates, PRO REST API updates, and platform builds through PRO 26.5.1.
+
+PRO 26.5
+########
+
+AIMMS PRO 26.5.1 Release
+-------------------------
+
+On June 26, 2026 we released AIMMS PRO 26.5.1(*Cloud build*: 26.5.1.1)
+
+**Resolved Issues**
+
+   -  Fixed an issue where publishing a project with a category assigned returned an error.
+   -  Fixed an issue where solve results were not returned to WinUI desktop clients after a cloud solver session completed successfully.
+
+PRO 26.4
+########
+
+AIMMS PRO 26.4.1 Release
+-------------------------
+
+On June 15, 2026 we released AIMMS PRO 26.4.1(*Cloud build*: 26.4.1.3, *On-premise build*: 26.4.1.4)
+
+**Resolved Issues**
+
+   -  Resolved some stability issues in the WebUI publish and session lifecycle flows, including connection pool exhaustion, inconsistent storage authorization on updating an app, and session lookup failures.
+   -  Fixed a publish failure occurring when updating a project.
+   -  **On-Premise**: 
+
+      - Fixed an upgrade issue where the Logback package migration did not run on re-install.
+      - Upgraded bundled PostgreSQL from 16.11 to 16.14, resolving CVE-2026-2005.
+      - Removed pgAdmin 4 from the Windows MSI installer, resolving CVE-2026-3087 and CVE-2026-7210.
+
+PRO 26.3
+#########
+
+AIMMS PRO 26.3.3 Release
+-------------------------
+
+On June 4, 2026 we released AIMMS PRO 26.3.3(26.3.3.1)(**On-premise Release**)
 
 **Resolved Issue**
 
-	- Resolved an issue where starting a task via the Portal did not work when using .xls files as request data.
+-  Fixed an issue in the AIMMS PRO Configurator where performing a restore operation resulted in an error, preventing the process from
+   completing successfully.
 
-Version 26.3.1.0 (February 2, 2026)
-------------------------------------
+AIMMS PRO 26.3.1 Release
+-------------------------
 
-**Improvements**
-
-	- Minor UI improvements on Secrets page.
-
-Version 26.2.1.1 (January 29, 2026)
-------------------------------------
-
-**New**
-
-	- Updated the navigation menu layout to improve clarity and accessibility, with a streamlined sidebar and easier access to core sections such as Apps, Sessions, Secrets, and Configuration.
-	- Introduced a new **Secrets** page, a centralized interface in AIMMS PRO that allows authorized users to securely organize, store, and control access to directories and secrets required by applications.
-	
-	For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-secrets.html>`__	
-
-Version 25.12.1.1 (December 4, 2025)
-------------------------------------
+On June 4, 2026 we released AIMMS PRO 26.3.1(26.3.1.6)(**Cloud Release**)
 
 **Improvements**
 
-	- **User Management**: We have introduced several enhancements to improve navigation, clarity, and overall usability,
-		- *Streamlined Creation Actions*: Create Environment, Create Group, and Create User buttons have been moved to the top of their respective pages for quicker access.
-		- *Improved Search & Filtering*: Added search fields to both the Group and User lists, making it easier to locate specific entries.
-		- *Optimized Data Loading*: Groups and users are now fetched only when you open their respective tabs within an environment. This removes the previous automatic prefetching, resulting in faster initial navigation and more intentional data loads.
-	- **Updated User Roles Model**: We have replaced the Global Roles with a new, simplified Roles model,
-		- User roles can no longer be assigned directly, the Roles column is read-only.
-		- A user’s role is assigned automatically based on their membership in one of the system-defined groups.
-		- User roles are currently limited to two system-defined roles, *Admin* and *App Publisher*.
-		
-	For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-configuration.html#multi-factor-authentication-mfa>`__	
+-  Added Session Manager support in the PRO backend.
 
-**Resolved Issues**
+PRO 26.2
+#########
 
-   - Fixed an issue that prevented users from entering a value in the **Schedule For** field when creating a task.
+AIMMS PRO 26.2.2 Release
+-------------------------
 
-Version 25.11.1.1 (November 11, 2025)
--------------------------------------
+On April 8, 2026 we released AIMMS PRO 26.2.2(26.2.2.5)
 
 **Improvements**
 
-	- **Account-Level MFA Enforcement:**: Admin users can now enforce MFA for all users within a cloud account from the Configuration → Account Settings page. When enabled, all users are required to configure MFA upon their next login. For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-configuration.html#multi-factor-authentication-mfa>`__
+-  As part of our SOC2 compliance initiative, upgraded the platform from Java 8 to Java 25, updating several third-party dependencies across 18+ Maven modules to improve security and stability.
+-  The AIMMS PRO On premise JDK distribution switched from Oracle JDK to Eclipse Temurin (Adoptium) OpenJDK (25.0.2+10).
 
-**Resolved Issues**
+PRO 26.1
+#########
 
-   - Fixed an issue where deleting a solver session from Sessions > Solves overview resulted in error.
+AIMMS PRO 26.1.1 Release
+-------------------------
 
-Version 25.10.1.4 (October 10, 2025)
-------------------------------------
-
-**Improvements**
-
-	- **Export Sessions Table**: Added an Export table option on the Sessions page, allowing users to download session data as a CSV file for offline analysis.
-	- **Resource Profiles**: Introduced Resource Profiles to manage CPU and memory allocation for applications. Admins/App publishers can now select predefined resource configurations when publishing,updating or editing apps. The Resource Profiles feature can be enabled or disabled through database settings in the PRO Cloud Database. To enable this feature for your AIMMS Cloud Platform, please contact AIMMS User Support. For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-apps.html#resource-profiles>`__ 
-   
-Version 25.9.1.0 (September 9, 2025)
-------------------------------------
+On March 10, 2026 we released AIMMS PRO 26.1.1(26.1.1.3)
 
 **Improvements**
 
-	- **Session Logs**: Added support for time selection in the Begin and End filters, enabling more precise log searches.
-	- **Documentation**: Added a direct link to SC Navigator documentation on the About page of New Portal (for SCNavigator accounts).
-	- **User Groups**: It is now possible to add descriptions for user groups.
+-  As part of our SOC2 compliance initiative, we have updated several third-party dependencies across the legacy Java codebase to improve security and stability,
 
-Version 25.8.1.0 (September 4, 2025)
-------------------------------------
+   -  Kubernetes – Updated job startup dependencies for improved compatibility and reliability.
+   -  Active Directory (JSlounge) – Upgraded to address security and compatibility concerns.
+   -  SAML (OpenSAML) – Upgraded to remediate known vulnerabilities.
+   -  Database & Core Framework – General library updates to reduce CVE exposure.
 
-- We are excited to introduce Filter & Sort for  Sessions. You can now easily organize your session list using built-in filtering and sorting tools:
-	- **Filter** sessions per column (e.g., Session ID, State, Application Name/Version, Created date) to quickly locate specific runs.
-	- **Sort** sessions by any column in ascending or descending order.
-   
-For more details, please see the `documentation <https://documentation.aimms.com/cloud/newportal-sessions.html#filtering-sorting-sessions>`__
+**Resolved Issue**
 
-Version 25.6.1.0 (July 24, 2025)
---------------------------------
-
-- We are excited to introduce two new tools to help you better understand and troubleshoot your sessions:
-	- **Session log**: You can now view detailed logs for each session directly from the session menu. Includes a new Download log option to save the log for offline analysis or sharing with support teams.
-	- **App stats**: Display various performance metrics for an app related to WebUI, Solver and Task session executions. Please visit the detailed `documentation <https://documentation.aimms.com/cloud/newportal-stats.html>`__
-	- These enhancements are available for all completed, failed, or terminated sessions and are accessible from the context menu in the session list.
-  
-Version 25.3.1.0 (April 15, 2025)
----------------------------------
-
-- Introduced a new **Sessions** page (formerly the Jobs page), now featuring:
-	- **WebUI Sessions** (previously Active Data Sessions)
-	- **Tasks**
-	- **Solver Sessions** (previously Jobs)
-
-- Added a new **Configuration** page, which includes:
-	- **Account Settings** (portal customization and retention settings)
-	- **Tunnels**
-
-**Note**: The Configuration menu is accessible to admin users via the user menu.
-
-PRO REST API Updates
-####################
-
-Task Scheduler (Version 26.1.1.0 - February 3, 2025)
-----------------------------------------------------
-
-- **Improvements**
-
-   - Added support for binary input in task requests.
-   - Increased the bearer token time-to-live (TTL) to 3 minutes to improve request reliability.
-
-Secret Manager (Version 26.2.1.0 - January 29, 2026)
-----------------------------------------------------
-
-**Improvements**
-
-   -  Added support for sorting items and introduced additional item metadata.
-
-Secret Manager (Version 26.1.1.1 - January 9, 2026)
----------------------------------------------------
-
-The AIMMS PRO REST API is extended with the secret-manager service, enabling secure management of customer and user secrets within the PRO environment. 
-  
-Please see the `documentation <https://documentation.aimms.com/cloud/managing-secrets.html>`__ and API Specs for more details. 
-
-Session Manager (Version 25.6.1.0 - December 12, 2025)
-------------------------------------------------------
-
-**New**
-
-   -  **Session ID retrieval**: New procedure ``pro::sessionmanager::GetSessionId`` allows programmatic access to the active AIMMS session ID.
-   -  **Unified service access**: ``pro::sessionmanager::GetServiceAccess`` now provides both the service URI and bearer token in a single call.
-   -  **Service URI API**: New endpoint ``GET /pro/session-manager/v1/sessions/{session_id}/{service}/uri`` to retrieve service endpoints via REST.
-   -  **Token exchange API**: New endpoint ``POST /pro/auth/v1/token/exchange`` for obtaining scoped bearer tokens with configurable path and access level.
-
-**Improvements**
-
-   -  Streamlined, consistent workflow for accessing cloud-hosted services (session → URI → token → access).
-   -  Support for predefined services such as WebUI and Dex.
-
-   Please refer to the detailed `documentation <https://documentation.aimms.com/cloud/accesing-cloud-hosted-services.html>`__ for usage instructions.
-
-**Use Case**
-
-   - These enhancements directly support MCP, which relies on the new session-based access flow to securely obtain service URIs and bearer tokens. MCP can now interact with AIMMS cloud services using the standardized and fully supported API workflow. A key example of this is the upcoming release of SENSAI Pro in AIMMS SCNavigator, where these improvements enable seamless and secure integration. 
-
-
-Session Manager (Version 25.2.1.0 - April 15, 2025)
----------------------------------------------------
-
-- **Solve Sessions Support**
-   - The Session Manager REST API now supports Solve sessions, extending its capabilities beyond WebUI and Task sessions.
-- **Endpoint Enhancements**
-   - The ``DELETE`` endpoint is now split into two distinct actions: ``terminate`` and ``delete``, allowing for more granular session control.
-   - Endpoints for retrieving session logs have been updated for improved clarity and consistency.
-  
-Please see the `documentation <https://documentation.aimms.com/cloud/session-manager.html>`__ and API Specs for more details. 
-
-Task Scheduler (Version 25.1.1.0 - April 15, 2025)
---------------------------------------------------
-
-- **Endpoint Update**
-   - The `appName` and `appVersion` parameters in the ``GET /tasks`` endpoint are now **optional**. This allows more flexible queries when retrieving tasks owned by the user.
-   - ``GET`` and ``POST`` endpoints now include two new response fields: `userName`, `userEnvironment`
-
-Task Scheduler (Version 25.2.1.0 - May 15, 2025)
-------------------------------------------------
-
-- **New Endpoint**
-   - ``GET /tasks/{id}/logs``: Introduced a new endpoint to retrieve task logs.
+-  Security Fix: **CVE-2025-1094** – PostgreSQL 16.2 (On-Premise PRO only) is resolved by upgrading PostgreSQL to 16.11.
 
 PRO 25.15
 #########
@@ -184,7 +108,7 @@ PRO 25.15
 AIMMS PRO 25.15.1 Release
 -------------------------
 
-On January 6, 6, we released AIMMS PRO 25.15.1(*Cloud build*: 25.15.1.3)
+On January 6, 2026, we released AIMMS PRO 25.15.1(*Cloud build*: 25.15.1.3)
 
 **Resolved Issues**
 
@@ -947,7 +871,7 @@ On June 10, 2021, we released AIMMS PRO 2.38.1 (2.38.1.1).
 
 **Improvements**
 
--  **Cloud:** Added support to use Gurobi on the AIMMS Cloud Platform through the new `Gurobi Web License Service <https://www.gurobi.com/web-license-service/>`__ offered by Gurobi Optimization. For details,
+-  **Cloud:** Added support to use Gurobi on the AIMMS Cloud Platform through the new `Gurobi Web License Service <https://support.gurobi.com/hc/en-us/articles/13232844297489-How-do-I-set-up-a-Web-License-Service-WLS-license>`__ offered by Gurobi Optimization. For details,
    please see the
    `documentation <https://documentation.aimms.com/cloud/gurobi-support.html>`__.
    (This does require an **AIMMS Version 4.81** or **higher**).

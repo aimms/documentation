@@ -1,0 +1,1014 @@
+@import url('https://www.aimms.com/wp-content/themes/aimms/css/aimms-avenir-fonts.css');
+@import url('../css/theme.css');
+
+:root {
+    --theme-primary: #1847c9;
+    --theme-primary-dark: #133a9f;
+    --theme-med: #009dd9;
+    --theme-bg-lite: #f5f6fa;
+}
+
+.document {
+    width: 65%;
+}
+
+b,
+strong {
+    font-family: Aimms-Avenir-Medium;
+    font-weight: normal;
+}
+
+i,
+em {
+    font-family: Aimms-Avenir-It;
+    font-style: normal;
+}
+
+b i,
+strong i,
+b em,
+strong em {
+    font-family: Aimms-Avenir-MediumIt;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media (max-width: 1300px) {
+    .document {
+        width: 100%;
+    }
+}
+
+/*---------------------- Sphinx Directives -----------------------------*/
+/*Color any Topic block */
+.topic {
+    padding: 10px 10px 0 10px;
+    border: 1px solid lightgrey;
+    background: #fafafa;
+}
+
+.topic.contents {
+    background: inherit;
+}
+
+.code-block-caption .caption-text {
+    font-family: courier new;
+}
+
+/*Color + trophy icon for congrats blocks*/
+.congrats {
+    background: none;
+    border: 1px solid green;
+    margin-bottom: 10px;
+}
+
+.congrats .topic-title:before {
+    content: '\f091';
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: darkgreen;
+    font-size: 18px;
+    padding-right: 0.5em;
+}
+
+.technical {
+    border: 1px solid grey;
+    margin-bottom: 10px;
+}
+
+.technical .topic-title:before {
+    content: '\f085';
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: darkgreen;
+    font-size: 18px;
+    padding-right: 0.5em;
+}
+
+/* --------------    Styling for AIMMS Syntax highlighter -------------------------------- */
+.highlight-aimms .highlight {
+    background-color: #fff;
+}
+
+.highlight-aimms .highlight .kr {
+    color: blue;
+}
+
+.highlight-aimms .highlight .nb {
+    color: brown;
+}
+
+.highlight-aimms .highlight .na {
+    color: #585858;
+    font-weight: bold;
+}
+
+.highlight-aimms .highlight .o,
+.highlight-aimms .highlight .p {
+    color: black;
+    font-weight: bold;
+}
+
+.highlight-aimms .highlight .cm,
+.highlight-aimms .highlight .c1,
+.highlight-aimms .highlight .c2 {
+    color: green;
+    font-style: italic;
+}
+
+.highlight-aimms .highlight .s1,
+.highlight-aimms .highlight .s2 {
+    color: gray;
+    font-style: italic;
+}
+
+.highlight-aimms .highlight .kd {
+    color: black;
+    font-weight: bold;
+}
+
+.highlight-aimms .highlight .nv {
+    color: #c88200;
+}
+
+.highlight-aimms .highlight .n.n-Set {
+    color: black;
+}
+
+.highlight-aimms .highlight .n.n-Parameter {
+    color: DarkCyan;
+}
+
+.highlight-aimms .highlight .n.n-ElementParameter {
+    color: DarkCyan;
+}
+
+.highlight-aimms .highlight .n.n-Variable {
+    color: PaleVioletRed;
+}
+
+.highlight-aimms .highlight .n.n-Constraint {
+    color: black;
+}
+
+.highlight-aimms .highlight .n.n-MathematicalProgram {
+    color: black;
+}
+
+.highlight-aimms .highlight .n.n-StringParameter {
+    color: black;
+}
+
+.highlight-aimms .highlight .n.n-UnitParameter {
+    color: purple;
+}
+
+.highlight-aimms .highlight .n.n-Quantity {
+    color: black;
+}
+
+.highlight-aimms .highlight .n.n-DatabaseTable {
+    color: purple;
+}
+
+.highlight-aimms .highlight .n.n-Calendar {
+    color: black;
+}
+
+.highlight-aimms .highlight .n.n-Index {
+    color: black;
+}
+
+.highlight-aimms .highlight .n.n-Procedure {
+    color: black;
+}
+
+.highlight-aimms .highlight .n.n-Convention {
+    color: black;
+}
+
+/* --------------    Styling for AIMMS Domain declarations -------------------------------- */
+
+dl.librarymodule em.property {
+    background-image: url('../icons/librarymodule.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.procedure em.property {
+    background-image: url('../icons/ProcedureIcon.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.externalprocedure em.property {
+    background-image: url('../icons/externalprocedure.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 3px;
+}
+
+dl.function em.property {
+    background-image: url('../icons/FunctionIcon.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.parameter em.property {
+    background-image: url('../icons/MEDeclPar.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.elementparameter em.property {
+    background-image: url('../icons/MEDeclElemPar.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.stringparameter em.property {
+    background-image: url('../icons/MEDeclStringPar.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.unitparameter em.property {
+    background-image: url('../icons/MEDeclUnitPar.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.set em.property {
+    background-image: url('../icons/MEDeclSet.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.index em.property {
+    background-image: url('../icons/MEDeclIndex.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.variable em.property {
+    background-image: url('../icons/MEDeclVar.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.constraint em.property {
+    background-image: url('../icons/MEDeclCon.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.mathematicalprogram em.property {
+    background-image: url('../icons/MEDeclMP.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.quantity em.property {
+    background-image: url('../icons/MEDeclQnt.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.databasetable em.property {
+    background-image: url('../icons/MEDeclDatabaseTable.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.calendar em.property {
+    background-image: url('../icons/MEDeclCal.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.file em.property {
+    background-image: url('../icons/MEDeclFile.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+dl.handle em.property {
+    background-image: url('../icons/MEDeclHandle.PNG');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+/* --------------    Styling for intersphinx references -------------------------------- */
+a[title='(in AIMMS Function Reference)'] .pre {
+    color: brown;
+}
+
+/* --------------    Global document styling -------------------------------- */
+
+h1,
+h2,
+.rst-content .toctree-wrapper p.caption,
+h3,
+h4,
+h5,
+h6,
+legend,
+p {
+    font-family: Aimms-Avenir, 'futura-pt', sans-serif;
+}
+
+/* This .btn styling is kept for buttons inside the body content, if any. */
+.btn {
+    padding: 0.9rem 1rem 0.8rem;
+    border: none;
+    border-radius: 1rem 1rem 0.8rem;
+    font-size: 1rem;
+    font-family: Aimms-Avenir-Medium, 'futura-pt', sans-serif;
+    transition: none;
+    background-color: var(--theme-primary) !important;
+    letter-spacing: 0.03em;
+    color: #fff;
+}
+
+.btn:active {
+    padding: 1rem;
+}
+
+.btn.btn-neutral {
+    background-color: #fff !important;
+    background-color: var(--theme-primary) !important;
+    color: #fff !important;
+}
+
+.btn.btn-neutral:hover {
+    background-color: var(--theme-primary-dark) !important;
+    border-color: #009dd9;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.wy-nav-content {
+    max-width: 100%;
+    padding: 25px 50px;
+}
+
+.wy-nav-content a {
+    color: var(--theme-primary) !important;
+}
+
+.wy-nav-content-wrap {
+    background: none;
+}
+
+a {
+    color: var(--theme-primary);
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--theme-primary);
+}
+
+body {
+    font-family: Aimms-Avenir, 'futura-pt', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+.icones {
+    max-width: 25px !important;
+    margin-right: 10px;
+}
+
+.icones img {
+    max-width: 25px !important;
+    margin-right: 10px;
+}
+
+.wy-table-responsive table td {
+    white-space: normal;
+}
+
+@media screen and (min-width: 767px) {
+    .wy-table-responsive {
+        overflow: visible;
+    }
+}
+
+/* code highlights */
+code,
+.rst-content tt,
+.rst-content code {
+    white-space: nowrap;
+    max-width: 100%;
+    background: #eaeaea;
+    border: solid 1px #fafafa;
+    font-size: 75%;
+    padding: 0 5px;
+    font-family: Aimms-Avenir, 'futura-pt', sans-serif;
+    color: #000;
+    overflow-x: auto;
+}
+
+.rst-content tt.literal,
+.rst-content code.literal {
+    color: #5e5e5e;
+    font-family: 'Courier New';
+}
+
+.rst-content .highlighted {
+    background-color: #d5dbdc;
+}
+
+.rst-content code {
+    background: #fff;
+    border: solid 1px lightgrey;
+    padding: 5px;
+}
+
+.rst-content code.download {
+    font-family: Aimms-Avenir, 'futura-pt', sans-serif;
+    color: var(--theme-primary);
+}
+
+.rst-content code.download:hover {
+    color: #919baf;
+}
+
+.rst-content .note {
+    background: #e5f5fb;
+}
+
+.rst-content .note .admonition-title {
+    background: var(--theme-primary);
+}
+
+.rst-content .warning {
+    background: #fcedeb;
+}
+
+.rst-content .warning .admonition-title {
+    background: #ef8a80;
+}
+
+.rst-content .tip {
+    background: #fff8e5;
+}
+
+.rst-content .tip .admonition-title {
+    background: #ffd659;
+}
+
+.rst-content .hint {
+    background: var(--theme-bg-lite);
+}
+
+.rst-content .hint .admonition-title {
+    background: var(--theme-primary);
+}
+
+/* override theme to work better with Avenir */
+.rst-content .admonition-title,
+.wy-alert-title {
+    padding: 8px 12px 6px;
+}
+
+li {
+    line-height: 1.5em;
+}
+
+.menuselection {
+    font-style: italic;
+}
+
+h1.thanks {
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+}
+
+h3.helpfull {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Copy buttons */
+button.copybtn {
+    webkit-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    background: #fff;
+}
+
+button.copybtn:hover {
+    background: #009dd9;
+    opacity: 1;
+}
+
+div.highlight:hover .copybtn,
+div.highlight .copybtn:focus {
+    opacity: 0.3;
+}
+
+div.highlight {
+    position: relative;
+}
+
+.main-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
+
+.main-menu .logo {
+    flex: 1;
+}
+
+.main-menu .logo img {
+    max-width: 220px;
+}
+
+.main-menu > ul {
+    flex: 2;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.main-menu > ul > li {
+    padding: 0 15px;
+    position: relative;
+}
+
+.main-menu > ul > li:hover > ul {
+    display: inherit;
+}
+
+.main-menu > ul > li:last-child {
+    padding-right: 0;
+}
+
+.main-menu > ul > li > a {
+    -webkit-font-smoothing: antialiased;
+    font-family: Aimms-Avenir, 'futura-pt', sans-serif;
+    color: #909aae;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    height: 30px;
+    display: block;
+}
+
+.main-menu > ul > li > a:hover {
+    color: #009dd9;
+}
+
+.main-menu > ul > li > a:visited {
+    color: #909aae;
+}
+
+.main-menu > ul > li > a:after {
+    content: '\f078';
+    font-family: 'FontAwesome';
+    margin-left: 5px;
+}
+
+.main-menu > ul > li > a:only-child:after {
+    content: '';
+}
+
+.main-menu > ul ul {
+    display: none;
+    position: absolute;
+    top: 30px;
+    background: #f4f4f4;
+    z-index: 10;
+}
+
+.main-menu > ul ul li {
+    width: 200px;
+    display: list-item;
+}
+
+.main-menu > ul ul li > a {
+    display: block;
+    border-bottom: 1px solid #ccc;
+    padding: 3px 10px;
+    font-family: Aimms-Avenir, 'futura-pt', sans-serif;
+    color: #909aae;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.main-menu > ul ul li > a:hover {
+    color: #009dd9;
+}
+
+.main-menu > ul ul li:last-child > a {
+    border-bottom: none;
+}
+
+@media (max-width: 1200px) {
+    .main-menu .logo {
+        text-align: center;
+        margin-bottom: 30px;
+        flex: 0 0 100%;
+    }
+
+    .main-menu ul {
+        justify-content: center;
+    }
+
+    .main-menu ul li:last-child {
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .wy-nav-top a {
+        color: #fff;
+    }
+}
+
+.wy-breadcrumbs {
+    border-bottom: 1px solid #e1e4e5;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+}
+
+/* ==========================================================================
+   FOOTER STYLES
+   ========================================================================== */
+
+footer {
+    color: #000;
+    padding: 30px 0 20px 0;
+    width: 100%;
+    margin-top: 50px;
+    font-family: Aimms-Avenir, 'futura-pt', sans-serif;
+}
+
+/* Separator Line */
+.footer-separator {
+    border: 0;
+    border-top: 1px solid #e1e4e5;
+    margin-bottom: 30px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+/* Flex Container */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+/* Left: Logo */
+.footer-left .footer-logo {
+    max-height: 65px; 
+    width: auto;
+    margin-bottom: 0;
+}
+
+/* Center: Social Icons */
+.footer-center .social-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer-center .social-icons li {
+    display: inline-block;
+    margin: 0; 
+}
+
+.footer-center .social-icons a {
+    color: #000;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.footer-center .social-icons a:hover {
+    color: var(--theme-primary-dark); /* Primary dark on hover */
+    opacity: 1;
+}
+
+/* Right: Legal Links & Copyright */
+.footer-right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 12px; /* Set to 12px */
+    color: #404040; /* Set color */
+}
+
+.footer-right a {
+    color: #404040 !important; /* Set link color */
+    text-decoration: none;
+    font-family: Aimms-Avenir-Medium, Arial, sans-serif;
+}
+
+/* NO STYLE CHANGE ON HOVER */
+.footer-right a:hover {
+    text-decoration: none;
+    color: #404040 !important; /* Keep same color on hover */
+    cursor: pointer;
+}
+
+.footer-right .copyright {
+    color: #404040; /* Set copyright color */
+    margin-left: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+    }
+    
+    .footer-right {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .footer-right .copyright {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+
+/* ==========================================================================
+   END FOOTER STYLES
+   ========================================================================== */
+
+.wy-nav-side {
+    background: #f5f5f5 !important;
+    font-family: Aimms-Avenir, 'futura-pt', sans-serif;
+}
+
+.wy-side-nav-search h3 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 0 0 15px;
+}
+
+.wy-side-nav-search h3 a,
+.wy-side-nav-search h3 a:visited {
+    color: #575757;
+}
+
+.wy-menu-vertical a {
+    color: #909aae;
+}
+
+.wy-menu-vertical a:visited {
+    color: #909aae;
+}
+
+.wy-menu-vertical a:hover,
+.wy-menu-vertical a:active {
+    color: var(--theme-primary) !important;
+}
+
+.wy-menu-vertical a:hover {
+    color: var(--theme-primary);
+    background-color: #f2f2f2 !important;
+}
+
+.wy-menu-vertical a:hover span.toctree-expand {
+    color: var(--theme-primary);
+}
+
+.wy-menu-vertical li.current {
+    background: none;
+}
+
+.wy-menu-vertical li.current > a {
+    color: var(--theme-primary) !important;
+}
+
+.wy-menu-vertical li.current > a,
+.wy-menu-vertical li.on a {
+    font-weight: normal;
+}
+
+.wy-menu-vertical li.current > a:hover {
+    background: none;
+    color: var(--theme-primary);
+}
+
+.wy-menu-vertical li.toctree-l1 > a {
+    text-transform: uppercase !important;
+    letter-spacing: inherit;
+    text-transform: none;
+    font-family: Aimms-Avenir-Medium;
+    font-weight: normal;
+    font-size: 1rem;
+    color: var(--theme-med) !important;
+}
+
+.wy-menu-vertical li.toctree-l1.current > a {
+    box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.06);
+    border: none;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a {
+    background: none;
+    color: var(--theme-primary) !important;
+}
+
+.wy-menu-vertical li.toctree-l2 a,
+.wy-menu-vertical li.toctree-l3 a,
+.wy-menu-vertical li.toctree-l4 a {
+    color: var(--theme-primary-dark);
+    background: none !important;
+}
+
+.wy-menu-vertical li.toctree-l2 a.current,
+.wy-menu-vertical li.toctree-l3 a.current,
+.wy-menu-vertical li.toctree-l4 a.current {
+    font-weight: 600;
+}
+
+.wy-menu-vertical li.toctree-l4 a {
+    font-size: 12px;
+}
+
+/* makes concise tree (line height) */
+li.toctree-l2 span.link-wrapper a.reference.internal {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.wy-side-nav-search {
+    background-color: #f5f5f5;
+}
+
+.wy-side-nav-search input[type='text'] {
+    background-color: white;
+    border-radius: 10px;
+    -webkit-font-smoothing: antialiased;
+    font-family: Aimms-Avenir, 'futura-pt', sans-serif;
+}
+
+.wy-side-nav-search > a img.logo {
+    display: none;
+}
+
+.wy-side-nav-search img {
+    height: 100%;
+    width: 100%;
+    background: none;
+    border-radius: 0;
+    margin: 0;
+}
+
+.home_header {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#content_home_page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#content_home_page p {
+    text-align: justify;
+}
+
+#content_home_page .boxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box_home_page {
+    font-family: Aimms-Avenir, 'futura-pt', sans-serif;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 10px 10px 50px;
+    flex: 1 1 31%;
+    box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.06);
+    text-align: center;
+    padding: 20px 10px;
+    cursor: pointer;
+}
+
+.box_home_page:hover {
+    opacity: 0.7;
+    transition: all 0.2s ease-in-out;
+}
+
+.box_home_page:hover h1 {
+    opacity: 1;
+}
+
+.box_home_page h1 {
+    color: #000;
+    font-size: 22px;
+    font-family: Aimms-Avenir, 'futura-pt', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    margin-bottom: 25px !important;
+    border: none !important;
+    padding-top: 5px;
+}
+
+.box_home_page h1:hover {
+    color: #009dd9;
+}
+
+.box_home_page > div {
+    color: #000;
+    font-style: italic;
+}
+
+@media (max-width: 900px) {
+    .box_home_page {
+        flex: 1 1 48%;
+    }
+}
+
+@media (max-width: 767px) {
+    .box_home_page {
+        flex: 1 1 31%;
+    }
+}
+
+@media (max-width: 500px) {
+    .box_home_page {
+        flex: 1 1 90%;
+    }
+}
+
+.localtoc {
+    font-size: 0.75rem;
+    position: absolute;
+    right: 0;
+    width: calc(35% - 140px);
+    padding: 0 20px;
+    top: 255px;
+}
+
+.localtoc .caption {
+    font-size: 0.9rem;

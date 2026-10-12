@@ -10,6 +10,7 @@ AIMMS software development teams regularly, at least annually, receive training 
 Development processes
 ---------------------------
 * All code is in a source code repository. Separate code branches are used to ensure only production-ready code is released.
+* All code is peer-reviewed, using merge requests, before it is released to production
 * Artifacts are built using automated build and test pipelines and these will fail if one or more automated tests fail. 
 * Access to build and test pipelines is restricted to a few administrators. 
 * Teams review the information security impact of all projects taken on. 
@@ -26,6 +27,6 @@ Static code analysis is included in the automated build process, scanning for th
 Technology stack
 -----------------
 * Compiler, execution engine and other parts of the 'kernel' are written in C and C++.
-* Extension libraries such as Data Exchange are written in C++.
+* Extension libraries such as Data Exchange, CDM and the Python Bridge are written in C++ and Python.
 * IDE uses .net and C#.
 * WebUI uses HTML5, Javascript, CSS and various frameworks such as jquery and React. It also uses 3rd party components such as Highcharts.

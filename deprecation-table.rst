@@ -16,7 +16,7 @@ When possible, we add an **End of Life** to the feature as well; this is the dat
 **Example:** The Compound Sets were deprecated in Jan 2018. They have been completed removed as of 4.73 (May 2020). We developed 
 a `How-to <https://how-to.aimms.com/Articles/109/109-deprecate-compound-sets-overview.html>`__ that guides AIMMS developers to an 
 adjustment of their models in case they use Compound Sets (by proposing another concept to keep the model running as it should).
-
+  
 
 Deprecated feature table
 --------------------------
@@ -31,8 +31,8 @@ This is a list of (recent) deprecated features and provides an insight into its 
     Algorithmic Capability, Matrix Manipulation functions, Deprecated, Q2 2023 , Deprecated since March 2013 , Use the `GMP functions <https://documentation.aimms.com/language-reference/optimization-modeling-components/implementing-advanced-algorithms-for-mathematical-programs/introduction-to-the-gmp-library.html>`__
     Algorithmic Capability, NETSOL ("Pure Network" Solver) , Deprecated,                 , Deprecated since Oct 2018                     , Set model type to LP or Automatic and then an LP solver (like CPLEX) is used   
     Algorithmic Capability, Octeract , Deprecated, July 2025 , Deprecated since June 2025                     , Use alternative `solvers <https://documentation.aimms.com/platform/solvers/solvers.html#supported-math-program-types>`__
-    Cloud, R , Deprecated, Q2 2021                , Current status is no support                     , We recommend `DEX <https://documentation.aimms.com/dataexchange/index.html>`__; see `How-to <https://how-to.aimms.com/Articles/498/498-aimms-with-r.html>`__ 
-    Cloud, Launch services , Deprecated,                 ,  , We recommend `Python Bridge <https://documentation.aimms.com/python-bridge/index.html>`__
+    Cloud, R , Deprecated, Q2 2021                , Current status is no support                     , We recommend `DEX <https://documentation.aimms.com/dataexchange/index.html>`__; see `How-to <https://how-to.aimms.com/Articles/498/498-aimms-with-r.html>`__
+    Cloud, :doc:`Launch Service (Python/R) </cloud/launch-service>` , Deprecated,  , Current status is no support , We recommend `Python Bridge <https://documentation.aimms.com/python-bridge/index.html>`__
     Connectivity, AIMMS Com, Deprecated, n/a , AIMMS COM is considered 'old' architecture, Work with AIMMS to understand new/better ways to integrate AIMMS 
     Connectivity, SDK                       , Deprecated , not before 2026 , Currently only High Prio and fixable issues will be considered for solving and assuming the then current Windows OS still supports third party components used, `AIMMS PRO REST API <https://documentation.aimms.com/cloud/rest-api.html>`__
     Connectivity, Excel Add-in              , Deprecated ,  Sept 2020                , Current status is no support                                        , 
@@ -61,7 +61,6 @@ This is a list of (recent) deprecated features and provides an insight into its 
     Modeling, Horizons             , Deprecated ,        , Based on outdated code    , Use alternative language constructs
     Modeling, MultiSolve             , Deprecated , Dec 2023   ,     , Use `GMP::SolverSession::AsynchronousExecute <https://documentation.aimms.com/functionreference/algorithmic-capabilities/the-gmp-library/gmp_solversession-procedures-and-functions/gmp_solversession_asynchronousexecute.html>`__ solve or contact support@aimms.com
     PRO, AIMMS PRO Cluster feature , Deprecated ,                 , Current status no pro-active support                                           , Various options such as scale vertically (larger machine) or use AIMMS Cloud; for details see `How-to <https://how-to.aimms.com/Articles/373/373-pro-scaling-options.html>`__
-    PRO, On-premise , Deprecated , 1/1/2026 , No longer supported , Switch to AIMMS `Cloud <https://documentation.aimms.com/cloud/index.html>`__
     PRO, Java/C++ API , Deprecated ,  , Currently only High Prio and fixable issues will be considered for solving , Switch to REST service for Tasks
     System Requirements, Win 32                    , Deprecated , Dec 2019        , No longer delivered and supported                                              , Win64 versions 4.67 or higher                                                                                       
     System Requirements, VS2013-based                    , Deprecated ,   May 2019     , No longer delivered and supported                                              , VS2017-based versions 4.67 or higher                                                                                       

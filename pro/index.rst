@@ -19,5 +19,6 @@ This is the documentation for the AIMMS PRO Platform
     mfa
     project
     api
+    Release Notes <release-notes>
 	
 

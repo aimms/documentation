@@ -1,7 +1,7 @@
 Apps (AIMMS Application Management)
 ===================================
 
-The Apps page is the central hub for accessing/managing all available applications in your AIMMS Cloud environment. It allows Admins and App Publishers to interact with and manage app deployments efficiently. And end users can access the apps available to them from this page.
+The Apps page is the central hub for accessing/managing all available applications in your AIMMS Cloud Platform. It allows Admins and App Publishers to interact with and manage app deployments efficiently. And end users can access the apps available to them from this page.
 
 .. image:: images/newportal-app1.png
     :align: center
@@ -13,9 +13,8 @@ Key Features
 *For All Users*
 
 * View Available Applications: Browse all deployed applications organized by name or category.
-* Search Bar: Use the search bar to find a specific app among the list of available applications.
+* Search Bar: Use the search bar to find a specific app among the list of available applications. You can filter results by **Tags**, **App name**, **App version**, **App description** or **Category** to quickly narrow down the list.
 * Launch App: Click on any app tile to launch it directly (based on your access permissions).
-* Stats: View usage statistics and performance data for any available application.
 * Publishing Details: View AIMMS version and architecture details of the application.
 
 
@@ -28,7 +27,6 @@ By clicking the three-dot menu on any app tile:
 
 Available options include:
 
-* Stats: View usage statistics and performance data for the selected application.
 * Publishing details: View AIMMS Version and architecture info.
 * Update: Upload a new version of the existing application.
 * Edit:	Change the name, icon, description or resource profile of the app.
@@ -39,7 +37,7 @@ Available options include:
 
 .. note::
 
-	*Stats* and *Publishing details* are available to all users.
+	*Publishing details* is available to all users.
 	
 .. image:: images/newportal-app2.png
     :align: center

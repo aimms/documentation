@@ -30,6 +30,10 @@ Service end-points exposed
       The value of the ``response-data-path`` attribute defaults to ``<request>.response``, but you can change it to any other file path you like. This is especially important if you need the correct mime-type to be set when the file is stored for client retrieval in Azure Blob storage, as the mime-type is determined based on the file extension of the response file path.
 
       In addition, you can access the request headers via the string parameter ``dex::api::RequestHeader``, while the string parameter ``dex::api::RequestParameter`` will hold any query parameters added to the request. 
+	  
+	  .. note::
+	  
+		 When deployed in the AIMMS cloud, request parameters will be stripped from the request at the ingress level. You are advised to store any functional parameters to the request in the request body. In fact, adding query parameters to a POST request is generally considered an anti-pattern.
       
       A ``POST`` request to the URL will either return the status code ``403 Forbidden`` if the service name cannot be found, or ``200 OK`` if the request has been queued. In the latter case, the request will return a status response similar to:
 

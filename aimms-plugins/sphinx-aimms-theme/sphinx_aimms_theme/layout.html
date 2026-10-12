@@ -1,0 +1,176 @@
+{% extends "sphinx_rtd_theme/layout.html" %}
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/ydq4pad.css">
+<link rel='stylesheet' id='font-awesome-original-css' href='https://techblog.aimms.com/wp-content/plugins/dpArticleShare/css/font-awesome.css?ver=1.3.4' type='text/css' media='all' /> 
+
+{%- block scripts %}
+{% if theme_generate_google_tag_manager %}
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','{{ theme_google_tag_manager_id }}');</script>
+<!-- End Google Tag Manager -->
+{{ super() }} {% endif %} 
+
+{% if theme_generate_aimms_support_menu %}
+<!-- support menu -->
+<script>
+(function(){
+	var script = document.createElement('script');
+	script.src = 'https://aimms.com/support-menu/js/asm.min.js?v=' + new Date().getTime();
+	script.setAttribute('data-id', '{{ theme_aimms_support_menu_id }}');
+	document.head.appendChild(script);
+})();
+</script>
+<!-- end support menu -->
+{{ super() }} {% endif %} {%- endblock %}
+
+
+{% block extrahead %}
+{% if theme_display_algolia_search %}
+<!-- Algolia's docsearch stylesheet -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+<style>
+/*---------- Algolia search ----------*/
+/*In order to have the search widget on top of the content */
+.wy-side-nav-search {top: 0;background-color: #f5f5f5;}
+.wy-menu-vertical {width: 300px;}
+.wy-side-scroll {overflow: auto;}
+.wy-nav-side { overflow: visible; }
+.ds-input {vertical-align: inherit!important;}
+.algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {position: fixed; max-height: 600px;}
+@media (max-width: 700px) { .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {max-height: 400px; max-width: 300px;} }
+</style>
+{% endif %}
+<link rel="shortcut icon" href="{{ url_root }}_static/favicon.ico"/>
+{% if pagename == master_doc %} 
+<meta name="description" content="{{ theme_home_page_description }}"> 
+{% endif %} {% endblock %} 
+
+{% block sidebartitle %}{% include "searchbox.html" %} {% endblock %} 
+
+{% block htmltitle %} {% if pagename == master_doc %}
+<title>{{ theme_home_page_title }}</title>
+{% else %}
+<title>{{ title|striptags|e }} &mdash; {{ theme_home_page_title }}</title>
+
+{% endif %} {% endblock %} 
+
+{%- block extrabody %}
+{% if theme_generate_google_tag_manager %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ theme_google_tag_manager_id }}"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{% endif %} {{ super() }} {% endblock %}
+
+{% block document %} {{ super() }} 
+{% if last_updated %} <div style="margin-bottom: 1em;">Last updated: {{last_updated}} </div> {% endif %}
+
+{% if theme_display_help_and_feedback %}
+<br>
+<style>
+@media (min-width: 768px){
+  .right.container-help-feedback{ padding-left: 15px; border-left: 1px solid #dbdbdb;}
+}
+</style>
+<div class="admonition hint document" style="margin-bottom: 1em;" id="help-&-feedback">
+
+<p class="admonition-title">Help & Feedback</p>
+
+<div class="flex-container" style="display:flex; flex-wrap: wrap;">
+<div class="left container-help-feedback" style="position: relative; width: 100%;flex: 3 200px; padding-right:15px;" >
+
+{% if theme_is_github %}
+<h3 style="font-weight: bold;">Docs</h3>
+<p>
+<a class="fa fa-github" href="{{ theme_repo_url }}/blob/{{ "master" }}/{{ conf_py_path }}{{ pagename }}{{ ".rst" }}" target="_blank" > Edit this page</a> to fix an error or add an improvement in a pull request
+<br>
+<a class="fa fa-github" href="{{ theme_repo_url }}/issues" target="_blank" > Create an issue</a> to suggest an improvement to this page
+</p>
+
+{% elif theme_is_gitlab %}
+<h3 style="font-weight: bold;">Docs</h3>
+<p>
+<a class="fa fa-gitlab" href="{{ theme_repo_url }}/-/blob/{{ "master" }}/{{ conf_py_path }}{{ pagename }}{{ ".rst" }}" target="_blank" > Edit this page</a> to fix an error or add an improvement in a pull request
+<br>
+<a class="fa fa-gitlab" href="{{ theme_repo_url }}/-/issues" target="_blank" > Create an issue</a> to suggest an improvement to this page
+</p>
+{% endif %}
+
+
+
+<h3 style="font-weight: bold;">Product</h3>
+<p style="padding-bottom:15px;">
+<a class="fa fa-users" href="https://community.aimms.com/topic/new" target="_blank" > Create a topic</a> if there's something you don't like about this feature
+<br>
+<a class="fa fa-users" href="https://community.aimms.com/ideas" target="_blank" > Propose functionality</a> by submitting a feature request
+</p>
+</div>
+
+<div class="right container-help-feedback" style="width: 100%; flex: 1 200px;">
+<h3 style="font-weight: bold;">Support</h3>
+<p>Not what you where looking for? <a class="fa fa-search" href="https://www.aimms.com/support/" target="_blank" style="font-weight: bold;" > Search the docs</a></p>
+<p>Remember we also have <a class="fa fa-users" href="https://community.aimms.com/ask-the-community-4" target="_blank" style="font-weight: bold;" > Community support</a></p>
+<p>Still having trouble? <a href="mailto:support@aimms.com" > Reach out to us</a></p>
+</div><br>
+</div>
+</div>
+{% endif %}
+{% endblock %} 
+
+{% block footer %} {{ super() }}
+
+{% if theme_google_analytics_id and theme_generate_google_analytics and not theme_generate_google_tag_manager %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ theme_google_analytics_id }}"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', '{{ theme_google_analytics_id }}');
+</script>
+{% endif %}
+
+{% if theme_display_community_embeddable %}
+
+<!-- Insided embeddable -->
+<script>
+    (function(w, d, s) {
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s);
+        j.async = true;
+        j.src = '//embeddable-widgets-euw1.insided.com/aimms-en.insided-conversational.js';
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script');
+</script>
+
+{% endif %} 
+
+{% block algolia %}
+{% if theme_display_algolia_search %}
+
+<!-- Algolia docsearch BEGIN -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> 
+docsearch({
+  appId: '{{ theme_algolia_appid }}',
+  apiKey: '{{ theme_algolia_appkey }}',
+  indexName: '{{ theme_algolia_indexname }}',
+  inputSelector: '#rtd-search-form input[type=text]',
+  debug: true, // Set debug to true if you want to inspect the dropdown
+  algoliaOptions: {
+    hitsPerPage: {{ theme_algolia_hitsperpage }},
+    // See https://www.algolia.com/doc/api-reference/api-parameters/
+  },
+  });
+</script>
+<!-- Algolia docsearch END -->
+
+{% endif %} {% endblock %} {% endblock %}

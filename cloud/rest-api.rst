@@ -1,7 +1,7 @@
 AIMMS PRO REST API
 ==================
 
-Currently we provide two APIs to PRO: the new PRO REST API service described here, released 2022, and the legacy `Java/C# API <../pro/api.html>`_. We recommend the use of the PRO REST API Server for all new applications, because it has more functionality and typically requires less time to implement. 
+The AIMMS PRO REST API is the recommended way to interact programmatically with the AIMMS Cloud Platform. It was released in 2022 and has more functionality and typically requires less time to implement than older API approaches. 
 
 The AIMMS PRO REST API follows modern REST API design principles, and is designed following the `OpenAPI Specification <https://swagger.io/specification/>`_ such that you can automatically generate your client code. Our goal of this REST API Service is to give you ‘programmatic access’ to our AIMMS PRO Cloud Platform. The AIMMS PRO REST API allows users to securely interact with the AIMMS PRO Cloud Platform via a REST interface. 
 
@@ -30,8 +30,7 @@ The full OpenAPI specification of the AIMMS PRO REST API itself can be downloade
 API Keys and Scopes
 -------------------
 
-Requests made to the PRO REST API are authenticated/authorized by means of *API Keys*.
-Users can generate *API Keys* from their PRO Portal's `User settings <https://documentation.aimms.com/cloud/newportal-usersettings.html>`_ page 
+Requests made to the PRO REST API are authenticated/authorized by means of *API Keys*. Users can generate *API Keys* from their PRO Portal's `User api keys <https://documentation.aimms.com/cloud/newportal-user-api-keys.html>`_ page
 
 Managing AIMMS
 --------------

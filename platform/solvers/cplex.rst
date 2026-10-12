@@ -40,7 +40,7 @@ CPLEX offers a performance tuning tool to help you analyze whether default optio
 
 About IBM ILOG CPLEX
 -------------------------------------
-`IBM ILOG CPLEX <https://www.ibm.com/analytics/cplex-optimizer>`_ is developed and supported by IBM, Inc. IBM ILOG CPLEX is a registered trademark of IBM, Inc.
+`IBM ILOG CPLEX <https://www.ibm.com/products/ilog-cplex-optimization-studio/cplex-optimizer>`_ is developed and supported by IBM, Inc. IBM ILOG CPLEX is a registered trademark of IBM, Inc.
 
 CPLEX Supported Versions
 -------------------------------------

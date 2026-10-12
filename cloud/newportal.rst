@@ -1,17 +1,44 @@
-New Portal
-**********
+AIMMS Cloud Portal
+******************
 
-We have built a new look of our AIMMS PRO Portal as known as New Portal, It comes with a fresh, modern interface and a more intuitive user experience. Behind the scenes, we have rebuilt the architecture from the ground up, making it easier to maintain and enhance over time. We hope the new experience serves you well and look forward to your feedback.
+The AIMMS Cloud Portal provides a modern, intuitive interface for managing your apps, sessions, tasks, secrets, and users. Behind the scenes, the architecture has been built for reliability and ease of maintenance.
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    newportal-apps
    newportal-sessions
-   newportal-stats
+   newportal-usage
+   newportal-tasks
+   newportal-legacy-sessions
    newportal-secrets
-   newportal-users
+   newportal-sensai-chat
+   ai-skills
    newportal-usersettings
+   newportal-user-api-keys
+   newportal-users
    newportal-configuration
-   
-   
+
+All Users
+---------
+
+The following sections are available to all users of the AIMMS Cloud Platform.
+
+* :doc:`newportal-apps`
+* :doc:`newportal-sessions`
+* :doc:`newportal-usage`
+* :doc:`newportal-tasks`
+* :doc:`newportal-legacy-sessions`
+* :doc:`newportal-secrets`
+* :doc:`newportal-sensai-chat`
+* :doc:`ai-skills`
+* :doc:`newportal-usersettings`
+* :doc:`newportal-user-api-keys`
+
+Administrators
+--------------
+
+As an administrator of the AIMMS Cloud Platform, you have access to all pages listed above, plus the following admin-only sections for user management and platform configuration. Log in with your administrator account and navigate to the relevant section — all areas of the Portal are accessible from the sidebar.
+
+* :doc:`newportal-users`
+* :doc:`newportal-configuration`

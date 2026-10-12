@@ -1,0 +1,187 @@
+Quantity Length {
+    BaseUnit    : m;
+    Conversions : {
+        km   -> m    :  # -> # * 1000,
+        mile -> m    :  # -> # * 1609
+    }
+}
+Quantity Temperature {
+    BaseUnit    : degC;
+    Conversions : degC -> degF :  # -> # * 1.8 + 32;
+}
+Quantity Energy {
+    BaseUnit    : J = kg * m^2 / s^2;
+    Conversions : {
+        kJ  -> J     :  # -> # * 1000 ,
+        MJ  -> J     :  # -> # * 1.0e6,
+        kWh -> J     :  # -> # * 3.6e6
+    }
+}
+Quantity Currency {
+    BaseUnit    : US$;
+    Conversion  : {
+        DM  -> US$   : # -> # * ExchangeRate('DM') ,
+        DFl -> US$   : # -> # * ExchangeRate('DFl')
+    }
+}
+Quantity Unitless {
+    BaseUnit    : 1;
+    Conversions : % -> 1      : # -> # / 100;
+}
+
+
+! Direct output to ResultFile
+put ResultFile ;
+
+! Construct a header for the table
+put @13, "Supply":>12, @30, "Transport":>12, /, @30 ;
+
+for ( j ) do   put j:>12 ;   endfor ;
+put // ;
+
+! Output the values for Demand
+put "Demand", @30 ;
+for ( j ) do   put Demand(j):>12:2 ;   endfor ;
+put // ;
+
+! Output Supply and Transport
+for ( i ) do
+    put i:<12, Supply(i):>12:2, @30 ;
+    for ( j ) do   put Transport(i,j):>12:2 ;   endfor;
+    put / ;
+endfor ;
+
+! Close ResultFile
+putclose ResultFile ;
+
+	NutrientUnit := DATA { Energy  : [kJ]  ,
+	                       Protein : [mg]  ,
+	                       Iron    : [%RDA]  };
+                         
+                         
+Activity a {
+    ScheduleDomain  :  yearCal;
+    Comment         : {
+        "a can be scheduled during any period
+        in the calendar yearCal"
+    }
+}
+Activity b {
+    IndexDomain     :  i;
+    ScheduleDomain  :  possiblePeriods(i);
+    Comment         : {
+        "b(i) can be scheduled only during the
+        periods possiblePeriods(i)"
+    }
+}
+Activity c {
+    IndexDomain     :  i;
+    ScheduleDomain  : {
+        {ReleaseDate(i)..PastDeadline(i)}
+    }
+    Comment         : {
+        "c(i) must start on or after ReleaseDate(i)
+         c(i) must finish before PastDeadline(i)"
+    }
+}
+
+	Resource myMachine {
+	    ScheduleDomain  :  H;
+	    Usage           :  sequential;
+	    Activities      :  acts(a), maintenance;
+	    Transition      : {
+	        (acts(a1),acts(a2))    : travelTime(a1,a2),
+	        (maintenance,acts(a1)) : travelTime('home',a1),
+	        (acts(a1),maintenance) : travelTime(a1,'home')
+	    }
+	    Comment         : {
+	        "activities acts are executed on location/site; yet 
+	        maintenance is executed at home.  Transitions are 
+	        the travel times between locations."
+	    }
+	}
+
+Execute("C:\\ProgramFiles\\unzip.exe", "D:\\data\\archive\\inputfile01.zip -d D:\\temp\\files\\");
+
+sum[(t,s,i,j,k) | ElementPara(i,j) = k, …]
+
+   Procedure pr_CreateAndInitializeRuntimeLibraryForTableWriteManagement {
+      Body: {
+         ! Initialize writing the library.
+         sp_runtimePrefix := "rldmfdttbw" ;
+         if ep_runtimeLib then
+               me::Delete( ep_runtimeLib );
+         endif ;
+            ep_runtimeLib := me::CreateLibrary( "RuntimeLibraryDatachangeMonitorsForDatabaseTablesToBeWritten", sp_runtimePrefix);
+         ep_runtimeDecl := me::Create("Datachange monitor names and sets",'declaration', ep_runtimeLib);
+         
+         ! The set of database tables that are to be managed via data change monitors
+         s_SelectedDatabaseTables := AllDatabaseTables * Database_table_declarations ;
+         
+         ! initialize the text for the runtime procedures
+         sp_bodyInitProc := "" ;
+         sp_bodyWriteProc := "" ;
+         
+         for i_db do ! for each database table to be handled
+         
+               ! Initialization per table.
+               sp_bodyLineWrite := "" ;
+               sp_bodyLineInit := "" ;
+         
+               ! Determine the collection of identifiers referenced in the database table.
+               s_singleTon := i_db ;
+               s_RefdIds := ReferencedIdentifiers(
+                     searchIdentSet :  s_singleTon, 
+                     searchAttrSet  :  AllAttributeNames, 
+                     recursive      :  1) 
+                        * ( AllVariables + AllParameters + AllSets );
+               s_ReferencedIdentifiersByDatabaseTables(i_db) := s_RefdIds ;
+         
+               ! Create the data change monitor code
+               sp_set := "data " + s_RefdIds ;
+                ep_datachangeMonitorSet(i_db):= me::Create(FormatString("MonitorSet_%e", i_db), 'set', ep_runtimeDecl);
+                me::SetAttribute(ep_datachangeMonitorSet(i_db),'subset of', "AllIdentifiers");
+                me::SetAttribute(ep_datachangeMonitorSet(i_db),'definition', sp_set);
+               sp_datachangeMonitorName( i_db ) := formatString( "DatachangeMonitor_%e", i_db );
+         
+               ! To initialize a data change monitor, we'll only have to call DataChangeMonitorCreate.
+               sp_bodyLineInit  := formatString("DataChangeMonitorCreate(\"DatachangeMonitor_%e\",MonitorSet_%e,1);\n",i_db,i_db);
+               sp_bodyInitProc += sp_bodyLineInit ;
+         
+               ! To write to a database table, but only when data is changed, we need to 
+               ! 1) check DataChangeMonitorHasChanged, 
+               ! 2) actually write,
+               ! 3) register the writing, and 
+               ! 4) Reset the data change monitor.
+               sp_bodyLineWrite := formatString("if DataChangeMonitorHasChanged(\"DatachangeMonitor_%e\") then\n",i_db);
+               sp_bodyLineWrite += formatString("          write to table %e;\n",i_db); ;
+               sp_bodyLineWrite += formatString("          p01_dbWritten(\'%e\') := 1;\n",i_db); ;
+               sp_bodyLineWrite += formatString("          DataChangeMonitorReset( \"DatachangeMonitor_%e\", MonitorSet_%e );\n",i_db,i_db) ;
+               sp_bodyLineWrite += formatString("endif;\n\n") ;
+               sp_bodyWriteProc += sp_bodyLineWrite ;
+         
+         endfor ;
+         
+            ep_InitProc := me::Create( "pr_InitDatachangeMonitors", 'procedure', ep_runtimeLib);
+         me::SetAttribute( ep_InitProc, 'body', sp_bodyInitProc);
+         
+         ep_WriteProc := me::Create( "pr_WriteTablesWhenDataChanged", 'procedure', ep_runtimeLib);
+         me::SetAttribute( ep_WriteProc, 'body', sp_bodyWriteProc);
+         
+         me::Compile(ep_runtimeLib);
+         apply(ep_InitProc);
+      }
+      Set s_Singleton {
+         SubsetOf: AllIdentifiers;
+      }
+      Set s_RefdIds {
+         SubsetOf: AllIdentifiers;
+      }
+   }
+   
+                DirectoryGetSubdirectories("", "*.*", FolderNames, 
+                    recursive: 1, attributeFilter: { 'Executable'} );
+                display FolderNames ;
+                
+	'An element containing spaces'
+	'label with nested quotes: "a*b"'

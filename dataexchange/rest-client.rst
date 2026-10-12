@@ -118,7 +118,7 @@ The following example shows the Authorization Code flow specification required f
 
 	To get a refresh token for Azure AD, you should add the ``offline_access`` scope.
 	
-By default, the Data Exchange library will encode the client id and secret as part of the form data that is being sent to the authorization endpoint. However, by setting the ``useBasicAuthorization`` member of the ``dex::oauth::APIClientStringData`` identifier to any non-default string value, you can instruct the Data Exchange library to use basic authentication instead, if your Identity Provider expects this. 
+By default, the Data Exchange library will encode the client id and secret as part of the form data that is being sent to the authorization endpoint. However, by setting the ``useBasicAuthentication`` member of the ``dex::oauth::APIClientStringData`` identifier to any non-default string value, you can instruct the Data Exchange library to use basic authentication instead, if your Identity Provider expects this. 
 
 When running the AIMMS application locally on your desktop, AIMMS will, by default, instantiate a fixed redirect URL `http://localhost/oauth2`. You can configure the path in the redirect URL by changing the string parameter ``dex::api::OAuth2CallbackPath``, which has a default value of ``oauth2``. 
 

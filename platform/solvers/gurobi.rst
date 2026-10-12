@@ -35,7 +35,7 @@ The QCP and MIQCP solvers support second-order cone constraints, rotated second-
 
 Gurobi Global Optimization
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Gurobi 12.0 can solve global nonlinear optimization models with integer variables (MINLP) or without (NLP). 
+Gurobi can solve global nonlinear optimization models with integer variables (MINLP) or without (NLP). 
 
 Parallel Gurobi
 ----------------------------
@@ -47,7 +47,7 @@ Gurobi provides indicators constraints. Indicator constraints are a new constrai
 
 About Gurobi
 ----------------------------
-Gurobi is developed and supported by `Gurobi Optimization, Inc <http://www.gurobi.com>`_. a company founded in 2008 by Robert Bixby, Zonghao Gu and Edward Rothberg.
+Gurobi is developed and supported by `Gurobi Optimization, Inc <https://www.gurobi.com>`_. a company founded in 2008 by Robert Bixby, Zonghao Gu and Edward Rothberg.
 
 
 Gurobi Requirements
@@ -56,4 +56,4 @@ Gurobi requires that the computer’s CPU supports SSE2. Most modern computers s
 
 Gurobi Supported Versions
 ----------------------------
-AIMMS supports Gurobi 10.0 – 12.0.
+AIMMS supports Gurobi 12.0 – 13.0.

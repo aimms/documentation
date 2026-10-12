@@ -7,6 +7,30 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+26.4.3.2 [15-09-2026]
+	- Two functions (`cdm::BlockEventListener` and `cdm::UnblockEventListener`) introduced in version 26.2.1.1 were no longer exported on Linux since the updated AIMMS toolset in version 26.4.1.1.
+	
+26.4.2.2 [19-08-2026]
+	- When auto-terminating the CDM service in the AIMMS cloud, a snapshot update running at the same time would lead to a crash.
+
+26.4.1.1 [07-08-2026]
+	- Rebuilt with the updated AIMMS toolset. This version requires AIMMS 26.3.1 or later and cannot be used with earlier AIMMS versions.
+	
+26.3.1.4 [07-08-2026]
+	- When a second CDM service instance was started (this shouldn't happen normally), it would empty temporary tables used during a checkout query causing snapshots to become corrupted. 
+	- Rewrote select queries to mitigate MySQL 8.0 performance regression due to `TempTable` change in MySQL 8.0, making the select queries faster overall compared to MySQL 5.7 backed service instances
+
+26.2.2.2 [19-05-2026]
+	- Explicitly handling commit notifications prior to committing outstanding changes could lead element spaces ending up in a state that was flagged as erroneous
+	- Recombination of deltas or recreation of a snapshot both leading to the removal of existing deltas, could leave a pull request traversing a list of now-removed deltas in an infinite loop.
+	
+26.2.1.1 [21-04-2026]
+	- Add `cdm::BlockEventListener` and `cdm::UnblockEventListener` methods to allow modal WebUI dialogs to run uninterrupted. 
+	
+26.1.2.1 [18-03-2026]
+	- Identifiers with integer values and non-zero defaults, would, when changed back to their default, not show the default on checkout but rather 0.0.
+	- When switching branches, overridden data for managed external data identifiers would not be reset to their external data value, but retain the overridden values from the original branch.
+
 26.1.1.1 [20-01-2026]
 	- Add new capability to clone a cloud CDM database to a SQLite database uploaded to Azure Blob Storage container.
 	

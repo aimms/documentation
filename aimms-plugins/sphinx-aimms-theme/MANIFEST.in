@@ -1,0 +1,9 @@
+include LICENSE
+recursive-include sphinx_aimms_theme *.conf
+recursive-include sphinx_aimms_theme *.css
+recursive-include sphinx_aimms_theme *.html
+recursive-include sphinx_aimms_theme *.js
+recursive-include sphinx_aimms_theme *.png
+recursive-include sphinx_aimms_theme *.PNG
+recursive-include sphinx_aimms_theme *.ico
+recursive-include sphinx_aimms_theme *.txt
