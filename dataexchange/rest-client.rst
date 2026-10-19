@@ -62,10 +62,11 @@ The two most common ways to authorize the use of APIs is through the use of
 
 While the use of API keys is fairly straightforward, and requires no additional support in AIMMS to use, the implementation of the OAuth2 protocol can be quite intricate, and some authorization flows require support in AIMMS to function at all. For this reason, the Data Exchange library provides all means necessary to effortlessly authorize the use of an API through the OAuth2 protocol.
 
-With the OAuth2 protocol, a client application (i.e., your model) can be authorized to access an API. This authorization can take place at two levels:
+With the OAuth2 protocol, a client application (i.e., your model) can be authorized to access an API. This authorization can take place at several levels:
 
-* at the application level, where the application itself will be authorized to access the API (called the Client Credentials flow), or
-* the application can get access to the API on behalf of the user operating the application through a UI (called the Authorization Code flow).
+* at the application level, where the application itself will be authorized to access the API (called the Client Credentials flow), 
+* the application can get access to the API on behalf of the user operating the application through a UI (called the Authorization Code flow), or
+* the application can get access to the API through a managed identity set for the AIMMS session.
 
 For both of these authorization flows, the result of a successful authorization through the OAuth2 protocol will be a ``Bearer`` token, which, when added to an API call, will authorize the application to access the API with a given level of access for a limited period of time. 
 
@@ -130,6 +131,13 @@ With these settings, you can again call the function :js:func:`dex::oauth::AddBe
 	
 	The OAuth2 Authorization Code flow support will work for AIMMS sessions running locally on the desktop for all AIMMS versions. For WebUI session running from an on-premise PRO server or from the AIMMS Cloud, AIMMS version 4.84+ and PRO version 2.41+ are required to support the redirect URLs to be routed back to the AIMMS session backing your WebUI session. Also, the use of OAuth requires the use of HTTPS on your PRO on-premise server, and the library will assume HTTPS traffic on port 443. If your PRO on-premise server uses a different port, then you can configure it through the parameter ``dex::oauth::WebUIOAuthCallbackPort``. 
 
+Getting a Bearer Token for a Managed Identity
++++++++++++++++++++++++++++++++++++++++++++++
+
+To obtain a bearer token for a managed identity, you need to create an API client that sets the `useManagedIdentity` label to `"1"` in `dex::oauth::APIClientStringData`. If there are more managed identities, you can set the `clientId`, `objectId`, or the `miResourceId` to identify the managed identity. In addition, you can set the `resource` for the resource for which you want to retrieve the bearer token. 
+
+Both AKS workload identities, App Service, Azure Functions and Container Apps identities, and Azure VM, VM scale set and AKS node identities are supported. For further details for the interpretation of the various configuration settings, and links to reference documentation for each of these types of managed identity can be found in the the DEX procedure `dex::oauth::GetManagedIdentityToken`. 
+
 Signing AWS requests using AWS Signature V4
 -------------------------------------------
 
@@ -176,3 +184,4 @@ The procedure :any:`dex::client::DetermineProxyServer` will set these defaults o
 .. spelling:word-list::
 
     libCurl
+	AKS

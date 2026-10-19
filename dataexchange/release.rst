@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+26.3.1.2 [18-10-2026]
+	- Add support for obtaining a bearer token for a managed identity. 
+
 26.2.3.4 [07-10-2026]
 	- String output arguments of external procedures that could return values greater than 2KB, would be truncated.
 	- Writing Parquet and CSV files with string columns whose values would accumulate to more than 2GB for 1M rows, would fail.
