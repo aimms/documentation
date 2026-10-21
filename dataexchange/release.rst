@@ -13,6 +13,14 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+26.3.2.3 [21-10-2026]
+	- Add the ``name-maps-to`` attribute, to store the exact name of a node with a ``name-binds-to`` attribute when reading, and use the stored name when writing. See :ref:`DEX_name_maps_to`.
+	- Generated OpenAPI clients now keep the exact spelling of JSON property names. Previously, a property could be written with the spelling of a property with the same name, but different case, in another schema.
+	- When a property occurs in multiple ``anyOf`` or ``oneOf`` subschemas, the generated range set for the property now holds the ``enum`` values of all subschemas, and not only those of the first. Properties referring to a component schema that only holds an ``enum`` now get a range set as well.
+	- Fixed several issues in generated OpenAPI clients: properties are now written in document order, ``enum`` values of a property without a ``type`` are written as JSON integers if they are all integers, array positions holding a default value are retained, ``patternProperties`` now match anywhere in a property name, and properties only differing in separator characters (e.g. ``first-name`` and ``first_name``) now get separate identifiers.
+	- Integer values outside the 32-bit range were written as 0 from numeric parameters, and silently ignored when read into string parameters, labels or element parameters.
+	- ``dex::ReadMappings`` would stop adding mappings after the first invalid mapping file in the folder. Errors are now reported as a warning per mapping file, and the procedure returns 0 if any mapping could not be added.
+
 26.3.1.2 [18-10-2026]
 	- Add support for obtaining a bearer token for a managed identity. 
 

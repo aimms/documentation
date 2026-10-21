@@ -84,6 +84,7 @@ The available mapping attributes are:
 * binds-to-display-name          
 * name-binds-to
 * name-binds-to-display-name     
+* name-maps-to
 * name-regex
 * name-regex-from    
 * name-regex-prefix    
@@ -153,6 +154,20 @@ As the name suggests, you can use any accepted `regular expression <https://rege
 With the ``name-regex-prefix`` attribute you can specify a prefix that is used in the JSON, XML, CSV/TSV, Excel, Parquet file or database, but which should not be included in the element names in the model. Note that the value of the ``name-regex-prefix`` attribute is automatically prepended to the regular expression specified in the ``name-regex`` attribute, and subsequently removed from the match if a match has been found.
 
 By default, when writing CSV/TSV files, Excel sheets, Parquet files and databases, AIMMS will first generate columns generated on the basis of the current contents associated with the ``name-binds-to`` index. Subsequently, it will fill individual fields, on a row-per-row basis, based on the presence of data in the ``maps-to`` identifier. If that identifier contains data for tuples which do not currently lie in the set associated with the ``name-binds-to`` index, such data will not be written, and may potentially lead to rows without any data. 
+
+.. _DEX_name_maps_to:
+
+The name-maps-to attribute
+++++++++++++++++++++++++++
+
+As AIMMS element names are case-insensitive, and keep the spelling with which they were first created, the element bound through a ``name-binds-to`` attribute does not necessarily hold the exact name read from a JSON, XML or YAML file. For instance, if the set already contains an element ``upper``, reading a node named ``UPPER`` will bind to that element, and writing the file back will produce a node named ``upper``. Likewise, when using a ``name-regex-prefix`` or ``name-regex-postfix`` attribute, the element only holds the part of the name matched by the regular expression.
+
+Through the ``name-maps-to`` attribute you can specify a string parameter in which the Data Exchange library will store the exact name of the node. The ``name-maps-to`` attribute can only be specified in conjunction with a ``name-binds-to`` attribute, and its value should be a string parameter indexed in the same way as an identifier in a ``maps-to`` attribute at the same node, i.e., including the index bound through the ``name-binds-to`` attribute. 
+
+* When reading a file, the Data Exchange library will store the full name of every node matched by the ``name-binds-to`` attribute, including any prefix or postfix, in the ``name-maps-to`` identifier.
+* When writing a file, the Data Exchange library will use a non-empty value of the ``name-maps-to`` identifier as the name of the node, instead of the name derived from the bound element, any display name, and the ``name-regex-prefix`` and ``name-regex-postfix`` attributes. If the value is empty, the name will be derived from the bound element as usual.
+
+The ``name-maps-to`` attribute is supported for JSON, XML and YAML mappings. Names that only differ in case within the same object will still bind to the same element, and therefore cannot be distinguished.
 
 The iterative-binds-to attribute
 --------------------------------
