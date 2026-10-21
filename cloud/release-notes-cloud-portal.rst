@@ -20,7 +20,7 @@ Portal 26.11.1.0 (September 1, 2026)
 
 **Improvements**
 
-- **Dark mode:** The Portal now supports dark mode, built on a unified MUI color palette. Toggle it from the quick bar (next to the SensAI icon), with **Light**, **Dark**, and **System** options. Dark mode is also available on the About page, before logging in.
+- **Dark mode:** The Portal now supports dark mode, built on a unified MUI color palette. Toggle it from the quick bar (next to the SENSAI icon), with **Light**, **Dark**, and **System** options. Dark mode is also available on the About page, before logging in.
 
 - **Right-click context menus:** You can now right-click a row across the Groups, Group Users, Users, Tunnels, Service Overrides, Secret Access, User API Keys, Application Access (Groups/Users tabs), and User Application Access lists to open a context menu at the cursor with quick actions.
 
