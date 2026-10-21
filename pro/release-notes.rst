@@ -16,7 +16,7 @@ You can download the installer `here <https://download.aimms.com/aimms/download/
 **Security Fixes**
 
    -  Upgraded Netty from 4.1.137.Final to 4.1.139.Final, resolving **CVE-2026-93558** and **CVE-2026-93565**.
-   -  Upgraded Guava to 33.7.2-jre, resolving **CVE-2026-102554**.
+   -  Upgraded Guava to ``33.7.2-jre``, resolving **CVE-2026-102554**.
    -  Upgraded the bundled Expat XML parser from 2.8.5 to 2.9.0, resolving **CVE-2026-77214**.
 
 **Resolved Issues**
