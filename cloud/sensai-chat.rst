@@ -218,7 +218,14 @@ data to check before making a suggestion. You can review, edit and
 restore earlier versions of these memories on the :doc:`ai-memories`
 page in the Portal.
 
-.. TODO: how SENSAI saves a memory during a conversation.
+To have SENSAI remember something, tell it in the chat, for example
+*Please remember that I'm building optimization and planning apps*. You
+can also start with *From now on…*, and SENSAI asks what you would like
+it to remember. SENSAI confirms what it saved, for example *I'll
+remember: you're building optimization and planning apps.*
+
+The memory is then used in your later conversations, and appears on the
+:doc:`ai-memories` page.
 
 Usage and Quotas
 ----------------
