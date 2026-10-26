@@ -1,6 +1,25 @@
 AIMMS Cloud Portal Updates
 ==========================
 
+Portal 26.x.x.x (Month DD, 2026)
+--------------------------------
+
+**Improvements**
+
+- **New Security pages:** A new **Security** menu in the Portal sidebar gives account administrators two pages. **Events** lists security activity in the account, such as sign-ins, sign-outs and tokens issued, with filtering, statistics and download. See `Security Events <https://documentation.aimms.com/cloud/security-events.html>`_ for details. **Sign-ins** shows who is currently signed in, from which IP address and browser, and lets administrators end a sign-in or sign out a user. See `Sign-ins <https://documentation.aimms.com/cloud/sign-ins.html>`_ for details.
+
+- **New AI Memories page:** You can now manage AI memories from the new **AI Memories** page under **AI** in the Portal sidebar. A memory is an instruction the AI assistant keeps in mind in every conversation it applies to, for example how to address you. Users see and manage their own memories. Administrators see the memories of all users in the account. Every change creates a new version, and earlier versions can be restored. See `AI Memories <https://documentation.aimms.com/cloud/ai-memories.html>`_ for details.
+
+- **Skills on demand in SENSAI:** Type ``/`` in the message box of the SENSAI chat panel to see the skills available to you, and select one to use in your message. This works in the Portal, in the AIMMS IDE and in running AIMMS app sessions. See `SENSAI in the Portal <https://documentation.aimms.com/cloud/portal-sensai.html>`_ and the `SENSAI documentation <https://documentation.aimms.com/sensai>`_ for details.
+
+- **Page Search:** The **Search pages** box now finds every page you can open directly, such as *Change Password*, *Create Task* and *About*, with each result labelled by its section. When the box is empty, it lists your recently visited pages. This includes sub-pages for specific items, for example a session's log or an app's edit page, so you can reopen them in one click.
+
+- **In-page editing instead of dialogs:** Creating and editing items, and viewing logs, events, access settings and details, now opens as a page instead of a dialog. **Back** returns you to the previous page as you left it, with your filters, sorting and selected tab kept.
+
+- **Clearer forms:** When the submit button is disabled, a tooltip explains why: required fields are missing or have errors, or, on edit forms, nothing has changed yet.
+
+- **Consistent wording:** "Application" is now "app" throughout the Portal, and secrets are called "secret" and "secret directory".
+
 Portal 26.14.1.0 (October 8, 2026)
 -------------------------------------
 

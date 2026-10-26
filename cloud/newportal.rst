@@ -12,12 +12,15 @@ The AIMMS Cloud Portal provides a modern, intuitive interface for managing your 
    newportal-tasks
    newportal-legacy-sessions
    newportal-secrets
-   newportal-sensai-chat
+   portal-sensai
    ai-skills
+   ai-memories
    newportal-usersettings
    newportal-user-api-keys
    newportal-users
    newportal-configuration
+   security-events
+   sign-ins
 
 All Users
 ---------
@@ -30,8 +33,9 @@ The following sections are available to all users of the AIMMS Cloud Platform.
 * :doc:`newportal-tasks`
 * :doc:`newportal-legacy-sessions`
 * :doc:`newportal-secrets`
-* :doc:`newportal-sensai-chat`
+* :doc:`portal-sensai`
 * :doc:`ai-skills`
+* :doc:`ai-memories`
 * :doc:`newportal-usersettings`
 * :doc:`newportal-user-api-keys`
 
@@ -42,3 +46,5 @@ As an administrator of the AIMMS Cloud Platform, you have access to all pages li
 
 * :doc:`newportal-users`
 * :doc:`newportal-configuration`
+* :doc:`security-events` (account administrators only)
+* :doc:`sign-ins` (account administrators only)
