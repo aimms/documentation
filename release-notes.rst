@@ -8,6 +8,85 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 26.7
+#############
+
+
+
+AIMMS 26.7.1 Release (October 26, 2026 - build 26.7.1.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+SENSAI Improvements
++++++++++++++++++++++++++
+
+-  In end-user mode in the AIMMS IDE, SENSAI could still change the model and read data that the app does not expose to its end users. End-user mode is now a real end-user session: developer tools are hidden, and SENSAI can only read, write and find data that the app exposes. Ask SENSAI to switch to end-user mode or back to developer mode.
+-  SENSAI finds data from the names users type in one step, also with typos, other capitals or accents, and filters and totals through related sets, such as demand per country.
+-  SENSAI searches the element names of large models faster, finds ``week-07`` when you type ``week 7``, and now also searches horizons and very large sets completely.
+-  SENSAI reads large files, the model tree and long tables in parts, so a conversation no longer fills up after a few steps.
+-  When SENSAI looks up an identifier, it also finds the places that use it outside the compiled references, such as procedure bodies.
+-  After a procedure or a bulk change, SENSAI is told which data changed, with the values before and after.
+-  SENSAI can select elements by a name pattern, such as all names ending in ``_TX``, instead of a long list of names.
+-  SENSAI's data queries accept more ways of writing a request, and an unknown name is answered with the closest elements, so fewer queries fail. SENSAI also picks the right tool more often, because each tool now says what it is for.
+-  Developers can ask SENSAI about AIMMS and solver options: read, search and explain them as the Options dialog shows them, and change them for the session or, when asked, in the project's Options.txt. A change the model does not compile with is put back.
+-  Changing data with SENSAI for a long list of elements, such as all customer locations, was slow because the change was split into many small steps. Such changes are now done in one step and complete much faster.
+-  When SENSAI changed the model in developer mode, it saved the model automatically, even for a test or a temporary change you did not want to keep. SENSAI now saves only the changes you asked for, tells you when it has saved, and asks first when it is not clear whether you want to keep a change.
+-  When SENSAI changed data in an app, the ``webui::UponChangeProcedure`` that WebUI runs after a change in a table did not run, so the rest of the app did not pick up the change. SENSAI now runs it after it changes data, the same way WebUI does.
+-  After a case was loaded, SENSAI could include values of elements that were no longer in their set, without a name, and add them to totals. Such values are now left out and the reply names the element.
+-  SENSAI reported a mathematical program declared inside a module as solved without violations when constraints were violated, and a relaxed ``MIP`` as an integer program. Both are fixed.
+-  Opening a WebUI app in the AIMMS IDE could freeze AIMMS with the project half open when a WebUI page was changing data while the SENSAI bridge started (about 1 in 15 opens). This no longer happens.
+-  SENSAI reported that a model compiled without errors when part of its source could not be read, for example after a semicolon inside an annotation text. It now reports the syntax errors.
+-  SENSAI's undo was unreliable: restoring a section with annotations failed or broke references elsewhere in the model while SENSAI reported success, undoing a bulk data change also erased the data of elements that were no longer in their set, and undoing the addition of an element to a subset left it in the sets above. Undo now restores exactly what was changed, and special values such as ``NA`` can be written back.
+-  When AIMMS refused one attribute in a change of several attributes by SENSAI, the attributes before it were still written. A refused change now writes nothing.
+-  SENSAI reported a data change as applied when its selection matched no data. It now says that nothing changed, and why.
+-  SENSAI could not list or load case files added to the project after it was opened, and gave a case column the same name as the current data when it compared a case with the current data. Both are fixed.
+-  SENSAI's data queries failed when a set was used as a filter value or grouping, for a name pattern on an integer set, for an attribute shown next to the data it describes, and for counts per group, such as customers per product group. These queries now work.
+-  SENSAI could not filter on a range of periods, such as from 2028 onwards, or on a year given as a number. Such filters now work.
+-  SENSAI was told that a name did not exist when the model declares it only in modules or libraries, such as ``Price`` for ``ma::Price``, and got index names without their module prefix. It now gets the names as declared.
+-  When SENSAI changed a value in a JSON file such as ``webui.json``, it rewrote the line endings and indentation of the whole file. It now changes only that value.
+-  Totals, averages, minima and maxima that SENSAI read lost their unit and added values in different units, so a sum over values in thousands was a factor 1000 off. They now keep their unit, and SENSAI is asked to convert when the unit differs per element.
+-  SENSAI's totals, counts, minima and maxima left out the elements that hold the default value, included values stored for elements that an identifier's domain condition excludes, such as a closed depot, misreported ``na``, ``undf`` and ``inf``, and ignored a filter on a horizon's planning interval. They now match what AIMMS computes, and a filter on the default value says that elements at the default are left out.
+-  SENSAI could not read or query an Arc or a Node and only advised to check the name. It now says how to read such an identifier.
+-  SENSAI read element variables and the begin and end of activities as numbers, could not pass an element name to a procedure argument that is an element parameter, and failed on a runtime expression with an element or string value. Element names are now used throughout.
+-  SENSAI reported a value as written when AIMMS stored another one, such as a value within the equality tolerance of zero. The reply now names the cells that were stored differently.
+-  SENSAI's data queries did not say that more rows followed a limited page, blamed a misspelled key inside a list argument on the top-level arguments, refused columns over different domains without saying why, and could not query a relation set over one set twice. Each of these now works or is explained.
+-  When AIMMS could not evaluate a definition, for example a horizon without a current period after loading a case, SENSAI read 0 or the values of an earlier evaluation without saying so. It now reports AIMMS's error and marks values that come from an earlier evaluation.
+-  SENSAI could miscount when it summarized data, for example by counting the rows of a table as transport lanes. Query results now say what one row stands for and how many distinct elements each index has.
+-  In a deployed app with no mathematical program that end users may read, SENSAI offered to report the solver status and failed every time. It now offers this only when there is a program to report on.
+-  After several failing compiles in one session, a model changed by SENSAI could be reported as compiled while it still had errors, and identifiers that used a deleted identifier gave wrong values. Each compile now reports its errors.
+-  SENSAI sorted an index by element name, so the latest three months of a calendar came back as September, October and November, and c10 came before c2. An index now sorts by the element's place in its set.
+-  A project with a declaration section named like a keyword, such as ``Data``, ``Set`` or ``Parameter``, failed to open, and SENSAI's data writes to identifiers in such a section crashed AIMMS. Such projects now open and work normally.
+-  A filter on a value in SENSAI's data queries compared numbers exactly, so a value that AIMMS considers equal within its equality tolerance did not match. Such filters now behave like AIMMS's relational operators.
+-  When SENSAI loaded a case, or changed the data of an identifier indexed over an index declared inside a module, the action failed and an AIMMS error message appeared in the WebUI. These actions now work, and SENSAI's data queries fail less often, so fewer AIMMS error messages appear during a chat.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  A suffix of a mathematical program, such as ``.Incumbent``, ``.Objective`` or ``.ProgramStatus``, can now also be used through an element parameter with range ``AllMathematicalPrograms`` or a subset of it, for reading and for assignment, for example ``p_x := ep_mp.Incumbent;``. Structural suffixes such as ``.ExtendedConstraint`` cannot be used this way.
+-  ``AimmsProjectClose`` can now close a project without saving it, with the new flag ``AIMMSAPI_PROJECT_CLOSE_DISCARD_CHANGES``.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  Fixed a crash that could occur when closing AIMMS with a WebUI page open.
+-  A whole number assigned to an integer parameter whose unit is not the base unit (for example [s] with base unit hour) could be reported as outside the range Integers. Such values are now accepted.
+-  On Linux, the rows of a generated stochastic program could be in a different order than on Windows. They are now in the same order.
+-  ``AimmsCmd`` could crash on exit (``0xC0000005``) after a library had been downloaded from the AIMMS library repository in the session. It now exits normally.
+-  On Windows, AIMMS stopped at start-up when the project folder or the AIMMS installation folder had a name with characters outside the Windows code page, such as Chinese characters. Such folders now work.
+-  Several AIMMS processes started at the same moment on one machine could fail to open their project with "Program initialization error". They now all open.
+-  The model editor API reported a Node as an uncertainty constraint and the other way round, and created the wrong type. Both are now reported and created correctly.
+-  After a library ``DLL`` failed to load, the next compile could hang. It now completes.
+-  After a model edit through the API, uncertainty constraints stopped compiling. They now compile.
+-  ``AimmsCmd`` and AIMMS could not get an organizational license behind a mandatory proxy, because the license connection ignored the ``https_proxy`` setting. It now uses that setting (or the Windows proxy settings), and library downloads on Ubuntu no longer fail on the certificate check.
+-  Renaming an identifier ended AIMMS without a message when the model held an attribute line of 4,095 characters or more. Renaming now works.
+-  Saving the model dropped every Definition or Comment line of 2,048 characters or more. Such lines are now saved.
+-  An API procedure run could deadlock the IDE when a ``ScheduleAt`` task fell due as the run ended. Scheduled tasks now run on the ``GUI`` thread only.
+
+--------------
+
+
+#############
 AIMMS 26.6
 #############
 
