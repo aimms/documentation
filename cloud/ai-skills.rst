@@ -85,7 +85,7 @@ required.
   - **aimms_session**: The AI assistant in running AIMMS app sessions.
   - **Data Ready**: The AI assistant in Data Ready. Shown as
     ``data_ready`` in the skills table.
-  - **portal**: SENSAI Chat in the AIMMS Cloud Portal.
+  - **portal**: SENSAI in the AIMMS Cloud Portal (see :doc:`portal-sensai`).
 - **Required feature**: The name of an account feature that must be
   enabled for the skill to be used. Leave empty if the skill should be
   available without a specific feature. See the warning below.
@@ -194,7 +194,7 @@ The details show:
 
 - **Version**: The version of the skill you are viewing, followed by the
   user who saved it and their account, for example
-  ``v2 - admin (trusha-task)``. The latest version is shown by default.
+  ``v2 - admin (my-account)``. The latest version is shown by default.
 - **Name** and **Description**: The name and description of the skill.
 - **Required feature**: The account feature the skill requires, if any.
 - **Surface**: Where the skill is used.
@@ -207,7 +207,7 @@ The details show:
 - **Note**: An optional note about the change, for example
   ``Restored v2``.
 - **Scope**: Where the skill applies, for example
-  ``account: trusha-task``, ``environment: ROOT`` and ``user: admin``.
+  ``account: my-account``, ``environment: ROOT`` and ``user: admin``.
 
 Click **Back to skills** to return to the AI Skills page.
 
@@ -216,7 +216,7 @@ Viewing and Restoring Earlier Versions
 
 Every time a skill is saved, a new version is created. When you open a
 skill, the latest version is shown. To see an earlier version, select it
-from the **Version** list, for example ``v1 - admin (trusha-task)``. The
+from the **Version** list, for example ``v1 - admin (my-account)``. The
 body and details change to show the skill as it was in that version.
 
 When you view an earlier version, the **Edit** button in the top-right

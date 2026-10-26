@@ -15,6 +15,7 @@ The AIMMS Cloud Platform is a fully managed AIMMS PRO environment. It is secure,
    architecture
    requirements
    newportal
+   sensai-chat
    project
    rest-api
    integrations-config

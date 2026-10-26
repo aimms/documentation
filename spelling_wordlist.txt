@@ -136,6 +136,7 @@ misconfiguration
 pgAdmin
 libcurl
 toolset
+labelled
 
 
 ####the following words wore excepted when running under ubuntu 16.04 with python 3.8.9 but somehow the underlying enchant does not recognize these while it did before
@@ -207,6 +208,7 @@ misconfiguration
 pgAdmin
 libcurl
 toolset
+labelled
 ignoreConstraintDomainCondition
 toolchain
 #########
@@ -228,3 +230,4 @@ mchange
 unescaped
 checkable
 recompiles
+labelled
