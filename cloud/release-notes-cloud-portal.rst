@@ -1,7 +1,7 @@
 AIMMS Cloud Portal Updates
 ==========================
 
-Portal 26.x.x.x (Month DD, 2026)
+Portal 26.15.1.2 (October 26, 2026)
 --------------------------------
 
 **Improvements**
