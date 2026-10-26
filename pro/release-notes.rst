@@ -6,6 +6,23 @@ This page lists everything released on the AIMMS PRO on-premise build pipeline g
 PRO 26.6
 ########
 
+AIMMS PRO 26.6.12 Release
+--------------------------
+
+On October 21, 2026 we released AIMMS PRO 26.6.12(*On-prem build*: 26.6.12.1)
+
+You can download the installer `here <https://download.aimms.com/aimms/download/data/PRO/AimmsPRO-26.6.12.1.exe>`__.
+
+**Security Fixes**
+
+   -  Upgraded Netty from 4.1.137.Final to 4.1.139.Final, resolving **CVE-2026-93558** and **CVE-2026-93565**.
+   -  Upgraded Guava to ``33.7.2-jre``, resolving **CVE-2026-102554**.
+   -  Upgraded the bundled Expat XML parser from 2.8.5 to 2.9.0, resolving **CVE-2026-77214**.
+
+**Resolved Issues**
+
+   -  Fixed saving the configuration in the Configurator after uploading a new PKCS#12 (``.pfx``) certificate, which failed with a ``NoSuchFileException`` for a file in the Windows ``TEMP`` folder. The uploaded certificate is now validated without consuming the upload, so it can still be stored when the configuration is saved.
+
 AIMMS PRO 26.6.11 Release (On-prem build 26.6.11.4)
 ----------------------------------------------------
 
