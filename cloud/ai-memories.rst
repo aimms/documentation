@@ -50,6 +50,15 @@ You can apply multiple filters at the same time across different
 columns. Click **Apply filters** to update the list, or
 **Clear filters** to remove all active filters.
 
+Creating a Memory from the Chat
+-------------------------------
+
+You can also ask SENSAI to remember something while you chat with it,
+for example *Please remember that I'm building optimization and
+planning apps*, or start with *From now on…*. SENSAI confirms what it
+saved, and the memory appears on the AI Memories page. See
+:doc:`sensai-chat` for details.
+
 Creating a Memory
 -----------------
 
