@@ -16,6 +16,7 @@ You can download the installer `here <https://download.aimms.com/aimms/download/
 **Security Fixes**
 
    -  Upgraded the bundled PostgreSQL to EDB 16.15-3, which upgrades the separate copy of OpenSSL shipped with PostgreSQL (``pgsql16\bin\libssl-3-x64.dll`` and ``libcrypto-3-x64.dll``) from 3.5.7 to 3.5.8, resolving **CVE-2026-75803** and **CVE-2026-63073**. The PostgreSQL version (16.15), service name and data directory are unchanged.
+   -  Upgraded Jetty from 12.0.36 to 12.0.39, resolving an incorrect authorization issue (**CVE-2026-18661**), case-sensitive proxy host filtering (**CVE-2026-18660**) and an information exposure in the HTTP client (**CVE-2026-76184**).
 
 AIMMS PRO 26.6.12 Release
 --------------------------
