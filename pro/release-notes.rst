@@ -9,9 +9,9 @@ PRO 26.6
 AIMMS PRO 26.6.13 Release
 --------------------------
 
-On <TODO: release date>, 2026 we released AIMMS PRO 26.6.13(*On-prem build*: 26.6.13.<TODO>)
+On October 29, 2026 we released AIMMS PRO 26.6.13(*On-prem build*: 26.6.13.1)
 
-You can download the installer `here <https://download.aimms.com/aimms/download/data/PRO/AimmsPRO-26.6.13.<TODO>.exe>`__.
+You can download the installer `here <https://download.aimms.com/aimms/download/data/PRO/AimmsPRO-26.6.13.1.exe>`__.
 
 **Security Fixes**
 
