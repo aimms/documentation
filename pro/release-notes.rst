@@ -6,6 +6,17 @@ This page lists everything released on the AIMMS PRO on-premise build pipeline g
 PRO 26.6
 ########
 
+AIMMS PRO 26.6.13 Release
+--------------------------
+
+On <TODO: release date>, 2026 we released AIMMS PRO 26.6.13(*On-prem build*: 26.6.13.<TODO>)
+
+You can download the installer `here <https://download.aimms.com/aimms/download/data/PRO/AimmsPRO-26.6.13.<TODO>.exe>`__.
+
+**Security Fixes**
+
+   -  Upgraded the bundled PostgreSQL to EDB 16.15-3, which upgrades the separate copy of OpenSSL shipped with PostgreSQL (``pgsql16\bin\libssl-3-x64.dll`` and ``libcrypto-3-x64.dll``) from 3.5.7 to 3.5.8, resolving **CVE-2026-75803** and **CVE-2026-63073**. The PostgreSQL version (16.15), service name and data directory are unchanged.
+
 AIMMS PRO 26.6.12 Release
 --------------------------
 
@@ -49,7 +60,7 @@ You can download the installer `here <https://download.aimms.com/aimms/download/
 
 **Security Fixes**
 
-   -  Upgraded the bundled OpenSSL library from 3.5.7 to 3.5.9, staying on the 3.5 long-term support line, resolving multiple vulnerabilities, including a critical integrity-check validation issue (**CVE-2026-75803**) and an out-of-bounds read (**CVE-2026-84782**).
+   -  Upgraded the bundled OpenSSL library from 3.5.7 to 3.5.9, staying on the 3.5 long-term support line, resolving multiple vulnerabilities, including a critical integrity-check validation issue (**CVE-2026-75803**) and an out-of-bounds read (**CVE-2026-84782**). This applies to the OpenSSL used by AIMMS PRO itself; the separate copy shipped with the bundled PostgreSQL in ``pgsql16\bin`` remained at 3.5.7 until AIMMS PRO 26.6.13.
    -  Upgraded the bundled Expat XML parser from 2.8.2 to 2.8.5, resolving four vulnerabilities, including an out-of-bounds read (**CVE-2026-76641**) and a use-after-free (**CVE-2026-76957**).
    -  Upgraded Netty to 4.1.137.Final, resolving a critical TLS server-name routing bypass caused by fragmented handshake messages.
    -  Upgraded Jackson to 2.18.11, resolving several denial-of-service vulnerabilities in Jackson Core and Jackson Databind (including **CVE-2026-68497**).
