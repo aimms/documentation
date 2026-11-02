@@ -32,6 +32,7 @@ Resolved AIMMS Issues
 
 -  When ``MainInitialization`` of a project stopped at an error, each call to the model-editing functions of the AIMMS API, such as ``AimmsMeCreateRuntimeLibrary``, produced an AIMMS error report. These calls now fail with the error that no model is loaded.
 -  ``AimmsCmd`` could hang at exit after it refused to open a project while a web request to it was still in progress, which kept its port in use. It now exits.
+-  On Linux, such as in AIMMS Cloud sessions, the memory used while saving a case was not given back to the system after the save, so the memory of the session kept growing with each case save.
 -  In solver messages that mention a variable or constraint, such as the CPLEX warning about the maximum bound violation, the name was cut off. The full name is now shown.
 
 --------------
