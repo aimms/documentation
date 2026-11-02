@@ -13,6 +13,33 @@ AIMMS 26.7
 
 
 
+AIMMS 26.7.2 Release (November 02, 2026 - build 26.7.2.3).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+SENSAI Improvements
++++++++++++++++++++++++++
+
+-  When SENSAI was asked how many items match a question, for example how many customers receive a product from a given plant, repeated runs could report different numbers. SENSAI now takes such counts from the model data instead of counting the listed results itself, so the same question gives the same number.
+-  When SENSAI worked on a model with a library, it could read identifiers that the library keeps out of its interface, but could not query or change them or run such procedures, and wrongly reported that they were not exposed. It can now use them like any other identifier.
+-  SENSAI could not find a section inside a library by the name the user gave it, and reported that the section did not exist. It now finds such sections.
+-  When SENSAI was asked for data indexed over a set that is a subset of the set Integers, such as a set of years, AIMMS could stop responding for several minutes and SENSAI reported that it had lost its connection. SENSAI now answers such questions right away.
+-  When SENSAI was asked for data that compares one column with another, for example the members of a group other than the group itself, or only the rows where a value is filled in, its data query failed and it had to find a way around it. SENSAI now answers such questions directly.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  When ``MainInitialization`` of a project stopped at an error, each call to the model-editing functions of the AIMMS API, such as ``AimmsMeCreateRuntimeLibrary``, produced an AIMMS error report. These calls now fail with the error that no model is loaded.
+-  ``AimmsCmd`` could hang at exit after it refused to open a project while a web request to it was still in progress, which kept its port in use. It now exits.
+-  In solver messages that mention a variable or constraint, such as the CPLEX warning about the maximum bound violation, the name was cut off. The full name is now shown.
+
+--------------
+
+
+
+
+
 AIMMS 26.7.1 Release (October 26, 2026 - build 26.7.1.1).
 ------------------------------------------------------------------------------------------
 
