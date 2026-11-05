@@ -6,10 +6,10 @@ PRO Cloud build release notes for the AIMMS Cloud Platform pipeline, starting fr
 PRO 26.6
 ########
 
-AIMMS PRO 26.6.14 Release
---------------------------
+AIMMS PRO 26.6.4 Release
+-------------------------
 
-On November 5, 2026 we released AIMMS PRO 26.6.14(*Cloud build*: 26.6.14.1)
+On November 5, 2026 we released AIMMS PRO 26.6.4(*Cloud build*: 26.6.4.1)
 
 **Resolved Issues**
 
