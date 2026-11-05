@@ -6,6 +6,23 @@ This page lists everything released on the AIMMS PRO on-premise build pipeline g
 PRO 26.6
 ########
 
+AIMMS PRO 26.6.14 Release
+--------------------------
+
+On November 5, 2026 we released AIMMS PRO 26.6.14(*On-prem build*: 26.6.14.1)
+
+You can download the installer `here <https://download.aimms.com/aimms/download/data/PRO/AimmsPRO-26.6.14.1.exe>`__.
+
+**Security Fixes**
+
+   -  Upgraded Jackson from 2.18.11 to 2.18.12, resolving **CVE-2026-110879**.
+   -  Removed the unused telemetry component (``atp4cxx``) from the PRO session. Telemetry is never collected for PRO on-premise. As a result, ``OpenTelemetry``, ``libcurl`` and ``brotli`` are no longer shipped with PRO on-premise.
+   -  Upgraded the bundled ARMI library (``armi4cxx``) to 2.3.1-62, which no longer depends on ``RapidJSON``, resolving **CVE-2026-116620**.
+
+**Resolved Issues**
+
+   -  The AIMMS PRO AppLauncher (``AimmsPROAppLauncher.exe``, used for example to run WinUI apps) is now signed with a time stamp. Before, the signature had no time stamp, so it became invalid once the signing certificate expired, and Windows showed the launcher as coming from an unknown publisher during installation.
+
 AIMMS PRO 26.6.13 Release
 --------------------------
 
