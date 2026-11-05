@@ -6,6 +6,29 @@ PRO Cloud build release notes for the AIMMS Cloud Platform pipeline, starting fr
 PRO 26.6
 ########
 
+AIMMS PRO 26.6.14 Release
+--------------------------
+
+On November 5, 2026 we released AIMMS PRO 26.6.14(*Cloud build*: 26.6.14.1)
+
+**Resolved Issues**
+
+- **AIMMS PRO AppLauncher shown as coming from an unknown publisher**: The AppLauncher (``AimmsPROAppLauncher.exe``), used for example to run
+  WinUI apps, was still a 2023 build. It was signed with a certificate that has since expired, and the signature had no time stamp, so Windows
+  reported an unknown publisher during installation. PRO now ships the current AppLauncher, signed with a time stamp so the signature stays
+  valid after the certificate expires.
+
+- **WebUI sessions rejected for apps using hidden repository libraries**: The library check introduced in AIMMS PRO 26.6.3 also rejected
+  applications that use a hidden repository library, such as ``AppTelemetry``, because these libraries are not listed in the public library
+  index. PRO now accepts hidden repository libraries that are available in the library repository.
+
+**Security Fixes**
+
+- Upgraded several bundled third-party components to resolve known vulnerabilities: ``Jackson`` 2.18.12, ``Jetty`` 12.0.39,
+  ``Netty`` 4.1.139.Final, ``Bouncy Castle`` 1.86, ``Guava`` 33.7.2-jre, ``Apache Directory LDAP API`` 2.1.9, ``jsoup`` 1.23.2,
+  ``Apache MINA`` 2.2.8, ``OpenSSL`` 3.5.9, ``Expat`` 2.10.0 and ``Brotli`` 1.2.1. ``RapidJSON`` is no longer included.
+- The networking library used by the PRO session now disables TLS 1.0 and TLS 1.1 by default.
+
 AIMMS PRO 26.6.3 Release
 -------------------------
 
