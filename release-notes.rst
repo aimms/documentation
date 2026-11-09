@@ -8,6 +8,50 @@ AIMMS Release Notes
 This page provides details of changes made in each AIMMS version. For an overview of our feature releases, see `New Features <https://www.aimms.com/support/new-features/>`__.
 
 #############
+AIMMS 26.8
+#############
+
+
+
+AIMMS 26.8.1 Release (November 09, 2026 - build 26.8.1.2).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+SENSAI Improvements
++++++++++++++++++++++++++
+
+-  SENSAI can now read the texts that a model provides for it through ``bridge::Resource`` annotations, and a request for a category of identifiers that the model does not have is answered with the categories it does have.
+-  SENSAI can now list a project's libraries, find a library in the AIMMS library repository by what it is for, add or remove libraries and create a new library, also while the project is open.
+-  When SENSAI finishes an answer, or waits for your approval or an answer from you, while the AIMMS IDE is minimized or in the background, the IDE now flashes its taskbar button and shows a Windows notification. Clicking the notification brings the IDE back, and Windows Settings > Notifications > AIMMS turns these notifications off.
+-  When SENSAI counted the elements of a set with more than 5,000 elements whose names match a pattern, for example all locations whose name starts with "NL", it only looked at the first 5,000 elements, so the number could be too low. It now counts all of them.
+-  Clicking a link in the SENSAI chat window of the AIMMS IDE, such as "View usage" when the AI quota was used up, did nothing. Such links now open in your default web browser.
+-  When SENSAI changed a procedure in a library so that it no longer compiled, it was told the model compiled, and running the procedure silently did nothing. SENSAI now gets the library's compile errors, undoes the change, and does not run a procedure whose library does not compile.
+-  When SENSAI ran a procedure with a value for an argument that had no ``Input`` property, the value was dropped and the run still reported success. SENSAI now gives the procedure arguments it creates the ``Input`` property, and a run refuses a value it cannot pass and an argument name the procedure does not have.
+-  When SENSAI was asked for data that combines identifiers over different indices, for example a product description at one snapshot next to the shortfall per product, its data query failed. SENSAI now answers such questions directly, and where the data cannot be combined into one table it splits the question into the separate queries that can answer it.
+-  SENSAI performs better on data requests that contain totals per group, a selection of only the elements where other data exists, or the value at an element named by another parameter. Such requests are now answered directly from the model data, instead of through model expressions SENSAI had to write itself, which was slower and could fail.
+-  When SENSAI created a local identifier of a procedure or an identifier in a library by its full name, such as ``MyProc::l_count``, the name was refused as a probable reserved word. SENSAI can now create identifiers by their full name.
+-  When SENSAI asked for data in a way that could not work, for example a value per product of a single total, or an item that does not exist in the model, the request failed with a message that did not say what to do instead. SENSAI is now told what was wrong and which request does work, so it gets to the answer in fewer steps.
+-  After SENSAI changed the model, closing the project did not ask to save the changes, and they were lost. Model changes made through the AIMMS API now mark the project as changed again.
+
+AIMMS Improvements
++++++++++++++++++++++++++
+
+-  AIMMS now reads ``.ams`` files with a new parser, which is faster and reports a syntax error where it is, for example a missing ``;`` at the value that lacks it. An attribute that is not valid ``UTF-8`` text, such as text from a file saved as Latin-1, or that holds a zero byte, now gives a load error at that position instead of being cut off.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  CPLEX: in a multi-objective solve, a pass that uses a parameter file (``cplex_mo<n>.prm``) now also uses the AIMMS option settings, with the settings in the file applied on top. Before, such a pass ran with only the CPLEX default settings plus the settings in the file.
+-  On Linux, after a solve that was executed in a separate solver thread, AIMMS could in rare cases release the solver thread while it was still finishing, which could lead to a crash. AIMMS now always waits until the solver thread has finished.
+-  On Linux, such as in AIMMS Cloud sessions, the memory used by the data replaced during a case load was not given back to the system after the load, so the memory of the session kept growing with each case load.
+-  Fixed a performance issue in WebUI for a page that was referencing the same set many times and where each of them created a copy of the set elements.
+-  The wizard for the arguments of a procedure or function was not working correctly when an argument had a unit that referred to a locally declared unit parameter. This has been fixed.
+
+--------------
+
+
+#############
 AIMMS 26.7
 #############
 
