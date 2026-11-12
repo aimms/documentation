@@ -1,6 +1,22 @@
 AIMMS Cloud Portal Updates
 ==========================
 
+Portal 26.15.3.0 (November 12, 2026)
+------------------------------------
+
+**Improvements**
+
+- **Consistent menus and dropdowns:** Context menus, filters, column menus, dropdowns and date and time pickers across the Portal now share one compact, consistent look in light and dark mode. Context menus can also be used with the keyboard.
+- **Applications page search:** Search tags are now kept in the page link, so they survive a reload and can be shared.
+
+**Resolved Issues**
+
+- After signing in with multi-factor authentication (MFA), or after completing MFA setup, you now land on the page you came from instead of the login screen.
+- The Enable MFA and Disable MFA pages now show whether MFA is already enabled.
+- Clicking an item in a context menu no longer also selects the row or card behind it.
+- On the Applications page, the search dropdown now opens on the first click.
+- On the Users page, a group's name is no longer shown twice.
+
 Portal 26.15.1.2 (October 26, 2026)
 -----------------------------------
 
@@ -23,7 +39,7 @@ Portal 26.15.1.2 (October 26, 2026)
 - **Consistent wording:** "Application" is now "app" throughout the Portal, and secrets are called "secret" and "secret directory".
 
 Portal 26.14.1.0 (October 8, 2026)
--------------------------------------
+----------------------------------
 
 **Improvements**
 
