@@ -7,6 +7,9 @@ Versions with the same major and minor release number use the same protocol betw
 
 New Features and Bug Fixes
 --------------------------
+26.4.4.1 [12-11-2026]
+	- Some symbols in the CDM shared libraries on Linux remained undefined during the build and could not resolve on stock Redhat 8.
+	
 26.4.3.2 [15-09-2026]
 	- Two functions (`cdm::BlockEventListener` and `cdm::UnblockEventListener`) introduced in version 26.2.1.1 were no longer exported on Linux since the updated AIMMS toolset in version 26.4.1.1.
 	

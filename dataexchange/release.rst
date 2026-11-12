@@ -13,6 +13,9 @@ The first public release of the DataExchange library was version 1.0.0.18, relea
 
 New Features and Bug Fixes
 --------------------------
+26.3.4.1 [12-11-2026]
+	- Some symbols in the CDM shared libraries on Linux remained undefined during the build and could not resolve on stock Redhat 8.
+
 26.3.2.3 [21-10-2026]
 	- Add the ``name-maps-to`` attribute, to store the exact name of a node with a ``name-binds-to`` attribute when reading, and use the stored name when writing. See :ref:`DEX_name_maps_to`.
 	- Generated OpenAPI clients now keep the exact spelling of JSON property names. Previously, a property could be written with the spelling of a property with the same name, but different case, in another schema.
