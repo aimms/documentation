@@ -6,7 +6,7 @@ Portal 26.15.3.0 (November 12, 2026)
 
 **Improvements**
 
-- **Consistent menus and dropdowns:** Context menus, filters, column menus, dropdowns and date and time pickers across the Portal now share one compact, consistent look in light and dark mode. Context menus can also be used with the keyboard.
+- **Consistent menus and dropdown boxes:** Context menus, filters, column menus, dropdown boxes and date and time pickers across the Portal now share one compact, consistent look in light and dark mode. Context menus can also be used with the keyboard.
 - **Applications page search:** Search tags are now kept in the page link, so they survive a reload and can be shared.
 
 **Resolved Issues**
