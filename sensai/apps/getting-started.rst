@@ -72,7 +72,7 @@ session builds on this description.
 When it is right:
 
     *Create a string parameter to hold the system prompt for this application,
-    from that description.*
+    from that description, and mark it with bridge::SystemPrompt.*
 
 The assistant writes a string parameter, marked as the system prompt, something
 like this:
@@ -266,3 +266,4 @@ current exposed set does not cover.
 .. spelling:word-list::
 
    SENSAI
+   SystemPrompt

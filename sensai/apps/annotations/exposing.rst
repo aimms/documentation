@@ -317,7 +317,8 @@ Telling the assistant what the application is
 One string parameter, marked ``bridge::SystemPrompt: "true"``, carries the
 application's context. Use one per application. The assistant reads it on every
 conversation, so keep it to the essentials: what the application plans, the main
-quantities, and the conventions used.
+quantities, and the conventions used. Describe the application, not the
+assistant: AIMMS sets the assistant's personality and tone for every application.
 
 .. code-block:: aimms
 
