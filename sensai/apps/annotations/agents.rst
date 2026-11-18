@@ -75,7 +75,7 @@ runs"* gives the assistant something to discriminate on.
 **Do not describe the whole application.** *"Helps users with the production
 planning app"* applies equally to every agent in the application, so it routes
 nothing.
-Application-wide personality or house style belongs in the application's
+What the whole application is about belongs in the application's
 ``bridge::SystemPrompt``, which applies on every route.
 
 Writing the agent instructions
