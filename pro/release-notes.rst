@@ -6,6 +6,21 @@ This page lists everything released on the AIMMS PRO on-premise build pipeline g
 PRO 26.6
 ########
 
+AIMMS PRO 26.6.15 Release
+--------------------------
+
+On November XX, 2026 we released AIMMS PRO 26.6.15(*On-prem build*: 26.6.15.1)
+
+You can download the installer `here <https://download.aimms.com/aimms/download/data/PRO/AimmsPRO-26.6.15.1.exe>`__.
+
+**Security Fixes**
+
+   -  Upgraded the bundled Expat XML parser from 2.9.0 to 2.10.0, resolving three vulnerabilities, including a denial-of-service issue when a parser is reset and reused (**CVE-2026-113351**), a late detection of "billion laughs" entity expansion (**CVE-2026-115506**) and **CVE-2026-118370**.
+   -  Upgraded Apache ActiveMQ from 6.2.6 to 6.3.3, resolving **CVE-2026-53917**, **CVE-2026-50734**, **CVE-2026-49434**, **CVE-2026-54475** and **CVE-2026-50750**, as well as two vulnerabilities in the ``KahaDB`` message store (**CVE-2026-111821** and **CVE-2026-111822**) that are not fixed in the 6.2 line.
+   -  Upgraded Apache ``commons-codec`` to 1.23.0, resolving **CVE-2026-119078**.
+   -  Upgraded ``proton-j``, the AMQP library used by the ``qpid-jms`` client, from 0.34.1 to 0.35.0, resolving a pre-authentication stack overflow (**CVE-2026-66274**).
+   -  Upgraded Hibernate Validator from 8.0.2.Final to 8.0.6.Final, resolving **CVE-2026-93879**.
+
 AIMMS PRO 26.6.14 Release
 --------------------------
 
