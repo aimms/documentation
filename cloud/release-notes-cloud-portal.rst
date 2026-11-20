@@ -8,6 +8,10 @@ Portal 26.15.3.1 (November 12, 2026)
 
 - **Consistent menus and dropdown boxes:** Context menus, filters, column menus, dropdown boxes and date and time pickers across the Portal now share one compact, consistent look in light and dark mode. Context menus can also be used with the keyboard.
 - **Applications page search:** Search tags are now kept in the page link, so they survive a reload and can be shared.
+- **Portal AI Assistant**: SENSAI can now act for you. SENSAI knows which page you are on, can answer
+  questions about your sessions, quotas, skills and memories, can stop a session after
+  you confirm, and can open pages for you. A conversation open in several tabs shows
+  the reply in all of them. See `SENSAI in the Portal <https://documentation.aimms.com/cloud/portal-sensai.html>`_ for details.
 
 **Resolved Issues**
 
