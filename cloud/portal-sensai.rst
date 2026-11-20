@@ -22,13 +22,56 @@ What SENSAI can help with
 
 The **Portal AI Assistant** feature grants access to SENSAI within the
 Portal. The assistant answers your questions about AIMMS and the
-Portal, and guides you step by step through what you want to do. Type a question into
-the message box at the bottom of the chat panel to get started.
+Portal, and guides you step by step through what you want to do.
 
-SENSAI can tell you how to do things in the Portal, but cannot do them
-for you. For example, if you ask for the log of a session, SENSAI
-explains where to find and download it, but does not retrieve the log
-itself.
+Type a question into the message box and SENSAI answers it, gives step-by-step guidance,
+or does the work for you. SENSAI can look up information about your account, such as
+your sessions and quotas, and can carry out some actions, such as stopping a session or
+opening a page. SENSAI only uses information and actions you already have access to in
+the Portal.
+
+The page you are viewing
+------------------------
+
+A label above the message box, for example **Viewing: Sessions**, shows the page SENSAI
+takes into account. This lets you ask about what you see, such as "Why did the selected
+session fail?", without naming it. To send a message without this information, click
+the **×** on the label. The label comes back for your next message.
+
+Asking about your account
+-------------------------
+
+You can ask SENSAI about:
+
+- **Sessions:** which sessions are running, how many you ran in a period, and why a
+  session failed. SENSAI reads the session's details, events and log.
+- **Quotas:** on the **Usage** page, the limit, usage and next reset of each quota.
+- **Skills and memories:** on the **AI Skills** and **AI Memories** pages, which skills
+  and memories you have and what they do.
+
+You can ask from any page. SENSAI only sees what you can see on the page itself.
+
+Actions that change something
+-----------------------------
+
+Before SENSAI changes anything, such as stopping a session, creating a skill or deleting
+a memory, it shows what it is about to do and asks you to confirm. Nothing changes until
+you confirm.
+
+Opening pages
+-------------
+
+Ask SENSAI to take you somewhere, for example "Take me to my sessions" or "Open the log
+of my most recent session". SENSAI opens the page in the Portal. Use your browser's back
+button to return to where you were. SENSAI only opens pages you have access to.
+
+Using several tabs
+------------------
+
+When a conversation is open in more than one tab or window, every tab shows the reply as
+it is written. You can stop the reply from any of them. If you send a message while a
+reply is still being written, SENSAI shows a short notice and returns your text to the
+message box, so you can send it once the reply has finished.
 
 Things to keep in mind
 -----------------------
