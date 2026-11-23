@@ -3,6 +3,13 @@ AIMMS PRO REST API Updates
 
 The AIMMS PRO REST API is available only on the AIMMS Cloud Platform; it is not supported on on-premise PRO installations.
 
+Task Scheduler (Version 26.2.3.0 - Novemeber 23, 2026)
+------------------------------------------------------
+
+- **Improvements**
+
+   - Queued tasks now start in first-in-first-out order across all apps in an account, including scheduled and recurring tasks once they are due. An app with many queued tasks no longer holds up tasks from other apps that were submitted earlier. Sessions are still reuse when the next task belongs to the same app. When tasks from different apps alternate, sessions may be started fresh more often. See `documentation <https://documentation.aimms.com/cloud/managing-tasks.html#task-queue-order>`__ for details.
+
 Task Scheduler (Version 26.2.1.0 - September 1, 2026)
 -----------------------------------------------------
 
