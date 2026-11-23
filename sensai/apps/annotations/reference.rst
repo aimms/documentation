@@ -68,8 +68,9 @@ Exposure, naming and grouping
      - any identifier
      - one value, or a comma-separated list
      - none
-     - Groups identifiers, and joins them to an agent that lists the same
-       category.
+     - Groups identifiers, and joins exposed identifiers to an agent that lists
+       the same category. On a skill it only groups: use ``bridge::SkillTarget``
+       to restrict a skill to an agent.
 
 ``data-access`` is a system category. An agent that lists it can read exposed
 data through the general query as well as through the procedures it owns.
@@ -140,7 +141,9 @@ Prompts, agents, skills and flows
 ---------------------------------
 
 Each of these is declared on a string parameter whose body carries the content.
-All are marker identifiers.
+All are marker identifiers. A skill is usually a YAML file in the project folder
+instead, with ``name``, ``description``, ``body`` and optional ``target`` and
+``category`` keys in place of the annotations; see :doc:`skills`.
 
 .. list-table::
    :header-rows: 1
@@ -162,7 +165,9 @@ All are marker identifiers.
      - none
    * - ``bridge::Skill``
      - string parameter
-     - Marks a skill. The body is the instructions.
+     - Marks a skill. The body is the instructions. Needed only when the
+       instructions are computed from other identifiers; otherwise prefer a skill
+       file.
      - unset
    * - ``bridge::SkillTarget``
      - string parameter, with ``Skill``
@@ -222,4 +227,5 @@ Naming rules
 .. spelling:word-list::
 
    SENSAI
+   YAML
    autocomplete

@@ -327,8 +327,9 @@ assistant: AIMMS sets the assistant's personality and tone for every application
         Definition          : "This app plans weekly production for ACME. Quantities are in units, time in ISO weeks.";
     }
 
-This is a **marker identifier**, so it does not need ``bridge::Exposed``. Agents,
-skills and flows are declared the same way — see :doc:`reference`.
+This is a **marker identifier**, so it does not need ``bridge::Exposed``. Agents
+and flows are declared the same way; see :doc:`reference`. A skill is usually a
+file in the project folder instead; see :doc:`skills`.
 
 A complete example
 ------------------
