@@ -13,6 +13,42 @@ AIMMS 26.8
 
 
 
+AIMMS 26.8.2 Release (November 25, 2026 - build 26.8.2.1).
+------------------------------------------------------------------------------------------
+
+Download `here <https://www.aimms.com/support/downloads/#aimms-dev-download>`__.
+
+SENSAI Improvements
++++++++++++++++++++++++++
+
+-  SENSAI wrote into rows that the app locks through ``webui::FlagsIdentifier``, and could not see an identifier's tooltip or whether it is defined or conditioned. Locked rows are now skipped and listed (a write to locked rows only is refused), and describe and inspect show ``defined``, ``conditioned`` and the tooltip.
+-  SENSAI could not read a module's identifier through an expression that used one of the module's indices without its prefix: the query did not compile. The prefix is now added (for example ``ct`` becomes ``om::cts::ct``).
+-  SENSAI's writes to cells outside an identifier's domain condition were dropped without a word, and a write to a defined identifier gave no useful reason. Such cells are now listed as not stored (a write outside the condition only is refused), and a defined identifier is refused with a pointer to its inputs.
+-  When SENSAI compared data across cases, elements present in only some of the cases were silently left out of the comparison. Such elements are now included, SENSAI says in which cases they are not present, and it can read any case file in the project's data folder.
+-  SENSAI can now read model data in another unit, such as a distance in miles instead of kilometers or an energy amount in MWh instead of GWh, for whole tables, filters, totals and sorted lists, using the unit conversions defined in the model. Before, it could read only one number at a time in another unit this way.
+-  When SENSAI could not use a library identifier in a calculation because the library keeps it out of its interface, it did not say how to change the model to allow this. It now also suggests adding the identifier to the library's interface.
+-  After SENSAI changed data whose ``UponChange`` procedure is marked read-only (``bridge::ReadOnlyHint`` or ``bridge::SafeMode`` "readonly"), it told the user that this procedure had run, and it could refuse to undo the change. In an app, or in the IDE in end-user mode, SENSAI no longer mentions such a procedure, and it undoes the change when asked.
+-  When SENSAI was asked to list the elements of a set in a particular order, for example in reverse order, its first attempt to read them failed and it had to try again. SENSAI now gets the elements in the requested order in one step.
+-  Pressing Tab in the SENSAI chat could make AIMMS hang. Tab now moves around inside the chat.
+-  SENSAI skills for the end users of an application can now be kept as files in the project folder ``sensai/skills/app``, and an aimmspack now includes them, so they also work in the AIMMS Cloud; skills in ``sensai/skills/developer``, meant for the app developer only, are left out of the aimmspack. Skill files in the older Markdown format directly in ``sensai/skills`` are no longer read, but SENSAI in the AIMMS IDE converts them to the new format with its new skill "Convert old skill files", for example when you ask it to convert your old skill files.
+
+Resolved AIMMS Issues
++++++++++++++++++++++++++
+
+-  The attribute wizard for the range attribute of a variable or parameter is now showing more specifically what range 'integer' means in both cases.
+-  ``GMP::SolverSession::GetIIS`` and the IIS in the listing file only contained part of the conflict when the CPLEX conflict refiner stopped before the conflict was minimal, for example because of a time limit. Now the whole conflict is returned, and the listing file notes that the IIS may not be minimal.
+-  ``GMP::Instance::GetInfeasibleData`` could crash, run out of memory or report too many parameters when the infeasibility involved constraints with sums over large sets. It uses far less memory for such constraints, no longer reports parameters that multiply a variable that doesn't exist, and now also reports the domain restriction of a variable that could be switched off.
+-  A WebUI app on the AIMMS Cloud could stop responding, with the busy indicator staying on screen, when it refreshed the WebUI while loading the results of a solve delegated to the server and another procedure was started from the WebUI at that moment. Such apps now keep updating, and the busy indicator disappears when the work is done.
+-  Copying a unit parameter declaration with a definition to a procedure or function now does remove the definition attribute, as the confirmation dialog already mentioned.
+-  Passing an argument without a unit to a procedure argument whose unit is given by a local unit parameter no longer leads to a severe internal error; the unit parameter now gets the unitless unit.
+-  Passing unitless data to a procedure argument whose unit is [-] no longer gives warnings that the units are not commensurate.
+
+--------------
+
+
+
+
+
 AIMMS 26.8.1 Release (November 09, 2026 - build 26.8.1.2).
 ------------------------------------------------------------------------------------------
 
