@@ -60,8 +60,10 @@ apply to.
 **The semantic check** runs in a developer or editing session after each
 recompile, and catches what the compiler cannot see. To read its findings, ask
 the assistant in a developer or editing session to **describe its diagnostics**. It replies
-with a list of the errors and warnings below, naming the identifier in each case,
-and it can fix most of them if you ask it to.
+with a list of the errors and warnings below, naming the identifier or the skill
+file in each case, and it can fix most of them if you ask it to. Findings about
+developer skill files, and about skill files in the older Markdown format, appear
+only in a developer session in the AIMMS IDE.
 
 .. note::
 
@@ -78,7 +80,12 @@ What the semantic check reports
   also carries ``bridge::Exposed``.
 - A duplicate or blank agent name.
 - An empty agent, skill or flow body.
-- A ``bridge::SkillTarget`` pointing at an agent or flow that does not exist.
+- A ``bridge::SkillTarget``, or a ``target`` in a skill file, pointing at an agent
+  or flow that does not exist.
+- A skill file that cannot be used: a YAML error, a missing or unknown key, a file
+  name with characters other than lowercase letters, digits, ``-`` and ``_``, or a
+  file name the other skills folder already uses. The finding names the file and,
+  where it can, the line. See :doc:`/sensai/apps/annotations/skills`.
 - A ``bridge::OutputSchema`` that is not valid JSON.
 - ``bridge::AgentName`` on something other than a scalar string parameter.
 - A tool name using a reserved prefix.
@@ -91,6 +98,14 @@ What the semantic check reports
   where they have no effect.
 - Contradictory hints, such as ``ReadOnlyHint: "true"`` with
   ``DestructiveHint: "true"``.
+- A skill file in the older Markdown format, which is no longer read, with the
+  ``.yaml`` path to convert it to.
+- A skill file whose file name is the identifier or the ``bridge::Title`` of a
+  string parameter skill. The string parameter wins, so the file is not used.
+- A skill file with the same ``name`` as a string parameter skill, usually because
+  the string parameter was not deleted after the skill moved to a file.
+- String parameter skills whose text could be a skill file, listed together in one
+  warning.
 
 Common problems
 ---------------
@@ -126,8 +141,15 @@ Common problems
        set on a section and expected to reach the identifiers inside. Categories
        do not inherit.
    * - A skill never applies
-     - Its ``bridge::SkillTarget`` names an agent or flow that does not exist, or
-       its description lists the steps rather than saying when to use it.
+     - Its target (``target`` in a file, ``bridge::SkillTarget`` on a string
+       parameter) names an agent or flow that does not exist, or its description
+       lists the steps rather than saying when to use it.
+   * - A skill file is never used
+     - It is not directly in ``sensai/skills/app`` or ``sensai/skills/developer``,
+       a folder or the extension is spelled differently (``App``, ``.yml``), or the
+       file has an error, which the diagnostics name. A file in
+       ``sensai/skills/developer`` is used in a developer session in the AIMMS IDE
+       only.
    * - Nothing works after a model change
      - The model does not compile. The assistant cannot help with a model that
        does not build.
@@ -146,4 +168,5 @@ be in afterwards. :doc:`/sensai/apps/design-guide` covers rolling out to real us
 .. spelling:word-list::
 
    SENSAI
+   YAML
    recompile

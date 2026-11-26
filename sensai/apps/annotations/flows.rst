@@ -117,7 +117,19 @@ Running a flow
 --------------
 
 A flow runs when a skill targets it. The skill's description says when the
-routine applies, and its ``bridge::SkillTarget`` points at the flow by name:
+routine applies, and its target points at the flow by name. In a skill file that
+is the ``target`` key:
+
+.. code-block:: yaml
+
+    # sensai/skills/app/weekly-planning-flow.yaml
+    name: Run the weekly planning routine
+    description: Use when the user asks to run the weekly planning routine for a given week.
+    target: flow:weekly_planning
+    body: |
+      Run the weekly planning routine for the week the user names.
+
+On a string parameter skill it is ``bridge::SkillTarget``:
 
 .. code-block:: aimms
 
@@ -128,7 +140,7 @@ routine applies, and its ``bridge::SkillTarget`` points at the flow by name:
         Definition         : "Run the weekly planning routine for the week the user names.";
     }
 
-The name in ``SkillTarget`` is the flow's ``name`` field, not the identifier
+The name in the target is the flow's ``name`` field, not the identifier
 name. See :doc:`skills`.
 
 Validation and failure
