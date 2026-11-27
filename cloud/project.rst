@@ -17,4 +17,5 @@ Each of these steps is described in the sections below. In addition, we describe
     basic-workflow
     pro-data-man
     advanced-workflows
+    account-info
     debugging-pro
